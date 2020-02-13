@@ -2182,6 +2182,76 @@ const struct MonCoords gMonFrontPicCoords[] =
         .size = 0x87,
         .y_offset = 0x04,
     },
+    [SPECIES_GALAR_WEEZING] =
+    {
+        .size = 0x88,
+        .y_offset = 0x02,
+    },
+    [SPECIES_GALAR_MEOWTH] =
+    {
+        .size = 0x55,
+        .y_offset = 0x0c,
+    },
+    [SPECIES_PERSERKER] =
+    {
+        .size = 0x77,
+        .y_offset = 0x07,
+    },
+    [SPECIES_GALAR_ZIGZAGOON] =
+    {
+        .size = 0x85,
+        .y_offset = 0x0f,
+    },
+    [SPECIES_GALAR_LINOONE] =
+    {
+        .size = 0x78,
+        .y_offset = 0x03,
+    },
+    [SPECIES_OBSTAGOON] =
+    {
+        .size = 0x78,
+        .y_offset = 0x03,
+    },
+    [SPECIES_GALAR_FARFETCH] =
+    {
+        .size = 0x66,
+        .y_offset = 0x09,
+    },
+    [SPECIES_SIRFETCH] =
+    {
+        .size = 0x66,
+        .y_offset = 0x09,
+    },
+    [SPECIES_GALAR_CORSOLA] =
+    {
+        .size = 0x65,
+        .y_offset = 0x0c,
+    },
+    [SPECIES_CURSOLA] =
+    {
+        .size = 0x65,
+        .y_offset = 0x0c,
+    },
+    [SPECIES_GALAR_PONYTA] =
+    {
+        .size = 0x66,
+        .y_offset = 0x08,
+    },
+    [SPECIES_GALAR_RAPIDASH] =
+    {
+        .size = 0x88,
+        .y_offset = 0x01,
+    },
+    [SPECIES_GALAR_MRMIME] =
+    {
+        .size = 0x66,
+        .y_offset = 0x08,
+    },
+    [SPECIES_MRRIME] =
+    {
+        .size = 0x66,
+        .y_offset = 0x08,
+    },
 // NUEVOS PARA FORMAS ALOLA
     [SPECIES_EGG] =
     {

@@ -4724,6 +4724,76 @@ static const union AnimCmd sAnim_MEGA_MAWILE_1[] =
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
+static const union AnimCmd sAnim_GALAR_WEEZING_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+static const union AnimCmd sAnim_GALAR_MEOWTH_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+static const union AnimCmd sAnim_PERSERKER_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+static const union AnimCmd sAnim_GALAR_ZIGZAGOON_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+static const union AnimCmd sAnim_GALAR_LINOONE_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+static const union AnimCmd sAnim_OBSTAGOON_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+static const union AnimCmd sAnim_GALAR_FARFETCH_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+static const union AnimCmd sAnim_SIRFETCH_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+static const union AnimCmd sAnim_GALAR_CORSOLA_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+static const union AnimCmd sAnim_CURSOLA_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+static const union AnimCmd sAnim_GALAR_PONYTA_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+static const union AnimCmd sAnim_GALAR_RAPIDASH_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+static const union AnimCmd sAnim_GALAR_MRMIME_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+static const union AnimCmd sAnim_MRRIME_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
 // NUEVO PARA FORMAS ALOLA
 
 static const union AnimCmd sAnim_EGG_1[] =
@@ -7065,6 +7135,62 @@ static const union AnimCmd *const sAnims_MEGA_MAWILE[] ={
     sAnim_GeneralFrame0,
     sAnim_MEGA_MAWILE_1,
 };
+static const union AnimCmd *const sAnims_GALAR_WEEZING[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GALAR_WEEZING_1,
+};
+static const union AnimCmd *const sAnims_GALAR_MEOWTH[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GALAR_MEOWTH_1,
+};
+static const union AnimCmd *const sAnims_PERSERKER[] ={
+    sAnim_GeneralFrame0,
+    sAnim_PERSERKER_1,
+};
+static const union AnimCmd *const sAnims_GALAR_ZIGZAGOON[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GALAR_ZIGZAGOON_1,
+};
+static const union AnimCmd *const sAnims_GALAR_LINOONE[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GALAR_LINOONE_1,
+};
+static const union AnimCmd *const sAnims_OBSTAGOON[] ={
+    sAnim_GeneralFrame0,
+    sAnim_OBSTAGOON_1,
+};
+static const union AnimCmd *const sAnims_GALAR_FARFETCH[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GALAR_FARFETCH_1,
+};
+static const union AnimCmd *const sAnims_SIRFETCH[] ={
+    sAnim_GeneralFrame0,
+    sAnim_SIRFETCH_1,
+};
+static const union AnimCmd *const sAnims_GALAR_CORSOLA[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GALAR_CORSOLA_1,
+};
+static const union AnimCmd *const sAnims_CURSOLA[] ={
+    sAnim_GeneralFrame0,
+    sAnim_CURSOLA_1,
+};
+static const union AnimCmd *const sAnims_GALAR_PONYTA[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GALAR_PONYTA_1,
+};
+static const union AnimCmd *const sAnims_GALAR_RAPIDASH[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GALAR_RAPIDASH_1,
+};
+static const union AnimCmd *const sAnims_GALAR_MRMIME[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GALAR_MRMIME_1,
+};
+static const union AnimCmd *const sAnims_MRRIME[] ={
+    sAnim_GeneralFrame0,
+    sAnim_MRRIME_1,
+};
 // NUEVO PARA FORMAS ALOLA
 
 static const union AnimCmd *const sAnims_EGG[] ={
@@ -7649,6 +7775,20 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(MEGA_SHARPEDO),
     ANIM_CMD(MEGA_CAMERUPT),
     ANIM_CMD(MEGA_MAWILE),
+	ANIM_CMD(GALAR_WEEZING),
+    ANIM_CMD(GALAR_MEOWTH),
+    ANIM_CMD(PERSERKER),
+    ANIM_CMD(GALAR_ZIGZAGOON),
+    ANIM_CMD(GALAR_LINOONE),
+    ANIM_CMD(OBSTAGOON),
+    ANIM_CMD(GALAR_FARFETCH),
+    ANIM_CMD(SIRFETCH),
+    ANIM_CMD(GALAR_CORSOLA),
+    ANIM_CMD(CURSOLA),
+	ANIM_CMD(GALAR_PONYTA),
+	ANIM_CMD(GALAR_RAPIDASH),
+    ANIM_CMD(GALAR_MRMIME),
+    ANIM_CMD(MRRIME),
 // NUEVO PARA FORMAS ALOLA
     ANIM_CMD(EGG),
     ANIM_CMD(UNOWN_B),
