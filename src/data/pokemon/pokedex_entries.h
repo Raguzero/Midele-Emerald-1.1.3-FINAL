@@ -4709,4 +4709,59 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 256,
         .trainerOffset = 0,
     },
+    [NATIONAL_DEX_PERSERKER] =
+    {
+        .categoryName = _("VIKING"),
+        .height = 8,
+        .weight = 280,
+        .description = gPerserkerPokedexText,
+        .pokemonScale = 466,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+    [NATIONAL_DEX_OBSTAGOON] =
+    {
+        .categoryName = _("BLOCKING"),
+        .height = 16,
+        .weight = 460,
+        .description = gObstagoonPokedexText,
+        .pokemonScale = 466,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+    [NATIONAL_DEX_SIRFETCH] =
+    {
+        .categoryName = _("WILD DUCK"),
+        .height = 8,
+        .weight = 1170,
+        .description = gSirfetchPokedexText,
+        .pokemonScale = 330,
+        .pokemonOffset = 2,
+        .trainerScale = 293,
+        .trainerOffset = 2,
+    },
+    [NATIONAL_DEX_CURSOLA] =
+    {
+        .categoryName = _("CORAL"),
+        .height = 10,
+        .weight = 4,
+        .description = gCursolaPokedexText,
+        .pokemonScale = 330,
+        .pokemonOffset = 2,
+        .trainerScale = 293,
+        .trainerOffset = 2,
+    },
+    [NATIONAL_DEX_MRRIME] =
+    {
+        .categoryName = _("COMEDIAN"),
+        .height = 15,
+        .weight = 582,
+        .description = gMrrimePokedexText,
+        .pokemonScale = 258,
+        .pokemonOffset = 6,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
 };

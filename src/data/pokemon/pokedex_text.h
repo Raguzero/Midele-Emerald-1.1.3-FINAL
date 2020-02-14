@@ -2355,3 +2355,31 @@ const u8 gMegaMawilePokedexText[] = _(
     "that transformed. It fools foes into\n"
     "complacency with its adorable gestures,\n"
     "then chomps them with its huge jaws.");
+
+const u8 gPerserkerPokedexText[] = _(
+    "What appears to be an iron helmet is\n" 
+	"actually hardened hair. This Pokémon lives\n" 
+	"for the thrill of battle.");
+	
+const u8 gObstagoonPokedexText[] = _(
+    "It evolved after experiencing numerous\n" 
+	"fights. While crossing its arms, it lets\n" 
+	"out a shout that would make any \n" 
+	"flinch.");
+
+const u8 gCursolaPokedexText[] = _(
+    "Be cautious of the ectoplasmic body\n" 
+	"surrounding its soul. You'll become stiff\n" 
+	"as stone if you touch it. What appears to be\n" 
+	"an iron helmet is.");
+
+const u8 gSirfetchPokedexText[] = _(
+    "Only Farfetchd that have survived many\n" 
+	"battles can attain this evolution. When this\n" 
+	"Pokemon's leek withers, it will retire from\n" 
+	"combat.");
+
+const u8 gMrrimePokedexText[] = _(
+    "It's highly skilled at tap-dancing. It waves\n" 
+	"its cane of ice in time with its graceful\n" 
+	"movements.");
