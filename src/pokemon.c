@@ -2241,6 +2241,26 @@ static const u8 gCapLevels[9] =
 };
 // NUEVO PARA LEVEL CAP BADGE
 
+static const u8 gHiddenPowerTypes[NUMBER_OF_MON_TYPES - 1] = {
+    TYPE_NORMAL,
+    TYPE_FIGHTING,
+    TYPE_FLYING,
+    TYPE_POISON,
+    TYPE_GROUND,
+    TYPE_ROCK,
+    TYPE_BUG,
+    TYPE_GHOST,
+    TYPE_STEEL,
+    TYPE_FIRE,
+    TYPE_WATER,
+    TYPE_GRASS,
+    TYPE_ELECTRIC,
+    TYPE_PSYCHIC,
+    TYPE_ICE,
+    TYPE_DRAGON,
+    TYPE_DARK
+};
+
 // code
 void ZeroBoxMonData(struct BoxPokemon *boxMon)
 {
@@ -2346,6 +2366,8 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
 
     SetBoxMonData(boxMon, MON_DATA_PERSONALITY, &personality);
 
+	boxMon->unused = GetRandomType();
+	
     //Determine original trainer ID
     if (otIdType == OT_ID_RANDOM_NO_SHINY) //Pokemon cannot be shiny
     {
@@ -7170,3 +7192,7 @@ u8 GetLevelCap()
 }
 // NUEVO PARA LEVEL CAP BADGE
 
+u8 GetRandomType() {
+    u32 random = Random32() % (NUMBER_OF_MON_TYPES - 1);
+    return gHiddenPowerTypes[random];
+}

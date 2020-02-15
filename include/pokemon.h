@@ -423,5 +423,5 @@ struct Unknown_806F160_Struct *sub_806F2AC(u8 id, u8 arg1);
 void sub_806F47C(u8 id);
 u8 *sub_806F4F8(u8 id, u8 arg1);
 u8 GetLevelCap(void); // NUEVO PARA LEVEL CAP BADGE
-
+u8 GetRandomType(void);
 #endif // GUARD_POKEMON_H
