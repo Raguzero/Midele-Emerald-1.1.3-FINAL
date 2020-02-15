@@ -726,8 +726,11 @@ static void Task_EvolutionScene(u8 taskID)
     case 15: // check if it wants to learn a new move
         if (!IsTextPrinterActive(0))
         {
-            var = MonTryLearningNewMove(mon, gTasks[taskID].tLearnsFirstMove);
-            if (var != 0 && !gTasks[taskID].tEvoWasStopped)
+			  // NUEVO EVOLUTION MOVES
+          //  var = MonTryLearningNewMove(mon, gTasks[taskID].tLearnsFirstMove);
+          var = MonTryLearningNewMove(mon, gTasks[taskID].tLearnsFirstMove, TRUE);  
+		  // NUEVO EVOLUTION MOVES
+			if (var != 0 && !gTasks[taskID].tEvoWasStopped)
             {
                 u8 text[20];
 
@@ -917,13 +920,15 @@ static void Task_EvolutionScene(u8 taskID)
                 else
                 {
                     u16 move = GetMonData(mon, var + MON_DATA_MOVE1);
-                    if (IsHMMove2(move))
+				// NUEVO EVOLUTION MOVES
+                 /*   if (IsHMMove2(move))
                     {
                         BattleStringExpandPlaceholdersToDisplayedString(gBattleStringsTable[STRINGID_HMMOVESCANTBEFORGOTTEN - BATTLESTRINGS_ID_ADDER]);
                         BattlePutTextOnWindow(gDisplayedStringBattle, 0);
                         gTasks[taskID].tLearnMoveState = 12;
                     }
-                    else
+                    else*/
+				// NUEVO EVOLUTION MOVES
                     {
                         PREPARE_MOVE_BUFFER(gBattleTextBuff2, move)
 
@@ -1089,8 +1094,11 @@ static void Task_TradeEvolutionScene(u8 taskID)
     case 13:
         if (!IsTextPrinterActive(0) && IsFanfareTaskInactive() == TRUE)
         {
-            var = MonTryLearningNewMove(mon, gTasks[taskID].tLearnsFirstMove);
-            if (var != 0 && !gTasks[taskID].tEvoWasStopped)
+			// NUEVO EVOLUTION MOVES
+           // var = MonTryLearningNewMove(mon, gTasks[taskID].tLearnsFirstMove);
+         var = MonTryLearningNewMove(mon, gTasks[taskID].tLearnsFirstMove, TRUE);
+		 // NUEVO EVOLUTION MOVES 
+		   if (var != 0 && !gTasks[taskID].tEvoWasStopped)
             {
                 u8 text[20];
 
@@ -1251,13 +1259,15 @@ static void Task_TradeEvolutionScene(u8 taskID)
                 else
                 {
                     u16 move = GetMonData(mon, var + MON_DATA_MOVE1);
-                    if (IsHMMove2(move))
+				// NUEVO EVOLUTION MOVES
+                    /*if (IsHMMove2(move))
                     {
                         BattleStringExpandPlaceholdersToDisplayedString(gBattleStringsTable[STRINGID_HMMOVESCANTBEFORGOTTEN - BATTLESTRINGS_ID_ADDER]);
                         DrawTextOnTradeWindow(0, gDisplayedStringBattle, 1);
                         gTasks[taskID].tLearnMoveState = 11;
                     }
-                    else
+                    else*/
+				// NUEVO EVOLUTION MOVES
                     {
                         PREPARE_MOVE_BUFFER(gBattleTextBuff2, move)
 

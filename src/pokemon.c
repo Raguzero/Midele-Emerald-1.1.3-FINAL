@@ -2229,14 +2229,14 @@ static const u16 sBadgeFlags[8] =
 
 static const u8 gCapLevels[9] =
 {
-    10, // 0 medallas
-    15, // 1 medalla
-    30, // 2 medallas
-    40, // 3 medallas
-    50, // 4 medallas
-    60, // 5 medallas
-    70, // 6 medallas
-    80, // 7 medallas
+    15, // 0 medallas
+    25, // 1 medalla
+    35, // 2 medallas
+    35, // 3 medallas
+    35, // 4 medallas
+    45, // 5 medallas
+    50, // 6 medallas
+    55, // 7 medallas
     100 // 8 medallas
 };
 // NUEVO PARA LEVEL CAP BADGE
@@ -3133,7 +3133,10 @@ void GiveBoxMonInitialMoveset(struct BoxPokemon *boxMon)
     }
 }
 
-u16 MonTryLearningNewMove(struct Pokemon *mon, bool8 firstMove)
+// NUEVO EVOLUTION MOVES
+//u16 MonTryLearningNewMove(struct Pokemon *mon, bool8 firstMove)
+u16 MonTryLearningNewMove(struct Pokemon *mon, bool8 firstMove, bool8 evolved)
+// NUEVO EVOLUTION MOVES
 {
     u32 retVal = 0;
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
@@ -3146,17 +3149,22 @@ u16 MonTryLearningNewMove(struct Pokemon *mon, bool8 firstMove)
     if (firstMove)
     {
         sLearningMoveTableID = 0;
-
-        while ((gLevelUpLearnsets[species][sLearningMoveTableID] & LEVEL_UP_MOVE_LV) != (level << 9))
-        {
+// NUEVO EVOLUTION MOVES
+   //     while ((gLevelUpLearnsets[species][sLearningMoveTableID] & LEVEL_UP_MOVE_LV) != (level << 9))
+ while (((gLevelUpLearnsets[species][sLearningMoveTableID] & LEVEL_UP_MOVE_LV) != (level << 9)) && (!evolved || ((gLevelUpLearnsets[species][sLearningMoveTableID] & LEVEL_UP_MOVE_LV) > 0)))
+	 // NUEVO EVOLUTION MOVES
+ {
             sLearningMoveTableID++;
             if (gLevelUpLearnsets[species][sLearningMoveTableID] == LEVEL_UP_END)
                 return 0;
         }
     }
-
-    if ((gLevelUpLearnsets[species][sLearningMoveTableID] & LEVEL_UP_MOVE_LV) == (level << 9))
-    {
+// NUEVO EVOLUTION MOVES
+ //   if ((gLevelUpLearnsets[species][sLearningMoveTableID] & LEVEL_UP_MOVE_LV) == (level << 9))
+    if (((gLevelUpLearnsets[species][sLearningMoveTableID] & LEVEL_UP_MOVE_LV) == (level << 9))
+        || (evolved && ((gLevelUpLearnsets[species][sLearningMoveTableID] & LEVEL_UP_MOVE_LV) == 0)))
+	// NUEVO EVOLUTION MOVES
+   {
         gMoveToLearn = (gLevelUpLearnsets[species][sLearningMoveTableID] & LEVEL_UP_MOVE_ID);
         sLearningMoveTableID++;
         retVal = GiveMoveToMon(mon, gMoveToLearn);

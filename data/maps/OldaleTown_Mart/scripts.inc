@@ -29,7 +29,7 @@ OldaleTown_Mart_ExpandedItems:: @ 81FC26C
 
 	.align 2
 OldaleTown_Mart_Pokemart_Expanded: @ 81FC27C
-	.2byte ITEM_POKE_BALL
+	.2byte ITEM_MASTER_BALL
 	.2byte ITEM_POTION
 	.2byte ITEM_ANTIDOTE
 	.2byte ITEM_PARALYZE_HEAL
