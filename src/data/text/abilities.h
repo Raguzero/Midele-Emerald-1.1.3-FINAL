@@ -78,6 +78,7 @@ static const u8 sCacophonyDescription[] = _("Avoids sound-based moves.");
 static const u8 sAirLockDescription[] = _("Negates weather effects.");
 // NUEVO HABILIDADES
 static const u8 sSnowWarningDescription[] = _("Summons hail in battle.");
+static const u8 sScrappyDescription[] = _("Hit GHOST inmunities");
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 {
@@ -161,6 +162,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_AIR_LOCK] = _("AIR LOCK"),
 // NUEVO HABILIDADES
 	[ABILITY_SNOW_WARNING] = _("SNOW WARNING"),
+	[ABILITY_SCRAPPY] = _("SCRAPPY"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -245,4 +247,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_AIR_LOCK] = sAirLockDescription,
 // NUEVO HABILIDADES
 	[ABILITY_SNOW_WARNING] = sSnowWarningDescription,
+	[ABILITY_SCRAPPY] = sScrappyDescription,
 };
