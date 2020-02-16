@@ -42,9 +42,9 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 9,
-                "max_level": 9,
-                "species": "SPECIES_WEEDLE"
+                "min_level": 29,
+                "max_level": 59,
+                "species": "SPECIES_ALOLAN_SANDSHREW"
               },
               {
                 "min_level": 2,
