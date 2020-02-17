@@ -80,6 +80,7 @@ static const u8 sAirLockDescription[] = _("Negates weather effects.");
 static const u8 sSnowWarningDescription[] = _("Summons hail in battle.");
 static const u8 sScrappyDescription[] = _("Hit GHOST inmunities");
 static const u8 sSnowcloakDescription[] = _("Ups evasion in a hail.");
+static const u8 sSuperluckDescription[] = _("Raises critical-hit ratio.");
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 {
@@ -165,6 +166,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 	[ABILITY_SNOW_WARNING] = _("SNOW WARNING"),
 	[ABILITY_SCRAPPY] = _("SCRAPPY"),
 	[ABILITY_SNOW_CLOAK] = _("SNOW CLOAK"),
+	[ABILITY_SUPER_LUCK] = _("SUPER LUCK"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -251,4 +253,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
 	[ABILITY_SNOW_WARNING] = sSnowWarningDescription,
 	[ABILITY_SCRAPPY] = sScrappyDescription,
 	[ABILITY_SNOW_CLOAK] = sSnowcloakDescription,
+	[ABILITY_SUPER_LUCK] = sSuperluckDescription,
 };
