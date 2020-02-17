@@ -12585,7 +12585,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_FIELD,
-        .abilities = {ABILITY_SNOW_WARNING, ABILITY_SNOW_WARNING},
+        .abilities = {ABILITY_SNOW_CLOAK, ABILITY_SNOW_WARNING},
         .bodyColor = BODY_COLOR_BLUE,
     },
 
@@ -12610,7 +12610,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_FIELD,
-        .abilities = {ABILITY_SNOW_WARNING, ABILITY_SNOW_WARNING},
+        .abilities = {ABILITY_SNOW_CLOAK, ABILITY_SNOW_WARNING},
         .bodyColor = BODY_COLOR_BLUE,
     },
 
