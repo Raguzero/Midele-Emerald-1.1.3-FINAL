@@ -47,9 +47,9 @@
                 "species": "SPECIES_ALOLAN_SANDSHREW"
               },
               {
-                "min_level": 2,
-                "max_level": 2,
-                "species": "SPECIES_RATTATA"
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_GROUDON"
               },
               {
                 "min_level": 2,

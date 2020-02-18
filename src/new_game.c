@@ -206,6 +206,7 @@ void NewGameInitData(void)
     WipeTrainerNameRecords();
     ResetTrainerHillResults();
     ResetContestLinkResults();
+    FlagSet(FLAG_FORCE_MIRAGE_TOWER_VISIBLE);
 }
 
 static void ResetMiniGamesResults(void)
