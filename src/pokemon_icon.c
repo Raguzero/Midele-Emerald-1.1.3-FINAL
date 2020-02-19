@@ -474,6 +474,8 @@ const u8 *const gMonIconTable[] =
 	[SPECIES_CURSOLA] = gMonIcon_Cursola,
 	[SPECIES_GALAR_PONYTA] = gMonIcon_GalarPonyta,
 	[SPECIES_GALAR_RAPIDASH] = gMonIcon_GalarRapidash,
+	[SPECIES_GALAR_MRMIME] = gMonIcon_GalarMrmime,
+	[SPECIES_MRRIME] = gMonIcon_Mrrime,
 // NUEVO PARA FORMAS ALOLA
     [SPECIES_EGG] = gMonIcon_Egg,
     [SPECIES_UNOWN_B] = gMonIcon_UnownB,
