@@ -4938,6 +4938,50 @@ static const union AnimCmd sAnim_FROSLASS_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_SYLVEON_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_AMBIPOM_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_MISMAGIUS_1[] =
+{
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_HONCHKROW_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_ROSERADE_1[] =
+{
+    ANIMCMD_FRAME(0, 20),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 20),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+
+
 static const union AnimCmd sAnim_EGG_1[] =
 {
     ANIMCMD_FRAME(0, 6),
@@ -7424,6 +7468,31 @@ static const union AnimCmd *const sAnims_FROSLASS[] ={
     sAnim_FROSLASS_1,
 };
 
+static const union AnimCmd *const sAnims_SYLVEON[] ={
+    sAnim_GeneralFrame0,
+    sAnim_SYLVEON_1,
+};
+
+static const union AnimCmd *const sAnims_AMBIPOM[] ={
+    sAnim_GeneralFrame0,
+    sAnim_AMBIPOM_1,
+};
+
+static const union AnimCmd *const sAnims_MISMAGIUS[] ={
+    sAnim_GeneralFrame0,
+    sAnim_MISMAGIUS_1,
+};
+
+static const union AnimCmd *const sAnims_HONCHKROW[] ={
+    sAnim_GeneralFrame0,
+    sAnim_HONCHKROW_1,
+};
+
+static const union AnimCmd *const sAnims_ROSERADE[] ={
+    sAnim_GeneralFrame0,
+    sAnim_ROSERADE_1,
+};
+
 static const union AnimCmd *const sAnims_EGG[] ={
     sAnim_GeneralFrame0,
     sAnim_EGG_1,
@@ -8038,6 +8107,11 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(PROBOPASS),
     ANIM_CMD(DUSKNOIR),
     ANIM_CMD(FROSLASS),
+    ANIM_CMD(SYLVEON),
+    ANIM_CMD(AMBIPOM),
+    ANIM_CMD(MISMAGIUS),
+    ANIM_CMD(HONCHKROW),
+    ANIM_CMD(ROSERADE),
 // NUEVO PARA FORMAS ALOLA
     ANIM_CMD(EGG),
     ANIM_CMD(UNOWN_B),

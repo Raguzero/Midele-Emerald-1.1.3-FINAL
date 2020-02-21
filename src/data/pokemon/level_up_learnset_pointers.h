@@ -470,5 +470,10 @@ const u16 *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_PROBOPASS] = sProbopassLevelUpLearnset,
     [SPECIES_DUSKNOIR] = sDusknoirLevelUpLearnset,
     [SPECIES_FROSLASS] = sFroslassLevelUpLearnset,
+    [SPECIES_SYLVEON] = sSylveonLevelUpLearnset,
+    [SPECIES_AMBIPOM] = sAmbipomLevelUpLearnset,
+    [SPECIES_MISMAGIUS] = sMismagiusLevelUpLearnset,
+    [SPECIES_HONCHKROW] = sHonchkrowLevelUpLearnset,
+    [SPECIES_ROSERADE] = sRoseradeLevelUpLearnset,
 // NUEVO PARA FORMAS ALOLA
 };

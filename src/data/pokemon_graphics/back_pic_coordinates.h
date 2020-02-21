@@ -2342,6 +2342,31 @@ const struct MonCoords gMonBackPicCoords[] =
         .size = 0x85,
         .y_offset = 0x7,
     },
+    [SPECIES_SYLVEON] =
+    {
+        .size = 0x64,
+        .y_offset = 0x04,
+    },
+    [SPECIES_AMBIPOM] =
+    {
+        .size = 0x77,
+        .y_offset = 0x3,
+    },
+    [SPECIES_MISMAGIUS] =
+    {
+        .size = 0x56,
+        .y_offset = 0x3,
+    },
+    [SPECIES_HONCHKROW] =
+    {
+        .size = 0x66,
+        .y_offset = 0x8,
+    },
+    [SPECIES_ROSERADE] =
+    {
+        .size = 0x65,
+        .y_offset = 0x6,
+    },
 // NUEVO PARA FORMAS ALOLA
     [SPECIES_EGG] =
     {

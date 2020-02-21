@@ -2343,6 +2343,31 @@ const struct MonCoords gMonFrontPicCoords[] =
         .size = 0x77,
         .y_offset = 0x8,
     },
+    [SPECIES_SYLVEON] =
+    {
+        .size = 0x45,
+        .y_offset = 0x04,
+    },
+    [SPECIES_AMBIPOM] =
+    {
+        .size = 0x88,
+        .y_offset = 0x1,
+    },
+    [SPECIES_MISMAGIUS] =
+    {
+        .size = 0x45,
+        .y_offset = 0x3,
+    },
+    [SPECIES_HONCHKROW] =
+    {
+        .size = 0x66,
+        .y_offset = 0x6,
+    },
+    [SPECIES_ROSERADE] =
+    {
+        .size = 0x45,
+        .y_offset = 0x7,
+    },
     [SPECIES_EGG] =
     {
         .size = 0x33,
