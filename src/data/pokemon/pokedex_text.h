@@ -2383,3 +2383,112 @@ const u8 gMrrimePokedexText[] = _(
     "It's highly skilled at tap-dancing. It waves\n" 
 	"its cane of ice in time with its graceful\n" 
 	"movements.");
+
+const u8 gWeavilePokedexText[] = _(
+    "They travel in groups of four or five,\n"
+    "leaving signs for one another on trees\n"
+    "and rocks. They bring down their prey\n"
+    "with coordinated attacks.");
+
+const u8 gMagnezonePokedexText[] = _(
+    "As it zooms through the sky, this\n"
+    "Pokémon seems to be receiving signals\n"
+    "of unknown origin, while transmitting its\n"
+    "own signals of unknown purpose.");
+
+const u8 gLickilickyPokedexText[] = _(
+    "The long tongue is always soggy with\n"
+    "slobber. The saliva contains a solvent\n"
+    "that causes numbness. Getting too close\n"
+    "to it will leave you soaked with drool.");
+
+const u8 gRhyperiorPokedexText[] = _(
+    "It can launch a rock held in its hand\n"
+    "like a missile by tightening and then\n"
+    "expanding its muscles instantaneously.\n"
+    "Geodude are shot at rare times.");
+
+const u8 gTangrowthPokedexText[] = _(
+    "It ensnares prey by extending arms made\n"
+    "of vines. Even if one of its arms is eaten,\n"
+    "it's fine. The Pokémon regenerates quickly\n"
+    "and will go right back to normal.");
+
+const u8 gElectivirePokedexText[] = _(
+    "When it gets excited, it thumps its chest.\n"
+    "With every thud, thunder roars, electric\n"
+    "sparks shower all around and blue sparks\n"
+    "begin to crackle between its horns.");
+
+const u8 gMagmortarPokedexText[] = _(
+    "According to what is known, a single pair\n"
+    "of male and female Magmortar lives in\n"
+    "one volcano. From its arm, it launches\n"
+    "fireballs hotter than 3,600ºF.");
+
+const u8 gTogekissPokedexText[] = _(
+    "As everyone knows, it visits peaceful\n"
+    "regions, bringing them gifts of kindness\n"
+    "and sweet blessings. It will never appear\n"
+    "where there is strife.");
+
+const u8 gYanmegaPokedexText[] = _(
+    "This six-legged Pokémon is easily capable\n"
+    "of transporting an adult in flight. It is\n"
+    "adept at biting apart foes while flying\n"
+    "by at high speed.");
+
+const u8 gLeafeonPokedexText[] = _(
+    "Its cellular composition is closer to\n"
+    "that of a plant than an animal. It uses\n"
+    "photosynthesis to produce its energy\n"
+    "supply without eating food.");
+
+const u8 gGlaceonPokedexText[] = _(
+    "It can control its body temperature\n"
+    "at will. This enables it to freeze the\n"
+    "moisture in the atmosphere, creating\n"
+    "flurries of diamond dust.");
+
+const u8 gGliscorPokedexText[] = _(
+    "Gliscor observes prey while hanging\n"
+    "upside down from branches. Its flight is\n"
+    "soundless. When the chance presents\n"
+    "itself, it swoops!");
+
+const u8 gMamoswinePokedexText[] = _(
+    "A frozen Mamoswine was dug from ice\n"
+    "dating back 10,000 years. It woke up to\n"
+    "much amazement. This Pokémon has been\n"
+    "around for a long, long, long time.");
+
+const u8 gPorygonZPokedexText[] = _(
+    "In order to create a more advanced\n"
+    "Pokémon, an additional program was\n"
+    "installed, but apparently it contained a\n"
+    "defect that made it move oddly.");
+
+const u8 gGalladePokedexText[] = _(
+    "A master of courtesy and swordsmanship,\n"
+    "it fights using extending swords on its\n"
+    "elbows when trying to protect someone.\n"
+    "It can sense what its foe is thinking.");
+
+const u8 gProbopassPokedexText[] = _(
+    "It freely controls three units called\n"
+    "Mini-Noses using magnetic force.\n"
+    "With them, it can attack its foes from\n"
+    "three directions.");
+
+const u8 gDusknoirPokedexText[] = _(
+    "This feared Pokémon is said to travel to\n"
+    "worlds unknown. Some even believe that\n"
+    "it takes lost spirits into its pliant body\n"
+    "and guides them home.");
+
+const u8 gFroslassPokedexText[] = _(
+    "When it finds people or Pokémon it likes,\n"
+    "it freezes them and takes them to its\n"
+    "chilly den, where they become its\n"
+    "decorations.");
+

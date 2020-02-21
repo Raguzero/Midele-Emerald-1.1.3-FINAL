@@ -2252,6 +2252,96 @@ const struct MonCoords gMonBackPicCoords[] =
         .size = 0x85,
         .y_offset = 0x0d,
     },
+    [SPECIES_WEAVILE] =
+    {
+        .size = 0x75,
+        .y_offset = 0x6,
+    },
+    [SPECIES_MAGNEZONE] =
+    {
+        .size = 0x84,
+        .y_offset = 0xc,
+    },
+    [SPECIES_LICKILICKY] =
+    {
+        .size = 0x66,
+        .y_offset = 0x2,
+    },
+    [SPECIES_RHYPERIOR] =
+    {
+        .size = 0x87,
+        .y_offset = 0x0,
+    },
+    [SPECIES_TANGROWTH] =
+    {
+        .size = 0x85,
+        .y_offset = 0x6,
+    },
+    [SPECIES_ELECTIVIRE] =
+    {
+        .size = 0x86,
+        .y_offset = 0x9,
+    },
+    [SPECIES_MAGMORTAR] =
+    {
+        .size = 0x43,
+        .y_offset = 0x6,
+    },
+    [SPECIES_TOGEKISS] =
+    {
+        .size = 0x66,
+        .y_offset = 0xa,
+    },
+    [SPECIES_YANMEGA] =
+    {
+        .size = 0x66,
+        .y_offset = 0x6,
+    },
+    [SPECIES_LEAFEON] =
+    {
+        .size = 0x66,
+        .y_offset = 0x4,
+    },
+    [SPECIES_GLACEON] =
+    {
+        .size = 0x88,
+        .y_offset = 0xa,
+    },
+    [SPECIES_GLISCOR] =
+    {
+        .size = 0x66,
+        .y_offset = 0xb,
+    },
+    [SPECIES_MAMOSWINE] =
+    {
+        .size = 0x77,
+        .y_offset = 0x6,
+    },
+    [SPECIES_PORYGON_Z] =
+    {
+        .size = 0x75,
+        .y_offset = 0x6,
+    },
+    [SPECIES_GALLADE] =
+    {
+        .size = 0x87,
+        .y_offset = 0x5,
+    },
+    [SPECIES_PROBOPASS] =
+    {
+        .size = 0x76,
+        .y_offset = 0x4,
+    },
+    [SPECIES_DUSKNOIR] =
+    {
+        .size = 0x87,
+        .y_offset = 0x6,
+    },
+    [SPECIES_FROSLASS] =
+    {
+        .size = 0x85,
+        .y_offset = 0x7,
+    },
 // NUEVO PARA FORMAS ALOLA
     [SPECIES_EGG] =
     {

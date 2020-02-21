@@ -4795,6 +4795,148 @@ static const union AnimCmd sAnim_MRRIME_1[] =
     ANIMCMD_END,
 };
 // NUEVO PARA FORMAS ALOLA
+static const union AnimCmd sAnim_WEAVILE_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_MAGNEZONE_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_LICKILICKY_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_RHYPERIOR_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_TANGROWTH_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_ELECTIVIRE_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_MAGMORTAR_1[] =
+{
+    ANIMCMD_FRAME(1, 40),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_TOGEKISS_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_YANMEGA_1[] =
+{
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_LEAFEON_1[] =
+{
+    ANIMCMD_FRAME(1, 35),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_GLACEON_1[] =
+{
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_GLISCOR_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_MAMOSWINE_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_PORYGON_Z_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_GALLADE_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_PROBOPASS_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_DUSKNOIR_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_FROSLASS_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
 
 static const union AnimCmd sAnim_EGG_1[] =
 {
@@ -7192,6 +7334,95 @@ static const union AnimCmd *const sAnims_MRRIME[] ={
     sAnim_MRRIME_1,
 };
 // NUEVO PARA FORMAS ALOLA
+static const union AnimCmd *const sAnims_WEAVILE[] ={
+    sAnim_GeneralFrame0,
+    sAnim_WEAVILE_1,
+};
+
+static const union AnimCmd *const sAnims_MAGNEZONE[] ={
+    sAnim_GeneralFrame0,
+    sAnim_MAGNEZONE_1,
+};
+
+static const union AnimCmd *const sAnims_LICKILICKY[] ={
+    sAnim_GeneralFrame0,
+    sAnim_LICKILICKY_1,
+};
+
+static const union AnimCmd *const sAnims_RHYPERIOR[] ={
+    sAnim_GeneralFrame0,
+    sAnim_RHYPERIOR_1,
+};
+
+static const union AnimCmd *const sAnims_TANGROWTH[] ={
+    sAnim_GeneralFrame0,
+    sAnim_TANGROWTH_1,
+};
+
+static const union AnimCmd *const sAnims_ELECTIVIRE[] ={
+    sAnim_GeneralFrame0,
+    sAnim_ELECTIVIRE_1,
+};
+
+static const union AnimCmd *const sAnims_MAGMORTAR[] ={
+    sAnim_GeneralFrame0,
+    sAnim_MAGMORTAR_1,
+};
+
+static const union AnimCmd *const sAnims_TOGEKISS[] ={
+    sAnim_GeneralFrame0,
+    sAnim_TOGEKISS_1,
+};
+
+static const union AnimCmd *const sAnims_YANMEGA[] ={
+    sAnim_GeneralFrame0,
+    sAnim_YANMEGA_1,
+};
+
+static const union AnimCmd *const sAnims_LEAFEON[] ={
+    sAnim_GeneralFrame0,
+    sAnim_LEAFEON_1,
+};
+
+static const union AnimCmd *const sAnims_GLACEON[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GLACEON_1,
+};
+
+static const union AnimCmd *const sAnims_GLISCOR[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GLISCOR_1,
+};
+
+static const union AnimCmd *const sAnims_MAMOSWINE[] ={
+    sAnim_GeneralFrame0,
+    sAnim_MAMOSWINE_1,
+};
+
+static const union AnimCmd *const sAnims_PORYGON_Z[] ={
+    sAnim_GeneralFrame0,
+    sAnim_PORYGON_Z_1,
+};
+
+static const union AnimCmd *const sAnims_GALLADE[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GALLADE_1,
+};
+
+static const union AnimCmd *const sAnims_PROBOPASS[] ={
+    sAnim_GeneralFrame0,
+    sAnim_PROBOPASS_1,
+};
+
+static const union AnimCmd *const sAnims_DUSKNOIR[] ={
+    sAnim_GeneralFrame0,
+    sAnim_DUSKNOIR_1,
+};
+
+static const union AnimCmd *const sAnims_FROSLASS[] ={
+    sAnim_GeneralFrame0,
+    sAnim_FROSLASS_1,
+};
 
 static const union AnimCmd *const sAnims_EGG[] ={
     sAnim_GeneralFrame0,
@@ -7789,6 +8020,24 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
 	ANIM_CMD(GALAR_RAPIDASH),
     ANIM_CMD(GALAR_MRMIME),
     ANIM_CMD(MRRIME),
+   ANIM_CMD(WEAVILE),
+    ANIM_CMD(MAGNEZONE),
+    ANIM_CMD(LICKILICKY),
+    ANIM_CMD(RHYPERIOR),
+    ANIM_CMD(TANGROWTH),
+    ANIM_CMD(ELECTIVIRE),
+    ANIM_CMD(MAGMORTAR),
+    ANIM_CMD(TOGEKISS),
+    ANIM_CMD(YANMEGA),
+    ANIM_CMD(LEAFEON),
+    ANIM_CMD(GLACEON),
+    ANIM_CMD(GLISCOR),
+    ANIM_CMD(MAMOSWINE),
+    ANIM_CMD(PORYGON_Z),
+    ANIM_CMD(GALLADE),
+    ANIM_CMD(PROBOPASS),
+    ANIM_CMD(DUSKNOIR),
+    ANIM_CMD(FROSLASS),
 // NUEVO PARA FORMAS ALOLA
     ANIM_CMD(EGG),
     ANIM_CMD(UNOWN_B),
