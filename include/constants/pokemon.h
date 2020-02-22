@@ -279,6 +279,6 @@
 #define EVO_LEVEL_SHEDINJA   0x000e // Pokémon reaches the specified level (special value for Shedinja)
 #define EVO_BEAUTY           0x000f // Pokémon levels up with beauty ≥ specified value
 
-#define EVOS_PER_MON 5
+#define EVOS_PER_MON 8
 
 #endif // GUARD_CONSTANTS_POKEMON_H

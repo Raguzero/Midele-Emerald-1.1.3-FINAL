@@ -4735,12 +4735,12 @@
                             {
                                 "max_level": 3,
                                 "min_level": 3,
-                                "species": "SPECIES_WEAVILE"
+                                "species": "SPECIES_EEVEE"
                             },
                             {
                                 "max_level": 3,
                                 "min_level": 3,
-                                "species": "SPECIES_FROSLASS"
+                                "species": "SPECIES_KIRLIA"
                             },
                             {
                                 "max_level": 4,
@@ -4750,7 +4750,7 @@
                             {
                                 "max_level": 4,
                                 "min_level": 4,
-                                "species": "SPECIES_MEGA_SHARPEDO"
+                                "species": "SPECIES_SNORUNT"
                             },
                             {
                                 "max_level": 3,

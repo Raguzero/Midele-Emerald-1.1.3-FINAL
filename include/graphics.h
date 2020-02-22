@@ -3840,6 +3840,15 @@ extern const u32 gItemIcon_WaterStone[];
 extern const u32 gItemIconPalette_WaterStone[];
 extern const u32 gItemIcon_LeafStone[];
 extern const u32 gItemIconPalette_LeafStone[];
+
+extern const u32 gItemIcon_DawnStone[];
+extern const u32 gItemIconPalette_DawnStone[];
+extern const u32 gItemIcon_DuskStone[];
+extern const u32 gItemIconPalette_DuskStone[];
+extern const u32 gItemIcon_ShinyStone[];
+extern const u32 gItemIconPalette_ShinyStone[];
+extern const u32 gItemIcon_IceStone[];
+extern const u32 gItemIconPalette_IceStone[];
 // Valuables
 extern const u32 gItemIcon_TinyMushroom[];
 extern const u32 gItemIconPalette_Mushroom[];
