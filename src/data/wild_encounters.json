@@ -4645,7 +4645,7 @@
                             },
                             {
                                 "max_level": 3,
-                                "min_level": 1,
+                                "min_level": 2,
                                 "species": "SPECIES_ZIGZAGOON"
                             },
                             {
@@ -4660,7 +4660,7 @@
                             },
                             {
                                 "max_level": 3,
-                                "min_level": 1,
+                                "min_level": 2,
                                 "species": "SPECIES_ALOLAN_RATTATA"
                             },
                             {

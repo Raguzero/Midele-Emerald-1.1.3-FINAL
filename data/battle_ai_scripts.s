@@ -2386,6 +2386,8 @@ AI_CV_Hail:
 	if_equal AI_WEATHER_SUN, AI_CV_Hail2
 	if_equal AI_WEATHER_RAIN, AI_CV_Hail2
 	if_equal AI_WEATHER_SANDSTORM, AI_CV_Hail2
+    get_ability AI_USER
+	if_equal ABILITY_ICE_BODY, AI_CV_Hail2
 	goto AI_CV_Hail_End
 
 AI_CV_Hail2:
@@ -2513,6 +2515,7 @@ AI_CV_ChangeSelfAbility_AbilitiesToEncourage:
     .byte ABILITY_PURE_POWER
     .byte ABILITY_CHLOROPHYLL
     .byte ABILITY_SHIELD_DUST
+    .byte ABILITY_ICE_BODY
     .byte -1
 
 AI_CV_Superpower:
