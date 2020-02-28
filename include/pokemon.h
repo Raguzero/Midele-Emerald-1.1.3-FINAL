@@ -265,7 +265,7 @@ void ZeroPlayerPartyMons(void);
 void ZeroEnemyPartyMons(void);
 void CreateMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId);
 // NUEVO PARA CUSTOM TRAINER
-void CreateMonMidele(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, const u8 *evs, u8 nature, u8 abilityNumber, u8 shiny);
+void CreateMonMidele(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, const u8 *evs, u8 nature, u8 abilityNumber, u8 shiny, u8 friendship);
 // NUEVO PARA CUSTOM TRAINER
 void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId);
 void CreateMonWithNature(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 nature);
