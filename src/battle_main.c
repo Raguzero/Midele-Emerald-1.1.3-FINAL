@@ -2072,7 +2072,8 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
                 personalityValue += nameHash << 8;
                 fixedIV = partyData[i].iv;
-                CreateMonMidele(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, partyData[i].evs, partyData[i].nature, partyData[i].shiny, partyData[i].ability);
+                CreateMonMidele(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, partyData[i].evs, partyData[i].nature, partyData[i].shiny, partyData[i].ability,
+                partyData[i].friendship);
 
                 SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
 
@@ -5911,5 +5912,3 @@ static void HandleAction_ActionFinished(void)
     gBattleScripting.multihitMoveEffect = 0;
     gBattleResources->battleScriptsStack->size = 0;
 }
-
-

@@ -1426,8 +1426,8 @@ const u16 gHoennToNationalOrder[] = // Assigns Hoenn Dex Pokémon (Using Nationa
 	HOENN_TO_NATIONAL(LICKILICKY),
 	HOENN_TO_NATIONAL(RHYPERIOR),
 	HOENN_TO_NATIONAL(TANGROWTH),
-	HOENN_TO_NATIONAL(ELECTIVIRE), 
-	HOENN_TO_NATIONAL(MAGMORTAR), 
+	HOENN_TO_NATIONAL(ELECTIVIRE),
+	HOENN_TO_NATIONAL(MAGMORTAR),
 	HOENN_TO_NATIONAL(TOGEKISS),
 	HOENN_TO_NATIONAL(YANMEGA),
 	HOENN_TO_NATIONAL(LEAFEON),
@@ -1436,10 +1436,10 @@ const u16 gHoennToNationalOrder[] = // Assigns Hoenn Dex Pokémon (Using Nationa
 	HOENN_TO_NATIONAL(MAMOSWINE),
 	HOENN_TO_NATIONAL(PORYGON_Z),
 	HOENN_TO_NATIONAL(GALLADE),
-	HOENN_TO_NATIONAL(PROBOPASS), 
-	HOENN_TO_NATIONAL(DUSKNOIR), 
-	HOENN_TO_NATIONAL(FROSLASS), 
-	HOENN_TO_NATIONAL(SYLVEON), 
+	HOENN_TO_NATIONAL(PROBOPASS),
+	HOENN_TO_NATIONAL(DUSKNOIR),
+	HOENN_TO_NATIONAL(FROSLASS),
+	HOENN_TO_NATIONAL(SYLVEON),
 	HOENN_TO_NATIONAL(AMBIPOM),
 	HOENN_TO_NATIONAL(MISMAGIUS),
 	HOENN_TO_NATIONAL(HONCHKROW),
@@ -2386,7 +2386,7 @@ void CreateMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFix
 }
 
 // NUEVO PARA CUSTOM TRAINER
-void CreateMonMidele(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, const u8 *evs, u8 nature, u8 shiny, u8 abilityNumber)
+void CreateMonMidele(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, const u8 *evs, u8 nature, u8 shiny, u8 abilityNumber, u8 friendship)
 {
     u32 arg;
     u32 personality;
@@ -2417,6 +2417,8 @@ void CreateMonMidele(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, con
     SetMonData(mon, MON_DATA_SPDEF_EV, &evs[4]);
     SetMonData(mon, MON_DATA_SPEED_EV, &evs[5]);
 
+    SetMonData(mon, MON_DATA_FRIENDSHIP, &friendship);
+
     SetMonData(mon, MON_DATA_ABILITY_NUM, &abilityNumber);
     CalculateMonStats(mon);
 }
@@ -2439,7 +2441,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     SetBoxMonData(boxMon, MON_DATA_PERSONALITY, &personality);
 
 	boxMon->unused = GetRandomType();
-	
+
     //Determine original trainer ID
     if (otIdType == OT_ID_RANDOM_NO_SHINY) //Pokemon cannot be shiny
     {
@@ -3141,7 +3143,7 @@ u8 GetLevelFromBoxMonExp(struct BoxPokemon *boxMon)
     u16 species = GetBoxMonData(boxMon, MON_DATA_SPECIES, NULL);
     u32 exp = GetBoxMonData(boxMon, MON_DATA_EXP, NULL);
     s32 level = 1;
-   while (level <= MAX_LEVEL && gExperienceTables[gBaseStats[species].growthRate][level] <= exp)   
+   while (level <= MAX_LEVEL && gExperienceTables[gBaseStats[species].growthRate][level] <= exp)
 	level++;
 
     return level - 1;
@@ -5011,7 +5013,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                 retVal = FALSE;
             }
             if ((itemEffect[cmdIndex] & ITEM3_LEVEL_UP)
-      // NUEVO PARA LEVEL CAP BADGE    
+      // NUEVO PARA LEVEL CAP BADGE
 	   //  && GetMonData(mon, MON_DATA_LEVEL, NULL) != MAX_LEVEL)
 	     && GetMonData(mon, MON_DATA_LEVEL, NULL) != GetLevelCap())
 		// NUEVO PARA LEVEL CAP BADGE
@@ -6038,7 +6040,7 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
         if (friendship > 199)
             friendshipLevel++;
 
-        if ((event != FRIENDSHIP_EVENT_WALKING || !(Random() & 1)) 
+        if ((event != FRIENDSHIP_EVENT_WALKING || !(Random() & 1))
          && (event != FRIENDSHIP_EVENT_LEAGUE_BATTLE || IS_LEAGUE_BATTLE))
         {
             s8 mod = sFriendshipEventModifiers[event][friendshipLevel];
