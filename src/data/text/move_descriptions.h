@@ -1431,6 +1431,22 @@ static const u8 sDAZZLING_GLEAMDescription[] = _(
 	"a bright flash.");
 // NUEVO MOVE TIPO HADA
 
+static const u8 sBRAVE_BIRDDescription[] = _(
+	"A low altitude charge that\n"
+	"also hurts the user.");
+
+static const u8 sX_SCISSORDescription[] = _(
+	"Slashes the foe with crossed\n"
+	"scythes, claws, etc.");
+
+static const u8 sIRON_HEADDescription[] = _(
+	"Slams the foe with a hard\n"
+	"head. May cause flinching.");
+
+static const u8 sSTONE_EDGEDescription[] = _(
+	"Stabs the foe with stones.\n"
+	"High critical-hit ratio.");
+
 // MOVE_NONE is ignored in this table. Make sure to always subtract 1 before getting the right pointer.
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
 {
@@ -1792,5 +1808,9 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_FAIRY_WIND - 1] = sFAIRY_WINDDescription,
     [MOVE_MOONBLAST - 1] = sMOONBLASTDescription,
 	[MOVE_DAZZLING_GLEAM - 1] = sDAZZLING_GLEAMDescription,
+    [MOVE_BRAVE_BIRD - 1] = sBRAVE_BIRDDescription,
+    [MOVE_X_SCISSOR - 1] = sX_SCISSORDescription,
+    [MOVE_IRON_HEAD - 1] = sIRON_HEADDescription,
+    [MOVE_STONE_EDGE - 1] = sSTONE_EDGEDescription,
 	// NUEVO MOVE TIPO HADA
 };

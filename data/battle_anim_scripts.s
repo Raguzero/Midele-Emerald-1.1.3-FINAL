@@ -373,6 +373,10 @@ gBattleAnims_Moves::
 	.4byte Move_FAIRY_WIND
 	.4byte Move_MOONBLAST
 	.4byte Move_DAZZLING_GLEAM
+	.4byte Move_BRAVE_BIRD
+	.4byte Move_XSCISSOR
+	.4byte Move_IRON_HEAD
+	.4byte Move_STONE_EDGE
 	.4byte Move_COUNT @ cannot be reached, because last move is Psycho Boost
 
 	.align 2
@@ -9926,6 +9930,93 @@ Move_MOONBLAST:
 	end
 
 Move_DAZZLING_GLEAM:
+	end
+	
+Move_BRAVE_BIRD:
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_BIRD
+	call SetSkyBg
+	monbg ANIM_ATTACKER
+	createvisualtask sub_8116620, 10, 2, 0, 0, 16, RGB_WHITE
+	delay 4
+	createvisualtask sub_81136E8, 5, 0
+	waitforvisualfinish
+	createvisualtask sub_8159244, 5, 238, SOUND_PAN_ATTACKER
+	createsprite gUnknown_08596514, ANIM_TARGET, 2
+	delay 14
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 10, 0, 18, 1
+	createvisualtask sub_8159210, 5, 141, SOUND_PAN_TARGET
+	delay 20
+	createvisualtask sub_81137E4, 5, 1
+	delay 2
+	createvisualtask sub_8116620, 10, 2, 0, 15, 0, RGB_WHITE
+	waitforvisualfinish
+	clearmonbg ANIM_ATTACKER
+	call UnsetSkyBg
+	end
+
+Move_XSCISSOR:
+	loadspritegfx ANIM_TAG_CUT
+	monbg ANIM_TARGET
+	setalpha 12, 8
+	createvisualtask AnimTask_TranslateMonEllipticalRespectSide, 2, ANIM_ATTACKER, 24, 6, 1, 5
+	createvisualtask sub_81169C0, 2, 0, 4, 7, 3
+	createsprite gCuttingSliceSpriteTemplate, ANIM_ATTACKER, 2, 40, -32, 0
+	createsprite gCuttingSliceSpriteTemplate, ANIM_ATTACKER, 2, 40, -32, 1
+	playsewithpan SE_W013B, SOUND_PAN_ATTACKER
+	delay 5
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 3, 10, 1
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 31, 3, 1, RGB_BLACK, 10, 0, 0
+	playsewithpan SE_W013, SOUND_PAN_TARGET
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
+	end
+
+Move_IRON_HEAD:
+	loadspritegfx ANIM_TAG_GUST
+	loadspritegfx ANIM_TAG_IMPACT
+	loopsewithpan SE_W231, SOUND_PAN_ATTACKER, 28, 2
+	createvisualtask AnimTask_MetallicShine, 5, 1, 0, 0
+	waitforvisualfinish
+	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 0
+	playsewithpan SE_W029, SOUND_PAN_ATTACKER
+	waitforvisualfinish
+	delay 2
+	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 1
+	waitforvisualfinish
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_ATTACKER, 2, 0, 4, 1
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 5, 0, 7, 1
+	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 2
+	createsprite gUnknown_085973E8, ANIM_TARGET, 3, 0, 0, 1, 1
+	playsewithpan SE_W233B, SOUND_PAN_TARGET
+	waitforvisualfinish
+	createvisualtask AnimTask_SetGreyscaleOrOriginalPal, 5, ANIM_ATTACKER, 1
+	waitforvisualfinish
+	end
+
+Move_STONE_EDGE:
+	loadspritegfx ANIM_TAG_ROCKS
+	monbg ANIM_DEF_PARTNER
+	createsprite gBattleAnimSpriteTemplate_85972D8, ANIM_ATTACKER, 2, 7, 1, 11, 1
+	createsprite gUnknown_08596B04, ANIM_TARGET, 2, -5, 1, -5, 1
+	playsewithpan SE_W088, SOUND_PAN_TARGET
+	delay 2
+	createsprite gUnknown_08596B04, ANIM_TARGET, 2, 5, 0, 6, 1
+	playsewithpan SE_W088, SOUND_PAN_TARGET
+	delay 2
+	createsprite gUnknown_08596B04, ANIM_TARGET, 2, 19, 1, 10, 1
+	playsewithpan SE_W088, SOUND_PAN_TARGET
+	delay 2
+	createsprite gUnknown_08596B04, ANIM_TARGET, 2, -23, 2, -10, 1
+	playsewithpan SE_W088, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 5, 50, 1
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_DEF_PARTNER, 0, 5, 50, 1
+	delay 2
+	call RockSlide1
+	call RockSlide1
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
 	end
 
 Move_COUNT:
