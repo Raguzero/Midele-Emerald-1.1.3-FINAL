@@ -1271,14 +1271,16 @@ static bool8 SummaryScreen_LoadGraphics(void)
     return FALSE;
 }
 
-//TODO: possible bg handler
+//TODO: InitBGs possible bg handler
 static void InitBGs(void)
 {
     ResetBgsAndClearDma3BusyFlags(0);
     InitBgsFromTemplates(0, sUnknown_0861CBB4, ARRAY_COUNT(sUnknown_0861CBB4));
+    // Primer argumento, id de BG tilemap
     SetBgTilemapBuffer(1, sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_BATTLE_MOVES][0]);
     SetBgTilemapBuffer(2, sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_SKILLS][0]);
     SetBgTilemapBuffer(3, sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_INFO][0]);
+    SetBgTilemapBuffer(2, sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_IVS_EVS][0]);
     ResetAllBgsCoordinates();
     schedule_bg_copy_tilemap_to_vram(1);
     schedule_bg_copy_tilemap_to_vram(2);
@@ -1752,7 +1754,7 @@ static bool8 sub_81C0A50(struct Pokemon* mon)
         return FALSE;
 }
 
-// TODO: important when changing pages
+// TODO: ChangePage important when changing pages
 static void ChangePage(u8 taskId, s8 delta)
 {
     struct PokeSummary *summary = &sMonSummaryScreen->summary;
@@ -1766,7 +1768,6 @@ static void ChangePage(u8 taskId, s8 delta)
         return;
 
     PlaySE(SE_SELECT);
-    // TODO: This one is important
     ClearPageWindowTilemaps(sMonSummaryScreen->currPageIndex);
     sMonSummaryScreen->currPageIndex += delta;
     data[0] = 0;
@@ -1781,6 +1782,7 @@ static void ChangePage(u8 taskId, s8 delta)
 static void PssScrollRight(u8 taskId) // Scroll right
 {
     s16 *data = gTasks[taskId].data;
+    goto test;
     if (data[0] == 0)
     {
         if (sMonSummaryScreen->bgDisplayOrder == 0)
@@ -1803,6 +1805,7 @@ static void PssScrollRight(u8 taskId) // Scroll right
         ShowBg(2);
     }
     ChangeBgX(data[1], 0x2000, 1);
+    test:
     data[0] += 32;
     if (data[0] > 0xFF)
         gTasks[taskId].func = PssScrollRightEnd;
@@ -1821,10 +1824,11 @@ static void PssScrollRightEnd(u8 taskId) // display right
     SwitchTaskToFollowupFunc(taskId);
 }
 
-// TODO:  Check for bg bug
+// TODO:  PssScrollLeft Check for bg bug
 static void PssScrollLeft(u8 taskId) // Scroll left
 {
     s16 *data = gTasks[taskId].data;
+    goto test;
     if (data[0] == 0)
     {
         if (sMonSummaryScreen->bgDisplayOrder == 0)
@@ -1834,12 +1838,13 @@ static void PssScrollLeft(u8 taskId) // Scroll left
         ChangeBgX(data[1], 0x10000, 0);
     }
     ChangeBgX(data[1], 0x2000, 2);
+    test:
     data[0] += 32;
     if (data[0] > 0xFF)
         gTasks[taskId].func = PssScrollLeftEnd;
 }
 
-// TODO: Check for bg bug
+// TODO: PssScrollLeftEnd Check for bg bug
 static void PssScrollLeftEnd(u8 taskId) // display left
 {
     s16 *data = gTasks[taskId].data;
@@ -1857,7 +1862,8 @@ static void PssScrollLeftEnd(u8 taskId) // display left
     }
     if (sMonSummaryScreen->currPageIndex > 1)
     {
-        SetBgTilemapBuffer(data[1], (u8*)sMonSummaryScreen + ((sMonSummaryScreen->currPageIndex << 12) + 0xFFFFF0BC));
+        SetBgTilemapBuffer(1, sMonSummaryScreen->bgTilemapBuffers[sMonSummaryScreen->currPageIndex][0]);
+        //SetBgTilemapBuffer(data[1], sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_SKILLS][0]);
         ChangeBgX(data[1], 0x10000, 0);
     }
     ShowBg(1);
@@ -2331,7 +2337,7 @@ u8 GetMoveSlotToReplace(void)
     return sMoveSlotToReplace;
 }
 
-// TODO: This may be important
+// TODO: DrawPagination This may be important
 static void DrawPagination(void) // Updates the pagination dots at the top of the summary screen
 {
     u16 *alloced = Alloc(32);
