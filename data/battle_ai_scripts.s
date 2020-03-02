@@ -1232,6 +1232,7 @@ AI_CV_SpAtkDown_SpecialTypeList: @ 82DCEE2
     .byte TYPE_ICE
     .byte TYPE_DRAGON
     .byte TYPE_DARK
+    .byte TYPE_FAIRY
     .byte -1
 
 AI_CV_SpDefDown: @ 82DCEEB
@@ -1472,6 +1473,7 @@ AI_CV_LightScreen_SpecialTypeList:
     .byte TYPE_ICE
     .byte TYPE_DRAGON
     .byte TYPE_DARK
+    .byte TYPE_FAIRY
     .byte -1
 
 AI_CV_Rest:
@@ -2301,6 +2303,7 @@ AI_CV_MirrorCoat_SpecialTypeList:
     .byte TYPE_ICE
     .byte TYPE_DRAGON
     .byte TYPE_DARK
+    .byte TYPE_FAIRY
     .byte -1
 
 AI_CV_ChargeUpMove:
@@ -2330,8 +2333,8 @@ AI_CV_SemiInvulnerable2:
 	if_status2 AI_TARGET, STATUS2_CURSED, AI_CV_SemiInvulnerable_TryEncourage
 	if_status3 AI_TARGET, STATUS3_LEECHSEED, AI_CV_SemiInvulnerable_TryEncourage
 	get_weather
-	if_equal AI_WEATHER_HAIL, AI_CV_SemiInvulnerable_CheckSandstormTypes
-	if_equal AI_WEATHER_SANDSTORM, AI_CV_SemiInvulnerable_CheckIceType
+	if_equal AI_WEATHER_HAIL, AI_CV_SemiInvulnerable_CheckIceType
+	if_equal AI_WEATHER_SANDSTORM, AI_CV_SemiInvulnerable_CheckSandstormTypes
 	goto AI_CV_SemiInvulnerable5
 
 AI_CV_SemiInvulnerable_CheckSandstormTypes:
@@ -2402,7 +2405,7 @@ AI_CV_Hail_End:
 
 @ BUG: Facade score is increased if the target is statused, but should be if the user is. Replace AI_TARGET with AI_USER
 AI_CV_Facade:
-	if_not_status AI_TARGET, STATUS1_POISON | STATUS1_BURN | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON, AI_CV_Facade_End
+	if_not_status AI_USER, STATUS1_POISON | STATUS1_BURN | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON, AI_CV_Facade_End
 	score +1
 AI_CV_Facade_End:
 	end
@@ -2516,6 +2519,7 @@ AI_CV_ChangeSelfAbility_AbilitiesToEncourage:
     .byte ABILITY_CHLOROPHYLL
     .byte ABILITY_SHIELD_DUST
     .byte ABILITY_ICE_BODY
+    .byte ABILITY_SNOW_CLOAK
     .byte -1
 
 AI_CV_Superpower:
