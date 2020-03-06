@@ -4585,3 +4585,9 @@ BattleScript_IceBodyActivates::
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
 	end3
+
+BattleScript_MummyActivates::
+	printstring STRINGID_ATTACKERACQUIREDABILITY
+	waitmessage 0x40
+	return
+

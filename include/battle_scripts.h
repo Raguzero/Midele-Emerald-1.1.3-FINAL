@@ -225,6 +225,7 @@ extern const u8 BattleScript_ActionThrowPokeblock[];
 // NUEVO HABILIDADES
 extern const u8 BattleScript_SnowWarningActivates[];
 extern const u8 BattleScript_IceBodyActivates[];
+extern const u8 BattleScript_MummyActivates[];
 // NUEVO HABILIDADES
 
 #endif // GUARD_BATTLE_SCRIPTS_H
