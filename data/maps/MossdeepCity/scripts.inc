@@ -462,4 +462,4 @@ NODESEAR:
     .string "...$"
 
 DESEO_CONCEDIDO:
-    .string "{PLAYER} made a wish.$\n
+    .string "{PLAYER} made a wish.$\n"
