@@ -475,5 +475,13 @@ const u16 *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_MISMAGIUS] = sMismagiusLevelUpLearnset,
     [SPECIES_HONCHKROW] = sHonchkrowLevelUpLearnset,
     [SPECIES_ROSERADE] = sRoseradeLevelUpLearnset,
+    [SPECIES_YAMASK] = sYamaskLevelUpLearnset,
+    [SPECIES_COFAGRIGUS] = sCofagrigusLevelUpLearnset,
+    [SPECIES_GALAR_YAMASK] = sGalar_YamaskLevelUpLearnset,
+    [SPECIES_RUNERIGUS] = sRunerigusLevelUpLearnset,
+    [SPECIES_SNOVER] = sSnoverLevelUpLearnset,
+    [SPECIES_ABOMASNOW] = sAbomasnowLevelUpLearnset,
+    [SPECIES_MEGA_ABOMASNOW] = sMega_AbomasnowLevelUpLearnset,
+    [SPECIES_MEGA_GLALIE] = sMega_GlalieLevelUpLearnset,
 // NUEVO PARA FORMAS ALOLA
 };

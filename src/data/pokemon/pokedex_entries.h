@@ -5035,4 +5035,82 @@ const struct PokedexEntry gPokedexEntries[] =
 		.trainerScale = 256,
 		.trainerOffset = 0,
 	},
+	[NATIONAL_DEX_YAMASK] =
+	{
+		.categoryName = _("Spirit"),
+		.height = 5,
+		.weight = 15,
+		.description = gYamaskPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_COFAGRIGUS] =
+	{
+		.categoryName = _("Coffin"),
+		.height = 17,
+		.weight = 765,
+		.description = gCofagrigusPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	[NATIONAL_DEX_RUNERIGUS] =
+	{
+		.categoryName = _("Coffin"),
+		.height = 17,
+		.weight = 765,
+		.description = gRunerigusPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	[NATIONAL_DEX_SNOVER] =
+	{
+		.categoryName = _("Frost Tree"),
+		.height = 10,
+		.weight = 505,
+		.description = gSnoverPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	[NATIONAL_DEX_ABOMASNOW] =
+	{
+		.categoryName = _("Frost Tree"),
+		.height = 22,
+		.weight = 1355,
+		.description = gAbomasnowPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	[NATIONAL_DEX_MEGA_ABOMASNOW] =
+	{
+		.categoryName = _("Frost Tree"),
+		.height = 22,
+		.weight = 1355,
+		.description = gMega_AbomasnowPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+    [NATIONAL_DEX_MEGA_GLALIE] =
+    {
+        .categoryName = _("FACE"),
+        .height = 15,
+        .weight = 2565,
+        .description = gMega_GlaliePokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 3,
+        .trainerScale = 344,
+        .trainerOffset = 0,
+    },
 };

@@ -2368,6 +2368,46 @@ const struct MonCoords gMonFrontPicCoords[] =
         .size = 0x45,
         .y_offset = 0x7,
     },
+    [SPECIES_YAMASK] =
+    {
+        .size = 0x45,
+        .y_offset = 0xf,
+    },
+    [SPECIES_COFAGRIGUS] =
+    {
+        .size = 0x45,
+        .y_offset = 0x0,
+    },
+    [SPECIES_GALAR_YAMASK] =
+    {
+        .size = 0x45,
+        .y_offset = 0xf,
+    },
+    [SPECIES_RUNERIGUS] =
+    {
+        .size = 0x45,
+        .y_offset = 0x0,
+    },
+    [SPECIES_SNOVER] =
+    {
+        .size = 0x87,
+        .y_offset = 0xa,
+    },
+    [SPECIES_ABOMASNOW] =
+    {
+        .size = 0x54,
+        .y_offset = 0x0,
+    },
+    [SPECIES_MEGA_ABOMASNOW] =
+    {
+        .size = 0,
+        .y_offset = 0,
+    },
+    [SPECIES_MEGA_GLALIE] =
+    {
+        .size = 0,
+        .y_offset = 4,
+    },
     [SPECIES_EGG] =
     {
         .size = 0x33,

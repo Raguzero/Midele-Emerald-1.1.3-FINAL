@@ -53,7 +53,32 @@ MossdeepCity_EventScript_Woman:: @ 81E4B0B
 	end
 
 MossdeepCity_EventScript_WhiteRock:: @ 81E4B14
-	msgbox MossdeepCity_Text_ItsAWhiteRock, MSGBOX_SIGN
+    goto_if_set FLAG_JIRACHI WHITEROCK
+	msgbox PEDIR_DESEO MSGBOX_YESNO
+	Compare VAR_RESULT 1
+	goto_if 0 NOPEDIRDESEO
+	msgbox DESEO_CONCEDIDO
+	playmoncry SPECIES_JIRACHI, 0
+	closemessage
+	delay 20
+	waitmoncry
+	setwildbattle SPECIES_JIRACHI, 60, ITEM_STAR_PIECE
+	setflag FLAG_JIRACHI
+	special BattleSetup_StartLegendaryBattle
+	waitstate
+	releaseall
+	end
+
+WHITEROCK::
+    msgbox MossdeepCity_Text_ItsAWhiteRock, MSGBOX_SIGN
+	closemessage
+	releaseall
+	end
+
+NOPEDIRDESEO::
+    msgbox NODESEAR
+	closemessage
+	releaseall
 	end
 
 MossdeepCity_EventScript_GymSign:: @ 81E4B1D
@@ -430,3 +455,11 @@ MossdeepCity_Text_SootopolisNewGymLeader: @ 81E5581
 	.string "People tell me the new LEADER once\n"
 	.string "mentored WALLACE.$"
 
+PEDIR_DESEO:
+	.string "Do you want to make a WISH??$"
+
+NODESEAR:
+    .string "...$"
+
+DESEO_CONCEDIDO:
+    .string "{PLAYER} made a wish.$\n

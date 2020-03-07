@@ -2522,3 +2522,46 @@ const u8 gRoseradePokedexText[] = _(
     "With the movements of a dancer,\n"
     "it strikes with whips that are densely\n"
     "lined with poison thorns.");
+
+const u8 gYamaskPokedexText[] = _(
+    "These Pokémon arose from the spirits\n"
+    "of people interred in graves in past ages.\n"
+    "Each of them carries a mask that used\n"
+    "to be its face when it was human.");
+
+const u8 gCofagrigusPokedexText[] = _(
+    "Grave robbers who mistake them for\n"
+    "real coffins and get too close end up\n"
+    "trapped inside their bodies. Their bodies\n"
+    "are covered in pure gold.");
+
+const u8 gRunerigusPokedexText[] = _(
+    "Grave robbers who mistake them for\n"
+    "real coffins and get too close end up\n"
+    "trapped inside their bodies. Their bodies\n"
+    "are covered in pure gold.");
+
+const u8 gSnoverPokedexText[] = _(
+    "During cold seasons, it migrates to the\n"
+    "mountain's lower reaches. Seemingly\n"
+    "curious about people, they gather around\n"
+    "footsteps they find on snowy mountains.");
+
+const u8 gAbomasnowPokedexText[] = _(
+    "It lives a quiet life on mountains that\n"
+    "are perpetually covered in snow. It hides\n"
+    "itself by whipping up blizzards.\n"
+    "It is also known as “The Ice Monster.");
+
+const u8 gMega_AbomasnowPokedexText[] = _(
+    "It lives a quiet life on mountains that\n"
+    "are perpetually covered in snow. It hides\n"
+    "itself by whipping up blizzards.\n"
+    "It is also known as “The Ice Monster.");
+	
+const u8 gMega_GlaliePokedexText[] = _(
+    "A Glalie has the power to instantaneously\n"
+    "freeze moisture in the atmosphere.\n"
+    "A dazzling cloud of diamondlike ice\n"
+    "crystals forms around its body.");
+

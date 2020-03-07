@@ -4980,6 +4980,65 @@ static const union AnimCmd sAnim_ROSERADE_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_YAMASK_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_COFAGRIGUS_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_GALAR_YAMASK_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_RUNERIGUS_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_SNOVER_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_ABOMASNOW_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_MEGA_ABOMASNOW_1[] =
+{
+	ANIMCMD_FRAME(0, 1),
+	ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_MEGA_GLALIE_1[] =
+{
+	ANIMCMD_FRAME(0, 1),
+	ANIMCMD_END,
+};
 
 
 static const union AnimCmd sAnim_EGG_1[] =
@@ -7493,6 +7552,46 @@ static const union AnimCmd *const sAnims_ROSERADE[] ={
     sAnim_ROSERADE_1,
 };
 
+static const union AnimCmd *const sAnims_YAMASK[] ={
+    sAnim_GeneralFrame0,
+    sAnim_YAMASK_1,
+};
+
+static const union AnimCmd *const sAnims_COFAGRIGUS[] ={
+    sAnim_GeneralFrame0,
+    sAnim_COFAGRIGUS_1,
+};
+
+static const union AnimCmd *const sAnims_GALAR_YAMASK[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GALAR_YAMASK_1,
+};
+
+static const union AnimCmd *const sAnims_RUNERIGUS[] ={
+    sAnim_GeneralFrame0,
+    sAnim_RUNERIGUS_1,
+};
+
+static const union AnimCmd *const sAnims_SNOVER[] ={
+    sAnim_GeneralFrame0,
+    sAnim_SNOVER_1,
+};
+
+static const union AnimCmd *const sAnims_ABOMASNOW[] ={
+    sAnim_GeneralFrame0,
+    sAnim_ABOMASNOW_1,
+};
+
+static const union AnimCmd *const sAnims_MEGA_ABOMASNOW[] ={
+	sAnim_GeneralFrame0,
+	sAnim_MEGA_ABOMASNOW_1,
+};
+
+static const union AnimCmd *const sAnims_MEGA_GLALIE[] ={
+	sAnim_GeneralFrame0,
+	sAnim_MEGA_GLALIE_1,
+};
+
 static const union AnimCmd *const sAnims_EGG[] ={
     sAnim_GeneralFrame0,
     sAnim_EGG_1,
@@ -8112,6 +8211,14 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(MISMAGIUS),
     ANIM_CMD(HONCHKROW),
     ANIM_CMD(ROSERADE),
+    ANIM_CMD(YAMASK),
+    ANIM_CMD(COFAGRIGUS),
+    ANIM_CMD(GALAR_YAMASK),
+    ANIM_CMD(RUNERIGUS),
+    ANIM_CMD(SNOVER),
+    ANIM_CMD(ABOMASNOW),
+    ANIM_CMD(MEGA_ABOMASNOW),
+    ANIM_CMD(MEGA_GLALIE),
 // NUEVO PARA FORMAS ALOLA
     ANIM_CMD(EGG),
     ANIM_CMD(UNOWN_B),

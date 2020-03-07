@@ -659,15 +659,16 @@ const struct Item gItems[] =
         .secondaryId = 0,
     },
 
-    [ITEM_034] =
+    [ITEM_ABILITY_CAPSULE] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
-        .price = 0,
-        .description = sDummyDesc,
+        .name = _("ABI. CAPSULE"),
+        .itemId = ITEM_ABILITY_CAPSULE,
+        .price = 1,
+        .holdEffectParam = 0,
+        .description = sAbilityCapsuleDesc,
         .pocket = POCKET_ITEMS,
-        .type = 4,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+		.type = 1,
+        .fieldUseFunc = ItemUseOutOfBattle_AbilityCapsule,
         .secondaryId = 0,
     },
 
