@@ -11148,10 +11148,12 @@ const u32 gTMHMLearnsets[][2] =
 											| TMHM(TM20_SAFEGUARD)
 											| TMHM(TM43_SECRET_POWER)
 											| TMHM(TM30_SHADOW_BALL)
-											| TMHM(TM34_SHOCK_WAVE)
 											| TMHM(TM48_SKILL_SWAP)
 											| TMHM(TM49_SNATCH)
 											| TMHM(TM46_THIEF)
+											| TMHM(TM37_SANDSTORM)
+											| TMHM(TM39_ROCK_TOMB)
+											| TMHM(TM26_EARTHQUAKE)
 											| TMHM(TM06_TOXIC)),
 
     [SPECIES_RUNERIGUS]  = TMHM_LEARNSET(TMHM(TM45_ATTRACT)
@@ -11170,10 +11172,13 @@ const u32 gTMHMLearnsets[][2] =
 											| TMHM(TM20_SAFEGUARD)
 											| TMHM(TM43_SECRET_POWER)
 											| TMHM(TM30_SHADOW_BALL)
-											| TMHM(TM34_SHOCK_WAVE)
 											| TMHM(TM48_SKILL_SWAP)
 											| TMHM(TM49_SNATCH)
 											| TMHM(TM46_THIEF)
+											| TMHM(TM37_SANDSTORM)
+											| TMHM(TM39_ROCK_TOMB)
+											| TMHM(TM26_EARTHQUAKE)
+											| TMHM(TM12_TAUNT)
 											| TMHM(TM06_TOXIC)),
 
     [SPECIES_MEGA_GLALIE]      = TMHM_LEARNSET(TMHM(TM03_WATER_PULSE)

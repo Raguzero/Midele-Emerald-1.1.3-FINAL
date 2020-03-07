@@ -377,6 +377,8 @@ gBattleAnims_Moves::
 	.4byte Move_XSCISSOR
 	.4byte Move_IRON_HEAD
 	.4byte Move_STONE_EDGE
+	.4byte Move_DARK_PULSE
+	.4byte Move_ENERGY_BALL
 	.4byte Move_COUNT @ cannot be reached, because last move is Psycho Boost
 
 	.align 2
@@ -10017,6 +10019,27 @@ Move_STONE_EDGE:
 	call RockSlide1
 	waitforvisualfinish
 	clearmonbg ANIM_DEF_PARTNER
+	end
+
+Move_DARK_PULSE:
+	end
+	
+Move_ENERGY_BALL:
+	loadspritegfx ANIM_TAG_ENERGY_BALL
+	monbg ANIM_TARGET
+	setalpha 12, 8
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 1, 0, 8, RGB_BLACK
+	waitforvisualfinish
+	delay 15
+	createsoundtask sub_8158C58, SE_W054, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 5, 5, 0, 5
+	createsprite gEnergyBallSpriteTemplate, ANIM_TARGET, 2, 12, 4, 8
+	waitforvisualfinish
+	playsewithpan SE_W028, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 8, 1
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 1, 8, 0, RGB_BLACK
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
 	end
 
 Move_COUNT:

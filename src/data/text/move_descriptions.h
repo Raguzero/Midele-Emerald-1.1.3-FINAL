@@ -1446,6 +1446,14 @@ static const u8 sIRON_HEADDescription[] = _(
 static const u8 sSTONE_EDGEDescription[] = _(
 	"Stabs the foe with stones.\n"
 	"High critical-hit ratio.");
+	
+static const u8 sDARK_PULSEDescription[] = _(
+	"Attacks with a horrible\n"
+	"aura. May cause flinching.");
+	
+static const u8 sENERGY_BALLDescription[] = _(
+	"Draws power from nature to\n"
+	"attack. May lower Sp. Def.");
 
 // MOVE_NONE is ignored in this table. Make sure to always subtract 1 before getting the right pointer.
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
@@ -1812,5 +1820,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_X_SCISSOR - 1] = sX_SCISSORDescription,
     [MOVE_IRON_HEAD - 1] = sIRON_HEADDescription,
     [MOVE_STONE_EDGE - 1] = sSTONE_EDGEDescription,
+    [MOVE_DARK_PULSE - 1] = sDARK_PULSEDescription,
+    [MOVE_ENERGY_BALL - 1] = sENERGY_BALLDescription,
 	// NUEVO MOVE TIPO HADA
 };

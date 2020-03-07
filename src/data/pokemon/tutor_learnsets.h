@@ -6140,6 +6140,7 @@ static const u32 sTutorLearnsets[] =
                                               | TUTOR(MOVE_SLEEP_TALK)
                                               | TUTOR(MOVE_SWIFT)
                                               | TUTOR(MOVE_FURY_CUTTER)),
+
     [SPECIES_YAMASK]        = (TUTOR(MOVE_DREAM_EATER)
 											| TUTOR(MOVE_ENDURE)
 											| TUTOR(MOVE_PSYCH_UP)
@@ -6161,6 +6162,7 @@ static const u32 sTutorLearnsets[] =
 											| TUTOR(MOVE_SLEEP_TALK)
 											| TUTOR(MOVE_SNORE)
 											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_ROCK_SLIDE)
 											| TUTOR(MOVE_SWAGGER)),
 
     [SPECIES_RUNERIGUS]    = (TUTOR(MOVE_DREAM_EATER)
@@ -6168,6 +6170,7 @@ static const u32 sTutorLearnsets[] =
 											| TUTOR(MOVE_SLEEP_TALK)
 											| TUTOR(MOVE_SNORE)
 											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_ROCK_SLIDE)
 											| TUTOR(MOVE_SWAGGER)),
 											
     [SPECIES_SNOVER]        = (TUTOR(MOVE_DOUBLE_EDGE)
@@ -6181,7 +6184,8 @@ static const u32 sTutorLearnsets[] =
 											| TUTOR(MOVE_SWAGGER)
 											| TUTOR(MOVE_SWORDS_DANCE)),
 
-    [SPECIES_ABOMASNOW]     = (TUTOR(MOVE_ENDURE)
+    [SPECIES_ABOMASNOW]     = (TUTOR(MOVE_DOUBLE_EDGE)
+											| TUTOR(MOVE_ENDURE)
 											| TUTOR(MOVE_ICE_PUNCH)
 											| TUTOR(MOVE_ICY_WIND)
 											| TUTOR(MOVE_MUD_SLAP)
@@ -6192,7 +6196,8 @@ static const u32 sTutorLearnsets[] =
 											| TUTOR(MOVE_SWAGGER)
 											| TUTOR(MOVE_SWORDS_DANCE)),
 
-    [SPECIES_MEGA_ABOMASNOW]     = (TUTOR(MOVE_ENDURE)
+    [SPECIES_MEGA_ABOMASNOW]     = (TUTOR(MOVE_DOUBLE_EDGE)
+											| TUTOR(MOVE_ENDURE)
 											| TUTOR(MOVE_ICE_PUNCH)
 											| TUTOR(MOVE_ICY_WIND)
 											| TUTOR(MOVE_MUD_SLAP)

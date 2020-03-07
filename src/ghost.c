@@ -98,6 +98,17 @@ const struct SpriteTemplate gShadowBallSpriteTemplate =
     .callback = InitAnimShadowBall,
 };
 
+const struct SpriteTemplate gEnergyBallSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ENERGY_BALL,
+    .paletteTag = ANIM_TAG_ENERGY_BALL,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gUnknown_08596D54,
+    .callback = InitAnimShadowBall,
+};
+
 const union AnimCmd gUnknown_08596D70[] =
 {
     ANIMCMD_FRAME(0, 2),
