@@ -31,7 +31,6 @@ enum PokemonSummaryScreenPage
     PSS_PAGE_SKILLS,
     PSS_PAGE_BATTLE_MOVES,
     PSS_PAGE_CONTEST_MOVES,
-    PSS_PAGE_IVS_EVS // NUEVO: página de IVs/EVs
 };
 
 #endif // GUARD_POKEMON_SUMMARY_SCREEN_H

@@ -140,22 +140,8 @@ static EWRAM_DATA struct PokemonSummaryScreenData
         u8 OTName[8]; // 0x36
         u8 unk3E[9]; // 0x3E
         u32 OTID; // 0x48
-        // ** NUEVO: EVs e IVs para la pantalla
-        u8 hpEV; // 0x49
-        u8 atkEV; // 0x4A
-        u8 defEV; // 0x4B
-        u8 spatkEV; // 0x4C
-        u8 spdefEV; // 0x4D
-        u8 speedEV; // 0x4E
-        u8 hpIV; // 0x4F
-        u8 atkIV; // 0x50
-        u8 defIV; // 0x51
-        u8 spatkIV; // 0x52
-        u8 spdefIV; // 0x53
-        u8 speedIV; // 0x54
-        // **
     } summary;
-    u16 bgTilemapBuffers[5][2][0x400]; // NUEVO: quinta pantalla
+    u16 bgTilemapBuffers[4][2][0x400];
     u8 mode;
     bool8 isBoxMon;
     u8 curMonIndex;
@@ -178,6 +164,22 @@ static EWRAM_DATA struct PokemonSummaryScreenData
 } *sMonSummaryScreen = NULL;
 EWRAM_DATA u8 gLastViewedMonIndex = 0;
 static EWRAM_DATA u8 sMoveSlotToReplace = 0;
+static EWRAM_DATA struct MideleSummaryData {
+    // ** NUEVO: EVs e IVs para la pantalla
+    u8 hpEV; // 0x49
+    u8 atkEV; // 0x4A
+    u8 defEV; // 0x4B
+    u8 spatkEV; // 0x4C
+    u8 spdefEV; // 0x4D
+    u8 speedEV; // 0x4E
+    u8 hpIV; // 0x4F
+    u8 atkIV; // 0x50
+    u8 defIV; // 0x51
+    u8 spatkIV; // 0x52
+    u8 spdefIV; // 0x53
+    u8 speedIV; // 0x54
+    // **
+} *sMideleData = NULL;
 ALIGNED(4) static EWRAM_DATA u8 sUnknownTaskId = 0;
 
 struct UnkStruct_61CC04
@@ -698,8 +700,7 @@ static void (*const sTextPrinterFunctions[])(void) =
     PrintInfoPageText,
     PrintSkillsPageText,
     PrintBattleMoves,
-    PrintContestMoves,
-    PrintSkillsPageText // NUEVO: quinta pantalla
+    PrintContestMoves
 };
 
 static void (*const sTextPrinterTasks[])(u8 taskId) =
@@ -707,8 +708,7 @@ static void (*const sTextPrinterTasks[])(u8 taskId) =
     Task_PrintInfoPage,
     Task_PrintSkillsPage,
     Task_PrintBattleMoves,
-    Task_PrintContestMoves,
-    Task_PrintSkillsPage // NUEVO: quinta pantalla
+    Task_PrintContestMoves
 };
 
 static const u8 sMemoNatureTextColor[] = _("{COLOR LIGHT_RED}{SHADOW GREEN}");
@@ -1072,6 +1072,7 @@ static const u16 sSummaryMarkingsPalette[] = INCBIN_U16("graphics/interface/summ
 void ShowPokemonSummaryScreen(u8 mode, void *mons, u8 monIndex, u8 maxMonIndex, void (*callback)(void))
 {
     sMonSummaryScreen = AllocZeroed(sizeof(*sMonSummaryScreen));
+    sMideleData = AllocZeroed(sizeof(*sMideleData));
     sMonSummaryScreen->mode = mode;
     sMonSummaryScreen->monList.mons = mons;
     sMonSummaryScreen->curMonIndex = monIndex;
@@ -1088,7 +1089,7 @@ void ShowPokemonSummaryScreen(u8 mode, void *mons, u8 monIndex, u8 maxMonIndex, 
     case PSS_MODE_NORMAL:
     case PSS_MODE_BOX:
         sMonSummaryScreen->minPageIndex = 0;
-        sMonSummaryScreen->maxPageIndex = 4; // NUEVO: quinta pantalla
+        sMonSummaryScreen->maxPageIndex = 3;
         break;
     case PSS_MODE_UNK1:
         sMonSummaryScreen->minPageIndex = 0;
@@ -1271,16 +1272,13 @@ static bool8 SummaryScreen_LoadGraphics(void)
     return FALSE;
 }
 
-//TODO: InitBGs possible bg handler
 static void InitBGs(void)
 {
     ResetBgsAndClearDma3BusyFlags(0);
     InitBgsFromTemplates(0, sUnknown_0861CBB4, ARRAY_COUNT(sUnknown_0861CBB4));
-    // Primer argumento, id de BG tilemap
     SetBgTilemapBuffer(1, sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_BATTLE_MOVES][0]);
     SetBgTilemapBuffer(2, sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_SKILLS][0]);
     SetBgTilemapBuffer(3, sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_INFO][0]);
-    SetBgTilemapBuffer(2, sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_IVS_EVS][0]);
     ResetAllBgsCoordinates();
     schedule_bg_copy_tilemap_to_vram(1);
     schedule_bg_copy_tilemap_to_vram(2);
@@ -1372,7 +1370,6 @@ static void CopyMonToSummaryStruct(struct Pokemon *mon)
     }
 }
 
-// TODO: add stats and data
 static bool8 ExtractMonDataToSummaryStruct(struct Pokemon *mon)
 {
     u32 i;
@@ -1427,20 +1424,20 @@ static bool8 ExtractMonDataToSummaryStruct(struct Pokemon *mon)
             sum->spdef = GetMonData(mon, MON_DATA_SPDEF2);
             sum->speed = GetMonData(mon, MON_DATA_SPEED2);
         }
-        // ** NUEVO: EVs e IVs para la pantalla
-        sum->hpEV = GetMonData(mon, MON_DATA_HP_EV);
-        sum->atkEV = GetMonData(mon, MON_DATA_HP_EV);
-        sum->defEV = GetMonData(mon, MON_DATA_HP_EV);
-        sum->spatkEV = GetMonData(mon, MON_DATA_HP_EV);
-        sum->spdefEV = GetMonData(mon, MON_DATA_HP_EV);
-        sum->speedEV = GetMonData(mon, MON_DATA_HP_EV);
-        sum->hpIV = GetMonData(mon, MON_DATA_HP_EV);
-        sum->atkIV = GetMonData(mon, MON_DATA_HP_EV);
-        sum->defIV = GetMonData(mon, MON_DATA_HP_EV);
-        sum->spatkIV = GetMonData(mon, MON_DATA_HP_EV);
-        sum->spdefIV = GetMonData(mon, MON_DATA_HP_EV);
-        sum->speedIV = GetMonData(mon, MON_DATA_HP_EV);
-        // **
+        //** NUEVO: EVs e IVs para la pantalla
+        sMideleData->hpEV = GetMonData(mon, MON_DATA_HP_EV);
+        sMideleData->atkEV = GetMonData(mon, MON_DATA_HP_EV);
+        sMideleData->defEV = GetMonData(mon, MON_DATA_HP_EV);
+        sMideleData->spatkEV = GetMonData(mon, MON_DATA_HP_EV);
+        sMideleData->spdefEV = GetMonData(mon, MON_DATA_HP_EV);
+        sMideleData->speedEV = GetMonData(mon, MON_DATA_HP_EV);
+        sMideleData->hpIV = GetMonData(mon, MON_DATA_HP_EV);
+        sMideleData->atkIV = GetMonData(mon, MON_DATA_HP_EV);
+        sMideleData->defIV = GetMonData(mon, MON_DATA_HP_EV);
+        sMideleData->spatkIV = GetMonData(mon, MON_DATA_HP_EV);
+        sMideleData->spdefIV = GetMonData(mon, MON_DATA_HP_EV);
+        sMideleData->speedIV = GetMonData(mon, MON_DATA_HP_EV);
+        //**
         break;
     case 3:
         GetMonData(mon, MON_DATA_OT_NAME, sum->OTName);
@@ -1754,7 +1751,6 @@ static bool8 sub_81C0A50(struct Pokemon* mon)
         return FALSE;
 }
 
-// TODO: ChangePage important when changing pages
 static void ChangePage(u8 taskId, s8 delta)
 {
     struct PokeSummary *summary = &sMonSummaryScreen->summary;
@@ -1782,7 +1778,6 @@ static void ChangePage(u8 taskId, s8 delta)
 static void PssScrollRight(u8 taskId) // Scroll right
 {
     s16 *data = gTasks[taskId].data;
-    goto test;
     if (data[0] == 0)
     {
         if (sMonSummaryScreen->bgDisplayOrder == 0)
@@ -1805,7 +1800,6 @@ static void PssScrollRight(u8 taskId) // Scroll right
         ShowBg(2);
     }
     ChangeBgX(data[1], 0x2000, 1);
-    test:
     data[0] += 32;
     if (data[0] > 0xFF)
         gTasks[taskId].func = PssScrollRightEnd;
@@ -1824,11 +1818,9 @@ static void PssScrollRightEnd(u8 taskId) // display right
     SwitchTaskToFollowupFunc(taskId);
 }
 
-// TODO:  PssScrollLeft Check for bg bug
 static void PssScrollLeft(u8 taskId) // Scroll left
 {
     s16 *data = gTasks[taskId].data;
-    goto test;
     if (data[0] == 0)
     {
         if (sMonSummaryScreen->bgDisplayOrder == 0)
@@ -1838,13 +1830,11 @@ static void PssScrollLeft(u8 taskId) // Scroll left
         ChangeBgX(data[1], 0x10000, 0);
     }
     ChangeBgX(data[1], 0x2000, 2);
-    test:
     data[0] += 32;
     if (data[0] > 0xFF)
         gTasks[taskId].func = PssScrollLeftEnd;
 }
 
-// TODO: PssScrollLeftEnd Check for bg bug
 static void PssScrollLeftEnd(u8 taskId) // display left
 {
     s16 *data = gTasks[taskId].data;
@@ -1862,8 +1852,7 @@ static void PssScrollLeftEnd(u8 taskId) // display left
     }
     if (sMonSummaryScreen->currPageIndex > 1)
     {
-        SetBgTilemapBuffer(1, sMonSummaryScreen->bgTilemapBuffers[sMonSummaryScreen->currPageIndex][0]);
-        //SetBgTilemapBuffer(data[1], sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_SKILLS][0]);
+        SetBgTilemapBuffer(data[1], (u8*)sMonSummaryScreen + ((sMonSummaryScreen->currPageIndex << 12) + 0xFFFFF0BC));
         ChangeBgX(data[1], 0x10000, 0);
     }
     ShowBg(1);
@@ -2337,7 +2326,6 @@ u8 GetMoveSlotToReplace(void)
     return sMoveSlotToReplace;
 }
 
-// TODO: DrawPagination This may be important
 static void DrawPagination(void) // Updates the pagination dots at the top of the summary screen
 {
     u16 *alloced = Alloc(32);
@@ -2912,7 +2900,6 @@ static void CreatePageWindowTilemaps(u8 page)
             PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_INFO_TYPE);
             break;
         case PSS_PAGE_SKILLS:
-        case PSS_PAGE_IVS_EVS: // NUEVO: quinta pantalla
             PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_TITLE);
             PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_LEFT);
             PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_RIGHT);
@@ -2964,7 +2951,6 @@ static void ClearPageWindowTilemaps(u8 page)
             ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_INFO_TYPE);
             break;
         case PSS_PAGE_SKILLS:
-        case PSS_PAGE_IVS_EVS: // NUEVO: quinta pantalla
             ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_LEFT);
             ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_RIGHT);
             ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP);
