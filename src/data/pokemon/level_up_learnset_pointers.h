@@ -483,5 +483,8 @@ const u16 *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_ABOMASNOW] = sAbomasnowLevelUpLearnset,
     [SPECIES_MEGA_ABOMASNOW] = sMega_AbomasnowLevelUpLearnset,
     [SPECIES_MEGA_GLALIE] = sMega_GlalieLevelUpLearnset,
+    [SPECIES_GROOKEY] = sGrookeyLevelUpLearnset,
+    [SPECIES_THWACKEY] = sThwackeyLevelUpLearnset,
+    [SPECIES_RILLABOOM] = sRillaboomLevelUpLearnset,
 // NUEVO PARA FORMAS ALOLA
 };

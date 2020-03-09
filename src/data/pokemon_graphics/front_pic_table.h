@@ -482,6 +482,9 @@ const struct CompressedSpriteSheet gMonFrontPicTable[] =
     SPECIES_SPRITE(ABOMASNOW, gMonFrontPic_Abomasnow),
     SPECIES_SPRITE(MEGA_ABOMASNOW, gMonFrontPic_Mega_Abomasnow),
     SPECIES_SPRITE(MEGA_GLALIE, gMonFrontPic_Mega_Glalie),
+    SPECIES_SPRITE(GROOKEY, gMonFrontPic_Grookey),
+    SPECIES_SPRITE(THWACKEY, gMonFrontPic_Thwackey),
+    SPECIES_SPRITE(RILLABOOM, gMonFrontPic_Rillaboom),
 // NUEVO PARA FORMAS ALOLA
     SPECIES_SPRITE(EGG, gMonFrontPic_Egg),
     SPECIES_SPRITE(UNOWN_B, gMonFrontPic_UnownB),

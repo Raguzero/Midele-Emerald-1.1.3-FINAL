@@ -2565,3 +2565,21 @@ const u8 gMega_GlaliePokedexText[] = _(
     "A dazzling cloud of diamondlike ice\n"
     "crystals forms around its body.");
 
+const u8 gGrookeyPokedexText[] = _(
+    "It attacks with \n"
+    "rapid beats of its stick.\n"
+    "As it strickes with amazing speed,\n"
+    "it gets more and more pumped.");
+
+const u8 gThwackeyPokedexText[] = _(
+    "When it's drumming out rapid beats in battle, \n"
+    "it gets so caught up in the rhythm\n"
+    "that it won't even notice that\n"
+    "it's already knocked out its opponent.");
+
+const u8 gRillaboomPokedexText[] = _(
+    "The one with the best drumming techniques \n"
+    "becomes the boss of the troop.\n"
+    "It has a gentle disposition\n"
+    "and values harmony among its group.");
+

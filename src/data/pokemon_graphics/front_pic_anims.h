@@ -5040,6 +5040,29 @@ static const union AnimCmd sAnim_MEGA_GLALIE_1[] =
 	ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_GROOKEY_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_THWACKEY_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_RILLABOOM_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
 
 static const union AnimCmd sAnim_EGG_1[] =
 {
@@ -7592,6 +7615,21 @@ static const union AnimCmd *const sAnims_MEGA_GLALIE[] ={
 	sAnim_MEGA_GLALIE_1,
 };
 
+static const union AnimCmd *const sAnims_GROOKEY[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GROOKEY_1,
+};
+
+static const union AnimCmd *const sAnims_THWACKEY[] ={
+    sAnim_GeneralFrame0,
+    sAnim_THWACKEY_1,
+};
+
+static const union AnimCmd *const sAnims_RILLABOOM[] ={
+    sAnim_GeneralFrame0,
+    sAnim_RILLABOOM_1,
+};
+
 static const union AnimCmd *const sAnims_EGG[] ={
     sAnim_GeneralFrame0,
     sAnim_EGG_1,
@@ -8219,6 +8257,9 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(ABOMASNOW),
     ANIM_CMD(MEGA_ABOMASNOW),
     ANIM_CMD(MEGA_GLALIE),
+    ANIM_CMD(GROOKEY),
+    ANIM_CMD(THWACKEY),
+    ANIM_CMD(RILLABOOM),
 // NUEVO PARA FORMAS ALOLA
     ANIM_CMD(EGG),
     ANIM_CMD(UNOWN_B),

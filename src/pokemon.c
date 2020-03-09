@@ -1028,6 +1028,10 @@ const u16 gSpeciesToNationalPokedexNum[] = // Assigns all species to the Nationa
 	SPECIES_TO_NATIONAL(ABOMASNOW),
 	SPECIES_TO_NATIONAL(MEGA_ABOMASNOW),
 	SPECIES_TO_NATIONAL(MEGA_GLALIE),
+	SPECIES_TO_NATIONAL(GROOKEY),
+	SPECIES_TO_NATIONAL(THWACKEY),
+	SPECIES_TO_NATIONAL(RILLABOOM),
+
 };
 
 const u16 gHoennToNationalOrder[] = // Assigns Hoenn Dex Pokémon (Using National Dex Index)
@@ -1459,6 +1463,9 @@ const u16 gHoennToNationalOrder[] = // Assigns Hoenn Dex Pokémon (Using Nationa
 	HOENN_TO_NATIONAL(ABOMASNOW),
 	HOENN_TO_NATIONAL(MEGA_ABOMASNOW),
 	HOENN_TO_NATIONAL(MEGA_GLALIE),
+	HOENN_TO_NATIONAL(GROOKEY),
+	HOENN_TO_NATIONAL(THWACKEY),
+	HOENN_TO_NATIONAL(RILLABOOM),
     HOENN_TO_NATIONAL(OLD_UNOWN_B),
     HOENN_TO_NATIONAL(OLD_UNOWN_C),
     HOENN_TO_NATIONAL(OLD_UNOWN_D),
@@ -1991,6 +1998,9 @@ static const u8 sMonFrontAnimIdsTable[] =
     [SPECIES_ABOMASNOW - 1] = 0x1C,
     [SPECIES_MEGA_ABOMASNOW - 1] = 0x1C,
     [SPECIES_MEGA_GLALIE - 1] = 0x0a,
+    [SPECIES_GROOKEY - 1] = 0x1C,
+    [SPECIES_THWACKEY - 1] = 0x1C,
+    [SPECIES_RILLABOOM - 1] = 0x0a,
 };
 
 static const u8 sMonAnimationDelayTable[NUM_SPECIES - 1] =

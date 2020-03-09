@@ -1399,5 +1399,54 @@ const u16 gEggMoves[] = {
 		MOVE_STOCKPILE,
 		MOVE_SWALLOW),
 
+	egg_moves(GALAR_ZIGZAGOON,
+		MOVE_KNOCK_OFF),
+
+	egg_moves(GALAR_MEOWTH,
+		MOVE_COVET,
+		MOVE_FLAIL,
+		MOVE_CURSE,
+		MOVE_DOUBLE_EDGE,
+		MOVE_SPITE),	
+	
+    egg_moves(GALAR_FARFETCH,
+              MOVE_SKY_ATTACK,
+              MOVE_QUICK_ATTACK,
+              MOVE_FLAIL,
+              MOVE_COVET,
+              MOVE_DOUBLE_EDGE,
+              MOVE_COUNTER,
+              MOVE_CURSE),
+
+    egg_moves(CORSOLA,
+              MOVE_DESTINY_BOND,
+              MOVE_HAZE,
+              MOVE_CONFUSE_RAY,
+              MOVE_NATURE_POWER),
+
+	egg_moves(GALAR_YAMASK,
+		MOVE_MEMENTO),
+
+    egg_moves(GALAR_PONYTA,
+              MOVE_HORN_DRILL,
+              MOVE_THRASH,
+              MOVE_MORNING_SUN,
+              MOVE_DOUBLE_KICK,
+              MOVE_HYPNOSIS,
+              MOVE_DOUBLE_EDGE),
+			  
+    egg_moves(GALAR_MRMIME,
+              MOVE_CONFUSE_RAY,
+              MOVE_TICKLE,
+              MOVE_FAKE_OUT),
+			  
+	egg_moves(GROOKEY,
+              MOVE_GROWTH,
+              MOVE_FAKE_OUT,
+              MOVE_NATURE_POWER,
+              MOVE_MAGICAL_LEAF,
+              MOVE_UPROAR,
+              MOVE_LEECH_SEED),
+
     EGG_MOVES_TERMINATOR
 };

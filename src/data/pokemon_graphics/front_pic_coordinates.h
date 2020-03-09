@@ -2408,6 +2408,21 @@ const struct MonCoords gMonFrontPicCoords[] =
         .size = 0,
         .y_offset = 4,
     },
+    [SPECIES_GROOKEY] =
+    {
+        .size = 0x65,
+        .y_offset = 0x0e,
+    },
+    [SPECIES_THWACKEY] =
+    {
+        .size = 0x77,
+        .y_offset = 0x07,
+    },
+    [SPECIES_RILLABOOM] =
+    {
+        .size = 0x77,
+        .y_offset = 0x07,
+    },
     [SPECIES_EGG] =
     {
         .size = 0x33,

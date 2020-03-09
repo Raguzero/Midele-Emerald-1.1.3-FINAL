@@ -5113,4 +5113,37 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 344,
         .trainerOffset = 0,
     },
+    [NATIONAL_DEX_GROOKEY] =
+    {
+        .categoryName = _("CHIMP"),
+        .height = 3,
+        .weight = 50,
+        .description = gGrookeyPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+   [NATIONAL_DEX_THWACKEY] =
+    {
+        .categoryName = _("BEAT"),
+        .height = 7,
+        .weight = 140,
+        .description = gThwackeyPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+       .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+    [NATIONAL_DEX_RILLABOOM] =
+    {
+        .categoryName = _("DRUMMER"),
+        .height = 21,
+        .weight = 900,
+        .description = gRillaboomPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
 };
