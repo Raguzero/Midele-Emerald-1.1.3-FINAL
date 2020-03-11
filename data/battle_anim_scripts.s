@@ -379,6 +379,7 @@ gBattleAnims_Moves::
 	.4byte Move_STONE_EDGE
 	.4byte Move_DARK_PULSE
 	.4byte Move_ENERGY_BALL
+	.4byte Move_NASTY_PLOT
 	.4byte Move_COUNT @ cannot be reached, because last move is Psycho Boost
 
 	.align 2
@@ -10040,6 +10041,9 @@ Move_ENERGY_BALL:
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
 	blendoff
+	end
+	
+Move_NASTY_PLOT:
 	end
 
 Move_COUNT:

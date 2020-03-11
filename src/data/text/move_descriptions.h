@@ -1454,6 +1454,10 @@ static const u8 sDARK_PULSEDescription[] = _(
 static const u8 sENERGY_BALLDescription[] = _(
 	"Draws power from nature to\n"
 	"attack. May lower Sp. Def.");
+	
+static const u8 sNASTY_PLOTDescription[] = _(
+	"Thinks bad thoughts to\n"
+	"sharply boost Sp. Atk.");
 
 // MOVE_NONE is ignored in this table. Make sure to always subtract 1 before getting the right pointer.
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
@@ -1822,5 +1826,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_STONE_EDGE - 1] = sSTONE_EDGEDescription,
     [MOVE_DARK_PULSE - 1] = sDARK_PULSEDescription,
     [MOVE_ENERGY_BALL - 1] = sENERGY_BALLDescription,
+    [MOVE_NASTY_PLOT - 1] = sNASTY_PLOTDescription,
 	// NUEVO MOVE TIPO HADA
 };
