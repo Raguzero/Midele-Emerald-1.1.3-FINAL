@@ -1939,6 +1939,22 @@ Cry_Chimecho::
 	.incbin "sound/direct_sound_samples/cry_chimecho.bin"
 
 	.align 2
+
+Cry_Grookey::
+	.incbin "sound/direct_sound_samples/cry_grookey.bin"
+
+	.align 2
+
+Cry_Thwackey::
+	.incbin "sound/direct_sound_samples/cry_thwackey.bin"
+
+	.align 2
+
+Cry_Rillaboom::
+	.incbin "sound/direct_sound_samples/cry_rillaboom.bin"
+
+	.align 2
+
 DirectSoundWaveData_register_noise::
 	.incbin "sound/direct_sound_samples/register_noise.bin"
 
