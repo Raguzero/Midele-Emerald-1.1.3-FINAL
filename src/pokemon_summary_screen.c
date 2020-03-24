@@ -1605,6 +1605,9 @@ static void ChangeSummaryPokemon(u8 taskId, s8 delta)
     s8 v1;
     s8 v2;
 
+    // NUEVO: resetear el ciclo de menús IVs/EVs pulsar A cuando cambias el mon visualizado en el menú
+    sMideleData->skillsPageState = MIDELE_SKILLS_NEXT_IVS;
+
     if (!sMonSummaryScreen->lockMonFlag)
     {
         if (sMonSummaryScreen->isBoxMon == TRUE)
@@ -1790,6 +1793,9 @@ static void ChangePage(u8 taskId, s8 delta)
 {
     struct PokeSummary *summary = &sMonSummaryScreen->summary;
     s16 *data = gTasks[taskId].data;
+
+    // NUEVO: resetear el ciclo de menús IVs/EVs cuando cambias de página del menú
+    sMideleData->skillsPageState = MIDELE_SKILLS_NEXT_IVS;
 
     if (summary->isEgg)
         return;
@@ -2776,7 +2782,8 @@ static void PrintMonInfo(void)
         PrintNotEggInfo();
     else
         PrintEggInfo();
-    schedule_bg_copy_tilemap_to_vram(0);
+    // NUEVO: eliminado para arreglar bug del menú (no acabo de entender la razón)
+    // schedule_bg_copy_tilemap_to_vram(0);
 }
 
 static void PrintNotEggInfo(void)
