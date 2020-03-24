@@ -9081,10 +9081,14 @@ static void Cmd_hiddenpowercalc(void)
 {
     u8 powerBits;
     u8 typeBits;
-struct Pokemon *monAttacker;
+    struct Pokemon *monAttacker;
     // Poder base de poder oculto
     gDynamicBasePower = MOVE_HIDDEN_POWER_DMG;
-
+    
+    if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
+        monAttacker = &gPlayerParty[gBattlerPartyIndexes[gBattlerAttacker]];
+    else
+        monAttacker = &gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker]];
     // El tipo depende del Pokémon (se genera aleatoriamente al obtenerlo)
     gBattleStruct->dynamicMoveType = monAttacker->box.unused;
     gBattlescriptCurrInstr++;
