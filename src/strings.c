@@ -1822,3 +1822,22 @@ const u8 gText_Nickname[] = _("NICKNAME"); // NUEVO PARA MOTE EN EQUIPO
 // NUEVO: Menú Midele
 const u8 gText_IVs[] = _("IVs");
 const u8 gText_EVs[] = _("EVs");
+
+// NUEVO: nombres de tipos (para NPC Hidden Power)
+const u8 gText_NormalType[] = _("NORMAL");
+const u8 gText_FightingType[] = _("FIGHTING");
+const u8 gText_FlyingType[] = _("FLYING");
+const u8 gText_PoisonType[] = _("POISON");
+const u8 gText_GroundType[] = _("GROUND");
+const u8 gText_RockType[] = _("ROCK");
+const u8 gText_BugType[] = _("BUG");
+const u8 gText_GhostType[] = _("GHOST");
+const u8 gText_SteelType[] = _("STEEL");
+const u8 gText_FireType[] = _("FIRE");
+const u8 gText_WaterType[] = _("WATER");
+const u8 gText_GrassType[] = _("GRASS");
+const u8 gText_ElectricType[] = _("ELECTRIC");
+const u8 gText_PsychicType[] = _("PSYCHIC");
+const u8 gText_IceType[] = _("ICE");
+const u8 gText_DragonType[] = _("DRAGON");
+const u8 gText_DarkType[] = _("DARK");
