@@ -124,7 +124,7 @@ TrainerHill_Entrance_EventScript_AttendantEnd:: @ 8268227
 TrainerHill_Entrance_EventScript_EntryTrigger:: @ 8268229
 	lockall
 	applymovement EVENT_OBJ_ID_PLAYER, TrainerHill_Entrance_Movement_PlayerFaceAttendant
-	goto_if_unset FLAG_SYS_GAME_CLEAR, TrainerHill_Entrance_EventScript_Closed
+	goto_if_unset FLAG_SYS_POKEDEX_GET, TrainerHill_Entrance_EventScript_Closed
 	msgbox TrainerHill_Entrance_Text_WelcomeToTrainerHill, MSGBOX_DEFAULT
 	trainerhill_getsaved
 	compare VAR_RESULT, FALSE
@@ -226,7 +226,7 @@ TrainerHill_Entrance_EventScript_Records:: @ 8268388
 	end
 
 TrainerHill_Entrance_EventScript_Man:: @ 8268391
-	goto_if_unset FLAG_SYS_GAME_CLEAR, TrainerHill_Entrance_EventScript_ManTrainerHillClosed
+	goto_if_unset FLAG_SYS_POKEDEX_GET, TrainerHill_Entrance_EventScript_ManTrainerHillClosed
 	msgbox TrainerHill_Entrance_Text_WhatSortOfTrainersAreAhead, MSGBOX_NPC
 	end
 
@@ -235,7 +235,7 @@ TrainerHill_Entrance_EventScript_ManTrainerHillClosed:: @ 82683A3
 	end
 
 TrainerHill_Entrance_EventScript_Girl:: @ 82683AC
-	goto_if_unset FLAG_SYS_GAME_CLEAR, TrainerHill_Entrance_EventScript_GirlTrainerHillClosed
+	goto_if_unset FLAG_SYS_POKEDEX_GET, TrainerHill_Entrance_EventScript_GirlTrainerHillClosed
 	msgbox TrainerHill_Entrance_Text_FriendsTryingToReachTimeBoardTop, MSGBOX_NPC
 	end
 
@@ -248,7 +248,7 @@ TrainerHill_Entrance_EventScript_Clerk:: @ 82683C7
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
-	goto_if_set FLAG_SYS_GAME_CLEAR, TrainerHill_Entrance_EventScript_ExpandedPokemart
+	goto_if_set FLAG_SYS_POKEDEX_GET, TrainerHill_Entrance_EventScript_ExpandedPokemart
 	pokemart TrainerHill_Entrance_Pokemart_Basic
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release

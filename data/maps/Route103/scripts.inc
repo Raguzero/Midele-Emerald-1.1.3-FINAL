@@ -9,7 +9,7 @@ Route103_OnTransition: @ 81EC399
 	end
 
 Route103_OnLoad: @ 81EC3A4
-	call_if_set FLAG_SYS_GAME_CLEAR, Route103_EventScript_OpenAlteringCave
+	call_if_set FLAG_SYS_POKEDEX_GET, Route103_EventScript_OpenAlteringCave
 	end
 
 Route103_EventScript_OpenAlteringCave:: @ 81EC3AE
