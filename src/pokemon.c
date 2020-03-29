@@ -3439,6 +3439,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         spDefense *= 2;
     if (attackerHoldEffect == HOLD_EFFECT_LIGHT_BALL && attacker->species == SPECIES_PIKACHU)
         spAttack *= 2, attack *= 2;
+    if (attackerHoldEffect == HOLD_EFFECT_STICK && attacker->species == SPECIES_FARFETCHD)
+        attack *= 1.5;
     if (defenderHoldEffect == HOLD_EFFECT_METAL_POWDER && defender->species == SPECIES_DITTO)
         defense *= 2;
     if (attackerHoldEffect == HOLD_EFFECT_THICK_CLUB && (attacker->species == SPECIES_CUBONE || attacker->species == SPECIES_MAROWAK))
@@ -4426,22 +4428,22 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         SET8(substruct1->pp[field - MON_DATA_PP1]);
         break;
     case MON_DATA_HP_EV:
-        SET8(substruct2->hpEV);
+         substruct2->hpEV = *data > 252 ? 252 : *data;
         break;
     case MON_DATA_ATK_EV:
-        SET8(substruct2->attackEV);
+        substruct2->attackEV = *data > 252 ? 252 : *data;
         break;
     case MON_DATA_DEF_EV:
-        SET8(substruct2->defenseEV);
+        substruct2->defenseEV = *data > 252 ? 252 : *data;
         break;
     case MON_DATA_SPEED_EV:
-        SET8(substruct2->speedEV);
+     substruct2->speedEV = *data > 252 ? 252 : *data;
         break;
     case MON_DATA_SPATK_EV:
-        SET8(substruct2->spAttackEV);
+        substruct2->spAttackEV = *data > 252 ? 252 : *data;
         break;
     case MON_DATA_SPDEF_EV:
-        SET8(substruct2->spDefenseEV);
+     substruct2->spDefenseEV = *data > 252 ? 252 : *data;
         break;
     case MON_DATA_COOL:
         SET8(substruct2->cool);

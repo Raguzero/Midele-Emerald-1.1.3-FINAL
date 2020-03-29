@@ -30,8 +30,8 @@ OldaleTown_Mart_ExpandedItems:: @ 81FC26C
 	.align 2
 OldaleTown_Mart_Pokemart_Expanded: @ 81FC27C
 	.2byte ITEM_MASTER_BALL
-	.2byte ITEM_DAWN_STONE
-	.2byte ITEM_DUSK_STONE
+	.2byte ITEM_IRON
+	.2byte ITEM_HP_UP
 	.2byte ITEM_ICE_STONE
 	.2byte ITEM_SHINY_STONE
 	.2byte ITEM_NONE

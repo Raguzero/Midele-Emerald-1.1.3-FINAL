@@ -3,7 +3,7 @@ Route102_EventScript_ItemPotion:: @ 8290CD8
 	end
 
 Route103_EventScript_ItemGuardSpec:: @ 8290CE5
-	finditem ITEM_GUARD_SPEC
+	finditem ITEM_PP_UP
 	end
 
 Route103_EventScript_ItemPPUp:: @ 8290CF2
@@ -19,7 +19,7 @@ Route104_EventScript_ItemPokeBall:: @ 8290D0C
 	end
 
 Route104_EventScript_ItemXAccuracy:: @ 8290D19
-	finditem ITEM_X_ACCURACY
+	finditem ITEM_PROTEIN
 	end
 
 Route104_EventScript_ItemPotion:: @ 8290D26
@@ -51,7 +51,7 @@ Route110_EventScript_ItemRareCandy:: @ 8290D74
 	end
 
 Route110_EventScript_ItemDireHit:: @ 8290D81
-	finditem ITEM_DIRE_HIT
+	finditem ITEM_THUNDER_STONE
 	end
 
 Route110_EventScript_ItemElixir:: @ 8290D8E
@@ -127,7 +127,7 @@ Route115_EventScript_ItemPPUp:: @ 8290E6B
 	end
 
 Route116_EventScript_ItemXSpecial:: @ 8290E78
-	finditem ITEM_X_SPECIAL
+	finditem ITEM_ICE_STONE
 	end
 
 Route116_EventScript_ItemEther:: @ 8290E85
@@ -311,11 +311,11 @@ PetalburgCity_EventScript_ItemEther:: @ 82910C1
 	end
 
 MauvilleCity_EventScript_ItemXSpeed:: @ 82910CE
-	finditem ITEM_X_SPEED
+	finditem ITEM_DUSK_STONE
 	end
 
 RustboroCity_EventScript_ItemXDefend:: @ 82910DB
-	finditem ITEM_X_DEFEND
+	finditem ITEM_MOON_STONE
 	end
 
 LilycoveCity_EventScript_ItemMaxRepel:: @ 82910E8
@@ -327,7 +327,7 @@ MossdeepCity_EventScript_ItemNetBall:: @ 82910F5
 	end
 
 PetalburgWoods_EventScript_ItemXAttack:: @ 8291102
-	finditem ITEM_X_ATTACK
+	finditem ITEM_EVERSTONE
 	end
 
 PetalburgWoods_EventScript_ItemGreatBall:: @ 829110F
