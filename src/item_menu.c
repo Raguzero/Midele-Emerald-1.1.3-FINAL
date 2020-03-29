@@ -128,7 +128,7 @@ void sub_81ABAE0(void);
 u8 sub_81AB1F0(u8);
 void sub_81AC23C(u8);
 void BagMenu_MoveCursorCallback(s32 a, bool8 b, struct ListMenu*);
-void PrintItemQuantityPlusGFX(u8 rboxId, s32 item_index_in_pocket, u8 a);
+void PrintItemQuantityPlusGFX(u8 rboxId, s32 item_index_in_pocket, u8 a, u8 listPos);
 void ItemMenu_UseOutOfBattle(u8 taskId);
 void ItemMenu_Toss(u8 taskId);
 void ItemMenu_Register(u8 taskId);
@@ -831,7 +831,7 @@ void BagMenu_MoveCursorCallback(s32 a, bool8 b, struct ListMenu *unused)
     }
 }
 
-void PrintItemQuantityPlusGFX(u8 rboxId, s32 item_index_in_pocket, u8 a)
+void PrintItemQuantityPlusGFX(u8 rboxId, s32 item_index_in_pocket, u8 a, u8 listPos)
 {
     u16 itemId;
     u16 itemQuantity;

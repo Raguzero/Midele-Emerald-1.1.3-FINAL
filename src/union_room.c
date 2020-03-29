@@ -139,10 +139,10 @@ u8 sub_8019BA8(struct UnkStruct_8019BA8 * );
 s32 sub_8017EA0(u8 *dst, u32 gender, u16 *arg2, struct UnkStruct_URoom *arg3);
 void sub_801697C(u8 taskId);
 bool8 sub_8017630(struct UnkStruct_Shared* arg0, const struct UnkStruct_Shared* arg1);
-void sub_8013278(u8 windowId, s32 itemId, u8 y);
-void sub_8013DF4(u8 windowId, s32 itemId, u8 y);
-void sub_8017BE8(u8 windowId, s32 itemId, u8 y);
-void nullsub_14(u8 windowId, s32 itemId, u8 y);
+void sub_8013278(u8 windowId, s32 itemId, u8 y, u8 itemPos);
+void sub_8013DF4(u8 windowId, s32 itemId, u8 y, u8 itemPos);
+void sub_8017BE8(u8 windowId, s32 itemId, u8 y, u8 itemPos);
+void nullsub_14(u8 windowId, s32 itemId, u8 y, u8 itemPos);
 
 #include "data/union_room.h"
 
@@ -693,7 +693,7 @@ bool8 sub_801320C(struct UnkStruct_Leader *data, u32 arg1, u32 arg2)
     return FALSE;
 }
 
-void sub_8013278(u8 arg0, s32 id, u8 arg2)
+void sub_8013278(u8 arg0, s32 id, u8 arg2, u8 itemPos)
 {
     struct UnkStruct_Leader *data = gUnknown_02022C30.leader;
     u8 var = 0;
@@ -1198,7 +1198,7 @@ u8 sub_8013DBC(struct UnkStruct_Group *data, u32 id)
     return 0;
 }
 
-void sub_8013DF4(u8 arg0, s32 id, u8 arg2)
+void sub_8013DF4(u8 arg0, s32 id, u8 arg2, u8 itemPos)
 {
     struct UnkStruct_Group *data = gUnknown_02022C30.group;
     u8 var = sub_8013DBC(data, id);
@@ -3903,7 +3903,7 @@ s32 sub_80179D4(struct UnkStruct_Main0 *arg0, u8 arg1, u8 arg2, u32 playerGender
     }
 }
 
-void nullsub_14(u8 windowId, s32 itemId, u8 y)
+void nullsub_14(u8 windowId, s32 itemId, u8 y, u8 itemPos)
 {
 
 }
@@ -3929,7 +3929,7 @@ void sub_8017B3C(u8 arg0, u8 arg1, struct UnkLinkRfuStruct_02022B14 * arg2, cons
     }
 }
 
-void sub_8017BE8(u8 windowId, s32 itemId, u8 y)
+void sub_8017BE8(u8 windowId, s32 itemId, u8 y, u8 itemPos)
 {
     struct UnkStruct_Leader *leader = gUnknown_02022C30.leader;
     struct UnkLinkRfuStruct_02022B14 *rfu;

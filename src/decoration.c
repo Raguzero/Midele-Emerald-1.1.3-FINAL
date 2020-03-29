@@ -111,7 +111,7 @@ static void ReturnToActionsMenuFromCategories(u8 taskId);
 static void ExitTraderDecorationMenu(u8 taskId);
 static void CopyDecorationMenuItemName(u8 *dest, u16 decoration);
 static void DecorationItemsMenu_OnCursorMove(s32 itemIndex, bool8 flag, struct ListMenu *menu);
-void sub_81274A0(u8 a0, s32 a1, u8 a2);
+void sub_81274A0(u8 a0, s32 a1, u8 a2, u8 listPos);
 static void ShowDecorationItemsWindow(u8 taskId);
 static void HandleDecorationItemsMenuInput(u8 taskId);
 static void PrintDecorationItemDescription(u32 itemIndex);
@@ -877,7 +877,7 @@ static void DecorationItemsMenu_OnCursorMove(s32 itemIndex, bool8 flag, struct L
     PrintDecorationItemDescription(itemIndex);
 }
 
-void sub_81274A0(u8 a0, s32 a1, u8 a2)
+void sub_81274A0(u8 a0, s32 a1, u8 a2, u8 listPos)
 {
     if (a1 != -2)
     {
