@@ -29,10 +29,10 @@ OldaleTown_Mart_ExpandedItems:: @ 81FC26C
 
 	.align 2
 OldaleTown_Mart_Pokemart_Expanded: @ 81FC27C
-	.2byte ITEM_MASTER_BALL
+	.2byte ITEM_ACRO_BIKE
 	.2byte ITEM_EON_FLUTE
-	.2byte ITEM_HP_UP
-	.2byte ITEM_ICE_STONE
+	.2byte ITEM_SUPER_ROD
+	.2byte ITEM_MACH_BIKE
 	.2byte ITEM_SHINY_STONE
 	.2byte ITEM_NONE
 	release
