@@ -1841,3 +1841,4 @@ const u8 gText_PsychicType[] = _("PSYCHIC");
 const u8 gText_IceType[] = _("ICE");
 const u8 gText_DragonType[] = _("DRAGON");
 const u8 gText_DarkType[] = _("DARK");
+const u8 gText_FairyType[] = _("FAIRY");

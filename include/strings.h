@@ -2969,5 +2969,6 @@ extern const u8 gText_PsychicType[];
 extern const u8 gText_IceType[];
 extern const u8 gText_DragonType[];
 extern const u8 gText_DarkType[];
+extern const u8 gText_FairyType[];
 
 #endif // GUARD_STRINGS_H
