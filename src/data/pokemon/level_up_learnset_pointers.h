@@ -486,5 +486,14 @@ const u16 *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_GROOKEY] = sGrookeyLevelUpLearnset,
     [SPECIES_THWACKEY] = sThwackeyLevelUpLearnset,
     [SPECIES_RILLABOOM] = sRillaboomLevelUpLearnset,
+	[SPECIES_MEGA_SABLEYE] = sMega_SableyeLevelUpLearnset,
+    [SPECIES_MEGA_ALTARIA] = sMega_AltariaLevelUpLearnset,
+    [SPECIES_MEGA_ABSOL] = sMega_AbsolLevelUpLearnset,
+    [SPECIES_GOLETT] = sGolettLevelUpLearnset,
+    [SPECIES_GOLURK] = sGolurkLevelUpLearnset,
+    [SPECIES_TYRUNT] = sTyruntLevelUpLearnset,
+    [SPECIES_TYRANTRUM] = sTyrantrumLevelUpLearnset,
+    [SPECIES_AMAURA] = sAmauraLevelUpLearnset,
+    [SPECIES_AURORUS] = sAurorusLevelUpLearnset,
 // NUEVO PARA FORMAS ALOLA
 };

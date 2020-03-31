@@ -2423,6 +2423,51 @@ const struct MonCoords gMonFrontPicCoords[] =
         .size = 0x77,
         .y_offset = 0x07,
     },
+   [SPECIES_MEGA_SABLEYE] =
+    {
+        .size = 0,
+        .y_offset = 7,
+    },
+    [SPECIES_MEGA_ALTARIA] =
+    {
+        .size = 0,
+        .y_offset = 0,
+    },
+    [SPECIES_MEGA_ABSOL] =
+    {
+        .size = 0,
+        .y_offset = 5,
+    },
+    [SPECIES_GOLETT] =
+    {
+        .size = 0x45,
+        .y_offset = 0x7,
+    },
+    [SPECIES_GOLURK] =
+    {
+        .size = 0x45,
+        .y_offset = 0x0,
+    },
+    [SPECIES_TYRUNT] =
+    {
+        .size = 0x45,
+        .y_offset = 0x0B,
+    },
+    [SPECIES_TYRANTRUM] =
+    {
+        .size = 0x45,
+        .y_offset = 0x00,
+    },
+    [SPECIES_AMAURA] =
+    {
+        .size = 0x45,
+        .y_offset = 0x08,
+    },
+    [SPECIES_AURORUS] =
+    {
+        .size = 0x45,
+        .y_offset = 0x00,
+    },
     [SPECIES_EGG] =
     {
         .size = 0x33,

@@ -2583,3 +2583,59 @@ const u8 gRillaboomPokedexText[] = _(
     "It has a gentle disposition\n"
     "and values harmony among its group.");
 
+const u8 gMega_SableyePokedexText[] = _(
+    "It digs branching holes in caves using its\n"
+    "sharp claws in search of food--raw gems.\n"
+    "A SABLEYE lurks in darkness and is seen\n"
+    "only rarely.");
+
+const u8 gMega_AltariaPokedexText[] = _(
+    "It hums in a beautiful soprano voice.\n"
+    "It flies among white clouds in the blue\n"
+    "sky. It launches intensely hot fireballs\n"
+    "from its mouth.");
+
+const u8 gMega_AbsolPokedexText[] = _(
+    "It sharply senses even subtle changes in\n"
+    "the sky and the land to predict natural\n"
+    "disasters. It is a long-lived POKéMON that\n"
+    "has a life-span of 100 years.");
+
+const u8 gGolettPokedexText[] = _(
+    "These Pokémon are thought to have\n"
+    "been created by the science of an\n"
+    "ancient and mysterious civilization.\n"
+    "It's been active for thousands of years.");
+
+const u8 gGolurkPokedexText[] = _(
+    "Golurk were created to protect people\n"
+    "and Pokémon by an ancient civilisation.\n"
+    "Removing the seal on its chest makes its\n"
+    "internal energy go out of control.");
+	
+const u8 gTyruntPokedexText[] = _(
+    "Its immense jaws have enough destructive\n"
+    "force that it can chew up a car. If\n"
+    "something happens that it doesn't like,\n"
+    "it throws a tantrum and runs wild.");
+
+const u8 gTyrantrumPokedexText[] = _(
+    "Thanks to its gargantuan jaws, which could\n"
+    "shred thick metal plates as if they were\n"
+    "paper, it was invincible in the ancient\n"
+    "world it once inhabited.");
+
+const u8 gAmauraPokedexText[] = _(
+    "This ancient Pokémon was restored from\n"
+    "part of its body that had been frozen in\n"
+    "ice for over 100 million years. It lived in a\n"
+    "cold land where there were no predators.");
+
+const u8 gAurorusPokedexText[] = _(
+    "Using the diamond-shaped crystals on its\n"
+    "body it can instantly create a wall of ice\n"
+    "to block an opponent's attack, or encase\n"
+    "them in ice.");
+
+
+

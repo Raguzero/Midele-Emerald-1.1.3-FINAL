@@ -5146,4 +5146,108 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 256,
         .trainerOffset = 0,
     },
+    [NATIONAL_DEX_MEGA_SABLEYE] =
+    {
+        .categoryName = _("DARKNESS"),
+        .height = 5,
+        .weight = 110,
+        .description = gMega_SableyePokedexText,
+        .pokemonScale = 451,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_MEGA_ALTARIA] =
+    {
+        .categoryName = _("HUMMING"),
+        .height = 11,
+        .weight = 206,
+        .description = gMega_AltariaPokedexText,
+        .pokemonScale = 327,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+    [NATIONAL_DEX_MEGA_ABSOL] =
+    {
+        .categoryName = _("DISASTER"),
+        .height = 12,
+        .weight = 470,
+        .description = gMega_AbsolPokedexText,
+        .pokemonScale = 301,
+        .pokemonOffset = 3,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+	[NATIONAL_DEX_GOLETT] =
+	{
+		.categoryName = _("Automaton"),
+		.height = 10,
+		.weight = 920,
+		.description = gGolettPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_GOLURK] =
+	{
+		.categoryName = _("Automaton"),
+		.height = 28,
+		.weight = 3300,
+		.description = gGolurkPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	[NATIONAL_DEX_TYRUNT] =
+	{
+		.categoryName = _("Royal Heir"),
+		.height = 8,
+		.weight = 260,
+		.description = gTyruntPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_TYRANTRUM] =
+	{
+		.categoryName = _("Despot"),
+		.height = 25,
+		.weight = 2700,
+		.description = gTyrantrumPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_AMAURA] =
+	{
+		.categoryName = _("Tundra"),
+		.height = 13,
+		.weight = 252,
+		.description = gAmauraPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_AURORUS] =
+	{
+		.categoryName = _("Tundra"),
+		.height = 27,
+		.weight = 2250,
+		.description = gAurorusPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
 };
