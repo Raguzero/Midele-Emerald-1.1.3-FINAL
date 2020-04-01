@@ -1478,7 +1478,9 @@ static void MoveSelectionDisplayPpNumber(void)
 static void MoveSelectionDisplayMoveType(void)
 {
     u8 *txtPtr;
+    u32 moveIndex;
     struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct*)(&gBattleBufferA[gActiveBattler][4]);
+    struct Pokemon *monCurrent;
 
     txtPtr = StringCopy(gDisplayedStringBattle, gText_MoveInterfaceType);
     txtPtr[0] = EXT_CTRL_CODE_BEGIN;
@@ -1488,7 +1490,15 @@ static void MoveSelectionDisplayMoveType(void)
     txtPtr[0] = 1;
     txtPtr++;
 
-    StringCopy(txtPtr, gTypeNames[gBattleMoves[moveInfo->moves[gMoveSelectionCursor[gActiveBattler]]].type]);
+    moveIndex = moveInfo->moves[gMoveSelectionCursor[gActiveBattler]];
+    if (moveIndex == MOVE_HIDDEN_POWER)
+    {
+        monCurrent = &gPlayerParty[gBattlerPartyIndexes[gActiveBattler]];
+        StringCopy(txtPtr, gTypeNames[monCurrent->box.unused]);
+    } else
+    {
+        StringCopy(txtPtr, gTypeNames[gBattleMoves[moveIndex].type]);
+    }
     BattlePutTextOnWindow(gDisplayedStringBattle, 10);
 }
 
