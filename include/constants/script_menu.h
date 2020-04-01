@@ -65,7 +65,7 @@
 #define MULTI_RIGHTLEFT                    54
 #define MULTI_GAME_CORNER_TMS              55
 #define MULTI_SSTIDAL_SLATEPORT_NO_BF      56
-#define MULTI_FLOORS                       57 
+#define MULTI_FLOORS                       57
 #define MULTI_SHARDS_R                     58
 #define MULTI_SHARDS_Y                     59
 #define MULTI_SHARDS_RY                    60
@@ -82,9 +82,9 @@
 #define MULTI_SHARDS_YBG                   71
 #define MULTI_SHARDS_RYBG                  72
 #define MULTI_TOURNEY_WITH_RECORD          73
-#define MULTI_CABLE_CLUB_NO_RECORD_MIX     74 
+#define MULTI_CABLE_CLUB_NO_RECORD_MIX     74
 #define MULTI_WIRELESS_NO_RECORD_BERRY     75
-#define MULTI_CABLE_CLUB_WITH_RECORD_MIX   76 
+#define MULTI_CABLE_CLUB_WITH_RECORD_MIX   76
 #define MULTI_WIRELESS_NO_BERRY            77
 #define MULTI_WIRELESS_NO_RECORD           78
 #define MULTI_WIRELESS_ALL_SERVICES        79
@@ -122,6 +122,7 @@
 #define MULTI_SLATEPORT_TENT_RULES         111
 #define MULTI_FALLARBOR_TENT_RULES         112
 #define MULTI_TAG_MATCH_TYPE               113
+#define MULTI_MIDELE_HIDDEN_POWER_TYPES    114
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0

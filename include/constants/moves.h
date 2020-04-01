@@ -369,4 +369,7 @@
 
 #define MOVES_COUNT 365
 
+// NUEVO: Poder de Hidden Power
+#define MOVE_HIDDEN_POWER_DMG 70
+
 #endif  // GUARD_CONSTANTS_MOVES_H

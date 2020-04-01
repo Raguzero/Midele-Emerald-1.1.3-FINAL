@@ -5628,7 +5628,7 @@ static void Cmd_handlelearnnewmove(void)
 // NUEVO EVOLUTION MOVES
 //    u16 learnMove = MonTryLearningNewMove(&gPlayerParty[gBattleStruct->expGetterMonId], gBattlescriptCurrInstr[9]);
   u16 learnMove = MonTryLearningNewMove(&gPlayerParty[gBattleStruct->expGetterMonId], gBattlescriptCurrInstr[9], FALSE);
-// NUEVO EVOLUTION MOVES  
+// NUEVO EVOLUTION MOVES
  while (learnMove == MON_ALREADY_KNOWS_MOVE)
 	 // NUEVO EVOLUTION MOVES
   //      learnMove = MonTryLearningNewMove(&gPlayerParty[gBattleStruct->expGetterMonId], FALSE);
@@ -9087,11 +9087,15 @@ static void Cmd_hiddenpowercalc(void)
 {
     u8 powerBits;
     u8 typeBits;
-struct Pokemon *monAttacker;
-    // Poder base de poder oculto es siempre 70
-    gDynamicBasePower = 70;
-
-    // El tipo depende del Pokémon
+    struct Pokemon *monAttacker;
+    // Poder base de poder oculto
+    gDynamicBasePower = MOVE_HIDDEN_POWER_DMG;
+    
+    if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
+        monAttacker = &gPlayerParty[gBattlerPartyIndexes[gBattlerAttacker]];
+    else
+        monAttacker = &gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker]];
+    // El tipo depende del Pokémon (se genera aleatoriamente al obtenerlo)
     gBattleStruct->dynamicMoveType = monAttacker->box.unused;
     gBattlescriptCurrInstr++;
 }

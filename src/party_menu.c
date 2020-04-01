@@ -2130,7 +2130,7 @@ static void DrawEmptySlot(u8 windowId)
     LoadPalette(GetPartyMenuPalBufferPtr(paletteIds[0]), paletteOffsets[0] + palNum, 2);  \
     LoadPalette(GetPartyMenuPalBufferPtr(paletteIds[1]), paletteOffsets[1] + palNum, 2);  \
     LoadPalette(GetPartyMenuPalBufferPtr(paletteIds[2]), paletteOffsets[2] + palNum, 2);  \
-}                                                                                         
+}
 
 static void LoadPartyBoxPalette(struct PartyMenuBox *menuBox, u8 palFlags)
 {
@@ -2911,7 +2911,7 @@ static void Task_SlideSelectedSlotsOnscreen(u8 taskId)
 
     SlidePartyMenuBoxOneStep(taskId);
     SlidePartyMenuBoxSpritesOneStep(taskId);
-    
+
     // Both slots have slid back onscreen
     if (tSlot1SlideDir == 0 && tSlot2SlideDir == 0)
     {
@@ -3108,7 +3108,7 @@ static void Task_HandleSwitchItemsYesNoInput(u8 taskId)
     {
     case 0: // Yes, switch items
         RemoveBagItem(gSpecialVar_ItemId, 1);
-        
+
         // No room to return held item to bag
         if (AddBagItem(sPartyMenuItemId, 1) == FALSE)
         {
@@ -5475,7 +5475,7 @@ static void RemoveItemToGiveFromBag(u16 item)
 // but there always should be, and the return is ignored in all uses
 static bool8 ReturnGiveItemToBagOrPC(u16 item)
 {
-    if (gPartyMenu.action == PARTY_ACTION_GIVE_ITEM) 
+    if (gPartyMenu.action == PARTY_ACTION_GIVE_ITEM)
         return AddBagItem(item, 1);
     else
         return AddPCItem(item, 1);
@@ -6469,3 +6469,9 @@ void ItemUseCB_AbilityCapsule(u8 taskId, TaskFunc task)
     gTasks[taskId].func = Task_AbilityCapsule;
 }
 
+// NUEVO: Menú hidden power
+// Change selected mon hidden power type
+void MideleChangeSelectedMonHiddenPowerType(void) {
+    u8 type = gSpecialVar_0x8005;
+    (&gPlayerParty[gSpecialVar_0x8004])->box.unused = type;
+}

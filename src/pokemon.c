@@ -2382,7 +2382,8 @@ static const u8 gHiddenPowerTypes[NUMBER_OF_MON_TYPES - 1] = {
     TYPE_PSYCHIC,
     TYPE_ICE,
     TYPE_DRAGON,
-    TYPE_DARK
+    TYPE_DARK,
+    TYPE_FAIRY
 };
 
 // code
@@ -2482,6 +2483,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     u32 personality;
     u32 value;
     u16 checksum;
+    u8 hiddenPowerType;
 
     ZeroBoxMonData(boxMon);
 
@@ -2492,7 +2494,8 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
 
     SetBoxMonData(boxMon, MON_DATA_PERSONALITY, &personality);
 
-	boxMon->unused = GetRandomType();
+    hiddenPowerType = GetRandomType();
+    boxMon->unused = hiddenPowerType;
 
     //Determine original trainer ID
     if (otIdType == OT_ID_RANDOM_NO_SHINY) //Pokemon cannot be shiny
@@ -7300,6 +7303,11 @@ u8 GetLevelCap()
 // NUEVO PARA LEVEL CAP BADGE
 
 u8 GetRandomType() {
-    u32 random = Random32() % (NUMBER_OF_MON_TYPES - 1);
-    return gHiddenPowerTypes[random];
+    u32 random;
+    u8 randomType;
+    random = Random32();
+    random = random % (NUMBER_OF_MON_TYPES - 1);
+    randomType = gHiddenPowerTypes[random];
+
+    return randomType;
 }
