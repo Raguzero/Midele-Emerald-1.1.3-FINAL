@@ -186,6 +186,7 @@ static EWRAM_DATA struct MideleSummaryData {
     u8 skillsPageState; // Decide qué mostrar al pulsar A
     // **
 } *sMideleData = NULL;
+static EWRAM_DATA u8 sMideleHiddenPowerType = 0;
 ALIGNED(4) static EWRAM_DATA u8 sUnknownTaskId = 0;
 
 struct UnkStruct_61CC04
@@ -1458,6 +1459,7 @@ static bool8 ExtractMonDataToSummaryStruct(struct Pokemon *mon)
         sMideleData->spatkIV = GetMonData(mon, MON_DATA_SPATK_IV);
         sMideleData->spdefIV = GetMonData(mon, MON_DATA_SPDEF_IV);
         sMideleData->speedIV = GetMonData(mon, MON_DATA_SPEED_IV);
+        sMideleHiddenPowerType = mon->box.unused;
         //**
         break;
     case 3:
@@ -3901,9 +3903,20 @@ static void SetMoveTypeIcons(void)
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
         if (summary->moves[i] != MOVE_NONE)
-            SetMoveTypeSpritePosAndType(gBattleMoves[summary->moves[i]].type, 0x55, 0x20 + (i * 0x10), i + 3);
+        {
+            if (summary->moves[i] == MOVE_HIDDEN_POWER)
+            {
+                SetMoveTypeSpritePosAndType(sMideleHiddenPowerType, 0x55, 0x20 + (i * 0x10), i + 3);
+            }
+            else
+            {
+                SetMoveTypeSpritePosAndType(gBattleMoves[summary->moves[i]].type, 0x55, 0x20 + (i * 0x10), i + 3);
+            }
+        }
         else
+        {
             SetSpriteInvisibility(i + 3, TRUE);
+        }
     }
 }
 
