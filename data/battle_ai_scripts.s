@@ -1308,8 +1308,18 @@ AI_CV_EvasionDown3:
 	if_hp_more_than AI_TARGET, 70, AI_CV_EvasionDown_End
 	score -2
 
+AI_CV_EvasionDown_4:
+	if_stat_level_less_than AI_USER, STAT_ACC, 6, AI_CV_EvasionDown_5
+	if_stat_level_less_than AI_TARGET, STAT_EVASION, 7, AI_CV_EvasionDown_6
+	if_ability AI_USER, ABILITY_NO_GUARD, AI_CV_EvasionDown_6
 AI_CV_EvasionDown_End:
 	end
+AI_CV_EvasionDown_5:
+	score +1
+	goto AI_CV_EvasionDown_End
+AI_CV_EvasionDown_6:
+	score -2
+	goto AI_CV_EvasionDown_End
 
 AI_CV_Haze:
 	if_stat_level_more_than AI_USER, STAT_ATK, 8, AI_CV_Haze2

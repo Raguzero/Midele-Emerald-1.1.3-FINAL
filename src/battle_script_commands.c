@@ -1064,7 +1064,13 @@ static bool8 AccuracyCalcHelper(u16 move)
         JumpIfMoveFailed(7, move);
         return TRUE;
     }
-
+// NO GUARD
+ if (gBattleMons[gBattlerTarget].ability == ABILITY_NO_GUARD || gBattleMons[gBattlerAttacker].ability == ABILITY_NO_GUARD)
+    {
+        JumpIfMoveFailed(7, move);
+        return TRUE;
+    }
+// NO GUARD
     if (!(gHitMarker & HITMARKER_IGNORE_ON_AIR) && gStatuses3[gBattlerTarget] & STATUS3_ON_AIR)
     {
         gMoveResultFlags |= MOVE_RESULT_MISSED;
