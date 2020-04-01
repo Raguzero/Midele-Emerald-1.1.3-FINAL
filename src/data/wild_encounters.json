@@ -4611,17 +4611,17 @@
                             {
                                 "max_level": 4,
                                 "min_level": 2,
-                                "species": "SPECIES_AURORUS"
+                                "species": "SPECIES_GALAR_ZIGZAGOON"
                             },
                             {
                                 "max_level": 4,
                                 "min_level": 2,
-                                "species": "SPECIES_TYRUNT"
+                                "species": "SPECIES_POOCHYENA"
                             },
                             {
                                 "max_level": 4,
                                 "min_level": 2,
-                                "species": "SPECIES_TYRANTRUM"
+                                "species": "SPECIES_ZIGZAGOON"
                             },
                             {
                                 "max_level": 4,
@@ -4735,17 +4735,17 @@
                             {
                                 "max_level": 4,
                                 "min_level": 3,
-                                "species": "SPECIES_GOLETT"
+                                "species": "SPECIES_POOCHYENA"
                             },
                             {
                                 "max_level": 3,
                                 "min_level": 3,
-                                "species": "SPECIES_GOLURK"
+                                "species": "SPECIES_GALAR_ZIGZAGOON"
                             },
                             {
                                 "max_level": 4,
                                 "min_level": 4,
-                                "species": "SPECIES_AMAURA"
+                                "species": "SPECIES_JIGGLYPUFF"
                             },
                             {
                                 "max_level": 4,
