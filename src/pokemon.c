@@ -3470,10 +3470,13 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         attack *= 2;
     if (defender->ability == ABILITY_THICK_FAT && (type == TYPE_FIRE || type == TYPE_ICE))
         spAttack /= 2;
+	// BUFF FORECAST
 	if (attacker->ability == ABILITY_FORECAST && ((gBattleWeather & WEATHER_SUN_ANY) 
 		|| (gBattleWeather & WEATHER_RAIN_ANY)
-	    || (gBattleWeather & WEATHER_HAIL_ANY)))
+	    || (gBattleWeather & WEATHER_HAIL_ANY))
+		&& attacker->species == SPECIES_CASTFORM)
        spAttack = (150 * spAttack) / 100;
+	 	// BUFF FORECAST
 	if (attacker->ability == ABILITY_HUSTLE)
         attack = (150 * attack) / 100;
     if (attacker->ability == ABILITY_PLUS && ABILITY_ON_FIELD2(ABILITY_MINUS))
