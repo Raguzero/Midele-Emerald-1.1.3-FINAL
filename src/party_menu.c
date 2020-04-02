@@ -6475,3 +6475,51 @@ void MideleChangeSelectedMonHiddenPowerType(void) {
     u8 type = gSpecialVar_0x8005;
     (&gPlayerParty[gSpecialVar_0x8004])->box.unused = type;
 }
+
+// NUEVO: añade todos los Pokémon en las cajas.
+bool8 GiveAllMons(void)
+{
+    u16 species;
+    u16 boxNum = 0;
+    u16 boxPosition = 0;
+
+    for (species = 1; species < NUM_SPECIES; species++)
+    {
+        if (species == SPECIES_OLD_UNOWN_B)
+            species += 25; //assumes OLD_UNOWN are continuous
+
+        while (GetBoxMonData(&gPokemonStoragePtr->boxes[boxNum][boxPosition], MON_DATA_SPECIES) != SPECIES_NONE)
+        {
+            boxPosition++;
+            if (boxPosition == IN_BOX_COUNT) {
+                boxPosition = 0;
+
+                boxNum++;
+                if (boxNum == TOTAL_BOXES_COUNT)
+                    return FALSE;
+            }
+        }
+        CreateBoxMonAt(boxNum, boxPosition, species, 100, 0, 0, 0, 0, 0);
+    }
+    return TRUE;
+}
+
+// NUEVO: da todos los objetos en el PC y todas las MT y objetos clave al jugador
+void GiveAllItems(void) {
+    u16 i;
+    for (i = 1; i < ITEMS_COUNT; i++) {
+        AddPCItem(i, 1);
+    }
+
+    for (i = ITEM_MACH_BIKE; i <= ITEM_METEORITE; i++) {
+        AddBagItem(i, 1);
+    }
+    for (i =  ITEM_TM01; i <= ITEM_HM08; i++) {
+        AddBagItem(i, 1);
+    }
+    AddBagItem(ITEM_MYSTIC_TICKET, 1);
+    AddBagItem(ITEM_AURORA_TICKET, 1);
+    AddBagItem(ITEM_OLD_SEA_MAP, 1);
+
+
+}
