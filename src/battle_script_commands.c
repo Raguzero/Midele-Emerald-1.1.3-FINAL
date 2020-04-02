@@ -9085,12 +9085,16 @@ static void Cmd_recoverbasedonsunlight(void)
 
 static void Cmd_hiddenpowercalc(void)
 {
-    u8 powerBits;
-    u8 typeBits;
     struct Pokemon *monAttacker;
     // Poder base de poder oculto
-    gDynamicBasePower = MOVE_HIDDEN_POWER_DMG;
-    
+    if (gBattleMons[gBattlerAttacker].ability == ABILITY_TECHNICIAN)
+    {
+        gDynamicBasePower = MOVE_HIDDEN_POWER_DMG_TECHNICIAN;
+    } else
+    {
+        gDynamicBasePower = MOVE_HIDDEN_POWER_DMG;
+    }
+
     if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
         monAttacker = &gPlayerParty[gBattlerPartyIndexes[gBattlerAttacker]];
     else
