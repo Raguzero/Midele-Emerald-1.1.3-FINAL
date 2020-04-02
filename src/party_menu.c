@@ -6511,13 +6511,15 @@ void GiveAllItems(void) {
         AddPCItem(i, 1);
     }
 
-    for (i = ITEM_MACH_BIKE; i <= ITEM_HM08; i++) {
+    for (i = ITEM_MACH_BIKE; i <= ITEM_METEORITE; i++) {
         AddBagItem(i, 1);
     }
-
-    for (i = ITEM_OAKS_PARCEL; i < ITEMS_COUNT; i++) {
+    for (i =  ITEM_TM01; i <= ITEM_HM08; i++) {
         AddBagItem(i, 1);
     }
+    AddBagItem(ITEM_MYSTIC_TICKET, 1);
+    AddBagItem(ITEM_AURORA_TICKET, 1);
+    AddBagItem(ITEM_OLD_SEA_MAP, 1);
 
 
 }
