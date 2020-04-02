@@ -6503,3 +6503,21 @@ bool8 GiveAllMons(void)
     }
     return TRUE;
 }
+
+// NUEVO: da todos los objetos en el PC y todas las MT y objetos clave al jugador
+void GiveAllItems(void) {
+    u16 i;
+    for (i = 1; i < ITEMS_COUNT; i++) {
+        AddPCItem(i, 1);
+    }
+
+    for (i = ITEM_MACH_BIKE; i <= ITEM_HM08; i++) {
+        AddBagItem(i, 1);
+    }
+
+    for (i = ITEM_OAKS_PARCEL; i < ITEMS_COUNT; i++) {
+        AddBagItem(i, 1);
+    }
+
+
+}

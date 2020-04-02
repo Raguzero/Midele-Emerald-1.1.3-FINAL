@@ -92,5 +92,6 @@ void GetNumMovesSelectedMonHas(void);
 void MoveDeleterChooseMoveToForget(void);
 void MideleChangeSelectedMonHiddenPowerType(void);
 bool8 GiveAllMons(void);
+void GiveAllItems(void);
 
 #endif // GUARD_PARTY_MENU_H
