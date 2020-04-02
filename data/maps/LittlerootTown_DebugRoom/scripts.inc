@@ -78,6 +78,11 @@ LittlerootTown_DebugRoom_Script_DesactivarMedallas::
     clearflag FLAG_BADGE08_GET
     end
 
+@ Leaf te reta a un combate
+LittlerootTown_DebugRoom_Script_Combate::
+    trainerbattle_single TRAINER_DEBUG, DebugCombateTextInicio, DebugCombateTextFin
+    end
+
 @ Snorlax vende todos los objetos
 LittlerootTown_DebugRoom_Script_Vendedor::
     lock
@@ -426,3 +431,9 @@ DebugShop::
     .2byte ITEM_NONE
     release
     end
+
+DebugCombateTextInicio::
+    .string "¿?!1¡áéíóúñç$"
+
+DebugCombateTextFin::
+    .string ":D :3 :) n.n o.o uwu$"

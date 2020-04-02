@@ -12797,3 +12797,28 @@ static const struct TrainerMonNoItemDefaultMoves sParty_MayLinkPlaceholder[] = {
     .species = SPECIES_KYOGRE,
     }
 };
+
+static const struct TrainerMonCustomMidele sParty_Debug[] = {
+        {
+        .lvl = 100,
+        .iv = 31,
+        .evs = {6, 252, 252, 0, 0, 0},
+        .species = SPECIES_HO_OH,
+        .moves = {MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .heldItem = ITEM_LEFTOVERS,
+        .ability = 0,
+        .shiny = 1,
+        .friendship = 255
+        },
+        {
+        .lvl = 100,
+        .iv = 31,
+        .evs = {6, 252, 252, 0, 0, 0},
+        .species = SPECIES_LUGIA,
+        .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .heldItem = ITEM_LEFTOVERS,
+        .ability = 0,
+        .shiny = 1,
+        .friendship = 0
+        }
+};
