@@ -4409,6 +4409,16 @@
             "primary_tileset": "gTileset_Building",
             "secondary_tileset": "gTileset_MysteryEventsHouse",
             "width": 11
+        },
+        {
+            "blockdata_filepath": "data/layouts/LittlerootTown_DebugRoom/map.bin",
+            "border_filepath": "data/layouts/LittlerootTown_DebugRoom/border.bin",
+            "height": 8,
+            "id": "LAYOUT_LITTLEROOT_TOWN_DEBUG_ROOM",
+            "name": "LittlerootTown_DebugRoom_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_InsideOfTruck",
+            "width": 8
         }
     ],
     "layouts_table_label": "gMapLayouts"
