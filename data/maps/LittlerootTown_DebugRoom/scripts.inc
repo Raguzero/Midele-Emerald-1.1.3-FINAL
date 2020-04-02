@@ -22,6 +22,12 @@ LittlerootTown_DebugRoom_Script_ActivarTodo::
     setflag FLAG_HAS_EON_TICKET
     setflag FLAG_HAS_AURORA_TICKET
     setflag FLAG_HAS_OLD_SEA_MAP
+    setflag FLAG_SYS_HAS_EON_TICKET
+    setflag FLAG_ENABLE_SHIP_BIRTH_ISLAND
+    setflag FLAG_ENABLE_SHIP_FARAWAY_ISLAND
+    setflag FLAG_ENABLE_SHIP_NAVEL_ROCK
+    setflag FLAG_SYS_GAME_CLEAR
+    setflag FLAG_SYS_B_DASH
     setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
     setflag FLAG_ADVENTURE_STARTED
     setflag FLAG_DEFEATED_RUSTBORO_GYM
@@ -60,6 +66,7 @@ LittlerootTown_DebugRoom_Script_ActivarTodo::
 
 @ Magnemite desactiva eventos
 LittlerootTown_DebugRoom_Script_DesactivarMedallas::
+    clearflag FLAG_SYS_GAME_CLEAR
     clearflag FLAG_DEFEATED_RUSTBORO_GYM
     clearflag FLAG_DEFEATED_DEWFORD_GYM
     clearflag FLAG_DEFEATED_MAUVILLE_GYM
