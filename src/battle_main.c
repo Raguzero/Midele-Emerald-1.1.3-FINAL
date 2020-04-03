@@ -4723,6 +4723,13 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
 	if (gBattleMons[battler1].item == ITEM_STICK && gBattleMons[battler1].species == SPECIES_FARFETCHD)
         speedBattler1 *= 1.5;
 
+	// BUFF FORECAST
+	 	if (gBattleMons[battler1].ability == ABILITY_FORECAST && ((gBattleWeather & WEATHER_RAIN_ANY)
+	|| (gBattleWeather & WEATHER_SUN_ANY) || (gBattleWeather & WEATHER_HAIL_ANY))
+	&& gBattleMons[battler1].species == SPECIES_CASTFORM)
+           speedBattler1 *= 1.5;
+	// BUFF FORECAST	
+
     if (holdEffect == HOLD_EFFECT_MACHO_BRACE)
         speedBattler1 /= 2;
 
@@ -4751,6 +4758,13 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
 
 	if (gBattleMons[battler2].item == ITEM_STICK && gBattleMons[battler2].species == SPECIES_FARFETCHD)
         speedBattler2 *= 1.5;
+
+	// BUFF FORECAST
+	if (gBattleMons[battler2].ability == ABILITY_FORECAST && ((gBattleWeather & WEATHER_RAIN_ANY)
+	|| (gBattleWeather & WEATHER_SUN_ANY) || (gBattleWeather & WEATHER_HAIL_ANY))
+	&& gBattleMons[battler2].species == SPECIES_CASTFORM)
+            speedBattler2 *= 1.5;
+	// BUFF FORECAST
 
     if (holdEffect == HOLD_EFFECT_MACHO_BRACE)
         speedBattler2 /= 2;

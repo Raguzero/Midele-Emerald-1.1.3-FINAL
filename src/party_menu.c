@@ -6483,7 +6483,7 @@ bool8 GiveAllMons(void)
     u16 boxNum = 0;
     u16 boxPosition = 0;
 
-    for (species = 1; species < NUM_SPECIES; species++)
+    for (species = 75; species < NUM_SPECIES; species++)
     {
         if (species == SPECIES_OLD_UNOWN_B)
             species += 25; //assumes OLD_UNOWN are continuous
@@ -6499,7 +6499,7 @@ bool8 GiveAllMons(void)
                     return FALSE;
             }
         }
-        CreateBoxMonAt(boxNum, boxPosition, species, 100, 0, 0, 0, 0, 0);
+        CreateBoxMonAt(boxNum, boxPosition, species, 100, 31, 0, 0, 0, 0);
     }
     return TRUE;
 }
