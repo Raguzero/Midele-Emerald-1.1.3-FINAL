@@ -2080,8 +2080,9 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
                 for (j = 0; j < MAX_MON_MOVES; j++)
                 {
+                    u8 maxPp = CalculatePPWithBonus(partyData[i].moves[j], 3, 0);
                     SetMonData(&party[i], MON_DATA_MOVE1 + j, &partyData[i].moves[j]);
-                    SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
+                    SetMonData(&party[i], MON_DATA_PP1 + j, &maxPp);
                 }
                 break;
             }
@@ -4726,9 +4727,9 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
 	 	if (gBattleMons[battler1].ability == ABILITY_FORECAST && ((gBattleWeather & WEATHER_RAIN_ANY)
 	|| (gBattleWeather & WEATHER_SUN_ANY) || (gBattleWeather & WEATHER_HAIL_ANY))
 	&& gBattleMons[battler1].species == SPECIES_CASTFORM)
-           speedBattler1 *= 1.5; 
+           speedBattler1 *= 1.5;
 	// BUFF FORECAST	
-	
+
     if (holdEffect == HOLD_EFFECT_MACHO_BRACE)
         speedBattler1 /= 2;
 
@@ -4754,7 +4755,7 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
         holdEffect = ItemId_GetHoldEffect(gBattleMons[battler2].item);
         holdEffectParam = ItemId_GetHoldEffectParam(gBattleMons[battler2].item);
     }
-	
+
 	if (gBattleMons[battler2].item == ITEM_STICK && gBattleMons[battler2].species == SPECIES_FARFETCHD)
         speedBattler2 *= 1.5;
 
@@ -4763,7 +4764,7 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
 	|| (gBattleWeather & WEATHER_SUN_ANY) || (gBattleWeather & WEATHER_HAIL_ANY))
 	&& gBattleMons[battler2].species == SPECIES_CASTFORM)
             speedBattler2 *= 1.5;
-	// BUFF FORECAST	
+	// BUFF FORECAST
 
     if (holdEffect == HOLD_EFFECT_MACHO_BRACE)
         speedBattler2 /= 2;

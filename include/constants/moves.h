@@ -371,5 +371,6 @@
 
 // NUEVO: Poder de Hidden Power
 #define MOVE_HIDDEN_POWER_DMG 70
+#define MOVE_HIDDEN_POWER_DMG_TECHNICIAN 60
 
 #endif  // GUARD_CONSTANTS_MOVES_H
