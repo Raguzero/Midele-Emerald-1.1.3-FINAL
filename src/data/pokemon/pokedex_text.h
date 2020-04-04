@@ -2637,5 +2637,72 @@ const u8 gAurorusPokedexText[] = _(
     "to block an opponent's attack, or encase\n"
     "them in ice.");
 
+const u8 gDeinoPokedexText[] = _(
+    "Lacking sight, it's unaware of its\n"
+    "surroundings, so it bumps into things and\n"
+    "eats anything that moves. Approaching\n"
+    "it carelessly is dangerous.");
+
+const u8 gZweilousPokedexText[] = _(
+    "After it has eaten up all the food in its\n"
+    "territory, it moves on to another area.\n"
+    "Whichever head eats more than the other\n"
+    "gets to be the leader.");
+
+const u8 gHydreigonPokedexText[] = _(
+    "This brutal Pokémon travels the skies on\n"
+    "its six wings. The heads on their arms do\n"
+    "not have brains. They use all three heads\n"
+    "to consume and destroy everything.");
+
+const u8 gJangmooPokedexText[] = _(
+    "It expresses its feelings by smacking its\n"
+    "scales. Metallic sounds echo through the\n"
+    "tall mountains where Jangmo-o live. They\n"
+    "grow little by little battling one another.");
+
+const u8 gHakamooPokedexText[] = _(
+    "It sheds and regrows its scales on a\n"
+    "continuous basis. The scales become\n"
+    "harder each time they're regrown. Its\n"
+    "scaly punches tear its foes to shreds.");
+
+const u8 gKommooPokedexText[] = _(
+    "Its rigid scales function as offense and\n"
+    "defense. In the past, its scales were\n"
+    "processed and used to make weapons\n"
+    "and other valuable commodities.");
+
+const u8 gDreepyPokedexText[] = _(
+    "It expresses its feelings by smacking its\n"
+    "scales. Metallic sounds echo through the\n"
+    "tall mountains where Jangmo-o live. They\n"
+    "grow little by little battling one another.");
+
+const u8 gDrakloakPokedexText[] = _(
+    "It sheds and regrows its scales on a\n"
+    "continuous basis. The scales become\n"
+    "harder each time they're regrown. Its\n"
+    "scaly punches tear its foes to shreds.");
+
+const u8 gDragapultPokedexText[] = _(
+    "Its rigid scales function as offense and\n"
+    "defense. In the past, its scales were\n"
+    "processed and used to make weapons\n"
+    "and other valuable commodities.");
+
+const u8 gSkorupiPokedexText[] = _(
+    "It grips prey with its tail claws and\n"
+    "injects poison. It tenaciously hangs\n"
+    "on until the poison takes.\n"
+    "It can survive a year without food.");
+
+const u8 gDrapionPokedexText[] = _(
+    "Possessing a sturdy build, it takes\n"
+    "pride in its strength. It has the power\n"
+    "in its clawed arms to make scrap\n"
+    "out of a car.");
+
+
 
 

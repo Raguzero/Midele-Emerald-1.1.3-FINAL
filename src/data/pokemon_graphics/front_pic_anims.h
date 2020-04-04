@@ -5118,6 +5118,82 @@ static const union AnimCmd sAnim_AURORUS_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_DEINO_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_ZWEILOUS_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_HYDREIGON_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_JANGMO_O_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_HAKAMO_O_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_KOMMO_O_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_DREEPY_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_DRAKLOAK_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_DRAGAPULT_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_SKORUPI_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_DRAPION_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_EGG_1[] =
 {
     ANIMCMD_FRAME(0, 6),
@@ -7729,6 +7805,60 @@ static const union AnimCmd *const sAnims_AURORUS[] ={
     sAnim_AURORUS_1,
 };
 
+static const union AnimCmd *const sAnims_DEINO[] ={
+    sAnim_GeneralFrame0,
+    sAnim_DEINO_1,
+};
+
+static const union AnimCmd *const sAnims_ZWEILOUS[] ={
+    sAnim_GeneralFrame0,
+    sAnim_ZWEILOUS_1,
+};
+
+static const union AnimCmd *const sAnims_HYDREIGON[] ={
+    sAnim_GeneralFrame0,
+    sAnim_HYDREIGON_1,
+};
+
+static const union AnimCmd *const sAnims_JANGMO_O[] ={
+    sAnim_GeneralFrame0,
+    sAnim_JANGMO_O_1,
+};
+
+static const union AnimCmd *const sAnims_HAKAMO_O[] ={
+    sAnim_GeneralFrame0,
+    sAnim_HAKAMO_O_1,
+};
+
+static const union AnimCmd *const sAnims_KOMMO_O[] ={
+    sAnim_GeneralFrame0,
+    sAnim_KOMMO_O_1,
+};
+static const union AnimCmd *const sAnims_DREEPY[] ={
+    sAnim_GeneralFrame0,
+    sAnim_DREEPY_1,
+};
+
+static const union AnimCmd *const sAnims_DRAKLOAK[] ={
+    sAnim_GeneralFrame0,
+    sAnim_DRAKLOAK_1,
+};
+
+static const union AnimCmd *const sAnims_DRAGAPULT[] ={
+    sAnim_GeneralFrame0,
+    sAnim_DRAGAPULT_1,
+};
+
+static const union AnimCmd *const sAnims_SKORUPI[] ={
+    sAnim_GeneralFrame0,
+    sAnim_SKORUPI_1,
+};
+
+static const union AnimCmd *const sAnims_DRAPION[] ={
+    sAnim_GeneralFrame0,
+    sAnim_DRAPION_1,
+};
+
 static const union AnimCmd *const sAnims_EGG[] ={
     sAnim_GeneralFrame0,
     sAnim_EGG_1,
@@ -8368,6 +8498,17 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(TYRANTRUM),
     ANIM_CMD(AMAURA),
     ANIM_CMD(AURORUS),
+    ANIM_CMD(DEINO),
+    ANIM_CMD(ZWEILOUS),
+    ANIM_CMD(HYDREIGON),
+    ANIM_CMD(JANGMO_O),
+    ANIM_CMD(HAKAMO_O),
+    ANIM_CMD(KOMMO_O),
+    ANIM_CMD(DREEPY),
+    ANIM_CMD(DRAKLOAK),
+    ANIM_CMD(DRAGAPULT),
+    ANIM_CMD(SKORUPI),
+    ANIM_CMD(DRAPION),
 // NUEVO PARA FORMAS ALOLA
     ANIM_CMD(EGG),
     ANIM_CMD(UNOWN_B),

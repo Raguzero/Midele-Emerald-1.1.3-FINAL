@@ -2468,6 +2468,61 @@ const struct MonCoords gMonFrontPicCoords[] =
         .size = 0x45,
         .y_offset = 0x00,
     },
+    [SPECIES_DEINO] =
+    {
+        .size = 0x45,
+        .y_offset = 0xa,
+    },
+    [SPECIES_ZWEILOUS] =
+    {
+        .size = 0x45,
+        .y_offset = 0x6,
+    },
+    [SPECIES_HYDREIGON] =
+    {
+        .size = 0x45,
+        .y_offset = 0x0,
+    },
+    [SPECIES_JANGMO_O] =
+    {
+        .size = 0x45,
+        .y_offset = 0x08,
+    },
+    [SPECIES_HAKAMO_O] =
+    {
+        .size = 0x45,
+        .y_offset = 0x01,
+    },
+    [SPECIES_KOMMO_O] =
+    {
+        .size = 0x45,
+        .y_offset = 0x00,
+    },
+    [SPECIES_DREEPY] =
+    {
+        .size = 0x45,
+        .y_offset = 0x08,
+    },
+    [SPECIES_DRAKLOAK] =
+    {
+        .size = 0x45,
+        .y_offset = 0x01,
+    },
+    [SPECIES_DRAGAPULT] =
+    {
+        .size = 0x45,
+        .y_offset = 0x00,
+    },
+    [SPECIES_SKORUPI] =
+    {
+        .size = 0x87,
+        .y_offset = 0xb,
+    },
+    [SPECIES_DRAPION] =
+    {
+        .size = 0x56,
+        .y_offset = 0x8,
+    },
     [SPECIES_EGG] =
     {
         .size = 0x33,

@@ -2467,6 +2467,61 @@ const struct MonCoords gMonBackPicCoords[] =
         .size = 0x64,
         .y_offset = 0x00,
     },
+    [SPECIES_DEINO] =
+    {
+        .size = 0x66,
+        .y_offset = 0xe
+    },
+    [SPECIES_ZWEILOUS] =
+    {
+        .size = 0x87,
+        .y_offset = 0x9
+    },
+    [SPECIES_HYDREIGON] =
+    {
+        .size = 0x87,
+        .y_offset = 0xb
+    },
+    [SPECIES_JANGMO_O] =
+    {
+        .size = 0x67,
+        .y_offset = 0x7
+    },
+    [SPECIES_HAKAMO_O] =
+    {
+        .size = 0x78,
+        .y_offset = 0x5
+    },
+    [SPECIES_KOMMO_O] =
+    {
+        .size = 0x88,
+        .y_offset = 0x2
+    },
+    [SPECIES_DREEPY] =
+    {
+        .size = 0x67,
+        .y_offset = 0x7
+    },
+    [SPECIES_DRAKLOAK] =
+    {
+        .size = 0x78,
+        .y_offset = 0x5
+    },
+    [SPECIES_DRAGAPULT] =
+    {
+        .size = 0x88,
+        .y_offset = 0x2
+    },
+    [SPECIES_SKORUPI] =
+    {
+        .size = 0x87,
+        .y_offset = 0x6
+    },
+    [SPECIES_DRAPION] =
+    {
+        .size = 0x87,
+        .y_offset = 0x6
+    },
 // NUEVO PARA FORMAS ALOLA
     [SPECIES_EGG] =
     {

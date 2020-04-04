@@ -7101,7 +7101,85 @@ static const u32 sTutorLearnsets[] =
 											| TUTOR(MOVE_SNORE)
 											| TUTOR(MOVE_SUBSTITUTE)
 											| TUTOR(MOVE_SWAGGER)
-											| TUTOR(MOVE_THUNDER_WAVE)),							
+											| TUTOR(MOVE_THUNDER_WAVE)),
+
+    [SPECIES_DEINO]         = (TUTOR(MOVE_BODY_SLAM)
+											| TUTOR(MOVE_PSYCH_UP)
+											| TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)
+											| TUTOR(MOVE_THUNDER_WAVE)),
+
+    [SPECIES_ZWEILOUS]      = (TUTOR(MOVE_BODY_SLAM)
+											| TUTOR(MOVE_PSYCH_UP)
+											| TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)
+											| TUTOR(MOVE_THUNDER_WAVE)),
+
+    [SPECIES_HYDREIGON]     = (TUTOR(MOVE_BODY_SLAM)
+											| TUTOR(MOVE_PSYCH_UP)
+											| TUTOR(MOVE_ROCK_SLIDE)
+											| TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)
+											| TUTOR(MOVE_THUNDER_WAVE)),
+
+    [SPECIES_JANGMO_O]      = (TUTOR(MOVE_COUNTER)
+											| TUTOR(MOVE_ROCK_SLIDE)
+											| TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)
+											| TUTOR(MOVE_SWORDS_DANCE)),
+
+    [SPECIES_HAKAMO_O]      = (TUTOR(MOVE_ROCK_SLIDE)
+											| TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)
+											| TUTOR(MOVE_SWORDS_DANCE)),
+
+    [SPECIES_KOMMO_O]       = (TUTOR(MOVE_FIRE_PUNCH)
+											| TUTOR(MOVE_ICE_PUNCH)
+											| TUTOR(MOVE_ROCK_SLIDE)
+											| TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)
+											| TUTOR(MOVE_SWORDS_DANCE)
+											| TUTOR(MOVE_THUNDER_PUNCH)),
+
+    [SPECIES_DREEPY]      =  (TUTOR(MOVE_SWAGGER)
+								| TUTOR(MOVE_SNORE)),
+
+    [SPECIES_DRAKLOAK]        =  (TUTOR(MOVE_SWAGGER)
+								| TUTOR(MOVE_SNORE)),
+
+    [SPECIES_DRAGAPULT]        =  (TUTOR(MOVE_SWAGGER)
+								| TUTOR(MOVE_SNORE)),
+											
+    [SPECIES_SKORUPI]       = (TUTOR(MOVE_ENDURE)
+											| TUTOR(MOVE_FURY_CUTTER)
+											| TUTOR(MOVE_MUD_SLAP)
+											| TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)
+											| TUTOR(MOVE_SWORDS_DANCE)),
+
+    [SPECIES_DRAPION]       = (TUTOR(MOVE_ENDURE)
+											| TUTOR(MOVE_FURY_CUTTER)
+											| TUTOR(MOVE_MUD_SLAP)
+											| TUTOR(MOVE_ROCK_SLIDE)
+											| TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)
+											| TUTOR(MOVE_SWORDS_DANCE)),											
 };
 
 

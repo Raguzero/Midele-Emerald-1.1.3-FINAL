@@ -5250,4 +5250,132 @@ const struct PokedexEntry gPokedexEntries[] =
 		.trainerScale = 256,
 		.trainerOffset = 0,
 	},
+	[NATIONAL_DEX_DEINO] =
+	{
+		.categoryName = _("Irate"),
+		.height = 8,
+		.weight = 173,
+		.description = gDeinoPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_ZWEILOUS] =
+	{
+		.categoryName = _("Hostile"),
+		.height = 14,
+		.weight = 500,
+		.description = gZweilousPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_HYDREIGON] =
+	{
+		.categoryName = _("Brutal"),
+		.height = 18,
+		.weight = 1600,
+		.description = gHydreigonPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	[NATIONAL_DEX_JANGMO_O] =
+	{
+		.categoryName = _("Scaly"),
+		.height = 6,
+		.weight = 297,
+		.description = gJangmooPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_HAKAMO_O] =
+	{
+		.categoryName = _("Scaly"),
+		.height = 12,
+		.weight = 470,
+		.description = gHakamooPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_KOMMO_O] =
+	{
+		.categoryName = _("Scaly"),
+		.height = 16,
+		.weight = 782,
+		.description = gKommooPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	[NATIONAL_DEX_SKORUPI] =
+	{
+		.categoryName = _("Scorpion"),
+		.height = 8,
+		.weight = 120,
+		.description = gSkorupiPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_DRAPION] =
+	{
+		.categoryName = _("Scorpion"),
+		.height = 13,
+		.weight = 615,
+		.description = gDrapionPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	[NATIONAL_DEX_DREEPY] =
+	{
+		.categoryName = _("Lingering"),
+		.height = 4,
+		.weight = 20,
+		.description = gDreepyPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_DRAKLOAK] =
+	{
+		.categoryName = _("Caretaker"),
+		.height = 8,  /// ???
+		.weight = 110,
+		.description = gDrakloakPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_DRAGAPULT] =
+	{
+		.categoryName = _("Stealth"),
+		.height = 11,
+		.weight = 500,
+		.description = gDragapultPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
 };
