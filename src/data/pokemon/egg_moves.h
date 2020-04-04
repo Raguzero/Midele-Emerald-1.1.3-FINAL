@@ -1447,6 +1447,16 @@ const u16 gEggMoves[] = {
               MOVE_MAGICAL_LEAF,
               MOVE_UPROAR,
               MOVE_LEECH_SEED),
+			 
+	egg_moves(TYRUNT,
+              MOVE_DRAGON_DANCE,
+              MOVE_POISON_FANG,
+              MOVE_CURSE),
+
+	egg_moves(AMAURA,
+              MOVE_HAZE,
+              MOVE_BARRIER,
+              MOVE_MIRROR_COAT),
 
     EGG_MOVES_TERMINATOR
 };
