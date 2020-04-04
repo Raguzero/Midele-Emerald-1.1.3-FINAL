@@ -2097,6 +2097,55 @@ Cry_Ambipom::
 
 	.align 2
 
+Cry_Deino::
+	.incbin "sound/direct_sound_samples/cry_deino.bin"
+
+	.align 2
+Cry_Zweilous::
+	.incbin "sound/direct_sound_samples/cry_zweilous.bin"
+
+	.align 2
+Cry_Hydreigon::
+	.incbin "sound/direct_sound_samples/cry_hydreigon.bin"
+
+	.align 2
+	
+Cry_Jangmo_o::
+	.incbin "sound/direct_sound_samples/cry_jangmo_o.bin"
+
+	.align 2
+Cry_Hakamo_o::
+	.incbin "sound/direct_sound_samples/cry_hakamo_o.bin"
+
+	.align 2
+Cry_Kommo_o::
+	.incbin "sound/direct_sound_samples/cry_kommo_o.bin"
+
+	.align 2
+
+Cry_Skorupi::
+	.incbin "sound/direct_sound_samples/cry_skorupi.bin"
+
+	.align 2
+Cry_Drapion::
+	.incbin "sound/direct_sound_samples/cry_drapion.bin"
+
+	.align 2
+	
+Cry_Dreepy::
+	.incbin "sound/direct_sound_samples/cry_dreepy.bin"
+
+	.align 2
+
+Cry_Drakloak::
+	.incbin "sound/direct_sound_samples/cry_drakloak.bin"
+
+	.align 2
+Cry_Dragapult::
+	.incbin "sound/direct_sound_samples/cry_dragapult.bin"
+
+	.align 2
+
 DirectSoundWaveData_register_noise::
 	.incbin "sound/direct_sound_samples/register_noise.bin"
 

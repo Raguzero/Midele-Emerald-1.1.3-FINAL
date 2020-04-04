@@ -14463,6 +14463,17 @@ gCryTable:: @ 869DCF4
 	cry Cry_Amaura
 	cry Cry_Aurorus
 	cry Cry_Ambipom
+	cry Cry_Deino
+	cry Cry_Zweilous
+	cry Cry_Hydreigon
+	cry Cry_Jangmo_o
+	cry Cry_Hakamo_o
+	cry Cry_Kommo_o
+	cry Cry_Skorupi
+	cry Cry_Drapion
+	cry Cry_Dreepy
+	cry Cry_Drakloak
+	cry Cry_Dragapult
 
 	.align 2
 gCryTable2:: @ 869EF24
@@ -14890,6 +14901,17 @@ gCryTable2:: @ 869EF24
 	cry2 Cry_Amaura
 	cry2 Cry_Aurorus
 	cry2 Cry_Ambipom
+	cry2 Cry_Deino
+	cry2 Cry_Zweilous
+	cry2 Cry_Hydreigon
+	cry2 Cry_Jangmo_o
+	cry2 Cry_Hakamo_o
+	cry2 Cry_Kommo_o
+	cry2 Cry_Skorupi
+	cry2 Cry_Drapion
+	cry2 Cry_Dreepy
+	cry2 Cry_Drakloak
+	cry2 Cry_Dragapult
 
 	.align 2
 voicegroup129:: @ 86A0154

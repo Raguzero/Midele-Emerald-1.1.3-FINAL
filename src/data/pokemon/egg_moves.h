@@ -1458,5 +1458,33 @@ const u16 gEggMoves[] = {
               MOVE_BARRIER,
               MOVE_MIRROR_COAT),
 
+	egg_moves(DEINO,
+              MOVE_ASTONISH,
+              MOVE_SCREECH,
+              MOVE_DARK_PULSE),
+			 
+	egg_moves(JANGMO_O,
+              MOVE_COUNTER,
+              MOVE_DRAGON_BREATH,
+              MOVE_REVERSAL),
+			  
+	egg_moves(DREEPY,
+              MOVE_CURSE,
+              MOVE_CONFUSE_RAY,
+              MOVE_DISABLE,
+              MOVE_GRUDGE),
+			  
+	egg_moves(SKORUPI,
+              MOVE_SAND_ATTACK,
+              MOVE_CONFUSE_RAY,
+              MOVE_SLASH,
+              MOVE_FAINT_ATTACK,
+              MOVE_SCREECH,
+              MOVE_AGILITY,
+              MOVE_PURSUIT,
+              MOVE_TWINEEDLE,
+              MOVE_POISON_TAIL,
+              MOVE_WHIRLWIND),
+
     EGG_MOVES_TERMINATOR
 };
