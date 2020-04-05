@@ -1472,6 +1472,7 @@ const u16 gEggMoves[] = {
               MOVE_CURSE,
               MOVE_CONFUSE_RAY,
               MOVE_DISABLE,
+              MOVE_WILL_O_WISP,
               MOVE_GRUDGE),
 			  
 	egg_moves(SKORUPI,

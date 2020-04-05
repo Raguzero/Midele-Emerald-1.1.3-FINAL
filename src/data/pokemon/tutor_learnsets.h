@@ -7154,12 +7154,30 @@ static const u32 sTutorLearnsets[] =
 											| TUTOR(MOVE_THUNDER_PUNCH)),
 
     [SPECIES_DREEPY]      =  (TUTOR(MOVE_SWAGGER)
+							| TUTOR(MOVE_SWIFT)
+							| TUTOR(MOVE_SUBSTITUTE)
+							| TUTOR(MOVE_ENDURE)
+							| TUTOR(MOVE_SLEEP_TALK)
+                              | TUTOR(MOVE_THUNDER_WAVE)	
 								| TUTOR(MOVE_SNORE)),
 
     [SPECIES_DRAKLOAK]        =  (TUTOR(MOVE_SWAGGER)
+							| TUTOR(MOVE_SWIFT)
+							| TUTOR(MOVE_SUBSTITUTE)
+							| TUTOR(MOVE_ENDURE)
+							| TUTOR(MOVE_SLEEP_TALK)
+							| TUTOR(MOVE_DOUBLE_EDGE)
+                              | TUTOR(MOVE_THUNDER_WAVE)	
 								| TUTOR(MOVE_SNORE)),
 
     [SPECIES_DRAGAPULT]        =  (TUTOR(MOVE_SWAGGER)
+							| TUTOR(MOVE_SWIFT)
+							| TUTOR(MOVE_SUBSTITUTE)
+							| TUTOR(MOVE_ENDURE)
+							| TUTOR(MOVE_SLEEP_TALK)
+							| TUTOR(MOVE_DOUBLE_EDGE)
+							| TUTOR(MOVE_BODY_SLAM)
+                              | TUTOR(MOVE_THUNDER_WAVE)	
 								| TUTOR(MOVE_SNORE)),
 											
     [SPECIES_SKORUPI]       = (TUTOR(MOVE_ENDURE)
