@@ -118,6 +118,23 @@ void ClearAllContestWinnerPics(void)
         gSaveBlock1Ptr->contestWinners[i] = sContestWinnerPicDummy;
 }
 
+// NUEVO TEST
+static void TestingNewGame(void)
+{
+    u16 i;
+
+    for (i = 0; i < 551; i++)
+        GetSetPokedexFlag(i, FLAG_SET_SEEN);
+}
+static void TestingNewGame2(void)
+{
+    u16 i;
+
+    for (i = 0; i < 551; i++)
+        GetSetPokedexFlag(i, FLAG_SET_CAUGHT);
+}
+// NUEVO TEST
+
 static void ClearFrontierRecord(void)
 {
     CpuFill32(0, &gSaveBlock2Ptr->frontier, sizeof(gSaveBlock2Ptr->frontier));
@@ -209,6 +226,8 @@ void NewGameInitData(void)
     ResetTrainerHillResults();
     ResetContestLinkResults();
     FlagSet(FLAG_FORCE_MIRAGE_TOWER_VISIBLE);
+	  TestingNewGame(); // NUEVO TEST
+	  	  TestingNewGame2(); // NUEVO TEST
 }
 
 static void ResetMiniGamesResults(void)

@@ -2536,10 +2536,9 @@ const u8 gCofagrigusPokedexText[] = _(
     "are covered in pure gold.");
 
 const u8 gRunerigusPokedexText[] = _(
-    "Grave robbers who mistake them for\n"
-    "real coffins and get too close end up\n"
-    "trapped inside their bodies. Their bodies\n"
-    "are covered in pure gold.");
+    "A powerful curse was woven into an ancient\n" 
+	"painting. After absorbing the spirit of a\n" 
+	"Yamask, the painting began to move.");
 
 const u8 gSnoverPokedexText[] = _(
     "During cold seasons, it migrates to the\n"
@@ -2674,22 +2673,22 @@ const u8 gKommooPokedexText[] = _(
     "and other valuable commodities.");
 
 const u8 gDreepyPokedexText[] = _(
-    "It expresses its feelings by smacking its\n"
-    "scales. Metallic sounds echo through the\n"
-    "tall mountains where Jangmo-o live. They\n"
-    "grow little by little battling one another.");
+    "After being reborn as a ghost Pokémon,\n" 
+	"Dreepy wanders the areas it used to\n" 
+	"inhabit back when it was alive in\n" 
+	"prehistoric seas.");
 
 const u8 gDrakloakPokedexText[] = _(
-    "It sheds and regrows its scales on a\n"
-    "continuous basis. The scales become\n"
-    "harder each time they're regrown. Its\n"
-    "scaly punches tear its foes to shreds.");
+    "It's capable of flying faster than 120\n" 
+	"mph. It battles alongside Dreepy and\n" 
+	"dotes on them until they successfully\n" 
+	"evolve.");
 
 const u8 gDragapultPokedexText[] = _(
-    "Its rigid scales function as offense and\n"
-    "defense. In the past, its scales were\n"
-    "processed and used to make weapons\n"
-    "and other valuable commodities.");
+    "When it isn't battling, it keeps Dreepy\n" 
+	"in the holes on its horns. Once a fight\n" 
+	"starts, it launches the Dreepy like\n" 
+	"supersonic missiles.");
 
 const u8 gSkorupiPokedexText[] = _(
     "It grips prey with its tail claws and\n"

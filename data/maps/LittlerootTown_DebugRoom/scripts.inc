@@ -62,6 +62,8 @@ LittlerootTown_DebugRoom_Script_ActivarTodo::
     setflag FLAG_VISITED_MOSSDEEP_CITY
     setflag FLAG_VISITED_SOOTOPOLIS_CITY
     setflag FLAG_VISITED_EVER_GRANDE_CITY
+	setflag FLAG_SYS_NATIONAL_DEX
+	special EnableNationalPokedex
     end
 
 @ Magnemite desactiva eventos
