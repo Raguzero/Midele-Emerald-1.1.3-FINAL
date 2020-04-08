@@ -1051,6 +1051,7 @@ const u16 gSpeciesToNationalPokedexNum[] = // Assigns all species to the Nationa
 	SPECIES_TO_NATIONAL(DRAGAPULT),
 	SPECIES_TO_NATIONAL(SKORUPI),
 	SPECIES_TO_NATIONAL(DRAPION),
+    SPECIES_TO_NATIONAL(WOOLOO),
 };
 
 const u16 gHoennToNationalOrder[] = // Assigns Hoenn Dex Pokémon (Using National Dex Index)
@@ -3493,7 +3494,7 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
     if (defender->ability == ABILITY_THICK_FAT && (type == TYPE_FIRE || type == TYPE_ICE))
         spAttack /= 2;
 	// BUFF FORECAST
-	if (attacker->ability == ABILITY_FORECAST && ((gBattleWeather & WEATHER_SUN_ANY) 
+	if (attacker->ability == ABILITY_FORECAST && ((gBattleWeather & WEATHER_SUN_ANY)
 		|| (gBattleWeather & WEATHER_RAIN_ANY)
 	    || (gBattleWeather & WEATHER_HAIL_ANY))
 		&& attacker->species == SPECIES_CASTFORM)
@@ -7127,7 +7128,8 @@ bool8 HasTwoFramesAnimation(u16 species)
     return (species != SPECIES_CASTFORM
             && species != SPECIES_DEOXYS
             && species != SPECIES_SPINDA
-            && species != SPECIES_UNOWN);
+            && species != SPECIES_UNOWN
+            && species != SPECIES_WOOLOO);
 }
 
 static bool8 ShouldSkipFriendshipChange(void)

@@ -1,5 +1,5 @@
-// Maximum value for a female Pokémon is 254 (MON_FEMALE) which is 100% female.
-// 255 (MON_GENDERLESS) is reserved for genderless Pokémon.
+// Maximum value for a female Pokï¿½mon is 254 (MON_FEMALE) which is 100% female.
+// 255 (MON_GENDERLESS) is reserved for genderless Pokï¿½mon.
 #define PERCENT_FEMALE(percent) min(254, ((percent * 255) / 100))
 
 #define OLD_UNOWN_BASE_STATS                \
@@ -12534,7 +12534,7 @@ const struct BaseStats gBaseStats[] =
         .evYield_Defense   = 1,
         .evYield_SpAttack  = 0,
 	    .item1 = ITEM_NONE,
-        .item2 = ITEM_NONE, 
+        .item2 = ITEM_NONE,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 20,
         .friendship = 70,
@@ -12586,7 +12586,7 @@ const struct BaseStats gBaseStats[] =
         .evYield_Speed     = 1,
         .evYield_SpAttack  = 0,
 		.item1 = ITEM_NONE,
-        .item2 = ITEM_NONE, 
+        .item2 = ITEM_NONE,
         .genderRatio = PERCENT_FEMALE(75),
         .eggCycles = 20,
         .friendship = 70,
@@ -14260,7 +14260,7 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_INNER_FOCUS, ABILITY_ICE_BODY},
 		.bodyColor = BODY_COLOR_GRAY,
 	},
-	
+
     [SPECIES_GROOKEY] =
     {
        .baseHP        = 50,
@@ -14292,7 +14292,7 @@ const struct BaseStats gBaseStats[] =
        .bodyColor = BODY_COLOR_GREEN,
        .noFlip = FALSE,
     },
-	
+
    [SPECIES_THWACKEY] =
     {
        .baseHP        = 70,
@@ -14324,7 +14324,7 @@ const struct BaseStats gBaseStats[] =
        .bodyColor = BODY_COLOR_GREEN,
        .noFlip = FALSE,
     },
-	
+
    [SPECIES_RILLABOOM] =
     {
        .baseHP        = 100,
@@ -14823,6 +14823,36 @@ const struct BaseStats gBaseStats[] =
         .eggGroup2 = EGG_GROUP_WATER_3,
         .abilities = {ABILITY_BATTLE_ARMOR, ABILITY_KEEN_EYE},
         .bodyColor = BODY_COLOR_PURPLE,
+    },
+    // WOOLOO con stats de su evoluciÃ³n (mejorables)
+    [SPECIES_WOOLOO] =
+    {
+        .baseHP        = 72,
+        .baseAttack    = 80,
+        .baseDefense   = 100,
+        .baseSpeed     = 88,
+        .baseSpAttack  = 60,
+        .baseSpDefense = 90,
+        .type1 = TYPE_NORMAL,
+        .type2 = TYPE_NORMAL,
+        .catchRate = 255,
+        .expYield = 122,
+        .evYield_HP        = 0,
+        .evYield_Attack    = 0,
+        .evYield_Defense   = 1,
+        .evYield_Speed     = 0,
+        .evYield_SpAttack  = 0,
+        .evYield_SpDefense = 0,
+        .item1 = ITEM_NONE,
+        .item2 = ITEM_NONE,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 15,
+        .friendship = 50,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        .abilities = {ABILITY_RUN_AWAY, ABILITY_PURE_POWER},
+        .bodyColor = BODY_COLOR_WHITE,
     },
 // NUEVO PARA FORMAS ALOLA
 };

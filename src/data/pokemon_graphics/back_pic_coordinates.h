@@ -2522,6 +2522,11 @@ const struct MonCoords gMonBackPicCoords[] =
         .size = 0x87,
         .y_offset = 0x6
     },
+    [SPECIES_WOOLOO] =
+    {
+        .size = 0x87,
+        .y_offset = 0x1B
+    },
 // NUEVO PARA FORMAS ALOLA
     [SPECIES_EGG] =
     {
@@ -2664,4 +2669,3 @@ const struct MonCoords gMonBackPicCoords[] =
         .y_offset = 0x06,
     },
 };
-

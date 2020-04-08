@@ -3239,6 +3239,12 @@ extern const u32 gMonShinyPalette_Skorupi[];
 extern const u32 gMonShinyPalette_Drapion[];
 extern const u8 gMonIcon_Skorupi[];
 extern const u8 gMonIcon_Drapion[];
+extern const u32 gMonFrontPic_Wooloo[];
+extern const u32 gMonBackPic_Wooloo[];
+extern const u32 gMonPalette_Wooloo[];
+extern const u32 gMonShinyPalette_Wooloo[];
+extern const u8 gMonIcon_Wooloo[];
+extern const u8 gMonFootprint_Wooloo[];
 // NUEVO PARA FORMAS ALOLA
 extern const u32 gMonPic_Egg[];
 extern const u32 gMonPalette_Egg[];

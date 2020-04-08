@@ -2357,31 +2357,31 @@ const u8 gMegaMawilePokedexText[] = _(
     "then chomps them with its huge jaws.");
 
 const u8 gPerserkerPokedexText[] = _(
-    "What appears to be an iron helmet is\n" 
-	"actually hardened hair. This Pokémon lives\n" 
+    "What appears to be an iron helmet is\n"
+	"actually hardened hair. This Pokémon lives\n"
 	"for the thrill of battle.");
-	
+
 const u8 gObstagoonPokedexText[] = _(
-    "It evolved after experiencing numerous\n" 
-	"fights. While crossing its arms, it lets\n" 
-	"out a shout that would make any \n" 
+    "It evolved after experiencing numerous\n"
+	"fights. While crossing its arms, it lets\n"
+	"out a shout that would make any \n"
 	"flinch.");
 
 const u8 gCursolaPokedexText[] = _(
-    "Be cautious of the ectoplasmic body\n" 
-	"surrounding its soul. You'll become stiff\n" 
-	"as stone if you touch it. What appears to be\n" 
+    "Be cautious of the ectoplasmic body\n"
+	"surrounding its soul. You'll become stiff\n"
+	"as stone if you touch it. What appears to be\n"
 	"an iron helmet is.");
 
 const u8 gSirfetchPokedexText[] = _(
-    "Only Farfetchd that have survived many\n" 
-	"battles can attain this evolution. When this\n" 
-	"Pokemon's leek withers, it will retire from\n" 
+    "Only Farfetchd that have survived many\n"
+	"battles can attain this evolution. When this\n"
+	"Pokemon's leek withers, it will retire from\n"
 	"combat.");
 
 const u8 gMrrimePokedexText[] = _(
-    "It's highly skilled at tap-dancing. It waves\n" 
-	"its cane of ice in time with its graceful\n" 
+    "It's highly skilled at tap-dancing. It waves\n"
+	"its cane of ice in time with its graceful\n"
 	"movements.");
 
 const u8 gWeavilePokedexText[] = _(
@@ -2503,8 +2503,8 @@ const u8 gAmbipomPokedexText[] = _(
     "the tails are so adept at handling and\n"
     "doing things, Ambipom rarely uses\n"
     "its hands now.\n"
-    "");	
-	
+    "");
+
 const u8 gMismagiusPokedexText[] = _(
     "Its cries sound like incantations.\n"
     "Those hearing it are tormented by\n"
@@ -2557,7 +2557,7 @@ const u8 gMega_AbomasnowPokedexText[] = _(
     "are perpetually covered in snow. It hides\n"
     "itself by whipping up blizzards.\n"
     "It is also known as “The Ice Monster.");
-	
+
 const u8 gMega_GlaliePokedexText[] = _(
     "A Glalie has the power to instantaneously\n"
     "freeze moisture in the atmosphere.\n"
@@ -2611,7 +2611,7 @@ const u8 gGolurkPokedexText[] = _(
     "and Pokémon by an ancient civilisation.\n"
     "Removing the seal on its chest makes its\n"
     "internal energy go out of control.");
-	
+
 const u8 gTyruntPokedexText[] = _(
     "Its immense jaws have enough destructive\n"
     "force that it can chew up a car. If\n"
@@ -2702,6 +2702,8 @@ const u8 gDrapionPokedexText[] = _(
     "in its clawed arms to make scrap\n"
     "out of a car.");
 
-
-
-
+const u8 gWoolooPokedexText[] = _(
+    "Its curly fleece is such an effective\n"
+    "cushion that this POKéMON could fall off\n"
+    "a cliff and stand right back up at the\n"
+    "bottom, unharmed.");

@@ -5378,4 +5378,16 @@ const struct PokedexEntry gPokedexEntries[] =
 		.trainerScale = 256,
 		.trainerOffset = 0,
 	},
+
+    [NATIONAL_DEX_WOOLOO] =
+	{
+		.categoryName = _("Sheep"),
+		.height = 6,
+		.weight = 80,
+		.description = gWoolooPokedexText,
+        .pokemonScale = 379,
+        .pokemonOffset = 18,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+	},
 };

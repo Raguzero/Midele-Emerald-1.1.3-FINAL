@@ -505,6 +505,7 @@ const struct CompressedSpriteSheet gMonFrontPicTable[] =
     SPECIES_SPRITE(DRAGAPULT, gMonFrontPic_Dragapult),
     SPECIES_SPRITE(SKORUPI, gMonFrontPic_Skorupi),
     SPECIES_SPRITE(DRAPION, gMonFrontPic_Drapion),
+    SPECIES_SPRITE(WOOLOO, gMonFrontPic_Wooloo),
 // NUEVO PARA FORMAS ALOLA
     SPECIES_SPRITE(EGG, gMonFrontPic_Egg),
     SPECIES_SPRITE(UNOWN_B, gMonFrontPic_UnownB),

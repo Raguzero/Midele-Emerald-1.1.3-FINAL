@@ -506,5 +506,6 @@ const u16 *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_DRAGAPULT] = sDragapultLevelUpLearnset,
     [SPECIES_SKORUPI] = sSkorupiLevelUpLearnset,
     [SPECIES_DRAPION] = sDrapionLevelUpLearnset,
+    [SPECIES_WOOLOO] = sWoolooLevelUpLearnset,
 // NUEVO PARA FORMAS ALOLA
 };

@@ -451,6 +451,7 @@ const u8 *const gMonFootprintTable[] =
     [SPECIES_GALAR_RAPIDASH] = gMonFootprint_GalarRapidash,
     [SPECIES_GALAR_MRMIME] = gMonFootprint_GalarMrmime,
     [SPECIES_MRRIME] = gMonFootprint_Mrrime,
+    [SPECIES_WOOLOO] = gMonFootprint_Wooloo,
 // NUEVO PARA FORMAS ALOLA
     [SPECIES_EGG] = gMonFootprint_Bulbasaur,
 };

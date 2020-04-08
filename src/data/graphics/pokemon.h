@@ -3213,6 +3213,14 @@ const u32 gMonShinyPalette_Drapion[] = INCBIN_U32("graphics/pokemon/drapion/shin
 const u8 gMonIcon_Skorupi[] = INCBIN_U8("graphics/pokemon/skorupi/icon.4bpp");
 const u8 gMonIcon_Drapion[] = INCBIN_U8("graphics/pokemon/drapion/icon.4bpp");
 
+// WOOLOO usa la misma huella que Mareep
+const u32 gMonFrontPic_Wooloo[] = INCBIN_U32("graphics/pokemon/wooloo/front.4bpp.lz");
+const u32 gMonBackPic_Wooloo[] = INCBIN_U32("graphics/pokemon/wooloo/back.4bpp.lz");
+const u32 gMonPalette_Wooloo[] = INCBIN_U32("graphics/pokemon/wooloo/normal.gbapal.lz");
+const u32 gMonShinyPalette_Wooloo[] = INCBIN_U32("graphics/pokemon/wooloo/shiny.gbapal.lz");
+const u8 gMonIcon_Wooloo[] = INCBIN_U8("graphics/pokemon/wooloo/icon.4bpp");
+const u8 gMonFootprint_Wooloo[] = INCBIN_U8("graphics/pokemon/mareep/footprint.1bpp");
+
 const u32 gMonStillFrontPic_Egg[] = INCBIN_U32("graphics/pokemon/egg/front.4bpp.lz");
 const u32 gMonPalette_Egg[] = INCBIN_U32("graphics/pokemon/egg/normal.gbapal.lz");
 

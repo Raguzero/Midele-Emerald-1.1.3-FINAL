@@ -505,6 +505,7 @@ const struct CompressedSpritePalette gMonShinyPaletteTable[] =
     SPECIES_SHINY_PAL(DRAGAPULT, gMonShinyPalette_Dragapult),
     SPECIES_SHINY_PAL(SKORUPI, gMonShinyPalette_Skorupi),
     SPECIES_SHINY_PAL(DRAPION, gMonShinyPalette_Drapion),
+    SPECIES_SHINY_PAL(WOOLOO, gMonShinyPalette_Wooloo),
 // NUEVO PARA FORMAS ALOLA
     SPECIES_SHINY_PAL(EGG, gMonPalette_Egg),
     SPECIES_SHINY_PAL(UNOWN_B, gMonShinyPalette_Unown),

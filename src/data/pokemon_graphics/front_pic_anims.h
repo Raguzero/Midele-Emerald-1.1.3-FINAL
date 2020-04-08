@@ -5194,6 +5194,12 @@ static const union AnimCmd sAnim_DRAPION_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_WOOLOO_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_EGG_1[] =
 {
     ANIMCMD_FRAME(0, 6),
@@ -7859,6 +7865,11 @@ static const union AnimCmd *const sAnims_DRAPION[] ={
     sAnim_DRAPION_1,
 };
 
+static const union AnimCmd *const sAnims_WOOLOO[] ={
+    sAnim_GeneralFrame0,
+    sAnim_WOOLOO_1,
+};
+
 static const union AnimCmd *const sAnims_EGG[] ={
     sAnim_GeneralFrame0,
     sAnim_EGG_1,
@@ -8509,6 +8520,7 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(DRAGAPULT),
     ANIM_CMD(SKORUPI),
     ANIM_CMD(DRAPION),
+    ANIM_CMD(WOOLOO),
 // NUEVO PARA FORMAS ALOLA
     ANIM_CMD(EGG),
     ANIM_CMD(UNOWN_B),
