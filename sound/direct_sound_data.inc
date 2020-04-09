@@ -2145,6 +2145,11 @@ Cry_Dragapult::
 	.incbin "sound/direct_sound_samples/cry_dragapult.bin"
 
 	.align 2
+	
+Cry_Wooloo::
+	.incbin "sound/direct_sound_samples/cry_wooloo.bin"
+
+	.align 2
 
 DirectSoundWaveData_register_noise::
 	.incbin "sound/direct_sound_samples/register_noise.bin"

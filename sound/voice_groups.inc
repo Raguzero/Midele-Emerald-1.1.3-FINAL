@@ -14474,6 +14474,7 @@ gCryTable:: @ 869DCF4
 	cry Cry_Dreepy
 	cry Cry_Drakloak
 	cry Cry_Dragapult
+	cry Cry_Wooloo
 
 	.align 2
 gCryTable2:: @ 869EF24
@@ -14912,6 +14913,7 @@ gCryTable2:: @ 869EF24
 	cry2 Cry_Dreepy
 	cry2 Cry_Drakloak
 	cry2 Cry_Dragapult
+	cry2 Cry_Wooloo
 
 	.align 2
 voicegroup129:: @ 86A0154

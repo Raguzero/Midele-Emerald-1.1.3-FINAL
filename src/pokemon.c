@@ -2044,6 +2044,7 @@ static const u8 sMonFrontAnimIdsTable[] =
     [SPECIES_DRAGAPULT - 1] = 0x16,
     [SPECIES_SKORUPI - 1] = 0x10,
     [SPECIES_DRAPION - 1] = 0x1e,
+    [SPECIES_WOOLOO - 1] = 0x1e,
 };
 
 static const u8 sMonAnimationDelayTable[NUM_SPECIES - 1] =
