@@ -3090,6 +3090,7 @@ AI_TryHelpingHandOnAlly:
 
 AI_TrySwaggerOnAlly:
 	if_holds_item AI_TARGET, ITEM_PERSIM_BERRY, AI_TrySwaggerOnAlly2
+	if_ability AI_USER_PARTNER, ABILITY_OWN_TEMPO, AI_TrySwaggerOnAlly2
 	goto Score_Minus30_
 
 AI_TrySwaggerOnAlly2:

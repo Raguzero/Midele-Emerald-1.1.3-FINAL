@@ -65,6 +65,7 @@ LittlerootTown_DebugRoom_Script_ActivarTodo::
 	setflag FLAG_SYS_NATIONAL_DEX
 	special EnableNationalPokedex
 	clearflag FLAG_HIDE_LILCOVE_MOTEL_GAME_DESIGNERS
+	setflag FLAG_SYS_FRONTIER_PASS
     end
 
 @ Magnemite desactiva eventos

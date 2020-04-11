@@ -6758,6 +6758,11 @@ static void Cmd_various(void)
         BtlController_EmitPlayFanfareOrBGM(0, MUS_KACHI1, TRUE);
         MarkBattlerForControllerExec(gActiveBattler);
         break;
+	case VARIOUS_PLAY_MOVE_ANIMATION:
+        BtlController_EmitMoveAnimation(0, T1_READ_16(gBattlescriptCurrInstr + 3), gBattleScripting.animTurn, 0, 0, gBattleMons[gActiveBattler].friendship, &gDisableStructs[gActiveBattler], gMultiHitCounter);
+        MarkBattlerForControllerExec(gActiveBattler);
+        gBattlescriptCurrInstr += 5;
+        return;
     }
 
     gBattlescriptCurrInstr += 3;

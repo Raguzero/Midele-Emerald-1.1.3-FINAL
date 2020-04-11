@@ -85,6 +85,7 @@ static const u8 sTechnicianDescription[] = _("Powers up weaker moves.");
 static const u8 sIceBodyDescription[] = _("Slight HP recovery in hailstorm.");
 static const u8 sMummyDescription[] = _("Spreads with contact.");
 static const u8 sNoGuardDescription[] = _("All moves will always hit.");
+static const u8 sImposterDescription[] = _("Transforms into the foe.");
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 {
@@ -175,6 +176,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 	[ABILITY_ICE_BODY] = _("ICE BODY"),
 	[ABILITY_MUMMY] = _("MUMMY"),
 	[ABILITY_NO_GUARD] = _("NO GUARD"),
+    [ABILITY_IMPOSTER] = _("IMPOSTER"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -266,4 +268,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
 	[ABILITY_ICE_BODY] = sIceBodyDescription,
 	[ABILITY_MUMMY] = sMummyDescription,
 	[ABILITY_NO_GUARD] = sNoGuardDescription,
+	[ABILITY_IMPOSTER] = sImposterDescription,
 };
