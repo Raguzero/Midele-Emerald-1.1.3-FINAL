@@ -4608,6 +4608,11 @@ BattleScript_IceBodyActivates::
 	datahpupdate BS_ATTACKER
 	end3
 
+BattleScript_CursedBodyActivates::
+	printstring STRINGID_CUSEDBODYDISABLED
+	waitmessage 0x40
+	return
+
 BattleScript_MummyActivates::
 	printstring STRINGID_ATTACKERACQUIREDABILITY
 	waitmessage 0x40

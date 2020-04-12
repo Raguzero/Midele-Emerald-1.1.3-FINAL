@@ -227,6 +227,7 @@ extern const u8 BattleScript_SnowWarningActivates[];
 extern const u8 BattleScript_IceBodyActivates[];
 extern const u8 BattleScript_MummyActivates[];
 extern const u8 BattleScript_ImposterActivates[];
+extern const u8 BattleScript_CursedBodyActivates[];
 // NUEVO HABILIDADES
 
 #endif // GUARD_BATTLE_SCRIPTS_H

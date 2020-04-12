@@ -1876,7 +1876,8 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
 			 case ABILITY_IMPOSTER:
             if (IsBattlerAlive(BATTLE_OPPOSITE(battler))
                 && !(gBattleMons[BATTLE_OPPOSITE(battler)].status2 & (STATUS2_TRANSFORMED | STATUS2_SUBSTITUTE))
-                && !(gBattleMons[battler].status2 & STATUS2_TRANSFORMED))
+                && !(gBattleMons[battler].status2 & STATUS2_TRANSFORMED)
+                && !(gStatuses3[BATTLE_OPPOSITE(battler)] & STATUS3_SEMI_INVULNERABLE))
             {
                 gBattlerTarget = BATTLE_OPPOSITE(battler);
 				gBattlerAttacker = battler;
@@ -2128,6 +2129,22 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
         case ABILITYEFFECT_ON_DAMAGE: // Contact abilities and Color Change
             switch (gLastUsedAbility)
             {
+		    case ABILITY_CURSED_BODY:
+            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+             && TARGET_TURN_DAMAGED
+             && gDisableStructs[gBattlerAttacker].disabledMove == MOVE_NONE
+             && IsBattlerAlive(gBattlerAttacker)
+             && gBattleMons[gBattlerAttacker].pp[gChosenMovePos] != 0
+             && (Random() % 3) == 0)
+            {
+                gDisableStructs[gBattlerAttacker].disabledMove = gChosenMove;
+                gDisableStructs[gBattlerAttacker].disableTimer = 4;
+                PREPARE_MOVE_BUFFER(gBattleTextBuff1, gChosenMove);
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_CursedBodyActivates;
+                effect++;
+            }
+            break;
 			case ABILITY_MUMMY:
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
              && (gBattleMoves[move].flags & FLAG_MAKES_CONTACT))
@@ -3523,4 +3540,5 @@ bool32 IsBattlerAlive(u8 battlerId)
 	else
 		return TRUE;
 }
+
 
