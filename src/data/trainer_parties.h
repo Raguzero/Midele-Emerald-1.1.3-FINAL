@@ -12804,18 +12804,19 @@ static const struct TrainerMonCustomMidele sParty_Debug[] = {
         .iv = 31,
         .evs = {6, 252, 252, 0, 0, 0},
         .species = SPECIES_DITTO,
-        .moves = {MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_HIDDEN_POWER, MOVE_NONE, MOVE_NONE, MOVE_NONE},
         .heldItem = ITEM_LEFTOVERS,
         .ability = 1,
         .shiny = 1,
-        .friendship = 255
+        .friendship = 255,
+        .hpType = TYPE_GHOST
         },
         {
         .lvl = 100,
         .iv = 31,
         .evs = {6, 252, 252, 0, 0, 0},
         .species = SPECIES_DITTO,
-        .moves = {MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_HIDDEN_POWER, MOVE_NONE, MOVE_NONE, MOVE_NONE},
         .heldItem = ITEM_LEFTOVERS,
         .ability = 1,
         .shiny = 1,
