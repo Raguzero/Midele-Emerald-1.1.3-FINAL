@@ -2463,8 +2463,9 @@ void CreateMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFix
 }
 
 // NUEVO PARA CUSTOM TRAINER
-void CreateMonMidele(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, const u8 *evs, u8 nature, u8 shiny, u8 abilityNumber, u8 friendship)
+void CreateMonMidele(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, const u8 *evs, u8 nature, u8 shiny, u8 abilityNumber, u8 friendship, u8 hpType)
 {
+    struct BoxPokemon *box;
     u32 arg;
     u32 personality;
     u8 otIdType;
@@ -2497,6 +2498,11 @@ void CreateMonMidele(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, con
     SetMonData(mon, MON_DATA_FRIENDSHIP, &friendship);
 
     SetMonData(mon, MON_DATA_ABILITY_NUM, &abilityNumber);
+    
+    // NUEVO: tipo de Hidden Power personalizado (por defecto es 0, TYPE_NORMAL)
+    box = &mon->box;
+    box->unused = hpType;
+    
     CalculateMonStats(mon);
 }
 // NUEVO PARA CUSTOM TRAINER

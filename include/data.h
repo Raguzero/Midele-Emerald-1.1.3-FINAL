@@ -59,6 +59,7 @@ struct TrainerMonCustomMidele
     u8 shiny;
     u16 moves[MAX_MON_MOVES];
     u8 friendship;
+    u8 hpType;
 };
 // NUEVO PARA CUSTOM TRAINER
 

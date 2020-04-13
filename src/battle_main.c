@@ -2074,7 +2074,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 personalityValue += nameHash << 8;
                 fixedIV = partyData[i].iv;
                 CreateMonMidele(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, partyData[i].evs, partyData[i].nature, partyData[i].shiny, partyData[i].ability,
-                partyData[i].friendship);
+                partyData[i].friendship, partyData[i].hpType);
 
                 SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
 
