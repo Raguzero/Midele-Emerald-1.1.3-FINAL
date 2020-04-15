@@ -26,6 +26,7 @@
 #include "sprite.h"
 #include "string_util.h"
 #include "tv.h"
+#include "constants/abilities.h"
 #include "constants/event_objects.h"
 #include "constants/items.h"
 #include "constants/species.h"
@@ -569,7 +570,16 @@ u8 ScriptGiveMon(u16 species, u8 level, u16 item, u32 unused1, u32 unused2, u8 u
     u8 heldItem[2];
     struct Pokemon mon;
 
-    CreateMon(&mon, species, level, 32, 0, 0, OT_ID_PLAYER_ID, 0);
+    // Gifted mons always get the nature from a synchronize mon leading the party
+    if (!GetMonData(&gPlayerParty[0], MON_DATA_SANITY_IS_EGG) && GetMonAbility(&gPlayerParty[0]) == ABILITY_SYNCHRONIZE)
+    {
+        u8 nature = GetNatureFromPersonality(GetMonData(&gPlayerParty[0], MON_DATA_PERSONALITY));
+        CreateMonWithNature(&mon, species, level, 32, nature);
+    }
+    else
+    {
+        CreateMon(&mon, species, level, 32, 0, 0, OT_ID_PLAYER_ID, 0);
+    }
     heldItem[0] = item;
     heldItem[1] = item >> 8;
     SetMonData(&mon, MON_DATA_HELD_ITEM, heldItem);
@@ -642,7 +652,16 @@ void CreateScriptedWildMon(u16 species, u8 level, u16 item)
     u8 heldItem[2];
 
     ZeroEnemyPartyMons();
-    CreateMon(&gEnemyParty[0], species, level, 32, 0, 0, OT_ID_PLAYER_ID, 0);
+    // Scripted wild mons always get the nature from a synchronize mon leading the party
+    if (!GetMonData(&gPlayerParty[0], MON_DATA_SANITY_IS_EGG) && GetMonAbility(&gPlayerParty[0]) == ABILITY_SYNCHRONIZE)
+    {
+        u8 nature = GetNatureFromPersonality(GetMonData(&gPlayerParty[0], MON_DATA_PERSONALITY));
+        CreateMonWithNature(&gEnemyParty[0], species, level, 32, nature);
+    }
+    else 
+    {
+        CreateMon(&gEnemyParty[0], species, level, 32, 0, 0, OT_ID_PLAYER_ID, 0);
+    }
     if (item)
     {
         heldItem[0] = item;
