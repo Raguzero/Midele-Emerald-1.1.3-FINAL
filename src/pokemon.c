@@ -6256,7 +6256,8 @@ u16 GetMonEVCount(struct Pokemon *mon)
 void RandomlyGivePartyPokerus(struct Pokemon *party)
 {
     u16 rnd = Random();
-    if (rnd == 0x4000 || rnd == 0x8000 || rnd == 0xC000)
+    // 200/65536, 0.30517578125%
+    if (rnd < 200)
     {
         struct Pokemon *mon;
 

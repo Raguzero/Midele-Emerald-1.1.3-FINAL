@@ -901,12 +901,16 @@
 	.endm
 
 	@ Gives the player one of the specified (species) Pokemon at level level holding item. The trailing 0s are unused parameters
-	.macro givemon species:req, level:req, item:req
+	.macro givemon species:req, level:req, item:req, has_pokerus=FALSE
 	.byte 0x79
 	.2byte \species
 	.byte \level
 	.2byte \item
-	.4byte 0x0
+	.if \has_pokerus
+		.4byte 0x1
+	.else
+		.4byte 0x0
+	.endif
 	.4byte 0x0
 	.byte 0
 	.endm

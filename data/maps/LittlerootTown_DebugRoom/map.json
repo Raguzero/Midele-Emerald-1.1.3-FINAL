@@ -213,7 +213,14 @@
             "dest_map": "MAP_LILYCOVE_CITY_HARBOR",
             "dest_warp_id": 0,
             "elevation": 0,
-            "x": 3,
+            "x": 7,
+            "y": 1
+        },
+        {
+            "dest_map": "MAP_ROUTE130",
+            "dest_warp_id": 0,
+            "elevation": 0,
+            "x": 6,
             "y": 1
         }
     ],
