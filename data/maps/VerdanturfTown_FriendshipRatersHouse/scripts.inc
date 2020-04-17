@@ -19,36 +19,43 @@ VerdanturfTown_FriendshipRatersHouse_EventScript_FriendshipRater:: @ 8203031
 
 VerdanturfTown_FriendshipRatersHouse_EventScript_DetestsYou:: @ 8203094
 	msgbox VerdanturfTown_FriendshipRatersHouse_Text_DetestsYou, MSGBOX_DEFAULT
+	goto VerdanturfTown_FriendshipRatersHouse_EventScript_TellNumber
 	release
 	end
 
 VerdanturfTown_FriendshipRatersHouse_EventScript_VeryWary:: @ 820309E
 	msgbox VerdanturfTown_FriendshipRatersHouse_Text_VeryWary, MSGBOX_DEFAULT
+	goto VerdanturfTown_FriendshipRatersHouse_EventScript_TellNumber
 	release
 	end
 
 VerdanturfTown_FriendshipRatersHouse_EventScript_NotUsedToYou:: @ 82030A8
 	msgbox VerdanturfTown_FriendshipRatersHouse_Text_NotUsedToYou, MSGBOX_DEFAULT
+	goto VerdanturfTown_FriendshipRatersHouse_EventScript_TellNumber
 	release
 	end
 
 VerdanturfTown_FriendshipRatersHouse_EventScript_GettingUsedToYou:: @ 82030B2
 	msgbox VerdanturfTown_FriendshipRatersHouse_Text_GettingUsedToYou, MSGBOX_DEFAULT
+	goto VerdanturfTown_FriendshipRatersHouse_EventScript_TellNumber
 	release
 	end
 
 VerdanturfTown_FriendshipRatersHouse_EventScript_LikesYouQuiteALot:: @ 82030BC
 	msgbox VerdanturfTown_FriendshipRatersHouse_Text_LikesYouQuiteALot, MSGBOX_DEFAULT
+	goto VerdanturfTown_FriendshipRatersHouse_EventScript_TellNumber
 	release
 	end
 
 VerdanturfTown_FriendshipRatersHouse_EventScript_VeryHappy:: @ 82030C6
 	msgbox VerdanturfTown_FriendshipRatersHouse_Text_VeryHappy, MSGBOX_DEFAULT
+	goto VerdanturfTown_FriendshipRatersHouse_EventScript_TellNumber
 	release
 	end
 
 VerdanturfTown_FriendshipRatersHouse_EventScript_AdoresYou:: @ 82030D0
 	msgbox VerdanturfTown_FriendshipRatersHouse_Text_AdoresYou, MSGBOX_DEFAULT
+	goto VerdanturfTown_FriendshipRatersHouse_EventScript_TellNumber
 	release
 	end
 
@@ -59,6 +66,11 @@ VerdanturfTown_FriendshipRatersHouse_EventScript_Pikachu:: @ 82030DA
 	playmoncry SPECIES_PIKACHU, 0
 	msgbox VerdanturfTown_FriendshipRatersHouse_Text_Pikachu, MSGBOX_DEFAULT
 	waitmoncry
+	release
+	end
+	
+VerdanturfTown_FriendshipRatersHouse_EventScript_TellNumber::
+	msgbox VerdanturfTown_FriendshipRatersHouse_Text_TellNumber, MSGBOX_DEFAULT
 	release
 	end
 
@@ -101,4 +113,7 @@ VerdanturfTown_FriendshipRatersHouse_Text_DetestsYou: @ 82032DF
 
 VerdanturfTown_FriendshipRatersHouse_Text_Pikachu: @ 820334A
 	.string "PIKACHU: Pika pika!$"
-
+	
+VerdanturfTown_FriendshipRatersHouse_Text_TellNumber::
+	.string "If I had to represent your POKéMON's\n"
+	.string "friendship as a number, I'd say it's {STR_VAR_1}...$"
