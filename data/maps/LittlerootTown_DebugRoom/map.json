@@ -12,91 +12,91 @@
             "type": "weather",
             "weather": "COORD_EVENT_WEATHER_SUNNY_CLOUDS",
             "x": 0,
-            "y": 7
+            "y": 11
         },
         {
             "elevation": 0,
             "type": "weather",
             "weather": "COORD_EVENT_WEATHER_SUNNY",
             "x": 1,
-            "y": 7
+            "y": 11
         },
         {
             "elevation": 0,
             "type": "weather",
             "weather": "COORD_EVENT_WEATHER_RAIN",
-            "x": 2,
-            "y": 6
+            "x": 3,
+            "y": 11
         },
         {
             "elevation": 0,
             "type": "weather",
             "weather": "COORD_EVENT_WEATHER_SNOW",
-            "x": 5,
-            "y": 7
+            "x": 9,
+            "y": 11
         },
         {
             "elevation": 0,
             "type": "weather",
             "weather": "COORD_EVENT_WEATHER_RAIN_THUNDERSTORM",
-            "x": 6,
-            "y": 6
+            "x": 12,
+            "y": 11
         },
         {
             "elevation": 0,
             "type": "weather",
             "weather": "COORD_EVENT_WEATHER_FOG_HORIZONTAL",
-            "x": 7,
-            "y": 7
+            "x": 8,
+            "y": 11
         },
         {
             "elevation": 0,
             "type": "weather",
             "weather": "COORD_EVENT_WEATHER_FOG_DIAGONAL",
-            "x": 0,
-            "y": 6
+            "x": 5,
+            "y": 11
         },
         {
             "elevation": 0,
             "type": "weather",
             "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH",
-            "x": 1,
-            "y": 6
+            "x": 4,
+            "y": 11
         },
         {
             "elevation": 0,
             "type": "weather",
             "weather": "COORD_EVENT_WEATHER_SANDSTORM",
             "x": 2,
-            "y": 7
+            "y": 11
         },
         {
             "elevation": 0,
             "type": "weather",
             "weather": "COORD_EVENT_WEATHER_SHADE",
-            "x": 7,
-            "y": 6
+            "x": 10,
+            "y": 11
         },
         {
             "elevation": 0,
             "type": "weather",
             "weather": "COORD_EVENT_WEATHER_DROUGHT",
-            "x": 6,
-            "y": 7
+            "x": 11,
+            "y": 11
         },
         {
             "elevation": 0,
             "type": "weather",
             "weather": "COORD_EVENT_WEATHER_ROUTE119_CYCLE",
-            "x": 3,
-            "y": 3
+            "x": 14,
+            "y": 11
         },
         {
             "elevation": 0,
             "type": "weather",
             "weather": "COORD_EVENT_WEATHER_ROUTE123_CYCLE",
-            "x": 2,
-            "y": 3
+            "x": 13,
+            "y": 11
         }
     ],
     "id": "MAP_LITTLEROOT_TOWN_DEBUG_ROOM",
@@ -115,8 +115,8 @@
             "script": "LittlerootTown_DebugRoom_Script_GiveAllMons",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
-            "x": 5,
-            "y": 3
+            "x": 4,
+            "y": 8
         },
         {
             "elevation": 3,
@@ -128,8 +128,8 @@
             "script": "LittlerootTown_DebugRoom_Script_PC",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
-            "x": 2,
-            "y": 5
+            "x": 3,
+            "y": 8
         },
         {
             "elevation": 3,
@@ -142,7 +142,7 @@
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
             "x": 1,
-            "y": 2
+            "y": 8
         },
         {
             "elevation": 3,
@@ -154,7 +154,7 @@
             "script": "LittlerootTown_DebugRoom_Script_ActivarTodo",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
-            "x": 6,
+            "x": 8,
             "y": 3
         },
         {
@@ -167,7 +167,7 @@
             "script": "LittlerootTown_DebugRoom_Script_DesactivarMedallas",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
-            "x": 7,
+            "x": 9,
             "y": 3
         },
         {
@@ -180,8 +180,8 @@
             "script": "LittlerootTown_DebugRoom_Script_Combate",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
-            "x": 4,
-            "y": 3
+            "x": 14,
+            "y": 8
         }
     ],
     "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
@@ -192,15 +192,15 @@
             "dest_map": "MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F",
             "dest_warp_id": 3,
             "elevation": 0,
-            "x": 3,
-            "y": 7
+            "x": 6,
+            "y": 11
         },
         {
             "dest_map": "MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F",
             "dest_warp_id": 3,
             "elevation": 0,
-            "x": 4,
-            "y": 7
+            "x": 7,
+            "y": 11
         },
         {
             "dest_map": "MAP_EVER_GRANDE_CITY_CHAMPIONS_ROOM",
@@ -213,21 +213,28 @@
             "dest_map": "MAP_LILYCOVE_CITY_HARBOR",
             "dest_warp_id": 0,
             "elevation": 0,
-            "x": 7,
+            "x": 14,
             "y": 1
         },
         {
             "dest_map": "MAP_ROUTE130",
             "dest_warp_id": 0,
             "elevation": 0,
-            "x": 6,
+            "x": 13,
             "y": 1
         },
         {
             "dest_map": "MAP_VERDANTURF_TOWN_FRIENDSHIP_RATERS_HOUSE",
             "dest_warp_id": 0,
             "elevation": 0,
-            "x": 5,
+            "x": 12,
+            "y": 1
+        },
+        {
+            "dest_map": "MAP_ROUTE123_BERRY_MASTERS_HOUSE",
+            "dest_warp_id": 0,
+            "elevation": 0,
+            "x": 11,
             "y": 1
         }
     ],
