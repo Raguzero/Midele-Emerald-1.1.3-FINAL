@@ -222,6 +222,13 @@
             "elevation": 0,
             "x": 6,
             "y": 1
+        },
+        {
+            "dest_map": "MAP_VERDANTURF_TOWN_FRIENDSHIP_RATERS_HOUSE",
+            "dest_warp_id": 0,
+            "elevation": 0,
+            "x": 5,
+            "y": 1
         }
     ],
     "weather": "WEATHER_NONE"
