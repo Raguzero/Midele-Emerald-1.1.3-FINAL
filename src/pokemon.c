@@ -2952,7 +2952,16 @@ void CreateObedientMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u
 {
     bool32 obedient = TRUE;
 
-    CreateMon(mon, species, level, fixedIV, hasFixedPersonality, fixedPersonality, otIdType, fixedOtId);
+    if (!GetMonData(&gPlayerParty[0], MON_DATA_SANITY_IS_EGG) && GetMonAbility(&gPlayerParty[0]) == ABILITY_SYNCHRONIZE)
+    {
+        u8 nature = GetNatureFromPersonality(GetMonData(&gPlayerParty[0], MON_DATA_PERSONALITY));
+        CreateMonWithNature(&gEnemyParty[0], species, level, fixedIV, nature);
+    }
+    else 
+    {
+        CreateMon(mon, species, level, fixedIV, hasFixedPersonality, fixedPersonality, otIdType, fixedOtId);
+    }
+    
     SetMonData(mon, MON_DATA_OBEDIENCE, &obedient);
 }
 
