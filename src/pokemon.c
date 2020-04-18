@@ -2310,12 +2310,12 @@ static const u8 sStatsToRaise[] =
 // 0-99, 100-199, 200+
 static const s8 sFriendshipEventModifiers[][3] =
 {
-    [FRIENDSHIP_EVENT_GROW_LEVEL]      = { 5,  3,  2},
+    [FRIENDSHIP_EVENT_GROW_LEVEL]      = { 10,  6,  4},
     [FRIENDSHIP_EVENT_VITAMIN]         = { 5,  3,  2},
     [FRIENDSHIP_EVENT_BATTLE_ITEM]     = { 1,  1,  0},
-    [FRIENDSHIP_EVENT_LEAGUE_BATTLE]   = { 3,  2,  1},
-    [FRIENDSHIP_EVENT_LEARN_TMHM]      = { 1,  1,  0},
-    [FRIENDSHIP_EVENT_WALKING]         = { 1,  1,  1},
+    [FRIENDSHIP_EVENT_LEAGUE_BATTLE]   = { 6,  4,  2},
+    [FRIENDSHIP_EVENT_LEARN_TMHM]      = { 0,  0,  0},
+    [FRIENDSHIP_EVENT_WALKING]         = { 2,  2,  2},
     [FRIENDSHIP_EVENT_FAINT_SMALL]     = {-1, -1, -1},
     [FRIENDSHIP_EVENT_FAINT_FIELD_PSN] = {-5, -5, -10},
     [FRIENDSHIP_EVENT_FAINT_LARGE]     = {-5, -5, -10},
