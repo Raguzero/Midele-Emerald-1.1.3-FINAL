@@ -1389,7 +1389,7 @@ const struct Item gItems[] =
     {
         .name = _("HEART SCALE"),
         .itemId = ITEM_HEART_SCALE,
-        .price = 100,
+        .price = 10000,
         .description = sHeartScaleDesc,
         .pocket = POCKET_ITEMS,
         .type = 4,
