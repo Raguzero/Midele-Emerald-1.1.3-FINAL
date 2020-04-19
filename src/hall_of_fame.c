@@ -40,7 +40,7 @@ struct HallofFameMon
 {
     u32 tid;
     u32 personality;
-    u16 species:9;
+    u16 species:10;  // ANTES ERA 9, NO SE PODIA METER MAS DE 512 POKES
     u16 lvl:7;
     u8 nick[POKEMON_NAME_LENGTH];
 };

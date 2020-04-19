@@ -14475,6 +14475,23 @@ gCryTable:: @ 869DCF4
 	cry Cry_Drakloak
 	cry Cry_Dragapult
 	cry Cry_Wooloo
+	cry Cry_Riolu
+	cry Cry_Lucario
+	cry Cry_Tynamo
+	cry Cry_Eelektrik
+	cry Cry_Eelektross
+	cry Cry_Grubbin
+	cry Cry_Charjabug
+	cry Cry_Vikavolt
+	cry Cry_Litwick
+	cry Cry_Lampent
+	cry Cry_Chandelure
+	cry Cry_Rowlet
+	cry Cry_Dartrix
+	cry Cry_Decidueye
+	cry Cry_Popplio
+	cry Cry_Brionne
+	cry Cry_Primarina
 
 	.align 2
 gCryTable2:: @ 869EF24
@@ -14914,6 +14931,23 @@ gCryTable2:: @ 869EF24
 	cry2 Cry_Drakloak
 	cry2 Cry_Dragapult
 	cry2 Cry_Wooloo
+	cry2 Cry_Riolu
+	cry2 Cry_Lucario
+	cry2 Cry_Tynamo
+	cry2 Cry_Eelektrik
+	cry2 Cry_Eelektross
+	cry2 Cry_Grubbin
+	cry2 Cry_Charjabug
+	cry2 Cry_Vikavolt
+	cry2 Cry_Litwick
+	cry2 Cry_Lampent
+	cry2 Cry_Chandelure
+	cry2 Cry_Rowlet
+	cry2 Cry_Dartrix
+	cry2 Cry_Decidueye
+	cry2 Cry_Popplio
+	cry2 Cry_Brionne
+	cry2 Cry_Primarina
 
 	.align 2
 voicegroup129:: @ 86A0154

@@ -7209,4 +7209,130 @@ static const u32 sTutorLearnsets[] =
 											| TUTOR(MOVE_SWAGGER)
                                             | TUTOR(MOVE_SNORE)
 											| TUTOR(MOVE_ENDURE)),
+											
+    [SPECIES_RIOLU]         = (TUTOR(MOVE_COUNTER)
+											| TUTOR(MOVE_ENDURE)
+											| TUTOR(MOVE_FURY_CUTTER)
+											| TUTOR(MOVE_ICE_PUNCH)
+											| TUTOR(MOVE_MUD_SLAP)
+											| TUTOR(MOVE_ROCK_SLIDE)
+											| TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)
+											| TUTOR(MOVE_SWIFT)
+											| TUTOR(MOVE_SWORDS_DANCE)
+											| TUTOR(MOVE_THUNDER_PUNCH)),
+
+    [SPECIES_LUCARIO]       = (TUTOR(MOVE_COUNTER)
+											| TUTOR(MOVE_ENDURE)
+											| TUTOR(MOVE_FURY_CUTTER)
+											| TUTOR(MOVE_ICE_PUNCH)
+											| TUTOR(MOVE_MUD_SLAP)
+											| TUTOR(MOVE_ROCK_SLIDE)
+											| TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)
+											| TUTOR(MOVE_SWIFT)
+											| TUTOR(MOVE_SWORDS_DANCE)
+											| TUTOR(MOVE_THUNDER_PUNCH)),
+											
+    [SPECIES_TYNAMO]        = (TUTOR(MOVE_THUNDER_WAVE)),
+
+    [SPECIES_EELEKTRIK]     = (TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)
+											| TUTOR(MOVE_THUNDER_WAVE)),
+
+    [SPECIES_EELEKTROSS]    = (TUTOR(MOVE_FIRE_PUNCH)
+											| TUTOR(MOVE_ROCK_SLIDE)
+											| TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)
+											| TUTOR(MOVE_THUNDER_PUNCH)
+											| TUTOR(MOVE_THUNDER_WAVE)),
+											
+    [SPECIES_GRUBBIN]       = (TUTOR(MOVE_ENDURE)
+											| TUTOR(MOVE_MUD_SLAP)
+											| TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)
+											| TUTOR(MOVE_THUNDER_WAVE)),
+
+    [SPECIES_CHARJABUG]     = (TUTOR(MOVE_MUD_SLAP)
+											| TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)
+											| TUTOR(MOVE_THUNDER_WAVE)),
+
+    [SPECIES_VIKAVOLT]      = (TUTOR(MOVE_MUD_SLAP)
+											| TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)
+											| TUTOR(MOVE_THUNDER_WAVE)),
+											
+    [SPECIES_LITWICK]       = (TUTOR(MOVE_DREAM_EATER)
+											| TUTOR(MOVE_ENDURE)
+											| TUTOR(MOVE_PSYCH_UP)
+											| TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)),
+
+    [SPECIES_LAMPENT]       = (TUTOR(MOVE_DREAM_EATER)
+											| TUTOR(MOVE_PSYCH_UP)
+											| TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)),
+
+    [SPECIES_CHANDELURE]    = (TUTOR(MOVE_DREAM_EATER)
+											| TUTOR(MOVE_PSYCH_UP)
+											| TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)),
+
+    [SPECIES_ROWLET]        = (TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)
+											| TUTOR(MOVE_SWORDS_DANCE)),
+
+    [SPECIES_DARTRIX]       = (TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)
+											| TUTOR(MOVE_SWORDS_DANCE)),
+
+    [SPECIES_DECIDUEYE]     = (TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)
+											| TUTOR(MOVE_SWORDS_DANCE)),
+
+    [SPECIES_POPPLIO]       = (TUTOR(MOVE_ICY_WIND)
+											| TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)),
+
+    [SPECIES_BRIONNE]       = (TUTOR(MOVE_ICY_WIND)
+											| TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)),
+
+    [SPECIES_PRIMARINA]     = (TUTOR(MOVE_ICY_WIND)
+											| TUTOR(MOVE_PSYCH_UP)
+											| TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)),											
 };

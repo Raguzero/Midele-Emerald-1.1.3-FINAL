@@ -2527,6 +2527,91 @@ const struct MonCoords gMonBackPicCoords[] =
         .size = 0x87,
         .y_offset = 0x1B
     },
+    [SPECIES_RIOLU] =
+    {
+        .size = 0x88,
+        .y_offset = 0x8
+    },
+    [SPECIES_LUCARIO] =
+    {
+        .size = 0x88,
+        .y_offset = 0x0
+    },
+    [SPECIES_TYNAMO] =
+    {
+        .size = 0x83,
+        .y_offset = 0x15
+    },
+    [SPECIES_EELEKTRIK] =
+    {
+        .size = 0x78,
+        .y_offset = 0x4
+    },
+    [SPECIES_EELEKTROSS] =
+    {
+        .size = 0x88,
+        .y_offset = 0x0
+    },
+    [SPECIES_GRUBBIN] =
+    {
+        .size = 0x84,
+        .y_offset = 0x10
+    },
+    [SPECIES_CHARJABUG] =
+    {
+        .size = 0x85,
+        .y_offset = 0xf
+    },
+    [SPECIES_VIKAVOLT] =
+    {
+        .size = 0x87,
+        .y_offset = 0x7
+    },
+    [SPECIES_LITWICK] =
+    {
+        .size = 0x55,
+        .y_offset = 0xe
+    },
+    [SPECIES_LAMPENT] =
+    {
+        .size = 0x76,
+        .y_offset = 0xc
+    },
+    [SPECIES_CHANDELURE] =
+    {
+        .size = 0x88,
+        .y_offset = 0x0
+    },
+    [SPECIES_ROWLET] =
+    {
+        .size = 0x65,
+        .y_offset = 0xf
+    },
+    [SPECIES_DARTRIX] =
+    {
+        .size = 0x77,
+        .y_offset = 0x4
+    },
+    [SPECIES_DECIDUEYE] =
+    {
+        .size = 0x68,
+        .y_offset = 0x0
+    },
+    [SPECIES_POPPLIO] =
+    {
+        .size = 0x66,
+        .y_offset = 0xb
+    },
+    [SPECIES_BRIONNE] =
+    {
+        .size = 0x67,
+        .y_offset = 0x9
+    },
+    [SPECIES_PRIMARINA] =
+    {
+        .size = 0x88,
+        .y_offset = 0x0
+    },
 // NUEVO PARA FORMAS ALOLA
     [SPECIES_EGG] =
     {

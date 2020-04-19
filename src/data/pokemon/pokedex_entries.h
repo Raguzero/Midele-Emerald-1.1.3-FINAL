@@ -5390,4 +5390,205 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 256,
         .trainerOffset = 0,
 	},
+	[NATIONAL_DEX_RIOLU] =
+	{
+		.categoryName = _("Emanation"),
+		.height = 7,
+		.weight = 202,
+		.description = gRioluPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_LUCARIO] =
+	{
+		.categoryName = _("Aura"),
+		.height = 12,
+		.weight = 540,
+		.description = gLucarioPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	[NATIONAL_DEX_TYNAMO] =
+	{
+		.categoryName = _("EleFish"),
+		.height = 2,
+		.weight = 3,
+		.description = gTynamoPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_EELEKTRIK] =
+	{
+		.categoryName = _("EleFish"),
+		.height = 12,
+		.weight = 220,
+		.description = gEelektrikPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_EELEKTROSS] =
+	{
+		.categoryName = _("EleFish"),
+		.height = 21,
+		.weight = 805,
+		.description = gEelektrossPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_GRUBBIN] =
+	{
+		.categoryName = _("Larva"),
+		.height = 4,
+		.weight = 44,
+		.description = gGrubbinPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_CHARJABUG] =
+	{
+		.categoryName = _("Battery"),
+		.height = 5,
+		.weight = 105,
+		.description = gCharjabugPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_VIKAVOLT] =
+	{
+		.categoryName = _("Stag Beetle"),
+		.height = 15,
+		.weight = 450,
+		.description = gVikavoltPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	
+	[NATIONAL_DEX_LITWICK] =
+	{
+		.categoryName = _("Candle"),
+		.height = 3,
+		.weight = 31,
+		.description = gLitwickPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_LAMPENT] =
+	{
+		.categoryName = _("Lamp"),
+		.height = 6,
+		.weight = 130,
+		.description = gLampentPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_CHANDELURE] =
+	{
+		.categoryName = _("Luring"),
+		.height = 10,
+		.weight = 343,
+		.description = gChandelurePokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	[NATIONAL_DEX_ROWLET] =
+	{
+		.categoryName = _("Grass Quill"),
+		.height = 3,
+		.weight = 15,
+		.description = gRowletPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_DARTRIX] =
+	{
+		.categoryName = _("Blade Quill"),
+		.height = 7,
+		.weight = 160,
+		.description = gDartrixPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_DECIDUEYE] =
+	{
+		.categoryName = _("Arrow Quill"),
+		.height = 16,
+		.weight = 366,
+		.description = gDecidueyePokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_POPPLIO] =
+	{
+		.categoryName = _("Sea Lion"),
+		.height = 4,
+		.weight = 75,
+		.description = gPopplioPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_BRIONNE] =
+	{
+		.categoryName = _("Pop Star"),
+		.height = 6,
+		.weight = 175,
+		.description = gBrionnePokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_PRIMARINA] =
+	{
+		.categoryName = _("Soloist"),
+		.height = 18,
+		.weight = 440,
+		.description = gPrimarinaPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
 };

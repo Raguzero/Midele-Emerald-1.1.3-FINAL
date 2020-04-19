@@ -2528,6 +2528,91 @@ const struct MonCoords gMonFrontPicCoords[] =
         .size = 0x87,
         .y_offset = 0x7,
     },
+   [SPECIES_RIOLU] =
+    {
+        .size = 0x76,
+        .y_offset = 0xa,
+    },
+    [SPECIES_LUCARIO] =
+    {
+        .size = 0x76,
+        .y_offset = 0x7,
+    },
+    [SPECIES_TYNAMO] =
+    {
+        .size = 0x45,
+        .y_offset = 0x16,
+    },
+    [SPECIES_EELEKTRIK] =
+    {
+        .size = 0x45,
+        .y_offset = 0x6,
+    },
+    [SPECIES_EELEKTROSS] =
+    {
+        .size = 0x45,
+        .y_offset = 0x6,
+    },
+    [SPECIES_GRUBBIN] =
+    {
+        .size = 0x45,
+        .y_offset = 0x11,
+    },
+    [SPECIES_CHARJABUG] =
+    {
+        .size = 0x45,
+        .y_offset = 0x0E,
+    },
+    [SPECIES_VIKAVOLT] =
+    {
+        .size = 0x45,
+        .y_offset = 0x06,
+    },
+    [SPECIES_LITWICK] =
+    {
+        .size = 0x45,
+        .y_offset = 0xe,
+    },
+    [SPECIES_LAMPENT] =
+    {
+        .size = 0x45,
+        .y_offset = 0x8,
+    },
+    [SPECIES_CHANDELURE] =
+    {
+        .size = 0x45,
+        .y_offset = 0x4,
+    },
+    [SPECIES_ROWLET] =
+    {
+        .size = 0x45,
+        .y_offset = 0x0C,
+    },
+    [SPECIES_DARTRIX] =
+    {
+        .size = 0x45,
+        .y_offset = 0x08,
+    },
+    [SPECIES_DECIDUEYE] =
+    {
+        .size = 0x45,
+        .y_offset = 0x00,
+    },
+    [SPECIES_POPPLIO] =
+    {
+        .size = 0x45,
+        .y_offset = 0x0B,
+    },
+    [SPECIES_BRIONNE] =
+    {
+        .size = 0x45,
+        .y_offset = 0x06,
+    },
+    [SPECIES_PRIMARINA] =
+    {
+        .size = 0x45,
+        .y_offset = 0x00,
+    },
     [SPECIES_EGG] =
     {
         .size = 0x33,

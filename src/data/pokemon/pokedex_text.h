@@ -2707,3 +2707,106 @@ const u8 gWoolooPokedexText[] = _(
     "cushion that this POKéMON could fall off\n"
     "a cliff and stand right back up at the\n"
     "bottom, unharmed.");
+	
+
+const u8 gRioluPokedexText[] = _(
+    "It can discern the physical and emotional\n"
+    "states of people, Pokémon, and other\n"
+    "natural things from the shape of their\n"
+    "aura waves.");
+
+const u8 gLucarioPokedexText[] = _(
+    "It understands human speech.\n"
+    "It is said that no foe can remain invisible\n"
+    "to Lucario, since it can detect Auras.\n"
+    "Even foes it could not otherwise see.");
+	
+const u8 gTynamoPokedexText[] = _(
+    "These Pokémon move in schools.\n"
+    "One alone can emit only a trickle of\n"
+    "electricity, so a group of them gathers\n"
+    "to unleash a powerful electric shock.");
+
+const u8 gEelektrikPokedexText[] = _(
+    "These Pokémon have a big appetite.\n"
+    "It wraps itself around its prey and\n"
+    "paralyzes it with electricity from the\n"
+    "round spots on its sides. Then it chomps.");
+
+const u8 gEelektrossPokedexText[] = _(
+    "They crawl out of the ocean using their\n"
+    "arms. They will attack prey on shore and\n"
+    "immediately drag it into the ocean, with\n"
+    "their sucker mouths.");
+	
+const u8 gGrubbinPokedexText[] = _(
+    "They often gather near places frequented\n"
+    "by electric Pokémon in order to avoid being\n"
+    "attacked by bird Pokémon, though it\n"
+    "normally lives underground.");
+
+const u8 gCharjabugPokedexText[] = _(
+    "From the food it digests, it generates\n"
+    "electricity, and it stores this energy in\n"
+    "its electric sac. On camping trips, people\n"
+    "are grateful to have one around.");
+
+const u8 gVikavoltPokedexText[] = _(
+    "It concentrates electrical energy within\n"
+    "its large jaws and uses it to zap its foes.\n"
+    "It overwhelms bird Pokémon with shocking\n"
+    "beams of electrical energy.");
+
+const u8 gLitwickPokedexText[] = _(
+    "While Litwick shines a light and pretends\n"
+    "to be a guide, it absorbs the life force of\n"
+    "any who follow it, which becomes the fuel\n"
+    "that it burns.");
+
+const u8 gLampentPokedexText[] = _(
+    "This ominous Pokémon is feared.\n"
+    "Through cities it wanders, searching\n"
+    "for the spirits of the fallen. The spirits\n"
+    "it absorbs fuel its baleful fire.");
+
+const u8 gChandelurePokedexText[] = _(
+    "Being consumed in Chandelure's flame burns\n"
+    "up the spirit, leaving the body behind.\n"
+    "By waving the flames on its arms, it puts\n"
+    "its foes into a hypnotic trance.");
+	
+const u8 gRowletPokedexText[] = _(
+    "This wary Pokémon uses photosynthesis\n"
+    "to store up energy during the day, while\n"
+    "becoming active at night. Silently it\n"
+    "glides, drawing near to its target.");
+
+const u8 gDartrixPokedexText[] = _(
+    "A bit of a dandy, it spends its free time\n"
+    "preening its wings. Its preoccupation\n"
+    "with any dirt on its plumage can leave\n"
+    "it unable to battle.");
+
+const u8 gDecidueyePokedexText[] = _(
+    "Decidueye is cool and cautious.\n"
+    "It fires arrow quills from its wings with\n"
+    "such precision, they can pierce a pebble\n"
+    "at distances of over a hundred yards.");
+
+const u8 gPopplioPokedexText[] = _(
+    "This Pokémon snorts body fluids from\n"
+    "its nose, blowing balloons to smash into\n"
+    "its foes. It practices diligently so it can\n"
+    "learn to make big bubbles.");
+
+const u8 gBrionnePokedexText[] = _(
+    "It cares deeply for its companions.\n"
+    "When its Trainer is feeling down, it\n"
+    "performs a cheery dance with a sequence\n"
+    "of water balloons  to try and help.");
+
+const u8 gPrimarinaPokedexText[] = _(
+    "It controls its water balloons with song.\n"
+    "The melody is learned from others of\n"
+    "its kind and is passed down from one\n"
+    "generation to the next.");

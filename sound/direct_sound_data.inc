@@ -2151,6 +2151,80 @@ Cry_Wooloo::
 
 	.align 2
 
+Cry_Riolu::
+	.incbin "sound/direct_sound_samples/cry_riolu.bin"
+
+	.align 2
+Cry_Lucario::
+	.incbin "sound/direct_sound_samples/cry_lucario.bin"
+
+	.align 2
+	
+Cry_Tynamo::
+	.incbin "sound/direct_sound_samples/cry_tynamo.bin"
+
+	.align 2
+Cry_Eelektrik::
+	.incbin "sound/direct_sound_samples/cry_eelektrik.bin"
+
+	.align 2
+Cry_Eelektross::
+	.incbin "sound/direct_sound_samples/cry_eelektross.bin"
+
+	.align 2
+	
+Cry_Grubbin::
+	.incbin "sound/direct_sound_samples/cry_grubbin.bin"
+
+	.align 2
+Cry_Charjabug::
+	.incbin "sound/direct_sound_samples/cry_charjabug.bin"
+
+	.align 2
+Cry_Vikavolt::
+	.incbin "sound/direct_sound_samples/cry_vikavolt.bin"
+
+	.align 2
+
+Cry_Litwick::
+	.incbin "sound/direct_sound_samples/cry_litwick.bin"
+
+	.align 2
+Cry_Lampent::
+	.incbin "sound/direct_sound_samples/cry_lampent.bin"
+
+	.align 2
+Cry_Chandelure::
+	.incbin "sound/direct_sound_samples/cry_chandelure.bin"
+
+	.align 2
+	
+Cry_Rowlet::
+	.incbin "sound/direct_sound_samples/cry_rowlet.bin"
+
+	.align 2
+Cry_Dartrix::
+	.incbin "sound/direct_sound_samples/cry_dartrix.bin"
+
+	.align 2
+Cry_Decidueye::
+	.incbin "sound/direct_sound_samples/cry_decidueye.bin"
+
+	.align 2
+
+Cry_Popplio::
+	.incbin "sound/direct_sound_samples/cry_popplio.bin"
+
+	.align 2
+Cry_Brionne::
+	.incbin "sound/direct_sound_samples/cry_brionne.bin"
+
+	.align 2
+Cry_Primarina::
+	.incbin "sound/direct_sound_samples/cry_primarina.bin"
+
+	.align 2
+
 DirectSoundWaveData_register_noise::
 	.incbin "sound/direct_sound_samples/register_noise.bin"
 
