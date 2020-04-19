@@ -7180,6 +7180,16 @@ bool8 HasTwoFramesAnimation(u16 species)
             && species != SPECIES_DEOXYS
             && species != SPECIES_SPINDA
             && species != SPECIES_UNOWN
+		    && species != SPECIES_GRUBBIN
+		    && species != SPECIES_CHARJABUG
+			&& species != SPECIES_VIKAVOLT
+		    && species != SPECIES_ROWLET
+		    && species != SPECIES_DARTRIX
+			&& species != SPECIES_DECIDUEYE
+		    && species != SPECIES_POPPLIO
+		    && species != SPECIES_BRIONNE
+			&& species != SPECIES_PRIMARINA
+			&& species != SPECIES_DRAGAPULT
             && species != SPECIES_WOOLOO);
 }
 
