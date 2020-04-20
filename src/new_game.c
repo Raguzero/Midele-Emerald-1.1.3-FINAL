@@ -123,14 +123,14 @@ static void TestingNewGame(void)
 {
     u16 i;
 
-    for (i = 0; i < 551; i++)
+    for (i = 0; i < POKEMON_SLOTS_NUMBER; i++)
         GetSetPokedexFlag(i, FLAG_SET_SEEN);
 }
 static void TestingNewGame2(void)
 {
     u16 i;
 
-    for (i = 0; i < 551; i++)
+    for (i = 0; i < POKEMON_SLOTS_NUMBER; i++)
         GetSetPokedexFlag(i, FLAG_SET_CAUGHT);
 }
 // NUEVO TEST
