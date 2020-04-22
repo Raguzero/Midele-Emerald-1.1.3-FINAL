@@ -43,7 +43,13 @@ EverGrandeCity_GlaciasRoom_EventScript_Glacia:: @ 8228469
 	goto_if_set FLAG_DEFEATED_ELITE_4_GLACIA, EverGrandeCity_GlaciasRoom_EventScript_PostBattleSpeech
 	playbgm MUS_SITENNOU, 0
 	msgbox EverGrandeCity_GlaciasRoom_Text_IntroSpeech, MSGBOX_DEFAULT
+	goto_if_set FLAG_SYS_GAME_CLEAR, EGC_AltGlacia
 	trainerbattle_no_intro TRAINER_GLACIA, EverGrandeCity_GlaciasRoom_Text_Defeat
+	goto EverGrandeCity_GlaciasRoom_EventScript_Defeated
+	end
+
+EGC_AltGlacia::
+	trainerbattle_no_intro TRAINER_DEBUG, EverGrandeCity_GlaciasRoom_Text_Defeat
 	goto EverGrandeCity_GlaciasRoom_EventScript_Defeated
 	end
 

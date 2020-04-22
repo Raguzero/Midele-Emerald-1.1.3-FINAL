@@ -49,7 +49,13 @@ EverGrandeCity_SidneysRoom_EventScript_Sidney:: @ 8227F64
 	goto_if_set FLAG_DEFEATED_ELITE_4_SIDNEY, EverGrandeCity_SidneysRoom_EventScript_PostBattleSpeech
 	playbgm MUS_SITENNOU, 0
 	msgbox EverGrandeCity_SidneysRoom_Text_IntroSpeech, MSGBOX_DEFAULT
+	goto_if_set FLAG_SYS_GAME_CLEAR, EGC_AltSidney
 	trainerbattle_no_intro TRAINER_SIDNEY, EverGrandeCity_SidneysRoom_Text_Defeat
+	goto EverGrandeCity_SidneysRoom_EventScript_Defeated
+	end
+	
+EGC_AltSidney::
+	trainerbattle_no_intro TRAINER_DEBUG, EverGrandeCity_SidneysRoom_Text_Defeat
 	goto EverGrandeCity_SidneysRoom_EventScript_Defeated
 	end
 

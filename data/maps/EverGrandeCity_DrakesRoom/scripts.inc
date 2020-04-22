@@ -44,10 +44,16 @@ EverGrandeCity_DrakesRoom_EventScript_Drake:: @ 82286F3
 	goto_if_set FLAG_DEFEATED_ELITE_4_DRAKE, EverGrandeCity_DrakesRoom_EventScript_PostBattleSpeech
 	playbgm MUS_SITENNOU, 0
 	msgbox EverGrandeCity_DrakesRoom_Text_IntroSpeech, MSGBOX_DEFAULT
+	goto_if_set FLAG_SYS_GAME_CLEAR, EGC_AltDrake
 	trainerbattle_no_intro TRAINER_DRAKE, EverGrandeCity_DrakesRoom_Text_Defeat
 	goto EverGrandeCity_DrakesRoom_EventScript_Defeated
 	end
 
+EGC_AltDrake::
+	trainerbattle_no_intro TRAINER_DEBUG, EverGrandeCity_DrakesRoom_Text_Defeat
+	goto EverGrandeCity_DrakesRoom_EventScript_Defeated
+	end
+	
 EverGrandeCity_DrakesRoom_EventScript_PostBattleSpeech:: @ 822871A
 	msgbox EverGrandeCity_DrakesRoom_Text_PostBattleSpeech, MSGBOX_DEFAULT
 	release
