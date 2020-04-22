@@ -4642,3 +4642,12 @@ BattleScript_AttackSpAttackUpTrySpAtk::
 	waitmessage 0x40
 BattleScript_AttackSpAttackUpEnd:
 	goto BattleScript_MoveEnd
+
+BattleScript_DrySkinDmg::
+	printstring STRINGID_DRYSKIN
+	waitmessage 0x64
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	end3
+
