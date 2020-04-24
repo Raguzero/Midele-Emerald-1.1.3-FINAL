@@ -380,6 +380,9 @@ gBattleAnims_Moves::
 	.4byte Move_DARK_PULSE
 	.4byte Move_ENERGY_BALL
 	.4byte Move_NASTY_PLOT
+	.4byte Move_QUIVER_DANCE
+	.4byte Move_COIL
+	.4byte Move_SHADOW_SNEAK
 	.4byte Move_COUNT @ cannot be reached, because last move is Psycho Boost
 
 	.align 2
@@ -10045,6 +10048,15 @@ Move_ENERGY_BALL:
 	
 Move_NASTY_PLOT:
 	end
+
+Move_QUIVER_DANCE:
+	end
+	
+Move_COIL:
+	end
+	
+Move_SHADOW_SNEAK:
+    end
 
 Move_COUNT:
 	loadspritegfx ANIM_TAG_IMPACT

@@ -1459,6 +1459,18 @@ static const u8 sNASTY_PLOTDescription[] = _(
 	"Thinks bad thoughts to\n"
 	"sharply boost Sp. Atk.");
 
+static const u8 sQUIVER_DANCEDescription[] = _(
+	"Dances to raise Sp. Atk,\n"
+	"Sp. Def and Speed.");	
+	
+static const u8 sCOILDescription[] = _(
+	"Coils up to raise Attack\n"
+	"Defense and Accuracy.");
+
+static const u8 sSHADOW_SNEAKDescription[] = _(
+	"Extends the user's shadow\n"
+	"to strike first.");
+
 // MOVE_NONE is ignored in this table. Make sure to always subtract 1 before getting the right pointer.
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
 {
@@ -1827,5 +1839,8 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_DARK_PULSE - 1] = sDARK_PULSEDescription,
     [MOVE_ENERGY_BALL - 1] = sENERGY_BALLDescription,
     [MOVE_NASTY_PLOT - 1] = sNASTY_PLOTDescription,
+    [MOVE_QUIVER_DANCE - 1] = sQUIVER_DANCEDescription,
+    [MOVE_COIL - 1] = sCOILDescription,
+    [MOVE_SHADOW_SNEAK - 1] = sSHADOW_SNEAKDescription,
 	// NUEVO MOVE TIPO HADA
 };

@@ -2603,7 +2603,7 @@ static const struct TrainerMonCustomMidele sParty_Winston2[] = {
     .lvl = 27,
     .species = SPECIES_GALAR_LINOONE,
     .heldItem = ITEM_NUGGET,
-    .ability = NATURE_ADAMANT,
+    .nature = NATURE_ADAMANT,
 	.evs = {6, 52, 0, 0, 0, 52},
     .moves = {MOVE_SLASH, MOVE_MUD_SHOT, MOVE_PIN_MISSILE, MOVE_KNOCK_OFF}
     }
@@ -2615,7 +2615,7 @@ static const struct TrainerMonCustomMidele sParty_Winston3[] = {
     .lvl = 30,
     .species = SPECIES_GALAR_LINOONE,
     .heldItem = ITEM_NUGGET,
-    .ability = NATURE_ADAMANT,
+    .nature = NATURE_ADAMANT,
 	.evs = {6, 100, 0, 0, 0, 100},
     .moves = {MOVE_SLASH, MOVE_MUD_SHOT, MOVE_PIN_MISSILE, MOVE_SHADOW_BALL}
     }
@@ -2627,7 +2627,7 @@ static const struct TrainerMonCustomMidele sParty_Winston4[] = {
     .lvl = 33,
     .species = SPECIES_GALAR_LINOONE,
     .heldItem = ITEM_NUGGET,
-    .ability = NATURE_ADAMANT,
+    .nature = NATURE_ADAMANT,
 	.evs = {6, 152, 0, 0, 0, 152},
     .moves = {MOVE_SLASH, MOVE_MUD_SHOT, MOVE_PIN_MISSILE, MOVE_SHADOW_BALL}
     }
@@ -2639,7 +2639,7 @@ static const struct TrainerMonCustomMidele sParty_Winston5[] = {
     .lvl = 36,
     .species = SPECIES_GALAR_LINOONE,
     .heldItem = ITEM_NUGGET,
-    .ability = NATURE_ADAMANT,
+    .nature = NATURE_ADAMANT,
 	.evs = {6, 252, 0, 0, 0, 252},
     .moves = {MOVE_SLASH, MOVE_ENDURE, MOVE_FLAIL, MOVE_SHADOW_BALL}
     }
@@ -12788,11 +12788,11 @@ static const struct TrainerMonCustomMidele sParty_Debug[] = {
         {
         .lvl = 100,
         .iv = 31,
-        .evs = {6, 252, 252, 0, 0, 0},
-        .species = SPECIES_DITTO,
-        .moves = {MOVE_HIDDEN_POWER, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .evs = {6, 0, 0, 252, 0, 252},
+        .species = SPECIES_BUTTERFREE,
+        .moves = {MOVE_QUIVER_DANCE, MOVE_SLEEP_POWDER, MOVE_PSYCHIC, MOVE_GIGA_DRAIN},
         .heldItem = ITEM_LEFTOVERS,
-        .ability = 1,
+        .ability = 0,
         .shiny = 1,
         .friendship = 255,
         .hpType = TYPE_GHOST
@@ -12800,9 +12800,9 @@ static const struct TrainerMonCustomMidele sParty_Debug[] = {
         {
         .lvl = 100,
         .iv = 31,
-        .evs = {6, 252, 252, 0, 0, 0},
-        .species = SPECIES_DITTO,
-        .moves = {MOVE_HIDDEN_POWER, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .evs = {252, 252, 6, 0, 0, 0},
+        .species = SPECIES_ARBOK,
+        .moves = {MOVE_COIL, MOVE_EARTHQUAKE, MOVE_REST, MOVE_SLUDGE_BOMB},
         .heldItem = ITEM_LEFTOVERS,
         .ability = 1,
         .shiny = 1,

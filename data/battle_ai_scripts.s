@@ -213,6 +213,8 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_WATER_SPORT, AI_CBM_WaterSport
 	if_effect EFFECT_CALM_MIND, AI_CBM_CalmMind
 	if_effect EFFECT_DRAGON_DANCE, AI_CBM_DragonDance
+	if_effect EFFECT_QUIVER_DANCE, AI_CBM_QuiverDance
+	if_effect EFFECT_COIL, AI_CBM_Coil
 	end
 
 AI_CBM_Sleep: @ 82DC2D4
@@ -601,6 +603,18 @@ AI_CBM_CalmMind: @ 82DC767
 AI_CBM_DragonDance: @ 82DC778
 	if_stat_level_equal AI_USER, STAT_ATK, 12, Score_Minus10
 	if_stat_level_equal AI_USER, STAT_SPEED, 12, Score_Minus8
+	end
+	
+AI_CBM_QuiverDance:
+	if_stat_level_not_equal AI_USER, STAT_SPATK, 12, AI_Ret
+	if_stat_level_not_equal AI_USER, STAT_SPDEF, 12, AI_Ret
+	if_stat_level_equal AI_USER, STAT_SPEED, 12, Score_Minus10
+	end
+	
+AI_CBM_Coil:
+	if_stat_level_not_equal AI_USER, STAT_ATK, 12, AI_Ret
+	if_stat_level_not_equal AI_USER, STAT_DEF, 12, AI_Ret
+	if_stat_level_equal AI_USER, STAT_ACC, 12, Score_Minus10
 	end
 
 Score_Minus1:
@@ -2869,6 +2883,7 @@ AI_SetupFirstTurn_SetupEffectsToEncourage:
     .byte EFFECT_BULK_UP
     .byte EFFECT_CALM_MIND
     .byte EFFECT_CAMOUFLAGE
+    .byte EFFECT_QUIVER_DANCE
     .byte -1
 
 AI_PreferStrongestMove:
