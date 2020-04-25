@@ -1,5 +1,6 @@
 EventScript_UseSurf:: @ 8271EA0
-	checkpartymove MOVE_SURF
+	goto_if_unset FLAG_RECEIVED_HM03, EventScript_EndUseSurf
+	checkpartytmhm ITEM_HM03_SURF
 	compare VAR_RESULT, PARTY_SIZE
 	goto_if_eq EventScript_EndUseSurf
 	bufferpartymonnick 0, VAR_RESULT

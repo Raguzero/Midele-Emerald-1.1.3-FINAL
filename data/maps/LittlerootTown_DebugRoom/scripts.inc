@@ -66,6 +66,14 @@ LittlerootTown_DebugRoom_Script_ActivarTodo::
 	special EnableNationalPokedex
 	clearflag FLAG_HIDE_LILCOVE_MOTEL_GAME_DESIGNERS
 	setflag FLAG_SYS_FRONTIER_PASS
+    setflag FLAG_RECEIVED_HM01
+    setflag FLAG_RECEIVED_HM02
+    setflag FLAG_RECEIVED_HM03
+    setflag FLAG_RECEIVED_HM04
+    setflag FLAG_RECEIVED_HM05
+    setflag FLAG_RECEIVED_HM06
+    setflag FLAG_RECEIVED_HM07
+    setflag FLAG_RECEIVED_HM08
     end
 
 @ Magnemite desactiva eventos
@@ -87,6 +95,14 @@ LittlerootTown_DebugRoom_Script_DesactivarMedallas::
     clearflag FLAG_BADGE06_GET
     clearflag FLAG_BADGE07_GET
     clearflag FLAG_BADGE08_GET
+    clearflag FLAG_RECEIVED_HM01
+    clearflag FLAG_RECEIVED_HM02
+    clearflag FLAG_RECEIVED_HM03
+    clearflag FLAG_RECEIVED_HM04
+    clearflag FLAG_RECEIVED_HM05
+    clearflag FLAG_RECEIVED_HM06
+    clearflag FLAG_RECEIVED_HM07
+    clearflag FLAG_RECEIVED_HM08
     end
 
 @ Leaf te reta a un combate
