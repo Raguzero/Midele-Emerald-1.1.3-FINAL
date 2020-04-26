@@ -14492,6 +14492,44 @@ gCryTable:: @ 869DCF4
 	cry Cry_Popplio
 	cry Cry_Brionne
 	cry Cry_Primarina
+	cry Cry_Sobble
+	cry Cry_Drizzile
+	cry Cry_Inteleon
+	cry Cry_Turtwig
+	cry Cry_Grotle
+	cry Cry_Torterra
+	cry Cry_Piplup
+	cry Cry_Prinplup
+	cry Cry_Empoleon
+	cry Cry_Dhelmise
+	cry Cry_Pawniard
+	cry Cry_Bisharp
+	cry Cry_Impidimp
+	cry Cry_Morgrem
+	cry Cry_Grimmsnarl
+	cry Cry_Salandit
+	cry Cry_Salazzle
+	cry Cry_Sandygast
+	cry Cry_Palossand
+	cry Cry_Ferroseed
+	cry Cry_Ferrothorn
+	cry Cry_Sandile
+	cry Cry_Krokorok
+	cry Cry_Krookodile
+	cry Cry_Croagunk
+	cry Cry_Toxicroak
+	cry Cry_Lillipup
+	cry Cry_Herdier
+	cry Cry_Stoutland
+	cry Cry_Sizzlipede
+	cry Cry_Centiskorch
+	cry Cry_Rookidee
+	cry Cry_Corvisquire
+	cry Cry_Corviknight
+	cry Cry_Hawlucha
+	cry Cry_Durant
+	cry Cry_Snom
+	cry Cry_Frosmoth
 
 	.align 2
 gCryTable2:: @ 869EF24
@@ -14948,6 +14986,44 @@ gCryTable2:: @ 869EF24
 	cry2 Cry_Popplio
 	cry2 Cry_Brionne
 	cry2 Cry_Primarina
+	cry2 Cry_Sobble
+	cry2 Cry_Drizzile
+	cry2 Cry_Inteleon
+	cry2 Cry_Turtwig
+	cry2 Cry_Grotle
+	cry2 Cry_Torterra
+	cry2 Cry_Piplup
+	cry2 Cry_Prinplup
+	cry2 Cry_Empoleon
+	cry2 Cry_Dhelmise
+	cry2 Cry_Pawniard
+	cry2 Cry_Bisharp
+	cry2 Cry_Impidimp
+	cry2 Cry_Morgrem
+	cry2 Cry_Grimmsnarl
+	cry2 Cry_Salandit
+	cry2 Cry_Salazzle
+	cry2 Cry_Sandygast
+	cry2 Cry_Palossand
+	cry2 Cry_Ferroseed
+	cry2 Cry_Ferrothorn
+	cry2 Cry_Sandile
+	cry2 Cry_Krokorok
+	cry2 Cry_Krookodile
+	cry2 Cry_Croagunk
+	cry2 Cry_Toxicroak
+	cry2 Cry_Lillipup
+	cry2 Cry_Herdier
+	cry2 Cry_Stoutland
+	cry2 Cry_Sizzlipede
+	cry2 Cry_Centiskorch
+	cry2 Cry_Rookidee
+	cry2 Cry_Corvisquire
+	cry2 Cry_Corviknight
+	cry2 Cry_Hawlucha
+	cry2 Cry_Durant
+	cry2 Cry_Snom
+	cry2 Cry_Frosmoth
 
 	.align 2
 voicegroup129:: @ 86A0154

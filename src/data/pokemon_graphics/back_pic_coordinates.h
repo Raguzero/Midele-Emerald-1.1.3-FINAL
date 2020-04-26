@@ -2612,6 +2612,196 @@ const struct MonCoords gMonBackPicCoords[] =
         .size = 0x88,
         .y_offset = 0x0
     },
+    [SPECIES_TURTWIG] =
+    {
+        .size = 0x64,
+        .y_offset = 0x6,
+    },
+    [SPECIES_GROTLE] =
+    {
+        .size = 0x66,
+        .y_offset = 0xa,
+    },
+    [SPECIES_TORTERRA] =
+    {
+        .size = 0x87,
+        .y_offset = 0x4,
+    },
+    [SPECIES_PIPLUP] =
+    {
+        .size = 0x65,
+        .y_offset = 0xa,
+    },
+    [SPECIES_PRINPLUP] =
+    {
+        .size = 0x76,
+        .y_offset = 0x7,
+    },
+    [SPECIES_EMPOLEON] =
+    {
+        .size = 0x86,
+        .y_offset = 0x0,
+    },
+    [SPECIES_DHELMISE] =
+    {
+        .size = 0x64,
+        .y_offset = 0x03,
+    },
+    [SPECIES_PAWNIARD] =
+    {
+        .size = 0x64,
+        .y_offset = 0xa,
+    },
+    [SPECIES_BISHARP] =
+    {
+        .size = 0x64,
+        .y_offset = 0x3,
+    },
+    [SPECIES_IMPIDIMP] =
+    {
+        .size = 0x64,
+        .y_offset = 0x3,
+    },
+    [SPECIES_MORGREM] =
+    {
+        .size = 0x64,
+        .y_offset = 0x3,
+    },
+    [SPECIES_GRIMMSNARL] =
+    {
+        .size = 0x64,
+        .y_offset = 0x3,
+    },
+    [SPECIES_SOBBLE] =
+    {
+        .size = 0x64,
+        .y_offset = 0x3,
+    },
+    [SPECIES_DRIZZILE] =
+    {
+        .size = 0x64,
+        .y_offset = 0x3,
+    },
+    [SPECIES_INTELEON] =
+    {
+        .size = 0x64,
+        .y_offset = 0x3,
+    },
+    [SPECIES_SALANDIT] =
+    {
+        .size = 0x64,
+        .y_offset = 0x0C,
+    },
+    [SPECIES_SALAZZLE] =
+    {
+        .size = 0x64,
+        .y_offset = 0x03,
+    },
+    [SPECIES_SANDYGAST] =
+    {
+        .size = 0x64,
+        .y_offset = 0x0B,
+    },
+    [SPECIES_PALOSSAND] =
+    {
+        .size = 0x64,
+        .y_offset = 0x02,
+    },
+    [SPECIES_FERROSEED] =
+    {
+        .size = 0x64,
+        .y_offset = 0xf,
+    },
+    [SPECIES_FERROTHORN] =
+    {
+        .size = 0x64,
+        .y_offset = 0xe,
+    },
+    [SPECIES_SANDILE] =
+    {
+        .size = 0x64,
+        .y_offset = 0x12,
+    },
+    [SPECIES_KROKOROK] =
+    {
+        .size = 0x64,
+        .y_offset = 0x3,
+    },
+    [SPECIES_KROOKODILE] =
+    {
+        .size = 0x64,
+        .y_offset = 0x6,
+    },
+    [SPECIES_CROAGUNK] =
+    {
+        .size = 0x76,
+        .y_offset = 0x6,
+    },
+    [SPECIES_TOXICROAK] =
+    {
+        .size = 0x67,
+        .y_offset = 0x6,
+    },
+    [SPECIES_LILLIPUP] =
+    {
+        .size = 0x64,
+        .y_offset = 0xc,
+    },
+    [SPECIES_HERDIER] =
+    {
+        .size = 0x64,
+        .y_offset = 0xa,
+    },
+    [SPECIES_STOUTLAND] =
+    {
+        .size = 0x64,
+        .y_offset = 0x2,
+    },
+    [SPECIES_SIZZLIPEDE] =
+    {
+        .size = 0x64,
+        .y_offset = 0xa,
+    },
+    [SPECIES_CENTISKORCH] =
+    {
+        .size = 0x64,
+        .y_offset = 0x2,
+    },
+    [SPECIES_ROOKIDEE] =
+    {
+        .size = 0x66,
+        .y_offset = 0x08,
+    },
+    [SPECIES_CORVISQUIRE] =
+    {
+        .size = 0x85,
+        .y_offset = 0x0c,
+    },
+    [SPECIES_CORVIKNIGHT] =
+    {
+        .size = 0x78,
+        .y_offset = 0x02,
+    },
+    [SPECIES_HAWLUCHA] =
+    {
+        .size = 0x64,
+        .y_offset = 0x0A,
+    },
+    [SPECIES_DURANT] =
+    {
+        .size = 0x64,
+        .y_offset = 0x11,
+    },
+    [SPECIES_SNOM] =
+    {
+        .size = 0x64,
+        .y_offset = 0xa,
+    },
+    [SPECIES_FROSMOTH] =
+    {
+        .size = 0x77,
+        .y_offset = 0x04,
+    },
 // NUEVO PARA FORMAS ALOLA
     [SPECIES_EGG] =
     {
