@@ -13140,7 +13140,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_FIELD,
-        .abilities = {ABILITY_PICKUP, ABILITY_NONE},
+        .abilities = {ABILITY_PICKUP, ABILITY_PICKUP},
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
@@ -13171,7 +13171,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_FIELD,
-        .abilities = {ABILITY_BATTLE_ARMOR, ABILITY_NONE},
+        .abilities = {ABILITY_BATTLE_ARMOR, ABILITY_STEELWORKER}, // ---> STEELY SPIRIT
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
@@ -15732,7 +15732,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_MEDIUM_FAST,
 		.eggGroup1 = EGG_GROUP_GRASS,
 		.eggGroup2 = EGG_GROUP_MINERAL,
-		.abilities = {ABILITY_ROUGH_SKIN, ABILITY_NONE},
+		.abilities = {ABILITY_ROUGH_SKIN, ABILITY_NONE}, // --> IRON BARBS
 		.bodyColor = BODY_COLOR_GRAY,
 	},
 
@@ -15756,7 +15756,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_MEDIUM_FAST,
 		.eggGroup1 = EGG_GROUP_GRASS,
 		.eggGroup2 = EGG_GROUP_MINERAL,
-		.abilities = {ABILITY_ROUGH_SKIN, ABILITY_NONE},
+		.abilities = {ABILITY_ROUGH_SKIN, ABILITY_NONE}, // --> IRON BARBS
 		.bodyColor = BODY_COLOR_GRAY,
 	},
 	[SPECIES_SANDILE] =
