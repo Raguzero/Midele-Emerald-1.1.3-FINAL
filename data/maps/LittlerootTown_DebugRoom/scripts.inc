@@ -75,6 +75,10 @@ LittlerootTown_DebugRoom_Script_ActivarTodo::
     setflag FLAG_RECEIVED_HM07
     setflag FLAG_RECEIVED_HM08
     setflag FLAG_RECEIVED_SECRET_POWER
+    setvar VAR_WEATHER_INSTITUTE_STATE, 2
+    clearflag FLAG_HIDE_WEATHER_INSTITUTE_2F_WORKERS
+	setflag FLAG_HIDE_ROUTE_119_TEAM_AQUA
+	setflag FLAG_HIDE_WEATHER_INSTITUTE_2F_AQUA_GRUNT_M
     end
 
 @ Magnemite desactiva eventos
@@ -105,6 +109,17 @@ LittlerootTown_DebugRoom_Script_DesactivarMedallas::
     clearflag FLAG_RECEIVED_HM07
     clearflag FLAG_RECEIVED_HM08
     clearflag FLAG_RECEIVED_SECRET_POWER
+    clearflag FLAG_DEFEATED_MEW
+	clearflag FLAG_DEFEATED_LATIAS_OR_LATIOS
+	clearflag FLAG_DEFEATED_DEOXYS
+	clearflag FLAG_DEFEATED_LUGIA
+	clearflag FLAG_DEFEATED_HO_OH
+	clearflag FLAG_DEFEATED_REGIROCK
+	clearflag FLAG_DEFEATED_REGICE
+	clearflag FLAG_DEFEATED_REGISTEEL
+	clearflag FLAG_DEFEATED_GROUDON
+	clearflag FLAG_DEFEATED_KYOGRE
+	clearflag FLAG_DEFEATED_RAYQUAZA
     end
 
 @ Leaf te reta a un combate
