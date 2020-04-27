@@ -74,6 +74,7 @@ LittlerootTown_DebugRoom_Script_ActivarTodo::
     setflag FLAG_RECEIVED_HM06
     setflag FLAG_RECEIVED_HM07
     setflag FLAG_RECEIVED_HM08
+    setflag FLAG_RECEIVED_SECRET_POWER
     end
 
 @ Magnemite desactiva eventos
@@ -103,6 +104,7 @@ LittlerootTown_DebugRoom_Script_DesactivarMedallas::
     clearflag FLAG_RECEIVED_HM06
     clearflag FLAG_RECEIVED_HM07
     clearflag FLAG_RECEIVED_HM08
+    clearflag FLAG_RECEIVED_SECRET_POWER
     end
 
 @ Leaf te reta a un combate
