@@ -2812,22 +2812,20 @@ const u8 gPrimarinaPokedexText[] = _(
     "generation to the next.");
 
 const u8 gSobblePokedexText[] = _(
-    "A poor walker, it often falls down. However,\n"
-    "its strong pride makes it puff up its chest\n"
-    "without a care. It's difficult to bond with\n"
-    "since it won't listen to its Trainer.");
+    "When it gets wet, its skin changes color,\n" 
+	"and this Pokémon becomes invisible as if it\n" 
+	"were camouflaged.");
 
 const u8 gDrizzilePokedexText[] = _(
-    "Because every Prinplup considers itself\n"
-    "to be the most important, they can never\n"
-    "form a group. It searches for prey in\n"
-    "icy seas.");
+    "A clever combatant, this Pokémon battles\n" 
+	"using water balloons created with moisture\n" 
+	"secreted from its palms.");
 
 const u8 gInteleonPokedexText[] = _(
-    "The three horns that extend from its beak\n"
-    "attest to its power. It avoids unnecessary\n"
-    "disputes, but it will decimate anything\n"
-    "that threatens its pride.");
+    "Its nictitating membranes let it pick out\n" 
+	"foes' weak points so it can precisely blast\n" 
+	"them with water that shoots from its\n" 
+	"fingertips at Mach 3.");
 	
 const u8 gTurtwigPokedexText[] = _(
     "The shell on its back is made of soil. \n"
@@ -2884,22 +2882,21 @@ const u8 gBisharpPokedexText[] = _(
     "driven from the group if it loses.");
 	
 const u8 gImpidimpPokedexText[] = _(
-    "The soul of seaweed adrift in the waves\n"
-    "became reborn as this Pokémon.\n"
-    "It maintains itself with new infusions of\n"
-    "seabed detritus and seaweed.");
+    "Through its nose, it sucks in the emanations\n" 
+	"produced by people and Pokémon when they feel\n" 
+	"annoyed. It thrives off this negative energy.\n"
+	"The soul of seaweed adrift in the waves");
 	
 const u8 gMorgremPokedexText[] = _(
-    "Ignoring their injuries, groups attack by\n"
-    "sinking the blades that cover their bodies\n"
-    "into their prey. If battling dulls them, it\n"
-    "sharpens them on stones by the river.");
+    "When it gets down on all fours as if to beg\n"
+	"for forgiveness, it's trying to lure opponents\n" 
+	"in so that it can stab them with its\n"
+	"spear-like hair.");
 
 const u8 gGrimmsnarlPokedexText[] = _(
-    "This pitiless Pokémon commands a group\n"
-    "of Pawniard to hound prey into immobility.\n"
-    "It battles to become the boss, but will be\n"
-    "driven from the group if it loses.");
+    "With the hair wrapped around its body helping\n" 
+	"to enhance its muscles, this Pokémon can\n" 
+	"overwhelm even Machamp.");
 
 const u8 gSalanditPokedexText[] = _(
     "It burns its bodily fluids to create a\n"
@@ -2987,36 +2984,34 @@ const u8 gStoutlandPokedexText[] = _(
     "trust it to babysit.");
 	
 const u8 gSizzlipedePokedexText[] = _(
-    "Its dense black fur grows continuously.\n"
-    "The high cost of keeping its hard fur\n"
-    "properly groomed makes this a\n"
-    "troublesome Pokémon to train.\n"
-    "");
+    "It stores flammable gas in its body and\n" 
+	"uses it to generate heat. The yellow\n" 
+	"sections on its belly get particularly\n" 
+	"hot.");
 
 const u8 gCentiskorchPokedexText[] = _(
-    "Intelligent, good-natured, and valiant,\n"
-    "there could be no concern that it would\n"
-    "ever attack people. Some parents even\n"
-    "trust it to babysit.");
+    "When it heats up, its body temperature\n" 
+	"reaches about 1,500 degrees Fahrenheit.\n" 
+	"It lashes its body like a whip and\n" 
+	"launches itself at enemies.");
 	
 const u8 gRookideePokedexText[] = _(
-    "Intelligent, good-natured, and valiant,\n"
-    "there could be no concern that it would\n"
-    "ever attack people. Some parents even\n"
-    "trust it to babysit.");
+    "It will bravely challenge any opponent,\n" 
+	"no matter how powerful. This Pokémon\n" 
+	"benefits from every battle even a defeat\n" 
+	"increases its strength a bit.");
 	
 const u8 gCorvisquirePokedexText[] = _(
-    "Its dense black fur grows continuously.\n"
-    "The high cost of keeping its hard fur\n"
-    "properly groomed makes this a\n"
-    "troublesome Pokémon to train.\n"
-    "");
+    "Smart enough to use tools in battle,\n" 
+	"these Pokémon have been seen picking up\n" 
+	"rocks and flinging them or using ropes\n" 
+	"to wrap up enemies.");
 
 const u8 gCorviknightPokedexText[] = _(
-    "Intelligent, good-natured, and valiant,\n"
-    "there could be no concern that it would\n"
-    "ever attack people. Some parents even\n"
-    "trust it to babysit.");
+    "This Pokémon reigns supreme in the skies\n" 
+	"of the Galar region. The black luster of\n" 
+	"its steel body could drive terror into the\n" 
+	"heart of any foe.");
 	
 const u8 gHawluchaPokedexText[] = _(
     "With its wings, it controls its position in\n"
@@ -3031,14 +3026,13 @@ const u8 gDurantPokedexText[] = _(
     "away from their colony.");
 	
 const u8 gSnomPokedexText[] = _(
-    "With its wings, it controls its position in\n"
-    "the air. Its proficient fighting skills\n"
-    "enable it to keep up with big bruisers\n"
-    "like Machamp and Hariyama.");
+    "It spits out thread imbued with a frigid\n" 
+	"sort of energy and uses it to tie its body\n" 
+	"to branches, disguising itself as an icicle\n" 
+	"while it sleeps.");
 	
 const u8 gFrosmothPokedexText[] = _(
-    "Durant dig nests in mountains.\n"
-    "Individuals each play different roles in\n"
-    "driving Heatmor, their natural predator,\n"
-    "away from their colony.");
-
+    "Icy scales fall from its wings like snow as\n" 
+	"it flies over fields and mountains.\n"
+	"The temperature of its wings is less than\n" 
+	"-290 degrees Fahrenheit.");
