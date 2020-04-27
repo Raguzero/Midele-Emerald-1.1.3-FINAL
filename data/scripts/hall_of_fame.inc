@@ -34,7 +34,9 @@ EverGrandeCity_HallOfFame_EventScript_ResetDefeatedEventLegendaries:: @ 8271829
 	clearflag FLAG_DEFEATED_HO_OH
 	clearflag FLAG_DEFEATED_REGIROCK
 	clearflag FLAG_DEFEATED_REGICE
-	clearflag FLAG_CAUGHT_REGISTEEL
+	clearflag FLAG_DEFEATED_REGISTEEL
+	clearflag FLAG_DEFEATED_GROUDON
+	clearflag FLAG_DEFEATED_KYOGRE
 	return
 
 EverGrandeCity_HallOfFame_EventScript_SetDesertUnderpassCommentReady:: @ 8271839

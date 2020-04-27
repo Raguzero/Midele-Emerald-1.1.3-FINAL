@@ -271,8 +271,8 @@ SlateportCity_Harbor_EventScript_Sailor:: @ 820CC52
 	faceplayer
 	goto_if_unset FLAG_SYS_GAME_CLEAR, SlateportCity_Harbor_EventScript_SailorNoAbnormalWeather
 	setvar VAR_0x8004, 0
-	call_if_set FLAG_DEFEATED_KYOGRE, SlateportCity_Harbor_EventScript_CountDefeatedLegendary
-	call_if_set FLAG_DEFEATED_GROUDON, SlateportCity_Harbor_EventScript_CountDefeatedLegendary
+	call_if_set FLAG_CAUGHT_KYOGRE, SlateportCity_Harbor_EventScript_CountDefeatedLegendary
+	call_if_set FLAG_CAUGHT_GROUDON, SlateportCity_Harbor_EventScript_CountDefeatedLegendary
 	compare VAR_0x8004, 2  @ Defeated both
 	goto_if_eq SlateportCity_Harbor_EventScript_SailorNoAbnormalWeather
 	msgbox SlateportCity_Harbor_Text_AbnormalWeather, MSGBOX_DEFAULT

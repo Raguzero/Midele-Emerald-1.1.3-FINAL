@@ -32,9 +32,9 @@ Route119_WeatherInstitute_1F_EventScript_InstituteWorker1:: @ 826FAC8
 	faceplayer
 	goto_if_unset FLAG_SYS_GAME_CLEAR, Route119_WeatherInstitute_1F_EventScript_StudyingRain
 	setvar VAR_0x8004, 0
-	call_if_set FLAG_DEFEATED_KYOGRE, Route119_WeatherInstitute_1F_EventScript_LegendaryDefeated
-	call_if_set FLAG_DEFEATED_GROUDON, Route119_WeatherInstitute_1F_EventScript_LegendaryDefeated
-	compare VAR_0x8004, 2  @ Both defeated
+	call_if_set FLAG_CAUGHT_KYOGRE, Route119_WeatherInstitute_1F_EventScript_LegendaryDefeated
+	call_if_set FLAG_CAUGHT_GROUDON, Route119_WeatherInstitute_1F_EventScript_LegendaryDefeated
+	compare VAR_0x8004, 2  @ Both caught
 	goto_if_eq Route119_WeatherInstitute_1F_EventScript_StudyingRain
 	msgbox Route119_WeatherInstitute_1F_Text_NoticingAbnormalWeather, MSGBOX_DEFAULT
 	release
@@ -133,4 +133,3 @@ Route119_WeatherInstitute_1F_Text_WhatWereAquasUpTo: @ 826FE94
 Route119_WeatherInstitute_1F_Text_TakeRestInBed: @ 826FEFC
 	.string "There's a bed…\n"
 	.string "Let's take a rest.$"
-
