@@ -455,7 +455,7 @@
 #define FLAG_REMATCH_WALLACE                 0x1A9
 
 #define FLAG_CAUGHT_KYOGRE                   0x1AA // Previously unused Flag
-#define FLAG_UNUSED_0x1AB                    0x1AB // Unused Flag
+#define FLAG_CAUGHT_RAYQUAZA                 0x1AB // Previously unused Flag
 
 #define FLAG_DEFEATED_DEOXYS                 0x1AC
 #define FLAG_BATTLED_DEOXYS                  0x1AD

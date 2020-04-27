@@ -19,7 +19,7 @@ SkyPillar_Top_OnTransition: @ 82396E6
 	compare VAR_SKY_PILLAR_STATE, 2
 	call_if_lt SkyPillar_Top_EventScript_SetCleanLayout
 	compare VAR_SKY_PILLAR_STATE, 2
-	call_if_ge SkyPillar_Top_EventScript_TryShowRayquaza
+	call_if_ge SkyPillar_Top_EventScript_TryShowRayquaza1
 	end
 
 SkyPillar_Top_EventScript_SetCleanLayout:: @ 82396FD
@@ -27,7 +27,11 @@ SkyPillar_Top_EventScript_SetCleanLayout:: @ 82396FD
 	setobjectmovementtype 1, MOVEMENT_TYPE_FACE_DOWN
 	return
 
-SkyPillar_Top_EventScript_TryShowRayquaza:: @ 8239705
+SkyPillar_Top_EventScript_TryShowRayquaza1::
+	call_if_unset FLAG_CAUGHT_RAYQUAZA, SkyPillar_Top_EventScript_TryShowRayquaza2
+	return
+
+SkyPillar_Top_EventScript_TryShowRayquaza2:: @ 8239705
 	call_if_unset FLAG_DEFEATED_RAYQUAZA, SkyPillar_Top_EventScript_ShowRayquaza
 	return
 
@@ -61,7 +65,7 @@ SkyPillar_Top_EventScript_Rayquaza:: @ 8239722
 	goto_if_eq SkyPillar_Top_EventScript_RanFromRayquaza
 	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
 	goto_if_eq SkyPillar_Top_EventScript_RanFromRayquaza
-	setflag FLAG_DEFEATED_RAYQUAZA
+	setflag FLAG_CAUGHT_RAYQUAZA
 	releaseall
 	end
 
@@ -184,4 +188,3 @@ SkyPillar_Top_Movement_CameraPanDown: @ 823985C
 
 SkyPillar_Top_Text_RayquazaFlewOff: @ 8239860
 	.string "The awakened RAYQUAZA flew off…$"
-
