@@ -26,6 +26,7 @@
 #include "constants/event_object_movement_constants.h"
 #include "constants/field_effects.h"
 #include "constants/flags.h"
+#include "constants/items.h"
 #include "constants/maps.h"
 #include "constants/moves.h"
 #include "constants/songs.h"
@@ -1289,7 +1290,7 @@ bool8 PartyHasMonWithSurf(void)
         {
             if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_NONE)
                 break;
-            if (MonKnowsMove(&gPlayerParty[i], MOVE_SURF))
+            if (CanMonLearnTMHM(&gPlayerParty[i], ITEM_HM03_SURF - ITEM_TM01_FOCUS_PUNCH))
                 return TRUE;
         }
     }

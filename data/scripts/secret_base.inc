@@ -201,7 +201,8 @@ SecretBase_EventScript_EnterPlayersBase:: @ 8275BDB
 	end
 
 SecretBase_EventScript_AlreadyHasSecretBase:: @ 8275BE8
-	checkpartymove MOVE_SECRET_POWER
+	goto_if_unset FLAG_RECEIVED_SECRET_POWER, SecretBase_EventScript_NoSecretPower
+	checkpartytmhm ITEM_TM43_SECRET_POWER
 	compare VAR_RESULT, PARTY_SIZE
 	goto_if_eq SecretBase_EventScript_NoSecretPower
 	setfieldeffectargument 0, VAR_RESULT

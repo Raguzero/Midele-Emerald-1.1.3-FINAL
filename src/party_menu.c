@@ -120,7 +120,7 @@ struct PartyMenuInternal
     u32 spriteIdCancelPokeball:7;
     u32 messageId:14;
     u8 windowId[3];
-    u8 actions[8];
+    u8 actions[9];
     u8 numActions;
     // In vanilla Emerald, only the first 0xB0 hwords (0x160 bytes) are actually used.
     // However, a full 0x100 hwords (0x200 bytes) are allocated.
@@ -2537,21 +2537,43 @@ static void SetPartyMonSelectionActions(struct Pokemon *mons, u8 slotId, u8 acti
 static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
 {
     u8 i, j;
+    u8 actionsBuffer[4];
+    u8 numberBufferActions = 0;
 
     sPartyMenuInternal->numActions = 0;
     AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_SUMMARY);
-  // Add field moves to action list
+    // Add field moves to action list
+    
+    // First, handle the already learned moves
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
         for (j = 0; sFieldMoves[j] != FIELD_MOVE_TERMINATOR; j++)
         {
-            if (GetMonData(&mons[slotId], i + MON_DATA_MOVE1) == sFieldMoves[j])
+            if (GetMonData(&mons[slotId], i + MON_DATA_MOVE1) == sFieldMoves[j]) 
             {
-                AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, j + MENU_FIELD_MOVES);
+                AppendToList(actionsBuffer, &numberBufferActions, j + MENU_FIELD_MOVES);
                 break;
             }
         }
     }
+
+    // Then, add HM moves to action list based on their priority (sFieldMoves).
+    for (j = 0; sFieldMoves[j] != MOVE_TELEPORT && numberBufferActions < 4; j++)
+    {
+      if (sFieldMovesHMs[j] != ITEM_NONE && CanMonLearnTMHM(&mons[slotId], sFieldMovesHMs[j] - ITEM_TM01_FOCUS_PUNCH)) 
+      {
+          if (IsInList(actionsBuffer, &numberBufferActions, j + MENU_FIELD_MOVES) == FALSE)
+          {
+              AppendToList(actionsBuffer, &numberBufferActions, j + MENU_FIELD_MOVES);
+          }
+      }
+    }
+    
+    // Finally, add all actions to actions list
+    for (i = 0; i < numberBufferActions; i++)
+    {
+        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, actionsBuffer[i]);
+    }    
 
     if (!InBattlePike())
     {
@@ -3664,7 +3686,7 @@ static void CursorCb_FieldMove(u8 taskId)
     else
     {
         // All field moves before WATERFALL are HMs.
-        if (fieldMove <= FIELD_MOVE_WATERFALL && FlagGet(FLAG_BADGE01_GET + fieldMove) != TRUE)
+        if (fieldMove <= FIELD_MOVE_WATERFALL && (FlagGet(FLAG_BADGE01_GET + fieldMove) != TRUE || FlagGet(sFieldMovesFlags[fieldMove]) != TRUE))
         {
             DisplayPartyMenuMessage(gText_CantUseUntilNewBadge, TRUE);
             gTasks[taskId].func = Task_ReturnToChooseMonAfterText;

@@ -1392,3 +1392,16 @@ void AppendToList(u8 *list, u8 *pos, u8 newEntry)
     list[*pos] = newEntry;
     (*pos)++;
 }
+
+bool8 IsInList(u8 *list, u8 *size, u8 entry) {
+    u8 i;
+    for (i = 0; i < *size; i++)
+    {
+        if (list[i] == entry)
+        {
+            return TRUE;
+        }
+    }
+    
+    return FALSE;
+}

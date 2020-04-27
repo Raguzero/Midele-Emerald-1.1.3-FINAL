@@ -2,7 +2,8 @@
 EventScript_CutTree:: @ 82906BB
 	lockall
 	goto_if_unset FLAG_BADGE01_GET, EventScript_CheckTreeCantCut
-	checkpartymove MOVE_CUT
+	goto_if_unset FLAG_RECEIVED_HM01, EventScript_CheckTreeCantCut
+	checkpartytmhm ITEM_HM01_CUT
 	compare VAR_RESULT, PARTY_SIZE
 	goto_if_eq EventScript_CheckTreeCantCut
 	setfieldeffectargument 0, VAR_RESULT
@@ -61,7 +62,8 @@ Text_CantCut: @ 829077D
 EventScript_RockSmash:: @ 82907A6
 	lockall
 	goto_if_unset FLAG_BADGE03_GET, EventScript_CantSmashRock
-	checkpartymove MOVE_ROCK_SMASH
+	goto_if_unset FLAG_RECEIVED_HM06, EventScript_CantSmashRock
+	checkpartytmhm ITEM_HM06_ROCK_SMASH
 	compare VAR_RESULT, PARTY_SIZE
 	goto_if_eq EventScript_CantSmashRock
 	setfieldeffectargument 0, VAR_RESULT
@@ -127,8 +129,9 @@ Text_CantSmash: @ 829087F
 EventScript_StrengthBoulder:: @ 82908BA
 	lockall
 	goto_if_unset FLAG_BADGE04_GET, EventScript_CantStrength
+	goto_if_unset FLAG_RECEIVED_HM04, EventScript_CantStrength
 	goto_if_set FLAG_SYS_USE_STRENGTH, EventScript_CheckActivatedBoulder
-	checkpartymove MOVE_STRENGTH
+	checkpartytmhm ITEM_HM04_STRENGTH
 	compare VAR_RESULT, PARTY_SIZE
 	goto_if_eq EventScript_CantStrength
 	setfieldeffectargument 0, VAR_RESULT
@@ -189,7 +192,8 @@ Text_StrengthActivated: @ 8290A16
 
 EventScript_UseWaterfall:: @ 8290A49
 	lockall
-	checkpartymove MOVE_WATERFALL
+	goto_if_unset FLAG_RECEIVED_HM07, EventScript_CantWaterfall
+	checkpartytmhm ITEM_HM07_WATERFALL
 	compare VAR_RESULT, PARTY_SIZE
 	goto_if_eq EventScript_CantWaterfall
 	bufferpartymonnick 0, VAR_RESULT
@@ -224,7 +228,8 @@ Text_MonUsedWaterfall: @ 8290AFC
 
 EventScript_UseDive:: @ 8290B0F
 	lockall
-	checkpartymove MOVE_DIVE
+	goto_if_unset FLAG_RECEIVED_HM08, EventScript_CantDive
+	checkpartytmhm ITEM_HM08_DIVE
 	compare VAR_RESULT, PARTY_SIZE
 	goto_if_eq EventScript_CantDive
 	bufferpartymonnick 0, VAR_RESULT
@@ -249,7 +254,8 @@ EventScript_EndDive:: @ 8290B58
 
 EventScript_UseDiveUnderwater:: @ 8290B5A
 	lockall
-	checkpartymove MOVE_DIVE
+	goto_if_unset FLAG_RECEIVED_HM08, EventScript_CantSurface
+	checkpartytmhm ITEM_HM08_DIVE
 	compare VAR_RESULT, PARTY_SIZE
 	goto_if_eq EventScript_CantSurface
 	bufferpartymonnick 0, VAR_RESULT
