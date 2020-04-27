@@ -138,10 +138,21 @@ Route119_WeatherInstitute_2F_EventScript_ScientistMentionWeather:: @ 82700F7
 
 Route119_WeatherInstitute_2F_EventScript_TryStartAbnormalWeather:: @ 827010A
 	setvar VAR_0x8004, 0
-	call_if_set FLAG_DEFEATED_KYOGRE, Route119_WeatherInstitute_2F_EventScript_LegendaryDefeated
-	call_if_set FLAG_DEFEATED_GROUDON, Route119_WeatherInstitute_2F_EventScript_LegendaryDefeated
+	call_if_set FLAG_CAUGHT_KYOGRE, Route119_WeatherInstitute_2F_EventScript_LegendaryDefeated
+	call_if_set FLAG_CAUGHT_GROUDON, Route119_WeatherInstitute_2F_EventScript_LegendaryDefeated
 	compare VAR_0x8004, 2  @ Both defeated
 	goto_if_eq Route119_WeatherInstitute_2F_EventScript_NoAbnormalWeather
+	
+	setvar VAR_0x8004, 0
+	call_if_set FLAG_CAUGHT_KYOGRE, Route119_WeatherInstitute_2F_EventScript_GroudonAvailable
+	compare VAR_0x8004, 1
+	goto_if_eq Route119_WeatherInstitute_2F_EventScript_NoAbnormalWeather
+	
+	setvar VAR_0x8004, 0
+	call_if_set FLAG_CAUGHT_GROUDON, Route119_WeatherInstitute_2F_EventScript_KyogreAvailable
+	compare VAR_0x8004, 1
+	goto_if_eq Route119_WeatherInstitute_2F_EventScript_NoAbnormalWeather
+	
 	call_if_unset FLAG_TEMP_2, Route119_WeatherInstitute_2F_EventScript_CreateAbnormalWeather
 	specialvar VAR_RESULT, GetAbnormalWeatherMapNameAndType
 	compare VAR_RESULT, 1
@@ -162,6 +173,14 @@ Route119_WeatherInstitute_2F_EventScript_CreateAbnormalWeather:: @ 8270159
 
 Route119_WeatherInstitute_2F_EventScript_LegendaryDefeated:: @ 8270160
 	addvar VAR_0x8004, 1
+	return
+	
+Route119_WeatherInstitute_2F_EventScript_GroudonAvailable::
+	call_if_set FLAG_DEFEATED_GROUDON, Route119_WeatherInstitute_2F_EventScript_LegendaryDefeated
+	return
+
+Route119_WeatherInstitute_2F_EventScript_KyogreAvailable::
+	call_if_set FLAG_DEFEATED_KYOGRE, Route119_WeatherInstitute_2F_EventScript_LegendaryDefeated
 	return
 
 Route119_WeatherInstitute_2F_EventScript_NoAbnormalWeather:: @ 8270166

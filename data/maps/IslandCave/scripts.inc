@@ -32,10 +32,11 @@ IslandCave_OnTransition: @ 8238E99
 	setflag FLAG_LANDMARK_ISLAND_CAVE
 	setflag FLAG_VISITED_ROUTE105
 	call IslandCave_EventScript_ClearSteps
-	call_if_unset FLAG_DEFEATED_REGICE, IslandCave_EventScript_ShowRegice
+	call_if_unset FLAG_CAUGHT_REGICE, IslandCave_EventScript_TryShowRegice
 	end
 
-IslandCave_EventScript_ShowRegice:: @ 8238EAB
+IslandCave_EventScript_TryShowRegice:: @ 8238EAB
+	goto_if_set FLAG_DEFEATED_REGICE, Common_EventScript_NopReturn
 	clearflag FLAG_HIDE_REGICE
 	return
 
@@ -108,7 +109,7 @@ IslandCave_EventScript_Regice:: @ 8238F58
 	goto_if_eq IslandCave_EventScript_RanFromRegice
 	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
 	goto_if_eq IslandCave_EventScript_RanFromRegice
-	setflag FLAG_DEFEATED_REGICE
+	setflag FLAG_CAUGHT_REGICE
 	release
 	end
 
