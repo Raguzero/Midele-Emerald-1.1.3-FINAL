@@ -91,6 +91,8 @@ static const u8 sDrySkinDescription[] = _("Prefers moisture to heat.");
 static const u8 sSteelworkerDescription[] = _("Powers up Steel moves.");
 static const u8 sIceScalesDescription[] = _("Protect from special moves.");
 static const u8 sGluttonyDescription[] = _("Eats Berries early.");
+static const u8 sSandRushDescription[] = _("Ups Speed in a sandstorm.");
+static const u8 sSlushRushDescription[] = _("Raises Speed in hail.");
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 {
@@ -187,6 +189,8 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_STEELWORKER] = _("STEELWORKER"),
     [ABILITY_ICE_SCALES] = _("ICE SCALES"),
     [ABILITY_GLUTTONY] = _("GLUTTONY"),
+    [ABILITY_SAND_RUSH] = _("SAND RUSH"),
+    [ABILITY_SLUSH_RUSH] = _("SLUSH RUSH"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -284,4 +288,6 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_STEELWORKER] = sSteelworkerDescription,
     [ABILITY_ICE_SCALES] = sIceScalesDescription,
     [ABILITY_GLUTTONY] = sGluttonyDescription,
+    [ABILITY_SAND_RUSH] = sSandRushDescription,
+    [ABILITY_SLUSH_RUSH] = sSlushRushDescription,
 };

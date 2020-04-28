@@ -896,7 +896,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_FIELD,
-        .abilities = {ABILITY_SAND_VEIL, ABILITY_NONE},
+        .abilities = {ABILITY_SAND_VEIL, ABILITY_SAND_RUSH},
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
@@ -928,7 +928,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_FIELD,
-        .abilities = {ABILITY_SAND_VEIL, ABILITY_NONE},
+        .abilities = {ABILITY_SAND_VEIL, ABILITY_SAND_RUSH},
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
@@ -12541,7 +12541,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_FIELD,
-        .abilities = {ABILITY_SNOW_CLOAK, ABILITY_NONE},
+        .abilities = {ABILITY_SNOW_CLOAK, ABILITY_SLUSH_RUSH},
         .bodyColor = BODY_COLOR_BLUE,
     },
 
@@ -12567,7 +12567,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_FIELD,
-        .abilities = {ABILITY_SNOW_CLOAK, ABILITY_NONE},
+        .abilities = {ABILITY_SNOW_CLOAK, ABILITY_SLUSH_RUSH},
         .bodyColor = BODY_COLOR_BLUE,
     },
 
@@ -15924,7 +15924,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_MEDIUM_SLOW,
 		.eggGroup1 = EGG_GROUP_FIELD,
 		.eggGroup2 = EGG_GROUP_FIELD,
-		.abilities = {ABILITY_INTIMIDATE, ABILITY_SCRAPPY},
+		.abilities = {ABILITY_INTIMIDATE, ABILITY_SAND_RUSH},
 		.bodyColor = BODY_COLOR_GRAY,
 	},
 
@@ -15948,7 +15948,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_MEDIUM_SLOW,
 		.eggGroup1 = EGG_GROUP_FIELD,
 		.eggGroup2 = EGG_GROUP_FIELD,
-		.abilities = {ABILITY_INTIMIDATE, ABILITY_SCRAPPY},
+		.abilities = {ABILITY_INTIMIDATE, ABILITY_SAND_RUSH},
 		.bodyColor = BODY_COLOR_GRAY,
 	},
     [SPECIES_SIZZLIPEDE] =
