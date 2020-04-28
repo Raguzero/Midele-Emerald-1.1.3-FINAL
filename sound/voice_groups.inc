@@ -14530,6 +14530,12 @@ gCryTable:: @ 869DCF4
 	cry Cry_Durant
 	cry Cry_Snom
 	cry Cry_Frosmoth
+	cry Cry_Perserker
+	cry Cry_Obstagoon
+	cry Cry_Sirfetchd
+	cry Cry_Cursola
+	cry Cry_Mrrime
+	cry Cry_Runerigus
 
 	.align 2
 gCryTable2:: @ 869EF24
@@ -15024,6 +15030,12 @@ gCryTable2:: @ 869EF24
 	cry2 Cry_Durant
 	cry2 Cry_Snom
 	cry2 Cry_Frosmoth
+	cry2 Cry_Perserker
+	cry2 Cry_Obstagoon
+	cry2 Cry_Sirfetchd
+	cry2 Cry_Cursola
+	cry2 Cry_Mrrime
+	cry2 Cry_Runerigus
 
 	.align 2
 voicegroup129:: @ 86A0154

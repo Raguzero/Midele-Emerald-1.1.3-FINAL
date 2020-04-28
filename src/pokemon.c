@@ -3619,6 +3619,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         attack *= 2;
     if (defender->ability == ABILITY_THICK_FAT && (type == TYPE_FIRE || type == TYPE_ICE))
         spAttack /= 2;
+    if (defender->ability == ABILITY_ICE_SCALES && IS_TYPE_SPECIAL(type))
+        spAttack /= 2;
 	// BUFF FORECAST
 	if (attacker->ability == ABILITY_FORECAST && ((gBattleWeather & WEATHER_SUN_ANY)
 		|| (gBattleWeather & WEATHER_RAIN_ANY)
@@ -3642,6 +3644,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         gBattleMovePower /= 2;
     if (type == TYPE_FIRE && AbilityBattleEffects(ABILITYEFFECT_FIELD_SPORT, 0, 0, 0xFE, 0))
         gBattleMovePower /= 2;
+    if (type == TYPE_STEEL && attacker->ability == ABILITY_STEELWORKER)
+        gBattleMovePower = (150 * gBattleMovePower) / 100;
     if (type == TYPE_GRASS && attacker->ability == ABILITY_OVERGROW && attacker->hp <= (attacker->maxHP / 3))
         gBattleMovePower = (150 * gBattleMovePower) / 100;
     if (type == TYPE_FIRE && attacker->ability == ABILITY_BLAZE && attacker->hp <= (attacker->maxHP / 3))

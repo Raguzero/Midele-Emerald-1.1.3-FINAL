@@ -2397,6 +2397,36 @@ Cry_Frosmoth::
 
 	.align 2
 
+Cry_Perserker::
+	.incbin "sound/direct_sound_samples/cry_perrserker.bin"
+
+	.align 2
+	
+Cry_Obstagoon::
+	.incbin "sound/direct_sound_samples/cry_obstagoon.bin"
+
+	.align 2
+	
+Cry_Sirfetchd::
+	.incbin "sound/direct_sound_samples/cry_sirfetchd.bin"
+
+	.align 2
+	
+Cry_Cursola::
+	.incbin "sound/direct_sound_samples/cry_cursola.bin"
+
+	.align 2
+	
+Cry_Mrrime::
+	.incbin "sound/direct_sound_samples/cry_mrrime.bin"
+
+	.align 2
+	
+Cry_Runerigus::
+	.incbin "sound/direct_sound_samples/cry_runerigus.bin"
+
+	.align 2
+
 DirectSoundWaveData_register_noise::
 	.incbin "sound/direct_sound_samples/register_noise.bin"
 

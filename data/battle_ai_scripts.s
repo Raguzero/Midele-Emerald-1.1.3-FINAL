@@ -793,6 +793,7 @@ AI_CheckViability:
 	if_effect EFFECT_WATER_SPORT, AI_CV_WaterSport
 	if_effect EFFECT_CALM_MIND, AI_CV_SpDefUp
 	if_effect EFFECT_DRAGON_DANCE, AI_CV_DragonDance
+	if_effect EFFECT_SANDSTORM, AI_CV_Sandstorm
 	end
 
 AI_CV_Sleep: @ 82DCA92
@@ -2416,6 +2417,8 @@ AI_CV_Hail:
 	if_equal AI_WEATHER_SANDSTORM, AI_CV_Hail2
     get_ability AI_USER
 	if_equal ABILITY_ICE_BODY, AI_CV_Hail2
+	if_equal ABILITY_SNOW_CLOAK, AI_CV_Hail2
+	if_equal ABILITY_SLUSH_RUSH, AI_CV_Hail2
 	goto AI_CV_Hail_End
 
 AI_CV_Hail2:
@@ -2545,6 +2548,8 @@ AI_CV_ChangeSelfAbility_AbilitiesToEncourage:
     .byte ABILITY_SHIELD_DUST
     .byte ABILITY_ICE_BODY
     .byte ABILITY_SNOW_CLOAK
+    .byte ABILITY_SAND_RUSH
+    .byte ABILITY_SLUSH_RUSH
     .byte -1
 
 AI_CV_Superpower:
@@ -2791,6 +2796,27 @@ AI_CV_DragonDance2:
 AI_CV_DragonDance_End:
 	end
 
+AI_CV_Sandstorm:
+	if_hp_less_than AI_USER, 40, AI_CV_Sandstorm_ScoreDown1
+	get_weather
+	if_equal AI_WEATHER_SUN, AI_CV_Sandstorm2
+	if_equal AI_WEATHER_RAIN, AI_CV_Sandstorm2
+	if_equal AI_WEATHER_HAIL, AI_CV_Sandstorm2
+    get_ability AI_USER
+	if_equal ABILITY_SAND_VEIL, AI_CV_Sandstorm2
+	if_equal ABILITY_SAND_RUSH, AI_CV_Sandstorm2
+	goto AI_CV_Sandstorm_End
+
+AI_CV_Sandstorm2:
+	score +1
+	goto AI_CV_Sandstorm_End
+
+AI_CV_Sandstorm_ScoreDown1:
+	score -1
+
+AI_CV_Sandstorm_End:
+	end	
+	
 AI_TryToFaint:
 	if_target_is_ally AI_Ret
 	if_can_faint AI_TryToFaint_TryToEncourageQuickAttack
