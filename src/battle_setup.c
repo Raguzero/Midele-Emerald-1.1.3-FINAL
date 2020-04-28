@@ -1203,7 +1203,7 @@ void SetUpTwoTrainersBattle(void)
 bool32 GetTrainerFlagFromScriptPointer(const u8 *data)
 {
     u32 flag = TrainerBattleLoadArg16(data + 2);
-    return FlagGet(TRAINER_FLAGS_START + flag);
+    return TrainerFlagGet(TRAINER_FLAGS_START + flag);
 }
 
 void SetUpTrainerMovement(void)
@@ -1225,34 +1225,34 @@ bool8 GetTrainerFlag(void)
     else if (InTrainerHill())
         return GetHillTrainerFlag(gSelectedEventObject);
     else
-        return FlagGet(GetTrainerAFlag());
+        return TrainerFlagGet(GetTrainerAFlag());
 }
 
 static void SetBattledTrainersFlags(void)
 {
     if (gTrainerBattleOpponent_B != 0)
-        FlagSet(GetTrainerBFlag());
-    FlagSet(GetTrainerAFlag());
+        TrainerFlagSet(GetTrainerBFlag());
+    TrainerFlagSet(GetTrainerAFlag());
 }
 
 static void SetBattledTrainerFlag(void)
 {
-    FlagSet(GetTrainerAFlag());
+    TrainerFlagSet(GetTrainerAFlag());
 }
 
 bool8 HasTrainerBeenFought(u16 trainerId)
 {
-    return FlagGet(TRAINER_FLAGS_START + trainerId);
+    return TrainerFlagGet(TRAINER_FLAGS_START + trainerId);
 }
 
 void SetTrainerFlag(u16 trainerId)
 {
-    FlagSet(TRAINER_FLAGS_START + trainerId);
+    TrainerFlagSet(TRAINER_FLAGS_START + trainerId);
 }
 
 void ClearTrainerFlag(u16 trainerId)
 {
-    FlagClear(TRAINER_FLAGS_START + trainerId);
+    TrainerFlagClear(TRAINER_FLAGS_START + trainerId);
 }
 
 void BattleSetup_StartTrainerBattle(void)

@@ -236,3 +236,55 @@ bool8 FlagGet(u16 id)
 
     return TRUE;
 }
+
+static u8 *GetTrainerFlagPointer(u16 id)
+{
+    if (id == 0)
+        return NULL; // Shouldnt occur
+    else
+        return &gSaveBlock1Ptr->trainerFlags[id / 8];
+}
+
+u8 TrainerFlagSet(u16 id)
+{
+    u8 *ptr;
+    u16 trainerId = id - TRAINER_FLAGS_START;
+    if (trainerId <= TRAINERS_FLAG_NO)
+        return FlagSet(id);
+
+    ptr = GetTrainerFlagPointer(trainerId - TRAINERS_FLAG_NO);
+    if (ptr)
+        *ptr |= 1 << ((trainerId - TRAINERS_FLAG_NO) & 7);
+    return 0;
+}
+
+u8 TrainerFlagClear(u16 id)
+{
+    u8 *ptr;
+    u16 trainerId = id - TRAINER_FLAGS_START;
+    if (trainerId <= TRAINERS_FLAG_NO)
+        return FlagClear(id);
+
+    ptr = GetTrainerFlagPointer(trainerId - TRAINERS_FLAG_NO);
+    if (ptr)
+        *ptr &= ~(1 << ((trainerId - TRAINERS_FLAG_NO) & 7));
+    return 0;
+}
+
+bool8 TrainerFlagGet(u16 id)
+{
+    u8 *ptr;
+    u16 trainerId = id - TRAINER_FLAGS_START;
+    if (trainerId <= TRAINERS_FLAG_NO)
+        return FlagGet(id);
+
+    ptr = GetTrainerFlagPointer(trainerId - TRAINERS_FLAG_NO);
+
+    if (!ptr)
+        return FALSE;
+
+    if (!(((*ptr) >> ((trainerId - TRAINERS_FLAG_NO) & 7)) & 1))
+        return FALSE;
+
+    return TRUE;
+}

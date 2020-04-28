@@ -53,6 +53,9 @@
 #define APPRENTICE_MAX_QUESTIONS 9
 #define MAX_REMATCH_ENTRIES 100 // only REMATCH_TABLE_ENTRIES (78) are used
 
+#define NEW_TRAINER_COUNT (TRAINERS_COUNT - TRAINERS_FLAG_NO)
+#define NEW_TRAINER_FLAGS_COUNT ((NEW_TRAINER_COUNT / 8) + ((NEW_TRAINER_COUNT % 8) ? 1 : 0))
+
 #define PYRAMID_BAG_ITEMS_COUNT 10
 #define HALL_FACILITIES_COUNT 9 // 7 facilities for single mode + tower double mode + tower multi mode.
 
