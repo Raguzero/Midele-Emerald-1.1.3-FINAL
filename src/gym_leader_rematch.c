@@ -6,6 +6,7 @@
 #include "gym_leader_rematch.h"
 
 static void UpdateGymLeaderRematchFromArray(const u16 *data, size_t size, u32 maxRematch);
+static void UpdateAllGymLeadersMaxRematchesFromArray(const u16 *data, size_t size, u32 maxRematch);
 static s32 GetRematchIndex(u32 trainerIdx);
 
 static const u16 GymLeaderRematches_AfterNewMauville[] = {
@@ -88,6 +89,28 @@ static void UpdateGymLeaderRematchFromArray(const u16 *data, size_t size, u32 ma
                     }
                 }
             }
+        }
+    }
+}
+
+void UpdateAllGymLeadersMaxRematches() {
+    if (FlagGet(FLAG_WATTSON_REMATCH_AVAILABLE))
+    {
+        UpdateAllGymLeadersMaxRematchesFromArray(GymLeaderRematches_AfterNewMauville, ARRAY_COUNT(GymLeaderRematches_AfterNewMauville), 5);
+    } else 
+    {
+        UpdateAllGymLeadersMaxRematchesFromArray(GymLeaderRematches_BeforeNewMauville, ARRAY_COUNT(GymLeaderRematches_BeforeNewMauville), 5);
+    }
+}
+
+static void UpdateAllGymLeadersMaxRematchesFromArray(const u16 *data, size_t size, u32 maxRematch)
+{
+    u32 i;
+    for (i = 0; i < size; i++)
+    {
+        if (!gSaveBlock1Ptr->trainerRematches[data[i]])
+        {
+            gSaveBlock1Ptr->trainerRematches[data[i]] = maxRematch;
         }
     }
 }

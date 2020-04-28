@@ -537,3 +537,4 @@ gSpecials:: @ 81DBA64
 	def_special MideleChangeSelectedMonHiddenPowerType
 	def_special GiveAllMons
 	def_special GiveAllItems
+	def_special UpdateAllGymLeadersMaxRematches

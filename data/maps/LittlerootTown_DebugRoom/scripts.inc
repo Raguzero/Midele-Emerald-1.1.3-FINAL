@@ -11,10 +11,11 @@ LittlerootTown_DebugRoom_Script_PC::
     goto EventScript_PC
     end
 
-@ Porygon2 activa eventos, da dinero y objetos
+@ Porygon2 activa eventos, cura,  da dinero y objetos
 LittlerootTown_DebugRoom_Script_ActivarTodo::
     addmoney 900000, 0
     special GiveAllItems
+    special HealPlayerParty
     setflag FLAG_SYS_POKEMON_GET
     setflag FLAG_SYS_POKEDEX_GET
     setflag FLAG_SYS_POKENAV_GET
@@ -79,6 +80,16 @@ LittlerootTown_DebugRoom_Script_ActivarTodo::
     clearflag FLAG_HIDE_WEATHER_INSTITUTE_2F_WORKERS
 	setflag FLAG_HIDE_ROUTE_119_TEAM_AQUA
 	setflag FLAG_HIDE_WEATHER_INSTITUTE_2F_AQUA_GRUNT_M
+    setflag FLAG_ENABLE_ROXANNE_MATCH_CALL
+    setflag FLAG_ENABLE_BRAWLY_MATCH_CALL
+    setflag FLAG_ENABLE_WATTSON_MATCH_CALL
+    setflag FLAG_ENABLE_FLANNERY_MATCH_CALL
+    setflag FLAG_ENABLE_WINONA_MATCH_CALL
+    setflag FLAG_ENABLE_TATE_AND_LIZA_MATCH_CALL
+    setflag FLAG_ENABLE_JUAN_MATCH_CALL
+    special UpdateAllGymLeadersMaxRematches
+    setflag FLAG_HAS_MATCH_CALL
+    setflag FLAG_ADDED_MATCH_CALL_TO_POKENAV
     end
 
 @ Magnemite desactiva eventos
