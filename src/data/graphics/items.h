@@ -552,6 +552,9 @@ const u32 gItemIconPalette_PinkScarf[] = INCBIN_U32("graphics/items/icon_palette
 const u32 gItemIconPalette_GreenScarf[] = INCBIN_U32("graphics/items/icon_palettes/green_scarf.gbapal.lz");
 const u32 gItemIconPalette_YellowScarf[] = INCBIN_U32("graphics/items/icon_palettes/yellow_scarf.gbapal.lz");
 
+const u32 gItemIcon_DestinyKnot[] = INCBIN_U32("graphics/items/icons/destiny_knot.4bpp.lz");
+const u32 gItemIconPalette_DestinyKnot[] = INCBIN_U32("graphics/items/icon_palettes/destiny_knot.gbapal.lz");
+
 // Key items
 
 const u32 gItemIcon_MachBike[] = INCBIN_U32("graphics/items/icons/mach_bike.4bpp.lz");

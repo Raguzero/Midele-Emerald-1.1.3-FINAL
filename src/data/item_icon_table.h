@@ -57,7 +57,7 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_GREEN_SHARD] = {gItemIcon_Shard, gItemIconPalette_GreenShard},
     // ????????
     [ITEM_ABILITY_CAPSULE] = {gItemIcon_AbilityCapsule, gItemIconPalette_AbilityCapsule},
-    [ITEM_035] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
+    [ITEM_DESTINY_KNOT] = {gItemIcon_DestinyKnot, gItemIconPalette_DestinyKnot},
     [ITEM_036] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_037] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_038] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},

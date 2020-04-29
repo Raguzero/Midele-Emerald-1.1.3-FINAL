@@ -148,6 +148,7 @@ LittlerootTown_DebugRoom_Script_Vendedor::
 
     .align 2
 DebugShop::
+    .2byte ITEM_DESTINY_KNOT
     .2byte ITEM_MASTER_BALL
     .2byte ITEM_ULTRA_BALL
     .2byte ITEM_GREAT_BALL

@@ -672,12 +672,12 @@ const struct Item gItems[] =
         .secondaryId = 0,
     },
 
-    [ITEM_035] =
+    [ITEM_DESTINY_KNOT] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
-        .price = 0,
-        .description = sDummyDesc,
+        .name = _("DESTINY KNOT"),
+        .itemId = ITEM_DESTINY_KNOT,
+        .price = 1,
+        .description = sDestinyKnotDesc,
         .pocket = POCKET_ITEMS,
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,

@@ -995,6 +995,11 @@ static const u8 sYellowScarfDesc[] = _(
     "A hold item that\n"
     "raises TOUGH in\n"
     "CONTESTS.");
+    
+static const u8 sDestinyKnotDesc[] = _(
+    "A hold item that\n"
+    "improves breeding\n"
+    "IV inheritance.");
 
 // Key items
 static const u8 sMachBikeDesc[] = _(
@@ -1578,4 +1583,3 @@ static const u8 sEonFluteDesc[] = _(
 	"A flute that can\n"
 	"summon LATIAS or\n"
 	"LATIOS.");
-
