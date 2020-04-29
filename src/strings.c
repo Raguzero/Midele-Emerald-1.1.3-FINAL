@@ -1844,3 +1844,8 @@ const u8 gText_IceType[] = _("ICE");
 const u8 gText_DragonType[] = _("DRAGON");
 const u8 gText_DarkType[] = _("DARK");
 const u8 gText_FairyType[] = _("FAIRY");
+
+// NUEVO FOSILES
+const u8 gText_HelixFossil[] = _("HELIX FOSSIL");
+const u8 gText_DomeFossil[] = _("DOME FOSSIL");
+const u8 gText_OldAmber[] = _("OLD AMBER");

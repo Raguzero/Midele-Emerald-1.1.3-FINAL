@@ -2973,4 +2973,9 @@ extern const u8 gText_DragonType[];
 extern const u8 gText_DarkType[];
 extern const u8 gText_FairyType[];
 
+// NUEVO FOSILES
+extern const u8 gText_HelixFossil[];
+extern const u8 gText_DomeFossil[];
+extern const u8 gText_OldAmber[];
+
 #endif // GUARD_STRINGS_H
