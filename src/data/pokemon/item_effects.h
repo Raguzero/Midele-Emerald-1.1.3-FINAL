@@ -445,6 +445,56 @@ const u8 gItemEffect_TamatoBerry[10] = {
     [9] = 2,
 };
 
+const u8 gItemEffect_GHPUp[10] = {
+    [4] = ITEM4_EV_HP,
+    [5] = ITEM5_FRIENDSHIP_ALL,
+    [6] = 252,
+    [7] = FRIENDSHIP_VITAMIN_INCREASE_LOW,
+    [8] = FRIENDSHIP_VITAMIN_INCREASE_MED,
+    [9] = FRIENDSHIP_VITAMIN_INCREASE_HIGH,
+};
+
+const u8 gItemEffect_GProtein[10] = {
+    [4] = ITEM4_EV_ATK,
+    [5] = ITEM5_FRIENDSHIP_ALL,
+    [6] = 252,
+    [7] = FRIENDSHIP_VITAMIN_INCREASE_LOW,
+    [8] = FRIENDSHIP_VITAMIN_INCREASE_MED,
+    [9] = FRIENDSHIP_VITAMIN_INCREASE_HIGH,
+};
+
+const u8 gItemEffect_GIron[10] = {
+    [5] = ITEM5_EV_DEF | ITEM5_FRIENDSHIP_ALL,
+    [6] = 252,
+    [7] = FRIENDSHIP_VITAMIN_INCREASE_LOW,
+    [8] = FRIENDSHIP_VITAMIN_INCREASE_MED,
+    [9] = FRIENDSHIP_VITAMIN_INCREASE_HIGH,
+};
+
+const u8 gItemEffect_GCarbos[10] = {
+    [5] = ITEM5_EV_SPEED | ITEM5_FRIENDSHIP_ALL,
+    [6] = 252,
+    [7] = FRIENDSHIP_VITAMIN_INCREASE_LOW,
+    [8] = FRIENDSHIP_VITAMIN_INCREASE_MED,
+    [9] = FRIENDSHIP_VITAMIN_INCREASE_HIGH,
+};
+
+const u8 gItemEffect_GCalcium[10] = {
+    [5] = ITEM5_EV_SPATK | ITEM5_FRIENDSHIP_ALL,
+    [6] = 252,
+    [7] = FRIENDSHIP_VITAMIN_INCREASE_LOW,
+    [8] = FRIENDSHIP_VITAMIN_INCREASE_MED,
+    [9] = FRIENDSHIP_VITAMIN_INCREASE_HIGH,
+};
+
+const u8 gItemEffect_GZinc[10] = {
+    [5] = ITEM5_EV_SPDEF | ITEM5_FRIENDSHIP_ALL,
+    [6] = 252,
+    [7] = FRIENDSHIP_VITAMIN_INCREASE_LOW,
+    [8] = FRIENDSHIP_VITAMIN_INCREASE_MED,
+    [9] = FRIENDSHIP_VITAMIN_INCREASE_HIGH,
+};
+
 const u8 *const gItemEffectTable[] =
 {
     [ITEM_POTION - ITEM_POTION] = gItemEffect_Potion,
@@ -526,5 +576,11 @@ const u8 *const gItemEffectTable[] =
     [ITEM_HONDEW_BERRY - ITEM_POTION] = gItemEffect_HondewBerry,
     [ITEM_GREPA_BERRY - ITEM_POTION] = gItemEffect_GrepaBerry,
     [ITEM_TAMATO_BERRY - ITEM_POTION] = gItemEffect_TamatoBerry,
+    [ITEM_G_HP_UP - ITEM_POTION] = gItemEffect_GHPUp,
+    [ITEM_G_PROTEIN - ITEM_POTION] = gItemEffect_GProtein,
+    [ITEM_G_IRON - ITEM_POTION] = gItemEffect_GIron,
+    [ITEM_G_CARBOS - ITEM_POTION] = gItemEffect_GCarbos,
+    [ITEM_G_CALCIUM - ITEM_POTION] = gItemEffect_GCalcium,
+    [ITEM_G_ZINC - ITEM_POTION] = gItemEffect_GZinc,
     [LAST_BERRY_INDEX - ITEM_POTION] = NULL
 };

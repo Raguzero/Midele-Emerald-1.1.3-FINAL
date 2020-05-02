@@ -149,6 +149,12 @@ LittlerootTown_DebugRoom_Script_Vendedor::
 
     .align 2
 DebugShop::
+    .2byte ITEM_G_HP_UP
+    .2byte ITEM_G_PROTEIN
+    .2byte ITEM_G_IRON
+    .2byte ITEM_G_CARBOS
+    .2byte ITEM_G_CALCIUM
+    .2byte ITEM_G_ZINC
     .2byte ITEM_DESTINY_KNOT
     .2byte ITEM_MASTER_BALL
     .2byte ITEM_ULTRA_BALL

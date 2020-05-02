@@ -4232,11 +4232,18 @@ extern const u32 gItemIconPalette_AbilityCapsule[];
 // Vitamins
 extern const u32 gItemIcon_HPUp[];
 extern const u32 gItemIconPalette_HPUp[];
+extern const u32 gItemIcon_GHPUp[];
+extern const u32 gItemIconPalette_GHPUp[];
 extern const u32 gItemIcon_Vitamin[];
 extern const u32 gItemIconPalette_Protein[];
 extern const u32 gItemIconPalette_Iron[];
 extern const u32 gItemIconPalette_Carbos[];
 extern const u32 gItemIconPalette_Calcium[];
+extern const u32 gItemIconPalette_GProtein[];
+extern const u32 gItemIconPalette_GIron[];
+extern const u32 gItemIconPalette_GCarbos[];
+extern const u32 gItemIconPalette_GCalcium[];
+extern const u32 gItemIconPalette_GZinc[];
 extern const u32 gItemIcon_RareCandy[];
 extern const u32 gItemIconPalette_RareCandy[];
 extern const u32 gItemIcon_PPUp[];

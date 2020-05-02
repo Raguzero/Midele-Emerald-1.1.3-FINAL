@@ -299,6 +299,36 @@ static const u8 sPPMaxDesc[] = _(
     "Raises the PP of a\n"
     "move to its maximum\n"
     "points.");
+    
+static const u8 sGHPUpDesc[] = _(
+    "Raises the base HP\n"
+    "of one POKéMON\n"
+    "by 252.");
+
+static const u8 sGProteinDesc[] = _(
+    "Raises the base\n"
+    "ATTACK stat of one\n"
+    "POKéMON by 252.");
+
+static const u8 sGIronDesc[] = _(
+    "Raises the base\n"
+    "DEFENSE stat of\n"
+    "one POKéMON by 252.");
+
+static const u8 sGCarbosDesc[] = _(
+    "Raises the base\n"
+    "SPEED stat of one\n"
+    "POKéMON by 252.");
+
+static const u8 sGCalciumDesc[] = _(
+    "Raises the base\n"
+    "SP. ATK stat of one\n"
+    "POKéMON by 252.");
+    
+static const u8 sGZincDesc[] = _(
+    "Raises the base\n"
+    "SP. DEF stat of one\n"
+    "POKéMON by 252.");
 
 // Battle items
 static const u8 sGuardSpecDesc[] = _(
