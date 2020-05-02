@@ -5105,7 +5105,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
     u8 r10;
     u32 r4;
     u32 r5;
-    s8 r2;
+    s16 r2;
     u16 evCount;
 
     heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, NULL);
@@ -5141,7 +5141,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
         gActiveBattler = 0;
         battlerId = MAX_BATTLERS_COUNT;
     }
-
+    
     if (!ITEM_HAS_EFFECT(item))
         return TRUE;
     if (gItemEffectTable[item - ITEM_POTION] == NULL && item != ITEM_ENIGMA_BERRY)

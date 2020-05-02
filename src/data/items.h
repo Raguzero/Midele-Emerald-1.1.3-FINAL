@@ -684,75 +684,75 @@ const struct Item gItems[] =
         .secondaryId = 0,
     },
 
-    [ITEM_036] =
+    [ITEM_G_PROTEIN] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
+        .name = _("G PROTEIN"),
+        .itemId = ITEM_G_PROTEIN,
         .price = 0,
-        .description = sDummyDesc,
+        .description = sGProteinDesc,
         .pocket = POCKET_ITEMS,
-        .type = 4,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .type = 1,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .secondaryId = 0,
     },
 
-    [ITEM_037] =
+    [ITEM_G_IRON] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
+        .name = _("G IRON"),
+        .itemId = ITEM_G_IRON,
         .price = 0,
-        .description = sDummyDesc,
+        .description = sGIronDesc,
         .pocket = POCKET_ITEMS,
-        .type = 4,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .type = 1,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .secondaryId = 0,
     },
 
-    [ITEM_038] =
+    [ITEM_G_CARBOS] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
+        .name = _("G CARBOS"),
+        .itemId = ITEM_G_CARBOS,
         .price = 0,
-        .description = sDummyDesc,
+        .description = sGCarbosDesc,
         .pocket = POCKET_ITEMS,
-        .type = 4,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .type = 1,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .secondaryId = 0,
     },
 
-    [ITEM_039] =
+    [ITEM_G_CALCIUM] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
+        .name = _("G CALCIUM"),
+        .itemId = ITEM_G_CALCIUM,
         .price = 0,
-        .description = sDummyDesc,
+        .description = sGCalciumDesc,
         .pocket = POCKET_ITEMS,
-        .type = 4,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .type = 1,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .secondaryId = 0,
     },
 
-    [ITEM_03A] =
+    [ITEM_G_ZINC] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
+        .name = _("G ZINC"),
+        .itemId = ITEM_G_ZINC,
         .price = 0,
-        .description = sDummyDesc,
+        .description = sGZincDesc,
         .pocket = POCKET_ITEMS,
-        .type = 4,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .type = 1,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .secondaryId = 0,
     },
 
-    [ITEM_03B] =
+    [ITEM_G_HP_UP] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
+        .name = _("G HP UP"),
+        .itemId = ITEM_G_HP_UP,
         .price = 0,
-        .description = sDummyDesc,
+        .description = sGHPUpDesc,
         .pocket = POCKET_ITEMS,
-        .type = 4,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .type = 1,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .secondaryId = 0,
     },
 

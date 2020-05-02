@@ -4349,6 +4349,14 @@ static bool8 IsItemFlute(u16 item)
     return FALSE;
 }
 
+static bool8 IsItemReusable(u16 item)
+{
+    if (item == ITEM_G_PROTEIN || item == ITEM_G_IRON || item == ITEM_G_CARBOS
+        || item == ITEM_G_CALCIUM || item == ITEM_G_ZINC || item == ITEM_G_HP_UP)
+        return TRUE;
+    return FALSE;
+}
+
 static bool8 ExecuteTableBasedItemEffect_(u8 partyMonIndex, u16 item, u8 monMoveIndex)
 {
     if (gMain.inBattle)
@@ -4375,7 +4383,7 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
         }
         if (ExecuteTableBasedItemEffect_(gPartyMenu.slotId, item, 0))
         {
-            iTriedHonestlyIDid:
+            itemHasNoEffect:
             gPartyMenuUseExitCallback = FALSE;
             PlaySE(SE_SELECT);
             DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
@@ -4386,13 +4394,15 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
     }
     else
     {
-        goto iTriedHonestlyIDid; //TODO: resolve this goto
+        goto itemHasNoEffect; //TODO: resolve this goto
     }
     gPartyMenuUseExitCallback = TRUE;
     if (!IsItemFlute(item))
     {
         PlaySE(SE_KAIFUKU);
-        if (gPartyMenu.action != PARTY_ACTION_REUSABLE_ITEM)
+        
+        // NUEVO: objetos reusables no se gastan
+        if (!IsItemReusable(item) && gPartyMenu.action != PARTY_ACTION_REUSABLE_ITEM)
             RemoveBagItem(item, 1);
     }
     else

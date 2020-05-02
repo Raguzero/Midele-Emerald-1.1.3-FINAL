@@ -136,12 +136,19 @@ const u32 gItemIconPalette_AbilityCapsule[] = INCBIN_U32("graphics/items/icon_pa
 
 const u32 gItemIcon_HPUp[] = INCBIN_U32("graphics/items/icons/hp_up.4bpp.lz");
 const u32 gItemIconPalette_HPUp[] = INCBIN_U32("graphics/items/icon_palettes/hp_up.gbapal.lz");
+const u32 gItemIcon_GHPUp[] = INCBIN_U32("graphics/items/icons/hp_up.4bpp.lz");
+const u32 gItemIconPalette_GHPUp[] = INCBIN_U32("graphics/items/icon_palettes/g_hp_up.gbapal.lz");
 
 const u32 gItemIcon_Vitamin[] = INCBIN_U32("graphics/items/icons/vitamin.4bpp.lz");
 const u32 gItemIconPalette_Protein[] = INCBIN_U32("graphics/items/icon_palettes/protein.gbapal.lz");
 const u32 gItemIconPalette_Iron[] = INCBIN_U32("graphics/items/icon_palettes/iron.gbapal.lz");
 const u32 gItemIconPalette_Carbos[] = INCBIN_U32("graphics/items/icon_palettes/carbos.gbapal.lz");
 const u32 gItemIconPalette_Calcium[] = INCBIN_U32("graphics/items/icon_palettes/calcium.gbapal.lz");
+const u32 gItemIconPalette_GProtein[] = INCBIN_U32("graphics/items/icon_palettes/g_protein.gbapal.lz");
+const u32 gItemIconPalette_GIron[] = INCBIN_U32("graphics/items/icon_palettes/g_iron.gbapal.lz");
+const u32 gItemIconPalette_GCarbos[] = INCBIN_U32("graphics/items/icon_palettes/g_carbos.gbapal.lz");
+const u32 gItemIconPalette_GCalcium[] = INCBIN_U32("graphics/items/icon_palettes/g_calcium.gbapal.lz");
+const u32 gItemIconPalette_GZinc[] = INCBIN_U32("graphics/items/icon_palettes/g_zinc.gbapal.lz");
 
 const u32 gItemIcon_RareCandy[] = INCBIN_U32("graphics/items/icons/rare_candy.4bpp.lz");
 const u32 gItemIconPalette_RareCandy[] = INCBIN_U32("graphics/items/icon_palettes/rare_candy.gbapal.lz");
