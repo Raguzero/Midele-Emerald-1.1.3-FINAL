@@ -383,6 +383,7 @@ gBattleAnims_Moves::
 	.4byte Move_QUIVER_DANCE
 	.4byte Move_COIL
 	.4byte Move_SHADOW_SNEAK
+	.4byte Move_ROCK_POLISH
 	.4byte Move_COUNT @ cannot be reached, because last move is Psycho Boost
 
 	.align 2
@@ -10047,7 +10048,22 @@ Move_ENERGY_BALL:
 	end
 	
 Move_NASTY_PLOT:
-	end
+	loadspritegfx ANIM_TAG_AMNESIA 
+	call NastyPlotAction 
+	delay 8
+	createsprite gUnknown_08596744, 20, 0
+	playsewithpan SE_W118, SOUND_PAN_ATTACKER, 
+	delay 54
+	loopsewithpan SE_W118, SOUND_PAN_ATTACKER, 16, 3
+	waitforvisualfinish 
+	call UnsetPsychicBackground
+	end 
+NastyPlotAction:
+	fadetobg BG_DARK 
+	waitbgfadeout 
+	createvisualtask AnimTask_FadeScreenToWhite, 5
+	waitbgfadein 
+	return
 
 Move_QUIVER_DANCE:
 	end
@@ -10057,6 +10073,27 @@ Move_COIL:
 	
 Move_SHADOW_SNEAK:
     end
+
+Move_ROCK_POLISH:
+	monbg ANIM_ATK_PARTNER
+	setalpha 12, 8
+	createvisualtask AnimTask_TranslateMonEllipticalRespectSide, 2, ANIM_ATTACKER, 24, 6, 4, 4
+	createvisualtask sub_81169C0, 2, 0, 4, 7, 10
+	playsewithpan SE_W104, SOUND_PAN_ATTACKER
+	delay 12
+	playsewithpan SE_W104, SOUND_PAN_ATTACKER
+	delay 12
+	playsewithpan SE_W104, SOUND_PAN_ATTACKER
+	delay 12
+	playsewithpan SE_W104, SOUND_PAN_ATTACKER
+	delay 12
+	playsewithpan SE_W104, SOUND_PAN_ATTACKER
+	delay 12
+	waitforvisualfinish
+	clearmonbg ANIM_ATK_PARTNER
+	blendoff
+	delay 1
+	end
 
 Move_COUNT:
 	loadspritegfx ANIM_TAG_IMPACT
