@@ -2802,9 +2802,18 @@ void SetMoveEffect(bool8 primary, u8 certain)
                 BattleScriptPush(gBattlescriptCurrInstr + 1);
                 gBattlescriptCurrInstr = BattleScript_AllStatsUp;
                 break;
-            case MOVE_EFFECT_RAPIDSPIN:
+			case MOVE_EFFECT_RAPIDSPIN:
                 BattleScriptPush(gBattlescriptCurrInstr + 1);
                 gBattlescriptCurrInstr = BattleScript_RapidSpinAway;
+                if (!ChangeStatBuffs(SET_STAT_BUFF_VALUE(1),
+                                    MOVE_EFFECT_SPD_PLUS_1 - MOVE_EFFECT_ATK_PLUS_1 + 1,
+                                    affectsUser, 0))
+                {
+                    gBattleScripting.animArg1 = MOVE_EFFECT_SPD_PLUS_1;
+                    gBattleScripting.animArg2 = 0;
+                    BattleScriptPush(gBattlescriptCurrInstr);
+                    gBattlescriptCurrInstr = BattleScript_StatUp;
+                }
                 break;
             case MOVE_EFFECT_REMOVE_PARALYSIS: // Smelling salts
                 if (!(gBattleMons[gBattlerTarget].status1 & STATUS1_PARALYSIS))

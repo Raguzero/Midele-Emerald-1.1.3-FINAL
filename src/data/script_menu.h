@@ -268,10 +268,10 @@ static const struct MenuAction MultichoiceList_GameCornerDolls[] =
 static const struct MenuAction MultichoiceList_GameCornerTMs[] =
 {
     {gText_TM32AndPrice},
-    {gText_TM29AndPrice},
+    //{gText_TM29AndPrice},
     {gText_TM35AndPrice},
-    {gText_TM24AndPrice},
-    {gText_TM13AndPrice},
+    //{gText_TM24AndPrice},
+   // {gText_TM13AndPrice},
     {gText_Exit},
 };
 
@@ -602,6 +602,9 @@ static const struct MenuAction MultichoiceList_Fossil[] =
 {
     {gText_ClawFossil},
     {gText_RootFossil},
+    {gText_HelixFossil},
+    {gText_DomeFossil},
+    {gText_OldAmber},
     {gText_Exit},
 };
 

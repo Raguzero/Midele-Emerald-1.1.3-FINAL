@@ -90,6 +90,7 @@ LittlerootTown_DebugRoom_Script_ActivarTodo::
     special UpdateAllGymLeadersMaxRematches
     setflag FLAG_HAS_MATCH_CALL
     setflag FLAG_ADDED_MATCH_CALL_TO_POKENAV
+	setflag FLAG_LANDMARK_BATTLE_FRONTIER
     end
 
 @ Magnemite desactiva eventos
