@@ -1470,6 +1470,10 @@ static const u8 sCOILDescription[] = _(
 static const u8 sSHADOW_SNEAKDescription[] = _(
 	"Extends the user's shadow\n"
 	"to strike first.");
+	
+static const u8 sROCK_POLISHDescription[] = _(
+	"Polishes the body to\n"
+	"sharply raise Speed.");
 
 // MOVE_NONE is ignored in this table. Make sure to always subtract 1 before getting the right pointer.
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
@@ -1842,5 +1846,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_QUIVER_DANCE - 1] = sQUIVER_DANCEDescription,
     [MOVE_COIL - 1] = sCOILDescription,
     [MOVE_SHADOW_SNEAK - 1] = sSHADOW_SNEAKDescription,
+    [MOVE_ROCK_POLISH - 1] = sROCK_POLISHDescription,
 	// NUEVO MOVE TIPO HADA
 };

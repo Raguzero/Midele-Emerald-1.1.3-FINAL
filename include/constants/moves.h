@@ -369,8 +369,9 @@
 #define MOVE_QUIVER_DANCE 365
 #define MOVE_COIL 366
 #define MOVE_SHADOW_SNEAK 367
+#define MOVE_ROCK_POLISH 368
 
-#define MOVES_COUNT 368
+#define MOVES_COUNT 369
 
 // NUEVO: Poder de Hidden Power
 #define MOVE_HIDDEN_POWER_DMG 70
