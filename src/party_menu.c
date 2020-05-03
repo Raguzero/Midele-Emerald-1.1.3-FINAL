@@ -4349,10 +4349,15 @@ static bool8 IsItemFlute(u16 item)
     return FALSE;
 }
 
+/**
+    Returns TRUE if an item is reusable, else returns FALSE.
+    Used in ItemUseCB_Medicine and ItemUseCB_Candy.
+**/
 static bool8 IsItemReusable(u16 item)
 {
     if (item == ITEM_G_PROTEIN || item == ITEM_G_IRON || item == ITEM_G_CARBOS
-        || item == ITEM_G_CALCIUM || item == ITEM_G_ZINC || item == ITEM_G_HP_UP)
+        || item == ITEM_G_CALCIUM || item == ITEM_G_ZINC || item == ITEM_G_HP_UP
+        || item == ITEM_GOLDEN_CANDY)
         return TRUE;
     return FALSE;
 }
@@ -4921,7 +4926,19 @@ static void Task_TryLearningNextMoveAfterText(u8 taskId)
         Task_TryLearningNextMove(taskId);
 }
 
-void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
+/**
+    Returns TRUE if the candy can be used with the current Pokémon level.
+    Else returns FALSE.
+**/
+bool8 CanUseCandyItem(u16 itemId, u16 monLevel) {
+    u16 levelCap = GetLevelCap();
+    if ((itemId == ITEM_GOLDEN_CANDY || itemId == ITEM_RARE_CANDY) && monLevel != levelCap) {
+        return TRUE;
+    }
+    return FALSE;
+} 
+
+void ItemUseCB_Candy(u8 taskId, TaskFunc task)
 {
     struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
     struct PartyMenuInternal *ptr = sPartyMenuInternal;
@@ -4930,7 +4947,7 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
     bool8 cannotUseEffect;
 // NUEVO LEVEL CAP BADGE
   //  if (GetMonData(mon, MON_DATA_LEVEL) != MAX_LEVEL)
-	    if (GetMonData(mon, MON_DATA_LEVEL) != GetLevelCap())
+	if (CanUseCandyItem(gSpecialVar_ItemId, GetMonData(mon, MON_DATA_LEVEL)))
 // NUEVO LEVEL CAP BADGE
     {
         BufferMonStatsToTaskData(mon, arrayPtr);
@@ -4954,7 +4971,9 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
         gPartyMenuUseExitCallback = TRUE;
         PlayFanfareByFanfareNum(0);
         UpdateMonDisplayInfoAfterRareCandy(gPartyMenu.slotId, mon);
-        RemoveBagItem(gSpecialVar_ItemId, 1);
+        if (!IsItemReusable(gSpecialVar_ItemId)) {
+            RemoveBagItem(gSpecialVar_ItemId, 1);
+        }
         GetMonNickname(mon, gStringVar1);
         ConvertIntToDecimalStringN(gStringVar2, GetMonData(mon, MON_DATA_LEVEL), STR_CONV_MODE_LEFT_ALIGN, 3);
         StringExpandPlaceholders(gStringVar4, gText_PkmnElevatedToLvVar2);

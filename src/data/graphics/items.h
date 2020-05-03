@@ -152,6 +152,7 @@ const u32 gItemIconPalette_GZinc[] = INCBIN_U32("graphics/items/icon_palettes/g_
 
 const u32 gItemIcon_RareCandy[] = INCBIN_U32("graphics/items/icons/rare_candy.4bpp.lz");
 const u32 gItemIconPalette_RareCandy[] = INCBIN_U32("graphics/items/icon_palettes/rare_candy.gbapal.lz");
+const u32 gItemIconPalette_GoldenCandy[] = INCBIN_U32("graphics/items/icon_palettes/golden_candy.gbapal.lz");
 
 const u32 gItemIcon_PPUp[] = INCBIN_U32("graphics/items/icons/pp_up.4bpp.lz");
 const u32 gItemIconPalette_PPUp[] = INCBIN_U32("graphics/items/icon_palettes/pp_up.gbapal.lz");

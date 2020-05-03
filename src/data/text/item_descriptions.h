@@ -329,6 +329,11 @@ static const u8 sGZincDesc[] = _(
     "Raises the base\n"
     "SP. DEF stat of one\n"
     "POKéMON by 252.");
+    
+static const u8 sGoldenCandyDesc[] = _(
+    "Raises the level\n"
+    "of a POKéMON by\n"
+    "20.");
 
 // Battle items
 static const u8 sGuardSpecDesc[] = _(

@@ -756,15 +756,15 @@ const struct Item gItems[] =
         .secondaryId = 0,
     },
 
-    [ITEM_03C] =
+    [ITEM_GOLDEN_CANDY] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
+        .name = _("GOLDENCANDY"),
+        .itemId = ITEM_GOLDEN_CANDY,
         .price = 0,
-        .description = sDummyDesc,
+        .description = sGoldenCandyDesc,
         .pocket = POCKET_ITEMS,
-        .type = 4,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .type = 1,
+        .fieldUseFunc = ItemUseOutOfBattle_Candy,
         .secondaryId = 0,
     },
 
@@ -862,7 +862,7 @@ const struct Item gItems[] =
         .description = sRareCandyDesc,
         .pocket = POCKET_ITEMS,
         .type = 1,
-        .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
+        .fieldUseFunc = ItemUseOutOfBattle_Candy,
         .secondaryId = 0,
     },
 
