@@ -91,6 +91,7 @@ LittlerootTown_DebugRoom_Script_ActivarTodo::
     setflag FLAG_HAS_MATCH_CALL
     setflag FLAG_ADDED_MATCH_CALL_TO_POKENAV
 	setflag FLAG_LANDMARK_BATTLE_FRONTIER
+	setflag FLAG_LANDMARK_POKEMON_LEAGUE
     end
 
 @ Magnemite desactiva eventos

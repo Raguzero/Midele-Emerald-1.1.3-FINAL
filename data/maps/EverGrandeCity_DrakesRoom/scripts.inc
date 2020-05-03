@@ -50,7 +50,7 @@ EverGrandeCity_DrakesRoom_EventScript_Drake:: @ 82286F3
 	end
 
 EGC_AltDrake::
-	trainerbattle_no_intro TRAINER_DEBUG, EverGrandeCity_DrakesRoom_Text_Defeat
+	trainerbattle_no_intro TRAINER_DRAKE_2, EverGrandeCity_DrakesRoom_Text_Defeat
 	goto EverGrandeCity_DrakesRoom_EventScript_Defeated
 	end
 	

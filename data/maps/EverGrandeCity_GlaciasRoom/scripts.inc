@@ -49,7 +49,7 @@ EverGrandeCity_GlaciasRoom_EventScript_Glacia:: @ 8228469
 	end
 
 EGC_AltGlacia::
-	trainerbattle_no_intro TRAINER_DEBUG, EverGrandeCity_GlaciasRoom_Text_Defeat
+	trainerbattle_no_intro TRAINER_GLACIA_2, EverGrandeCity_GlaciasRoom_Text_Defeat
 	goto EverGrandeCity_GlaciasRoom_EventScript_Defeated
 	end
 
