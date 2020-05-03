@@ -46,24 +46,24 @@ FortreeCity_House2_EventScript_Midele_HiddenPowerTypeChange::
 	msgbox FortreeCity_House2_Text_Midele_HPTypeChoose, MSGBOX_DEFAULT
 	multichoicegrid 0, 0, MULTI_MIDELE_HIDDEN_POWER_TYPES, 3, 0
 	switch VAR_RESULT
-	case 0, FortreeCity_House2_EventScript_Midele_HP_Normal
-	case 1, FortreeCity_House2_EventScript_Midele_HP_Fighting
-	case 2, FortreeCity_House2_EventScript_Midele_HP_Flying
-	case 3, FortreeCity_House2_EventScript_Midele_HP_Poison
-	case 4, FortreeCity_House2_EventScript_Midele_HP_Ground
-	case 5, FortreeCity_House2_EventScript_Midele_HP_Rock
-	case 6, FortreeCity_House2_EventScript_Midele_HP_Bug
-	case 7, FortreeCity_House2_EventScript_Midele_HP_Ghost
-	case 8, FortreeCity_House2_EventScript_Midele_HP_Steel
-	case 9, FortreeCity_House2_EventScript_Midele_HP_Fire
-	case 10, FortreeCity_House2_EventScript_Midele_HP_Water
-	case 11, FortreeCity_House2_EventScript_Midele_HP_Grass
-	case 12, FortreeCity_House2_EventScript_Midele_HP_Electric
-	case 13, FortreeCity_House2_EventScript_Midele_HP_Psychic
-	case 14, FortreeCity_House2_EventScript_Midele_HP_Ice
-	case 15, FortreeCity_House2_EventScript_Midele_HP_Dragon
-	case 16, FortreeCity_House2_EventScript_Midele_HP_Dark
-	case 17, FortreeCity_House2_EventScript_Midele_HP_Fairy
+	case 0, FortreeCity_House2_EventScript_Midele_HP_Fighting
+	case 1, FortreeCity_House2_EventScript_Midele_HP_Flying
+	case 2, FortreeCity_House2_EventScript_Midele_HP_Poison
+	case 3, FortreeCity_House2_EventScript_Midele_HP_Ground
+	case 4, FortreeCity_House2_EventScript_Midele_HP_Rock
+	case 5, FortreeCity_House2_EventScript_Midele_HP_Bug
+	case 6, FortreeCity_House2_EventScript_Midele_HP_Ghost
+	case 7, FortreeCity_House2_EventScript_Midele_HP_Steel
+	case 8, FortreeCity_House2_EventScript_Midele_HP_Fire
+	case 9, FortreeCity_House2_EventScript_Midele_HP_Water
+	case 10, FortreeCity_House2_EventScript_Midele_HP_Grass
+	case 11, FortreeCity_House2_EventScript_Midele_HP_Electric
+	case 12, FortreeCity_House2_EventScript_Midele_HP_Psychic
+	case 13, FortreeCity_House2_EventScript_Midele_HP_Ice
+	case 14, FortreeCity_House2_EventScript_Midele_HP_Dragon
+	case 15, FortreeCity_House2_EventScript_Midele_HP_Dark
+	case 16, FortreeCity_House2_EventScript_Midele_HP_Fairy
+	case 17, FortreeCity_House2_EventScript_Midele_HiddenPowerTypeChange_NoChange
 	case MULTI_B_PRESSED, FortreeCity_House2_EventScript_Midele_HiddenPowerTypeChange_NoChange
 	end
 
@@ -77,9 +77,6 @@ FortreeCity_House2_EventScript_Midele_HiddenPowerTypeChange_NoEgg::
 	release
 	end
 
-FortreeCity_House2_EventScript_Midele_HP_Normal::
-	 setvar VAR_0x8005, TYPE_NORMAL
-	 goto FortreeCity_House2_EventScript_Midele_HP_Apply
 FortreeCity_House2_EventScript_Midele_HP_Fighting::
 	 setvar VAR_0x8005, TYPE_FIGHTING
 	 goto FortreeCity_House2_EventScript_Midele_HP_Apply

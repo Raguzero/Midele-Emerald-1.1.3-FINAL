@@ -776,7 +776,6 @@ static const struct MenuAction MultichoiceList_TagMatchType[] =
 
 static const struct MenuAction MultichoiceList_MideleHiddenPowerTypes[] =
 {
-    {gText_NormalType},
     {gText_FightingType},
     {gText_FlyingType},
     {gText_PoisonType},
@@ -794,6 +793,7 @@ static const struct MenuAction MultichoiceList_MideleHiddenPowerTypes[] =
     {gText_DragonType},
     {gText_DarkType},
     {gText_FairyType},
+    {gText_Exit}
 };
 
 static const struct MenuAction MultichoiceList_Exit[] =

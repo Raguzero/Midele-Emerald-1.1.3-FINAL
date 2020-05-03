@@ -2499,8 +2499,7 @@ static const u8 gCapLevels[9] =
 };
 // NUEVO PARA LEVEL CAP BADGE
 
-static const u8 gHiddenPowerTypes[NUMBER_OF_MON_TYPES - 1] = {
-    TYPE_NORMAL,
+static const u8 gHiddenPowerTypes[NUMBER_OF_MON_TYPES - 2] = {
     TYPE_FIGHTING,
     TYPE_FLYING,
     TYPE_POISON,
@@ -2609,9 +2608,11 @@ void CreateMonMidele(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, con
 
     SetMonData(mon, MON_DATA_ABILITY_NUM, &abilityNumber);
     
-    // NUEVO: tipo de Hidden Power personalizado (por defecto es 0, TYPE_NORMAL)
+    // NUEVO: tipo de Hidden Power personalizado (por defecto es TYPE_FAIRY)
     box = &mon->box;
-    box->unused = hpType;
+    if (hpType == 0) {
+        box->unused = TYPE_FAIRY;
+    }
     
     CalculateMonStats(mon);
 }
@@ -7518,7 +7519,7 @@ u8 GetRandomType() {
     u32 random;
     u8 randomType;
     random = Random32();
-    random = random % (NUMBER_OF_MON_TYPES - 1);
+    random = random % (NUMBER_OF_MON_TYPES - 2);
     randomType = gHiddenPowerTypes[random];
 
     return randomType;

@@ -1826,7 +1826,6 @@ const u8 gText_IVs[] = _("IVs");
 const u8 gText_EVs[] = _("EVs");
 
 // NUEVO: nombres de tipos (para NPC Hidden Power)
-const u8 gText_NormalType[] = _("NORMAL");
 const u8 gText_FightingType[] = _("FIGHTING");
 const u8 gText_FlyingType[] = _("FLYING");
 const u8 gText_PoisonType[] = _("POISON");
