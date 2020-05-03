@@ -2984,5 +2984,15 @@ extern const u8 gText_Charmander[];
 extern const u8 gText_Squirtle[];
 extern const u8 gText_Chikorita[];
 extern const u8 gText_Cyndaquil[];
+extern const u8 gText_Totodile[];
+extern const u8 gText_Treecko[];
+extern const u8 gText_Torchic[];
+extern const u8 gText_Mudkip[];
+extern const u8 gText_Turtwig[];
+extern const u8 gText_Piplup[];
+extern const u8 gText_Rowlet[];
+extern const u8 gText_Popplio[];
+extern const u8 gText_Sobble[];
+extern const u8 gText_Eevee[];
 
 #endif // GUARD_STRINGS_H

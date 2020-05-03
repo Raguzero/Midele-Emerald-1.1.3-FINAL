@@ -1856,4 +1856,13 @@ const u8 gText_Charmander[] = _("Charmander{CLEAR_TO 0x48}3000 Coins");
 const u8 gText_Squirtle[] = _("Squirtle{CLEAR_TO 0x48}3000 Coins");
 const u8 gText_Chikorita[] = _("Chikorita{CLEAR_TO 0x48}3000 Coins");
 const u8 gText_Cyndaquil[] = _("Cyndaquil{CLEAR_TO 0x48}3000 Coins");
-
+const u8 gText_Totodile[] = _("Totodile{CLEAR_TO 0x48}3000 Coins");
+const u8 gText_Treecko[] = _("Treecko{CLEAR_TO 0x48}3000 Coins");
+const u8 gText_Torchic[] = _("Torchic{CLEAR_TO 0x48}3000 Coins");
+const u8 gText_Mudkip[] = _("Mudkip{CLEAR_TO 0x48}3000 Coins");
+const u8 gText_Turtwig[] = _("Turtwig{CLEAR_TO 0x48}3000 Coins");
+const u8 gText_Piplup[] = _("Piplup{CLEAR_TO 0x48}3000 Coins");
+const u8 gText_Rowlet[] = _("Rowlet{CLEAR_TO 0x48}3000 Coins");
+const u8 gText_Popplio[] = _("Popplio{CLEAR_TO 0x48}3000 Coins");
+const u8 gText_Sobble[] = _("Sobble{CLEAR_TO 0x48}3000 Coins");
+const u8 gText_Eevee[] = _("Eevee{CLEAR_TO 0x48}3000 Coins");

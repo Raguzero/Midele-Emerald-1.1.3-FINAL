@@ -806,6 +806,26 @@ static const struct MenuAction MultichoiceList_GameCornerPkmn[] =
     {gText_Exit},
 };
 
+static const struct MenuAction MultichoiceList_GameCornerPkmn2[] =
+{
+    {gText_Totodile},
+    {gText_Treecko},
+    {gText_Torchic},
+    {gText_Mudkip},
+    {gText_Turtwig},
+    {gText_Exit},
+};
+
+static const struct MenuAction MultichoiceList_GameCornerPkmn3[] =
+{
+    {gText_Piplup},
+    {gText_Rowlet},
+    {gText_Popplio},
+    {gText_Sobble},
+    {gText_Eevee},
+    {gText_Exit},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -935,6 +955,8 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_TAG_MATCH_TYPE]             = MULTICHOICE(MultichoiceList_TagMatchType),
     [MULTI_MIDELE_HIDDEN_POWER_TYPES]                = MULTICHOICE(MultichoiceList_MideleHiddenPowerTypes),
     [MULTI_GAME_CORNER_PKMN]                = MULTICHOICE(MultichoiceList_GameCornerPkmn),
+    [MULTI_GAME_CORNER_PKMN2]                = MULTICHOICE(MultichoiceList_GameCornerPkmn2),
+    [MULTI_GAME_CORNER_PKMN3]                = MULTICHOICE(MultichoiceList_GameCornerPkmn3),
 };
 
 const u8 *const gStdStrings[] =
