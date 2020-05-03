@@ -796,6 +796,16 @@ static const struct MenuAction MultichoiceList_MideleHiddenPowerTypes[] =
     {gText_Exit}
 };
 
+static const struct MenuAction MultichoiceList_GameCornerPkmn[] =
+{
+    {gText_Bulbasaur},
+    {gText_Charmander},
+    {gText_Squirtle},
+    {gText_Chikorita},
+    {gText_Cyndaquil},
+    {gText_Exit},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -924,6 +934,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_FALLARBOR_TENT_RULES]       = MULTICHOICE(MultichoiceList_FallarborTentRules),
     [MULTI_TAG_MATCH_TYPE]             = MULTICHOICE(MultichoiceList_TagMatchType),
     [MULTI_MIDELE_HIDDEN_POWER_TYPES]                = MULTICHOICE(MultichoiceList_MideleHiddenPowerTypes),
+    [MULTI_GAME_CORNER_PKMN]                = MULTICHOICE(MultichoiceList_GameCornerPkmn),
 };
 
 const u8 *const gStdStrings[] =
