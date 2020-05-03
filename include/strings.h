@@ -2978,4 +2978,11 @@ extern const u8 gText_HelixFossil[];
 extern const u8 gText_DomeFossil[];
 extern const u8 gText_OldAmber[];
 
+// NUEVO POKES CASINO
+extern const u8 gText_Bulbasaur[];
+extern const u8 gText_Charmander[];
+extern const u8 gText_Squirtle[];
+extern const u8 gText_Chikorita[];
+extern const u8 gText_Cyndaquil[];
+
 #endif // GUARD_STRINGS_H

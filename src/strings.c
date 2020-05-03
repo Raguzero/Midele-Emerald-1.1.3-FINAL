@@ -679,7 +679,7 @@ const u8 gText_GreenShard[] = _("GREEN SHARD");
 const u8 gText_BattleFrontier[] = _("BATTLE FRONTIER");
 const u8 gText_Right[] = _("Right");
 const u8 gText_Left[] = _("Left");
-const u8 gText_TM32AndPrice[] = _("TM32{CLEAR_TO 0x48}1,500 COINS");
+const u8 gText_TM32AndPrice[] = _("TM32{CLEAR_TO 0x48}9,000 COINS");
 //const u8 gText_TM29AndPrice[] = _("TM29{CLEAR_TO 0x48}3,500 COINS");
 const u8 gText_TM35AndPrice[] = _("TM35{CLEAR_TO 0x48}4,000 COINS");
 //const u8 gText_TM24AndPrice[] = _("TM24{CLEAR_TO 0x48}4,000 COINS");
@@ -1849,3 +1849,11 @@ const u8 gText_FairyType[] = _("FAIRY");
 const u8 gText_HelixFossil[] = _("HELIX FOSSIL");
 const u8 gText_DomeFossil[] = _("DOME FOSSIL");
 const u8 gText_OldAmber[] = _("OLD AMBER");
+
+// NUEVO POKES CASINO
+const u8 gText_Bulbasaur[] = _("Bulbasaur{CLEAR_TO 0x48}3000 Coins");
+const u8 gText_Charmander[] = _("Charmander{CLEAR_TO 0x48}3000 Coins");
+const u8 gText_Squirtle[] = _("Squirtle{CLEAR_TO 0x48}3000 Coins");
+const u8 gText_Chikorita[] = _("Chikorita{CLEAR_TO 0x48}3000 Coins");
+const u8 gText_Cyndaquil[] = _("Cyndaquil{CLEAR_TO 0x48}3000 Coins");
+

@@ -668,7 +668,203 @@ MauvilleCity_GameCorner_EventScript_NoCoinCase:: @ 8210456
 	msgbox MauvilleCity_GameCorner_Text_CantPlayWithNoCoinCase, MSGBOX_DEFAULT
 	releaseall
 	end
+	
+MauvilleCity_GameCorner_EventScript_MonPrizesStart::
+	lock
+	faceplayer
+	msgbox MauvilleCity_GameCorner_Text_ExchangeCoinsForPrizes, MSGBOX_DEFAULT
+	checkitem ITEM_COIN_CASE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst
+	release
+	end
+	
+MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst:
+	message MauvilleCity_GameCorner_Text_WhichPrize
+	waitmessage
+	setvar VAR_TEMP_1, 0
+	showcoinsbox 0, 0
+	goto MauvilleCity_GameCorner_EventScript_MonPrizes
+	
+MauvilleCity_GameCorner_EventScript_MonPrizes:
+    multichoice 12, 0, MULTI_GAME_CORNER_PKMN, 0
+    switch VAR_RESULT
+	case 0, MauvilleCity_GameCorner_EventScript_BulbasaurConfirm
+	case 1, MauvilleCity_GameCorner_EventScript_CharmanderConfirm
+	case 2, MauvilleCity_GameCorner_EventScript_SquirtleConfirm
+	case 3, MauvilleCity_GameCorner_EventScript_ChikoritaConfirm
+	case 4, MauvilleCity_GameCorner_EventScript_CyndaquilConfirm
+	goto MauvilleCity_GameCorner_EventScript_CancelDollSelect 
+	end
+	
+MauvilleCity_GameCorner_EventScript_BulbasaurConfirm:
+	setvar VAR_TEMP_1, 1
+    bufferspeciesname 0, SPECIES_BULBASAUR
+	goto MauvilleCity_GameCorner_EventScript_MonConfirm
+    
+MauvilleCity_GameCorner_EventScript_CharmanderConfirm:
+	setvar VAR_TEMP_1, 2
+    bufferspeciesname 0, SPECIES_CHARMANDER
+	goto MauvilleCity_GameCorner_EventScript_MonConfirm
+    
+MauvilleCity_GameCorner_EventScript_SquirtleConfirm:
+	setvar VAR_TEMP_1, 3
+    bufferspeciesname 0, SPECIES_SQUIRTLE
+	goto MauvilleCity_GameCorner_EventScript_MonConfirm
+    
+MauvilleCity_GameCorner_EventScript_ChikoritaConfirm:
+	setvar VAR_TEMP_1, 4
+    bufferspeciesname 0, SPECIES_CHIKORITA
+	goto MauvilleCity_GameCorner_EventScript_MonConfirm
+    
+MauvilleCity_GameCorner_EventScript_CyndaquilConfirm:
+	setvar VAR_TEMP_1, 5
+    bufferspeciesname 0, SPECIES_CYNDAQUIL
+	goto MauvilleCity_GameCorner_EventScript_MonConfirm
+	
+MauvilleCity_GameCorner_EventScript_MonConfirm:
+	msgbox MauvilleCity_GameCorner_Text_SoYourChoiceIsX, MSGBOX_YESNO 
+	compare VAR_RESULT, NO
+	goto_if_eq MauvilleCity_GameCorner_EventScript_CancelDollSelect
+	switch VAR_TEMP_1
+	case 1, MauvilleCity_GameCorner_EventScript_Bulbasaur
+	case 2, MauvilleCity_GameCorner_EventScript_Charmander
+	case 3, MauvilleCity_GameCorner_EventScript_Squirtle
+	case 4, MauvilleCity_GameCorner_EventScript_Chikorita
+	case 5, MauvilleCity_GameCorner_EventScript_Cyndaquil
+	end
+	
+MauvilleCity_GameCorner_EventScript_Bulbasaur:
+	checkcoins VAR_TEMP_2
+	compare VAR_TEMP_2, 3000
+	goto_if_lt MauvilleCity_GameCorner_EventScript_NoCoinsForMon
+	getpartysize
+	compare VAR_RESULT, 6
+    goto_if_eq MauvilleCity_GameCorner_EventScript_NoRoom
+	copyvar VAR_0x8004, VAR_RESULT
+	removecoins 3000
+	updatecoinsbox 0, 0
+	playse SE_REGI
+    waitse
+	playfanfare MUS_FANFA4
+	bufferspeciesname 0, SPECIES_BULBASAUR
+	message MauvilleCity_GameCorner_Text_GetMon
+	waitfanfare
+	waitmessage
+	givemon SPECIES_BULBASAUR, 10, ITEM_NONE
+	bufferspeciesname 1, SPECIES_BULBASAUR
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq Common_EventScript_NameReceivedPartyMon
+    goto MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst
 
+MauvilleCity_GameCorner_EventScript_Charmander:
+	checkcoins VAR_TEMP_2
+	compare VAR_TEMP_2, 3000
+	goto_if_lt MauvilleCity_GameCorner_EventScript_NoCoinsForMon
+	getpartysize
+	compare VAR_RESULT, 6
+    goto_if_eq MauvilleCity_GameCorner_EventScript_NoRoom
+	copyvar VAR_0x8004, VAR_RESULT
+	removecoins 3000
+	updatecoinsbox 0, 0
+	playse SE_REGI
+    waitse
+	playfanfare MUS_FANFA4
+	bufferspeciesname 0, SPECIES_CHARMANDER
+	message MauvilleCity_GameCorner_Text_GetMon
+	waitfanfare
+	waitmessage
+	givemon SPECIES_CHARMANDER, 10, ITEM_NONE
+	bufferspeciesname 1, SPECIES_CHARMANDER
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq Common_EventScript_NameReceivedPartyMon
+    goto MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst
+    
+MauvilleCity_GameCorner_EventScript_Squirtle:
+	checkcoins VAR_TEMP_2
+	compare VAR_TEMP_2, 3000
+	goto_if_lt MauvilleCity_GameCorner_EventScript_NoCoinsForMon
+	getpartysize
+	compare VAR_RESULT, 6
+    goto_if_eq MauvilleCity_GameCorner_EventScript_NoRoom
+	copyvar VAR_0x8004, VAR_RESULT
+	removecoins 3000
+	updatecoinsbox 0, 0
+	playse SE_REGI
+    waitse
+	playfanfare MUS_FANFA4
+	bufferspeciesname 0, SPECIES_SQUIRTLE
+	message MauvilleCity_GameCorner_Text_GetMon
+	waitfanfare
+	waitmessage
+	givemon SPECIES_SQUIRTLE, 10, ITEM_NONE
+	bufferspeciesname 1, SPECIES_SQUIRTLE
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq Common_EventScript_NameReceivedPartyMon
+    goto MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst
+    
+MauvilleCity_GameCorner_EventScript_Chikorita:
+	checkcoins VAR_TEMP_2
+	compare VAR_TEMP_2, 3000
+	goto_if_lt MauvilleCity_GameCorner_EventScript_NoCoinsForMon
+	getpartysize
+	compare VAR_RESULT, 6
+    goto_if_eq MauvilleCity_GameCorner_EventScript_NoRoom
+	copyvar VAR_0x8004, VAR_RESULT
+	removecoins 3000
+	updatecoinsbox 0, 0
+	playse SE_REGI
+    waitse
+	playfanfare MUS_FANFA4
+	bufferspeciesname 0, SPECIES_CHIKORITA
+	message MauvilleCity_GameCorner_Text_GetMon
+	waitfanfare
+	waitmessage
+	givemon SPECIES_CHIKORITA, 10, ITEM_NONE
+	bufferspeciesname 1, SPECIES_CHIKORITA
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq Common_EventScript_NameReceivedPartyMon
+    goto MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst
+    
+MauvilleCity_GameCorner_EventScript_Cyndaquil:
+	checkcoins VAR_TEMP_2
+	compare VAR_TEMP_2, 3000
+	goto_if_lt MauvilleCity_GameCorner_EventScript_NoCoinsForMon
+	getpartysize
+	compare VAR_RESULT, 6
+    goto_if_eq MauvilleCity_GameCorner_EventScript_NoRoom
+	copyvar VAR_0x8004, VAR_RESULT
+	removecoins 3000
+	updatecoinsbox 0, 0
+	playse SE_REGI
+    waitse
+	playfanfare MUS_FANFA4
+	bufferspeciesname 0, SPECIES_CYNDAQUIL
+	message MauvilleCity_GameCorner_Text_GetMon
+	waitfanfare
+	waitmessage
+	givemon SPECIES_CYNDAQUIL, 10, ITEM_NONE
+	bufferspeciesname 1, SPECIES_CYNDAQUIL
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq Common_EventScript_NameReceivedPartyMon
+    goto MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst
+
+MauvilleCity_GameCorner_EventScript_NoRoom:
+	msgbox MauvilleCity_GameCorner_Text_NoRoom, 4
+	hidecoinsbox 0, 0
+	release
+	end
+
+MauvilleCity_GameCorner_EventScript_NoCoinsForMon:
+	msgbox MauvilleCity_GameCorner_Text_NotEnoughCoins, 4
+	goto MauvilleCity_GameCorner_EventScript_MonPrizes
+	end	
+	
 MauvilleCity_GameCorner_Text_ThisIsMauvilleGameCorner: @ 8210460
 	.string "This is MAUVILLE GAME CORNER.$"
 
@@ -818,4 +1014,11 @@ MauvilleCity_GameCorner_Text_HeresSomeSlotsInfo: @ 8210B04
 MauvilleCity_GameCorner_Text_CantPlayWithNoCoinCase: @ 8210C2E
 	.string "You can't play if you don't have\n"
 	.string "a COIN CASE.$"
+	
+MauvilleCity_GameCorner_Text_GetMon::
+	.string "{PLAYER} received {STR_VAR_1}!$"
+
+MauvilleCity_GameCorner_Text_NoRoom::
+    .string "Your party is full.$"
+
 
