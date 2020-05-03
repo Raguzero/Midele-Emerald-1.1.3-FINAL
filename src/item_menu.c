@@ -1724,6 +1724,14 @@ void ItemMenu_Toss(u8 taskId)
 
     BagMenu_RemoveSomeWindow();
     data[8] = 1;
+    if (IsItemReusable(gSpecialVar_ItemId)) {
+        StringExpandPlaceholders(gStringVar4, gText_CantThrow);
+        FillWindowPixelBuffer(1, PIXEL_FILL(0));
+        BagMenu_Print(1, 1, gStringVar4, 3, 1, 0, 0, 0, 0);
+        BagMenu_PrintCursor_(data[0], 0);
+        set_callback3_to_bag(taskId);
+        return;
+    }
     if (data[2] == 1)
     {
         BagMenu_TossItems(taskId);
@@ -2583,4 +2591,3 @@ bool8 UseRegisteredKeyItemOnField(u8 button)
 }
 
 #undef tUsingRegisteredKeyItem
-

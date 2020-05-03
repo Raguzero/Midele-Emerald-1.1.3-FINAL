@@ -4353,7 +4353,7 @@ static bool8 IsItemFlute(u16 item)
     Returns TRUE if an item is reusable, else returns FALSE.
     Used in ItemUseCB_Medicine and ItemUseCB_Candy.
 **/
-static bool8 IsItemReusable(u16 item)
+bool8 IsItemReusable(u16 item)
 {
     if (item == ITEM_G_PROTEIN || item == ITEM_G_IRON || item == ITEM_G_CARBOS
         || item == ITEM_G_CALCIUM || item == ITEM_G_ZINC || item == ITEM_G_HP_UP

@@ -231,6 +231,7 @@ const u8 gText_TooImportantToToss[] = _("That's much too\nimportant to toss\nout
 const u8 gText_TossHowManyVar1s[] = _("Toss out how many\n{STR_VAR_1}(s)?");
 const u8 gText_ThrewAwayVar2Var1s[] = _("Threw away {STR_VAR_2}\n{STR_VAR_1}(s).");
 const u8 gText_ConfirmTossItems[] = _("Is it okay to\nthrow away {STR_VAR_2}\n{STR_VAR_1}(s)?");
+const u8 gText_CantThrow[] = _("This item cannot\nbe thrown.");
 const u8 gText_DadsAdvice[] = _("DAD's advice…\n{PLAYER}, there's a time and place for\leverything!{PAUSE_UNTIL_PRESS}");
 const u8 gText_CantDismountBike[] = _("You can't dismount your BIKE here.{PAUSE_UNTIL_PRESS}");
 const u8 gText_ItemFinderNearby[] = _("Huh?\nThe ITEMFINDER's responding!\pThere's an item buried around here!{PAUSE_UNTIL_PRESS}");
@@ -1855,4 +1856,3 @@ const u8 gText_Charmander[] = _("Charmander{CLEAR_TO 0x48}3000 Coins");
 const u8 gText_Squirtle[] = _("Squirtle{CLEAR_TO 0x48}3000 Coins");
 const u8 gText_Chikorita[] = _("Chikorita{CLEAR_TO 0x48}3000 Coins");
 const u8 gText_Cyndaquil[] = _("Cyndaquil{CLEAR_TO 0x48}3000 Coins");
-
