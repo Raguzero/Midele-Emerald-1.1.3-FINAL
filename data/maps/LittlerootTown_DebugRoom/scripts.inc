@@ -149,6 +149,7 @@ LittlerootTown_DebugRoom_Script_Vendedor::
 
     .align 2
 DebugShop::
+    .2byte ITEM_GOLDEN_CANDY
     .2byte ITEM_G_HP_UP
     .2byte ITEM_G_PROTEIN
     .2byte ITEM_G_IRON

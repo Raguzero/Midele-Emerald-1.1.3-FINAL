@@ -582,5 +582,6 @@ const u8 *const gItemEffectTable[] =
     [ITEM_G_CARBOS - ITEM_POTION] = gItemEffect_GCarbos,
     [ITEM_G_CALCIUM - ITEM_POTION] = gItemEffect_GCalcium,
     [ITEM_G_ZINC - ITEM_POTION] = gItemEffect_GZinc,
+    [ITEM_GOLDEN_CANDY - ITEM_POTION] = gItemEffect_RareCandy,
     [LAST_BERRY_INDEX - ITEM_POTION] = NULL
 };

@@ -5087,6 +5087,22 @@ bool8 ExecuteTableBasedItemEffect(struct Pokemon *mon, u16 item, u8 partyIndex, 
     return PokemonUseItemEffects(mon, item, partyIndex, moveIndex, 0);
 }
 
+/**
+    Returns the number of level ups availables with the current item and Pokémon level.
+**/
+static s16 GetNumberOfLevelUps(u16 level, u16 item) {
+    u16 levelCap = GetLevelCap();
+    if (item == ITEM_RARE_CANDY) {
+        return RARE_CANDY_LEVELS;
+    }
+    
+    if (level + GOLDEN_CANDY_LEVELS > levelCap) {
+        return levelCap - level;
+    } else {
+        return GOLDEN_CANDY_LEVELS;
+    }
+}
+
 bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 moveIndex, u8 e)
 {
     u32 dataUnsigned;
@@ -5234,10 +5250,12 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
             if ((itemEffect[cmdIndex] & ITEM3_LEVEL_UP)
       // NUEVO PARA LEVEL CAP BADGE
 	   //  && GetMonData(mon, MON_DATA_LEVEL, NULL) != MAX_LEVEL)
-	     && GetMonData(mon, MON_DATA_LEVEL, NULL) != GetLevelCap())
+	     && CanUseCandyItem(item, GetMonData(mon, MON_DATA_LEVEL, NULL)))
 		// NUEVO PARA LEVEL CAP BADGE
             {
-                dataUnsigned = gExperienceTables[gBaseStats[GetMonData(mon, MON_DATA_SPECIES, NULL)].growthRate][GetMonData(mon, MON_DATA_LEVEL, NULL) + 1];
+                u16 level = GetMonData(mon, MON_DATA_LEVEL, NULL);
+                s16 numberOfLevelUps = GetNumberOfLevelUps(level, item);
+                dataUnsigned = gExperienceTables[gBaseStats[GetMonData(mon, MON_DATA_SPECIES, NULL)].growthRate][level + numberOfLevelUps];
                 SetMonData(mon, MON_DATA_EXP, &dataUnsigned);
                 CalculateMonStats(mon);
                 retVal = FALSE;

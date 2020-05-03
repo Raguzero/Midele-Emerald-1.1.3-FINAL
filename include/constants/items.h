@@ -65,7 +65,7 @@
 #define ITEM_G_CALCIUM 57
 #define ITEM_G_ZINC 58
 #define ITEM_G_HP_UP 59
-#define ITEM_03C 60
+#define ITEM_GOLDEN_CANDY 60
 #define ITEM_03D 61
 #define ITEM_03E 62
 #define ITEM_HP_UP 63
@@ -494,6 +494,10 @@
 #define MAX_BAG_ITEM_CAPACITY  99
 #define MAX_PC_ITEM_CAPACITY   999
 #define MAX_BERRY_CAPACITY     999
+
+// NUEVO: número de niveles que aumentan los caramelos
+#define GOLDEN_CANDY_LEVELS 20 
+#define RARE_CANDY_LEVELS   1
 
 // Check if the item is one that can be used on a Pokemon.
 #define ITEM_HAS_EFFECT(item) ((item) >= ITEM_POTION && (item) <= ITEM_UP_GRADE)
