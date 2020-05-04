@@ -4329,6 +4329,9 @@ static void GetMedicineItemEffectMessage(u16 item)
     case ITEM_EFFECT_HEAL_PP:
         StringExpandPlaceholders(gStringVar4, gText_PPWasRestored);
         break;
+    case ITEM_EFFECT_FRIENDSHIP:
+        StringExpandPlaceholders(gStringVar4, gText_FriendshipIncreased);
+        break;
     default:
         StringExpandPlaceholders(gStringVar4, gText_WontHaveEffect);
         break;
@@ -4357,7 +4360,7 @@ bool8 IsItemReusable(u16 item)
 {
     if (item == ITEM_G_PROTEIN || item == ITEM_G_IRON || item == ITEM_G_CARBOS
         || item == ITEM_G_CALCIUM || item == ITEM_G_ZINC || item == ITEM_G_HP_UP
-        || item == ITEM_GOLDEN_CANDY)
+        || item == ITEM_GOLDEN_CANDY || item == ITEM_SWEET_HEART)
         return TRUE;
     return FALSE;
 }
@@ -5255,7 +5258,6 @@ u8 GetItemEffectType(u16 item)
         itemEffect = gSaveBlock1Ptr->enigmaBerry.itemEffect;
     else
         itemEffect = gItemEffectTable[item - ITEM_POTION];
-
     if ((itemEffect[0] & (ITEM0_DIRE_HIT | ITEM0_X_ATTACK)) || itemEffect[1] || itemEffect[2] || (itemEffect[3] & ITEM3_GUARD_SPEC))
         return ITEM_EFFECT_X_ITEM;
     else if (itemEffect[0] & ITEM0_SACRED_ASH)
@@ -5284,30 +5286,39 @@ u8 GetItemEffectType(u16 item)
             return ITEM_EFFECT_CURE_ALL_STATUS;
     }
 
-    if (itemEffect[4] & (ITEM4_REVIVE | ITEM4_HEAL_HP))
-        return ITEM_EFFECT_HEAL_HP;
-    else if (itemEffect[4] & ITEM4_EV_ATK)
-        return ITEM_EFFECT_ATK_EV;
-    else if (itemEffect[4] & ITEM4_EV_HP)
-        return ITEM_EFFECT_HP_EV;
-    else if (itemEffect[5] & ITEM5_EV_SPATK)
-        return ITEM_EFFECT_SPATK_EV;
-    else if (itemEffect[5] & ITEM5_EV_SPDEF)
-        return ITEM_EFFECT_SPDEF_EV;
-    else if (itemEffect[5] & ITEM5_EV_SPEED)
-        return ITEM_EFFECT_SPEED_EV;
-    else if (itemEffect[5] & ITEM5_EV_DEF)
-        return ITEM_EFFECT_DEF_EV;
-    else if (itemEffect[4] & ITEM4_EVO_STONE)
-        return ITEM_EFFECT_EVO_STONE;
-    else if (itemEffect[4] & ITEM4_PP_UP)
-        return ITEM_EFFECT_PP_UP;
-    else if (itemEffect[5] & ITEM5_PP_MAX)
-        return ITEM_EFFECT_PP_MAX;
-    else if (itemEffect[4] & (ITEM4_HEAL_PP_ALL | ITEM4_HEAL_PP_ONE))
-        return ITEM_EFFECT_HEAL_PP;
-    else
-        return ITEM_EFFECT_NONE;
+    // Check if effects [4] or [5] are in use
+    if (itemEffect[4] | itemEffect[5] | 0) {
+        if (itemEffect[4] & (ITEM4_REVIVE | ITEM4_HEAL_HP))
+            return ITEM_EFFECT_HEAL_HP;
+        else if (itemEffect[4] & ITEM4_EV_ATK)
+            return ITEM_EFFECT_ATK_EV;
+        else if (itemEffect[4] & ITEM4_EV_HP)
+            return ITEM_EFFECT_HP_EV;
+        else if (itemEffect[5] & ITEM5_EV_SPATK)
+            return ITEM_EFFECT_SPATK_EV;
+        else if (itemEffect[5] & ITEM5_EV_SPDEF)
+            return ITEM_EFFECT_SPDEF_EV;
+        else if (itemEffect[5] & ITEM5_EV_SPEED)
+            return ITEM_EFFECT_SPEED_EV;
+        else if (itemEffect[5] & ITEM5_EV_DEF)
+            return ITEM_EFFECT_DEF_EV;
+        else if (itemEffect[4] & ITEM4_EVO_STONE)
+            return ITEM_EFFECT_EVO_STONE;
+        else if (itemEffect[4] & ITEM4_PP_UP)
+            return ITEM_EFFECT_PP_UP;
+        else if (itemEffect[5] & ITEM5_PP_MAX)
+            return ITEM_EFFECT_PP_MAX;
+        else if (itemEffect[4] & (ITEM4_HEAL_PP_ALL | ITEM4_HEAL_PP_ONE))
+            return ITEM_EFFECT_HEAL_PP;
+        else
+            return ITEM_EFFECT_NONE;
+    }
+    
+    if (itemEffect[6] & ITEM6_FRIENDSHIP) {
+        return ITEM_EFFECT_FRIENDSHIP;
+    }
+    
+    return ITEM_EFFECT_NONE;
 }
 
 static void TryTutorSelectedMon(u8 taskId)

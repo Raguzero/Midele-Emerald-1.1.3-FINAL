@@ -5175,8 +5175,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
     {
         itemEffect = gItemEffectTable[item - ITEM_POTION];
     }
-
-    for (cmdIndex = 0; cmdIndex < 6; cmdIndex++)
+    for (cmdIndex = 0; cmdIndex < 7; cmdIndex++)
     {
         switch (cmdIndex)
         {
@@ -5649,6 +5648,21 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                 }
                 var_38++;
                 r10 >>= 1;
+            }
+            break;
+        // friendship increase
+        case 6:
+            if (itemEffect[cmdIndex] & ITEM6_FRIENDSHIP)
+            {
+                u8 friendship = GetMonData(mon, MON_DATA_FRIENDSHIP, 0);
+                if (friendship == MAX_FRIENDSHIP)
+                {
+                    retVal = TRUE;
+                } else
+                {
+                    SetMonData(mon, MON_DATA_FRIENDSHIP, &(itemEffect[7]));
+                    retVal = FALSE;
+                }
             }
             break;
         }

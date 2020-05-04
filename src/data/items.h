@@ -768,15 +768,15 @@ const struct Item gItems[] =
         .secondaryId = 0,
     },
 
-    [ITEM_03D] =
+    [ITEM_SWEET_HEART] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
+        .name = _("SWEET HEART"),
+        .itemId = ITEM_SWEET_HEART,
         .price = 0,
-        .description = sDummyDesc,
+        .description = sSweetHeartDesc,
         .pocket = POCKET_ITEMS,
-        .type = 4,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .type = 1,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .secondaryId = 0,
     },
 

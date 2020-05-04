@@ -334,6 +334,11 @@ static const u8 sGoldenCandyDesc[] = _(
     "Raises the level\n"
     "of a POKéMON by\n"
     "20.");
+    
+static const u8 sSweetHeartDesc[] = _(
+    "Raises the \n"
+    "friendship of a\n"
+    "POKéMON to 255.");
 
 // Battle items
 static const u8 sGuardSpecDesc[] = _(
