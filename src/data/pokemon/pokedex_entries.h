@@ -6032,4 +6032,161 @@ const struct PokedexEntry gPokedexEntries[] =
 		.trainerScale = 256,
 		.trainerOffset = 0,
 	},
+	[NATIONAL_DEX_TOXEL] =
+	{
+		.categoryName = _("CottonPuff"),
+		.height = 3,
+		.weight = 6,
+		.description = gToxelPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	[NATIONAL_DEX_TOXTRICITY] =
+	{
+		.categoryName = _("CottonPuff"),
+		.height = 3,
+		.weight = 6,
+		.description = gToxtricityPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	[NATIONAL_DEX_APPLIN] =
+	{
+		.categoryName = _("CottonPuff"),
+		.height = 3,
+		.weight = 6,
+		.description = gApplinPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	[NATIONAL_DEX_FLAPPLE] =
+	{
+		.categoryName = _("CottonPuff"),
+		.height = 3,
+		.weight = 6,
+		.description = gFlapplePokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	[NATIONAL_DEX_APPLETUN] =
+	{
+		.categoryName = _("CottonPuff"),
+		.height = 3,
+		.weight = 6,
+		.description = gAppletunPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	[NATIONAL_DEX_DURALUDON] =
+	{
+		.categoryName = _("CottonPuff"),
+		.height = 3,
+		.weight = 6,
+		.description = gDuraludonPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	[NATIONAL_DEX_COTTONEE] =
+	{
+		.categoryName = _("CottonPuff"),
+		.height = 3,
+		.weight = 6,
+		.description = gCottoneePokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	[NATIONAL_DEX_WHIMSICOTT] =
+	{
+		.categoryName = _("Windveiled"),
+		.height = 7,
+		.weight = 66,
+		.description = gWhimsicottPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	[NATIONAL_DEX_HIPPOPOTAS] =
+	{
+		.categoryName = _("Hippo"),
+		.height = 8,
+		.weight = 495,
+		.description = gHippopotasPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_HIPPOWDON] =
+	{
+		.categoryName = _("Heavyweight"),
+		.height = 20,
+		.weight = 3000,
+		.description = gHippowdonPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	[NATIONAL_DEX_SILICOBRA] =
+	{
+		.categoryName = _("Hippo"),
+		.height = 8,
+		.weight = 495,
+		.description = gSilicobraPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_SANDACONDA] =
+	{
+		.categoryName = _("Heavyweight"),
+		.height = 20,
+		.weight = 3000,
+		.description = gSandacondaPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},		
+	[NATIONAL_DEX_COMBEE] =
+	{
+		.categoryName = _("Tiny Bee"),
+		.height = 3,
+		.weight = 55,
+		.description = gCombeePokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_VESPIQUEN] =
+	{
+		.categoryName = _("Beehive"),
+		.height = 12,
+		.weight = 385,
+		.description = gVespiquenPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
 };

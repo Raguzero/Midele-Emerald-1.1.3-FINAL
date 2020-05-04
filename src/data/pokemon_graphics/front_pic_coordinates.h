@@ -2798,6 +2798,81 @@ const struct MonCoords gMonFrontPicCoords[] =
         .size = 0x88,
         .y_offset = 0x02,
     },
+    [SPECIES_TOXEL] =
+    {
+        .size = 0x66,
+        .y_offset = 0xc,
+    },
+    [SPECIES_TOXTRICITY] =
+    {
+        .size = 0x88,
+        .y_offset = 0x5,
+    },
+    [SPECIES_TOXTRICITY_LK] =
+    {
+        .size = 0x88,
+        .y_offset = 0x5,
+    },
+    [SPECIES_APPLIN] =
+    {
+        .size = 0x64,
+        .y_offset = 0x12,
+    },
+    [SPECIES_FLAPPLE] =
+    {
+        .size = 0x64,
+        .y_offset = 0x12,
+    },
+    [SPECIES_APPLETUN] =
+    {
+        .size = 0x64,
+        .y_offset = 0x12,
+    },
+    [SPECIES_DURALUDON] =
+    {
+        .size = 0x88,
+        .y_offset = 0x0,
+    },
+    [SPECIES_COTTONEE] =
+    {
+        .size = 0x45,
+        .y_offset = 0x12,
+    },
+    [SPECIES_WHIMSICOTT] =
+    {
+        .size = 0x45,
+        .y_offset = 0x6,
+    },
+    [SPECIES_HIPPOPOTAS] =
+    {
+        .size = 0x66,
+        .y_offset = 0xc,
+    },
+    [SPECIES_HIPPOWDON] =
+    {
+        .size = 0x77,
+        .y_offset = 0x6,
+    },
+    [SPECIES_SILICOBRA] =
+    {
+        .size = 0x65,
+        .y_offset = 0x0c,
+    },
+    [SPECIES_SANDACONDA] =
+    {
+        .size = 0x65,
+        .y_offset = 0x0c,
+    },
+    [SPECIES_COMBEE] =
+    {
+        .size = 0x45,
+        .y_offset = 0x10,
+    },
+    [SPECIES_VESPIQUEN] =
+    {
+        .size = 0x66,
+        .y_offset = 0x4,
+    },
     [SPECIES_EGG] =
     {
         .size = 0x33,

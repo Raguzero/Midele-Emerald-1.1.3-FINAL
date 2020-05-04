@@ -412,7 +412,7 @@ const struct CompressedSpritePalette gMonShinyPaletteTable[] =
     SPECIES_SHINY_PAL(JIRACHI, gMonShinyPalette_Jirachi),
     SPECIES_SHINY_PAL(DEOXYS, gMonShinyPalette_Deoxys),
     SPECIES_SHINY_PAL(CHIMECHO, gMonShinyPalette_Chimecho),
-// NUEVO PARA FORMAS ALOLA
+// NUEVO POKES
 	SPECIES_SHINY_PAL(ALOLAN_RATTATA, gMonShinyPalette_AlolanRattata),
     SPECIES_SHINY_PAL(ALOLAN_RATICATE, gMonShinyPalette_AlolanRaticate),
     SPECIES_SHINY_PAL(ALOLAN_RAICHU, gMonShinyPalette_AlolanRaichu),
@@ -561,7 +561,22 @@ const struct CompressedSpritePalette gMonShinyPaletteTable[] =
     SPECIES_SHINY_PAL(DURANT, gMonShinyPalette_Durant),
     SPECIES_SHINY_PAL(SNOM, gMonShinyPalette_Snom),
     SPECIES_SHINY_PAL(FROSMOTH, gMonShinyPalette_Frosmoth),
-// NUEVO PARA FORMAS ALOLA
+    SPECIES_SHINY_PAL(TOXEL, gMonShinyPalette_Toxel),
+    SPECIES_SHINY_PAL(TOXTRICITY, gMonShinyPalette_Toxtricity),
+    SPECIES_SHINY_PAL(TOXTRICITY_LK, gMonShinyPalette_Toxtricity_lk),
+    SPECIES_SHINY_PAL(APPLIN, gMonShinyPalette_Applin),
+    SPECIES_SHINY_PAL(FLAPPLE, gMonShinyPalette_Flapple),
+    SPECIES_SHINY_PAL(APPLETUN, gMonShinyPalette_Appletun),
+    SPECIES_SHINY_PAL(DURALUDON, gMonShinyPalette_Duraludon),
+    SPECIES_SHINY_PAL(COTTONEE, gMonShinyPalette_Cottonee),
+    SPECIES_SHINY_PAL(WHIMSICOTT, gMonShinyPalette_Whimsicott),
+    SPECIES_SHINY_PAL(HIPPOPOTAS, gMonShinyPalette_Hippopotas),
+    SPECIES_SHINY_PAL(HIPPOWDON, gMonShinyPalette_Hippowdon),
+    SPECIES_SHINY_PAL(SILICOBRA, gMonShinyPalette_Silicobra),
+    SPECIES_SHINY_PAL(SANDACONDA, gMonShinyPalette_Sandaconda),
+    SPECIES_SHINY_PAL(COMBEE, gMonShinyPalette_Combee),
+    SPECIES_SHINY_PAL(VESPIQUEN, gMonShinyPalette_Vespiquen),
+// NUEVO POKES
     SPECIES_SHINY_PAL(EGG, gMonPalette_Egg),
     SPECIES_SHINY_PAL(UNOWN_B, gMonShinyPalette_Unown),
     SPECIES_SHINY_PAL(UNOWN_C, gMonShinyPalette_Unown),
