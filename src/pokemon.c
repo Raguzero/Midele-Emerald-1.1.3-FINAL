@@ -2611,7 +2611,7 @@ void CreateMonMidele(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, con
     // NUEVO: tipo de Hidden Power personalizado (por defecto es TYPE_FAIRY)
     box = &mon->box;
     if (hpType == 0) {
-        box->unused = TYPE_FAIRY;
+        box->hpType = TYPE_FAIRY;
     }
     
     CalculateMonStats(mon);
@@ -2636,7 +2636,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     SetBoxMonData(boxMon, MON_DATA_PERSONALITY, &personality);
 
     hiddenPowerType = GetRandomType();
-    boxMon->unused = hiddenPowerType;
+    boxMon->hpType = hiddenPowerType;
 
     //Determine original trainer ID
     if (otIdType == OT_ID_RANDOM_NO_SHINY) //Pokemon cannot be shiny

@@ -6535,7 +6535,7 @@ void ItemUseCB_AbilityCapsule(u8 taskId, TaskFunc task)
 // Change selected mon hidden power type
 void MideleChangeSelectedMonHiddenPowerType(void) {
     u8 type = gSpecialVar_0x8005;
-    (&gPlayerParty[gSpecialVar_0x8004])->box.unused = type;
+    (&gPlayerParty[gSpecialVar_0x8004])->box.hpType = type;
 }
 
 // NUEVO: añade todos los Pokémon en las cajas.
