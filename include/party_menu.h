@@ -94,5 +94,6 @@ void MideleChangeSelectedMonHiddenPowerType(void);
 bool8 GiveAllMons(void);
 void GiveAllItems(void);
 bool8 CanUseCandyItem(u16 itemId, u16 monLevel);
+bool8 IsItemReusable(u16 item);
 
 #endif // GUARD_PARTY_MENU_H

@@ -2638,7 +2638,7 @@ void CreateMonMidele(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, con
     // NUEVO: tipo de Hidden Power personalizado (por defecto es TYPE_FAIRY)
     box = &mon->box;
     if (hpType == 0) {
-        box->unused = TYPE_FAIRY;
+        box->hpType = TYPE_FAIRY;
     }
     
     CalculateMonStats(mon);
@@ -2663,7 +2663,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     SetBoxMonData(boxMon, MON_DATA_PERSONALITY, &personality);
 
     hiddenPowerType = GetRandomType();
-    boxMon->unused = hiddenPowerType;
+    boxMon->hpType = hiddenPowerType;
 
     //Determine original trainer ID
     if (otIdType == OT_ID_RANDOM_NO_SHINY) //Pokemon cannot be shiny
@@ -5200,8 +5200,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
     {
         itemEffect = gItemEffectTable[item - ITEM_POTION];
     }
-
-    for (cmdIndex = 0; cmdIndex < 6; cmdIndex++)
+    for (cmdIndex = 0; cmdIndex < 7; cmdIndex++)
     {
         switch (cmdIndex)
         {
@@ -5674,6 +5673,33 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                 }
                 var_38++;
                 r10 >>= 1;
+            }
+            break;
+        // friendship increase
+        case 6:
+            if (itemEffect[cmdIndex] & ITEM6_FRIENDSHIP)
+            {
+                u8 friendship = GetMonData(mon, MON_DATA_FRIENDSHIP, 0);
+                if (friendship == MAX_FRIENDSHIP)
+                {
+                    retVal = TRUE;
+                } else
+                {
+                    SetMonData(mon, MON_DATA_FRIENDSHIP, &(itemEffect[7]));
+                    retVal = FALSE;
+                }
+            }
+            if (itemEffect[cmdIndex] & ITEM6_IVS)
+            {
+                u8 iv = itemEffect[7]; 
+                SetMonData(mon, MON_DATA_HP_IV, &iv);
+                SetMonData(mon, MON_DATA_ATK_IV, &iv);
+                SetMonData(mon, MON_DATA_DEF_IV, &iv);
+                SetMonData(mon, MON_DATA_SPATK_IV, &iv);
+                SetMonData(mon, MON_DATA_SPDEF_IV, &iv);
+                SetMonData(mon, MON_DATA_SPEED_IV, &iv);
+                CalculateMonStats(mon);
+                retVal = FALSE;
             }
             break;
         }

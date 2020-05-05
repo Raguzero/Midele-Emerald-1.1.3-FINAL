@@ -47,6 +47,10 @@
 #define ITEM5_FRIENDSHIP_MID    0x40
 #define ITEM5_FRIENDSHIP_HIGH   0x80
 
+// field 6 masks
+#define ITEM6_FRIENDSHIP 0x1
+#define ITEM6_IVS        0x2
+
 #define ITEM5_FRIENDSHIP_ALL    (ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID | ITEM5_FRIENDSHIP_HIGH)
 
 // fields 6 and onwards are item-specific arguments
@@ -75,5 +79,7 @@
 #define ITEM_EFFECT_PP_MAX 20
 #define ITEM_EFFECT_HEAL_PP 21
 #define ITEM_EFFECT_NONE 22
+#define ITEM_EFFECT_FRIENDSHIP 23
+#define ITEM_EFFECT_IVS 24
 
 #endif // GUARD_CONSTANTS_ITEM_EFFECTS_H

@@ -462,6 +462,8 @@ extern const u8 gText_PkmnBaseVar2StatIncreased[];
 extern const u8 gText_MovesPPIncreased[];
 extern const u8 gText_PPWasRestored[];
 extern const u8 gText_WontHaveEffect[];
+extern const u8 gText_FriendshipIncreased[];
+extern const u8 gText_IVsIncreased[];
 extern const u8 gText_PkmnSnappedOutOfConfusion[];
 extern const u8 gText_PkmnFriendlyBaseVar2Fell[];
 extern const u8 gText_PkmnFriendlyBaseVar2CantFall[];
@@ -574,6 +576,7 @@ extern const u8 gText_NoRoomInBag[];
 extern const u8 gText_TooImportantToToss[];
 extern const u8 gText_ConfirmTossItems[];
 extern const u8 gText_MoveVar1Where[];
+extern const u8 gText_CantThrow[];
 
 extern const u8 gText_ColorLightShadowDarkGrey[];
 extern const u8 gText_ColorBlue[];

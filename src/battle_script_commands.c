@@ -9115,7 +9115,7 @@ static void Cmd_hiddenpowercalc(void)
     else
         monAttacker = &gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker]];
     // El tipo depende del Pokémon (se genera aleatoriamente al obtenerlo)
-    gBattleStruct->dynamicMoveType = monAttacker->box.unused;
+    gBattleStruct->dynamicMoveType = monAttacker->box.hpType;
     gBattlescriptCurrInstr++;
 }
 

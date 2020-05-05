@@ -1494,7 +1494,7 @@ static void MoveSelectionDisplayMoveType(void)
     if (moveIndex == MOVE_HIDDEN_POWER)
     {
         monCurrent = &gPlayerParty[gBattlerPartyIndexes[gActiveBattler]];
-        StringCopy(txtPtr, gTypeNames[monCurrent->box.unused]);
+        StringCopy(txtPtr, gTypeNames[monCurrent->box.hpType]);
     } else
     {
         StringCopy(txtPtr, gTypeNames[gBattleMoves[moveIndex].type]);

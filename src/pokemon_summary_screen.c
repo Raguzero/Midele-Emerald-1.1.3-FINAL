@@ -1459,7 +1459,7 @@ static bool8 ExtractMonDataToSummaryStruct(struct Pokemon *mon)
         sMideleData->spatkIV = GetMonData(mon, MON_DATA_SPATK_IV);
         sMideleData->spdefIV = GetMonData(mon, MON_DATA_SPDEF_IV);
         sMideleData->speedIV = GetMonData(mon, MON_DATA_SPEED_IV);
-        sMideleHiddenPowerType = mon->box.unused;
+        sMideleHiddenPowerType = mon->box.hpType;
         //**
         break;
     case 3:
