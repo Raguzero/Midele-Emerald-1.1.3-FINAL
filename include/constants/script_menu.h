@@ -124,6 +124,8 @@
 #define MULTI_TAG_MATCH_TYPE               113
 #define MULTI_MIDELE_HIDDEN_POWER_TYPES    114
 #define MULTI_GAME_CORNER_PKMN    115
+#define MULTI_GAME_CORNER_PKMN2    116
+#define MULTI_GAME_CORNER_PKMN3    117
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0

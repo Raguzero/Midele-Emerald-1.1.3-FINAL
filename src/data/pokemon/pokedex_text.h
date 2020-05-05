@@ -3036,3 +3036,88 @@ const u8 gFrosmothPokedexText[] = _(
 	"it flies over fields and mountains.\n"
 	"The temperature of its wings is less than\n" 
 	"-290 degrees Fahrenheit.");
+
+const u8 gToxelPokedexText[] = _(
+    "Hippopotas shuts its nostrils tight when\n"
+    "travelling through sand. Instead of\n"
+    "perspiration, it expels grains of sand\n"
+    "from its body.");	
+	
+const u8 gToxtricityPokedexText[] = _(
+    "Hippopotas shuts its nostrils tight when\n"
+    "travelling through sand. Instead of\n"
+    "perspiration, it expels grains of sand\n"
+    "from its body.");
+
+const u8 gApplinPokedexText[] = _(
+    "Hippopotas shuts its nostrils tight when\n"
+    "travelling through sand. Instead of\n"
+    "perspiration, it expels grains of sand\n"
+    "from its body.");
+	
+const u8 gFlapplePokedexText[] = _(
+    "Hippopotas shuts its nostrils tight when\n"
+    "travelling through sand. Instead of\n"
+    "perspiration, it expels grains of sand\n"
+    "from its body.");
+	
+const u8 gAppletunPokedexText[] = _(
+    "Hippopotas shuts its nostrils tight when\n"
+    "travelling through sand. Instead of\n"
+    "perspiration, it expels grains of sand\n"
+    "from its body.");
+	
+const u8 gDuraludonPokedexText[] = _(
+    "Hippopotas shuts its nostrils tight when\n"
+    "travelling through sand. Instead of\n"
+    "perspiration, it expels grains of sand\n"
+    "from its body.");
+	
+const u8 gCottoneePokedexText[] = _(
+    "When it finds others of its kind, they all\n"
+    "stick together. When enough of them\n"
+    "have collected, the mass resembles a\n"
+    "cumulonimbus cloud.");
+
+const u8 gWhimsicottPokedexText[] = _(
+    "It rides on the wind and slips into\n"
+    "people's homes. After it has turned a\n"
+    "room into a cotton-filled mess, it giggles\n"
+    "to itself and takes off.");	
+	
+const u8 gHippopotasPokedexText[] = _(
+    "Hippopotas shuts its nostrils tight when\n"
+    "travelling through sand. Instead of\n"
+    "perspiration, it expels grains of sand\n"
+    "from its body.");
+
+const u8 gHippowdonPokedexText[] = _(
+    "It is surprisingly quick to anger.\n"
+    "It brandishes its gaping mouth in a\n"
+    "display of fearsome strength and raises\n"
+    "vast quantities of sand while attacking.");
+	
+const u8 gSilicobraPokedexText[] = _(
+    "Hippopotas shuts its nostrils tight when\n"
+    "travelling through sand. Instead of\n"
+    "perspiration, it expels grains of sand\n"
+    "from its body.");
+	
+const u8 gSandacondaPokedexText[] = _(
+    "Hippopotas shuts its nostrils tight when\n"
+    "travelling through sand. Instead of\n"
+    "perspiration, it expels grains of sand\n"
+    "from its body.");
+
+const u8 gCombeePokedexText[] = _(
+    "A Pokémon formed by three others.\n"
+    "It constantly gathers honey from flowers\n"
+    "to please Vespiquen. At night, they\n"
+    "cluster to form a beehive and sleep.");
+
+const u8 gVespiquenPokedexText[] = _(
+    "It houses its colony in cells in its body\n"
+    "and releases various pheromones to\n"
+    "make those grubs do its bidding.\n"
+    "There is only one in a colony.");
+

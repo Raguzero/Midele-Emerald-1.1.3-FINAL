@@ -55,7 +55,7 @@ EverGrandeCity_SidneysRoom_EventScript_Sidney:: @ 8227F64
 	end
 	
 EGC_AltSidney::
-	trainerbattle_no_intro TRAINER_DEBUG, EverGrandeCity_SidneysRoom_Text_Defeat
+	trainerbattle_no_intro TRAINER_SIDNEY_2, EverGrandeCity_SidneysRoom_Text_Defeat
 	goto EverGrandeCity_SidneysRoom_EventScript_Defeated
 	end
 

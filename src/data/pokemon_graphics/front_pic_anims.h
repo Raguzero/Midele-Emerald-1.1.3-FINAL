@@ -5585,6 +5585,112 @@ static const union AnimCmd sAnim_FROSMOTH_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_TOXEL_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_TOXTRICITY_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_TOXTRICITY_LK_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_APPLIN_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_FLAPPLE_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_APPLETUN_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_DURALUDON_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_COTTONEE_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_WHIMSICOTT_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_HIPPOPOTAS_1[] =
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 50),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_HIPPOWDON_1[] =
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 45),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_SILICOBRA_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_SANDACONDA_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_COMBEE_1[] =
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 20),
+    ANIMCMD_FRAME(1, 20),
+    ANIMCMD_FRAME(0, 20),
+    ANIMCMD_FRAME(1, 20),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_VESPIQUEN_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_EGG_1[] =
 {
     ANIMCMD_FRAME(0, 6),
@@ -8531,6 +8637,81 @@ static const union AnimCmd *const sAnims_FROSMOTH[] ={
     sAnim_FROSMOTH_1,
 };
 
+static const union AnimCmd *const sAnims_TOXEL[] ={
+    sAnim_GeneralFrame0,
+    sAnim_TOXEL_1,
+};
+
+static const union AnimCmd *const sAnims_TOXTRICITY[] ={
+    sAnim_GeneralFrame0,
+    sAnim_TOXTRICITY_1,
+};
+
+static const union AnimCmd *const sAnims_TOXTRICITY_LK[] ={
+    sAnim_GeneralFrame0,
+    sAnim_TOXTRICITY_LK_1,
+};
+
+static const union AnimCmd *const sAnims_APPLIN[] ={
+    sAnim_GeneralFrame0,
+    sAnim_APPLIN_1,
+};
+
+static const union AnimCmd *const sAnims_FLAPPLE[] ={
+    sAnim_GeneralFrame0,
+    sAnim_FLAPPLE_1,
+};
+
+static const union AnimCmd *const sAnims_APPLETUN[] ={
+    sAnim_GeneralFrame0,
+    sAnim_APPLETUN_1,
+};
+
+static const union AnimCmd *const sAnims_DURALUDON[] ={
+    sAnim_GeneralFrame0,
+    sAnim_DURALUDON_1,
+};
+
+static const union AnimCmd *const sAnims_COTTONEE[] ={
+    sAnim_GeneralFrame0,
+    sAnim_COTTONEE_1,
+};
+
+static const union AnimCmd *const sAnims_WHIMSICOTT[] ={
+    sAnim_GeneralFrame0,
+    sAnim_WHIMSICOTT_1,
+};
+
+static const union AnimCmd *const sAnims_HIPPOPOTAS[] ={
+    sAnim_GeneralFrame0,
+    sAnim_HIPPOPOTAS_1,
+};
+
+static const union AnimCmd *const sAnims_HIPPOWDON[] ={
+    sAnim_GeneralFrame0,
+    sAnim_HIPPOWDON_1,
+};
+
+static const union AnimCmd *const sAnims_SILICOBRA[] ={
+    sAnim_GeneralFrame0,
+    sAnim_SILICOBRA_1,
+};
+
+static const union AnimCmd *const sAnims_SANDACONDA[] ={
+    sAnim_GeneralFrame0,
+    sAnim_SANDACONDA_1,
+};
+
+static const union AnimCmd *const sAnims_COMBEE[] ={
+    sAnim_GeneralFrame0,
+    sAnim_COMBEE_1,
+};
+
+static const union AnimCmd *const sAnims_VESPIQUEN[] ={
+    sAnim_GeneralFrame0,
+    sAnim_VESPIQUEN_1,
+};
+
 static const union AnimCmd *const sAnims_EGG[] ={
     sAnim_GeneralFrame0,
     sAnim_EGG_1,
@@ -9237,6 +9418,21 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(DURANT),
     ANIM_CMD(SNOM),
     ANIM_CMD(FROSMOTH),
+    ANIM_CMD(COTTONEE),
+    ANIM_CMD(TOXEL),
+    ANIM_CMD(TOXTRICITY),
+    ANIM_CMD(TOXTRICITY_LK),
+    ANIM_CMD(APPLIN),
+    ANIM_CMD(FLAPPLE),
+    ANIM_CMD(APPLETUN),
+    ANIM_CMD(DURALUDON),
+    ANIM_CMD(WHIMSICOTT),
+    ANIM_CMD(HIPPOPOTAS),
+    ANIM_CMD(HIPPOWDON),
+    ANIM_CMD(SILICOBRA),
+    ANIM_CMD(SANDACONDA),
+    ANIM_CMD(COMBEE),
+    ANIM_CMD(VESPIQUEN),
 // NUEVO PARA FORMAS ALOLA
     ANIM_CMD(EGG),
     ANIM_CMD(UNOWN_B),

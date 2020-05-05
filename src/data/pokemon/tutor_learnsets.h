@@ -7658,5 +7658,49 @@ static const u32 sTutorLearnsets[] =
 											| TUTOR(MOVE_SNORE)
 											| TUTOR(MOVE_ENDURE)
 											| TUTOR(MOVE_ICY_WIND)
-											| TUTOR(MOVE_SUBSTITUTE)),												
+											| TUTOR(MOVE_SUBSTITUTE)),
+
+    [SPECIES_COTTONEE]      = (TUTOR(MOVE_DREAM_EATER)
+											| TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)),
+
+    [SPECIES_WHIMSICOTT]    = (TUTOR(MOVE_DREAM_EATER)
+											| TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)),
+											
+    [SPECIES_HIPPOPOTAS]    = (TUTOR(MOVE_BODY_SLAM)
+											| TUTOR(MOVE_DOUBLE_EDGE)
+											| TUTOR(MOVE_ENDURE)
+											| TUTOR(MOVE_MUD_SLAP)
+											| TUTOR(MOVE_ROCK_SLIDE)
+											| TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)),
+
+    [SPECIES_HIPPOWDON]     = (TUTOR(MOVE_DOUBLE_EDGE)
+											| TUTOR(MOVE_ENDURE)
+											| TUTOR(MOVE_MUD_SLAP)
+											| TUTOR(MOVE_ROCK_SLIDE)
+											| TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)),
+
+    [SPECIES_COMBEE]        = (TUTOR(MOVE_MUD_SLAP)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SWIFT)),
+
+    [SPECIES_VESPIQUEN]     = (TUTOR(MOVE_ENDURE)
+											| TUTOR(MOVE_FURY_CUTTER)
+											| TUTOR(MOVE_MUD_SLAP)
+											| TUTOR(MOVE_SLEEP_TALK)
+											| TUTOR(MOVE_SNORE)
+											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_SWAGGER)
+											| TUTOR(MOVE_SWIFT)),											
 };

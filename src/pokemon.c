@@ -1107,6 +1107,21 @@ const u16 gSpeciesToNationalPokedexNum[] = // Assigns all species to the Nationa
 	SPECIES_TO_NATIONAL(DURANT),
 	SPECIES_TO_NATIONAL(SNOM),
 	SPECIES_TO_NATIONAL(FROSMOTH),
+	SPECIES_TO_NATIONAL(TOXEL),
+	SPECIES_TO_NATIONAL(TOXTRICITY),
+	[SPECIES_TOXTRICITY_LK - 1] = NATIONAL_DEX_TOXTRICITY,
+	SPECIES_TO_NATIONAL(APPLIN),
+	SPECIES_TO_NATIONAL(FLAPPLE),
+	SPECIES_TO_NATIONAL(APPLETUN),
+	SPECIES_TO_NATIONAL(DURALUDON),
+	SPECIES_TO_NATIONAL(COTTONEE),
+	SPECIES_TO_NATIONAL(WHIMSICOTT),
+	SPECIES_TO_NATIONAL(HIPPOPOTAS),
+	SPECIES_TO_NATIONAL(HIPPOWDON),
+	SPECIES_TO_NATIONAL(SILICOBRA),
+	SPECIES_TO_NATIONAL(SANDACONDA),
+	SPECIES_TO_NATIONAL(COMBEE),
+	SPECIES_TO_NATIONAL(VESPIQUEN),
 };
 
 const u16 gHoennToNationalOrder[] = // Assigns Hoenn Dex Pokémon (Using National Dex Index)
@@ -2155,6 +2170,18 @@ static const u8 sMonFrontAnimIdsTable[] =
     [SPECIES_DURANT - 1] = 0x0b,
     [SPECIES_SNOM - 1] = 0x0b,
     [SPECIES_FROSMOTH - 1] = 0x4b,
+    [SPECIES_TOXEL - 1] = 0x24,
+    [SPECIES_TOXTRICITY - 1] = 0x4,
+    [SPECIES_APPLIN - 1] = 0x47,
+    [SPECIES_FLAPPLE - 1] = 0x17,
+    [SPECIES_APPLETUN - 1] = 0x29,
+    [SPECIES_DURALUDON - 1] = 0x0f,
+    [SPECIES_COTTONEE - 1] = 0x16,
+    [SPECIES_WHIMSICOTT - 1] = 0x16,
+    [SPECIES_HIPPOPOTAS - 1] = 0x17,
+    [SPECIES_HIPPOWDON - 1] = 0x00,
+    [SPECIES_COMBEE - 1] = 0x1C,
+    [SPECIES_VESPIQUEN - 1] = 0x20,
 };
 
 static const u8 sMonAnimationDelayTable[NUM_SPECIES - 1] =
@@ -3631,9 +3658,7 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 	 	// BUFF FORECAST
 	if (attacker->ability == ABILITY_HUSTLE)
         attack = (150 * attack) / 100;
-    if (attacker->ability == ABILITY_PLUS && ABILITY_ON_FIELD2(ABILITY_MINUS))
-        spAttack = (150 * spAttack) / 100;
-    if (attacker->ability == ABILITY_MINUS && ABILITY_ON_FIELD2(ABILITY_PLUS))
+    if ((attacker->ability == ABILITY_PLUS || attacker->ability == ABILITY_MINUS) && (ABILITY_ON_FIELD2(ABILITY_MINUS) || ABILITY_ON_FIELD2(ABILITY_PLUS)))
         spAttack = (150 * spAttack) / 100;
     if (attacker->ability == ABILITY_GUTS && attacker->status1)
         attack = (150 * attack) / 100;

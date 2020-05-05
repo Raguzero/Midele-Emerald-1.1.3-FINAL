@@ -412,7 +412,7 @@ const struct CompressedSpriteSheet gMonFrontPicTable[] =
     SPECIES_SPRITE(JIRACHI, gMonFrontPic_Jirachi),
     SPECIES_SPRITE(DEOXYS, gMonFrontPic_Deoxys),
     SPECIES_SPRITE(CHIMECHO, gMonFrontPic_Chimecho),
-// NUEVO PARA FORMAS ALOLA
+// NUEVO POKES
 	SPECIES_SPRITE(ALOLAN_RATTATA, gMonFrontPic_AlolanRattata),
     SPECIES_SPRITE(ALOLAN_RATICATE, gMonFrontPic_AlolanRaticate),
     SPECIES_SPRITE(ALOLAN_RAICHU, gMonFrontPic_AlolanRaichu),
@@ -561,7 +561,22 @@ const struct CompressedSpriteSheet gMonFrontPicTable[] =
     SPECIES_SPRITE(DURANT, gMonFrontPic_Durant),
     SPECIES_SPRITE(SNOM, gMonFrontPic_Snom),
     SPECIES_SPRITE(FROSMOTH, gMonFrontPic_Frosmoth),
-// NUEVO PARA FORMAS ALOLA
+    SPECIES_SPRITE(TOXEL, gMonFrontPic_Toxel),
+    SPECIES_SPRITE(TOXTRICITY, gMonFrontPic_Toxtricity),
+    SPECIES_SPRITE(TOXTRICITY_LK, gMonFrontPic_Toxtricity_lk),
+    SPECIES_SPRITE(APPLIN, gMonFrontPic_Applin),
+    SPECIES_SPRITE(FLAPPLE, gMonFrontPic_Flapple),
+    SPECIES_SPRITE(APPLETUN, gMonFrontPic_Appletun),
+    SPECIES_SPRITE(DURALUDON, gMonFrontPic_Duraludon),
+    SPECIES_SPRITE(COTTONEE, gMonFrontPic_Cottonee),
+    SPECIES_SPRITE(WHIMSICOTT, gMonFrontPic_Whimsicott),
+    SPECIES_SPRITE(HIPPOPOTAS, gMonFrontPic_Hippopotas),
+    SPECIES_SPRITE(HIPPOWDON, gMonFrontPic_Hippowdon),
+    SPECIES_SPRITE(SILICOBRA, gMonFrontPic_Silicobra),
+    SPECIES_SPRITE(SANDACONDA, gMonFrontPic_Sandaconda),
+    SPECIES_SPRITE(COMBEE, gMonFrontPic_Combee),
+    SPECIES_SPRITE(VESPIQUEN, gMonFrontPic_Vespiquen),
+// NUEVO POKES
     SPECIES_SPRITE(EGG, gMonFrontPic_Egg),
     SPECIES_SPRITE(UNOWN_B, gMonFrontPic_UnownB),
     SPECIES_SPRITE(UNOWN_C, gMonFrontPic_UnownC),

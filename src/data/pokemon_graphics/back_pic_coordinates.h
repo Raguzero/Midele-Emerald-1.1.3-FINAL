@@ -2060,7 +2060,7 @@ const struct MonCoords gMonBackPicCoords[] =
         .size = 0x47,
         .y_offset = 0x07,
     },
-// NUEVO PARA FORMAS ALOLA
+// NUEVO POKES
 // Alolan Forms
     [SPECIES_ALOLAN_RATTATA] =
     {
@@ -2802,7 +2802,82 @@ const struct MonCoords gMonBackPicCoords[] =
         .size = 0x77,
         .y_offset = 0x04,
     },
-// NUEVO PARA FORMAS ALOLA
+    [SPECIES_TOXEL] =
+    {
+        .size = 0x66,
+        .y_offset = 0xe,
+    },
+    [SPECIES_TOXTRICITY] =
+    {
+        .size = 0x67,
+        .y_offset = 0x6,
+    },
+    [SPECIES_TOXTRICITY_LK] =
+    {
+        .size = 0x67,
+        .y_offset = 0x6,
+    },
+    [SPECIES_APPLIN] =
+    {
+        .size = 0x64,
+        .y_offset = 0x12,
+    },
+    [SPECIES_FLAPPLE] =
+    {
+        .size = 0x64,
+        .y_offset = 0x12,
+    },
+    [SPECIES_APPLETUN] =
+    {
+        .size = 0x64,
+        .y_offset = 0x12,
+    },
+    [SPECIES_DURALUDON] =
+    {
+        .size = 0x88,
+        .y_offset = 0x00,
+    },
+    [SPECIES_COTTONEE] =
+    {
+        .size = 0x64,
+        .y_offset = 0x12,
+    },
+    [SPECIES_WHIMSICOTT] =
+    {
+        .size = 0x64,
+        .y_offset = 0x9,
+    },
+    [SPECIES_HIPPOPOTAS] =
+    {
+        .size = 0x66,
+        .y_offset = 0xe,
+    },
+    [SPECIES_HIPPOWDON] =
+    {
+        .size = 0x76,
+        .y_offset = 0x6,
+    },
+    [SPECIES_SILICOBRA] =
+    {
+        .size = 0x66,
+        .y_offset = 0x09,
+    },
+    [SPECIES_SANDACONDA] =
+    {
+        .size = 0x66,
+        .y_offset = 0x09,
+    },
+    [SPECIES_COMBEE] =
+    {
+        .size = 0x55,
+        .y_offset = 0x16,
+    },
+    [SPECIES_VESPIQUEN] =
+    {
+        .size = 0x86,
+        .y_offset = 0x3,
+    },
+// NUEVO POKES
     [SPECIES_EGG] =
     {
         .size = 0x36,
