@@ -4254,6 +4254,8 @@ extern const u32 gItemIcon_PPMax[];
 extern const u32 gItemIconPalette_PPMax[];
 extern const u32 gItemIcon_SweetHeart[];
 extern const u32 gItemIconPalette_SweetHeart[];
+extern const u32 gItemIcon_SecretPotion[];
+extern const u32 gItemIconPalette_SecretPotion[];
 // Battle items
 extern const u32 gItemIcon_BattleStatItem[];
 extern const u32 gItemIconPalette_GuardSpec[];

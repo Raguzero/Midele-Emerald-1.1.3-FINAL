@@ -4332,6 +4332,9 @@ static void GetMedicineItemEffectMessage(u16 item)
     case ITEM_EFFECT_FRIENDSHIP:
         StringExpandPlaceholders(gStringVar4, gText_FriendshipIncreased);
         break;
+    case ITEM_EFFECT_IVS:
+        StringExpandPlaceholders(gStringVar4, gText_IVsIncreased);
+        break;
     default:
         StringExpandPlaceholders(gStringVar4, gText_WontHaveEffect);
         break;
@@ -4360,7 +4363,7 @@ bool8 IsItemReusable(u16 item)
 {
     if (item == ITEM_G_PROTEIN || item == ITEM_G_IRON || item == ITEM_G_CARBOS
         || item == ITEM_G_CALCIUM || item == ITEM_G_ZINC || item == ITEM_G_HP_UP
-        || item == ITEM_GOLDEN_CANDY || item == ITEM_SWEET_HEART)
+        || item == ITEM_GOLDEN_CANDY || item == ITEM_SWEET_HEART || item == ITEM_SECRET_POTION)
         return TRUE;
     return FALSE;
 }
@@ -5287,7 +5290,8 @@ u8 GetItemEffectType(u16 item)
     }
 
     // Check if effects [4] or [5] are in use
-    if (itemEffect[4] | itemEffect[5] | 0) {
+    if (itemEffect[4] | itemEffect[5] | 0)
+    {
         if (itemEffect[4] & (ITEM4_REVIVE | ITEM4_HEAL_HP))
             return ITEM_EFFECT_HEAL_HP;
         else if (itemEffect[4] & ITEM4_EV_ATK)
@@ -5314,8 +5318,14 @@ u8 GetItemEffectType(u16 item)
             return ITEM_EFFECT_NONE;
     }
     
-    if (itemEffect[6] & ITEM6_FRIENDSHIP) {
+    if (itemEffect[6] & ITEM6_FRIENDSHIP)
+    {
         return ITEM_EFFECT_FRIENDSHIP;
+    }
+    
+    if (itemEffect[6] & ITEM6_IVS)
+    {
+        return ITEM_EFFECT_IVS;
     }
     
     return ITEM_EFFECT_NONE;

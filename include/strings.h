@@ -463,6 +463,7 @@ extern const u8 gText_MovesPPIncreased[];
 extern const u8 gText_PPWasRestored[];
 extern const u8 gText_WontHaveEffect[];
 extern const u8 gText_FriendshipIncreased[];
+extern const u8 gText_IVsIncreased[];
 extern const u8 gText_PkmnSnappedOutOfConfusion[];
 extern const u8 gText_PkmnFriendlyBaseVar2Fell[];
 extern const u8 gText_PkmnFriendlyBaseVar2CantFall[];

@@ -67,7 +67,7 @@
 #define ITEM_G_HP_UP 59
 #define ITEM_GOLDEN_CANDY 60
 #define ITEM_SWEET_HEART 61
-#define ITEM_03E 62
+#define ITEM_SECRET_POTION 62
 #define ITEM_HP_UP 63
 #define ITEM_PROTEIN 64
 #define ITEM_IRON 65

@@ -66,7 +66,7 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_G_HP_UP] = {gItemIcon_HPUp, gItemIconPalette_GHPUp},
     [ITEM_GOLDEN_CANDY] = {gItemIcon_RareCandy, gItemIconPalette_GoldenCandy},
     [ITEM_SWEET_HEART] = {gItemIcon_SweetHeart, gItemIconPalette_SweetHeart},
-    [ITEM_03E] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
+    [ITEM_SECRET_POTION] = {gItemIcon_SecretPotion, gItemIconPalette_SecretPotion},
     // Vitamins
     [ITEM_HP_UP] = {gItemIcon_HPUp, gItemIconPalette_HPUp},
     [ITEM_PROTEIN] = {gItemIcon_Vitamin, gItemIconPalette_Protein},
