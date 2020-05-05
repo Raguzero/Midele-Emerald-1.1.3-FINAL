@@ -3038,40 +3038,38 @@ const u8 gFrosmothPokedexText[] = _(
 	"-290 degrees Fahrenheit.");
 
 const u8 gToxelPokedexText[] = _(
-    "Hippopotas shuts its nostrils tight when\n"
-    "travelling through sand. Instead of\n"
-    "perspiration, it expels grains of sand\n"
-    "from its body.");	
+    "It stores poison in an internal poison sac\n" 
+	"and secretes that poison through its skin.\n" 
+	"If you touch this Pokémon, a tingling\n" 
+	"sensation follows.");	
 	
 const u8 gToxtricityPokedexText[] = _(
-    "Hippopotas shuts its nostrils tight when\n"
-    "travelling through sand. Instead of\n"
-    "perspiration, it expels grains of sand\n"
-    "from its body.");
+    "When this Pokémon sounds as if it's\n" 
+	"strumming a guitar, it's actually clawing\n" 
+	"at the protrusions on its chest to generate\n" 
+	"electricity.");
 
 const u8 gApplinPokedexText[] = _(
-    "Hippopotas shuts its nostrils tight when\n"
-    "travelling through sand. Instead of\n"
-    "perspiration, it expels grains of sand\n"
-    "from its body.");
+    "It spends its entire life inside an apple.\n" 
+	"It hides from its natural enemies, bird\n" 
+	"Pokémon, by pretending it's just an apple\n" 
+	"and nothing more.");
 	
 const u8 gFlapplePokedexText[] = _(
-    "Hippopotas shuts its nostrils tight when\n"
-    "travelling through sand. Instead of\n"
-    "perspiration, it expels grains of sand\n"
-    "from its body.");
+    "It ate a sour apple, and that induced its\n" 
+	"evolution. In its cheeks, it stores an acid\n" 
+	"capable of causing chemical burns.");
 	
 const u8 gAppletunPokedexText[] = _(
-    "Hippopotas shuts its nostrils tight when\n"
-    "travelling through sand. Instead of\n"
-    "perspiration, it expels grains of sand\n"
-    "from its body.");
+    "Eating a sweet apple caused its evolution.\n" 
+	"A nectarous scent wafts from its body,\n" 
+	"luring in the bug Pokémon it preys on.");
 	
 const u8 gDuraludonPokedexText[] = _(
-    "Hippopotas shuts its nostrils tight when\n"
-    "travelling through sand. Instead of\n"
-    "perspiration, it expels grains of sand\n"
-    "from its body.");
+    "The special metal that composes its body is\n"
+	"very light, so this Pokémon has considerable\n" 
+	"agility. It lives in caves because it\n" 
+	"dislikes the rain.");
 	
 const u8 gCottoneePokedexText[] = _(
     "When it finds others of its kind, they all\n"
@@ -3098,16 +3096,15 @@ const u8 gHippowdonPokedexText[] = _(
     "vast quantities of sand while attacking.");
 	
 const u8 gSilicobraPokedexText[] = _(
-    "Hippopotas shuts its nostrils tight when\n"
-    "travelling through sand. Instead of\n"
-    "perspiration, it expels grains of sand\n"
-    "from its body.");
+    "As it digs, it swallows sand and stores\n" 
+	"it in its neck pouch. The pouch can hold\n" 
+	"more than 17 pounds of sand.");
 	
 const u8 gSandacondaPokedexText[] = _(
-    "Hippopotas shuts its nostrils tight when\n"
-    "travelling through sand. Instead of\n"
-    "perspiration, it expels grains of sand\n"
-    "from its body.");
+    "When it contracts its body, over 220\n" 
+	"pounds of sand sprays from its nose.\n"
+	"If it ever runs out of sand, it becomes\n" 
+	"disheartened.");
 
 const u8 gCombeePokedexText[] = _(
     "A Pokémon formed by three others.\n"

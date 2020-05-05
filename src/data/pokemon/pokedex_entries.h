@@ -6034,9 +6034,9 @@ const struct PokedexEntry gPokedexEntries[] =
 	},
 	[NATIONAL_DEX_TOXEL] =
 	{
-		.categoryName = _("CottonPuff"),
-		.height = 3,
-		.weight = 6,
+		.categoryName = _("BABY"),
+		.height = 4,
+		.weight = 110,
 		.description = gToxelPokedexText,
 		.pokemonScale = 356,
 		.pokemonOffset = 17,
@@ -6045,9 +6045,9 @@ const struct PokedexEntry gPokedexEntries[] =
 	},
 	[NATIONAL_DEX_TOXTRICITY] =
 	{
-		.categoryName = _("CottonPuff"),
-		.height = 3,
-		.weight = 6,
+		.categoryName = _("PUNK"),
+		.height = 16,
+		.weight = 400,
 		.description = gToxtricityPokedexText,
 		.pokemonScale = 356,
 		.pokemonOffset = 17,
@@ -6056,9 +6056,9 @@ const struct PokedexEntry gPokedexEntries[] =
 	},
 	[NATIONAL_DEX_APPLIN] =
 	{
-		.categoryName = _("CottonPuff"),
-		.height = 3,
-		.weight = 6,
+		.categoryName = _("APPLE CORE"),
+		.height = 2,
+		.weight = 5,
 		.description = gApplinPokedexText,
 		.pokemonScale = 356,
 		.pokemonOffset = 17,
@@ -6067,9 +6067,9 @@ const struct PokedexEntry gPokedexEntries[] =
 	},
 	[NATIONAL_DEX_FLAPPLE] =
 	{
-		.categoryName = _("CottonPuff"),
+		.categoryName = _("APPLE WING"),
 		.height = 3,
-		.weight = 6,
+		.weight = 10,
 		.description = gFlapplePokedexText,
 		.pokemonScale = 356,
 		.pokemonOffset = 17,
@@ -6078,9 +6078,9 @@ const struct PokedexEntry gPokedexEntries[] =
 	},
 	[NATIONAL_DEX_APPLETUN] =
 	{
-		.categoryName = _("CottonPuff"),
-		.height = 3,
-		.weight = 6,
+		.categoryName = _("APPLENECTAR"),
+		.height = 4,
+		.weight = 130,
 		.description = gAppletunPokedexText,
 		.pokemonScale = 356,
 		.pokemonOffset = 17,
@@ -6089,9 +6089,9 @@ const struct PokedexEntry gPokedexEntries[] =
 	},
 	[NATIONAL_DEX_DURALUDON] =
 	{
-		.categoryName = _("CottonPuff"),
-		.height = 3,
-		.weight = 6,
+		.categoryName = _("ALLOY"),
+		.height = 18,
+		.weight = 400,
 		.description = gDuraludonPokedexText,
 		.pokemonScale = 356,
 		.pokemonOffset = 17,
@@ -6100,7 +6100,7 @@ const struct PokedexEntry gPokedexEntries[] =
 	},
 	[NATIONAL_DEX_COTTONEE] =
 	{
-		.categoryName = _("CottonPuff"),
+		.categoryName = _("COTTONPUFF"),
 		.height = 3,
 		.weight = 6,
 		.description = gCottoneePokedexText,
@@ -6111,7 +6111,7 @@ const struct PokedexEntry gPokedexEntries[] =
 	},
 	[NATIONAL_DEX_WHIMSICOTT] =
 	{
-		.categoryName = _("Windveiled"),
+		.categoryName = _("WINDVEILED"),
 		.height = 7,
 		.weight = 66,
 		.description = gWhimsicottPokedexText,
@@ -6122,7 +6122,7 @@ const struct PokedexEntry gPokedexEntries[] =
 	},
 	[NATIONAL_DEX_HIPPOPOTAS] =
 	{
-		.categoryName = _("Hippo"),
+		.categoryName = _("HIPPO"),
 		.height = 8,
 		.weight = 495,
 		.description = gHippopotasPokedexText,
@@ -6134,7 +6134,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
 	[NATIONAL_DEX_HIPPOWDON] =
 	{
-		.categoryName = _("Heavyweight"),
+		.categoryName = _("HEAVYWEIGHT"),
 		.height = 20,
 		.weight = 3000,
 		.description = gHippowdonPokedexText,
@@ -6145,9 +6145,9 @@ const struct PokedexEntry gPokedexEntries[] =
 	},
 	[NATIONAL_DEX_SILICOBRA] =
 	{
-		.categoryName = _("Hippo"),
-		.height = 8,
-		.weight = 495,
+		.categoryName = _("SAND SNAKE"),
+		.height = 22,
+		.weight = 76,
 		.description = gSilicobraPokedexText,
 		.pokemonScale = 356,
 		.pokemonOffset = 17,
@@ -6157,9 +6157,9 @@ const struct PokedexEntry gPokedexEntries[] =
 
 	[NATIONAL_DEX_SANDACONDA] =
 	{
-		.categoryName = _("Heavyweight"),
-		.height = 20,
-		.weight = 3000,
+		.categoryName = _("SAND SNAKE"),
+		.height = 38,
+		.weight = 655,
 		.description = gSandacondaPokedexText,
 		.pokemonScale = 356,
 		.pokemonOffset = 17,
@@ -6168,7 +6168,7 @@ const struct PokedexEntry gPokedexEntries[] =
 	},		
 	[NATIONAL_DEX_COMBEE] =
 	{
-		.categoryName = _("Tiny Bee"),
+		.categoryName = _("TINY BEE"),
 		.height = 3,
 		.weight = 55,
 		.description = gCombeePokedexText,
@@ -6180,7 +6180,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
 	[NATIONAL_DEX_VESPIQUEN] =
 	{
-		.categoryName = _("Beehive"),
+		.categoryName = _("BEEHIVE"),
 		.height = 12,
 		.weight = 385,
 		.description = gVespiquenPokedexText,
