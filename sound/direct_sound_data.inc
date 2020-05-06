@@ -31,18 +31,18 @@ DirectSoundWaveData_sd90_classical_oboe::
 	.incbin "sound/direct_sound_samples/sd90_classical_oboe.bin"
 
 	.align 2
-//DirectSoundWaveData_unused_sd90_oboe::
-	//.incbin "sound/direct_sound_samples/unused_sd90_oboe.bin"
+DirectSoundWaveData_unused_sd90_oboe::
+	.incbin "sound/direct_sound_samples/unused_sd90_oboe.bin"
 
-	//.align 2
-//DirectSoundWaveData_unused_electric_guitar::
-//	.incbin "sound/direct_sound_samples/unused_electric_guitar.bin"
+	.align 2
+DirectSoundWaveData_unused_electric_guitar::
+	.incbin "sound/direct_sound_samples/unused_electric_guitar.bin"
 
-//	.align 2
-//DirectSoundWaveData_unused_sc88_unison_slap::
-	//.incbin "sound/direct_sound_samples/unused_sc88_unison_slap.bin"
+	.align 2
+DirectSoundWaveData_unused_sc88_unison_slap::
+	.incbin "sound/direct_sound_samples/unused_sc88_unison_slap.bin"
 
-	//.align 2
+	.align 2
 DirectSoundWaveData_unknown_snare::
 	.incbin "sound/direct_sound_samples/unknown_snare.bin"
 
@@ -255,10 +255,10 @@ DirectSoundWaveData_unknown_female_voice::
 	.incbin "sound/direct_sound_samples/unknown_female_voice.bin"
 
 	.align 2
-//DirectSoundWaveData_unused_unknown_male_voice::
-//	.incbin "sound/direct_sound_samples/unused_unknown_male_voice.bin"
+DirectSoundWaveData_unused_unknown_male_voice::
+	.incbin "sound/direct_sound_samples/unused_unknown_male_voice.bin"
 
-//	.align 2
+	.align 2
 DirectSoundWaveData_sd90_classical_detuned_ep1_low::
 	.incbin "sound/direct_sound_samples/sd90_classical_detuned_ep1_low.bin"
 
@@ -319,10 +319,10 @@ DirectSoundWaveData_87301B0::
 	.incbin "sound/direct_sound_samples/87301B0.bin"
 
 	.align 2
-//DirectSoundWaveData_unused_acid_bass::
-	//.incbin "sound/direct_sound_samples/unused_acid_bass.bin"
+DirectSoundWaveData_unused_acid_bass::
+	.incbin "sound/direct_sound_samples/unused_acid_bass.bin"
 
-	//.align 2
+	.align 2
 DirectSoundWaveData_8734298::
 	.incbin "sound/direct_sound_samples/8734298.bin"
 
@@ -2487,20 +2487,20 @@ Cry_Silicobra::
 
 	.align 2
 	
-Cry_Sandaconda::
-	.incbin "sound/direct_sound_samples/cry_sandaconda.bin"
+//Cry_Sandaconda::
+	//.incbin "sound/direct_sound_samples/cry_sandaconda.bin"
 
-	.align 2
+	//.align 2
 	
-Cry_Combee::
-	.incbin "sound/direct_sound_samples/cry_combee.bin"
+//Cry_Combee::
+	//.incbin "sound/direct_sound_samples/cry_combee.bin"
 
-	.align 2
+	//.align 2
 	
-Cry_Vespiquen::
-	.incbin "sound/direct_sound_samples/cry_vespiquen.bin"
+//Cry_Vespiquen::
+	//.incbin "sound/direct_sound_samples/cry_vespiquen.bin"
 
-	.align 2
+	//.align 2
 
 DirectSoundWaveData_register_noise::
 	.incbin "sound/direct_sound_samples/register_noise.bin"

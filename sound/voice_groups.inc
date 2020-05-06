@@ -98,9 +98,9 @@ voicegroup001:: @ 8675FEC
 	.align 2
 voicegroup002:: @ 8676148
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 255, 165, 154, 127  @ 8676148
-	//voice_directsound 60, 0, DirectSoundWaveData_unused_sd90_oboe, 255, 165, 154, 127  @ 8676154
-	//voice_directsound 60, 0, DirectSoundWaveData_unused_electric_guitar, 255, 165, 206, 127  @ 8676160
-	//voice_directsound 60, 0, DirectSoundWaveData_unused_sc88_unison_slap, 255, 165, 206, 127  @ 867616C
+	voice_directsound 60, 0, DirectSoundWaveData_unused_sd90_oboe, 255, 165, 154, 127  @ 8676154
+	voice_directsound 60, 0, DirectSoundWaveData_unused_electric_guitar, 255, 165, 206, 127  @ 8676160
+	voice_directsound 60, 0, DirectSoundWaveData_unused_sc88_unison_slap, 255, 165, 206, 127  @ 867616C
 	voice_directsound 60, 0, DirectSoundWaveData_unknown_snare, 255, 0, 255, 0  @ 8676178
 	voice_directsound 60, 0, DirectSoundWaveData_unknown_wood_block_low, 255, 0, 255, 0  @ 8676184
 	voice_directsound 60, 0, DirectSoundWaveData_unknown_wood_block_high, 255, 0, 255, 0  @ 8676190
@@ -681,7 +681,7 @@ voicegroup011:: @ 8677528
 voicegroup012:: @ 8677B28
 	voice_keysplit_all voicegroup001  @ 8677B28
 	voice_keysplit voicegroup005, KeySplitTable1  @ 8677B34
-	//voice_directsound 60, 0, DirectSoundWaveData_unused_acid_bass, 255, 178, 180, 165  @ 8677B40
+	voice_directsound 60, 0, DirectSoundWaveData_unused_acid_bass, 255, 178, 180, 165  @ 8677B40
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 8677B4C
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 8677B58
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 8677B64
@@ -12194,7 +12194,7 @@ voicegroup112:: @ 8698654
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 86988B8
 	voice_directsound 60, 0, DirectSoundWaveData_classical_choir_voice_ahhs, 128, 165, 128, 188  @ 86988C4
 	voice_directsound 60, 0, DirectSoundWaveData_unknown_female_voice, 128, 165, 128, 204  @ 86988D0
-	//voice_directsound 60, 0, DirectSoundWaveData_unused_unknown_male_voice, 128, 165, 128, 188  @ 86988DC
+	voice_directsound 60, 0, DirectSoundWaveData_unused_unknown_male_voice, 128, 165, 128, 188  @ 86988DC
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 86988E8
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 86988F4
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 8698900
@@ -12700,7 +12700,7 @@ voicegroup116:: @ 8699E54
 	voice_directsound 60, 0, DirectSoundWaveData_sc88_pick_bass, 255, 253, 0, 149  @ 8699FE0
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 8699FEC
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 8699FF8
-	//voice_directsound 60, 0, DirectSoundWaveData_unused_sc88_unison_slap, 255, 165, 180, 216  @ 869A004
+	voice_directsound 60, 0, DirectSoundWaveData_unused_sc88_unison_slap, 255, 165, 180, 216  @ 869A004
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 869A010
 	voice_directsound 60, 0, DirectSoundWaveData_sc88_synth_bass, 255, 252, 0, 115  @ 869A01C
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 869A028
@@ -13939,13 +13939,13 @@ voicegroup128:: @ 869D6F4
 	voice_directsound 60, 0, DirectSoundWaveData_sc88_glockenspiel, 255, 246, 0, 127  @ 869D844
 	voice_directsound 60, 0, DirectSoundWaveData_87301B0, 255, 0, 255, 127  @ 869D850
 	voice_square_1_alt 19, 2, 0, 2, 0, 0  @ 869D85C
-	//voice_directsound 60, 0, DirectSoundWaveData_unused_acid_bass, 255, 0, 255, 127  @ 869D868
+	voice_directsound 60, 0, DirectSoundWaveData_unused_acid_bass, 255, 0, 255, 127  @ 869D868
 	voice_square_1 103, 0, 0, 0, 15, 0  @ 869D874
 	voice_directsound_alt 60, 0, DirectSoundWaveData_87301B0, 255, 0, 255, 127  @ 869D880
 	voice_directsound 60, 0, DirectSoundWaveData_sc88_fretless_bass, 255, 255, 255, 127  @ 869D88C
 	voice_directsound 60, 0, DirectSoundWaveData_sc88_synth_bass, 255, 0, 255, 127  @ 869D898
 	voice_directsound 60, 0, DirectSoundWaveData_8734298, 255, 0, 255, 127  @ 869D8A4
-	//voice_directsound 60, 0, DirectSoundWaveData_unused_acid_bass, 255, 242, 0, 0  @ 869D8B0
+	voice_directsound 60, 0, DirectSoundWaveData_unused_acid_bass, 255, 242, 0, 0  @ 869D8B0
 	voice_directsound 60, 0, DirectSoundWaveData_87364A8, 255, 0, 255, 0  @ 869D8BC
 	voice_directsound 60, 0, DirectSoundWaveData_sc88_tubular_bell, 255, 165, 90, 216  @ 869D8C8
 	voice_directsound 60, 0, DirectSoundWaveData_unknown_close_hihat, 255, 127, 0, 188  @ 869D8D4
@@ -13981,7 +13981,7 @@ voicegroup128:: @ 869D6F4
 	voice_noise_alt 0, 6, 6, 0, 1  @ 869DA3C
 	voice_noise_alt 0, 3, 6, 0, 1  @ 869DA48
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 869DA54
-	//voice_directsound 60, 0, DirectSoundWaveData_unused_acid_bass, 15, 127, 231, 127  @ 869DA60
+	voice_directsound 60, 0, DirectSoundWaveData_unused_acid_bass, 15, 127, 231, 127  @ 869DA60
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 869DA6C
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 869DA78
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 869DA84
@@ -14548,9 +14548,9 @@ gCryTable:: @ 869DCF4
 	cry Cry_Hippopotas
 	cry Cry_Hippowdon
 	cry Cry_Silicobra
-	cry Cry_Sandaconda
-	cry Cry_Combee
-	cry Cry_Vespiquen
+	//cry Cry_Sandaconda
+	//cry Cry_Combee
+	//cry Cry_Vespiquen
 
 	.align 2
 gCryTable2:: @ 869EF24
@@ -15063,9 +15063,9 @@ gCryTable2:: @ 869EF24
 	cry2 Cry_Hippopotas
 	cry2 Cry_Hippowdon
 	cry2 Cry_Silicobra
-	cry2 Cry_Sandaconda
-	cry2 Cry_Combee
-	cry2 Cry_Vespiquen
+	//cry2 Cry_Sandaconda
+	//cry2 Cry_Combee
+	//cry2 Cry_Vespiquen
 
 	.align 2
 voicegroup129:: @ 86A0154
@@ -17514,7 +17514,7 @@ voicegroup149:: @ 86A6DE4
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 86A70FC
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 86A7108
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 43, 188, 103, 165  @ 86A7114
-	//voice_directsound 60, 0, DirectSoundWaveData_unused_sd90_oboe, 43, 165, 103, 165  @ 86A7120
+	voice_directsound 60, 0, DirectSoundWaveData_unused_sd90_oboe, 43, 165, 103, 165  @ 86A7120
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 86A712C
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 86A7138
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 86A7144
@@ -18288,7 +18288,7 @@ voicegroup156:: @ 86A92BC
 	voice_square_2_alt 3, 0, 4, 4, 4  @ 86A9448
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 86A9454
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 86A9460
-	//voice_directsound 60, 0, DirectSoundWaveData_unused_sc88_unison_slap, 255, 165, 180, 216  @ 86A946C
+	voice_directsound 60, 0, DirectSoundWaveData_unused_sc88_unison_slap, 255, 165, 180, 216  @ 86A946C
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 86A9478
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 86A9484
 	voice_square_2_alt 1, 0, 1, 7, 5  @ 86A9490
@@ -18419,7 +18419,7 @@ voicegroup157:: @ 86A98BC
 	voice_directsound 60, 0, DirectSoundWaveData_sc88_pick_bass, 255, 253, 0, 149  @ 86A9A48
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 86A9A54
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 86A9A60
-	//voice_directsound 60, 0, DirectSoundWaveData_unused_sc88_unison_slap, 255, 165, 180, 216  @ 86A9A6C
+	voice_directsound 60, 0, DirectSoundWaveData_unused_sc88_unison_slap, 255, 165, 180, 216  @ 86A9A6C
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 86A9A78
 	voice_directsound 60, 0, DirectSoundWaveData_sc88_synth_bass, 255, 252, 0, 115  @ 86A9A84
 	voice_square_1 0, 2, 0, 0, 15, 0  @ 86A9A90
