@@ -1616,7 +1616,7 @@ u16 SetPacifidlogTMReceivedDay(void)
 
 bool8 MonOTNameNotPlayer(void)
 {
-    if (GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_LANGUAGE) != GAME_LANGUAGE)
+    if (GetLanguage(&gPlayerParty[gSpecialVar_0x8004]) != GAME_LANGUAGE)
         return TRUE;
 
     GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_OT_NAME, gStringVar1);
