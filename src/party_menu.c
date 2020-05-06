@@ -6595,3 +6595,11 @@ void GiveAllItems(void) {
 
 
 }
+
+// NUEVO: special, cambia la naturaleza del Pokémon seleccionado
+void MideleChangeSelectedMonNature(void)
+{
+    u8 nature = gSpecialVar_0x8005;
+    SetNature(&gPlayerParty[gSpecialVar_0x8004], &nature);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
