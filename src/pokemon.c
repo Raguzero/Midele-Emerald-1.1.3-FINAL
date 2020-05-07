@@ -5909,15 +5909,33 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
             }
             if (itemEffect[cmdIndex] & ITEM6_IVS)
             {
+                u8 i;
                 u8 iv = itemEffect[7]; 
-                SetMonData(mon, MON_DATA_HP_IV, &iv);
-                SetMonData(mon, MON_DATA_ATK_IV, &iv);
-                SetMonData(mon, MON_DATA_DEF_IV, &iv);
-                SetMonData(mon, MON_DATA_SPATK_IV, &iv);
-                SetMonData(mon, MON_DATA_SPDEF_IV, &iv);
-                SetMonData(mon, MON_DATA_SPEED_IV, &iv);
-                CalculateMonStats(mon);
-                retVal = FALSE;
+                bool8 full6IVs = TRUE;
+                const u8 ivStatsData[] = {MON_DATA_HP_IV, MON_DATA_ATK_IV, MON_DATA_DEF_IV,
+                                         MON_DATA_SPATK_IV, MON_DATA_SPDEF_IV, MON_DATA_SPEED_IV};
+
+                for (i = 0; i < NUM_STATS && full6IVs; i++) {
+                    if (GetMonData(mon, ivStatsData[i], 0) != MAX_IV)
+                    {
+                        full6IVs = FALSE;
+                    }
+                }
+                
+                if (!full6IVs)
+                {
+                    SetMonData(mon, MON_DATA_HP_IV, &iv);
+                    SetMonData(mon, MON_DATA_ATK_IV, &iv);
+                    SetMonData(mon, MON_DATA_DEF_IV, &iv);
+                    SetMonData(mon, MON_DATA_SPATK_IV, &iv);
+                    SetMonData(mon, MON_DATA_SPDEF_IV, &iv);
+                    SetMonData(mon, MON_DATA_SPEED_IV, &iv);
+                    CalculateMonStats(mon);
+                    retVal = FALSE;
+                } else
+                {
+                    retVal = TRUE;
+                }
             }
             break;
         }
