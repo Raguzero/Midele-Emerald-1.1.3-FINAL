@@ -573,7 +573,7 @@ u8 ScriptGiveMon(u16 species, u8 level, u16 item, u32 unused1, u32 unused2, u8 u
     // Gifted mons always get the nature from a synchronize mon leading the party
     if (!GetMonData(&gPlayerParty[0], MON_DATA_SANITY_IS_EGG) && GetMonAbility(&gPlayerParty[0]) == ABILITY_SYNCHRONIZE)
     {
-        u8 nature = GetNatureFromPersonality(GetMonData(&gPlayerParty[0], MON_DATA_PERSONALITY));
+        u8 nature = GetNature(&gPlayerParty[0]);
         CreateMonWithNature(&mon, species, level, 32, nature);
     }
     else
@@ -660,7 +660,7 @@ void CreateScriptedWildMon(u16 species, u8 level, u16 item)
     // Scripted wild mons always get the nature from a synchronize mon leading the party
     if (!GetMonData(&gPlayerParty[0], MON_DATA_SANITY_IS_EGG) && GetMonAbility(&gPlayerParty[0]) == ABILITY_SYNCHRONIZE)
     {
-        u8 nature = GetNatureFromPersonality(GetMonData(&gPlayerParty[0], MON_DATA_PERSONALITY));
+        u8 nature = GetNature(&gPlayerParty[0]);
         CreateMonWithNature(&gEnemyParty[0], species, level, 32, nature);
     }
     else 

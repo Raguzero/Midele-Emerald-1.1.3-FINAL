@@ -316,7 +316,7 @@ static void CreatedHatchedMon(struct Pokemon *egg, struct Pokemon *temp)
         ivs[i] = GetMonData(egg, MON_DATA_HP_IV + i);
     }
 
-    language = GetMonData(egg, MON_DATA_LANGUAGE);
+    language = GetLanguage(egg);
     gameMet = GetMonData(egg, MON_DATA_MET_GAME);
     markings = GetMonData(egg, MON_DATA_MARKINGS);
     pokerus = GetMonData(egg, MON_DATA_POKERUS);
@@ -335,7 +335,7 @@ static void CreatedHatchedMon(struct Pokemon *egg, struct Pokemon *temp)
     }
 
     language = GAME_LANGUAGE;
-    SetMonData(temp, MON_DATA_LANGUAGE, &language);
+    SetLanguage(temp, &language);
     SetMonData(temp, MON_DATA_MET_GAME, &gameMet);
     SetMonData(temp, MON_DATA_MARKINGS, &markings);
 

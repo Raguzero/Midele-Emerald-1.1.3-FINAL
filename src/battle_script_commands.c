@@ -6669,7 +6669,7 @@ static void Cmd_various(void)
         {
             gBattleStruct->field_92 |= gBitTable[gActiveBattler];
             gBattleCommunication[0] = 1;
-            gBattleCommunication[MULTISTRING_CHOOSER] = sUnknown_0831C4F8[GetNatureFromPersonality(gBattleMons[gActiveBattler].personality)];
+            gBattleCommunication[MULTISTRING_CHOOSER] = sUnknown_0831C4F8[gBattleMons[gActiveBattler].nature];
         }
         break;
     case VARIOUS_ARENA_JUDGMENT_WINDOW:

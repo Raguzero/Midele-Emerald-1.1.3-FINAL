@@ -85,7 +85,7 @@ struct BoxPokemon
     /*0x00*/ u32 personality;
     /*0x04*/ u32 otId;
     /*0x08*/ u8 nickname[POKEMON_NAME_LENGTH];
-    /*0x12*/ u8 language;
+    /*0x12*/ u8 languageAndNature; // 5 higher bits, nature; 3 lower bits, language 
     /*0x13*/ u8 isBadEgg:1;
              u8 hasSpecies:1;
              u8 isEgg:1;

@@ -1424,7 +1424,7 @@ static void sub_80379F8(u8 arrayIdPlus)
         gMultiPartnerParty[i].personality = GetMonData(&gPlayerParty[arrayIdPlus + i], MON_DATA_PERSONALITY);
         gMultiPartnerParty[i].gender      = GetMonGender(&gPlayerParty[arrayIdPlus + i]);
         StripExtCtrlCodes(gMultiPartnerParty[i].nickname);
-        if (GetMonData(&gPlayerParty[arrayIdPlus + i], MON_DATA_LANGUAGE) != LANGUAGE_JAPANESE)
+        if (GetLanguage(&gPlayerParty[arrayIdPlus + i]) != LANGUAGE_JAPANESE)
             PadNameString(gMultiPartnerParty[i].nickname, CHAR_SPACE);
     }
     memcpy(sMultiPartnerPartyBuffer, gMultiPartnerParty, sizeof(gMultiPartnerParty));
@@ -2681,11 +2681,11 @@ static void TryCorrectShedinjaLanguage(struct Pokemon *mon)
     u8 language = LANGUAGE_JAPANESE;
 
     if (GetMonData(mon, MON_DATA_SPECIES) == SPECIES_SHEDINJA
-     && GetMonData(mon, MON_DATA_LANGUAGE) != language)
+     && GetLanguage(mon) != language)
     {
         GetMonData(mon, MON_DATA_NICKNAME, nickname);
         if (StringCompareWithoutExtCtrlCodes(nickname, sText_ShedinjaJpnName) == 0)
-            SetMonData(mon, MON_DATA_LANGUAGE, &language);
+            SetLanguage(mon, &language);
     }
 }
 
