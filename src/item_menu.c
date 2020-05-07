@@ -1724,7 +1724,7 @@ void ItemMenu_Toss(u8 taskId)
 
     BagMenu_RemoveSomeWindow();
     data[8] = 1;
-    if (IsItemReusable(gSpecialVar_ItemId)) {
+    if (ItemId_GetImportance(gSpecialVar_ItemId) == 1) {
         StringExpandPlaceholders(gStringVar4, gText_CantThrow);
         FillWindowPixelBuffer(1, PIXEL_FILL(0));
         BagMenu_Print(1, 1, gStringVar4, 3, 1, 0, 0, 0, 0);
