@@ -796,6 +796,41 @@ static const struct MenuAction MultichoiceList_MideleHiddenPowerTypes[] =
     {gText_Exit}
 };
 
+static const struct MenuAction MultichoiceList_MideleNatures1[] =
+{
+    {gText_HardyNature},
+    {gText_LonelyNature},
+    {gText_BraveNature},
+    {gText_AdamantNature},
+    {gText_NaughtyNature},
+    {gText_BoldNature},
+    {gText_DocileNature},
+    {gText_RelaxedNature},
+    {gText_ImpishNature},
+    {gText_LaxNature},
+    {gText_TimidNature},
+    {gText_HastyNature},
+    {gText_SeriousNature},
+    {gText_JollyNature},
+    {gText_NaiveNature},
+    {gText_ModestNature},
+    {gText_MildNature},
+    {gText_Exit}
+};
+
+static const struct MenuAction MultichoiceList_MideleNatures2[] =
+{
+    {gText_QuietNature},
+    {gText_BashfulNature},
+    {gText_RashNature},
+    {gText_CalmNature},
+    {gText_GentleNature},
+    {gText_SassyNature},
+    {gText_CarefulNature},
+    {gText_QuirkyNature},
+    {gText_Exit}
+};
+
 static const struct MenuAction MultichoiceList_GameCornerPkmn[] =
 {
     {gText_Bulbasaur},
@@ -957,6 +992,8 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_GAME_CORNER_PKMN]                = MULTICHOICE(MultichoiceList_GameCornerPkmn),
     [MULTI_GAME_CORNER_PKMN2]                = MULTICHOICE(MultichoiceList_GameCornerPkmn2),
     [MULTI_GAME_CORNER_PKMN3]                = MULTICHOICE(MultichoiceList_GameCornerPkmn3),
+    [MULTI_MIDELE_NATURES_1]           =MULTICHOICE(MultichoiceList_MideleNatures1),
+    [MULTI_MIDELE_NATURES_2]           =MULTICHOICE(MultichoiceList_MideleNatures2),
 };
 
 const u8 *const gStdStrings[] =

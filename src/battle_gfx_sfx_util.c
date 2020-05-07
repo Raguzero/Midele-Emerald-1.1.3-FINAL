@@ -122,7 +122,7 @@ u16 ChooseMoveAndTargetInBattlePalace(void)
 
     for (; i < var1; i++)
     {
-        if (gUnknown_0831C494[GetNatureFromPersonality(gBattleMons[gActiveBattler].personality)][i] > percent)
+        if (gUnknown_0831C494[gBattleMons[gActiveBattler].nature][i] > percent)
             break;
     }
 
@@ -274,7 +274,7 @@ static u16 BattlePalaceGetTargetRetValue(void)
         if (gBattleMons[opposing1].hp == gBattleMons[opposing2].hp)
             return (((gActiveBattler & BIT_SIDE) ^ BIT_SIDE) + (Random() & 2)) << 8;
 
-        switch (gUnknown_0831C604[GetNatureFromPersonality(gBattleMons[gActiveBattler].personality)])
+        switch (gUnknown_0831C604[gBattleMons[gActiveBattler].nature])
         {
         case 0:
             if (gBattleMons[opposing1].hp > gBattleMons[opposing2].hp)

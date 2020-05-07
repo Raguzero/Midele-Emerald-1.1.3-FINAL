@@ -338,7 +338,7 @@ static u8 PickWildMonNature(void)
     if (!GetMonData(&gPlayerParty[0], MON_DATA_SANITY_IS_EGG)
         && GetMonAbility(&gPlayerParty[0]) == ABILITY_SYNCHRONIZE)
     {
-        return GetMonData(&gPlayerParty[0], MON_DATA_PERSONALITY) % 25;
+        return GetNature(&gPlayerParty[0]);
     }
 
     // random nature

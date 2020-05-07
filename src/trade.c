@@ -1078,7 +1078,7 @@ static bool8 BufferTradeParties(void)
 
             if (species != SPECIES_NONE)
             {
-                if (species == SPECIES_SHEDINJA && GetMonData(mon, MON_DATA_LANGUAGE) != LANGUAGE_JAPANESE)
+                if (species == SPECIES_SHEDINJA && GetLanguage(mon) != LANGUAGE_JAPANESE)
                 {
                     GetMonData(mon, MON_DATA_NICKNAME, name);
 
@@ -2922,7 +2922,7 @@ static void CB2_InGameTrade(void)
         GetMonData(&gEnemyParty[0], MON_DATA_OT_NAME, otName);
         StringCopy(gLinkPlayers[1].name, otName);
         gLinkPlayers[0].language = LANGUAGE_ENGLISH;
-        gLinkPlayers[1].language = GetMonData(&gEnemyParty[0], MON_DATA_LANGUAGE);
+        gLinkPlayers[1].language = GetLanguage(&gEnemyParty[0]);
         sTradeData = AllocZeroed(sizeof(*sTradeData));
         AllocateMonSpritesGfx();
         ResetTasks();

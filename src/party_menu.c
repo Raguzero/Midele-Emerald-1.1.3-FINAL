@@ -4355,19 +4355,6 @@ static bool8 IsItemFlute(u16 item)
     return FALSE;
 }
 
-/**
-    Returns TRUE if an item is reusable, else returns FALSE.
-    Used in ItemUseCB_Medicine and ItemUseCB_Candy.
-**/
-bool8 IsItemReusable(u16 item)
-{
-    if (item == ITEM_G_PROTEIN || item == ITEM_G_IRON || item == ITEM_G_CARBOS
-        || item == ITEM_G_CALCIUM || item == ITEM_G_ZINC || item == ITEM_G_HP_UP
-        || item == ITEM_GOLDEN_CANDY || item == ITEM_SWEET_HEART || item == ITEM_SECRET_POTION)
-        return TRUE;
-    return FALSE;
-}
-
 static bool8 ExecuteTableBasedItemEffect_(u8 partyMonIndex, u16 item, u8 monMoveIndex)
 {
     if (gMain.inBattle)
@@ -4413,7 +4400,7 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
         PlaySE(SE_KAIFUKU);
         
         // NUEVO: objetos reusables no se gastan
-        if (!IsItemReusable(item) && gPartyMenu.action != PARTY_ACTION_REUSABLE_ITEM)
+        if (ItemId_GetImportance(item) != 1 && gPartyMenu.action != PARTY_ACTION_REUSABLE_ITEM)
             RemoveBagItem(item, 1);
     }
     else
@@ -4977,7 +4964,7 @@ void ItemUseCB_Candy(u8 taskId, TaskFunc task)
         gPartyMenuUseExitCallback = TRUE;
         PlayFanfareByFanfareNum(0);
         UpdateMonDisplayInfoAfterRareCandy(gPartyMenu.slotId, mon);
-        if (!IsItemReusable(gSpecialVar_ItemId)) {
+        if (ItemId_GetImportance(gSpecialVar_ItemId) != 1) {
             RemoveBagItem(gSpecialVar_ItemId, 1);
         }
         GetMonNickname(mon, gStringVar1);
@@ -6594,4 +6581,12 @@ void GiveAllItems(void) {
     AddBagItem(ITEM_OLD_SEA_MAP, 1);
 
 
+}
+
+// NUEVO: special, cambia la naturaleza del Pokémon seleccionado
+void MideleChangeSelectedMonNature(void)
+{
+    u8 nature = gSpecialVar_0x8005;
+    SetNature(&gPlayerParty[gSpecialVar_0x8004], &nature);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
 }

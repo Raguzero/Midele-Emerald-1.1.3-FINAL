@@ -2625,7 +2625,7 @@ void sub_80DA8C8(u8 partyIndex)
     StringGetEnd10(name);
     if (gLinkContestFlags & LINK_CONTEST_FLAG_IS_LINK)
     {
-        sub_80DF9E0(name, GetMonData(&gPlayerParty[partyIndex], MON_DATA_LANGUAGE));
+        sub_80DF9E0(name, GetLanguage(&gPlayerParty[partyIndex]));
     }
     memcpy(gContestMons[gContestPlayerMonIndex].nickname, name, POKEMON_NAME_LENGTH + 1);
     StringCopy(gContestMons[gContestPlayerMonIndex].nickname, name);
@@ -5848,5 +5848,3 @@ void sub_80DFA08(struct ContestPokemon *mon, s32 language)
         name[PLAYER_NAME_LENGTH] = EOS;
     }
 }
-
-

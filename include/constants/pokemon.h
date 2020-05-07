@@ -87,11 +87,15 @@
 // Shiny odds
 #define SHINY_ODDS 328 // Actual probability is SHINY_ODDS/65536
 
+// Masks form MON_DATA_LANGUAGE_AND_NATURE
+#define MON_DATA_LANGUAGE_MASK 0x07
+#define MON_DATA_NATURE_MASK   0xF8
+
 // Flags for Get(Box)MonData / Set(Box)MonData
 #define MON_DATA_PERSONALITY        0
 #define MON_DATA_OT_ID              1
 #define MON_DATA_NICKNAME           2
-#define MON_DATA_LANGUAGE           3
+#define MON_DATA_LANGUAGE_AND_NATURE 3
 #define MON_DATA_SANITY_IS_BAD_EGG  4
 #define MON_DATA_SANITY_HAS_SPECIES 5
 #define MON_DATA_SANITY_IS_EGG      6
@@ -227,6 +231,7 @@
 #define STATUS_PRIMARY_POKERUS   6
 #define STATUS_PRIMARY_FAINTED   7
 
+#define MAX_IV 31
 #define MAX_TOTAL_EVS 510
 #define EV_ITEM_RAISE_LIMIT 252
 

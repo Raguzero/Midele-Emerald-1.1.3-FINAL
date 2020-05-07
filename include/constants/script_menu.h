@@ -123,9 +123,11 @@
 #define MULTI_FALLARBOR_TENT_RULES         112
 #define MULTI_TAG_MATCH_TYPE               113
 #define MULTI_MIDELE_HIDDEN_POWER_TYPES    114
-#define MULTI_GAME_CORNER_PKMN    115
-#define MULTI_GAME_CORNER_PKMN2    116
-#define MULTI_GAME_CORNER_PKMN3    117
+#define MULTI_GAME_CORNER_PKMN             115
+#define MULTI_GAME_CORNER_PKMN2            116
+#define MULTI_GAME_CORNER_PKMN3            117
+#define MULTI_MIDELE_NATURES_1             118
+#define MULTI_MIDELE_NATURES_2             119
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0

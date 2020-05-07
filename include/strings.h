@@ -2997,4 +2997,30 @@ extern const u8 gText_Popplio[];
 extern const u8 gText_Sobble[];
 extern const u8 gText_Eevee[];
 
+extern const u8 gText_HardyNature[];
+extern const u8 gText_LonelyNature[];
+extern const u8 gText_BraveNature[];
+extern const u8 gText_AdamantNature[];
+extern const u8 gText_NaughtyNature[];
+extern const u8 gText_BoldNature[];
+extern const u8 gText_DocileNature[];
+extern const u8 gText_RelaxedNature[];
+extern const u8 gText_ImpishNature[];
+extern const u8 gText_LaxNature[];
+extern const u8 gText_TimidNature[];
+extern const u8 gText_HastyNature[];
+extern const u8 gText_SeriousNature[];
+extern const u8 gText_JollyNature[];
+extern const u8 gText_NaiveNature[];
+extern const u8 gText_ModestNature[];
+extern const u8 gText_MildNature[];
+extern const u8 gText_QuietNature[];
+extern const u8 gText_BashfulNature[];
+extern const u8 gText_RashNature[];
+extern const u8 gText_CalmNature[];
+extern const u8 gText_GentleNature[];
+extern const u8 gText_SassyNature[];
+extern const u8 gText_CarefulNature[];
+extern const u8 gText_QuirkyNature[];
+
 #endif // GUARD_STRINGS_H

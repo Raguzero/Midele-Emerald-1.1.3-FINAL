@@ -95,5 +95,6 @@ bool8 GiveAllMons(void);
 void GiveAllItems(void);
 bool8 CanUseCandyItem(u16 itemId, u16 monLevel);
 bool8 IsItemReusable(u16 item);
+void MideleChangeSelectedMonNature(void);
 
 #endif // GUARD_PARTY_MENU_H
