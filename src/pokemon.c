@@ -5914,14 +5914,16 @@ u8 GetBoxMonNature(struct BoxPokemon *mon)
 void SetNature(struct Pokemon *mon, u8 *nature)
 {
     u8 languageAndNature = GetMonData(mon, MON_DATA_LANGUAGE_AND_NATURE, NULL);
-    languageAndNature |= (*nature << 3);
+    languageAndNature &= MON_DATA_LANGUAGE_MASK;  // clear 5 upper bits
+    languageAndNature |= (*nature << 3); // set 5 upper bits
     SetMonData(mon, MON_DATA_LANGUAGE_AND_NATURE, &languageAndNature);
 }
 
 void SetBoxMonNature(struct BoxPokemon *mon, u8 *nature)
 {
     u8 languageAndNature = GetBoxMonData(mon, MON_DATA_LANGUAGE_AND_NATURE, NULL);
-    languageAndNature |= (*nature << 3);
+    languageAndNature &= MON_DATA_LANGUAGE_MASK; // clear 5 upper bits
+    languageAndNature |= (*nature << 3); // set 5 upper bits
     SetBoxMonData(mon, MON_DATA_LANGUAGE_AND_NATURE, &languageAndNature);
 }
 
@@ -7617,13 +7619,15 @@ u8 GetBoxMonLanguage(struct BoxPokemon *mon)
 void SetLanguage(struct Pokemon *mon, u8 *language)
 {
     u8 languageAndNature = GetMonData(mon, MON_DATA_LANGUAGE_AND_NATURE, NULL);
-    languageAndNature |= *language;
+    languageAndNature &= MON_DATA_NATURE_MASK; // clear 3 lower bits
+    languageAndNature |= *language; // set 3 lower bits
     SetMonData(mon, MON_DATA_LANGUAGE_AND_NATURE, &languageAndNature);
 }
 
 void SetBoxMonLanguage(struct BoxPokemon *mon, u8 *language)
 {
     u8 languageAndNature = GetBoxMonData(mon, MON_DATA_LANGUAGE_AND_NATURE, NULL);
-    languageAndNature |= *language;
+    languageAndNature &= MON_DATA_NATURE_MASK; // clear 3 lower bits
+    languageAndNature |= *language; // set 3 lower bits
     SetBoxMonData(mon, MON_DATA_LANGUAGE_AND_NATURE, &languageAndNature);
 }
