@@ -2829,6 +2829,12 @@ void CreateMonMidele(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, con
     } else {
         otIdType = OT_ID_SHINY;
     }
+    
+    // NUEVO: por defecto (o al establecer .ivs = 0) los IVs se establecerán a 31
+    if (fixedIV == 0) 
+    {
+        fixedIV = 31;
+    }
 
     ZeroMonData(mon);
     CreateBoxMon(&mon->box, species, level, fixedIV, TRUE, personality, otIdType, 0);
