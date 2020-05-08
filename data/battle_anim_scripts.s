@@ -384,6 +384,8 @@ gBattleAnims_Moves::
 	.4byte Move_COIL
 	.4byte Move_SHADOW_SNEAK
 	.4byte Move_ROCK_POLISH
+	.4byte Move_BOOMBURST
+	.4byte Move_OVERDRIVE
 	.4byte Move_COUNT @ cannot be reached, because last move is Psycho Boost
 
 	.align 2
@@ -10093,6 +10095,56 @@ Move_ROCK_POLISH:
 	clearmonbg ANIM_ATK_PARTNER
 	blendoff
 	delay 1
+	end
+	
+Move_BOOMBURST:
+	loadspritegfx ANIM_TAG_THIN_RING
+	createvisualtask sub_81590B8, 5, 0
+	call BoomburstEffect
+	waitforvisualfinish
+	delay 8
+	createvisualtask sub_81590B8, 5, 1
+	call BoomburstEffect
+	waitforvisualfinish
+	end
+BoomburstEffect:
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 31, 3, 8, 0, RGB_YELLOW
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, -5, -5, 5, ANIM_ATTACKER, 0
+	createsprite gHyperVoiceRingSpriteTemplate, ANIM_ATTACKER, 0, 45, 0, 0, 0, 0, 0, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 6, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_DEF_PARTNER, 1, 0, 6, 1
+	createvisualtask sub_81162A4, 2, 1, 0, 6, 1
+	createvisualtask sub_8159078, 5
+	return
+	
+Move_OVERDRIVE:
+	loadspritegfx ANIM_TAG_ELECTRIC_ORBS
+	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT
+	loadspritegfx ANIM_TAG_SPARK
+	loadspritegfx ANIM_TAG_LIGHTNING
+	monbg ANIM_ATTACKER
+	setalpha 12, 8
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 2, 0, 4, RGB_BLACK
+	waitforvisualfinish
+	createvisualtask sub_810AAFC, 2, 0, 20, 0, 2
+	playsewithpan SE_W268, SOUND_PAN_ATTACKER
+	delay 12
+	createsprite gUnknown_08595A18, ANIM_ATTACKER, 2
+	delay 30
+	createvisualtask sub_810B29C, 5
+	delay 12
+	waitforvisualfinish
+	createvisualtask sub_810B55C, 5
+	playsewithpan SE_W161B, SOUND_PAN_TARGET
+	waitforvisualfinish
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 6, 18, 1
+	createvisualtask sub_8116620, 5, 1, 3, 16, 0, RGB_WHITE
+	createvisualtask sub_8116620, 5, 4, 0, 16, 16, RGB_BLACK
+	delay 4
+	createvisualtask sub_8116620, 5, 4, 0, 0, 0, RGB_BLACK
+	waitforvisualfinish
+	clearmonbg ANIM_ATTACKER
+	blendoff
 	end
 
 Move_COUNT:

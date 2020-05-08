@@ -16248,7 +16248,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_MEDIUM_SLOW,
 		.eggGroup1 = EGG_GROUP_UNDISCOVERED,
 		.eggGroup2 = EGG_GROUP_UNDISCOVERED,
-        .abilities = {ABILITY_PLUS, ABILITY_TECHNICIAN},
+        .abilities = {ABILITY_PUNK_ROCK, ABILITY_TECHNICIAN},
 		.bodyColor = BODY_COLOR_PURPLE,
 	},
 	
@@ -16271,7 +16271,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_MEDIUM_SLOW,
 		.eggGroup1 = EGG_GROUP_UNDISCOVERED,
 		.eggGroup2 = EGG_GROUP_UNDISCOVERED,
-        .abilities = {ABILITY_MINUS, ABILITY_TECHNICIAN},
+        .abilities = {ABILITY_PUNK_ROCK, ABILITY_TECHNICIAN},
 		.bodyColor = BODY_COLOR_PURPLE,
 	},
 	

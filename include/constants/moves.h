@@ -370,8 +370,10 @@
 #define MOVE_COIL 366
 #define MOVE_SHADOW_SNEAK 367
 #define MOVE_ROCK_POLISH 368
+#define MOVE_BOOMBURST 369
+#define MOVE_OVERDRIVE 370
 
-#define MOVES_COUNT 369
+#define MOVES_COUNT 371
 
 // NUEVO: Poder de Hidden Power
 #define MOVE_HIDDEN_POWER_DMG 70

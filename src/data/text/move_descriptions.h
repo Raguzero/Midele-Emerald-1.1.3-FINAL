@@ -1417,7 +1417,7 @@ static const u8 sPsychoBoostDescription[] = _(
     "Allows a full-power attack,\n"
     "but sharply lowers SP. ATK.");
 	
-// NUEVO MOVE TIPO HADA
+// NUEVO MOVES
 static const u8 sFAIRY_WINDDescription[] = _(
 	"Stirs up a fairy wind to\n"
 	"strike the foe.");
@@ -1429,7 +1429,6 @@ static const u8 sMOONBLASTDescription[] = _(
 static const u8 sDAZZLING_GLEAMDescription[] = _(
 	"Damages foes by emitting\n"
 	"a bright flash.");
-// NUEVO MOVE TIPO HADA
 
 static const u8 sBRAVE_BIRDDescription[] = _(
 	"A low altitude charge that\n"
@@ -1474,6 +1473,14 @@ static const u8 sSHADOW_SNEAKDescription[] = _(
 static const u8 sROCK_POLISHDescription[] = _(
 	"Polishes the body to\n"
 	"sharply raise Speed.");
+	
+static const u8 sBOOMBURSTDescription[] = _(
+	"Attacks everything with a\n"
+	"destructive sound wave.");
+	
+static const u8 sOVERDRIVEDescription[] = _(
+	"Attack everything causing a\n" 
+	"huge echo and vibration.");
 
 // MOVE_NONE is ignored in this table. Make sure to always subtract 1 before getting the right pointer.
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
@@ -1847,5 +1854,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_COIL - 1] = sCOILDescription,
     [MOVE_SHADOW_SNEAK - 1] = sSHADOW_SNEAKDescription,
     [MOVE_ROCK_POLISH - 1] = sROCK_POLISHDescription,
+    [MOVE_BOOMBURST - 1] = sBOOMBURSTDescription,
+    [MOVE_OVERDRIVE - 1] = sOVERDRIVEDescription,
 	// NUEVO MOVE TIPO HADA
 };
