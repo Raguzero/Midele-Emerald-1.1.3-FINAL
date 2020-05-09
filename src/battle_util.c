@@ -2186,6 +2186,18 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 }
             }
             break;
+			case ABILITY_WANDERING_SPIRIT:
+			   if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+                && (gBattleMoves[move].flags & FLAG_MAKES_CONTACT)
+				&& (IsBattlerAlive(gBattlerAttacker) || IsBattlerAlive(gBattlerTarget))
+				&& (gBattleMons[gBattlerAttacker].hp != 0))
+				{
+					BattleScriptPushCursor();
+					gBattlescriptCurrInstr = BattleScript_WanderingSpiritActivates;
+					effect++;
+					break;
+				}
+				break;
             case ABILITY_COLOR_CHANGE:
                 if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
                  && move != MOVE_STRUGGLE

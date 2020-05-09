@@ -229,6 +229,7 @@ extern const u8 BattleScript_MummyActivates[];
 extern const u8 BattleScript_ImposterActivates[];
 extern const u8 BattleScript_CursedBodyActivates[];
 extern const u8 BattleScript_DrySkinDmg[];
+extern const u8 BattleScript_WanderingSpiritActivates[];
 // NUEVO HABILIDADES
 
 #endif // GUARD_BATTLE_SCRIPTS_H
