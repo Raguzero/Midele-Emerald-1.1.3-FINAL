@@ -2189,6 +2189,9 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
 			case ABILITY_WANDERING_SPIRIT:
 			   if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
                 && (gBattleMoves[move].flags & FLAG_MAKES_CONTACT)
+				&& gBattleMoves[move].power != 0
+				&& TARGET_TURN_DAMAGED
+				&& gBattleMons[gBattlerAttacker].ability != gBattleMons[gBattlerTarget].ability
 				&& (IsBattlerAlive(gBattlerAttacker) || IsBattlerAlive(gBattlerTarget))
 				&& (gBattleMons[gBattlerAttacker].hp != 0))
 				{
