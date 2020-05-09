@@ -4619,6 +4619,17 @@ BattleScript_MummyActivates::
 	printstring STRINGID_ATTACKERACQUIREDABILITY
 	waitmessage 0x40
 	return
+	
+BattleScript_WanderingSpiritActivates::
+	swapattackerwithtarget
+	tryswapabilities BattleScript_WanderingSpiritActivatesReturn
+	printstring STRINGID_PKMNSWAPPEDABILITIES
+	waitmessage 0x40
+	switchoutabilities BS_ATTACKER
+	switchoutabilities BS_TARGET
+BattleScript_WanderingSpiritActivatesReturn:
+	swapattackerwithtarget
+	return
 
 BattleScript_EffectAttackSpAttackUp:
 	attackcanceler

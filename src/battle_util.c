@@ -30,7 +30,7 @@
 static const u16 sSoundMovesTable[] =
 {
     MOVE_GROWL, MOVE_ROAR, MOVE_SING, MOVE_SUPERSONIC, MOVE_SCREECH, MOVE_SNORE,
-    MOVE_UPROAR, MOVE_METAL_SOUND, MOVE_GRASS_WHISTLE, MOVE_HYPER_VOICE, 0xFFFF
+    MOVE_UPROAR, MOVE_METAL_SOUND, MOVE_GRASS_WHISTLE, MOVE_HYPER_VOICE, MOVE_BOOMBURST, MOVE_OVERDRIVE, 0xFFFF
 };
 
 u8 GetBattlerForBattleScript(u8 caseId)
@@ -2186,6 +2186,21 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 }
             }
             break;
+			case ABILITY_WANDERING_SPIRIT:
+			   if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+                && (gBattleMoves[move].flags & FLAG_MAKES_CONTACT)
+				&& gBattleMoves[move].power != 0
+				&& TARGET_TURN_DAMAGED
+				&& gBattleMons[gBattlerAttacker].ability != gBattleMons[gBattlerTarget].ability
+				&& (IsBattlerAlive(gBattlerAttacker) || IsBattlerAlive(gBattlerTarget))
+				&& (gBattleMons[gBattlerAttacker].hp != 0))
+				{
+					BattleScriptPushCursor();
+					gBattlescriptCurrInstr = BattleScript_WanderingSpiritActivates;
+					effect++;
+					break;
+				}
+				break;
             case ABILITY_COLOR_CHANGE:
                 if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
                  && move != MOVE_STRUGGLE

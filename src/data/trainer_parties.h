@@ -2514,7 +2514,7 @@ static const struct TrainerMonCustomMidele sParty_Calvin1[] = {
     .iv = 31,
     .lvl = 5,
     .species = SPECIES_POOCHYENA,
-    .moves = {MOVE_POISON_FANG, MOVE_TACKLE, MOVE_HOWL, MOVE_TAUNT}
+    .moves = {MOVE_BEAT_UP, MOVE_TACKLE, MOVE_HOWL, MOVE_TAUNT}
     }
 };
 static const struct TrainerMonCustomMidele sParty_Calvin2[] = {
@@ -13046,9 +13046,9 @@ static const struct TrainerMonCustomMidele sParty_Debug[] = {
         .lvl = 100,
         .iv = 31,
         .evs = {6, 0, 0, 252, 0, 252},
-        .species = SPECIES_BUTTERFREE,
-        .moves = {MOVE_QUIVER_DANCE, MOVE_SLEEP_POWDER, MOVE_PSYCHIC, MOVE_GIGA_DRAIN},
-        .heldItem = ITEM_LEFTOVERS,
+        .species = SPECIES_RUNERIGUS,
+        .moves = {MOVE_CRABHAMMER, MOVE_PIN_MISSILE, MOVE_NONE, MOVE_NONE},
+        .heldItem = ITEM_NONE,
         .ability = 0,
         .shiny = 1,
         .friendship = 255,
@@ -13058,10 +13058,10 @@ static const struct TrainerMonCustomMidele sParty_Debug[] = {
         .lvl = 100,
         .iv = 31,
         .evs = {252, 252, 6, 0, 0, 0},
-        .species = SPECIES_ARBOK,
-        .moves = {MOVE_COIL, MOVE_EARTHQUAKE, MOVE_REST, MOVE_SLUDGE_BOMB},
+        .species = SPECIES_RUNERIGUS,
+        .moves = {MOVE_PROTECT, MOVE_PECK, MOVE_METAL_CLAW, MOVE_NONE},
         .heldItem = ITEM_LEFTOVERS,
-        .ability = 1,
+        .ability = 0,
         .shiny = 1,
         .friendship = 0
         }
