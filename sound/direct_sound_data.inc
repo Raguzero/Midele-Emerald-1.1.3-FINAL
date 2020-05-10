@@ -2487,20 +2487,20 @@ Cry_Silicobra::
 
 	.align 2
 	
-//Cry_Sandaconda::
-	//.incbin "sound/direct_sound_samples/cry_sandaconda.bin"
+Cry_Sandaconda::
+	.incbin "sound/direct_sound_samples/cry_sandaconda.bin"
 
-	//.align 2
+	.align 2
 	
-//Cry_Combee::
-	//.incbin "sound/direct_sound_samples/cry_combee.bin"
+Cry_Combee::
+	.incbin "sound/direct_sound_samples/cry_combee.bin"
 
-	//.align 2
+	.align 2
 	
-//Cry_Vespiquen::
-	//.incbin "sound/direct_sound_samples/cry_vespiquen.bin"
+Cry_Vespiquen::
+	.incbin "sound/direct_sound_samples/cry_vespiquen.bin"
 
-	//.align 2
+	.align 2
 
 DirectSoundWaveData_register_noise::
 	.incbin "sound/direct_sound_samples/register_noise.bin"

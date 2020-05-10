@@ -14548,9 +14548,9 @@ gCryTable:: @ 869DCF4
 	cry Cry_Hippopotas
 	cry Cry_Hippowdon
 	cry Cry_Silicobra
-	//cry Cry_Sandaconda
-	//cry Cry_Combee
-	//cry Cry_Vespiquen
+	cry Cry_Sandaconda
+	cry Cry_Combee
+	cry Cry_Vespiquen
 
 	.align 2
 gCryTable2:: @ 869EF24
@@ -15063,9 +15063,9 @@ gCryTable2:: @ 869EF24
 	cry2 Cry_Hippopotas
 	cry2 Cry_Hippowdon
 	cry2 Cry_Silicobra
-	//cry2 Cry_Sandaconda
-	//cry2 Cry_Combee
-	//cry2 Cry_Vespiquen
+	cry2 Cry_Sandaconda
+	cry2 Cry_Combee
+	cry2 Cry_Vespiquen
 
 	.align 2
 voicegroup129:: @ 86A0154
