@@ -95,6 +95,7 @@ static const u8 sSandRushDescription[] = _("Ups Speed in a sandstorm.");
 static const u8 sSlushRushDescription[] = _("Raises Speed in hail.");
 static const u8 sPunkRockDescription[] = _("Affect sound moves power.");
 static const u8 sWanderingSpiritDescription[] = _("Swap ABILITY with contact.");
+static const u8 sAdaptabilityDescription[] = _("Boosts x2 same type attacks.");
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 {
@@ -195,6 +196,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_SLUSH_RUSH] = _("SLUSH RUSH"),
     [ABILITY_PUNK_ROCK] = _("PUNK ROCK"),
     [ABILITY_WANDERING_SPIRIT] = _("WANDERSPIRIT"),
+    [ABILITY_ADAPTABILITY] = _("ADAPTABILITY"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -296,4 +298,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_SLUSH_RUSH] = sSlushRushDescription,
     [ABILITY_PUNK_ROCK] = sPunkRockDescription,
     [ABILITY_WANDERING_SPIRIT] = sWanderingSpiritDescription,
+    [ABILITY_ADAPTABILITY] = sAdaptabilityDescription,
 };

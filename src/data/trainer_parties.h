@@ -13058,10 +13058,10 @@ static const struct TrainerMonCustomMidele sParty_Debug[] = {
         .lvl = 100,
         .iv = 31,
         .evs = {252, 252, 6, 0, 0, 0},
-        .species = SPECIES_RUNERIGUS,
-        .moves = {MOVE_PROTECT, MOVE_PECK, MOVE_METAL_CLAW, MOVE_NONE},
+        .species = SPECIES_EEVEE,
+        .moves = {MOVE_FRUSTRATION, MOVE_PECK, MOVE_METAL_CLAW, MOVE_EMBER},
         .heldItem = ITEM_LEFTOVERS,
-        .ability = 0,
+        .ability = 1,
         .shiny = 1,
         .friendship = 0
         }
