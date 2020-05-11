@@ -3118,3 +3118,127 @@ const u8 gVespiquenPokedexText[] = _(
     "make those grubs do its bidding.\n"
     "There is only one in a colony.");
 
+const u8 gGKinglerPokedexText[] = _(
+    "It waves its huge, oversized claw in the\n"
+    "air to communicate with others.\n"
+    "But since the claw is so heavy, this\n"
+    "POKéMON quickly tires.");
+	
+const u8 gGButterfreePokedexText[] = _(
+    "It has a superior ability to search for\n"
+    "delicious honey from flowers. It can seek,\n"
+    "extract, and carry honey from flowers\n"
+    "blooming over six miles away.");
+
+const u8 gPanchamPokedexText[] = _(
+    "There's no point to the leaf in its mouth,\n"
+    "aside from an effort to look cool. It's\n"
+    "mischievous, so it's not well suited to\n"
+    "inexperienced Trainers.");
+
+const u8 gPangoroPokedexText[] = _(
+    "It boasts superb physical strength.\n"
+    "Those who wish to become Pangoro's\n"
+    "Trainer have no choice but to converse\n"
+    "with their fists.");
+	
+const u8 gSkrelpPokedexText[] = _(
+    "Camouflaged as rotten kelp, it hides\n"
+    "from foes while storing up power for its\n"
+    "evolution. They spray liquid poison on\n"
+    "prey that approach unawares.");
+
+const u8 gDragalgePokedexText[] = _(
+    "Their poison is strong enough to eat\n"
+    "through the hull of a tanker. Tales are\n"
+    "told of ships that wander into seas where\n"
+    "Dragalge live, never to return.");
+	
+const u8 gStuffulPokedexText[] = _(
+    "Despite its adorable appearance, when it\n"
+    "gets angry and flails about, its arms and\n"
+    "legs could knock a pro wrestler sprawling.\n"
+    "It's an incredibly dangerous Pokémon.");
+
+const u8 gBewearPokedexText[] = _(
+    "This Pokémon has the habit of hugging its\n"
+    "companions. Many Trainers have left this\n"
+    "world after their spines were squashed\n"
+    "by its hug.");
+
+const u8 gPumpkabooPokedexText[] = _(
+    "It is said to carry wandering spirits to\n"
+    "the place where they belong so they can\n"
+    "move on. As the sun sets, it becomes\n"
+    "restless and active.\n"
+    "");
+
+const u8 gGourgeistPokedexText[] = _(
+    "Singing in eerie voices, they wander town\n"
+    "streets on the night of the new moon.\n"
+    "Anyone who hears their song will become\n"
+    "inflicted with a curse.");
+	
+const u8 gFrillishPokedexText[] = _(
+    "If its veil-like arms stun and wrap an\n"
+    "opponent, that foe will be dragged\n"
+    "five miles below the surface to its lair,\n"
+    "never to return.");
+
+const u8 gJellicentPokedexText[] = _(
+    "They propel themselves by expelling\n"
+    "absorbed seawater from their bodies.\n"
+    "It's said there's a castle of ships\n"
+    "Jellicent have sunk on the seafloor.");
+	
+const u8 gRockruffPokedexText[] = _(
+    "This Pokémon has lived with people since\n"
+    "times long ago. It can sense when its\n"
+    "Trainer is in the dumps and will stick\n"
+    "close by its Trainer's side.");
+
+const u8 gLycanrocPokedexText[] = _(
+    "Well equipped with claws and fangs, it\n"
+    "also uses the sharp rocks in its mane\n"
+    "as weapons. It will attack with no regard\n"
+    "for its own safety.");
+	
+const u8 gRegigigasPokedexText[] = _(
+    "There is an enduring legend that\n"
+    "states this Pokémon shaped Regirock,\n"
+    "Regice, and Registeel out of clay, ice,\n"
+    "and magma.");
+	
+const u8 gFloettePokedexText[] = _(
+    "The flower it's holding can no longer be\n" 
+	"found blooming anywhere. It's also\n" 
+	"thought to contain terrifying power.");
+	
+const u8 gSnivyPokedexText[] = _(
+    "It is very intelligent and calm.\n"
+    "Being exposed to lots of sunlight makes\n"
+    "its movements swifter. When they are\n"
+    "not feeling well, their tails droop.");
+
+const u8 gServinePokedexText[] = _(
+    "When it gets dirty, its leaves can't be\n"
+    "used in photosynthesis, so it always keeps\n"
+    "clean. They avoid attacks by sinking into\n"
+    "the shadows of thick foliage.");
+
+const u8 gSerperiorPokedexText[] = _(
+    "They raise their heads to intimidate foes,\n"
+    "but only give it their all when fighting\n"
+    "powerful opponents who are not fazed\n"
+    "by the glare from its noble eyes.");
+	
+const u8 gMilceryPokedexText[] = _(
+    "This Pokemon was born from sweet-smelling\n" 
+	"particles in the air. Its body is made\n" 
+	"of cream.");
+
+const u8 gAlcremiePokedexText[] = _(
+    "When Alcremie is content, the cream it\n" 
+	"secretes from its hands becomes sweeter\n" 
+	"and richer.");
+

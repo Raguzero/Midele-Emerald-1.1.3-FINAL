@@ -2877,6 +2877,121 @@ const struct MonCoords gMonBackPicCoords[] =
         .size = 0x86,
         .y_offset = 0x3,
     },
+    [SPECIES_G_KINGLER] =
+    {
+        .size = 0x77,
+        .y_offset = 0x04,
+    },
+    [SPECIES_G_BUTTERFREE] =
+    {
+        .size = 0x87,
+        .y_offset = 0x06,
+    },
+    [SPECIES_PANCHAM] =
+    {
+        .size = 0x64,
+        .y_offset = 0x09,
+    },
+    [SPECIES_PANGORO] =
+    {
+        .size = 0x64,
+        .y_offset = 0x04,
+    },
+    [SPECIES_SKRELP] =
+    {
+        .size = 0x64,
+        .y_offset = 0x05,
+    },
+    [SPECIES_DRAGALGE] =
+    {
+        .size = 0x64,
+        .y_offset = 0x00,
+    },
+    [SPECIES_STUFFUL] =
+    {
+        .size = 0x64,
+        .y_offset = 0x0C,
+    },
+    [SPECIES_BEWEAR] =
+    {
+        .size = 0x64,
+        .y_offset = 0x02,
+    },
+    [SPECIES_PUMPKABOO] =
+    {
+        .size = 0x64,
+        .y_offset = 0x0D,
+    },
+    [SPECIES_GOURGEIST] =
+    {
+        .size = 0x64,
+        .y_offset = 0x03,
+    },
+    [SPECIES_FRILLISH] =
+    {
+        .size = 0x64,
+        .y_offset = 0x7,
+    },
+    [SPECIES_JELLICENT] =
+    {
+        .size = 0x64,
+        .y_offset = 0xa,
+    },
+    [SPECIES_ROCKRUFF] =
+    {
+        .size = 0x64,
+        .y_offset = 0x07,
+    },
+    [SPECIES_LYCANROC_DAY] =
+    {
+        .size = 0x64,
+        .y_offset = 0x07,
+    },
+    [SPECIES_LYCANROC_NIGHT] =
+    {
+        .size = 0x64,
+        .y_offset = 0x07,
+    },
+    [SPECIES_LYCANROC_DUSK] =
+    {
+        .size = 0x64,
+        .y_offset = 0x07,
+    },
+    [SPECIES_REGIGIGAS] =
+    {
+        .size = 0x55,
+        .y_offset = 0xd,
+    },
+    [SPECIES_FLOETTE] =
+    {
+        .size = 0x64,
+        .y_offset = 0x02,
+    },
+    [SPECIES_SNIVY] =
+    {
+        .size = 0x64,
+        .y_offset = 0xb,
+    },
+    [SPECIES_SERVINE] =
+    {
+        .size = 0x64,
+        .y_offset = 0x5,
+    },
+    [SPECIES_SERPERIOR] =
+    {
+        .size = 0x64,
+        .y_offset = 0x1,
+    },
+    [SPECIES_MILCERY] =
+    {
+        .size = 0x64,
+        .y_offset = 0x5,
+    },
+    [SPECIES_ALCREMIE] =
+    {
+        .size = 0x64,
+        .y_offset = 0x1,
+    },
 // NUEVO POKES
     [SPECIES_EGG] =
     {
