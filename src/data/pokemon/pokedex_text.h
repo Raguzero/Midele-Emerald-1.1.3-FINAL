@@ -3119,16 +3119,14 @@ const u8 gVespiquenPokedexText[] = _(
     "There is only one in a colony.");
 
 const u8 gGKinglerPokedexText[] = _(
-    "It waves its huge, oversized claw in the\n"
-    "air to communicate with others.\n"
-    "But since the claw is so heavy, this\n"
-    "POKéMON quickly tires.");
+    "The bubbles it spews out are strongly\n" 
+	"alkaline. Any opponents hit by them will\n" 
+	"have their bodies quickly melted away.");
 	
 const u8 gGButterfreePokedexText[] = _(
-    "It has a superior ability to search for\n"
-    "delicious honey from flowers. It can seek,\n"
-    "extract, and carry honey from flowers\n"
-    "blooming over six miles away.");
+    "Once it has opponents trapped in a tornado\n" 
+	"that could blow away a 10-ton truck, it\n" 
+	"finishes them off with its poisonous scales.");
 
 const u8 gPanchamPokedexText[] = _(
     "There's no point to the leaf in its mouth,\n"

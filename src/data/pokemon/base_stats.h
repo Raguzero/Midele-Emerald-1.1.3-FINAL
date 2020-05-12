@@ -16778,6 +16778,8 @@ const struct BaseStats gBaseStats[] =
 		.expYield = 67,
 		.evYield_Defense   = 1,
 		.evYield_SpAttack  = 0,
+		.item1 = ITEM_MIRACLE_SEED,
+		.item2 = ITEM_MIRACLE_SEED,
 		.genderRatio = PERCENT_FEMALE(50),
 		.eggCycles = 20,
 		.friendship = 70,
@@ -16982,12 +16984,12 @@ const struct BaseStats gBaseStats[] =
 	
 	[SPECIES_FLOETTE] =
 	{
-		.baseHP        = 54,
-		.baseAttack    = 45,
-		.baseDefense   = 47,
-		.baseSpeed     = 52,
-		.baseSpAttack  = 75,
-		.baseSpDefense = 98,
+		.baseHP        = 74,
+		.baseAttack    = 65,
+		.baseDefense   = 67,
+		.baseSpeed     = 92,
+		.baseSpAttack  = 125,
+		.baseSpDefense = 128,
 		.type1 = TYPE_FAIRY,
 		.type2 = TYPE_FAIRY,
 		.catchRate = 120,
@@ -17094,7 +17096,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_MEDIUM_FAST,
 		.eggGroup1 = EGG_GROUP_FAIRY,
 		.eggGroup2 = EGG_GROUP_AMORPHOUS,
-        .abilities = {ABILITY_NONE, ABILITY_NONE},
+        .abilities = {ABILITY_VITAL_SPIRIT, ABILITY_NONE}, // ---> Sweet Veil
 		.bodyColor = BODY_COLOR_WHITE,
 	},
 	
@@ -17117,7 +17119,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_MEDIUM_FAST,
 		.eggGroup1 = EGG_GROUP_FAIRY,
 		.eggGroup2 = EGG_GROUP_AMORPHOUS,
-        .abilities = {ABILITY_NONE, ABILITY_NONE},
+        .abilities = {ABILITY_VITAL_SPIRIT, ABILITY_NONE}, // ---> Sweet Veil
 		.bodyColor = BODY_COLOR_WHITE,
 	},
 // NUEVO POKES

@@ -14551,6 +14551,27 @@ gCryTable:: @ 869DCF4
 	cry Cry_Sandaconda
 	cry Cry_Combee
 	cry Cry_Vespiquen
+	cry Cry_Pancham
+	cry Cry_Pangoro
+	cry Cry_Skrelp
+	cry Cry_Dragalge
+	cry Cry_Stufful
+	cry Cry_Bewear
+	cry Cry_Pumpkaboo
+	cry Cry_Gourgeist
+	cry Cry_Frillish
+	cry Cry_Jellicent
+	cry Cry_Rockruff
+	cry Cry_Lycanroc_Day
+	cry Cry_Lycanroc_Night
+	cry Cry_Lycanroc_Dusk
+	cry Cry_Regigigas
+	cry Cry_Floette
+	cry Cry_Snivy
+	cry Cry_Servine
+	cry Cry_Serperior
+	cry Cry_Milcery
+	cry Cry_Alcremie
 
 	.align 2
 gCryTable2:: @ 869EF24
@@ -15066,6 +15087,27 @@ gCryTable2:: @ 869EF24
 	cry2 Cry_Sandaconda
 	cry2 Cry_Combee
 	cry2 Cry_Vespiquen
+	cry2 Cry_Pancham
+	cry2 Cry_Pangoro
+	cry2 Cry_Skrelp
+	cry2 Cry_Dragalge
+	cry2 Cry_Stufful
+	cry2 Cry_Bewear
+	cry2 Cry_Pumpkaboo
+	cry2 Cry_Gourgeist
+	cry2 Cry_Frillish
+	cry2 Cry_Jellicent
+	cry2 Cry_Rockruff
+	cry2 Cry_Lycanroc_Day
+	cry2 Cry_Lycanroc_Night
+	cry2 Cry_Lycanroc_Dusk
+	cry2 Cry_Regigigas
+	cry2 Cry_Floette
+	cry2 Cry_Snivy
+	cry2 Cry_Servine
+	cry2 Cry_Serperior
+	cry2 Cry_Milcery
+	cry2 Cry_Alcremie
 
 	.align 2
 voicegroup129:: @ 86A0154

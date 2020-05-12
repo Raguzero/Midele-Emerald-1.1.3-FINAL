@@ -2501,6 +2501,111 @@ Cry_Vespiquen::
 	.incbin "sound/direct_sound_samples/cry_vespiquen.bin"
 
 	.align 2
+	
+Cry_Pancham::
+	.incbin "sound/direct_sound_samples/cry_pancham.bin"
+
+	.align 2
+	
+Cry_Pangoro::
+	.incbin "sound/direct_sound_samples/cry_pangoro.bin"
+
+	.align 2
+	
+Cry_Skrelp::
+	.incbin "sound/direct_sound_samples/cry_skrelp.bin"
+
+	.align 2
+	
+Cry_Dragalge::
+	.incbin "sound/direct_sound_samples/cry_dragalge.bin"
+
+	.align 2
+	
+Cry_Stufful::
+	.incbin "sound/direct_sound_samples/cry_stufful.bin"
+
+	.align 2
+	
+Cry_Bewear::
+	.incbin "sound/direct_sound_samples/cry_bewear.bin"
+
+	.align 2
+	
+Cry_Pumpkaboo::
+	.incbin "sound/direct_sound_samples/cry_pumpkaboo.bin"
+
+	.align 2
+	
+Cry_Gourgeist::
+	.incbin "sound/direct_sound_samples/cry_gourgeist.bin"
+
+	.align 2
+	
+Cry_Frillish::
+	.incbin "sound/direct_sound_samples/cry_frillish.bin"
+
+	.align 2
+	
+Cry_Jellicent::
+	.incbin "sound/direct_sound_samples/cry_jellicent.bin"
+
+	.align 2
+	
+Cry_Rockruff::
+	.incbin "sound/direct_sound_samples/cry_rockruff.bin"
+
+	.align 2
+	
+Cry_Lycanroc_Day::
+	.incbin "sound/direct_sound_samples/cry_lycanroc_day.bin"
+
+	.align 2
+	
+Cry_Lycanroc_Night::
+	.incbin "sound/direct_sound_samples/cry_lycanroc_night.bin"
+
+	.align 2
+	
+Cry_Lycanroc_Dusk::
+	.incbin "sound/direct_sound_samples/cry_lycanroc_dusk.bin"
+
+	.align 2
+	
+Cry_Regigigas::
+	.incbin "sound/direct_sound_samples/cry_regigigas.bin"
+
+	.align 2
+	
+Cry_Floette::
+	.incbin "sound/direct_sound_samples/cry_floette.bin"
+
+	.align 2
+	
+Cry_Snivy::
+	.incbin "sound/direct_sound_samples/cry_snivy.bin"
+
+	.align 2
+	
+Cry_Servine::
+	.incbin "sound/direct_sound_samples/cry_servine.bin"
+
+	.align 2
+	
+Cry_Serperior::
+	.incbin "sound/direct_sound_samples/cry_serperior.bin"
+
+	.align 2
+	
+Cry_Milcery::
+	.incbin "sound/direct_sound_samples/cry_milcery.bin"
+
+	.align 2
+	
+Cry_Alcremie::
+	.incbin "sound/direct_sound_samples/cry_alcremie.bin"
+
+	.align 2
 
 DirectSoundWaveData_register_noise::
 	.incbin "sound/direct_sound_samples/register_noise.bin"
