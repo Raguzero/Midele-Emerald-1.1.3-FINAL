@@ -488,6 +488,10 @@ void PlayCryInternal(u16 species, s8 pan, s8 volume, u8 priority, u8 mode)
         gMPlay_PokemonCry = SetPokemonCryTone(
           v0 ? &gCryTable2[(128 * 3) + index] : &gCryTable[(128 * 3) + index]);
         break;
+    case 4:
+        gMPlay_PokemonCry = SetPokemonCryTone(
+          v0 ? &gCryTable2[(128 * 4) + index] : &gCryTable[(128 * 4) + index]);
+        break;
     }
 }
 
