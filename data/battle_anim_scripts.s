@@ -386,6 +386,8 @@ gBattleAnims_Moves::
 	.4byte Move_ROCK_POLISH
 	.4byte Move_BOOMBURST
 	.4byte Move_OVERDRIVE
+	.4byte Move_LIGHT_OF_RUIN
+	.4byte Move_HEAD_SMASH
 	.4byte Move_COUNT @ cannot be reached, because last move is Psycho Boost
 
 	.align 2
@@ -10145,6 +10147,30 @@ Move_OVERDRIVE:
 	waitforvisualfinish
 	clearmonbg ANIM_ATTACKER
 	blendoff
+	end
+	
+Move_LIGHT_OF_RUIN:
+	end
+	
+Move_HEAD_SMASH:
+	loadspritegfx ANIM_TAG_IMPACT
+	call SetImpactBackground 
+	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 0
+	playsewithpan SE_W036, SOUND_PAN_ATTACKER
+	waitforvisualfinish
+	delay 2
+	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 1
+	waitforvisualfinish
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_ATTACKER, 2, 0, 4, 1
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 5, 0, 6, 1
+	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 2
+	loopsewithpan SE_W025B, SOUND_PAN_TARGET, 8, 3
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
+	delay 2
+	restorebg
+	waitbgfadein
 	end
 
 Move_COUNT:

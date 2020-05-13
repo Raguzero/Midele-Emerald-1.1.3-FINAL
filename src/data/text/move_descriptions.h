@@ -1481,6 +1481,14 @@ static const u8 sBOOMBURSTDescription[] = _(
 static const u8 sOVERDRIVEDescription[] = _(
 	"Attack everything causing a\n" 
 	"huge echo and vibration.");
+	
+static const u8 sLIGHTOFRUINDescription[] = _(
+	"Fires a great beam of light\n"
+	"that also hurts the user.");
+	
+static const u8 sHEADSMASHDescription[] = _(
+	"A life-risking headbutt that\n"
+	"seriously hurts the user.");
 
 // MOVE_NONE is ignored in this table. Make sure to always subtract 1 before getting the right pointer.
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
@@ -1856,5 +1864,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_ROCK_POLISH - 1] = sROCK_POLISHDescription,
     [MOVE_BOOMBURST - 1] = sBOOMBURSTDescription,
     [MOVE_OVERDRIVE - 1] = sOVERDRIVEDescription,
+    [MOVE_LIGHT_OF_RUIN - 1] = sLIGHTOFRUINDescription,
+    [MOVE_HEAD_SMASH - 1] = sHEADSMASHDescription,
 	// NUEVO MOVE TIPO HADA
 };

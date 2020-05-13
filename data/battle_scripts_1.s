@@ -233,6 +233,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectAttackSpAttackUp
 	.4byte BattleScript_EffectQuiverDance
 	.4byte BattleScript_EffectCoil
+	.4byte BattleScript_EffectRecoil50
 
 BattleScript_EffectSpeedUp::
 BattleScript_EffectSpecialDefenseUp::
@@ -4727,5 +4728,9 @@ BattleScript_QuiverDanceTrySpeed::
 	waitmessage 0x40
 BattleScript_QuiverDanceEnd::
 	goto BattleScript_MoveEnd
+	
+BattleScript_EffectRecoil50:
+	setmoveeffect MOVE_EFFECT_RECOIL_50 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
+	goto BattleScript_EffectHit
 
 

@@ -1451,6 +1451,7 @@ const u16 gEggMoves[] = {
 	egg_moves(TYRUNT,
               MOVE_DRAGON_DANCE,
               MOVE_POISON_FANG,
+              MOVE_ROCK_POLISH,
               MOVE_CURSE),
 
 	egg_moves(AMAURA,
@@ -1461,6 +1462,7 @@ const u16 gEggMoves[] = {
 	egg_moves(DEINO,
               MOVE_ASTONISH,
               MOVE_SCREECH,
+              MOVE_HEAD_SMASH,
               MOVE_DARK_PULSE),
 			 
 	egg_moves(JANGMO_O,
