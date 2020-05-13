@@ -7718,7 +7718,24 @@ bool8 HasTwoFramesAnimation(u16 species)
 			&& species != SPECIES_HAWLUCHA
 			&& species != SPECIES_DURANT
 			&& species != SPECIES_SNOM
-            && species != SPECIES_FROSMOTH);
+            && species != SPECIES_FROSMOTH
+			&& species != SPECIES_G_KINGLER
+			&& species != SPECIES_G_BUTTERFREE
+			&& species != SPECIES_PANCHAM
+			&& species != SPECIES_PANGORO
+			&& species != SPECIES_SKRELP
+			&& species != SPECIES_DRAGALGE
+			&& species != SPECIES_STUFFUL
+			&& species != SPECIES_BEWEAR
+			&& species != SPECIES_PUMPKABOO
+			&& species != SPECIES_GOURGEIST
+			&& species != SPECIES_ROCKRUFF
+			&& species != SPECIES_LYCANROC_DAY
+			&& species != SPECIES_LYCANROC_NIGHT
+			&& species != SPECIES_LYCANROC_DUSK
+			&& species != SPECIES_FLOETTE
+			&& species != SPECIES_MILCERY
+            && species != SPECIES_ALCREMIE);
 }
 
 static bool8 ShouldSkipFriendshipChange(void)
