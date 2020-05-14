@@ -1063,7 +1063,7 @@ MauvilleCity_GameCorner_EventScript_MonPrizes3:
 	case 1, MauvilleCity_GameCorner_EventScript_RowletConfirm
 	case 2, MauvilleCity_GameCorner_EventScript_PopplioConfirm
 	case 3, MauvilleCity_GameCorner_EventScript_SobbleConfirm
-	case 4, MauvilleCity_GameCorner_EventScript_EeveeConfirm
+	case 4, MauvilleCity_GameCorner_EventScript_SnivyConfirm
 	goto MauvilleCity_GameCorner_EventScript_CancelDollSelect 
 	end
 	
@@ -1087,9 +1087,9 @@ MauvilleCity_GameCorner_EventScript_SobbleConfirm:
     bufferspeciesname 0, SPECIES_SOBBLE
 	goto MauvilleCity_GameCorner_EventScript_MonConfirm3
     
-MauvilleCity_GameCorner_EventScript_EeveeConfirm:
+MauvilleCity_GameCorner_EventScript_SnivyConfirm:
 	setvar VAR_TEMP_1, 5
-    bufferspeciesname 0, SPECIES_EEVEE
+    bufferspeciesname 0, SPECIES_SNIVY
 	goto MauvilleCity_GameCorner_EventScript_MonConfirm3
 	
 MauvilleCity_GameCorner_EventScript_MonConfirm3:
@@ -1101,7 +1101,7 @@ MauvilleCity_GameCorner_EventScript_MonConfirm3:
 	case 2, MauvilleCity_GameCorner_EventScript_Rowlet
 	case 3, MauvilleCity_GameCorner_EventScript_Popplio
 	case 4, MauvilleCity_GameCorner_EventScript_Sobble
-	case 5, MauvilleCity_GameCorner_EventScript_Eevee
+	case 5, MauvilleCity_GameCorner_EventScript_Snivy
 	end
 	
 MauvilleCity_GameCorner_EventScript_Piplup:
@@ -1200,7 +1200,7 @@ MauvilleCity_GameCorner_EventScript_Sobble:
 	call_if_eq Common_EventScript_NameReceivedPartyMon
     goto MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst3
     
-MauvilleCity_GameCorner_EventScript_Eevee:
+MauvilleCity_GameCorner_EventScript_Snivy:
 	checkcoins VAR_TEMP_2
 	compare VAR_TEMP_2, 3000
 	goto_if_lt MauvilleCity_GameCorner_EventScript_NoCoinsForMon
@@ -1213,12 +1213,12 @@ MauvilleCity_GameCorner_EventScript_Eevee:
 	playse SE_REGI
     waitse
 	playfanfare MUS_FANFA4
-	bufferspeciesname 0, SPECIES_EEVEE
+	bufferspeciesname 0, SPECIES_SNIVY
 	message MauvilleCity_GameCorner_Text_GetMon
 	waitfanfare
 	waitmessage
-	givemon SPECIES_EEVEE, 10, ITEM_NONE
-	bufferspeciesname 1, SPECIES_EEVEE
+	givemon SPECIES_SNIVY, 10, ITEM_NONE
+	bufferspeciesname 1, SPECIES_SNIVY
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	call_if_eq Common_EventScript_NameReceivedPartyMon
