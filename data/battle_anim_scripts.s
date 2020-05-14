@@ -10053,7 +10053,11 @@ Move_ENERGY_BALL:
 	
 Move_NASTY_PLOT:
 	loadspritegfx ANIM_TAG_AMNESIA 
-	call NastyPlotAction 
+	fadetobg BG_DARK 
+	waitbgfadeout 
+	createvisualtask AnimTask_FadeScreenToWhite, 5
+	waitbgfadein 
+	call SetPsychicBackground
 	delay 8
 	createsprite gUnknown_08596744, 20, 0
 	playsewithpan SE_W118, SOUND_PAN_ATTACKER, 
@@ -10062,12 +10066,6 @@ Move_NASTY_PLOT:
 	waitforvisualfinish 
 	call UnsetPsychicBackground
 	end 
-NastyPlotAction:
-	fadetobg BG_DARK 
-	waitbgfadeout 
-	createvisualtask AnimTask_FadeScreenToWhite, 5
-	waitbgfadein 
-	return
 
 Move_QUIVER_DANCE:
 	end
@@ -10076,6 +10074,27 @@ Move_COIL:
 	end
 	
 Move_SHADOW_SNEAK:
+    loadspritegfx ANIM_TAG_LICK
+    setalpha 0, 16
+    delay 1
+	createvisualtask sub_81143C0, 2
+	delay 1
+	createvisualtask sub_8113BAC, 5
+    playsewithpan SE_W060, SOUND_PAN_ATTACKER
+    delay 48
+    playsewithpan SE_W060B, SOUND_PAN_ATTACKER
+    waitforvisualfinish
+    createvisualtask sub_8114470, 2
+    setalpha 0, 16
+    delay 1
+    playsewithpan SE_W122, SOUND_PAN_TARGET
+    createsprite gUnknown_08596D8C, ANIM_TARGET, 2, 0, 0
+    createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 16, 1
+    waitforvisualfinish
+    clearmonbg_23 ANIM_TARGET
+    delay 1
+    blendoff
+    delay 1
     end
 
 Move_ROCK_POLISH:
@@ -10100,24 +10119,34 @@ Move_ROCK_POLISH:
 	end
 	
 Move_BOOMBURST:
+	loadspritegfx ANIM_TAG_EXPLOSION
 	loadspritegfx ANIM_TAG_THIN_RING
-	createvisualtask sub_81590B8, 5, 0
-	call BoomburstEffect
-	waitforvisualfinish
-	delay 8
-	createvisualtask sub_81590B8, 5, 1
-	call BoomburstEffect
-	waitforvisualfinish
-	end
-BoomburstEffect:
-	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 31, 3, 8, 0, RGB_YELLOW
+	createvisualtask sub_8115F10, 2, 257, 257, 257
+	createvisualtask sub_81590B8, 5
 	createvisualtask AnimTask_ScaleMonAndRestore, 5, -5, -5, 5, ANIM_ATTACKER, 0
 	createsprite gHyperVoiceRingSpriteTemplate, ANIM_ATTACKER, 0, 45, 0, 0, 0, 0, 0, 1
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 6, 1
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_DEF_PARTNER, 1, 0, 6, 1
 	createvisualtask sub_81162A4, 2, 1, 0, 6, 1
-	createvisualtask sub_8159078, 5
-	return
+	delay 20
+	playsewithpan SE_W153, SOUND_PAN_ATTACKER
+	createsprite gExplosionSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 1, 1
+	delay 4
+	playsewithpan SE_W153, SOUND_PAN_ATTACKER
+	createsprite gExplosionSpriteTemplate, ANIM_ATTACKER, 3, 24, -24, 1, 1
+	delay 4
+	playsewithpan SE_W153, SOUND_PAN_ATTACKER
+	createsprite gExplosionSpriteTemplate, ANIM_ATTACKER, 3, -16, 16, 1, 1
+	delay 4
+	playsewithpan SE_W153, SOUND_PAN_ATTACKER
+	createsprite gExplosionSpriteTemplate, ANIM_ATTACKER, 3, -24, -12, 1, 1
+	delay 4
+	playsewithpan SE_W153, SOUND_PAN_ATTACKER
+	createsprite gExplosionSpriteTemplate, ANIM_ATTACKER, 3, 16, 16, 1, 1
+	delay 4
+	createvisualtask sub_8115F10, 2, 257, 257, 257
+	waitforvisualfinish
+	end
 	
 Move_OVERDRIVE:
 	loadspritegfx ANIM_TAG_ELECTRIC_ORBS
@@ -10164,6 +10193,7 @@ Move_HEAD_SMASH:
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_ATTACKER, 2, 0, 4, 1
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 5, 0, 6, 1
 	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 2
+	createsprite gUnknown_085973E8, ANIM_TARGET, 3, 0, 0, 1, 1
 	loopsewithpan SE_W025B, SOUND_PAN_TARGET, 8, 3
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET

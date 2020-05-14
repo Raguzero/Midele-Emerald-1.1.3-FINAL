@@ -13875,7 +13875,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_SLOW,
 		.eggGroup1 = EGG_GROUP_AMORPHOUS,
 		.eggGroup2 = EGG_GROUP_AMORPHOUS,
-        .abilities = {ABILITY_NONE, ABILITY_NONE},
+        .abilities = {ABILITY_INNER_FOCUS, ABILITY_INNER_FOCUS}, // LA RECIBE DE SU MEGA QUE NO EXISTE EN ESTE HACK
 		.bodyColor = BODY_COLOR_WHITE,
 	},
 
