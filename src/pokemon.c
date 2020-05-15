@@ -3956,10 +3956,16 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         defense *= 2;
     if (attackerHoldEffect == HOLD_EFFECT_THICK_CLUB && (attacker->species == SPECIES_CUBONE || attacker->species == SPECIES_MAROWAK))
         attack *= 2;
+	if (defender->ability == ABILITY_FUR_COAT)
+        defense *= 2; 
     if (defender->ability == ABILITY_THICK_FAT && (type == TYPE_FIRE || type == TYPE_ICE))
         spAttack /= 2;
     if (defender->ability == ABILITY_ICE_SCALES && IS_TYPE_SPECIAL(type))
         spAttack /= 2;
+    if (defender->ability == ABILITY_FLUFFY && (type == TYPE_FIRE))
+        gBattleMovePower = (200 * gBattleMovePower) / 100;
+    if (defender->ability == ABILITY_FLUFFY && ((gBattleMoves[move].flags & FLAG_MAKES_CONTACT)))
+       spAttack /= 2, attack /= 2;
 	// BUFF FORECAST
 	if (attacker->ability == ABILITY_FORECAST && ((gBattleWeather & WEATHER_SUN_ANY)
 		|| (gBattleWeather & WEATHER_RAIN_ANY)
@@ -3967,6 +3973,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 		&& attacker->species == SPECIES_CASTFORM)
        spAttack = (150 * spAttack) / 100;
 	 	// BUFF FORECAST
+    if (attacker->ability == ABILITY_TOUGH_CLAWS && ((gBattleMoves[move].flags & FLAG_MAKES_CONTACT)))
+    gBattleMovePower = (130 * gBattleMovePower) / 100;
 	if (attacker->ability == ABILITY_HUSTLE)
         attack = (150 * attack) / 100;
     if ((attacker->ability == ABILITY_PLUS || attacker->ability == ABILITY_MINUS) && (ABILITY_ON_FIELD2(ABILITY_MINUS) || ABILITY_ON_FIELD2(ABILITY_PLUS)))
@@ -3999,6 +4007,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         defense /= 2;
 	 if (gBattleMoves[gCurrentMove].power <= 60 && attacker->ability == ABILITY_TECHNICIAN)
         gBattleMovePower = (150 * gBattleMovePower) / 100;
+	if (gCurrentMove == MOVE_KNOCK_OFF && defender->item && !gWishFutureKnock.knockedOffMons[gBattlerTarget])
+		spAttack = (spAttack * 3) / 2;
 
     if (IS_TYPE_PHYSICAL(type))
     {

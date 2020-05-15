@@ -4235,8 +4235,8 @@
                             },
                             {
                                 "max_level": 25,
-                                "min_level": 25,
-                                "species": "SPECIES_VOLTORB"
+                                "min_level": 24,
+                                "species": "SPECIES_CHARJABUG"
                             },
                             {
                                 "max_level": 25,
@@ -4249,9 +4249,9 @@
                                 "species": "SPECIES_ALOLAN_GEODUDE"
                             },
                             {
-                                "max_level": 23,
+                                "max_level": 26,
                                 "min_level": 23,
-                                "species": "SPECIES_MAGNEMITE"
+                                "species": "SPECIES_TOXEL"
                             },
                             {
                                 "max_level": 26,
@@ -4304,8 +4304,8 @@
                             },
                             {
                                 "max_level": 25,
-                                "min_level": 25,
-                                "species": "SPECIES_VOLTORB"
+                                "min_level": 24,
+                                "species": "SPECIES_CHARJABUG"
                             },
                             {
                                 "max_level": 25,
@@ -4318,9 +4318,9 @@
                                 "species": "SPECIES_ALOLAN_GEODUDE"
                             },
                             {
-                                "max_level": 23,
+                                "max_level": 26,
                                 "min_level": 23,
-                                "species": "SPECIES_MAGNEMITE"
+                                "species": "SPECIES_TOXEL"
                             },
                             {
                                 "max_level": 26,
@@ -4567,7 +4567,7 @@
                             {
                                 "max_level": 5,
                                 "min_level": 5,
-                                "species": "SPECIES_PARAS"
+                                "species": "SPECIES_IMPIDIMP"
                             },
                             {
                                 "max_level": 6,
@@ -6424,9 +6424,9 @@
                                 "species": "SPECIES_NINCADA"
                             },
                             {
-                                "max_level": 6,
-                                "min_level": 6,
-                                "species": "SPECIES_TAILLOW"
+                                "max_level": 8,
+                                "min_level": 8,
+                                "species": "SPECIES_PARAS"
                             },
                             {
                                 "max_level": 7,
@@ -7166,12 +7166,12 @@
                             {
                                 "max_level": 26,
                                 "min_level": 26,
-                                "species": "SPECIES_ODDISH"
+                                "species": "SPECIES_GALAR_MRMIME"
                             },
                             {
                                 "max_level": 28,
                                 "min_level": 28,
-                                "species": "SPECIES_ODDISH"
+                                "species": "SPECIES_GALAR_MRMIME"
                             },
                             {
                                 "max_level": 28,

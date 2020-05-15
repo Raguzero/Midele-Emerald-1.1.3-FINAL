@@ -35,7 +35,7 @@ static const u8 sSwiftSwimDescription[] = _("Raises SPEED in rain.");
 static const u8 sChlorophyllDescription[] = _("Raises SPEED in sunshine.");
 static const u8 sIlluminateDescription[] = _("Encounter rate increases.");
 static const u8 sTraceDescription[] = _("Copies special ability.");
-static const u8 sHugePowerDescription[] = _("Raises ATTACK.");
+static const u8 sHugePowerDescription[] = _("x2 ATTACK.");
 static const u8 sPoisonPointDescription[] = _("Poisons foe on contact.");
 static const u8 sInnerFocusDescription[] = _("Prevents flinching.");
 static const u8 sMagmaArmorDescription[] = _("Prevents freezing.");
@@ -72,7 +72,7 @@ static const u8 sDroughtDescription[] = _("Summons sunlight in battle.");
 static const u8 sArenaTrapDescription[] = _("Prevents fleeing.");
 static const u8 sVitalSpiritDescription[] = _("Prevents sleep.");
 static const u8 sWhiteSmokeDescription[] = _("Prevents ability reduction.");
-static const u8 sPurePowerDescription[] = _("Raises ATTACK.");
+static const u8 sPurePowerDescription[] = _("x2 ATTACK.");
 static const u8 sShellArmorDescription[] = _("Blocks critical hits.");
 static const u8 sCacophonyDescription[] = _("Avoids sound-based moves.");
 static const u8 sAirLockDescription[] = _("Negates weather effects.");
@@ -96,6 +96,9 @@ static const u8 sSlushRushDescription[] = _("Raises Speed in hail.");
 static const u8 sPunkRockDescription[] = _("Affect sound moves power.");
 static const u8 sWanderingSpiritDescription[] = _("Swap ABILITY with contact.");
 static const u8 sAdaptabilityDescription[] = _("Boosts x2 same type attacks.");
+static const u8 sFurCoatDescription[] = _("x2 Defense.");
+static const u8 sFluffyDescription[] = _("Tougher but flammable.");
+static const u8 sToughClawsDescription[] = _("Boosts contact moves.");
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 {
@@ -197,6 +200,9 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_PUNK_ROCK] = _("PUNK ROCK"),
     [ABILITY_WANDERING_SPIRIT] = _("WANDERSPIRIT"),
     [ABILITY_ADAPTABILITY] = _("ADAPTABILITY"),
+    [ABILITY_FUR_COAT] = _("FUR COAT"),
+    [ABILITY_FLUFFY] = _("FLUFFY"),
+    [ABILITY_TOUGH_CLAWS] = _("TOUGH CLAWS"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -299,4 +305,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_PUNK_ROCK] = sPunkRockDescription,
     [ABILITY_WANDERING_SPIRIT] = sWanderingSpiritDescription,
     [ABILITY_ADAPTABILITY] = sAdaptabilityDescription,
+    [ABILITY_FUR_COAT] = sFurCoatDescription,
+    [ABILITY_FLUFFY] = sFluffyDescription,
+    [ABILITY_TOUGH_CLAWS] = sToughClawsDescription,
 };
