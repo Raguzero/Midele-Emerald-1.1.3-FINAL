@@ -11,14 +11,67 @@
     "id": "MAP_IZABE_ISLAND_LOBBY",
     "layout": "LAYOUT_IZABE_ISLAND_LOBBY",
     "map_type": "MAP_TYPE_INDOOR",
-    "music": "MUS_DAN02",
+    "music": "MUS_B_DOME",
     "name": "IzabeIsland_Lobby",
     "object_events": [
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_LINK_RECEPTIONIST",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+            "script": "NULL",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 9,
+            "y": 4
+        },
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_SCIENTIST_2",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "script": "NULL",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 19,
+            "y": 5
+        },
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_OLD_MAN",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "script": "NULL",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 14,
+            "y": 5
+        }
     ],
     "region_map_section": "MAPSEC_IZABE_ISLAND",
     "requires_flash": false,
-    "show_map_name": true,
+    "show_map_name": false,
     "warp_events": [
+        {
+            "dest_map": "MAP_IZABE_ISLAND_EXTERIOR",
+            "dest_warp_id": 0,
+            "elevation": 0,
+            "x": 12,
+            "y": 9
+        },
+        {
+            "dest_map": "MAP_IZABE_ISLAND_EXTERIOR",
+            "dest_warp_id": 0,
+            "elevation": 0,
+            "x": 13,
+            "y": 9
+        }
     ],
-    "weather": "WEATHER_SUNNY"
+    "weather": "WEATHER_NONE"
 }

@@ -4448,7 +4448,17 @@
             "name": "IzabeIsland_Lobby_Layout",
             "primary_tileset": "gTileset_Building",
             "secondary_tileset": "gTileset_OceanicMuseum",
-            "width": 12
+            "width": 26
+        },
+        {
+            "blockdata_filepath": "data/layouts/IzabeIsland_Outskirts/map.bin",
+            "border_filepath": "data/layouts/IzabeIsland_Outskirts/border.bin",
+            "height": 30,
+            "id": "LAYOUT_IZABE_ISLAND_OUTSKIRTS",
+            "name": "IzabeIsland_Outskirts_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_SeafoamIslands",
+            "width": 80
         }
     ],
     "layouts_table_label": "gMapLayouts"
