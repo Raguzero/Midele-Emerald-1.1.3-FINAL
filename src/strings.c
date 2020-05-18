@@ -1867,7 +1867,7 @@ const u8 gText_Piplup[] = _("Piplup{CLEAR_TO 0x48}3000 Coins");
 const u8 gText_Rowlet[] = _("Rowlet{CLEAR_TO 0x48}3000 Coins");
 const u8 gText_Popplio[] = _("Popplio{CLEAR_TO 0x48}3000 Coins");
 const u8 gText_Sobble[] = _("Sobble{CLEAR_TO 0x48}3000 Coins");
-const u8 gText_Eevee[] = _("Eevee{CLEAR_TO 0x48}3000 Coins");
+const u8 gText_Snivy[] = _("Snivy{CLEAR_TO 0x48}3000 Coins");
 
 const u8 gText_HardyNature[] = _("HARDY");
 const u8 gText_LonelyNature[] = _("LONELY");

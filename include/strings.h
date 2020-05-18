@@ -2995,7 +2995,7 @@ extern const u8 gText_Piplup[];
 extern const u8 gText_Rowlet[];
 extern const u8 gText_Popplio[];
 extern const u8 gText_Sobble[];
-extern const u8 gText_Eevee[];
+extern const u8 gText_Snivy[];
 
 extern const u8 gText_HardyNature[];
 extern const u8 gText_LonelyNature[];

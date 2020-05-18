@@ -143,6 +143,7 @@ const u16 gEggMoves[] = {
               MOVE_PURSUIT,
               MOVE_BEAT_UP,
               MOVE_UPROAR,
+              MOVE_REVERSAL,
               MOVE_ROCK_SLIDE),
 
     egg_moves(MEOWTH,

@@ -94,7 +94,7 @@ static void DestroyAreaMarkerSprites(void);
 static const u32 sAreaGlow_Pal[] = INCBIN_U32("graphics/pokedex/area_glow.gbapal");
 static const u32 sAreaGlow_Gfx[] = INCBIN_U32("graphics/pokedex/area_glow.4bpp.lz");
 
-static const u16 sSpeciesHiddenFromAreaScreen[] = { SPECIES_WYNAUT };
+static const u16 sSpeciesHiddenFromAreaScreen[] = { SPECIES_MEW };
 
 static const u16 sMovingRegionMapSections[3] =
 {
@@ -111,12 +111,12 @@ static const u16 sFeebasData[][3] =
 
 static const u16 sLandmarkData[][2] =
 {
-    {MAPSEC_SKY_PILLAR,       FLAG_LANDMARK_SKY_PILLAR},
-    {MAPSEC_SEAFLOOR_CAVERN,  FLAG_LANDMARK_SEAFLOOR_CAVERN},
-    {MAPSEC_ALTERING_CAVE_2,  FLAG_LANDMARK_ALTERING_CAVE},
-    {MAPSEC_MIRAGE_TOWER,     FLAG_LANDMARK_MIRAGE_TOWER},
-    {MAPSEC_DESERT_UNDERPASS, FLAG_LANDMARK_DESERT_UNDERPASS},
-    {MAPSEC_ARTISAN_CAVE,     FLAG_LANDMARK_ARTISAN_CAVE},
+    //{MAPSEC_SKY_PILLAR,       FLAG_LANDMARK_SKY_PILLAR},
+    //{MAPSEC_SEAFLOOR_CAVERN,  FLAG_LANDMARK_SEAFLOOR_CAVERN},
+    //{MAPSEC_ALTERING_CAVE_2,  FLAG_LANDMARK_ALTERING_CAVE},
+    //{MAPSEC_MIRAGE_TOWER,     FLAG_LANDMARK_MIRAGE_TOWER},
+    //{MAPSEC_DESERT_UNDERPASS, FLAG_LANDMARK_DESERT_UNDERPASS},
+    //{MAPSEC_ARTISAN_CAVE,     FLAG_LANDMARK_ARTISAN_CAVE},
     {MAPSEC_NONE}
 };
 

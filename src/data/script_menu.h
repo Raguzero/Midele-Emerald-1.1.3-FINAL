@@ -857,7 +857,7 @@ static const struct MenuAction MultichoiceList_GameCornerPkmn3[] =
     {gText_Rowlet},
     {gText_Popplio},
     {gText_Sobble},
-    {gText_Eevee},
+    {gText_Snivy},
     {gText_Exit},
 };
 
