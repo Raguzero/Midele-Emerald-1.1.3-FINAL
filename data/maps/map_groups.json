@@ -522,6 +522,9 @@
     "gMapGroup33": [
         "Route124_DivingTreasureHuntersHouse"
     ],
+    "gMapGroup34": [
+        
+    ],
     "gMapGroup4": [
         "LavaridgeTown_HerbShop",
         "LavaridgeTown_Gym_1F",
@@ -620,7 +623,8 @@
         "gMapGroup30",
         "gMapGroup31",
         "gMapGroup32",
-        "gMapGroup33"
+        "gMapGroup33",
+        "gMapGroup34"
     ],
     "layouts_table_label": "gMapLayouts"
 }
