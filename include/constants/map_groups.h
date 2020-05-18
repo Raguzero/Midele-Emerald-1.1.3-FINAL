@@ -591,6 +591,7 @@
 // Map Group 34
 #define MAP_IZABE_ISLAND_EXTERIOR (0 | (34 << 8))
 #define MAP_IZABE_ISLAND_HARBOR   (1 | (34 << 8))
+#define MAP_IZABE_ISLAND_LOBBY    (2 | (34 << 8))
 
 #define MAP_GROUPS_COUNT 35
 
