@@ -1016,53 +1016,10 @@ Route104_EventScript_Darian:: @ 81ED5D5
 	
 Route104_Arena:: 
   lock
-  random 5
-  compare VAR_RESULT, 0
-  goto_if_eq POKEUNO
-  compare VAR_RESULT, 1
-  goto_if_eq POKEDOS
-  compare VAR_RESULT, 2
-  goto_if_eq POKETRES
-  compare VAR_RESULT, 3
-  goto_if_eq POKECUATRO
-  compare VAR_RESULT, 4
-  goto_if_eq POKECINCO
-  compare VAR_RESULT, 5
-  goto_if_eq POKESEIS
-  compare VAR_RESULT, 6
-  goto_if_eq POKESIETE
-  compare VAR_RESULT, 7
-  goto_if_eq POKEOCHO
-  setwildbattle SPECIES_SANDYGAST, 6, ITEM_NONE
-FIN::
-  dowildbattle
-	removeobject VAR_LAST_TALKED
+  special RockSmashWildEncounter
+  removeobject VAR_LAST_TALKED
   release
   end
-POKEUNO::
-  setwildbattle SPECIES_SANDYGAST, 5, ITEM_NONE
-  goto FIN
-POKEDOS::
-  setwildbattle SPECIES_SANDYGAST, 4, ITEM_NONE
-  goto FIN
-POKETRES::
-  setwildbattle SPECIES_KRABBY, 6, ITEM_NONE
-  goto FIN
-POKECUATRO::
-  setwildbattle SPECIES_KRABBY, 5, ITEM_NONE
-  goto FIN
-POKECINCO::
-  setwildbattle SPECIES_KRABBY, 4, ITEM_NONE
-  goto FIN
-POKESEIS::
-  setwildbattle SPECIES_GRUBBIN, 6, ITEM_NONE
-  goto FIN
-POKESIETE::
-  setwildbattle SPECIES_GRUBBIN, 5, ITEM_NONE
-  goto FIN
-POKEOCHO::
-  setwildbattle SPECIES_GRUBBIN, 4, ITEM_NONE
-  goto FIN
 
 Route104_Text_BrineyLivesInSeasideCottage: @ 81ED5EC
 	.string "That seaside cottage is where\n"

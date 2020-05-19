@@ -397,6 +397,25 @@ static const s8 sMindRatings[] =
     [MOVE_WATER_PULSE] = 1,
     [MOVE_DOOM_DESIRE] = 1,
     [MOVE_PSYCHO_BOOST] = 1,
+// NUEVOS MOVES 
+    [MOVE_FAIRY_WIND] = 1,
+    [MOVE_MOONBLAST] = 1,
+	[MOVE_DAZZLING_GLEAM] = 1,
+    [MOVE_BRAVE_BIRD] = 1,
+    [MOVE_X_SCISSOR] = 1,
+    [MOVE_IRON_HEAD] = 1,
+    [MOVE_STONE_EDGE] = 1,
+    [MOVE_DARK_PULSE] = 1,
+    [MOVE_ENERGY_BALL] = 1,
+    [MOVE_NASTY_PLOT] = 0,
+    [MOVE_QUIVER_DANCE] = 0,
+    [MOVE_COIL] = 0,
+    [MOVE_SHADOW_SNEAK] = 1,
+    [MOVE_ROCK_POLISH] = 0,
+    [MOVE_BOOMBURST] = 1,
+    [MOVE_OVERDRIVE] = 1,
+    [MOVE_LIGHT_OF_RUIN] = 1,
+    [MOVE_HEAD_SMASH] = 1,
 };
 
 #define TAG_JUDGEMENT_ICON 1000
