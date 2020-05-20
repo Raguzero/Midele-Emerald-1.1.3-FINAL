@@ -6319,6 +6319,10 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem)
                 if (gEvolutionTable[species][i].param <= level)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
+			case EVO_LEVEL_FEMALE:
+                if (gEvolutionTable[species][i].param <= level && GetMonGender(mon) == MON_FEMALE)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
             case EVO_LEVEL_ATK_GT_DEF:
                 if (gEvolutionTable[species][i].param <= level)
                     if (GetMonData(mon, MON_DATA_ATK, 0) > GetMonData(mon, MON_DATA_DEF, 0))
@@ -6376,10 +6380,22 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem)
     case 3:
         for (i = 0; i < EVOS_PER_MON; i++)
         {
-            if (gEvolutionTable[species][i].method == EVO_ITEM
-             && gEvolutionTable[species][i].param == evolutionItem)
+           // if (gEvolutionTable[species][i].method == EVO_ITEM
+            // && gEvolutionTable[species][i].param == evolutionItem)
+		switch (gEvolutionTable[species][i].method)
             {
-                targetSpecies = gEvolutionTable[species][i].targetSpecies;
+               // targetSpecies = gEvolutionTable[species][i].targetSpecies;
+	            case EVO_ITEM:
+                if (gEvolutionTable[species][i].param == evolutionItem)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_ITEM_FEMALE:
+                if (GetMonGender(mon) == MON_FEMALE && gEvolutionTable[species][i].param == evolutionItem)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_ITEM_MALE:
+                if (GetMonGender(mon) == MON_MALE && gEvolutionTable[species][i].param == evolutionItem)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             }
         }

@@ -283,6 +283,9 @@
 #define EVO_LEVEL_NINJASK    0x000d // Pokémon reaches the specified level (special value for Ninjask)
 #define EVO_LEVEL_SHEDINJA   0x000e // Pokémon reaches the specified level (special value for Shedinja)
 #define EVO_BEAUTY           0x000f // Pokémon levels up with beauty ≥ specified value
+#define EVO_LEVEL_FEMALE     0x0010 // Pokémon reaches the specified level, is female
+#define EVO_ITEM_MALE        0x0011 // specified item is used on a male Pokémon
+#define EVO_ITEM_FEMALE      0x0012 // specified item is used on a female Pokémon
 
 #define EVOS_PER_MON 8
 
