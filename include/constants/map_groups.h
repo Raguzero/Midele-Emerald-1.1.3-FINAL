@@ -595,6 +595,7 @@
 #define MAP_IZABE_ISLAND_OUTSKIRTS (3 | (34 << 8))
 #define MAP_IZABE_ISLAND_TOWN      (4 | (34 << 8))
 #define MAP_IZABE_ISLAND_HOUSE1    (5 | (34 << 8))
+#define MAP_IZABE_ISLAND_HOUSE2    (6 | (34 << 8))
 
 #define MAP_GROUPS_COUNT 35
 
