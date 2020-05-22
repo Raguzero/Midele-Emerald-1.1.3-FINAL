@@ -527,7 +527,8 @@
         "IzabeIsland_Harbor",
         "IzabeIsland_Lobby",
         "IzabeIsland_Outskirts",
-        "IzabeIsland_Town"
+        "IzabeIsland_Town",
+        "IzabeIsland_House1"
     ],
     "gMapGroup4": [
         "LavaridgeTown_HerbShop",

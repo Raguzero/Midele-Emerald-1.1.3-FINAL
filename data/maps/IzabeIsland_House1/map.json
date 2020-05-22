@@ -1,0 +1,72 @@
+{
+    "allow_bike": false,
+    "allow_escape_rope": false,
+    "allow_running": false,
+    "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+    "bg_events": [
+        {
+            "elevation": 3,
+            "flag": "FLAG_TEMP_1",
+            "item": "ITEM_NONE",
+            "type": "hidden_item",
+            "x": 7,
+            "y": 2
+        }
+    ],
+    "connections": null,
+    "coord_events": [
+    ],
+    "id": "MAP_IZABE_ISLAND_HOUSE1",
+    "layout": "LAYOUT_IZABE_ISLAND_HOUSE1",
+    "map_type": "MAP_TYPE_INDOOR",
+    "music": "MUS_DAN02",
+    "name": "IzabeIsland_House1",
+    "object_events": [
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_COOK",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "script": "NULL",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 3,
+            "y": 2
+        },
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_CONTEST_JUDGE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
+            "script": "NULL",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 7,
+            "y": 5
+        }
+    ],
+    "region_map_section": "MAPSEC_IZABE_ISLAND",
+    "requires_flash": false,
+    "show_map_name": false,
+    "warp_events": [
+        {
+            "dest_map": "MAP_IZABE_ISLAND_TOWN",
+            "dest_warp_id": 1,
+            "elevation": 0,
+            "x": 4,
+            "y": 9
+        },
+        {
+            "dest_map": "MAP_IZABE_ISLAND_TOWN",
+            "dest_warp_id": 1,
+            "elevation": 0,
+            "x": 5,
+            "y": 9
+        }
+    ],
+    "weather": "WEATHER_NONE"
+}
