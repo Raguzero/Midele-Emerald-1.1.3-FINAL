@@ -4489,6 +4489,26 @@
             "primary_tileset": "gTileset_Building",
             "secondary_tileset": "gTileset_GenericBuilding",
             "width": 10
+        },
+        {
+            "blockdata_filepath": "data/layouts/IzabeIsland_House3/map.bin",
+            "border_filepath": "data/layouts/IzabeIsland_House3/border.bin",
+            "height": 10,
+            "id": "LAYOUT_IZABE_ISLAND_HOUSE3",
+            "name": "IzabeIsland_House3_Layout",
+            "primary_tileset": "gTileset_Building",
+            "secondary_tileset": "gTileset_Lab",
+            "width": 10
+        },
+        {
+            "blockdata_filepath": "data/layouts/IzabeIsland_SecretHouse/map.bin",
+            "border_filepath": "data/layouts/IzabeIsland_SecretHouse/border.bin",
+            "height": 10,
+            "id": "LAYOUT_IZABE_ISLAND_SECRET_HOUSE",
+            "name": "IzabeIsland_SecretHouse_Layout",
+            "primary_tileset": "gTileset_Building",
+            "secondary_tileset": "gTileset_Facility",
+            "width": 9
         }
     ],
     "layouts_table_label": "gMapLayouts"

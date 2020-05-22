@@ -8,24 +8,24 @@
     "connections": null,
     "coord_events": [
     ],
-    "id": "MAP_IZABE_ISLAND_HOUSE2",
-    "layout": "LAYOUT_IZABE_ISLAND_HOUSE2",
+    "id": "MAP_IZABE_ISLAND_SECRET_HOUSE",
+    "layout": "LAYOUT_IZABE_ISLAND_SECRET_HOUSE",
     "map_type": "MAP_TYPE_INDOOR",
-    "music": "MUS_DAN02",
-    "name": "IzabeIsland_House2",
+    "music": "MUS_MACHUPI",
+    "name": "IzabeIsland_SecretHouse",
     "object_events": [
         {
             "elevation": 3,
             "flag": "0",
-            "graphics_id": "EVENT_OBJ_GFX_OLD_WOMAN",
+            "graphics_id": "EVENT_OBJ_GFX_QUINTY_PLUMP",
             "movement_range_x": 0,
             "movement_range_y": 0,
-            "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
             "script": "NULL",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
-            "x": 2,
-            "y": 8
+            "x": 4,
+            "y": 6
         }
     ],
     "region_map_section": "MAPSEC_IZABE_ISLAND",
@@ -34,18 +34,11 @@
     "warp_events": [
         {
             "dest_map": "MAP_IZABE_ISLAND_TOWN",
-            "dest_warp_id": 5,
+            "dest_warp_id": 7,
             "elevation": 0,
             "x": 4,
-            "y": 9
-        },
-        {
-            "dest_map": "MAP_IZABE_ISLAND_TOWN",
-            "dest_warp_id": 5,
-            "elevation": 0,
-            "x": 5,
-            "y": 9
+            "y": 1
         }
     ],
-    "weather": "WEATHER_NONE"
+    "weather": "WEATHER_FOG_HORIZONTAL"
 }
