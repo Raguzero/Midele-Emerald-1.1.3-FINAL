@@ -1068,3 +1068,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/IzabeIsland_Lobby/scripts.inc"
 
 	.include "data/maps/IzabeIsland_Outskirts/scripts.inc"
+
+	.include "data/maps/IzabeIsland_Town/scripts.inc"

@@ -4459,6 +4459,16 @@
             "primary_tileset": "gTileset_General",
             "secondary_tileset": "gTileset_SeafoamIslands",
             "width": 80
+        },
+        {
+            "blockdata_filepath": "data/layouts/IzabeIsland_Town/map.bin",
+            "border_filepath": "data/layouts/IzabeIsland_Town/border.bin",
+            "height": 34,
+            "id": "LAYOUT_IZABE_ISLAND_TOWN",
+            "name": "IzabeIsland_Town_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_Sootopolis",
+            "width": 35
         }
     ],
     "layouts_table_label": "gMapLayouts"

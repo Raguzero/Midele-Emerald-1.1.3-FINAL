@@ -60,17 +60,31 @@
     "warp_events": [
         {
             "dest_map": "MAP_IZABE_ISLAND_EXTERIOR",
-            "dest_warp_id": 0,
+            "dest_warp_id": 1,
             "elevation": 0,
             "x": 12,
             "y": 9
         },
         {
             "dest_map": "MAP_IZABE_ISLAND_EXTERIOR",
-            "dest_warp_id": 0,
+            "dest_warp_id": 1,
             "elevation": 0,
             "x": 13,
             "y": 9
+        },
+        {
+            "dest_map": "MAP_IZABE_ISLAND_TOWN",
+            "dest_warp_id": 0,
+            "elevation": 0,
+            "x": 12,
+            "y": 1
+        },
+        {
+            "dest_map": "MAP_IZABE_ISLAND_TOWN",
+            "dest_warp_id": 0,
+            "elevation": 0,
+            "x": 13,
+            "y": 1
         }
     ],
     "weather": "WEATHER_NONE"
