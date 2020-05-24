@@ -4419,6 +4419,146 @@
             "primary_tileset": "gTileset_General",
             "secondary_tileset": "gTileset_InsideOfTruck",
             "width": 15
+        },
+        {
+            "blockdata_filepath": "data/layouts/IzabeIsland_Exterior/map.bin",
+            "border_filepath": "data/layouts/IzabeIsland_Exterior/border.bin",
+            "height": 24,
+            "id": "LAYOUT_IZABE_ISLAND_EXTERIOR",
+            "name": "IzabeIsland_Exterior_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_Dewford",
+            "width": 21
+        },
+        {
+            "blockdata_filepath": "data/layouts/IzabeIsland_Harbor/map.bin",
+            "border_filepath": "data/layouts/IzabeIsland_Harbor/border.bin",
+            "height": 13,
+            "id": "LAYOUT_IZABE_ISLAND_HARBOR",
+            "name": "IzabeIsland_Harbor_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_IslandHarbor",
+            "width": 17
+        },
+        {
+            "blockdata_filepath": "data/layouts/IzabeIsland_Lobby/map.bin",
+            "border_filepath": "data/layouts/IzabeIsland_Lobby/border.bin",
+            "height": 10,
+            "id": "LAYOUT_IZABE_ISLAND_LOBBY",
+            "name": "IzabeIsland_Lobby_Layout",
+            "primary_tileset": "gTileset_Building",
+            "secondary_tileset": "gTileset_OceanicMuseum",
+            "width": 26
+        },
+        {
+            "blockdata_filepath": "data/layouts/IzabeIsland_Outskirts/map.bin",
+            "border_filepath": "data/layouts/IzabeIsland_Outskirts/border.bin",
+            "height": 30,
+            "id": "LAYOUT_IZABE_ISLAND_OUTSKIRTS",
+            "name": "IzabeIsland_Outskirts_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_Sootopolis",
+            "width": 69
+        },
+        {
+            "blockdata_filepath": "data/layouts/IzabeIsland_Town/map.bin",
+            "border_filepath": "data/layouts/IzabeIsland_Town/border.bin",
+            "height": 34,
+            "id": "LAYOUT_IZABE_ISLAND_TOWN",
+            "name": "IzabeIsland_Town_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_Sootopolis",
+            "width": 35
+        },
+        {
+            "blockdata_filepath": "data/layouts/IzabeIsland_House1/map.bin",
+            "border_filepath": "data/layouts/IzabeIsland_House1/border.bin",
+            "height": 10,
+            "id": "LAYOUT_IZABE_ISLAND_HOUSE1",
+            "name": "IzabeIsland_House1_Layout",
+            "primary_tileset": "gTileset_Building",
+            "secondary_tileset": "gTileset_InsideShip",
+            "width": 10
+        },
+        {
+            "blockdata_filepath": "data/layouts/IzabeIsland_House2/map.bin",
+            "border_filepath": "data/layouts/IzabeIsland_House2/border.bin",
+            "height": 10,
+            "id": "LAYOUT_IZABE_ISLAND_HOUSE2",
+            "name": "IzabeIsland_House2_Layout",
+            "primary_tileset": "gTileset_Building",
+            "secondary_tileset": "gTileset_GenericBuilding",
+            "width": 10
+        },
+        {
+            "blockdata_filepath": "data/layouts/IzabeIsland_House3/map.bin",
+            "border_filepath": "data/layouts/IzabeIsland_House3/border.bin",
+            "height": 10,
+            "id": "LAYOUT_IZABE_ISLAND_HOUSE3",
+            "name": "IzabeIsland_House3_Layout",
+            "primary_tileset": "gTileset_Building",
+            "secondary_tileset": "gTileset_Lab",
+            "width": 10
+        },
+        {
+            "blockdata_filepath": "data/layouts/IzabeIsland_SecretHouse/map.bin",
+            "border_filepath": "data/layouts/IzabeIsland_SecretHouse/border.bin",
+            "height": 10,
+            "id": "LAYOUT_IZABE_ISLAND_SECRET_HOUSE",
+            "name": "IzabeIsland_SecretHouse_Layout",
+            "primary_tileset": "gTileset_Building",
+            "secondary_tileset": "gTileset_Facility",
+            "width": 9
+        },
+        {
+            "blockdata_filepath": "data/layouts/IzabeIsland_UnderwaterLake/map.bin",
+            "border_filepath": "data/layouts/IzabeIsland_UnderwaterLake/border.bin",
+            "height": 34,
+            "id": "LAYOUT_IZABE_ISLAND_UNDERWATER_LAKE",
+            "name": "IzabeIsland_UnderwaterLake_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_Underwater",
+            "width": 35
+        },
+        {
+            "blockdata_filepath": "data/layouts/IzabeIsland_SecretHouseB1/map.bin",
+            "border_filepath": "data/layouts/IzabeIsland_SecretHouseB1/border.bin",
+            "height": 12,
+            "id": "LAYOUT_IZABE_ISLAND_SECRET_HOUSE_B1",
+            "name": "IzabeIsland_SecretHouseB1_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_Facility",
+            "width": 10
+        },
+        {
+            "blockdata_filepath": "data/layouts/IzabeIsland_UnderwaterCave/map.bin",
+            "border_filepath": "data/layouts/IzabeIsland_UnderwaterCave/border.bin",
+            "height": 12,
+            "id": "LAYOUT_IZABE_ISLAND_UNDERWATER_CAVE",
+            "name": "IzabeIsland_UnderwaterCave_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_InsideShip",
+            "width": 10
+        },
+        {
+            "blockdata_filepath": "data/layouts/IzabeIsland_MayorHouse/map.bin",
+            "border_filepath": "data/layouts/IzabeIsland_MayorHouse/border.bin",
+            "height": 10,
+            "id": "LAYOUT_IZABE_ISLAND_MAYOR_HOUSE",
+            "name": "IzabeIsland_MayorHouse_Layout",
+            "primary_tileset": "gTileset_Building",
+            "secondary_tileset": "gTileset_MysteryEventsHouse",
+            "width": 14
+        },
+        {
+            "blockdata_filepath": "data/layouts/IzabeIsland_OutskirtsCave/map.bin",
+            "border_filepath": "data/layouts/IzabeIsland_OutskirtsCave/border.bin",
+            "height": 8,
+            "id": "LAYOUT_IZABE_ISLAND_OUTSKIRTS_CAVE",
+            "name": "IzabeIsland_OutskirtsCave_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_Cave",
+            "width": 8
         }
     ],
     "layouts_table_label": "gMapLayouts"

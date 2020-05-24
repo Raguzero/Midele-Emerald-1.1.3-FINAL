@@ -1729,3 +1729,26 @@ gTilesetPalettes_UnionRoom:: @ 8395678
 	.align 2
 gTilesetTiles_UnionRoom:: @ 8395878
 	.incbin "data/tilesets/secondary/union_room/tiles.4bpp.lz"
+	
+	.align 2
+gTilesetTiles_SeafoamIslands::
+	.incbin "data/tilesets/secondary/seafoam_islands/tiles.4bpp.lz"
+
+	.align 2
+gTilesetPalettes_SeafoamIslands::
+	.incbin "data/tilesets/secondary/seafoam_islands/palettes/00.gbapal"
+	.incbin "data/tilesets/secondary/seafoam_islands/palettes/01.gbapal"
+	.incbin "data/tilesets/secondary/seafoam_islands/palettes/02.gbapal"
+	.incbin "data/tilesets/secondary/seafoam_islands/palettes/03.gbapal"
+	.incbin "data/tilesets/secondary/seafoam_islands/palettes/04.gbapal"
+	.incbin "data/tilesets/secondary/seafoam_islands/palettes/05.gbapal"
+	.incbin "data/tilesets/secondary/seafoam_islands/palettes/06.gbapal"
+	.incbin "data/tilesets/secondary/seafoam_islands/palettes/07.gbapal"
+	.incbin "data/tilesets/secondary/seafoam_islands/palettes/08.gbapal"
+	.incbin "data/tilesets/secondary/seafoam_islands/palettes/09.gbapal"
+	.incbin "data/tilesets/secondary/seafoam_islands/palettes/10.gbapal"
+	.incbin "data/tilesets/secondary/seafoam_islands/palettes/11.gbapal"
+	.incbin "data/tilesets/secondary/seafoam_islands/palettes/12.gbapal"
+	.incbin "data/tilesets/secondary/seafoam_islands/palettes/13.gbapal"
+	.incbin "data/tilesets/secondary/seafoam_islands/palettes/14.gbapal"
+	.incbin "data/tilesets/secondary/seafoam_islands/palettes/15.gbapal"
