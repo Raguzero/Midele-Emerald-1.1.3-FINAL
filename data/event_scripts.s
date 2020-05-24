@@ -1060,3 +1060,31 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/text/frontier_brain.inc"
 	.include "data/text/save.inc"
 	.include "data/text/birch_speech.inc"
+
+	.include "data/maps/IzabeIsland_Exterior/scripts.inc"
+
+	.include "data/maps/IzabeIsland_Harbor/scripts.inc"
+
+	.include "data/maps/IzabeIsland_Lobby/scripts.inc"
+
+	.include "data/maps/IzabeIsland_Outskirts/scripts.inc"
+
+	.include "data/maps/IzabeIsland_Town/scripts.inc"
+
+	.include "data/maps/IzabeIsland_House1/scripts.inc"
+
+	.include "data/maps/IzabeIsland_House2/scripts.inc"
+
+	.include "data/maps/IzabeIsland_House3/scripts.inc"
+
+	.include "data/maps/IzabeIsland_SecretHouse/scripts.inc"
+
+	.include "data/maps/IzabeIsland_UnderwaterLake/scripts.inc"
+
+	.include "data/maps/IzabeIsland_SecretHouseB1/scripts.inc"
+
+	.include "data/maps/IzabeIsland_UnderwaterCave/scripts.inc"
+
+	.include "data/maps/IzabeIsland_MayorHouse/scripts.inc"
+
+	.include "data/maps/IzabeIsland_OutskirtsCave/scripts.inc"

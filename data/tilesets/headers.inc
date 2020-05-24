@@ -830,3 +830,13 @@ gTileset_UnionRoom:: @ 83DFDFC
 	.4byte gMetatiles_UnionRoom
 	.4byte gMetatileAttributes_UnionRoom
 	.4byte NULL @ animation callback
+	
+gTileset_SeafoamIslands::
+	.byte TRUE @ is compressed
+	.byte TRUE @ is secondary
+	.2byte 0 @ padding
+	.4byte gTilesetTiles_SeafoamIslands
+	.4byte gTilesetPalettes_SeafoamIslands
+	.4byte gMetatiles_SeafoamIslands
+	.4byte 0x0
+	.4byte gMetatileAttributes_SeafoamIslands

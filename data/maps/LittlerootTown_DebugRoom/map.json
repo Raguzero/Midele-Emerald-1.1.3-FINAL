@@ -388,8 +388,8 @@
             "y": 1
         },
         {
-            "dest_map": "MAP_ISLAND_CAVE",
-            "dest_warp_id": 2,
+            "dest_map": "MAP_IZABE_ISLAND_EXTERIOR",
+            "dest_warp_id": 0,
             "elevation": 0,
             "x": 9,
             "y": 1
