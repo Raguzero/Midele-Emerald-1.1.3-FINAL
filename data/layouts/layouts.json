@@ -4519,6 +4519,26 @@
             "primary_tileset": "gTileset_General",
             "secondary_tileset": "gTileset_Underwater",
             "width": 35
+        },
+        {
+            "blockdata_filepath": "data/layouts/IzabeIsland_SecretHouseB1/map.bin",
+            "border_filepath": "data/layouts/IzabeIsland_SecretHouseB1/border.bin",
+            "height": 12,
+            "id": "LAYOUT_IZABE_ISLAND_SECRET_HOUSE_B1",
+            "name": "IzabeIsland_SecretHouseB1_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_Facility",
+            "width": 10
+        },
+        {
+            "blockdata_filepath": "data/layouts/IzabeIsland_UnderwaterCave/map.bin",
+            "border_filepath": "data/layouts/IzabeIsland_UnderwaterCave/border.bin",
+            "height": 12,
+            "id": "LAYOUT_IZABE_ISLAND_UNDERWATER_CAVE",
+            "name": "IzabeIsland_UnderwaterCave_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_InsideShip",
+            "width": 10
         }
     ],
     "layouts_table_label": "gMapLayouts"

@@ -1,0 +1,65 @@
+{
+    "allow_bike": false,
+    "allow_escape_rope": false,
+    "allow_running": false,
+    "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+    "bg_events": [
+        {
+            "elevation": 3,
+            "flag": "FLAG_TEMP_1",
+            "item": "ITEM_NONE",
+            "type": "hidden_item",
+            "x": 9,
+            "y": 5
+        }
+    ],
+    "connections": [
+        {
+            "direction": "emerge",
+            "map": "MAP_IZABE_ISLAND_SECRET_HOUSE_B1",
+            "offset": 0
+        }
+    ],
+    "coord_events": [
+    ],
+    "id": "MAP_IZABE_ISLAND_UNDERWATER_CAVE",
+    "layout": "LAYOUT_IZABE_ISLAND_UNDERWATER_CAVE",
+    "map_type": "MAP_TYPE_UNDERWATER",
+    "music": "MUS_DAN02",
+    "name": "IzabeIsland_UnderwaterCave",
+    "object_events": [
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_ITEM_BALL",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "NULL",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 0,
+            "y": 6
+        }
+    ],
+    "region_map_section": "MAPSEC_IZABE_ISLAND",
+    "requires_flash": false,
+    "show_map_name": true,
+    "warp_events": [
+        {
+            "dest_map": "MAP_IZABE_ISLAND_UNDERWATER_LAKE",
+            "dest_warp_id": 0,
+            "elevation": 0,
+            "x": 4,
+            "y": 11
+        },
+        {
+            "dest_map": "MAP_IZABE_ISLAND_UNDERWATER_LAKE",
+            "dest_warp_id": 0,
+            "elevation": 0,
+            "x": 5,
+            "y": 11
+        }
+    ],
+    "weather": "WEATHER_UNDERWATER_BUBBLES"
+}

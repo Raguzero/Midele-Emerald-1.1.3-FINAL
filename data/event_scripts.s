@@ -1080,3 +1080,7 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/IzabeIsland_SecretHouse/scripts.inc"
 
 	.include "data/maps/IzabeIsland_UnderwaterLake/scripts.inc"
+
+	.include "data/maps/IzabeIsland_SecretHouseB1/scripts.inc"
+
+	.include "data/maps/IzabeIsland_UnderwaterCave/scripts.inc"
