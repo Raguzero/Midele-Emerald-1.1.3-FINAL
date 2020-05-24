@@ -4556,9 +4556,19 @@
             "height": 8,
             "id": "LAYOUT_IZABE_ISLAND_OUTSKIRTS_CAVE",
             "name": "IzabeIsland_OutskirtsCave_Layout",
-            "primary_tileset": "gTileset_General",
+            "primary_tileset": "gTileset_Building",
             "secondary_tileset": "gTileset_Cave",
             "width": 8
+        },
+        {
+            "blockdata_filepath": "data/layouts/IzabeIsland_OutskirtsCaveF1/map.bin",
+            "border_filepath": "data/layouts/IzabeIsland_OutskirtsCaveF1/border.bin",
+            "height": 20,
+            "id": "LAYOUT_IZABE_ISLAND_OUTSKIRTS_CAVE_F1",
+            "name": "IzabeIsland_OutskirtsCaveF1_Layout",
+            "primary_tileset": "gTileset_Building",
+            "secondary_tileset": "gTileset_Cave",
+            "width": 20
         }
     ],
     "layouts_table_label": "gMapLayouts"
