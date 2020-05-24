@@ -4457,8 +4457,8 @@
             "id": "LAYOUT_IZABE_ISLAND_OUTSKIRTS",
             "name": "IzabeIsland_Outskirts_Layout",
             "primary_tileset": "gTileset_General",
-            "secondary_tileset": "gTileset_SeafoamIslands",
-            "width": 80
+            "secondary_tileset": "gTileset_Sootopolis",
+            "width": 69
         },
         {
             "blockdata_filepath": "data/layouts/IzabeIsland_Town/map.bin",
