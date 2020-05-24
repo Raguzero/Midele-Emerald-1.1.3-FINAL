@@ -1,7 +1,7 @@
 {
     "allow_bike": false,
-    "allow_escape_rope": false,
-    "allow_running": false,
+    "allow_escape_rope": true,
+    "allow_running": true,
     "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
     "bg_events": [
     ],
@@ -11,7 +11,7 @@
     "id": "MAP_IZABE_ISLAND_OUTSKIRTS_CAVE",
     "layout": "LAYOUT_IZABE_ISLAND_OUTSKIRTS_CAVE",
     "map_type": "MAP_TYPE_UNDERGROUND",
-    "music": "MUS_DAN02",
+    "music": "MUS_RG_POKEYASHI",
     "name": "IzabeIsland_OutskirtsCave",
     "object_events": [
         {
@@ -40,5 +40,5 @@
             "y": 7
         }
     ],
-    "weather": "WEATHER_FOG_DIAGONAL"
+    "weather": "WEATHER_SNOW"
 }

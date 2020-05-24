@@ -1,7 +1,7 @@
 {
     "allow_bike": false,
     "allow_escape_rope": false,
-    "allow_running": false,
+    "allow_running": true,
     "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
     "bg_events": [
         {
@@ -19,7 +19,7 @@
     "id": "MAP_IZABE_ISLAND_HOUSE1",
     "layout": "LAYOUT_IZABE_ISLAND_HOUSE1",
     "map_type": "MAP_TYPE_INDOOR",
-    "music": "MUS_DAN02",
+    "music": "MUS_RG_NANA67",
     "name": "IzabeIsland_House1",
     "object_events": [
         {

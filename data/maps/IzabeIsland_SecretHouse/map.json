@@ -1,7 +1,7 @@
 {
     "allow_bike": false,
     "allow_escape_rope": false,
-    "allow_running": false,
+    "allow_running": true,
     "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
     "bg_events": [
     ],
@@ -11,7 +11,7 @@
     "id": "MAP_IZABE_ISLAND_SECRET_HOUSE",
     "layout": "LAYOUT_IZABE_ISLAND_SECRET_HOUSE",
     "map_type": "MAP_TYPE_INDOOR",
-    "music": "MUS_MACHUPI",
+    "music": "MUS_RG_POKEYASHI",
     "name": "IzabeIsland_SecretHouse",
     "object_events": [
         {
@@ -40,5 +40,5 @@
             "y": 1
         }
     ],
-    "weather": "WEATHER_FOG_HORIZONTAL"
+    "weather": "WEATHER_SHADE"
 }

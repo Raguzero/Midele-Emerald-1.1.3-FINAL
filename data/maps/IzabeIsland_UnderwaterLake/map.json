@@ -33,7 +33,7 @@
     "id": "MAP_IZABE_ISLAND_UNDERWATER_LAKE",
     "layout": "LAYOUT_IZABE_ISLAND_UNDERWATER_LAKE",
     "map_type": "MAP_TYPE_UNDERWATER",
-    "music": "MUS_DAN02",
+    "music": "MUS_DEEPDEEP",
     "name": "IzabeIsland_UnderwaterLake",
     "object_events": [
     ],

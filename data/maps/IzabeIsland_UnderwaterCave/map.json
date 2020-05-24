@@ -25,7 +25,7 @@
     "id": "MAP_IZABE_ISLAND_UNDERWATER_CAVE",
     "layout": "LAYOUT_IZABE_ISLAND_UNDERWATER_CAVE",
     "map_type": "MAP_TYPE_UNDERWATER",
-    "music": "MUS_DAN02",
+    "music": "MUS_DEEPDEEP",
     "name": "IzabeIsland_UnderwaterCave",
     "object_events": [
         {
@@ -44,7 +44,7 @@
     ],
     "region_map_section": "MAPSEC_IZABE_ISLAND",
     "requires_flash": false,
-    "show_map_name": true,
+    "show_map_name": false,
     "warp_events": [
         {
             "dest_map": "MAP_IZABE_ISLAND_UNDERWATER_LAKE",
