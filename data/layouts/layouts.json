@@ -4509,6 +4509,16 @@
             "primary_tileset": "gTileset_Building",
             "secondary_tileset": "gTileset_Facility",
             "width": 9
+        },
+        {
+            "blockdata_filepath": "data/layouts/IzabeIsland_UnderwaterLake/map.bin",
+            "border_filepath": "data/layouts/IzabeIsland_UnderwaterLake/border.bin",
+            "height": 35,
+            "id": "LAYOUT_IZABE_ISLAND_UNDERWATER_LAKE",
+            "name": "IzabeIsland_UnderwaterLake_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_Underwater",
+            "width": 25
         }
     ],
     "layouts_table_label": "gMapLayouts"

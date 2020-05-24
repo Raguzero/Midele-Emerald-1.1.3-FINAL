@@ -23,6 +23,15 @@
     ],
     "connections": null,
     "coord_events": [
+        {
+            "elevation": 0,
+            "script": "IzabeIsland_Town_Trigger_SecretHouse",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 19,
+            "y": 11
+        }
     ],
     "id": "MAP_IZABE_ISLAND_TOWN",
     "layout": "LAYOUT_IZABE_ISLAND_TOWN",
@@ -206,7 +215,7 @@
             "dest_warp_id": 0,
             "elevation": 0,
             "x": 19,
-            "y": 11
+            "y": 10
         }
     ],
     "weather": "WEATHER_SNOW"

@@ -531,7 +531,8 @@
         "IzabeIsland_House1",
         "IzabeIsland_House2",
         "IzabeIsland_House3",
-        "IzabeIsland_SecretHouse"
+        "IzabeIsland_SecretHouse",
+        "IzabeIsland_UnderwaterLake"
     ],
     "gMapGroup4": [
         "LavaridgeTown_HerbShop",
