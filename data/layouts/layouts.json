@@ -4549,6 +4549,16 @@
             "primary_tileset": "gTileset_Building",
             "secondary_tileset": "gTileset_MysteryEventsHouse",
             "width": 14
+        },
+        {
+            "blockdata_filepath": "data/layouts/IzabeIsland_OutskirtsCave/map.bin",
+            "border_filepath": "data/layouts/IzabeIsland_OutskirtsCave/border.bin",
+            "height": 8,
+            "id": "LAYOUT_IZABE_ISLAND_OUTSKIRTS_CAVE",
+            "name": "IzabeIsland_OutskirtsCave_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_Cave",
+            "width": 8
         }
     ],
     "layouts_table_label": "gMapLayouts"
