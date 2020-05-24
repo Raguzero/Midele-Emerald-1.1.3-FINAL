@@ -4,8 +4,30 @@
     "allow_running": false,
     "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
     "bg_events": [
+        {
+            "elevation": 3,
+            "flag": "FLAG_TEMP_1",
+            "item": "ITEM_NONE",
+            "type": "hidden_item",
+            "x": 28,
+            "y": 3
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_TEMP_1",
+            "item": "ITEM_NONE",
+            "type": "hidden_item",
+            "x": 33,
+            "y": 14
+        }
     ],
-    "connections": null,
+    "connections": [
+        {
+            "direction": "emerge",
+            "map": "MAP_IZABE_ISLAND_TOWN",
+            "offset": 0
+        }
+    ],
     "coord_events": [
     ],
     "id": "MAP_IZABE_ISLAND_UNDERWATER_LAKE",
@@ -19,6 +41,13 @@
     "requires_flash": false,
     "show_map_name": true,
     "warp_events": [
+        {
+            "dest_map": "MAP_IZABE_ISLAND_UNDERWATER_LAKE",
+            "dest_warp_id": 0,
+            "elevation": 0,
+            "x": 13,
+            "y": 2
+        }
     ],
-    "weather": "WEATHER_SUNNY"
+    "weather": "WEATHER_UNDERWATER"
 }

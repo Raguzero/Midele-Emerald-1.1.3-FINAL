@@ -21,7 +21,13 @@
             "y": 27
         }
     ],
-    "connections": null,
+    "connections": [
+        {
+            "direction": "dive",
+            "map": "MAP_IZABE_ISLAND_UNDERWATER_LAKE",
+            "offset": 0
+        }
+    ],
     "coord_events": [
         {
             "elevation": 0,
