@@ -19,6 +19,13 @@
     "requires_flash": false,
     "show_map_name": true,
     "warp_events": [
+        {
+            "dest_map": "MAP_IZABE_ISLAND_MAYOR_HOUSE",
+            "dest_warp_id": 2,
+            "elevation": 0,
+            "x": 37,
+            "y": 29
+        }
     ],
     "weather": "WEATHER_SUNNY"
 }

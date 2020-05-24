@@ -4539,6 +4539,16 @@
             "primary_tileset": "gTileset_General",
             "secondary_tileset": "gTileset_InsideShip",
             "width": 10
+        },
+        {
+            "blockdata_filepath": "data/layouts/IzabeIsland_MayorHouse/map.bin",
+            "border_filepath": "data/layouts/IzabeIsland_MayorHouse/border.bin",
+            "height": 10,
+            "id": "LAYOUT_IZABE_ISLAND_MAYOR_HOUSE",
+            "name": "IzabeIsland_MayorHouse_Layout",
+            "primary_tileset": "gTileset_Building",
+            "secondary_tileset": "gTileset_MysteryEventsHouse",
+            "width": 14
         }
     ],
     "layouts_table_label": "gMapLayouts"
