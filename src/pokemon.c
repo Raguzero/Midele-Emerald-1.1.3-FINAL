@@ -2945,6 +2945,8 @@ void CreateMonMidele(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, con
     box = &mon->box;
     if (hpType == 0) {
         box->hpType = TYPE_FAIRY;
+    } else {
+        box->hpType = hpType;
     }
     
     CalculateMonStats(mon);
