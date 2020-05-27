@@ -660,6 +660,9 @@ extern const u8 gText_SnorlaxDoll128BP[];
 extern const u8 gText_VenusaurDoll256BP[];
 extern const u8 gText_CharizardDoll256BP[];
 extern const u8 gText_BlastoiseDoll256BP[];
+extern const u8 gText_RegirockDoll256BP[];
+extern const u8 gText_RegiceDoll256BP[];
+extern const u8 gText_RegisteelDoll256BP[];
 
 extern const u8 gText_Protein1BP[];
 extern const u8 gText_Calcium1BP[];

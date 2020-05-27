@@ -2691,19 +2691,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_AmyAndLiv2[] = {
     .species = SPECIES_MINUN,
     }
 };
-// ??? ESTE ENTRENADOR DE ABAJO NO SE SABE DE DONDE SALE CON PLUSLE Y MINUN NV9 
-static const struct TrainerMonNoItemDefaultMoves sParty_AmyAndLiv3[] = {
-    {
-    .iv = 0,
-    .lvl = 9,
-    .species = SPECIES_PLUSLE,
-    },
-    {
-    .iv = 0,
-    .lvl = 9,
-    .species = SPECIES_MINUN,
-    }
-};
+
 static const struct TrainerMonNoItemDefaultMoves sParty_AmyAndLiv4[] = {
     {
     .iv = 20,
@@ -13465,7 +13453,20 @@ static const struct TrainerMonItemCustomMoves sParty_Juan5[] = {
 // REVANCHA GYM LIDERES
 
 
-// ENTRENADOR BETA??
+// ENTRENADOR BETA NO USADOS
+static const struct TrainerMonNoItemDefaultMoves sParty_AmyAndLiv3[] = {
+    {
+    .iv = 0,
+    .lvl = 9,
+    .species = SPECIES_PLUSLE,
+    },
+    {
+    .iv = 0,
+    .lvl = 9,
+    .species = SPECIES_MINUN,
+    }
+};
+
 static const struct TrainerMonNoItemDefaultMoves sParty_GruntUnused[] = {
     {
     .iv = 0,
@@ -13548,10 +13549,10 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Terry[] = {
     .species = SPECIES_GIRAFARIG,
     }
 };
-// ENTRENADOR BETA??
+// ENTRENADOR BETA NO USADOS
 
 
-// ENTRENADORES QUE NO SE USAN DE FORMA NORMAL APARTIR DE AQUI:
+// ENTRENADORES QUE NO SE USAN DE FORMA NORMAL APARTIR DE AQUI
 static const struct TrainerMonNoItemDefaultMoves sParty_Anabel[] = {
     {
     .iv = 0,

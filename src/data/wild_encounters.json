@@ -2114,6 +2114,190 @@
                     "map": "MAP_ISLAND_CAVE"
                 },
                 {
+                    "base_label": "gIzabeIsland_Outskirts0",
+                    "fishing_mons": {
+                        "encounter_rate": 30,
+                        "mons": [
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_GOLDEEN"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_GOLDEEN"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_GOLDEEN"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_GOLDEEN"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_GOLDEEN"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_GOLDEEN"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_GOLDEEN"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_GOLDEEN"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_GOLDEEN"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_GOLDEEN"
+                            }
+                        ]
+                    },
+                    "land_mons": {
+                        "encounter_rate": 20,
+                        "mons": [
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_ALOLAN_VULPIX"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_SNOM"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_ALOLAN_SANDSHREW"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_SNOVER"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_MANKEY"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_ALOLAN_SANDSLASH"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_ALOLAN_SANDSLASH"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_SNEASEL"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_SNEASEL"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_SNEASEL"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_FROSMOTH"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_FROSMOTH"
+                            }
+                        ]
+                    },
+                    "map": "MAP_IZABE_ISLAND_OUTSKIRTS",
+                    "rock_smash_mons": {
+                        "encounter_rate": 20,
+                        "mons": [
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_GEODUDE"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_ALOLAN_GEODUDE"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_NOSEPASS"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_NOSEPASS"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_NOSEPASS"
+                            }
+                        ]
+                    },
+                    "water_mons": {
+                        "encounter_rate": 4,
+                        "mons": [
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_SEEL"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_PSYDUCK"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_PSYDUCK"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_PSYDUCK"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_PSYDUCK"
+                            }
+                        ]
+                    }
+                },
+                {
                     "base_label": "gJaggedPass",
                     "land_mons": {
                         "encounter_rate": 20,

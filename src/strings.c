@@ -1894,3 +1894,8 @@ const u8 gText_GentleNature[] = _("GENTLE");
 const u8 gText_SassyNature[] = _("SASSY");
 const u8 gText_CarefulNature[] = _("CAREFUL");
 const u8 gText_QuirkyNature[] = _("QUIRKY");
+
+const u8 gText_RegirockDoll256BP[] = _("REGIROCK DOLL{CLEAR_TO 0x58}18BP");
+const u8 gText_RegiceDoll256BP[] = _("REGICE DOLL{CLEAR_TO 0x58}18BP");
+const u8 gText_RegisteelDoll256BP[] = _("REGISTEEL DOLL{CLEAR_TO 0x58}18BP");
+
