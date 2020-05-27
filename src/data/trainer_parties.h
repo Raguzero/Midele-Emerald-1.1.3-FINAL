@@ -9189,6 +9189,16 @@ static const struct TrainerMonCustomMidele sParty_Daisuke[] = {
     .moves = {MOVE_REVENGE, MOVE_AERIAL_ACE, MOVE_METAL_CLAW, MOVE_FURY_CUTTER}
     }
 };
+static const struct TrainerMonCustomMidele sParty_Perico[] = {
+        {
+        .lvl = 23,
+        .iv = 31,
+        .evs = {0, 40, 0, 40, 0, 0},
+        .species = SPECIES_FLYGON,
+		.heldItem = ITEM_SILK_SCARF,
+        .moves = {MOVE_SECRET_POWER, MOVE_FLY, MOVE_DRAGON_CLAW, MOVE_DIG},
+        }
+};
 // RUTA 111 NORTE
 
 

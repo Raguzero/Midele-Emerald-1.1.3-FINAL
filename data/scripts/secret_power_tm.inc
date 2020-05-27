@@ -4,7 +4,11 @@ Route111_Text_MakingRoomUseTMToMakeYourOwn: @ 82762C9
 	.string "I'm thinking about making my own room\n"
 	.string "here using a POKéMON move.\p"
 	.string "I know! I'll give you this TM.\n"
-	.string "Will you use it to make your own room?$"
+	.string "Will you use it to make your own room?\p"
+	.string "But first ... let's have a battle.$"
+	
+PericoCombateTextInicio:
+	.string "Wow!$"
 
 Route111_Text_ExplainSecretPower: @ 827636E
 	.string "Find a big tree that looks like it might\n"
@@ -44,6 +48,7 @@ Route111_EventScript_SecretPowerMan:: @ 82765FF
 	end
 
 Route111_EventScript_GiveSecretPower:: @ 827661E
+    trainerbattle_no_intro TRAINER_PERICO, PericoCombateTextInicio
 	giveitem ITEM_TM43
 	compare VAR_RESULT, FALSE
 	goto_if_eq Route111_EventScript_NoRoomForSecretPower
