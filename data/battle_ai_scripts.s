@@ -215,6 +215,7 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_DRAGON_DANCE, AI_CBM_DragonDance
 	if_effect EFFECT_QUIVER_DANCE, AI_CBM_QuiverDance
 	if_effect EFFECT_COIL, AI_CBM_Coil
+	if_effect EFFECT_HEAL_PULSE, Score_Minus5
 	end
 
 AI_CBM_Sleep: @ 82DC2D4
@@ -3088,6 +3089,7 @@ AI_TryStatusMoveOnAlly:
 	if_move MOVE_TOXIC, AI_TryStatusOnAlly
 	if_move MOVE_HELPING_HAND, AI_TryHelpingHandOnAlly
 	if_move MOVE_SWAGGER, AI_TrySwaggerOnAlly
+	if_move MOVE_HEAL_PULSE, AI_HEALPULSEALLY
 	goto Score_Minus30_
 
 AI_TrySkillSwapOnAlly:
@@ -3129,6 +3131,10 @@ AI_TryStatusOnAlly:
 AI_TryHelpingHandOnAlly:
 	if_random_less_than 64, Score_Minus1
 	goto Score_Plus2
+	
+AI_HEALPULSEALLY:
+	if_hp_more_than AI_TARGET, 60, Score_Minus30_
+	goto Score_Plus5
 
 AI_TrySwaggerOnAlly:
 	if_holds_item AI_TARGET, ITEM_PERSIM_BERRY, AI_TrySwaggerOnAlly2

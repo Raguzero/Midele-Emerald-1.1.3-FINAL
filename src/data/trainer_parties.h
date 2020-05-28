@@ -4270,7 +4270,8 @@ static const struct TrainerMonCustomMidele sParty_Clark[] = {
     .iv = 31,
     .lvl = 9,
     .species = SPECIES_LARVITAR,
-    .moves = {MOVE_BITE, MOVE_LEER, MOVE_TACKLE, MOVE_ROCK_THROW}
+	.ability = 1,
+    .moves = {MOVE_BITE, MOVE_SANDSTORM, MOVE_TACKLE, MOVE_ROCK_THROW}
     }
 };
 
@@ -4308,7 +4309,7 @@ static const struct TrainerMonCustomMidele sParty_Sarah[] = {
     .species = SPECIES_JIGGLYPUFF,
     .heldItem = ITEM_LEFTOVERS,
 	.evs = {24, 0, 0, 0, 0, 0},
-    .moves = {MOVE_SING, MOVE_KNOCK_OFF, MOVE_HELPING_HAND, MOVE_DOUBLE_SLAP}
+    .moves = {MOVE_SING, MOVE_KNOCK_OFF, MOVE_HELPING_HAND, MOVE_HEAL_PULSE}
     }
 };
 
@@ -4350,7 +4351,7 @@ static const struct TrainerMonCustomMidele sParty_Jerry1[] = {
     .species = SPECIES_RALTS,
 	.ability = 1,
 	.evs = {0, 0, 0, 24, 0, 0},
-    .moves = {MOVE_CONFUSION, MOVE_FAIRY_WIND, MOVE_CONFUSE_RAY, MOVE_HYPNOSIS}
+    .moves = {MOVE_CONFUSION, MOVE_FAIRY_WIND, MOVE_CONFUSE_RAY, MOVE_HEAL_PULSE}
     }
 };
 
@@ -5036,7 +5037,7 @@ static const struct TrainerMonCustomMidele sParty_Melina[] = {
     .lvl = 21,
     .species = SPECIES_FURRET,
 	.evs = {0, 0, 0, 0, 0, 48},
-    .moves = {MOVE_FURY_CUTTER, MOVE_QUICK_ATTACK, MOVE_HYPER_VOICE, MOVE_REVERSAL}
+    .moves = {MOVE_FURY_CUTTER, MOVE_QUICK_ATTACK, MOVE_HYPER_VOICE, MOVE_HELPING_HAND}
     }
 };
 
@@ -8519,7 +8520,7 @@ static const struct TrainerMonCustomMidele sParty_Edwin1[] = {
     .lvl = 18,
     .species = SPECIES_GALAR_PONYTA,
 	.evs = {48, 0, 0, 0, 0, 0},
-    .moves = {MOVE_CONFUSION, MOVE_FAIRY_WIND, MOVE_TACKLE, MOVE_DOUBLE_KICK}
+    .moves = {MOVE_CONFUSION, MOVE_FAIRY_WIND, MOVE_HEAL_PULSE, MOVE_DOUBLE_KICK}
     },
     {
     .iv = 31,
@@ -10278,7 +10279,7 @@ static const struct TrainerMonCustomMidele sParty_Sophie[] = {
 	.heldItem = ITEM_LEPPA_BERRY,
 	.nature = NATURE_RELAXED,
 	.evs = {80, 0, 0, 0, 0, 0},
-    .moves = {MOVE_METRONOME, MOVE_FOLLOW_ME, MOVE_NONE, MOVE_NONE}
+    .moves = {MOVE_METRONOME, MOVE_FOLLOW_ME, MOVE_HEAL_PULSE, MOVE_NONE}
     },
     {
     .iv = 31,
@@ -10957,7 +10958,7 @@ static const struct TrainerMonCustomMidele sParty_Marlene[] = {
     .species = SPECIES_SLOWPOKE,
 	.heldItem = ITEM_TWISTED_SPOON,
 	.evs = {0, 0, 0, 80, 0, 0},
-    .moves = {MOVE_BUBBLE_BEAM, MOVE_THUNDER_WAVE, MOVE_CONFUSION, MOVE_YAWN}
+    .moves = {MOVE_BUBBLE_BEAM, MOVE_THUNDER_WAVE, MOVE_CONFUSION, MOVE_HEAL_PULSE}
     },
     {
     .iv = 31,
@@ -13647,7 +13648,7 @@ static const struct TrainerMonCustomMidele sParty_Debug[] = {
         .iv = 31,
         .evs = {6, 0, 0, 252, 0, 252},
         .species = SPECIES_MEGA_BANETTE,
-        .moves = {MOVE_FRUSTRATION, MOVE_SUBSTITUTE, MOVE_PECK, MOVE_NONE},
+        .moves = {MOVE_HEAL_PULSE, MOVE_SUBSTITUTE, MOVE_PECK, MOVE_NONE},
         .heldItem = ITEM_LEFTOVERS,
         .ability = 1,
         .shiny = 1,
@@ -13659,7 +13660,7 @@ static const struct TrainerMonCustomMidele sParty_Debug[] = {
         .iv = 31,
         .evs = {252, 252, 6, 0, 0, 0},
         .species = SPECIES_MUK,
-        .moves = {MOVE_FRUSTRATION, MOVE_PECK, MOVE_METAL_CLAW, MOVE_SUBSTITUTE},
+        .moves = {MOVE_HEAL_PULSE, MOVE_PECK, MOVE_METAL_CLAW, MOVE_SUBSTITUTE},
         .heldItem = ITEM_LEFTOVERS,
         .ability = 1,
         .shiny = 1,

@@ -1359,6 +1359,11 @@
 	various \battler, VARIOUS_PLAY_MOVE_ANIMATION
 	.2byte \move
 	.endm
+	
+	.macro tryhealpulse battler:req, ptr:req
+	various \battler, VARIOUS_TRY_HEAL_PULSE
+	.4byte \ptr
+	.endm
 
 @ helpful macros
 	.macro setstatchanger stat:req, stages:req, down:req

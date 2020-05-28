@@ -84,6 +84,7 @@
 #define VARIOUS_SET_TELEPORT_OUTCOME            25
 #define VARIOUS_PLAY_TRAINER_DEFEATED_MUSIC     26
 #define VARIOUS_PLAY_MOVE_ANIMATION             27
+#define VARIOUS_TRY_HEAL_PULSE                  28
 
 // Cmd_manipulatedmg
 #define DMG_CHANGE_SIGN            0

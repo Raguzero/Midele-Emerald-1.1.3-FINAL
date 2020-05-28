@@ -374,8 +374,9 @@
 #define MOVE_OVERDRIVE 370
 #define MOVE_LIGHT_OF_RUIN 371
 #define MOVE_HEAD_SMASH 372
+#define MOVE_HEAL_PULSE 373
 
-#define MOVES_COUNT 373
+#define MOVES_COUNT 374
 
 // NUEVO: Poder de Hidden Power
 #define MOVE_HIDDEN_POWER_DMG 70

@@ -388,6 +388,7 @@ gBattleAnims_Moves::
 	.4byte Move_OVERDRIVE
 	.4byte Move_LIGHT_OF_RUIN
 	.4byte Move_HEAD_SMASH
+	.4byte Move_HEAL_PULSE
 	.4byte Move_COUNT @ cannot be reached, because last move is Psycho Boost
 
 	.align 2
@@ -10319,6 +10320,37 @@ Move_HEAD_SMASH:
 	delay 2
 	restorebg
 	waitbgfadein
+	end
+	
+Move_HEAL_PULSE:
+	loadspritegfx ANIM_TAG_GREEN_SPARKLE
+	loadspritegfx ANIM_TAG_BLUE_STAR
+	loadspritegfx ANIM_TAG_THIN_RING
+	playsewithpan SE_W234, SOUND_PAN_TARGET
+	createsprite gUproarRingSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 0, 0, 13293, 8
+	createsprite gPresentHealParticleSpriteTemplate, ANIM_TARGET, 4, -16, 32, -3, 1
+	delay 3
+	createsprite gPresentHealParticleSpriteTemplate, ANIM_TARGET, 4, 16, 32, -3, -1
+	delay 3
+	createsprite gUproarRingSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 0, 0, 13293, 8
+	createsprite gPresentHealParticleSpriteTemplate, ANIM_TARGET, 4, 32, 32, -3, 1
+	delay 3
+	createsprite gPresentHealParticleSpriteTemplate, ANIM_TARGET, 4, -32, 32, -3, 1
+	delay 3
+	createsprite gUproarRingSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 0, 0, 13293, 8
+	createsprite gPresentHealParticleSpriteTemplate, ANIM_TARGET, 4, 0, 32, -3, 1
+	delay 3
+	createsprite gPresentHealParticleSpriteTemplate, ANIM_TARGET, 4, -8, 32, -3, 1
+	delay 3
+	createsprite gUproarRingSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 0, 0, 13293, 8
+	createsprite gPresentHealParticleSpriteTemplate, ANIM_TARGET, 4, -8, 32, -3, 1
+	delay 3
+	createsprite gPresentHealParticleSpriteTemplate, ANIM_TARGET, 4, 24, 32, -3, 1
+	delay 3
+	createsprite gPresentHealParticleSpriteTemplate, ANIM_TARGET, 4, -24, 32, -3, 1
+	waitforvisualfinish
+	waitsound
+	call HealingEffect2
 	end
 
 Move_COUNT:
