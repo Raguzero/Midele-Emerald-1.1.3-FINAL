@@ -9746,9 +9746,13 @@ static void Cmd_trysetgrudge(void)
 static void Cmd_weightdamagecalculation(void)
 {
     s32 i;
-    for (i = 0; sWeightToDamageTable[i] != 0xFFFF; i += 2)
+	s32 weight = GetPokedexHeightWeight(SpeciesToNationalPokedexNum(gBattleMons[gBattlerTarget].species), 1);
+   
+   if (gBattleMons[gBattlerTarget].ability == ABILITY_LIGHT_METAL)
+        weight /= 2;
+	for (i = 0; sWeightToDamageTable[i] != 0xFFFF; i += 2)
     {
-        if (sWeightToDamageTable[i] > GetPokedexHeightWeight(SpeciesToNationalPokedexNum(gBattleMons[gBattlerTarget].species), 1))
+        if (sWeightToDamageTable[i] > weight)
             break;
     }
 
