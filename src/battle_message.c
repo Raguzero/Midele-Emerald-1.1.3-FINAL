@@ -291,6 +291,7 @@ static const u8 sText_AttackerAquiredAbility[] = _("{B_ATK_NAME_WITH_PREFIX} acq
 static const u8 sText_ImposterTransform[] = _("{B_ATK_NAME_WITH_PREFIX} transformed into\n{B_DEF_NAME_WITH_PREFIX} using IMPOSTER!");
 static const u8 sText_CursedBodyDisabled[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_BUFF1} was disabled\nby {B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY}!");
 static const u8 sText_DrySkinDmg[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_ATK_ABILITY} caused damage \nfrom the sun's rays!");
+static const u8 sText_FriskActivates[] = _("{B_ATK_NAME_WITH_PREFIX} frisked {B_DEF_NAME_WITH_PREFIX} and\nfound its {B_LAST_ITEM}!");
 // NUEVO HABILIDADES
 static const u8 sText_PkmnsXIntensifiedSun[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\nintensified the sun's rays!");
 static const u8 sText_PkmnsXPreventsYLoss[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\nprevents {B_BUFF1} loss!");
@@ -894,6 +895,7 @@ const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 	[STRINGID_IMPOSTERTRANSFORM - 12] = sText_ImposterTransform,
 	[STRINGID_CUSEDBODYDISABLED - 12] = sText_CursedBodyDisabled,
 	[STRINGID_DRYSKIN - 12] = sText_DrySkinDmg,
+    [STRINGID_FRISKACTIVATES - 12] = sText_FriskActivates,
 	// NUEVO HABILIDADES
 };
 

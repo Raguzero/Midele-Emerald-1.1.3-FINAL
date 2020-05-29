@@ -1377,6 +1377,10 @@
 	.macro trytrainerslidelastonmsg battler
 	various \battler, VARIOUS_TRY_TRAINER_SLIDE_MSG_LAST_ON
 	.endm
+	
+	.macro tryfriskmsg battler:req
+	various \battler, VARIOUS_TRY_FRISK
+	.endm
 
 @ helpful macros
 	.macro setstatchanger stat:req, stages:req, down:req

@@ -4752,5 +4752,14 @@ BattleScript_EffectHealPulse:
 	waitmessage 0x40
 	goto BattleScript_MoveEnd
 
+BattleScript_FriskMsg::
+	printstring STRINGID_FRISKACTIVATES
+	waitmessage 0x40
+	return
+BattleScript_FriskActivates::
+	tryfriskmsg BS_ATTACKER
+	end3
+
+
 
 

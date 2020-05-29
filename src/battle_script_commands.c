@@ -6805,7 +6805,7 @@ static void Cmd_various(void)
             gBattlescriptCurrInstr += 7;
         }
         return;
-case VARIOUS_HANDLE_TRAINER_SLIDE_MSG:
+	case VARIOUS_HANDLE_TRAINER_SLIDE_MSG:
         if (gBattlescriptCurrInstr[3] == 0)
         {
             gBattleScripting.savedDmg = gBattlerSpriteIds[gActiveBattler];
@@ -6841,7 +6841,36 @@ case VARIOUS_HANDLE_TRAINER_SLIDE_MSG:
             return;
         }
         break;
+    case VARIOUS_TRY_FRISK:
+        while (gBattleStruct->friskedBattler < gBattlersCount)
+        {
+            gBattlerTarget = gBattleStruct->friskedBattler++;
+            if (GET_BATTLER_SIDE2(gActiveBattler) != GET_BATTLER_SIDE2(gBattlerTarget)
+                && IsBattlerAlive(gBattlerTarget)
+                && gBattleMons[gBattlerTarget].item != ITEM_NONE)
+            {
+                gLastUsedItem = gBattleMons[gBattlerTarget].item;
+                RecordItemEffectBattle(gBattlerTarget, GetBattlerHoldEffect(gBattlerTarget, FALSE));
+                BattleScriptPushCursor();
+                // If Frisk identifies two mons' items, show the pop-up only once.
+                if (gBattleStruct->friskedAbility)
+                {
+                    gBattlescriptCurrInstr = BattleScript_FriskMsg;
+                }
+                else
+                {
+                    gBattleStruct->friskedAbility = TRUE;
+					gBattlescriptCurrInstr = BattleScript_FriskMsg;
+                    //gBattlescriptCurrInstr = BattleScript_FriskMsgWithPopup;
+                }
+                return;
+            }
+        }
+        gBattleStruct->friskedBattler = 0;
+        gBattleStruct->friskedAbility = FALSE;
+        break;
     }
+
 
     gBattlescriptCurrInstr += 3;
 }

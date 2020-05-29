@@ -1894,6 +1894,14 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 effect++;
             }
             break;
+			case ABILITY_FRISK:
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
+                gSpecialStatuses[battler].switchInAbilityDone = 1;
+                BattleScriptPushCursorAndCallback(BattleScript_FriskActivates); // Try activate
+                effect++;
+            }
+            return effect; // Note: It returns effect as to not record the ability if Frisk does not activate.
             case ABILITY_DRIZZLE:
                 if (!(gBattleWeather & WEATHER_RAIN_PERMANENT))
                 {
@@ -3602,4 +3610,14 @@ bool32 IsBattlerAlive(u8 battlerId)
         return FALSE;
 	else
 		return TRUE;
+}
+
+u32 GetBattlerHoldEffect(u8 battlerId, bool32 checkNegating)
+{
+    gPotentialItemEffectBattler = battlerId;
+
+    if (gBattleMons[battlerId].item == ITEM_ENIGMA_BERRY)
+        return gEnigmaBerries[battlerId].holdEffect;
+    else
+        return ItemId_GetHoldEffect(gBattleMons[battlerId].item);
 }

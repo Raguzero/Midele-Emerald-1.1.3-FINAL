@@ -88,6 +88,7 @@
 #define VARIOUS_HANDLE_TRAINER_SLIDE_MSG		29
 #define VARIOUS_TRY_TRAINER_SLIDE_MSG_FIRST_OFF 30
 #define VARIOUS_TRY_TRAINER_SLIDE_MSG_LAST_ON 	31
+#define VARIOUS_TRY_FRISK                       32
 
 // Cmd_manipulatedmg
 #define DMG_CHANGE_SIGN            0
