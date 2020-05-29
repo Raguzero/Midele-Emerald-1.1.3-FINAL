@@ -1899,7 +1899,9 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
             {
                 gSpecialStatuses[battler].switchInAbilityDone = 1;
                 BattleScriptPushCursorAndCallback(BattleScript_FriskActivates); // Try activate
-                effect++;
+                gBattlerTarget = BATTLE_OPPOSITE(battler);
+                gBattlerAttacker = battler;
+				effect++;
             }
             return effect; // Note: It returns effect as to not record the ability if Frisk does not activate.
             case ABILITY_DRIZZLE:
