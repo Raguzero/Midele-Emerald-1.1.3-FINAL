@@ -100,6 +100,7 @@ static const u8 sFurCoatDescription[] = _("x2 Defense.");
 static const u8 sFluffyDescription[] = _("Tougher but flammable.");
 static const u8 sToughClawsDescription[] = _("Boosts contact moves.");
 static const u8 sLightMetalDescription[] = _("Halves weight.");
+static const u8 sFlowerVeilDescription[] = _("Protects Grass-types.");
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 {
@@ -205,6 +206,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_FLUFFY] = _("FLUFFY"),
     [ABILITY_TOUGH_CLAWS] = _("TOUGH CLAWS"),
     [ABILITY_LIGHT_METAL] = _("LIGHT METAL"),
+    [ABILITY_FLOWER_VEIL] = _("FLOWER VEIL"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -311,4 +313,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_FLUFFY] = sFluffyDescription,
     [ABILITY_TOUGH_CLAWS] = sToughClawsDescription,
     [ABILITY_LIGHT_METAL] = sLightMetalDescription,
+    [ABILITY_FLOWER_VEIL] = sFlowerVeilDescription,
 };

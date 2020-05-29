@@ -1365,6 +1365,19 @@
 	.4byte \ptr
 	.endm
 
+	.macro handletrainerslidemsg battler, field
+	various \battler, VARIOUS_HANDLE_TRAINER_SLIDE_MSG
+	.byte \field
+	.endm
+	
+	.macro trytrainerslidefirstdownmsg battler
+	various \battler, VARIOUS_TRY_TRAINER_SLIDE_MSG_FIRST_OFF
+	.endm
+	
+	.macro trytrainerslidelastonmsg battler
+	various \battler, VARIOUS_TRY_TRAINER_SLIDE_MSG_LAST_ON
+	.endm
+
 @ helpful macros
 	.macro setstatchanger stat:req, stages:req, down:req
 	setbyte sSTATCHANGER \stat | \stages << 4 | \down << 7
