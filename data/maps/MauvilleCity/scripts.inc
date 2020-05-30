@@ -12,6 +12,7 @@ MauvilleCity_OnTransition: @ 81DF38B
 	clearflag FLAG_MAUVILLE_GYM_BARRIERS_STATE
 	setvar VAR_MAUVILLE_GYM_STATE, 0
 	call_if_set FLAG_GOT_TM24_FROM_WATTSON, MauvilleCity_EventScript_MoveWattsonBackToGym
+	call_if_set FLAG_RECEIVED_HM03, MauvilleCity_EventScript_TryBlockEasternRoute
 	end
 
 MauvilleCity_EventScript_MoveWattsonBackToGym:: @ 81DF3A9
@@ -19,6 +20,96 @@ MauvilleCity_EventScript_MoveWattsonBackToGym:: @ 81DF3A9
 	setflag FLAG_HIDE_MAUVILLE_CITY_WATTSON
 	setflag FLAG_WATTSON_REMATCH_AVAILABLE
 	return
+	
+MauvilleCity_EventScript_TryBlockEasternRoute::
+	goto_if_unset FLAG_RECEIVED_HM02, MauvilleCity_EventScript_BlockEasternRoute
+	return
+
+MauvilleCity_EventScript_BlockEasternRoute::
+	setvar VAR_TEMP_0, 1
+	return
+	
+MauvilleCity_BlockEasternPath1Trigger::
+	lockall
+	applymovement 12, MauvilleCity_Movement_BlockEasternPath1
+	waitmovement 0
+	call_if_set FLAG_RECEIVED_HM03, MauvilleCity_EventScript_EasternRouteBlocked
+	applymovement 12, MauvilleCity_Movement_GoBackToOriginalPos1
+	waitmovement 0
+	releaseall
+	end
+	
+MauvilleCity_BlockEasternPath2Trigger::
+	lockall
+	applymovement 12, MauvilleCity_Movement_BlockEasternPath2
+	waitmovement 0
+	call_if_set FLAG_RECEIVED_HM03 MauvilleCity_EventScript_EasternRouteBlocked
+	applymovement 12, MauvilleCity_Movement_GoBackToOriginalPos2
+	waitmovement 0
+	releaseall
+	end
+
+MauvilleCity_BlockEasternPath3Trigger::
+	lockall
+	applymovement 12, MauvilleCity_Movement_BlockEasternPath3
+	waitmovement 0
+	call_if_set FLAG_RECEIVED_HM03 MauvilleCity_EventScript_EasternRouteBlocked
+	applymovement 12, MauvilleCity_Movement_GoBackToOriginalPos3
+	waitmovement 0
+	releaseall
+	end
+
+MauvilleCity_BlockEasternPath4Trigger::
+	lockall
+	applymovement 12, MauvilleCity_Movement_BlockEasternPath4
+	waitmovement 0
+	call_if_set FLAG_RECEIVED_HM03 MauvilleCity_EventScript_EasternRouteBlocked
+	applymovement 12, MauvilleCity_Movement_GoBackToOriginalPos4
+	waitmovement 0
+	releaseall
+	end
+
+MauvilleCity_Movement_BlockEasternPath4::
+	walk_fast_down
+MauvilleCity_Movement_BlockEasternPath3::
+	walk_fast_down
+MauvilleCity_Movement_BlockEasternPath2::
+	walk_fast_down
+MauvilleCity_Movement_BlockEasternPath1::
+	step_end
+	
+MauvilleCity_Movement_GoBackToOriginalPos4::
+	walk_fast_up
+MauvilleCity_Movement_GoBackToOriginalPos3::
+	walk_fast_up
+MauvilleCity_Movement_GoBackToOriginalPos2::
+	walk_fast_up
+MauvilleCity_Movement_GoBackToOriginalPos1::
+	walk_fast_up
+	face_down
+	step_end
+	
+MauvilleCity_EventScript_EasternRouteBlocked::
+	applymovement EVENT_OBJ_ID_PLAYER, Common_Movement_WalkInPlaceFastestUp
+	waitmovement 0
+	applymovement EVENT_OBJ_ID_PLAYER, Common_Movement_QuestionMark
+	waitmovement 0
+	playse SE_PIN 
+	applymovement EVENT_OBJ_ID_PLAYER, MauvilleCity_Movement_MovePlayerFromEasternRoute 
+	applymovement 12, MauvilleCity_Movement_PushPlayerLeft
+	waitmovement 0
+	msgbox MauvilleCity_Text_GoToIzabeIsland, MSGBOX_NPC
+	return
+	
+MauvilleCity_Movement_MovePlayerFromEasternRoute::
+	face_right
+	walk_left
+	step_end
+
+MauvilleCity_Movement_PushPlayerLeft::
+	walk_down
+	face_left
+	step_end
 
 MauvilleCity_EventScript_Boy:: @ 81DF3B3
 	msgbox MauvilleCity_Text_NurseHurtMonBackToHealth, MSGBOX_NPC
@@ -229,6 +320,30 @@ MauvilleCity_EventScript_WallyRequestBattleAgain:: @ 81DF690
 	waitmovement 0
 	msgbox MauvilleCity_Text_WallyPleaseBattleMe, MSGBOX_YESNO
 	goto MauvilleCity_EventScript_BattleWallyPrompt
+	end
+	
+MauvilleCity_EventScript_IzabeIslandMan::
+	goto_if_unset FLAG_RECEIVED_HM03, MauvilleCity_EventScript_IzabeIslandManWaiting
+	goto_if_unset FLAG_RECEIVED_HM02, MauvilleCity_EventScript_IzabeIslandManGoToIsland
+	goto_if_set FLAG_RECEIVED_HM02, MauvilleCity_EventScript_IzabeIslandManYouAreBack
+	end
+	
+MauvilleCity_EventScript_IzabeIslandManWaiting::
+	lock
+	msgbox MauvilleCity_Text_IzabeIslandManWaiting, MSGBOX_NPC
+	release
+	end
+	
+MauvilleCity_EventScript_IzabeIslandManGoToIsland::
+	lock
+	msgbox MauvilleCity_Text_IzabeIslandManGoToIsland, MSGBOX_NPC
+	release
+	end
+	
+MauvilleCity_EventScript_IzabeIslandManYouAreBack::
+	lock
+	msgbox MauvilleCity_Text_IzabeIslandManYouAreBack, MSGBOX_NPC
+	release
 	end
 
 MauvilleCity_Movement_WallyExitNorth1: @ 81DF6A8
@@ -671,3 +786,30 @@ MauvilleCity_Text_ExplainTV: @ 81E056A
 
 MauvilleCity_Text_BeenCheckingOutTV: @ 81E0699
 	.string "Hi, have you been checking out TVs?$"
+	
+
+
+MauvilleCity_Text_IzabeIslandManGoToIsland::
+MauvilleCity_Text_GoToIzabeIsland::
+	.string "Perdona, joven...\p"
+	.string "¿Has oído hablar de ISLA IZABE?\n"
+	.string "Es una isla helada que se encuentra\p"
+	.string "al sur de ARRECÍPOLIS...\p"
+	.string "Pues bien, me han enviado desde allí\n"
+	.string "con el objetivo de buscarte.\p"
+	.string "Al parecer necesitan entrenadores para\n"
+	.string "hacerse cargo de algo...\p"
+	.string "Para llegar a la isla deberás ir al puerto\n"
+	.string "de CIUDAD PORTUAL. Ahí habrá alguien\p"
+	.string "que te estará esperando. Tal vez\n"
+	.string "necesites utilizar el movimiento SURF...$"
+	
+MauvilleCity_Text_IzabeIslandManWaiting::
+	.string "¿Mmm? No, tú no eres lo suficientemente\n"
+	.string "fuerte...$"
+
+MauvilleCity_Text_IzabeIslandManYouAreBack::
+	.string "¡Has vuelto de ISLA IZABE!\p"
+	.string "Con esto mi trabajo ha terminado.\n"
+	.string "Supongo que me quedaré aquí durante\p"
+	.string "un tiempo...$"
