@@ -7230,8 +7230,41 @@ u16 GetBattleBGM(void)
             return MUS_BATTLE20;
         }
     }
-    else
-        return MUS_BATTLE27;
+    else {
+    u16 species = SpeciesToNationalPokedexNum(GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, 0));
+    if (species >= SPECIES_CHIKORITA && species <= SPECIES_CELEBI) return WILD;
+    if (species >= SPECIES_BULBASAUR && species <= SPECIES_MEWTWO) return MUS_RG_VS_YASEI;
+	if (species == NATIONAL_DEX_YAMASK ||
+	species == NATIONAL_DEX_COFAGRIGUS ||
+	species == NATIONAL_DEX_GOLETT ||
+	species == NATIONAL_DEX_GOLURK ||
+	species == NATIONAL_DEX_DEINO ||
+	species == NATIONAL_DEX_ZWEILOUS ||
+	species == NATIONAL_DEX_HYDREIGON ||
+	species == NATIONAL_DEX_TYNAMO ||
+	species == NATIONAL_DEX_EELEKTRIK ||
+	species == NATIONAL_DEX_EELEKTROSS ||
+	species == NATIONAL_DEX_LITWICK ||
+	species == NATIONAL_DEX_LAMPENT ||
+	species == NATIONAL_DEX_CHANDELURE ||
+	species == NATIONAL_DEX_PAWNIARD ||
+	species == NATIONAL_DEX_BISHARP ||
+	species == NATIONAL_DEX_FERROSEED ||
+	species == NATIONAL_DEX_FERROTHORN ||
+	species == NATIONAL_DEX_SANDILE ||
+	species == NATIONAL_DEX_KROKOROK ||
+	species == NATIONAL_DEX_KROOKODILE ||
+	species == NATIONAL_DEX_LILLIPUP ||
+	species == NATIONAL_DEX_HERDIER ||
+	species == NATIONAL_DEX_STOUTLAND ||
+	species == NATIONAL_DEX_DURANT ||
+	species == NATIONAL_DEX_COTTONEE ||
+	species == NATIONAL_DEX_WHIMSICOTT ||
+	species == NATIONAL_DEX_SNIVY ||
+	species == NATIONAL_DEX_SERVINE ||
+	species == NATIONAL_DEX_SERPERIOR) return WILDBW2_FINAL;
+    return MUS_BATTLE27;
+  }
 }
 
 void PlayBattleBGM(void)
