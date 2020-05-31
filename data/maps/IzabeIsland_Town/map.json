@@ -6,16 +6,16 @@
     "bg_events": [
         {
             "elevation": 3,
-            "flag": "FLAG_TEMP_1",
-            "item": "ITEM_NONE",
+            "flag": "FLAG_HIDDEN_ITEM_IZABE_ISLAND_TOWN_SHARP_BEAK",
+            "item": "ITEM_SHARP_BEAK",
             "type": "hidden_item",
             "x": 30,
             "y": 18
         },
         {
             "elevation": 3,
-            "flag": "FLAG_TEMP_1",
-            "item": "ITEM_NONE",
+            "flag": "FLAG_HIDDEN_ITEM_IZABE_ISLAND_TOWN_POISON_BARB",
+            "item": "ITEM_POISON_BARB",
             "type": "hidden_item",
             "x": 30,
             "y": 27
@@ -125,12 +125,12 @@
         },
         {
             "elevation": 3,
-            "flag": "0",
+            "flag": "FLAG_ITEM_IZABE_ISLAND_TOWN_TWISTEDSPOON",
             "graphics_id": "EVENT_OBJ_GFX_ITEM_BALL",
             "movement_range_x": 0,
             "movement_range_y": 0,
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "script": "NULL",
+            "script": "IzabeIsland_Town_EventScript_ItemTwistedspoon",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
             "x": 21,
@@ -138,12 +138,12 @@
         },
         {
             "elevation": 3,
-            "flag": "0",
+            "flag": "FLAG_ITEM_IZABE_ISLAND_TOWN_SPELL_TAG",
             "graphics_id": "EVENT_OBJ_GFX_ITEM_BALL",
             "movement_range_x": 0,
             "movement_range_y": 0,
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "script": "NULL",
+            "script": "IzabeIsland_Town_EventScript_ItemSpellTag",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
             "x": 32,

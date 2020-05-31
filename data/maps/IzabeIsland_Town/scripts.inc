@@ -21,6 +21,14 @@ IzabeIsland_Town_EventScript_Maid::
 IzabeIsland_Town_EventScript_Cameraman::
 	msgbox IzabeIsland_Town_Text_Cameraman, MSGBOX_NPC
 	end
+	
+IzabeIsland_Town_EventScript_ItemTwistedspoon::
+	finditem ITEM_TWISTED_SPOON
+	end
+
+IzabeIsland_Town_EventScript_ItemSpellTag::
+	finditem ITEM_SPELL_TAG
+	end
 
 IzabeIsland_Town_Text_Expert::
 	.string "¿Ves estas estatuas? Verás varias a lo\n"
