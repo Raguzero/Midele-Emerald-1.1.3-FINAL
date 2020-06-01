@@ -652,7 +652,7 @@
 
 #define FLAG_HIDDEN_ITEM_IZABE_ISLAND_TOWN_POISON_BARB       (FLAG_HIDDEN_ITEMS_START + 0x5F) // Previously unused Flag
 #define FLAG_HIDDEN_ITEM_IZABE_ISLAND_TOWN_SHARP_BEAK        (FLAG_HIDDEN_ITEMS_START + 0x60) // Previously unused Flag
-#define FLAG_UNUSED_0x266  0x266 // Unused Flag
+#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_HOUSE_1_LEEK           (FLAG_HIDDEN_ITEMS_START + 0x60) // Previously unused Flag
 #define FLAG_UNUSED_0x267  0x267 // Unused Flag
 #define FLAG_UNUSED_0x268  0x268 // Unused Flag
 #define FLAG_UNUSED_0x269  0x269 // Unused Flag

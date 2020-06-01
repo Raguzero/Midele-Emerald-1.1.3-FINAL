@@ -6,8 +6,8 @@
     "bg_events": [
         {
             "elevation": 3,
-            "flag": "FLAG_TEMP_1",
-            "item": "ITEM_NONE",
+            "flag": "FLAG_HIDDEN_ITEM_IZABE_ISLAND_HOUSE_1_LEEK",
+            "item": "ITEM_STICK",
             "type": "hidden_item",
             "x": 7,
             "y": 2
@@ -29,7 +29,7 @@
             "movement_range_x": 0,
             "movement_range_y": 0,
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-            "script": "NULL",
+            "script": "IzabeIsland_House1_EventScript_Cook",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
             "x": 3,
