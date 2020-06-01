@@ -7,8 +7,8 @@ IzabeIslandExterior_EventScript_Guard::
 	
 IzabeIslandExterior_Text_Guard::
 	.string "Estás en ISLA IZABLE.\n"
-	.string "Desde tiempos inmemoriales, esta isla\p"
-	.string "ha estado azotada por nevadas y\n"
-	.string "ventiscas. Si has llegado hasta aquí,\p"
-	.string "es que eres fuerte.\n"
+	.string "Desde tiempos inmemoriales, esta isla\l"
+	.string "ha estado azotada por nevadas y\p"
+	.string "ventiscas. Si has llegado hasta aquí,\n"
+	.string "es que eres fuerte.\p"
 	.string "De todas formas, ten cuidado.$"

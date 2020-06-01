@@ -21,7 +21,7 @@ IzabeIsland_Lobby_Text_Receptionist::
 
 IzabeIsland_Lobby_Text_OldMan::
 	.string "Uf... el camino a la ciudad es más largo\n"
-	.string "de lo que parece. Creo que me tomaré un\p"
+	.string "de lo que parece. Creo que me tomaré un\l"
 	.string "descanso.$"
 
 IzabeIsland_Lobby_Text_IceSample::
@@ -29,6 +29,6 @@ IzabeIsland_Lobby_Text_IceSample::
 	.string "montañas de la isla.\p"
 	.string "“Muestra de hielo obtenida en la CUEVA\n"
 	.string "de la montaña, a las afueras de la isla.\l"
-	.string "Analizando su estructura, parece que\p"
-	.string "este hielo requiere una temperatura\n"
+	.string "Analizando su estructura, parece que\l"
+	.string "este hielo requiere una temperatura\p"
 	.string "superior a la normal para ser derretido.”$"
