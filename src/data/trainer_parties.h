@@ -13667,3 +13667,36 @@ static const struct TrainerMonCustomMidele sParty_Debug[] = {
         .friendship = 0
         }
 };
+
+static const struct TrainerMonCustomMidele sParty_Random[] = {
+        {
+        .lvl = 100,
+        .iv = 31,
+        .species = SPECIES_WIGGLYTUFF
+        },
+        {
+        .lvl = 100,
+        .iv = 31,
+        .species = SPECIES_WIGGLYTUFF
+        },
+        {
+        .lvl = 100,
+        .iv = 31,
+        .species = SPECIES_WIGGLYTUFF
+        },
+        {
+        .lvl = 100,
+        .iv = 31,
+        .species = SPECIES_WIGGLYTUFF
+        },
+        {
+        .lvl = 100,
+        .iv = 31,
+        .species = SPECIES_WIGGLYTUFF
+        },
+        {
+        .lvl = 100,
+        .iv = 31,
+        .species = SPECIES_WIGGLYTUFF
+        },
+};

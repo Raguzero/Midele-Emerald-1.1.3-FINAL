@@ -1013,7 +1013,7 @@ static const u8 sThickClubDesc[] = _(
 static const u8 sStickDesc[] = _(
     "A hold item that\n"
     "raises FARFETCH'D's\n"
-    "critical-hit ratio.");
+    "ATK, SPEED & CRIT.");
 
 static const u8 sRedScarfDesc[] = _(
     "A hold item that\n"

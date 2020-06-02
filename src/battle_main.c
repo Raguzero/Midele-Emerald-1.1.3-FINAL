@@ -2002,7 +2002,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             case 0:
             {
                 const struct TrainerMonNoItemDefaultMoves *partyData = gTrainers[trainerNum].party.NoItemDefaultMoves;
-
+	
                 for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
                     nameHash += gSpeciesNames[partyData[i].species][j];
 
@@ -2067,10 +2067,38 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 	 case F_TRAINER_PARTY_CUSTOM_MIDELE:
             {
                 const struct TrainerMonCustomMidele *partyData = gTrainers[trainerNum].party.ItemCustomMidele;
-
+				
                 for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
                     nameHash += gSpeciesNames[partyData[i].species][j];
 
+		// NUEVO RANDOM BATTLE
+                if (FlagGet(FLAG_RYU_RANDOMBATTLE) == 1)
+                {
+                    u8 level = 100;
+				  u16 em1 = (Random() % (SPECIES_EGG - SPECIES_TREECKO + SPECIES_OLD_UNOWN_B));
+				if (em1 >= SPECIES_CELEBI) em1 += SPECIES_TREECKO - SPECIES_OLD_UNOWN_B;
+                    em1++;
+                    CreateMon(&gEnemyParty[i], em1, level, 31, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+                    break;
+                }
+		// NUEVO RANDOM BATTLE
+		
+		// NUEVO RANDOM BATTLE CC
+                if (FlagGet(FLAG_RYU_RANDOMBATTLECC) == 1)
+                {
+                    u8 level = 100;
+				  u16 em1 = (Random() % (SPECIES_EGG - SPECIES_TREECKO + SPECIES_OLD_UNOWN_B));
+				u16 pm1 = (Random() % (SPECIES_EGG - SPECIES_TREECKO + SPECIES_OLD_UNOWN_B));
+				if (em1 >= SPECIES_CELEBI) em1 += SPECIES_TREECKO - SPECIES_OLD_UNOWN_B;
+				if (pm1 >= SPECIES_CELEBI) pm1 += SPECIES_TREECKO - SPECIES_OLD_UNOWN_B;
+					em1++;
+					pm1++;
+                    CreateMon(&gEnemyParty[i], em1, level, 31, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+					CreateMon(&gPlayerParty[i], pm1, level, 31, FALSE, 0, OT_ID_PLAYER_ID, 0);
+                    break;
+                }
+		// NUEVO RANDOM BATTLE CC
+				
                 personalityValue += nameHash << 8;
                 fixedIV = partyData[i].iv;
                 CreateMonMidele(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, partyData[i].evs, partyData[i].nature, partyData[i].shiny, partyData[i].ability,
