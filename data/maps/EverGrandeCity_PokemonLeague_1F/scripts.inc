@@ -128,20 +128,47 @@ Ryu_StartRandomBattle::
 	special HealPlayerParty
 	setflag FLAG_RYU_RANDOMBATTLE
 	msgbox StartingRandomBattleMsg
-	cleartrainerflag TRAINER_RANDOM_PARTY
-	trainerbattle_single TRAINER_RANDOM_PARTY, BF_battleintro, BF_battledefeat, BF_RandomBattleCleanup
+	//cleartrainerflag TRAINER_RANDOM_PARTY
+	//trainerbattle_single TRAINER_RANDOM_PARTY, BF_battleintro, BF_battledefeat, BF_RandomBattleCleanup
+	setvar VAR_0x8004, SPECIAL_RANDOM_BATTLE
+    setvar VAR_0x8005, 0
+    special DoSpecialTrainerBattle
+    waitstate
+    compare VAR_RESULT, B_OUTCOME_DREW
+    call_if_eq BF_RandomBattleCleanupDRAW
+    compare VAR_RESULT, B_OUTCOME_WON
+    call_if_eq BF_RandomBattleCleanupWIN
+    compare VAR_RESULT, B_OUTCOME_LOST
+    call_if_eq BF_RandomBattleCleanupLOSS
 	end
 
 StartingRandomBattleMsg:
 	.string "Starting Random Battle...$"
 
-BF_RandomBattleCleanup::
+BF_RandomBattleCleanupWIN::
+	special HealPlayerParty
+	msgbox Enhorabuena, MSGBOX_YESNO
+	compare VAR_RESULT, 1
+	goto_if_eq Ryu_StartRandomBattle
+	clearflag FLAG_RYU_RANDOMBATTLE
+	release
+	end
+	
+BF_RandomBattleCleanupLOSS::
 	special HealPlayerParty
 	msgbox BattleAgain, MSGBOX_YESNO
 	compare VAR_RESULT, 1
 	goto_if_eq Ryu_StartRandomBattle
 	clearflag FLAG_RYU_RANDOMBATTLE
-//	special ForceSoftReset
+	release
+	end
+	
+BF_RandomBattleCleanupDRAW::
+	special HealPlayerParty
+	msgbox Empate, MSGBOX_YESNO
+	compare VAR_RESULT, 1
+	goto_if_eq Ryu_StartRandomBattle
+	clearflag FLAG_RYU_RANDOMBATTLE
 	release
 	end
 	
@@ -155,17 +182,44 @@ Ryu_StartRandomBattleCC::
     special SavePlayerParty
 	setflag FLAG_RYU_RANDOMBATTLECC
 	msgbox StartingRandomBattleMsg
-	cleartrainerflag TRAINER_RANDOM_PARTY
-	trainerbattle_single TRAINER_RANDOM_PARTY, BF_battleintro, BF_battledefeat, BF_RandomBattleCleanupCC
+	//cleartrainerflag TRAINER_RANDOM_PARTY
+	//trainerbattle_single TRAINER_RANDOM_PARTY, BF_battleintro, BF_battledefeat, BF_RandomBattleCleanupCC
+	setvar VAR_0x8004, SPECIAL_RANDOM_BATTLE
+    setvar VAR_0x8005, 0
+    special DoSpecialTrainerBattle
+    waitstate
+    compare VAR_RESULT, B_OUTCOME_DREW
+    call_if_eq BF_RandomBattleCleanupDRAWCC
+    compare VAR_RESULT, B_OUTCOME_WON
+    call_if_eq BF_RandomBattleCleanupWINCC
+    compare VAR_RESULT, B_OUTCOME_LOST
+    call_if_eq BF_RandomBattleCleanupLOSSCC
 	end
 
-BF_RandomBattleCleanupCC::
+BF_RandomBattleCleanupWINCC::
+	special LoadPlayerParty
+	msgbox Enhorabuena, MSGBOX_YESNO
+	compare VAR_RESULT, 1
+	goto_if_eq Ryu_StartRandomBattleCC
+	clearflag FLAG_RYU_RANDOMBATTLECC
+	release
+	end
+	
+BF_RandomBattleCleanupLOSSCC::
 	special LoadPlayerParty
 	msgbox BattleAgain, MSGBOX_YESNO
 	compare VAR_RESULT, 1
 	goto_if_eq Ryu_StartRandomBattleCC
 	clearflag FLAG_RYU_RANDOMBATTLECC
-//	special ForceSoftReset
+	release
+	end
+	
+BF_RandomBattleCleanupDRAWCC::
+	special LoadPlayerParty
+	msgbox Empate, MSGBOX_YESNO
+	compare VAR_RESULT, 1
+	goto_if_eq Ryu_StartRandomBattleCC
+	clearflag FLAG_RYU_RANDOMBATTLECC
 	release
 	end
 	
@@ -177,6 +231,12 @@ BF_NoBattleCC::
 
 BattleAgain:
 	.string "Would you like to battle again?$"
+	
+Enhorabuena:
+	.string "Ganaste, te llevas este premio$"
+	
+Empate:
+	.string "Hemos empatado ¿Repetimos?$"
 	
 BF_NoBattleMsg:
     .string "Very well. Talk with me again if\n"
