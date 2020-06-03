@@ -2298,6 +2298,95 @@
                     }
                 },
                 {
+                    "base_label": "gIzabeIsland_Town0",
+                    "fishing_mons": {
+                        "encounter_rate": 10,
+                        "mons": [
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_LUGIA"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_LUGIA"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_HO_OH"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_HO_OH"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_HO_OH"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_REGIGIGAS"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_REGIGIGAS"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_REGIGIGAS"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_REGIGIGAS"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_REGIGIGAS"
+                            }
+                        ]
+                    },
+                    "map": "MAP_IZABE_ISLAND_TOWN",
+                    "water_mons": {
+                        "encounter_rate": 2,
+                        "mons": [
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_LUGIA"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_ARTICUNO"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_LAPRAS"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_LAPRAS"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_LAPRAS"
+                            }
+                        ]
+                    }
+                },
+                {
                     "base_label": "gJaggedPass",
                     "land_mons": {
                         "encounter_rate": 20,

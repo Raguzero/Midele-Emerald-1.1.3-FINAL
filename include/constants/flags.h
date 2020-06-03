@@ -504,13 +504,13 @@
 #define FLAG_ENABLE_TATE_AND_LIZA_MATCH_CALL 0x1D8
 #define FLAG_ENABLE_JUAN_MATCH_CALL          0x1D9
 
-#define FLAG_UNUSED_0x1DA                    0x1DA // Unused Flag
+#define FLAG_IZABE_NPC_TRADE_COMPLETED       0x1DA // Previously unused Flag
 
 #define FLAG_HAS_MYSTIC_TICKET               0x1DB
 #define FLAG_DEFEATED_HO_OH                  0x1DC
 #define FLAG_DEFEATED_LUGIA                  0x1DD
 
-#define FLAG_UNUSED_0x1DE                    0x1DE // Unused Flag
+#define FLAG_RECEIVED_IZABE_ITEM_1           0x1DE // Previously unused Flag
 #define FLAG_UNUSED_0x1DF                    0x1DF // Unused Flag
 #define FLAG_UNUSED_0x1E0                    0x1E0 // Unused Flag
 #define FLAG_UNUSED_0x1E1                    0x1E1 // Unused Flag
@@ -650,9 +650,9 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_2             (FLAG_HIDDEN_ITEMS_START + 0x5D)
 #define FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_3             (FLAG_HIDDEN_ITEMS_START + 0x5E)
 
-#define FLAG_UNUSED_0x264  0x264 // Unused Flag
-#define FLAG_UNUSED_0x265  0x265 // Unused Flag
-#define FLAG_UNUSED_0x266  0x266 // Unused Flag
+#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_TOWN_POISON_BARB       (FLAG_HIDDEN_ITEMS_START + 0x5F) // Previously unused Flag
+#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_TOWN_SHARP_BEAK        (FLAG_HIDDEN_ITEMS_START + 0x60) // Previously unused Flag
+#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_HOUSE_1_LEEK           (FLAG_HIDDEN_ITEMS_START + 0x60) // Previously unused Flag
 #define FLAG_UNUSED_0x267  0x267 // Unused Flag
 #define FLAG_UNUSED_0x268  0x268 // Unused Flag
 #define FLAG_UNUSED_0x269  0x269 // Unused Flag
@@ -1078,7 +1078,7 @@
 #define FLAG_ITEM_ROUTE_120_FULL_HEAL                               0x407
 #define FLAG_ITEM_ROUTE_123_CALCIUM                                 0x408
 
-#define FLAG_UNUSED_0x409                                           0x409 // Unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_TOWN_TWISTEDSPOON                    0x409 // Previously unused Flag
 
 #define FLAG_ITEM_ROUTE_127_ZINC                                    0x40A
 #define FLAG_ITEM_ROUTE_127_CARBOS                                  0x40B
@@ -1172,7 +1172,7 @@
 #define FLAG_ITEM_NEW_MAUVILLE_PARALYZE_HEAL                        0x463
 #define FLAG_ITEM_AQUA_HIDEOUT_B1F_MASTER_BALL                      0x464
 
-#define FLAG_UNUSED_0x465                                           0x465 // Unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_TOWN_SPELL_TAG                       0x465 // Unused Flag
 #define FLAG_UNUSED_0x466                                           0x466 // Unused Flag
 #define FLAG_UNUSED_0x467                                           0x467 // Unused Flag
 #define FLAG_UNUSED_0x468                                           0x468 // Unused Flag

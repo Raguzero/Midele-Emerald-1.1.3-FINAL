@@ -396,6 +396,21 @@ SlateportCity_Harbor_EventScript_TradedScanner:: @ 820CE11
 	msgbox SlateportCity_Harbor_Text_ThisWillHelpResearch, MSGBOX_DEFAULT
 	release
 	end
+	
+@ TODO: Que sea un combate contra un NPC especial 
+SlateportCity_Harbor_EventScript_IzabeSailor::
+	trainerbattle_single TRAINER_DEBUG, SlateportCity_Harbor_Text_IzabeSailorIntro, SlateportCity_Harbor_Text_IzabeSailorDefeated
+	msgbox SlateportCity_Harbor_Text_IzabeSailorRideBoat, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq SlateportCity_Harbor_EventScript_IzabeSailorBye
+	
+	msgbox SlateportCity_Harbor_Text_IzabeSailorGoSail, MSGBOX_DEFAULT
+	warp MAP_IZABE_ISLAND_HARBOR, 255, 8, 4
+	end
+	
+SlateportCity_Harbor_EventScript_IzabeSailorBye::
+	msgbox SlateportCity_Harbor_Text_IzabeSailorBye, MSGBOX_NPC
+	end
 
 SlateportCity_Harbor_Text_FerryServiceUnavailable: @ 820CE20
 	.string "I beg your pardon?\n"
@@ -555,3 +570,18 @@ SlateportCity_Harbor_Text_HandedScannerToStern: @ 820D94A
 SlateportCity_Harbor_Text_ThisWillHelpResearch: @ 820D970
 	.string "CAPT. STERN: Thanks, {PLAYER}{KUN}!\n"
 	.string "This will help our research a lot!$"
+	
+SlateportCity_Harbor_Text_IzabeSailorIntro:
+	.string "Battle intro$"
+	
+SlateportCity_Harbor_Text_IzabeSailorDefeated:
+	.string "Defeated$"
+
+SlateportCity_Harbor_Text_IzabeSailorRideBoat:
+	.string "Go to IZABE?$"
+	
+SlateportCity_Harbor_Text_IzabeSailorBye:
+	.string "Bye bye$"
+	
+SlateportCity_Harbor_Text_IzabeSailorGoSail:
+	.string "Let's go!$"
