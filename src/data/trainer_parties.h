@@ -13642,6 +13642,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_MayLinkPlaceholder[] = {
     }
 };
 
+////// NUEVOS ENTRENADORES A PARTIR DE AQUI ///////
 static const struct TrainerMonCustomMidele sParty_Debug[] = {
         {
         .lvl = 100,
@@ -13700,3 +13701,36 @@ static const struct TrainerMonCustomMidele sParty_Random[] = {
         .species = SPECIES_WIGGLYTUFF
         },
 };
+
+// GRANITE CAVE (POKEMON ORAS)
+static const struct TrainerMonCustomMidele sParty_Omari[] = {
+    {
+    .iv = 31,
+    .lvl = 15,
+    .species = SPECIES_SANDSHREW,
+	.heldItem = ITEM_SOFT_SAND,
+	.evs = {0, 40, 0, 0, 0, 0},
+    .moves = {MOVE_METAL_CLAW, MOVE_RAPID_SPIN, MOVE_DEFENSE_CURL, MOVE_MUD_SLAP}
+    },
+    {
+    .iv = 31,
+    .lvl = 15,
+    .species = SPECIES_BALTOY,
+	.heldItem = ITEM_SOFT_SAND,
+	.evs = {0, 0, 0, 40, 0, 0},
+    .moves = {MOVE_CONFUSION, MOVE_RAPID_SPIN, MOVE_MUD_SLAP, MOVE_HARDEN}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_Davian[] = {
+    {
+    .iv = 31,
+    .lvl = 15,
+    .species = SPECIES_DUNSPARCE,
+	.heldItem = ITEM_SILK_SCARF,
+	.evs = {40, 0, 0, 0, 0, 0},
+    .moves = {MOVE_GLARE, MOVE_RAGE, MOVE_BITE, MOVE_COIL}
+    }
+};
+// GRANITE CAVE (POKEMON ORAS)
+
