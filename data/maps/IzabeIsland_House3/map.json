@@ -159,7 +159,7 @@
         {
             "elevation": 0,
             "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-            "script": "NULL",
+            "script": "IzabeIsland_House3_EventScript_Machine",
             "type": "sign",
             "x": 2,
             "y": 5
@@ -167,7 +167,7 @@
         {
             "elevation": 0,
             "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-            "script": "NULL",
+            "script": "IzabeIsland_House3_EventScript_Machine",
             "type": "sign",
             "x": 3,
             "y": 5

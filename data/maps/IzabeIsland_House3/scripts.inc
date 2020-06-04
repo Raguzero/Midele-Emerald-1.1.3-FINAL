@@ -7,10 +7,14 @@ IzabeIsland_House3_EventScript_Scientist::
 	end
 
 IzabeIsland_House3_EventScript_Kanto1::
+	playse SE_PC_LOGIN
+	waitse
 	msgbox IzabeIsland_House3_Text_Kanto1, MSGBOX_SIGN
 	end
 
 IzabeIsland_House3_EventScript_Johto1::
+	playse SE_PC_LOGIN
+	waitse
 	msgbox IzabeIsland_House3_Text_Johto1, MSGBOX_SIGN
 	end
 
@@ -23,10 +27,14 @@ IzabeIsland_House3_EventScript_Bookshelf::
 	end
 
 IzabeIsland_House3_EventScript_Izabe1::
+	playse SE_PC_LOGIN
+	waitse
 	msgbox IzabeIsland_House3_Text_Izabe1, MSGBOX_SIGN
 	end
 
 IzabeIsland_House3_EventScript_Izabe2::
+	playse SE_PC_LOGIN
+	waitse
 	msgbox IzabeIsland_House3_Text_Izabe2, MSGBOX_SIGN
 	end
 
@@ -36,6 +44,10 @@ IzabeIsland_House3_EventScript_Izabe3::
 
 IzabeIsland_House3_EventScript_MicoloDiary::
 	msgbox IzabeIsland_House3_Text_MicoloDiary, MSGBOX_SIGN
+	end
+
+IzabeIsland_House3_EventScript_Machine::
+	msgbox IzabeIsland_House3_Text_Machine, MSGBOX_SIGN
 	end
 
 IzabeIsland_House3_EventScript_LabMon::
@@ -196,3 +208,7 @@ IzabeIsland_House3_Text_LabMon::
 
 IzabeIsland_House3_Text_ReceivedMon: @ 82706E8
 	.string "{PLAYER} received FLOETTE!$"
+
+IzabeIsland_House3_Text_Machine::
+	.string "Una extraña máquina. Parece que\n"
+	.string "no funciona.$"

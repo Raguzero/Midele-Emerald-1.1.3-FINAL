@@ -1182,7 +1182,7 @@
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_WEST_MAX_REVIVE                 0x46B
 #define FLAG_ITEM_AQUA_HIDEOUT_B1F_NUGGET                           0x46C
 
-#define FLAG_UNUSED_0x46D                                           0x46D // Unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_SECRET_HOUSE_B1                      0x46D // Previously unused Flag
 
 #define FLAG_ITEM_ROUTE_119_NUGGET                                  0x46E
 #define FLAG_ITEM_ROUTE_104_POTION                                  0x46F

@@ -4,6 +4,14 @@
     "allow_running": true,
     "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
     "bg_events": [
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+            "script": "IzabeIsland_SecretHouseB1_EventScript_PC",
+            "type": "sign",
+            "x": 8,
+            "y": 6
+        }
     ],
     "connections": [
         {
@@ -32,6 +40,19 @@
             "trainer_type": "0",
             "x": 4,
             "y": 7
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_ITEM_IZABE_ISLAND_SECRET_HOUSE_B1",
+            "graphics_id": "EVENT_OBJ_GFX_ITEM_BALL",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "IzabeIsland_SecretHouseB1_EventScript_Item",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 1,
+            "y": 5
         }
     ],
     "region_map_section": "MAPSEC_IZABE_ISLAND",
