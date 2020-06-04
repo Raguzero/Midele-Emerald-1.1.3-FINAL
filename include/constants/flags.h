@@ -655,7 +655,7 @@
 #define FLAG_HIDDEN_ITEM_IZABE_ISLAND_HOUSE_1_LEEK           (FLAG_HIDDEN_ITEMS_START + 0x61) // Previously unused Flag
 #define FLAG_HIDDEN_ITEM_IZABE_ISLAND_LAKE_1  (FLAG_HIDDEN_ITEMS_START + 0x62) // Previously unused Flag
 #define FLAG_HIDDEN_ITEM_IZABE_ISLAND_LAKE_2  (FLAG_HIDDEN_ITEMS_START + 0x63) // Previously unused Flag
-#define FLAG_UNUSED_0x269  0x269 // Unused Flag
+#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_LAKE_CAVE_1  (FLAG_HIDDEN_ITEMS_START + 0x64) // Previously unused
 #define FLAG_UNUSED_0x26A  0x26A // Unused Flag
 #define FLAG_UNUSED_0x26B  0x26B // Unused Flag
 #define FLAG_UNUSED_0x26C  0x26C // Unused Flag
@@ -1175,7 +1175,7 @@
 #define FLAG_ITEM_IZABE_ISLAND_TOWN_SPELL_TAG                       0x465 // Previously unused Flag
 #define FLAG_ITEM_IZABE_ISLAND_SECRET_HOUSE_1                       0x466 // Previously unused Flag
 #define FLAG_ITEM_IZABE_ISLAND_SECRET_HOUSE_2                       0x467 // Previously unused Flag
-#define FLAG_UNUSED_0x468                                           0x468 // Unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_UNDERWATER_CAVE_1                    0x468 // Previously unused Flag
 
 #define FLAG_ITEM_MT_PYRE_2F_ULTRA_BALL                             0x469
 #define FLAG_ITEM_MT_PYRE_4F_SEA_INCENSE                            0x46A
