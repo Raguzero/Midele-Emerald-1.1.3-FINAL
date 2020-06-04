@@ -26,6 +26,32 @@
             "trainer_type": "0",
             "x": 4,
             "y": 6
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_ITEM_IZABE_ISLAND_SECRET_HOUSE_1",
+            "graphics_id": "EVENT_OBJ_GFX_ITEM_BALL",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "IzabeIsland_SecretHouse_EventScript_Item_1",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 0,
+            "y": 7
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_ITEM_IZABE_ISLAND_SECRET_HOUSE_2",
+            "graphics_id": "EVENT_OBJ_GFX_ITEM_BALL",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "IzabeIsland_SecretHouse_EventScript_Item_2",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 1,
+            "y": 9
         }
     ],
     "region_map_section": "MAPSEC_IZABE_ISLAND",
