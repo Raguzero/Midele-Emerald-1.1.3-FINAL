@@ -6,6 +6,7 @@
 #include "frontier_util.h"
 #include "battle_pyramid_bag.h"
 #include "berry_tag_screen.h"
+#include "boss_battles.h"
 #include "bg.h"
 #include "constants/items.h"
 #include "constants/songs.h"
@@ -50,6 +51,7 @@
 #include "window.h"
 #include "apprentice.h"
 #include "battle_pike.h"
+#include "constants/boss_battles.h"
 #include "constants/rgb.h"
 
 enum MenuActions
@@ -1431,9 +1433,16 @@ void SetUpBagMenuActionItems(u8 unused)
     {
         case 0:
         case 9:
-            if (ItemId_GetBattleUsage(gSpecialVar_ItemId))
+            // Midele: no permitir usar objetos con ITEM_BATTLE_USAGE_UNUSABLE_BOSS_BATTLE en
+            // boss battles.
+            if (ItemId_GetBattleUsage(gSpecialVar_ItemId) == ITEM_BATTLE_USAGE_UNUSABLE_BOSS_BATTLE && (gBossBattleFlags == BATTLE_TYPE_BOSS || gBossBattleFlags == BATTLE_TYPE_TOTEM))
             {
-             gBagMenu->unk820 = sInBattleItemMenuActions;
+                gBagMenu->unk820 = &sInBattleNullUsageMenuActions;
+                gBagMenu->unk828 = 1;
+            }
+            else if (ItemId_GetBattleUsage(gSpecialVar_ItemId))
+            {
+                gBagMenu->unk820 = sInBattleItemMenuActions;
                 gBagMenu->unk828 = NELEMS(sInBattleItemMenuActions);
             }
             else
@@ -1541,8 +1550,18 @@ void SetUpBagMenuActionItems(u8 unused)
 
                         break;
                     case BALLS_POCKET:
-                       gBagMenu->unk820 = sPokeBallMenuActions;
-                        gBagMenu->unk828 = NELEMS(sPokeBallMenuActions);
+                        // Midele: no permitir usar balls con ITEM_BATTLE_USAGE_UNUSABLE_BOSS_BATTLE en
+                        // boss battles.
+                        if (ItemId_GetBattleUsage(gSpecialVar_ItemId) == ITEM_BATTLE_USAGE_UNUSABLE_BOSS_BATTLE && (gBossBattleFlags == BATTLE_TYPE_BOSS || gBossBattleFlags == BATTLE_TYPE_TOTEM))
+                        {
+                            gBagMenu->unk820 = &sInBattleNullUsageMenuActions;
+                            gBagMenu->unk828 = 1;
+                        }
+                        else
+                        {
+                            gBagMenu->unk820 = sPokeBallMenuActions;
+                            gBagMenu->unk828 = NELEMS(sPokeBallMenuActions);
+                        }
                         break;
                     case TMHM_POCKET:
                         gBagMenu->unk820 = sTmHmMenuActions;

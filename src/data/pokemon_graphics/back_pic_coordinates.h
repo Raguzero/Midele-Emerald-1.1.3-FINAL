@@ -2993,6 +2993,11 @@ const struct MonCoords gMonBackPicCoords[] =
         .y_offset = 0x1,
     },
 // NUEVO POKES
+    [SPECIES_BOSS] =
+    {
+        .size = 0x64,
+        .y_offset = 0x0a,
+    },
     [SPECIES_EGG] =
     {
         .size = 0x36,

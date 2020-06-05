@@ -9,6 +9,7 @@
 #include "battle_pyramid.h"
 #include "battle_setup.h"
 #include "battle_tower.h"
+#include "boss_battles.h"
 #include "data.h"
 #include "event_data.h"
 #include "evolution_scene.h"
@@ -38,6 +39,7 @@
 #include "constants/abilities.h"
 #include "constants/battle_frontier.h"
 #include "constants/battle_move_effects.h"
+#include "constants/boss_battles.h"
 #include "constants/hold_effects.h"
 #include "constants/item_effects.h"
 #include "constants/items.h"
@@ -61,6 +63,9 @@ static void DecryptBoxMon(struct BoxPokemon *boxMon);
 static void sub_806E6CC(u8 taskId);
 static u16 GiveMoveToBoxMon(struct BoxPokemon *boxMon, u16 move);
 static bool8 ShouldSkipFriendshipChange(void);
+static void BossBattleToMon(struct Pokemon *mon, u16 battleBossId);
+static void BossToMon(struct Pokemon *mon, u16 battleBossId);
+static void TotemToMon(struct Pokemon *mon, u16 battleBossId);
 
 // EWRAM vars
 EWRAM_DATA static u8 sLearningMoveTableID = 0;
@@ -1913,6 +1918,11 @@ const s8 gNatureStatTable[][NUM_EV_STATS] =
 #include "data/pokemon/level_up_learnsets.h"
 #include "data/pokemon/evolution.h"
 #include "data/pokemon/level_up_learnset_pointers.h"
+#include "data/boss_battles/boss_names.h"
+#include "data/boss_battles/boss_pics.h"
+#include "data/boss_battles/bosses.h"
+#include "data/boss_battles/totems.h"
+#include "data/boss_battles/battles.h"
 
 // SPECIES_NONE are ignored in the following two tables, so decrement before accessing these arrays to get the right result
 
@@ -3564,6 +3574,74 @@ void CreateObedientEnemyMon(void)
     }
 }
 
+/*
+    Crea un boss o totem de boss battle.
+    El ID de esta se obtendrá de gSpecialVar_0x8004.
+*/
+void CreateBossBattleMon(void)
+{
+    u16 bossBattleId = gSpecialVar_0x8004;
+    ZeroEnemyPartyMons();
+    BossBattleToMon(&gEnemyParty[0], bossBattleId); 
+}
+
+static void BossBattleToMon(struct Pokemon *mon, u16 bossBattleId)
+{
+    u8 battleType = gBossBattles[bossBattleId].battleType;
+    switch (battleType) {
+        case BATTLE_TYPE_BOSS:
+            BossToMon(mon, bossBattleId);
+            break;
+        case BATTLE_TYPE_TOTEM:
+        default:
+            TotemToMon(mon, bossBattleId);
+            break;
+    }
+}
+
+static void BossToMon(struct Pokemon *mon, u16 bossBattleId)
+{
+    u8 i;
+    u8 bossId = gBossBattles[bossBattleId].boss.bossId;
+    CreateMon(mon, SPECIES_BOSS, gBosses[bossId].level, 31, 0, 0, 0, 0);
+    mon->hp = gBosses[bossId].hp;
+    mon->maxHP = gBosses[bossId].hp;
+    mon->attack = gBosses[bossId].attack;
+    mon->defense = gBosses[bossId].defense;
+    mon->spAttack = gBosses[bossId].spAttack;
+    mon->spDefense = gBosses[bossId].spDefense;
+    mon->speed = gBosses[bossId].speed;
+    
+    SetMonData(mon, MON_DATA_NICKNAME, gBosses[bossId].name);
+    for (i = 0; i < MAX_MON_MOVES; i++) {
+        u16 move = gBosses[bossId].moves[i];
+        u8 pp = gBattleMoves[move].pp;
+        SetMonData(mon, MON_DATA_MOVE1+i, &move);
+        SetMonData(mon, MON_DATA_PP1+i, &pp);
+    }
+    SetMonData(mon, MON_DATA_HELD_ITEM, &gBosses[bossId].item);
+}
+
+static void TotemToMon(struct Pokemon *mon, u16 bossBattleId)
+{
+    u8 i;
+    u8 totemId = gBossBattles[bossBattleId].boss.totemId;
+    CreateMonWithNature(mon, gTotemMons[totemId].species, gTotemMons[totemId].level, 31, gTotemMons[totemId].nature);
+    for (i = 0; i < MAX_MON_MOVES; i++) {
+        u16 move = gTotemMons[totemId].moves[i];
+        u8 pp = gBattleMoves[move].pp;
+        SetMonData(mon, MON_DATA_MOVE1+i, &move);
+        SetMonData(mon, MON_DATA_PP1+i, &pp);
+    }
+    
+    SetMonData(mon, MON_DATA_HELD_ITEM, &gTotemMons[totemId].item);
+    SetMonData(mon, MON_DATA_ABILITY_NUM, &gTotemMons[totemId].abilityNumber);
+    for (i = 0; i < NUM_STATS; i++)
+    {
+        SetMonData(mon, MON_DATA_HP_EV + i, &gTotemMons[totemId].evs[i]);
+    }
+}
+
 static u16 CalculateBoxMonChecksum(struct BoxPokemon *boxMon)
 {
     u16 checksum = 0;
@@ -4026,7 +4104,6 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 
         damage = damage * gBattleMovePower;
         damage *= (2 * attacker->level / 5 + 2);
-
         if (gCritMultiplier == 2)
         {
             if (defender->statStages[STAT_DEF] < 6)
@@ -7763,7 +7840,8 @@ bool8 HasTwoFramesAnimation(u16 species)
 			&& species != SPECIES_LYCANROC_DUSK
 			&& species != SPECIES_FLOETTE
 			&& species != SPECIES_MILCERY
-            && species != SPECIES_ALCREMIE);
+            && species != SPECIES_ALCREMIE
+            && species != SPECIES_BOSS);
 }
 
 static bool8 ShouldSkipFriendshipChange(void)

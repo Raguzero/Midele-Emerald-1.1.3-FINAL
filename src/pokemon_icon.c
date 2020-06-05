@@ -625,6 +625,7 @@ const u8 *const gMonIconTable[] =
 	[SPECIES_SERPERIOR] = gMonIcon_Serperior,
 	[SPECIES_MILCERY] = gMonIcon_Milcery,
 	[SPECIES_ALCREMIE] = gMonIcon_Alcremie,
+    [SPECIES_BOSS] = gMonIcon_Bulbasaur,
     [SPECIES_EGG] = gMonIcon_Egg,
     [SPECIES_UNOWN_B] = gMonIcon_UnownB,
     [SPECIES_UNOWN_C] = gMonIcon_UnownC,
@@ -1240,6 +1241,7 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_MILCERY] = 1,
     [SPECIES_ALCREMIE] = 1,
 // NUEVOS POKES
+    [SPECIES_BOSS] = 1,
     [SPECIES_EGG] = 1,
     [SPECIES_UNOWN_B] = 0,
     [SPECIES_UNOWN_C] = 0,

@@ -2,6 +2,7 @@
 #include "battle.h"
 #include "battle_setup.h"
 #include "battle_transition.h"
+#include "boss_battles.h"
 #include "main.h"
 #include "task.h"
 #include "safari_zone.h"
@@ -39,6 +40,7 @@
 #include "data.h"
 #include "constants/battle_frontier.h"
 #include "constants/battle_setup.h"
+#include "constants/boss_battles.h"
 #include "constants/game_stat.h"
 #include "constants/items.h"
 #include "constants/songs.h"
@@ -531,6 +533,31 @@ void BattleSetup_StartLegendaryBattle(void)
     TryUpdateGymLeaderRematchFromWild();
 }
 
+/*
+    Inicia un combate de boss battle.
+    Recibe la ID de la boss battle en gSpecialVar_0x8004.
+*/
+void BattleSetup_StartBossBattle(void) {
+    u16 bossBattleId = gSpecialVar_0x8004;
+    ScriptContext2_Enable();
+    gMain.savedCallback = CB2_EndScriptedWildBattle;
+    gBattleTypeFlags = BATTLE_TYPE_LEGENDARY;
+    gBossBattleFlags = gBossBattles[bossBattleId].battleType;
+    if (gBossBattleFlags ==  BATTLE_TYPE_BOSS)
+    {
+        gBossOrTotemId = gBossBattles[bossBattleId].boss.bossId;
+    } 
+    else
+    {
+        gBossOrTotemId = gBossBattles[bossBattleId].boss.totemId;
+    }
+    CreateBattleStartTask(B_TRANSITION_BLUR, gBossBattles[bossBattleId].music);
+    IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
+    IncrementGameStat(GAME_STAT_WILD_BATTLES);
+    IncrementDailyWildBattles();
+    TryUpdateGymLeaderRematchFromWild();
+}
+
 void StartGroudonKyogreBattle(void)
 {
     ScriptContext2_Enable();
@@ -601,7 +628,10 @@ static void CB2_EndScriptedWildBattle(void)
 {
     CpuFill16(0, (void*)(BG_PLTT), BG_PLTT_SIZE);
     ResetOamRange(0, 128);
-
+    
+    // Midele: Reinicia gBossBattleFlags al terminar el combate. 
+    gBossBattleFlags = BATTLE_TYPE_NORMAL;
+    gBossOrTotemId = 0;
     if (IsPlayerDefeated(gBattleOutcome) == TRUE)
     {
         if (InBattlePyramid())

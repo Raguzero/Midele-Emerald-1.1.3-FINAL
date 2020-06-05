@@ -12,6 +12,7 @@
 #include "battle_setup.h"
 #include "battle_tower.h"
 #include "berry.h"
+#include "boss_battles.h"
 #include "bg.h"
 #include "data.h"
 #include "decompress.h"
@@ -51,6 +52,7 @@
 #include "constants/abilities.h"
 #include "constants/battle_move_effects.h"
 #include "constants/battle_string_ids.h"
+#include "constants/boss_battles.h"
 #include "constants/hold_effects.h"
 #include "constants/items.h"
 #include "constants/moves.h"
@@ -257,6 +259,10 @@ EWRAM_DATA struct BattleHealthboxInfo *gUnknown_020244DC = NULL;
 EWRAM_DATA u16 gBattleMovePower = 0;
 EWRAM_DATA u16 gMoveToLearn = 0;
 EWRAM_DATA u8 gBattleMonForms[MAX_BATTLERS_COUNT] = {0};
+
+// Midele: variables para boss battles.
+EWRAM_DATA u8 gBossBattleFlags = 0; // Indica el tipo de boss battle (constants/boss_battles.h)
+EWRAM_DATA u8 gBossOrTotemId = 0;   // Indica el ID del boss o totem (src/data/boss_battles/)
 
 // IWRAM common vars
 void (*gPreBattleCallback1)(void);
@@ -3431,13 +3437,37 @@ static void BattleIntroDrawTrainersOrMonsSprites(void)
             for (i = 0; i < sizeof(struct BattlePokemon); i++)
                 ptr[i] = gBattleBufferB[gActiveBattler][4 + i];
 
-            gBattleMons[gActiveBattler].type1 = gBaseStats[gBattleMons[gActiveBattler].species].type1;
-            gBattleMons[gActiveBattler].type2 = gBaseStats[gBattleMons[gActiveBattler].species].type2;
-            gBattleMons[gActiveBattler].ability = GetAbilityBySpecies(gBattleMons[gActiveBattler].species, gBattleMons[gActiveBattler].abilityNum);
+            // Midele: aplicar los datos correctos al enemigo si se está en una boss battle.
+            if (gBossBattleFlags == BATTLE_TYPE_BOSS && gActiveBattler == 1)
+            {
+                gBattleMons[gActiveBattler].attack = gBosses[gBossOrTotemId].attack;
+                gBattleMons[gActiveBattler].defense = gBosses[gBossOrTotemId].defense;
+                gBattleMons[gActiveBattler].speed = gBosses[gBossOrTotemId].speed;
+                gBattleMons[gActiveBattler].spAttack = gBosses[gBossOrTotemId].spAttack;
+                gBattleMons[gActiveBattler].spDefense = gBosses[gBossOrTotemId].spDefense;
+                gBattleMons[gActiveBattler].type1 = gBosses[gBossOrTotemId].type1;
+                gBattleMons[gActiveBattler].type2 = gBosses[gBossOrTotemId].type2;
+                gBattleMons[gActiveBattler].ability = gBosses[gBossOrTotemId].ability;
+            }
+            else 
+            {
+                gBattleMons[gActiveBattler].type1 = gBaseStats[gBattleMons[gActiveBattler].species].type1;
+                gBattleMons[gActiveBattler].type2 = gBaseStats[gBattleMons[gActiveBattler].species].type2;
+                gBattleMons[gActiveBattler].ability = GetAbilityBySpecies(gBattleMons[gActiveBattler].species, gBattleMons[gActiveBattler].abilityNum);
+            }
             hpOnSwitchout = &gBattleStruct->hpOnSwitchout[GetBattlerSide(gActiveBattler)];
             *hpOnSwitchout = gBattleMons[gActiveBattler].hp;
             for (i = 0; i < NUM_BATTLE_STATS; i++)
-                gBattleMons[gActiveBattler].statStages[i] = 6;
+            {
+                // Midele: en combate de totem, aplicar los cambios en los stats al enemigo.
+                if (gBossBattleFlags == BATTLE_TYPE_TOTEM && gActiveBattler == 1)
+                {
+                    gBattleMons[gActiveBattler].statStages[i] = gTotemMons[gBossOrTotemId].statBoosts[i];
+                } else 
+                {
+                    gBattleMons[gActiveBattler].statStages[i] = 6;
+                }
+            }
             gBattleMons[gActiveBattler].status2 = 0;
         }
 
@@ -3921,6 +3951,14 @@ static void TryDoEventsBeforeFirstTurn(void)
     s32 i;
     s32 j;
     u8 effect = 0;
+
+    // Midele: en combate contra totem, mostrar la animación del aura al inicio del combate.
+    if (gBossBattleFlags == BATTLE_TYPE_TOTEM)
+    {
+        gBattleScripting.animArg1 = 0x14;
+        gBattleScripting.animArg2 = 0;
+        BattleScriptExecute(BattleScript_TotemAura);
+    }
 
     if (gBattleControllerExecFlags)
         return;
@@ -5679,7 +5717,12 @@ bool8 TryRunFromBattle(u8 battler)
 
     gPotentialItemEffectBattler = battler;
 
-    if (holdEffect == HOLD_EFFECT_CAN_ALWAYS_RUN)
+    // Midele: Evitar huida en combate contra Totem o Boss.
+    if (gBossBattleFlags == BATTLE_TYPE_BOSS || gBossBattleFlags ==  BATTLE_TYPE_TOTEM) 
+    {
+        return effect;
+    }
+    else if (holdEffect == HOLD_EFFECT_CAN_ALWAYS_RUN)
     {
         gLastUsedItem = gBattleMons[battler].item;
         gProtectStructs[battler].fleeFlag = 1;

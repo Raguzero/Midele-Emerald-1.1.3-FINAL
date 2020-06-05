@@ -222,6 +222,7 @@ extern const u8 BattleScript_RunByUsingItem[];
 extern const u8 BattleScript_ActionWatchesCarefully[];
 extern const u8 BattleScript_ActionGetNear[];
 extern const u8 BattleScript_ActionThrowPokeblock[];
+extern const u8 BattleScript_TotemAura[];
 // NUEVO HABILIDADES
 extern const u8 BattleScript_SnowWarningActivates[];
 extern const u8 BattleScript_IceBodyActivates[];

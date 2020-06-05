@@ -8004,5 +8004,6 @@ static const u32 sTutorLearnsets[] =
     [SPECIES_ALCREMIE]     = (TUTOR(MOVE_SLEEP_TALK)
 											| TUTOR(MOVE_SNORE)
 											| TUTOR(MOVE_SUBSTITUTE)
-											| TUTOR(MOVE_ENDURE)),												
+											| TUTOR(MOVE_ENDURE)),
+    [SPECIES_BOSS]             = (0),												
 };

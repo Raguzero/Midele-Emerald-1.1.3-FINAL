@@ -322,5 +322,6 @@ const u16 gSpeciesIdToCryId[] =
     [SPECIES_ALCREMIE - 277] = 532,
     [SPECIES_G_KINGLER - 277] = 98,
     [SPECIES_G_BUTTERFREE - 277] = 11,
+    [SPECIES_BOSS - 277] = 0,
 // NUEVO POKES
 };

@@ -499,6 +499,9 @@
 #define GOLDEN_CANDY_LEVELS 20 
 #define RARE_CANDY_LEVELS   1
 
+// NUEVO: objeto que no puede ser usado en boss battles.
+#define ITEM_BATTLE_USAGE_UNUSABLE_BOSS_BATTLE 1
+
 // Check if the item is one that can be used on a Pokemon.
 #define ITEM_HAS_EFFECT(item) ((item) >= ITEM_POTION && (item) <= ITEM_UP_GRADE)
 

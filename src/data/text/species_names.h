@@ -598,5 +598,6 @@ const u8 gSpeciesNames[][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_SERPERIOR] = _("SERPERIOR"),
     [SPECIES_MILCERY] = _("MILCERY"),
     [SPECIES_ALCREMIE] = _("ALCREMIE"),
+    [SPECIES_BOSS] = _("??????????"),
 // NUEVO POKES
 };

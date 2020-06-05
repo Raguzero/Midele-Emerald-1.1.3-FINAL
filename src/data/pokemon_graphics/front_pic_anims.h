@@ -9742,6 +9742,7 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(MILCERY),
     ANIM_CMD(ALCREMIE),
 // NUEVO PARA FORMAS ALOLA
+    ANIM_CMD_FULL(BOSS, sAnims_WOOLOO),
     ANIM_CMD(EGG),
     ANIM_CMD(UNOWN_B),
     ANIM_CMD(UNOWN_C),

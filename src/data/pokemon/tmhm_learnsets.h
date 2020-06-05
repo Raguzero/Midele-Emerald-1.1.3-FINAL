@@ -13997,4 +13997,5 @@ const u32 gTMHMLearnsets[][2] =
 											| TMHM(TM27_RETURN)
 											| TMHM(TM21_FRUSTRATION)
 											| TMHM(TM44_REST)),
+    [SPECIES_BOSS  ]        = TMHM_LEARNSET(0),
 };

@@ -5,6 +5,7 @@
 #include "battle_message.h"
 #include "battle_setup.h"
 #include "battle_tower.h"
+#include "boss_battles.h"
 #include "data.h"
 #include "event_data.h"
 #include "frontier_util.h"
@@ -20,6 +21,7 @@
 #include "trainer_hill.h"
 #include "window.h"
 #include "constants/battle_string_ids.h"
+#include "constants/boss_battles.h"
 #include "constants/frontier_util.h"
 #include "constants/items.h"
 #include "constants/moves.h"
@@ -291,6 +293,7 @@ static const u8 sText_ImposterTransform[] = _("{B_ATK_NAME_WITH_PREFIX} transfor
 static const u8 sText_CursedBodyDisabled[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_BUFF1} was disabled\nby {B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY}!");
 static const u8 sText_DrySkinDmg[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_ATK_ABILITY} caused damage \nfrom the sun's rays!");
 // NUEVO HABILIDADES
+static const u8 sText_TotemAura[] = _("Totem {B_OPPONENT_MON1_NAME}'s aura flared to life!");
 static const u8 sText_PkmnsXIntensifiedSun[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\nintensified the sun's rays!");
 static const u8 sText_PkmnsXPreventsYLoss[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\nprevents {B_BUFF1} loss!");
 static const u8 sText_PkmnsXInfatuatedY[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY}\ninfatuated {B_ATK_NAME_WITH_PREFIX}!");
@@ -389,6 +392,8 @@ static const u8 sText_OutOfSafariBalls[] = _("{PLAY_SE 0x0049}ANNOUNCER: You're 
 static const u8 sText_OpponentMon1Appeared[] = _("{B_OPPONENT_MON1_NAME} appeared!\p");
 static const u8 sText_WildPkmnAppeared[] = _("Wild {B_OPPONENT_MON1_NAME} appeared!\p");
 static const u8 sText_WildPkmnAppeared2[] = _("Wild {B_OPPONENT_MON1_NAME} appeared!\p");
+static const u8 sText_BossBlocksTheWay[]  = _("BOSS {B_OPPONENT_MON1_NAME} blocks the way!\p");
+static const u8 sText_TotemPkmnAppeared[]  = _("Totem {B_OPPONENT_MON1_NAME} appeared!\p");
 static const u8 sText_WildPkmnAppearedPause[] = _("Wild {B_OPPONENT_MON1_NAME} appeared!{PAUSE 127}");
 static const u8 sText_TwoWildPkmnAppeared[] = _("Wild {B_OPPONENT_MON1_NAME} and\n{B_OPPONENT_MON2_NAME} appeared!\p");
 static const u8 sText_Trainer1WantsToBattle[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME}\nwould like to battle!\p");
@@ -417,6 +422,8 @@ static const u8 sText_Trainer1WithdrewPkmn[] = _("{B_TRAINER1_CLASS} {B_TRAINER1
 static const u8 sText_LinkTrainer1WithdrewPkmn[] = _("{B_LINK_OPPONENT1_NAME} withdrew\n{B_BUFF1}!");
 static const u8 sText_LinkTrainer2WithdrewPkmn[] = _("{B_LINK_SCR_TRAINER_NAME} withdrew\n{B_BUFF1}!");
 static const u8 sText_WildPkmnPrefix[] = _("Wild ");
+static const u8 sText_BossPkmnPrefix[] = _("BOSS ");
+static const u8 sText_TotemPkmnPrefix[] = _("Totem ");
 static const u8 sText_FoePkmnPrefix[] = _("Foe ");
 static const u8 sText_EmptyString8[] = _("");
 static const u8 sText_FoePkmnPrefix2[] = _("Foe");
@@ -893,6 +900,7 @@ const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 	[STRINGID_IMPOSTERTRANSFORM - 12] = sText_ImposterTransform,
 	[STRINGID_CUSEDBODYDISABLED - 12] = sText_CursedBodyDisabled,
 	[STRINGID_DRYSKIN - 12] = sText_DrySkinDmg,
+    [STRINGID_TOTEM_AURA - 12] = sText_TotemAura,
 	// NUEVO HABILIDADES
 };
 
@@ -2016,7 +2024,16 @@ void BufferStringBattle(u16 stringID)
         }
         else
         {
-            if (gBattleTypeFlags & BATTLE_TYPE_LEGENDARY)
+            // Midele: cambiar el texto inicial de acuerdo al tipo de boss battle.
+            if (gBossBattleFlags == BATTLE_TYPE_BOSS)
+            {
+                stringPtr = sText_BossBlocksTheWay;
+            }
+            else if (gBossBattleFlags == BATTLE_TYPE_TOTEM)
+            {
+                stringPtr = sText_TotemPkmnAppeared;
+            }
+            else if (gBattleTypeFlags & BATTLE_TYPE_LEGENDARY)
                 stringPtr = sText_WildPkmnAppeared2;
             else if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE) // interesting, looks like they had something planned for wild double battles
                 stringPtr = sText_TwoWildPkmnAppeared;
@@ -2282,7 +2299,15 @@ static const u8* TryGetStatusString(u8 *src)
 #define HANDLE_NICKNAME_STRING_CASE(battlerId, monIndex)                \
     if (GetBattlerSide(battlerId) != B_SIDE_PLAYER)                     \
     {                                                                   \
-        if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)                     \
+        if (gBossBattleFlags == BATTLE_TYPE_BOSS)                       \
+        {                                                               \
+            toCpy = sText_BossPkmnPrefix;                               \
+        }                                                               \
+        else if (gBossBattleFlags == BATTLE_TYPE_TOTEM)                 \
+        {                                                               \
+            toCpy = sText_TotemPkmnPrefix;                              \
+        }                                                               \
+        else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)                \
             toCpy = sText_FoePkmnPrefix;                                \
         else                                                            \
             toCpy = sText_WildPkmnPrefix;                               \

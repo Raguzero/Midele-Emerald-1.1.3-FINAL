@@ -4733,4 +4733,8 @@ BattleScript_EffectRecoil50:
 	setmoveeffect MOVE_EFFECT_RECOIL_50 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	goto BattleScript_EffectHit
 
-
+BattleScript_TotemAura::
+	playanimation BS_OPPONENT1, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printstring STRINGID_TOTEM_AURA
+	waitmessage 0x40
+	end3

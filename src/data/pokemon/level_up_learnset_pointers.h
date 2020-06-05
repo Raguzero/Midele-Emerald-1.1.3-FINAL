@@ -600,5 +600,6 @@ const u16 *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_SERPERIOR] = sSerperiorLevelUpLearnset,
     [SPECIES_MILCERY] = sMilceryLevelUpLearnset,
     [SPECIES_ALCREMIE] = sAlcremieLevelUpLearnset,
+    [SPECIES_BOSS] = sBulbasaurLevelUpLearnset,
 // NUEVO PARA FORMAS ALOLA
 };

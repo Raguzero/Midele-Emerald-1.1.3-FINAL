@@ -17124,5 +17124,10 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_VITAL_SPIRIT, ABILITY_NONE}, // ---> Sweet Veil
 		.bodyColor = BODY_COLOR_WHITE,
 	},
+    [SPECIES_BOSS] =
+    {
+        .genderRatio = MON_GENDERLESS,
+        .friendship = 0,
+    },
 // NUEVO POKES
 };
