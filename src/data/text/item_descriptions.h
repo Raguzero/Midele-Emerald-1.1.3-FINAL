@@ -1044,6 +1044,16 @@ static const u8 sDestinyKnotDesc[] = _(
     "A hold item that\n"
     "improves breeding\n"
     "IV inheritance.");
+	
+static const u8 sChoiceScarfDesc[] = _(
+    "Boosts Speed, but\n"
+    "allows the use of\n"
+    "only one move.");
+
+static const u8 sChoiceSpecsDesc[] = _(
+    "Boosts Sp. Atk, but\n"
+    "allows the use of\n"
+    "only one move.");
 
 // Key items
 static const u8 sMachBikeDesc[] = _(

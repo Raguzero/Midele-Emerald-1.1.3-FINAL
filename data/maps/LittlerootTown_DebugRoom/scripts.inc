@@ -150,6 +150,8 @@ LittlerootTown_DebugRoom_Script_Vendedor::
 
     .align 2
 DebugShop::
+    .2byte ITEM_CHOICE_SCARF
+    .2byte ITEM_CHOICE_SPECS
     .2byte ITEM_SECRET_POTION
     .2byte ITEM_SWEET_HEART
     .2byte ITEM_GOLDEN_CANDY
