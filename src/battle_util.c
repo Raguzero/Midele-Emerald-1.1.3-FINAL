@@ -383,7 +383,8 @@ u8 TrySetCantSelectMoveBattleScript(void)
 
     gPotentialItemEffectBattler = gActiveBattler;
 
-    if (holdEffect == HOLD_EFFECT_CHOICE_BAND && *choicedMove != 0 && *choicedMove != 0xFFFF && *choicedMove != move)
+    if ((holdEffect == HOLD_EFFECT_CHOICE_BAND || holdEffect == HOLD_EFFECT_CHOICE_SCARF || holdEffect == HOLD_EFFECT_CHOICE_SPECS)
+	&& *choicedMove != 0 && *choicedMove != 0xFFFF && *choicedMove != move)
     {
         gCurrentMove = *choicedMove;
         gLastUsedItem = gBattleMons[gActiveBattler].item;
@@ -443,7 +444,8 @@ u8 CheckMoveLimitations(u8 battlerId, u8 unusableMoves, u8 check)
             unusableMoves |= gBitTable[i];
         if (gDisableStructs[battlerId].encoreTimer && gDisableStructs[battlerId].encoredMove != gBattleMons[battlerId].moves[i])
             unusableMoves |= gBitTable[i];
-        if (holdEffect == HOLD_EFFECT_CHOICE_BAND && *choicedMove != 0 && *choicedMove != 0xFFFF && *choicedMove != gBattleMons[battlerId].moves[i])
+        if ((holdEffect == HOLD_EFFECT_CHOICE_BAND || holdEffect == HOLD_EFFECT_CHOICE_SCARF || holdEffect == HOLD_EFFECT_CHOICE_SPECS) 
+		&& *choicedMove != 0 && *choicedMove != 0xFFFF && *choicedMove != gBattleMons[battlerId].moves[i])
             unusableMoves |= gBitTable[i];
     }
     return unusableMoves;
@@ -1865,6 +1867,15 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                             effect++;
                         }
                         break;
+                case WEATHER_SNOW:
+                    if (!(gBattleWeather & WEATHER_HAIL_ANY))
+                    {
+                        gBattleWeather = WEATHER_HAIL_ANY;
+                        gBattleScripting.animArg1 = B_ANIM_HAIL_CONTINUES;
+                        gBattleScripting.battler = battler;
+                        effect++;
+                    }
+                    break;
                     }
                 }
                 if (effect)
@@ -1885,6 +1896,16 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 effect++;
             }
             break;
+			case ABILITY_FRISK:
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
+                gSpecialStatuses[battler].switchInAbilityDone = 1;
+                BattleScriptPushCursorAndCallback(BattleScript_FriskActivates); // Try activate
+                gBattlerTarget = BATTLE_OPPOSITE(battler);
+                gBattlerAttacker = battler;
+				effect++;
+            }
+            return effect; // Note: It returns effect as to not record the ability if Frisk does not activate.
             case ABILITY_DRIZZLE:
                 if (!(gBattleWeather & WEATHER_RAIN_PERMANENT))
                 {
@@ -3593,4 +3614,14 @@ bool32 IsBattlerAlive(u8 battlerId)
         return FALSE;
 	else
 		return TRUE;
+}
+
+u32 GetBattlerHoldEffect(u8 battlerId, bool32 checkNegating)
+{
+    gPotentialItemEffectBattler = battlerId;
+
+    if (gBattleMons[battlerId].item == ITEM_ENIGMA_BERRY)
+        return gEnigmaBerries[battlerId].holdEffect;
+    else
+        return ItemId_GetHoldEffect(gBattleMons[battlerId].item);
 }

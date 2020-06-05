@@ -27,6 +27,7 @@
 #include "constants/moves.h"
 #include "constants/trainers.h"
 #include "constants/trainer_hill.h"
+#include "constants/species.h"
 
 struct BattleWindowText
 {
@@ -292,6 +293,7 @@ static const u8 sText_AttackerAquiredAbility[] = _("{B_ATK_NAME_WITH_PREFIX} acq
 static const u8 sText_ImposterTransform[] = _("{B_ATK_NAME_WITH_PREFIX} transformed into\n{B_DEF_NAME_WITH_PREFIX} using IMPOSTER!");
 static const u8 sText_CursedBodyDisabled[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_BUFF1} was disabled\nby {B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY}!");
 static const u8 sText_DrySkinDmg[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_ATK_ABILITY} caused damage \nfrom the sun's rays!");
+static const u8 sText_FriskActivates[] = _("{B_ATK_NAME_WITH_PREFIX} frisked {B_DEF_NAME_WITH_PREFIX} and\nfound its {B_LAST_ITEM}!");
 // NUEVO HABILIDADES
 static const u8 sText_TotemAura[] = _("Totem {B_OPPONENT_MON1_NAME}'s aura flared to life!");
 static const u8 sText_PkmnsXIntensifiedSun[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\nintensified the sun's rays!");
@@ -900,6 +902,7 @@ const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 	[STRINGID_IMPOSTERTRANSFORM - 12] = sText_ImposterTransform,
 	[STRINGID_CUSEDBODYDISABLED - 12] = sText_CursedBodyDisabled,
 	[STRINGID_DRYSKIN - 12] = sText_DrySkinDmg,
+    [STRINGID_FRISKACTIVATES - 12] = sText_FriskActivates,
     [STRINGID_TOTEM_AURA - 12] = sText_TotemAura,
 	// NUEVO HABILIDADES
 };
@@ -1104,7 +1107,7 @@ const u16 gWeatherContinuesStringIds[] =
 {
     STRINGID_ITISRAINING, STRINGID_ITISRAINING, STRINGID_ITISRAINING,
     STRINGID_ITISRAINING, STRINGID_ITISRAINING, STRINGID_ITISRAINING,
-    STRINGID_ITISRAINING, STRINGID_ITISRAINING, STRINGID_SANDSTORMISRAGING,
+    STRINGID_ITISRAINING, STRINGID_STARTEDHAIL, STRINGID_SANDSTORMISRAGING,
     STRINGID_ITISRAINING, STRINGID_ITISRAINING, STRINGID_ITISRAINING,
     STRINGID_SUNLIGHTSTRONG, STRINGID_ITISRAINING, STRINGID_ITISRAINING, STRINGID_ITISRAINING
 };
@@ -2244,6 +2247,9 @@ void BufferStringBattle(u16 stringID)
             }
         }
         break;
+ case STRINGID_TRAINERSLIDE:
+        stringPtr = gBattleStruct->trainerSlideMsg;
+        break;
     default: // load a string from the table
         if (stringID >= BATTLESTRINGS_COUNT + BATTLESTRINGS_ID_ADDER)
         {
@@ -3085,4 +3091,88 @@ u8 GetCurrentPpToMaxPpState(u8 currentPp, u8 maxPp)
     }
 
     return 0;
+}
+
+struct TrainerSlide
+{
+    u16 trainerId;
+    const u8 *msgLastSwitchIn;
+    const u8 *msgLastLowHp;
+    const u8 *msgFirstDown;
+};
+
+static const struct TrainerSlide sTrainerSlides[] =
+{
+    {TRAINER_WALLACE_2, sText_AarghAlmostHadIt, sText_BoxIsFull, sText_123Poof},
+};
+
+static u32 GetEnemyMonCount(bool32 onlyAlive)
+{
+    u32 i, count = 0;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        u32 species = GetMonData(&gEnemyParty[i], MON_DATA_SPECIES2, NULL);
+        if (species != SPECIES_NONE
+            && species != SPECIES_EGG
+            && (!onlyAlive || GetMonData(&gEnemyParty[i], MON_DATA_HP, NULL)))
+            count++;
+    }
+
+    return count;
+}
+
+static bool32 IsBattlerHpLow(u32 battler)
+{
+    if ((gBattleMons[battler].hp * 100) / gBattleMons[battler].maxHP < 25)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool32 ShouldDoTrainerSlide(u32 battlerId, u32 trainerId, u32 which)
+{
+    s32 i;
+
+    if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER) || GetBattlerSide(battlerId) != B_SIDE_OPPONENT)
+        return FALSE;
+
+    for (i = 0; i < ARRAY_COUNT(sTrainerSlides); i++)
+    {
+        if (trainerId == sTrainerSlides[i].trainerId)
+        {
+            gBattleScripting.battler = battlerId;
+            switch (which)
+            {
+            case TRAINER_SLIDE_LAST_SWITCHIN:
+                if (sTrainerSlides[i].msgLastSwitchIn != NULL && GetEnemyMonCount(TRUE) == 1)
+                {
+                    gBattleStruct->trainerSlideMsg = sTrainerSlides[i].msgLastSwitchIn;
+                    return TRUE;
+                }
+                break;
+            case TRAINER_SLIDE_LAST_LOW_HP:
+                if (sTrainerSlides[i].msgLastLowHp != NULL
+                    && GetEnemyMonCount(TRUE) == 1
+                    && IsBattlerHpLow(battlerId)
+                    && !gBattleStruct->trainerSlideLowHpMsgDone)
+                {
+                    gBattleStruct->trainerSlideLowHpMsgDone = TRUE;
+                    gBattleStruct->trainerSlideMsg = sTrainerSlides[i].msgLastLowHp;
+                    return TRUE;
+                }
+                break;
+            case TRAINER_SLIDE_FIRST_DOWN:
+                if (sTrainerSlides[i].msgFirstDown != NULL && GetEnemyMonCount(TRUE) == GetEnemyMonCount(FALSE) - 1)
+                {
+                    gBattleStruct->trainerSlideMsg = sTrainerSlides[i].msgFirstDown;
+                    return TRUE;
+                }
+                break;
+            }
+            break;
+        }
+    }
+
+    return FALSE;
 }

@@ -19,7 +19,10 @@ static const u16 sFrontierExchangeCorner_Decor2[] =
     DECOR_SNORLAX_DOLL, 
     DECOR_VENUSAUR_DOLL, 
     DECOR_CHARIZARD_DOLL, 
-    DECOR_BLASTOISE_DOLL, 
+    DECOR_BLASTOISE_DOLL,
+	DECOR_REGIROCK_DOLL,
+	DECOR_REGICE_DOLL,
+	DECOR_REGISTEEL_DOLL,
     0xFFFF 
 };
 
@@ -70,6 +73,9 @@ static const u8 *const sFrontierExchangeCorner_Decor2Descriptions[] =
     BattleFrontier_ExchangeServiceCorner_Text_LargeDollDesc,
     BattleFrontier_ExchangeServiceCorner_Text_LargeDollDesc,
     BattleFrontier_ExchangeServiceCorner_Text_LargeDollDesc,
+	BattleFrontier_ExchangeServiceCorner_Text_LargeDollDesc,
+	BattleFrontier_ExchangeServiceCorner_Text_LargeDollDesc,
+	BattleFrontier_ExchangeServiceCorner_Text_LargeDollDesc,
     gText_Exit
 };
 

@@ -2,7 +2,7 @@
 #define GUARD_CONSTANTS_BATTLE_STRING_IDS_H
 
 // NUEVO HABILIDADES
-#define BATTLESTRINGS_COUNT     375
+#define BATTLESTRINGS_COUNT     376
 // NUEVO HABILIDADES
 
 #define BATTLESTRINGS_ID_ADDER  12 // all battlestrings have its ID + 12, because first 5 are reserved
@@ -13,6 +13,7 @@
 #define STRINGID_SWITCHINMON    3
 #define STRINGID_USEDMOVE       4
 #define STRINGID_BATTLEEND      5
+#define STRINGID_TRAINERSLIDE  6
 
 // todo: make some of those names less vague: attacker/target vs pkmn, etc.
 #define STRINGID_TRAINER1LOSETEXT           12
@@ -390,7 +391,8 @@
 #define STRINGID_IMPOSTERTRANSFORM 383
 #define STRINGID_CUSEDBODYDISABLED 384
 #define STRINGID_DRYSKIN 385
+#define STRINGID_FRISKACTIVATES 386
 // NUEVO HABILIDADES
-#define STRINGID_TOTEM_AURA 386
+#define STRINGID_TOTEM_AURA 387
 
 #endif // GUARD_CONSTANTS_BATTLE_STRING_IDS_H

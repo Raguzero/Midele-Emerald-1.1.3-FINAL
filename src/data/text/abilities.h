@@ -99,6 +99,9 @@ static const u8 sAdaptabilityDescription[] = _("Boosts x2 same type attacks.");
 static const u8 sFurCoatDescription[] = _("x2 Defense.");
 static const u8 sFluffyDescription[] = _("Tougher but flammable.");
 static const u8 sToughClawsDescription[] = _("Boosts contact moves.");
+static const u8 sLightMetalDescription[] = _("Halves weight.");
+static const u8 sFlowerVeilDescription[] = _("Protects Grass-types.");
+static const u8 sFriskDescription[] = _("Checks a foe's item.");
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 {
@@ -203,6 +206,9 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_FUR_COAT] = _("FUR COAT"),
     [ABILITY_FLUFFY] = _("FLUFFY"),
     [ABILITY_TOUGH_CLAWS] = _("TOUGH CLAWS"),
+    [ABILITY_LIGHT_METAL] = _("LIGHT METAL"),
+    [ABILITY_FLOWER_VEIL] = _("FLOWER VEIL"),
+    [ABILITY_FRISK] = _("FRISK"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -308,4 +314,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_FUR_COAT] = sFurCoatDescription,
     [ABILITY_FLUFFY] = sFluffyDescription,
     [ABILITY_TOUGH_CLAWS] = sToughClawsDescription,
+    [ABILITY_LIGHT_METAL] = sLightMetalDescription,
+    [ABILITY_FLOWER_VEIL] = sFlowerVeilDescription,
+    [ABILITY_FRISK] = sFriskDescription,
 };

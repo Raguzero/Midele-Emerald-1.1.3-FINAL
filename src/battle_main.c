@@ -2008,7 +2008,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             case 0:
             {
                 const struct TrainerMonNoItemDefaultMoves *partyData = gTrainers[trainerNum].party.NoItemDefaultMoves;
-
+	
                 for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
                     nameHash += gSpeciesNames[partyData[i].species][j];
 
@@ -2073,10 +2073,38 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 	 case F_TRAINER_PARTY_CUSTOM_MIDELE:
             {
                 const struct TrainerMonCustomMidele *partyData = gTrainers[trainerNum].party.ItemCustomMidele;
-
+				
                 for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
                     nameHash += gSpeciesNames[partyData[i].species][j];
 
+		// NUEVO RANDOM BATTLE
+                if (FlagGet(FLAG_RYU_RANDOMBATTLE) == 1)
+                {
+                    u8 level = 100;
+				  u16 em1 = (Random() % (SPECIES_EGG - SPECIES_TREECKO + SPECIES_OLD_UNOWN_B));
+				if (em1 >= SPECIES_CELEBI) em1 += SPECIES_TREECKO - SPECIES_OLD_UNOWN_B;
+                    em1++;
+                    CreateMon(&gEnemyParty[i], em1, level, 31, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+                    break;
+                }
+		// NUEVO RANDOM BATTLE
+		
+		// NUEVO RANDOM BATTLE CC
+                if (FlagGet(FLAG_RYU_RANDOMBATTLECC) == 1)
+                {
+                    u8 level = 100;
+				  u16 em1 = (Random() % (SPECIES_EGG - SPECIES_TREECKO + SPECIES_OLD_UNOWN_B));
+				u16 pm1 = (Random() % (SPECIES_EGG - SPECIES_TREECKO + SPECIES_OLD_UNOWN_B));
+				if (em1 >= SPECIES_CELEBI) em1 += SPECIES_TREECKO - SPECIES_OLD_UNOWN_B;
+				if (pm1 >= SPECIES_CELEBI) pm1 += SPECIES_TREECKO - SPECIES_OLD_UNOWN_B;
+					em1++;
+					pm1++;
+                    CreateMon(&gEnemyParty[i], em1, level, 31, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+					CreateMon(&gPlayerParty[i], pm1, level, 31, FALSE, 0, OT_ID_PLAYER_ID, 0);
+                    break;
+                }
+		// NUEVO RANDOM BATTLE CC
+				
                 personalityValue += nameHash << 8;
                 fixedIV = partyData[i].iv;
                 CreateMonMidele(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, partyData[i].evs, partyData[i].nature, partyData[i].shiny, partyData[i].ability,
@@ -4132,6 +4160,8 @@ void BattleTurnPassed(void)
         BattleScriptExecute(BattleScript_82DB881);
     else if (gBattleTypeFlags & BATTLE_TYPE_ARENA && gBattleStruct->arenaTurnCounter == 0)
         BattleScriptExecute(BattleScript_ArenaTurnBeginning);
+    else if (ShouldDoTrainerSlide(GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT), gTrainerBattleOpponent_A, TRAINER_SLIDE_LAST_LOW_HP))
+        BattleScriptExecute(BattleScript_TrainerSlideMsgEnd2);
 }
 
 u8 IsRunningFromBattleImpossible(void)
@@ -4764,6 +4794,9 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
 
 	if (gBattleMons[battler1].item == ITEM_STICK && gBattleMons[battler1].species == SPECIES_FARFETCHD)
         speedBattler1 *= 1.5;
+	
+	if (gBattleMons[battler1].item == ITEM_CHOICE_SCARF)
+        speedBattler1 *= 1.5;
 
 	// BUFF FORECAST
 	 	if (gBattleMons[battler1].ability == ABILITY_FORECAST && ((gBattleWeather & WEATHER_RAIN_ANY)
@@ -4799,6 +4832,9 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
     }
 
 	if (gBattleMons[battler2].item == ITEM_STICK && gBattleMons[battler2].species == SPECIES_FARFETCHD)
+        speedBattler2 *= 1.5;
+	
+	if (gBattleMons[battler2].item == ITEM_CHOICE_SCARF)
         speedBattler2 *= 1.5;
 
 	// BUFF FORECAST

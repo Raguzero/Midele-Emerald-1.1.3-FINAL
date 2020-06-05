@@ -406,6 +406,8 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 ar
             break;
         if (TryGetAbilityInfluencedWildMonIndex(wildMonInfo->wildPokemon, TYPE_ELECTRIC, ABILITY_STATIC, &wildMonIndex))
             break;
+	        if (TryGetAbilityInfluencedWildMonIndex(wildMonInfo->wildPokemon, TYPE_FIRE, ABILITY_FLASH_FIRE, &wildMonIndex))
+            break;
 
         wildMonIndex = ChooseWildMonIndex_Land();
         break;
@@ -496,6 +498,10 @@ static bool8 DoWildEncounterRateTest(u32 encounterRate, bool8 ignoreAbility)
             encounterRate *= 2;
         else if (ability == ABILITY_SAND_VEIL && gSaveBlock1Ptr->weather == 8)
             encounterRate /= 2;
+		else if (ability == ABILITY_SNOW_CLOAK && gSaveBlock1Ptr->weather == 4)
+            encounterRate /= 2;
+		else if (ability == ABILITY_NO_GUARD)
+            encounterRate = encounterRate * 3 / 2;
     }
     if (encounterRate > 2880)
         encounterRate = 2880;

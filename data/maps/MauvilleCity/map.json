@@ -92,6 +92,42 @@
         }
     ],
     "coord_events": [
+        {
+            "elevation": 0,
+            "script": "MauvilleCity_BlockEasternPath1Trigger",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "1",
+            "x": 39,
+            "y": 8
+        },
+        {
+            "elevation": 0,
+            "script": "MauvilleCity_BlockEasternPath2Trigger",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "1",
+            "x": 39,
+            "y": 9
+        },
+        {
+            "elevation": 0,
+            "script": "MauvilleCity_BlockEasternPath3Trigger",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "1",
+            "x": 39,
+            "y": 10
+        },
+        {
+            "elevation": 0,
+            "script": "MauvilleCity_BlockEasternPath4Trigger",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "1",
+            "x": 39,
+            "y": 11
+        }
     ],
     "id": "MAP_MAUVILLE_CITY",
     "layout": "LAYOUT_MAUVILLE_CITY",
@@ -241,6 +277,19 @@
             "trainer_type": "0",
             "x": 12,
             "y": 14
+        },
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_DEVON_EMPLOYEE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "MauvilleCity_EventScript_IzabeIslandMan",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 39,
+            "y": 7
         }
     ],
     "region_map_section": "MAPSEC_MAUVILLE_CITY",

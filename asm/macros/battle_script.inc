@@ -1359,6 +1359,28 @@
 	various \battler, VARIOUS_PLAY_MOVE_ANIMATION
 	.2byte \move
 	.endm
+	
+	.macro tryhealpulse battler:req, ptr:req
+	various \battler, VARIOUS_TRY_HEAL_PULSE
+	.4byte \ptr
+	.endm
+
+	.macro handletrainerslidemsg battler, field
+	various \battler, VARIOUS_HANDLE_TRAINER_SLIDE_MSG
+	.byte \field
+	.endm
+	
+	.macro trytrainerslidefirstdownmsg battler
+	various \battler, VARIOUS_TRY_TRAINER_SLIDE_MSG_FIRST_OFF
+	.endm
+	
+	.macro trytrainerslidelastonmsg battler
+	various \battler, VARIOUS_TRY_TRAINER_SLIDE_MSG_LAST_ON
+	.endm
+	
+	.macro tryfriskmsg battler:req
+	various \battler, VARIOUS_TRY_FRISK
+	.endm
 
 @ helpful macros
 	.macro setstatchanger stat:req, stages:req, down:req

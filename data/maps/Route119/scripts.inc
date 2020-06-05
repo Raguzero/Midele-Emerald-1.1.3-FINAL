@@ -101,9 +101,7 @@ Route119_EventScript_BattleMayMudkip:: @ 81F455A
 	end
 
 Route119_EventScript_DefeatedMay:: @ 81F456A
-	msgbox Route119_Text_MayPresentForYou, MSGBOX_DEFAULT
-	call Route119_EventScript_GiveFlyHM
-	msgbox Route119_Text_MayExplainFly, MSGBOX_DEFAULT
+	msgbox Route119_Text_MayGoodBye, MSGBOX_DEFAULT
 	goto Route119_EventScript_RivalExitScottArrive
 	end
 
@@ -509,22 +507,9 @@ Route119_Text_MayDefeat: @ 81F4A98
 	.string "I was worried that you might be\n"
 	.string "struggling with your training.$"
 
-Route119_Text_MayPresentForYou: @ 81F4AF3
+Route119_Text_MayGoodBye: @ 81F4AF3
 	.string "MAY: But I had absolutely nothing to\n"
 	.string "worry about! Keep it up!\p"
-	.string "And, here! I have a present for you.$"
-
-Route119_Text_MayExplainFly: @ 81F4B56
-	.string "MAY: Use FLY, and your POKéMON will\n"
-	.string "instantly carry you to any town you've\l"
-	.string "already visited.\p"
-	.string "But, to use FLY, you have to get\n"
-	.string "the GYM BADGE from FORTREE CITY.\l"
-	.string "That's important, so don't forget.\p"
-	.string "You should FLY home and visit\n"
-	.string "LITTLEROOT for a change.\p"
-	.string "I bet your mom's worried about you,\n"
-	.string "{PLAYER}{KUN}.\p"
 	.string "Well, let's meet again somewhere!$"
 
 Route119_Text_BrendanIntro: @ 81F4C9A

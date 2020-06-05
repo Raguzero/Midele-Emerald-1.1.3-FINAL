@@ -2691,19 +2691,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_AmyAndLiv2[] = {
     .species = SPECIES_MINUN,
     }
 };
-// ??? ESTE ENTRENADOR DE ABAJO NO SE SABE DE DONDE SALE CON PLUSLE Y MINUN NV9 
-static const struct TrainerMonNoItemDefaultMoves sParty_AmyAndLiv3[] = {
-    {
-    .iv = 0,
-    .lvl = 9,
-    .species = SPECIES_PLUSLE,
-    },
-    {
-    .iv = 0,
-    .lvl = 9,
-    .species = SPECIES_MINUN,
-    }
-};
+
 static const struct TrainerMonNoItemDefaultMoves sParty_AmyAndLiv4[] = {
     {
     .iv = 20,
@@ -4282,7 +4270,8 @@ static const struct TrainerMonCustomMidele sParty_Clark[] = {
     .iv = 31,
     .lvl = 9,
     .species = SPECIES_LARVITAR,
-    .moves = {MOVE_BITE, MOVE_LEER, MOVE_TACKLE, MOVE_ROCK_THROW}
+	.ability = 1,
+    .moves = {MOVE_BITE, MOVE_SANDSTORM, MOVE_TACKLE, MOVE_ROCK_THROW}
     }
 };
 
@@ -4320,7 +4309,7 @@ static const struct TrainerMonCustomMidele sParty_Sarah[] = {
     .species = SPECIES_JIGGLYPUFF,
     .heldItem = ITEM_LEFTOVERS,
 	.evs = {24, 0, 0, 0, 0, 0},
-    .moves = {MOVE_SING, MOVE_KNOCK_OFF, MOVE_HELPING_HAND, MOVE_DOUBLE_SLAP}
+    .moves = {MOVE_SING, MOVE_KNOCK_OFF, MOVE_HELPING_HAND, MOVE_HEAL_PULSE}
     }
 };
 
@@ -4362,7 +4351,7 @@ static const struct TrainerMonCustomMidele sParty_Jerry1[] = {
     .species = SPECIES_RALTS,
 	.ability = 1,
 	.evs = {0, 0, 0, 24, 0, 0},
-    .moves = {MOVE_CONFUSION, MOVE_FAIRY_WIND, MOVE_CONFUSE_RAY, MOVE_HYPNOSIS}
+    .moves = {MOVE_CONFUSION, MOVE_FAIRY_WIND, MOVE_CONFUSE_RAY, MOVE_HEAL_PULSE}
     }
 };
 
@@ -5048,7 +5037,7 @@ static const struct TrainerMonCustomMidele sParty_Melina[] = {
     .lvl = 21,
     .species = SPECIES_FURRET,
 	.evs = {0, 0, 0, 0, 0, 48},
-    .moves = {MOVE_FURY_CUTTER, MOVE_QUICK_ATTACK, MOVE_HYPER_VOICE, MOVE_REVERSAL}
+    .moves = {MOVE_FURY_CUTTER, MOVE_QUICK_ATTACK, MOVE_HYPER_VOICE, MOVE_HELPING_HAND}
     }
 };
 
@@ -8531,7 +8520,7 @@ static const struct TrainerMonCustomMidele sParty_Edwin1[] = {
     .lvl = 18,
     .species = SPECIES_GALAR_PONYTA,
 	.evs = {48, 0, 0, 0, 0, 0},
-    .moves = {MOVE_CONFUSION, MOVE_FAIRY_WIND, MOVE_TACKLE, MOVE_DOUBLE_KICK}
+    .moves = {MOVE_CONFUSION, MOVE_FAIRY_WIND, MOVE_HEAL_PULSE, MOVE_DOUBLE_KICK}
     },
     {
     .iv = 31,
@@ -9188,6 +9177,16 @@ static const struct TrainerMonCustomMidele sParty_Daisuke[] = {
 	.evs = {0, 80, 0, 0, 0, 0},
     .moves = {MOVE_REVENGE, MOVE_AERIAL_ACE, MOVE_METAL_CLAW, MOVE_FURY_CUTTER}
     }
+};
+static const struct TrainerMonCustomMidele sParty_Perico[] = {
+        {
+        .lvl = 23,
+        .iv = 31,
+        .evs = {0, 40, 0, 40, 0, 0},
+        .species = SPECIES_FLYGON,
+		.heldItem = ITEM_SILK_SCARF,
+        .moves = {MOVE_SECRET_POWER, MOVE_FLY, MOVE_DRAGON_CLAW, MOVE_DIG},
+        }
 };
 // RUTA 111 NORTE
 
@@ -10280,7 +10279,7 @@ static const struct TrainerMonCustomMidele sParty_Sophie[] = {
 	.heldItem = ITEM_LEPPA_BERRY,
 	.nature = NATURE_RELAXED,
 	.evs = {80, 0, 0, 0, 0, 0},
-    .moves = {MOVE_METRONOME, MOVE_FOLLOW_ME, MOVE_NONE, MOVE_NONE}
+    .moves = {MOVE_METRONOME, MOVE_FOLLOW_ME, MOVE_HEAL_PULSE, MOVE_NONE}
     },
     {
     .iv = 31,
@@ -10959,7 +10958,7 @@ static const struct TrainerMonCustomMidele sParty_Marlene[] = {
     .species = SPECIES_SLOWPOKE,
 	.heldItem = ITEM_TWISTED_SPOON,
 	.evs = {0, 0, 0, 80, 0, 0},
-    .moves = {MOVE_BUBBLE_BEAM, MOVE_THUNDER_WAVE, MOVE_CONFUSION, MOVE_YAWN}
+    .moves = {MOVE_BUBBLE_BEAM, MOVE_THUNDER_WAVE, MOVE_CONFUSION, MOVE_HEAL_PULSE}
     },
     {
     .iv = 31,
@@ -13455,7 +13454,20 @@ static const struct TrainerMonItemCustomMoves sParty_Juan5[] = {
 // REVANCHA GYM LIDERES
 
 
-// ENTRENADOR BETA??
+// ENTRENADOR BETA NO USADOS
+static const struct TrainerMonNoItemDefaultMoves sParty_AmyAndLiv3[] = {
+    {
+    .iv = 0,
+    .lvl = 9,
+    .species = SPECIES_PLUSLE,
+    },
+    {
+    .iv = 0,
+    .lvl = 9,
+    .species = SPECIES_MINUN,
+    }
+};
+
 static const struct TrainerMonNoItemDefaultMoves sParty_GruntUnused[] = {
     {
     .iv = 0,
@@ -13538,10 +13550,10 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Terry[] = {
     .species = SPECIES_GIRAFARIG,
     }
 };
-// ENTRENADOR BETA??
+// ENTRENADOR BETA NO USADOS
 
 
-// ENTRENADORES QUE NO SE USAN DE FORMA NORMAL APARTIR DE AQUI:
+// ENTRENADORES QUE NO SE USAN DE FORMA NORMAL APARTIR DE AQUI
 static const struct TrainerMonNoItemDefaultMoves sParty_Anabel[] = {
     {
     .iv = 0,
@@ -13630,13 +13642,14 @@ static const struct TrainerMonNoItemDefaultMoves sParty_MayLinkPlaceholder[] = {
     }
 };
 
+////// NUEVOS ENTRENADORES A PARTIR DE AQUI ///////
 static const struct TrainerMonCustomMidele sParty_Debug[] = {
         {
         .lvl = 100,
         .iv = 31,
-        .evs = {6, 0, 0, 252, 0, 252},
-        .species = SPECIES_MEGA_BANETTE,
-        .moves = {MOVE_FRUSTRATION, MOVE_SUBSTITUTE, MOVE_PECK, MOVE_NONE},
+        .evs = {252, 0, 252, 0, 0, 0},
+        .species = SPECIES_WIGGLYTUFF,
+        .moves = {MOVE_LOW_KICK, MOVE_SUBSTITUTE, MOVE_PECK, MOVE_HEAL_PULSE},
         .heldItem = ITEM_LEFTOVERS,
         .ability = 1,
         .shiny = 1,
@@ -13647,11 +13660,77 @@ static const struct TrainerMonCustomMidele sParty_Debug[] = {
         .lvl = 100,
         .iv = 31,
         .evs = {252, 252, 6, 0, 0, 0},
-        .species = SPECIES_MUK,
-        .moves = {MOVE_FRUSTRATION, MOVE_PECK, MOVE_METAL_CLAW, MOVE_SUBSTITUTE},
+        .species = SPECIES_DUSKNOIR,
+        .moves = {MOVE_HEAL_PULSE, MOVE_PECK, MOVE_METAL_CLAW, MOVE_SUBSTITUTE},
         .heldItem = ITEM_LEFTOVERS,
         .ability = 1,
         .shiny = 1,
         .friendship = 0
         }
 };
+
+static const struct TrainerMonCustomMidele sParty_Random[] = {
+        {
+        .lvl = 100,
+        .iv = 31,
+        .species = SPECIES_WIGGLYTUFF
+        },
+        {
+        .lvl = 100,
+        .iv = 31,
+        .species = SPECIES_WIGGLYTUFF
+        },
+        {
+        .lvl = 100,
+        .iv = 31,
+        .species = SPECIES_WIGGLYTUFF
+        },
+        {
+        .lvl = 100,
+        .iv = 31,
+        .species = SPECIES_WIGGLYTUFF
+        },
+        {
+        .lvl = 100,
+        .iv = 31,
+        .species = SPECIES_WIGGLYTUFF
+        },
+        {
+        .lvl = 100,
+        .iv = 31,
+        .species = SPECIES_WIGGLYTUFF
+        },
+};
+
+// GRANITE CAVE (POKEMON ORAS)
+static const struct TrainerMonCustomMidele sParty_Omari[] = {
+    {
+    .iv = 31,
+    .lvl = 15,
+    .species = SPECIES_SANDSHREW,
+	.heldItem = ITEM_SOFT_SAND,
+	.evs = {0, 40, 0, 0, 0, 0},
+    .moves = {MOVE_METAL_CLAW, MOVE_RAPID_SPIN, MOVE_DEFENSE_CURL, MOVE_MUD_SLAP}
+    },
+    {
+    .iv = 31,
+    .lvl = 15,
+    .species = SPECIES_BALTOY,
+	.heldItem = ITEM_SOFT_SAND,
+	.evs = {0, 0, 0, 40, 0, 0},
+    .moves = {MOVE_CONFUSION, MOVE_RAPID_SPIN, MOVE_MUD_SLAP, MOVE_HARDEN}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_Davian[] = {
+    {
+    .iv = 31,
+    .lvl = 15,
+    .species = SPECIES_DUNSPARCE,
+	.heldItem = ITEM_SILK_SCARF,
+	.evs = {40, 0, 0, 0, 0, 0},
+    .moves = {MOVE_GLARE, MOVE_RAGE, MOVE_BITE, MOVE_COIL}
+    }
+};
+// GRANITE CAVE (POKEMON ORAS)
+

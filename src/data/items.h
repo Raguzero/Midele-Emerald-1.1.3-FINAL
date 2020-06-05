@@ -2890,24 +2890,26 @@ const struct Item gItems[] =
         .secondaryId = 0,
     },
 
-    [ITEM_0E2] =
+    [ITEM_CHOICE_SCARF] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
-        .price = 0,
-        .description = sDummyDesc,
+        .name = _("CHOICE SCARF"),
+        .itemId = ITEM_CHOICE_SCARF,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_CHOICE_SCARF,
+        .description = sChoiceScarfDesc,
         .pocket = POCKET_ITEMS,
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
     },
 
-    [ITEM_0E3] =
+    [ITEM_CHOICE_SPECS] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
-        .price = 0,
-        .description = sDummyDesc,
+        .name = _("CHOICE SPECS"),
+        .itemId = ITEM_CHOICE_SPECS,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_CHOICE_SPECS,
+        .description = sChoiceSpecsDesc,
         .pocket = POCKET_ITEMS,
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,

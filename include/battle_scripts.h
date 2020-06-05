@@ -231,6 +231,10 @@ extern const u8 BattleScript_ImposterActivates[];
 extern const u8 BattleScript_CursedBodyActivates[];
 extern const u8 BattleScript_DrySkinDmg[];
 extern const u8 BattleScript_WanderingSpiritActivates[];
+extern const u8 BattleScript_TrainerSlideMsgRet[];
+extern const u8 BattleScript_TrainerSlideMsgEnd2[];
+extern const u8 BattleScript_FriskActivates[];
+extern const u8 BattleScript_FriskMsg[];
 // NUEVO HABILIDADES
 
 #endif // GUARD_BATTLE_SCRIPTS_H

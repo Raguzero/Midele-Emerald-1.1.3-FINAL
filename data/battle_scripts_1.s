@@ -234,6 +234,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectQuiverDance
 	.4byte BattleScript_EffectCoil
 	.4byte BattleScript_EffectRecoil50
+	.4byte BattleScript_EffectHealPulse
 
 BattleScript_EffectSpeedUp::
 BattleScript_EffectSpecialDefenseUp::
@@ -2846,6 +2847,7 @@ BattleScript_FaintAttacker::
 	dofaintanimation BS_ATTACKER
 	cleareffectsonfaint BS_ATTACKER
 	printstring STRINGID_ATTACKERFAINTED
+	trytrainerslidefirstdownmsg BS_ATTACKER
 	return
 
 BattleScript_FaintTarget::
@@ -2854,6 +2856,7 @@ BattleScript_FaintTarget::
 	dofaintanimation BS_TARGET
 	cleareffectsonfaint BS_TARGET
 	printstring STRINGID_TARGETFAINTED
+	trytrainerslidefirstdownmsg BS_TARGET
 	return
 
 BattleScript_GiveExp::
@@ -2919,6 +2922,7 @@ BattleScript_FaintedMonChooseAnother::
 	switchinanim BS_FAINTED, FALSE
 	waitstate
 	various7 BS_ATTACKER
+	trytrainerslidelastonmsg BS_FAINTED
 	switchineffects BS_FAINTED
 	jumpifbattletype BATTLE_TYPE_DOUBLE, BattleScript_FaintedMonEnd
 	cancelallactions
@@ -4732,6 +4736,31 @@ BattleScript_QuiverDanceEnd::
 BattleScript_EffectRecoil50:
 	setmoveeffect MOVE_EFFECT_RECOIL_50 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	goto BattleScript_EffectHit
+	
+BattleScript_EffectHealPulse:
+	attackcanceler
+	attackstring
+	ppreduce
+	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
+	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_ButItFailed
+	tryhealpulse BS_TARGET, BattleScript_AlreadyAtFullHp
+	attackanimation
+	waitanimation
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	printstring STRINGID_PKMNREGAINEDHEALTH
+	waitmessage 0x40
+	goto BattleScript_MoveEnd
+
+BattleScript_FriskMsg::
+	printstring STRINGID_FRISKACTIVATES
+	waitmessage 0x40
+	return
+BattleScript_FriskActivates::
+	tryfriskmsg BS_ATTACKER
+	end3
+
+
 
 BattleScript_TotemAura::
 	playanimation BS_OPPONENT1, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
