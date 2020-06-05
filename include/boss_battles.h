@@ -23,7 +23,6 @@ struct BossBattle {
 struct Boss
 {
     u8 level;
-    u8 item;
     u8 type1;
     u8 type2;
     u8 ability;
@@ -33,6 +32,7 @@ struct Boss
     u16 spAttack;
     u16 spDefense;
     u16 speed;
+    u16 item;
     u16 moves[MAX_MON_MOVES];
     const u8 *name;
 };
@@ -46,12 +46,12 @@ struct Boss
 struct TotemMon
 {
     u8 level;
-    u8 item;
     u8 nature;
     u8 abilityNumber;
     u8 statBoosts[NUM_BATTLE_STATS];
     u8 evs[NUM_STATS];
     u16 species;
+    u16 item;
     u16 moves[MAX_MON_MOVES];
 };
 
