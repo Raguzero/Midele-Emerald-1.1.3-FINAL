@@ -6,8 +6,6 @@ Para instalar el repositorio, ver [INSTALL.md](INSTALL.md).
 
 Más información **[aquí](https://gremio-del-invocador.boards.net/thread/51/pokemon-midele-emerald-se-actualizando)**.
 
----
-
 ## Características principales
 
 - Más monstruitos.
@@ -15,8 +13,6 @@ Más información **[aquí](https://gremio-del-invocador.boards.net/thread/51/po
 - Más objetos.
 - Muchas mecánicas y movimientos adaptadas a últimas generaciones.
 - Nuevas zonas y entrenadores.
-
----
 
 ## Colaboradores
 
