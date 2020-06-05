@@ -3022,6 +3022,7 @@ const struct MonCoords gMonFrontPicCoords[] =
     {
         .size = 0x46,
         .y_offset = 0xc,
+    },
     [SPECIES_BOSS] =
     {
         .size = 0x88,
