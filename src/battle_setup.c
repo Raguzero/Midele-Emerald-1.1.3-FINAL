@@ -549,6 +549,7 @@ void BattleSetup_StartBossBattle(void) {
     } 
     else
     {
+        gShouldShowTotemAura = 1;
         gBossOrTotemId = gBossBattles[bossBattleId].boss.totemId;
     }
     CreateBattleStartTask(B_TRANSITION_BLUR, gBossBattles[bossBattleId].music);

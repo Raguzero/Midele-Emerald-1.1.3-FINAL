@@ -2662,6 +2662,16 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 }
             }
             break;
+        case ABILITYEFFECT_SPECIAL_TOTEM_AURA:
+            if (gShouldShowTotemAura != 0)
+            {
+                gBattleScripting.animArg1 = 0x14;
+                gBattleScripting.animArg2 = 0;
+                BattleScriptPushCursorAndCallback(BattleScript_TotemAura);
+                effect++;
+                gShouldShowTotemAura = 0;
+            }
+            break;
         }
 
         if (effect && caseID < ABILITYEFFECT_CHECK_OTHER_SIDE && gLastUsedAbility != 0xFF)

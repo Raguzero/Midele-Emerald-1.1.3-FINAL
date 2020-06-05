@@ -4764,6 +4764,7 @@ BattleScript_FriskActivates::
 
 BattleScript_TotemAura::
 	playanimation BS_OPPONENT1, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	waitanimation
 	printstring STRINGID_TOTEM_AURA
 	waitmessage 0x40
 	end3

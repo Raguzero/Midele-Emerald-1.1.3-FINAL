@@ -263,6 +263,7 @@ EWRAM_DATA u8 gBattleMonForms[MAX_BATTLERS_COUNT] = {0};
 // Midele: variables para boss battles.
 EWRAM_DATA u8 gBossBattleFlags = 0; // Indica el tipo de boss battle (constants/boss_battles.h)
 EWRAM_DATA u8 gBossOrTotemId = 0;   // Indica el ID del boss o totem (src/data/boss_battles/)
+EWRAM_DATA u8 gShouldShowTotemAura = 0; // Indica si se debería mostrar o no el aura de un totem.
 
 // IWRAM common vars
 void (*gPreBattleCallback1)(void);
@@ -3980,15 +3981,11 @@ static void TryDoEventsBeforeFirstTurn(void)
     s32 j;
     u8 effect = 0;
 
-    // Midele: en combate contra totem, mostrar la animación del aura al inicio del combate.
-    if (gBossBattleFlags == BATTLE_TYPE_TOTEM)
-    {
-        gBattleScripting.animArg1 = 0x14;
-        gBattleScripting.animArg2 = 0;
-        BattleScriptExecute(BattleScript_TotemAura);
-    }
-
     if (gBattleControllerExecFlags)
+        return;
+        
+    // Midele: aura de totem.
+    if (AbilityBattleEffects(ABILITYEFFECT_SPECIAL_TOTEM_AURA, 0, 0, 0, 0) != 0)
         return;
 
     if (gBattleStruct->switchInAbilitiesCounter == 0)
