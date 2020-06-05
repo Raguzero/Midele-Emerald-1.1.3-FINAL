@@ -11,11 +11,12 @@
 #define BATTLE_TYPE_TOTEM  2
 
 // Boss battles
-
+#define BOSS_BATTLE_TOTEM_SUDOWOODO_DEBUG 1
 
 // Bosses
 
 // Totems
+#define TOTEM_SUDOWOODO_DEBUG 1
 
 
 #endif  // GUARD_CONSTANTS_BOSS_BATTLES_H
