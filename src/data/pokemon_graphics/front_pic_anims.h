@@ -5861,6 +5861,65 @@ static const union AnimCmd sAnim_ALCREMIE_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_BUDEW_1[] =
+{
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_CHINGLING_1[] =
+{
+    ANIMCMD_FRAME(0, 20),
+    ANIMCMD_FRAME(1, 40),
+    ANIMCMD_FRAME(1, 40),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_BONSLY_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_MIMEJR_1[] =
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 10),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 10),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_HAPPINY_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_MUNCHLAX_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_MANTYKE_1[] =
+{
+    ANIMCMD_FRAME(1, 50),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_EGG_1[] =
 {
     ANIMCMD_FRAME(0, 6),
@@ -8997,6 +9056,41 @@ static const union AnimCmd *const sAnims_ALCREMIE[] ={
     sAnim_ALCREMIE_1,
 };
 
+static const union AnimCmd *const sAnims_BUDEW[] ={
+    sAnim_GeneralFrame0,
+    sAnim_BUDEW_1,
+};
+
+static const union AnimCmd *const sAnims_CHINGLING[] ={
+    sAnim_GeneralFrame0,
+    sAnim_CHINGLING_1,
+};
+
+static const union AnimCmd *const sAnims_BONSLY[] ={
+    sAnim_GeneralFrame0,
+    sAnim_BONSLY_1,
+};
+
+static const union AnimCmd *const sAnims_MIMEJR[] ={
+    sAnim_GeneralFrame0,
+    sAnim_MIMEJR_1,
+};
+
+static const union AnimCmd *const sAnims_HAPPINY[] ={
+    sAnim_GeneralFrame0,
+    sAnim_HAPPINY_1,
+};
+
+static const union AnimCmd *const sAnims_MUNCHLAX[] ={
+    sAnim_GeneralFrame0,
+    sAnim_MUNCHLAX_1,
+};
+
+static const union AnimCmd *const sAnims_MANTYKE[] ={
+    sAnim_GeneralFrame0,
+    sAnim_MANTYKE_1,
+};
+
 static const union AnimCmd *const sAnims_EGG[] ={
     sAnim_GeneralFrame0,
     sAnim_EGG_1,
@@ -9741,6 +9835,13 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(SERPERIOR),
     ANIM_CMD(MILCERY),
     ANIM_CMD(ALCREMIE),
+    ANIM_CMD(BUDEW),
+    ANIM_CMD(CHINGLING),
+    ANIM_CMD(BONSLY),
+    ANIM_CMD(MIMEJR),
+    ANIM_CMD(HAPPINY),
+    ANIM_CMD(MUNCHLAX),
+    ANIM_CMD(MANTYKE),
 // NUEVO PARA FORMAS ALOLA
     ANIM_CMD_FULL(BOSS, sAnims_WOOLOO),
     ANIM_CMD(EGG),

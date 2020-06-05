@@ -600,6 +600,13 @@ const u16 *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_SERPERIOR] = sSerperiorLevelUpLearnset,
     [SPECIES_MILCERY] = sMilceryLevelUpLearnset,
     [SPECIES_ALCREMIE] = sAlcremieLevelUpLearnset,
+    [SPECIES_BUDEW] = sBudewLevelUpLearnset,
+    [SPECIES_CHINGLING] = sChinglingLevelUpLearnset,
+    [SPECIES_BONSLY] = sBonslyLevelUpLearnset,
+    [SPECIES_MIMEJR] = sMimejrLevelUpLearnset,
+    [SPECIES_HAPPINY] = sHappinyLevelUpLearnset,
+    [SPECIES_MUNCHLAX] = sMunchlaxLevelUpLearnset,
+    [SPECIES_MANTYKE] = sMantykeLevelUpLearnset,
     [SPECIES_BOSS] = sBulbasaurLevelUpLearnset,
 // NUEVO PARA FORMAS ALOLA
 };

@@ -2988,6 +2988,40 @@ const struct MonCoords gMonFrontPicCoords[] =
         .size = 0x45,
         .y_offset = 0x4,
     },
+    [SPECIES_BUDEW] =
+    {
+        .size = 0x66,
+        .y_offset = 0xe,
+    },
+    [SPECIES_CHINGLING] =
+    {
+        .size = 0x86,
+        .y_offset = 0xf,
+    },
+    [SPECIES_BONSLY] =
+    {
+        .size = 0x55,
+        .y_offset = 0x9,
+    },
+    [SPECIES_MIMEJR] =
+    {
+        .size = 0x77,
+        .y_offset = 0x9,
+    },
+    [SPECIES_HAPPINY] =
+    {
+        .size = 0x56,
+        .y_offset = 0xc,
+    },
+    [SPECIES_MUNCHLAX] =
+    {
+        .size = 0x74,
+        .y_offset = 0xa,
+    },
+    [SPECIES_MANTYKE] =
+    {
+        .size = 0x46,
+        .y_offset = 0xc,
     [SPECIES_BOSS] =
     {
         .size = 0x88,
