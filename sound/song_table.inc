@@ -613,7 +613,7 @@ gSongTable:: @ 86B49F0
 	song ph_nurse_solo, 2, 2
 	song wildbw2_FINAL, 2, 2
 	song Wild, 2, 2
-	song ff6boss, 2, 2
+	song ff6boss, 0, 0
 	song Jenova, 0, 0
 
 	.align 2

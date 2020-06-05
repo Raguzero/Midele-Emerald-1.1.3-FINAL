@@ -142,6 +142,16 @@ LittlerootTown_DebugRoom_Script_Combate::
 
 @ Estatua es una boss battle.
 LittlerootTown_DebugRoom_Script_Boss::
+    lockall
+    setvar VAR_0x8004, BOSS_BATTLE_CORONA_DEBUG
+    special CreateBossBattleMon
+    special BattleSetup_StartBossBattle
+    waitstate
+    setvar VAR_LAST_TALKED, 1
+    specialvar VAR_RESULT, GetBattleOutcome
+    compare VAR_RESULT, B_OUTCOME_WON
+    call_if_eq LittlerootTown_DebugRoom_Script_CombateGanado
+    releaseall
     end
 
 @ Sudowoodo es un combate contra totem.

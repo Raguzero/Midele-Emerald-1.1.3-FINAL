@@ -12,8 +12,10 @@
 
 // Boss battles
 #define BOSS_BATTLE_TOTEM_SUDOWOODO_DEBUG 1
+#define BOSS_BATTLE_CORONA_DEBUG          2
 
 // Bosses
+#define BOSS_CORONA 1
 
 // Totems
 #define TOTEM_SUDOWOODO_DEBUG 1
