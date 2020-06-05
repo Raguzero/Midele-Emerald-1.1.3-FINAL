@@ -14572,6 +14572,14 @@ gCryTable:: @ 869DCF4
 	cry Cry_Serperior
 	cry Cry_Milcery
 	cry Cry_Alcremie
+	cry Cry_Budew
+	cry Cry_Chingling
+	cry Cry_Bonsly
+	cry Cry_Mimejr
+	cry Cry_Happiny
+	cry Cry_Munchlax
+	cry Cry_Mantyke
+
 
 	.align 2
 gCryTable2:: @ 869EF24
@@ -15108,6 +15116,13 @@ gCryTable2:: @ 869EF24
 	cry2 Cry_Serperior
 	cry2 Cry_Milcery
 	cry2 Cry_Alcremie
+	cry2 Cry_Budew
+	cry2 Cry_Chingling
+	cry2 Cry_Bonsly
+	cry2 Cry_Mimejr
+	cry2 Cry_Happiny
+	cry2 Cry_Munchlax
+	cry2 Cry_Mantyke
 
 	.align 2
 voicegroup129:: @ 86A0154

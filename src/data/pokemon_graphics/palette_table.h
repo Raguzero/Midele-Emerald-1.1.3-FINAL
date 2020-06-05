@@ -599,6 +599,13 @@ const struct CompressedSpritePalette gMonPaletteTable[] =
     SPECIES_PAL(SERPERIOR, gMonPalette_Serperior),
     SPECIES_PAL(MILCERY, gMonPalette_Milcery),
     SPECIES_PAL(ALCREMIE, gMonPalette_Alcremie),
+    SPECIES_PAL(BUDEW, gMonPalette_Budew),
+    SPECIES_PAL(CHINGLING, gMonPalette_Chingling),
+    SPECIES_PAL(BONSLY, gMonPalette_Bonsly),
+    SPECIES_PAL(MIMEJR, gMonPalette_Mimejr),
+    SPECIES_PAL(HAPPINY, gMonPalette_Happiny),
+    SPECIES_PAL(MUNCHLAX, gMonPalette_Munchlax),
+    SPECIES_PAL(MANTYKE, gMonPalette_Mantyke),
 // NUEVOS POKES
     SPECIES_PAL(EGG, gMonPalette_Egg),
     SPECIES_PAL(UNOWN_B, gMonPalette_Unown),

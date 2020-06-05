@@ -2992,6 +2992,41 @@ const struct MonCoords gMonBackPicCoords[] =
         .size = 0x64,
         .y_offset = 0x1,
     },
+    [SPECIES_BUDEW] =
+    {
+        .size = 0x75,
+        .y_offset = 0xf,
+    },
+    [SPECIES_CHINGLING] =
+    {
+        .size = 0x87,
+        .y_offset = 0xd,
+    },
+    [SPECIES_BONSLY] =
+    {
+        .size = 0x65,
+        .y_offset = 0x9,
+    },
+    [SPECIES_MIMEJR] =
+    {
+        .size = 0x87,
+        .y_offset = 0x4,
+    },
+    [SPECIES_HAPPINY] =
+    {
+        .size = 0x67,
+        .y_offset = 0xc,
+    },
+    [SPECIES_MUNCHLAX] =
+    {
+        .size = 0x74,
+        .y_offset = 0x7,
+    },
+    [SPECIES_MANTYKE] =
+    {
+        .size = 0x56,
+        .y_offset = 0xa,
+    },
 // NUEVO POKES
     [SPECIES_EGG] =
     {
