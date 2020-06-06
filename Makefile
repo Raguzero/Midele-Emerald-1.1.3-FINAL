@@ -31,9 +31,9 @@ else
 EXE :=
 endif
 
-TITLE       := MIDELE EMER
-GAME_CODE   := MDEM
-MAKER_CODE  := 12
+TITLE       := POKEMON EMER
+GAME_CODE   := BPEE
+MAKER_CODE  := 01
 REVISION    := 0
 MODERN      ?= 0
 
