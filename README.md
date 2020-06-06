@@ -18,5 +18,5 @@ Más información **[aquí](https://gremio-del-invocador.boards.net/thread/51/po
 
 - [Ragu](https://github.com/Raguzero)
 - [Lavender](https://github.com/LavenderG)
-- Manec
+- [Manectric-Rang](https://github.com/Manectric-Rang)
 - El resto de personas cuyo código hemos utilizado.
