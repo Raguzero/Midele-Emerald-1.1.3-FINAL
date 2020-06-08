@@ -1868,6 +1868,7 @@ BattleScript_EffectEarthquake::
 	selectfirstvalidtarget
 BattleScript_HitsAllWithUndergroundBonusLoop::
 	movevaluescleanup
+	copybyte cEFFECT_CHOOSER, sSAVED_MOVE_EFFECT
 	jumpifnostatus3 BS_TARGET, STATUS3_UNDERGROUND, BattleScript_HitsAllNoUndergroundBonus
 	orword gHitMarker, HITMARKER_IGNORE_UNDERGROUND
 	setbyte sDMG_MULTIPLIER, 0x2
@@ -1892,6 +1893,7 @@ BattleScript_DoHitAllWithUndergroundBonus::
 	waitmessage 0x40
 	resultmessage
 	waitmessage 0x40
+	seteffectwithchance
 	printstring STRINGID_EMPTYSTRING3
 	waitmessage 0x1
 	tryfaintmon BS_TARGET, FALSE, NULL

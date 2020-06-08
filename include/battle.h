@@ -503,6 +503,7 @@ struct BattleScripting
     u8 multiplayerId;
     u8 specialTrainerBattleType;
     s32 savedDmg;
+	u8 savedMoveEffect; // For moves hitting multiple targets.
 };
 
 // rom_80A5C6C
