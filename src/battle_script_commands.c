@@ -4755,16 +4755,35 @@ static void Cmd_moveend(void)
             break;
         case MOVEEND_NEXT_TARGET: // For moves hitting two opposing Pokemon.
             if (!(gHitMarker & HITMARKER_UNABLE_TO_USE_MOVE) && gBattleTypeFlags & BATTLE_TYPE_DOUBLE
-                && !gProtectStructs[gBattlerAttacker].chargingTurn && gBattleMoves[gCurrentMove].target == MOVE_TARGET_BOTH
+                && !gProtectStructs[gBattlerAttacker].chargingTurn 
+				&& (gBattleMoves[gCurrentMove].target == MOVE_TARGET_BOTH || gBattleMoves[gCurrentMove].target == MOVE_TARGET_FOES_AND_ALLY)
                 && !(gHitMarker & HITMARKER_NO_ATTACKSTRING))
             {
-                u8 battlerId = GetBattlerAtPosition(BATTLE_PARTNER(GetBattlerPosition(gBattlerTarget)));
-                if (gBattleMons[battlerId].hp != 0)
+                u8 battlerId;
+				
+				if (gBattleMoves[gCurrentMove].target == MOVE_TARGET_FOES_AND_ALLY)
+                {
+					gHitMarker |= HITMARKER_NO_PPDEDUCT;
+					for (battlerId = gBattlerTarget + 1; battlerId < gBattlersCount; battlerId++)
+                    {
+                        if (battlerId == gBattlerAttacker)
+                            continue;
+                        if (IsBattlerAlive(battlerId))
+                            break;
+                    }
+                }
+                else
+                {
+                    battlerId = GetBattlerAtPosition(BATTLE_PARTNER(GetBattlerPosition(gBattlerTarget)));
+                    gHitMarker |= HITMARKER_NO_ATTACKSTRING;
+					}
+
+                if (IsBattlerAlive(battlerId))
                 {
                     gBattlerTarget = battlerId;
-                    gHitMarker |= HITMARKER_NO_ATTACKSTRING;
                     gBattleScripting.moveendState = 0;
                     MoveValuesCleanUp();
+					gBattleCommunication[MOVE_EFFECT_BYTE] = gBattleScripting.savedMoveEffect;
                     BattleScriptPush(gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect]);
                     gBattlescriptCurrInstr = BattleScript_FlushMessageBox;
                     return;
@@ -4772,6 +4791,7 @@ static void Cmd_moveend(void)
                 else
                 {
                     gHitMarker |= HITMARKER_NO_ATTACKSTRING;
+					gHitMarker &= ~(HITMARKER_NO_PPDEDUCT);
                 }
             }
             gBattleScripting.moveendState++;

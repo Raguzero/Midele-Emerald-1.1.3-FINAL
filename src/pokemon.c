@@ -7907,6 +7907,7 @@ bool8 HasTwoFramesAnimation(u16 species)
 			&& species != SPECIES_FLOETTE
 			&& species != SPECIES_MILCERY
             && species != SPECIES_ALCREMIE
+            && species != SPECIES_APPLIN
             && species != SPECIES_BOSS);
 }
 

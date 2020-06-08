@@ -2082,7 +2082,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 if (FlagGet(FLAG_RYU_RANDOMBATTLE) == 1)
                 {
                     u8 level = 100;
-				  u16 em1 = (Random() % (SPECIES_EGG - SPECIES_TREECKO + SPECIES_OLD_UNOWN_B));
+				  u16 em1 = (Random() % (SPECIES_EGG - SPECIES_TREECKO + SPECIES_CELEBI));
 				if (em1 >= SPECIES_CELEBI) em1 += SPECIES_TREECKO - SPECIES_OLD_UNOWN_B;
                     em1++;
                     CreateMon(&gEnemyParty[i], em1, level, 31, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
@@ -2094,8 +2094,8 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 if (FlagGet(FLAG_RYU_RANDOMBATTLECC) == 1)
                 {
                     u8 level = 100;
-				  u16 em1 = (Random() % (SPECIES_EGG - SPECIES_TREECKO + SPECIES_OLD_UNOWN_B));
-				u16 pm1 = (Random() % (SPECIES_EGG - SPECIES_TREECKO + SPECIES_OLD_UNOWN_B));
+				  u16 em1 = (Random() % (SPECIES_EGG - SPECIES_TREECKO + SPECIES_CELEBI));
+				u16 pm1 = (Random() % (SPECIES_EGG - SPECIES_TREECKO + SPECIES_CELEBI));
 				if (em1 >= SPECIES_CELEBI) em1 += SPECIES_TREECKO - SPECIES_OLD_UNOWN_B;
 				if (pm1 >= SPECIES_CELEBI) pm1 += SPECIES_TREECKO - SPECIES_OLD_UNOWN_B;
 					em1++;
@@ -5441,6 +5441,7 @@ static void HandleAction_UseMove(void)
     gMoveResultFlags = 0;
     gMultiHitCounter = 0;
     gBattleCommunication[6] = 0;
+	gBattleScripting.savedMoveEffect = 0;
     gCurrMovePos = gChosenMovePos = *(gBattleStruct->chosenMovePositions + gBattlerAttacker);
 
     // choose move
@@ -5587,6 +5588,17 @@ static void HandleAction_UseMove(void)
             && GetBattlerSide(gBattlerAttacker) != GetBattlerSide(gBattlerTarget))
         {
             gBattlerTarget = GetBattlerAtPosition(GetBattlerPosition(gBattlerTarget) ^ BIT_FLANK);
+        }
+    }
+	    else if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE
+             && gBattleMoves[gChosenMove].target == MOVE_TARGET_FOES_AND_ALLY)
+    {
+        for (gBattlerTarget = 0; gBattlerTarget < gBattlersCount; gBattlerTarget++)
+        {
+            if (gBattlerTarget == gBattlerAttacker)
+                continue;
+            if (IsBattlerAlive(gBattlerTarget))
+                break;
         }
     }
     else
