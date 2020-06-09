@@ -2641,6 +2641,59 @@ Cry_Mantyke::
 	.incbin "sound/direct_sound_samples/cry_mantyke.bin"
 
 	.align 2
+	
+Cry_Mega_Banette::
+	.incbin "sound/direct_sound_samples/cry_not_mega_banette.bin"
+
+	.align 2
+	
+Cry_Mega_Abomasnow::
+	.incbin "sound/direct_sound_samples/cry_not_mega_abomasnow.bin"
+
+	.align 2
+	
+Cry_Mega_Absol::
+	.incbin "sound/direct_sound_samples/cry_not_mega_absol.bin"
+
+	.align 2
+	
+Cry_Mega_Mawile::
+	.incbin "sound/direct_sound_samples/cry_not_mega_mawile.bin"
+
+	.align 2
+	
+Cry_Mega_Sableye::
+	.incbin "sound/direct_sound_samples/cry_not_mega_sableye.bin"
+
+	.align 2
+Cry_Mega_Altaria::
+	.incbin "sound/direct_sound_samples/cry_not_mega_altaria.bin"
+
+	.align 2
+	
+Cry_Mega_Sharpedo::
+	.incbin "sound/direct_sound_samples/cry_not_mega_sharpedo.bin"
+
+	.align 2
+	
+Cry_Mega_Pidgeot::
+	.incbin "sound/direct_sound_samples/cry_not_mega_pidgeot.bin"
+
+	.align 2
+Cry_Mega_Glalie::
+	.incbin "sound/direct_sound_samples/cry_not_mega_glalie.bin"
+
+	.align 2
+	
+Cry_Mega_Camerupt::
+	.incbin "sound/direct_sound_samples/cry_not_mega_camerupt.bin"
+
+	.align 2
+	
+Cry_Mega_Beedrill::
+	.incbin "sound/direct_sound_samples/cry_not_mega_beedrill.bin"
+
+	.align 2
 
 DirectSoundWaveData_register_noise::
 	.incbin "sound/direct_sound_samples/register_noise.bin"
