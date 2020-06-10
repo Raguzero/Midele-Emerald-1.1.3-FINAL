@@ -10,7 +10,6 @@ MirageTower_4F_EventScript_RootFossil:: @ 823AD48
 	giveitem ITEM_ROOT_FOSSIL
 	closemessage
 	setflag FLAG_HIDE_MIRAGE_TOWER_ROOT_FOSSIL
-	setflag FLAG_HIDE_MIRAGE_TOWER_CLAW_FOSSIL
 	removeobject 1
 	delay 30
 	setflag FLAG_CHOSE_ROOT_FOSSIL
@@ -31,7 +30,6 @@ MirageTower_4F_EventScript_ClawFossil:: @ 823AD89
 	giveitem ITEM_CLAW_FOSSIL
 	closemessage
 	setflag FLAG_HIDE_MIRAGE_TOWER_CLAW_FOSSIL
-	setflag FLAG_HIDE_MIRAGE_TOWER_ROOT_FOSSIL
 	removeobject 2
 	delay 30
 	setflag FLAG_CHOSE_CLAW_FOSSIL

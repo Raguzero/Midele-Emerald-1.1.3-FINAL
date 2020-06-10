@@ -2882,21 +2882,21 @@ const u8 gBisharpPokedexText[] = _(
     "driven from the group if it loses.");
 	
 const u8 gImpidimpPokedexText[] = _(
-    "Through its nose, it sucks in the emanations\n" 
-	"produced by people and Pokémon when they feel\n" 
-	"annoyed. It thrives off this negative energy.\n"
-	"The soul of seaweed adrift in the waves");
+    "Through its nose, it sucks in the\n" 
+	"emanations produced by people and Pokémon\n" 
+	"when they feel annoyed. It thrives off this\n" 
+	"negative energy.");
 	
 const u8 gMorgremPokedexText[] = _(
     "When it gets down on all fours as if to beg\n"
-	"for forgiveness, it's trying to lure opponents\n" 
-	"in so that it can stab them with its\n"
-	"spear-like hair.");
+	"for forgiveness, it's trying to lure\n" 
+	"opponents in so that it can stab them with\n" 
+	"its spear-like hair.");
 
 const u8 gGrimmsnarlPokedexText[] = _(
-    "With the hair wrapped around its body helping\n" 
-	"to enhance its muscles, this Pokémon can\n" 
-	"overwhelm even Machamp.");
+    "With the hair wrapped around its body\n" 
+	"helping to enhance its muscles, this\n" 
+	"Pokémon can overwhelm even MACHAMP.");
 
 const u8 gSalanditPokedexText[] = _(
     "It burns its bodily fluids to create a\n"
