@@ -4755,6 +4755,8 @@ extern const u32 gItemIcon_ChoiceScarf[];
 extern const u32 gItemIconPalette_ChoiceScarf[];
 extern const u32 gItemIcon_ChoiceSpecs[];
 extern const u32 gItemIconPalette_ChoiceSpecs[];
+extern const u32 gItemIcon_FocusSash[];
+extern const u32 gItemIconPalette_FocusSash[];
 // Contest hold items
 extern const u32 gItemIcon_Scarf[];
 extern const u32 gItemIconPalette_RedScarf[];

@@ -2916,12 +2916,13 @@ const struct Item gItems[] =
         .secondaryId = 0,
     },
 
-    [ITEM_0E4] =
+    [ITEM_FOCUS_SASH] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
-        .price = 0,
-        .description = sDummyDesc,
+        .name = _("FOCUS SASH"),
+        .itemId = ITEM_FOCUS_SASH,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_FOCUS_SASH,
+        .description = sFocusSashDesc,
         .pocket = POCKET_ITEMS,
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,

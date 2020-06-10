@@ -4433,7 +4433,10 @@ BattleScript_HangedOnMsg::
 	playanimation BS_TARGET, B_ANIM_HANGED_ON, NULL
 	printstring STRINGID_PKMNHUNGONWITHX
 	waitmessage 0x40
-	return
+    jumpifbyte CMP_EQUAL, gLastUsedItem, 196, BattleScript_HangedOnMsgEnd
+    removeitem BS_TARGET
+BattleScript_HangedOnMsgEnd:
+    return
 
 BattleScript_BerryConfuseHealEnd2::
 	playanimation BS_ATTACKER, B_ANIM_ITEM_EFFECT, NULL
@@ -4762,7 +4765,10 @@ BattleScript_FriskActivates::
 	tryfriskmsg BS_ATTACKER
 	end3
 
-
+BattleScript_SturdyNewEffect::
+    printstring STRINGID_PKMNPROTECTEDBY
+    pause 0x40
+    return
 
 BattleScript_TotemAura::
 	playanimation BS_OPPONENT1, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
