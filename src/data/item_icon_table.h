@@ -247,7 +247,7 @@ const u32 *const gItemIconTable[][2] =
     // ????????
     [ITEM_CHOICE_SCARF] = {gItemIcon_ChoiceScarf, gItemIconPalette_ChoiceScarf},
     [ITEM_CHOICE_SPECS] = {gItemIcon_ChoiceSpecs, gItemIconPalette_ChoiceSpecs},
-    [ITEM_0E4] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
+    [ITEM_FOCUS_SASH] = {gItemIcon_FocusSash, gItemIconPalette_FocusSash},
     [ITEM_0E5] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_0E6] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_0E7] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},

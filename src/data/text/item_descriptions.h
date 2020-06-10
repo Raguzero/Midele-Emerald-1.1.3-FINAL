@@ -1054,6 +1054,11 @@ static const u8 sChoiceSpecsDesc[] = _(
     "Boosts Sp. Atk, but\n"
     "allows the use of\n"
     "only one move.");
+	
+static const u8 sFocusSashDesc[] = _(
+    "A hold item that\n"
+    "prevents fainting\n"
+    "in one hit.");
 
 // Key items
 static const u8 sMachBikeDesc[] = _(
