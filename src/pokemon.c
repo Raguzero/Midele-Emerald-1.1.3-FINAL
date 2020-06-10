@@ -7565,7 +7565,8 @@ void SetWildMonHeldItem(void)
         u16 var1 = 45;
         u16 var2 = 95;
         if (!GetMonData(&gPlayerParty[0], MON_DATA_SANITY_IS_EGG, 0)
-            && GetMonAbility(&gPlayerParty[0]) == ABILITY_COMPOUND_EYES)
+            && (GetMonAbility(&gPlayerParty[0]) == ABILITY_COMPOUND_EYES
+		|| GetMonAbility(&gPlayerParty[0]) == ABILITY_SUPER_LUCK))
         {
             var1 = 20;
             var2 = 80;
