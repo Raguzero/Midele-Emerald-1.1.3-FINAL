@@ -7297,20 +7297,32 @@ static void Cmd_jumpifcantmakeasleep(void)
 
 static void Cmd_stockpile(void)
 {
-    if (gDisableStructs[gBattlerAttacker].stockpileCounter == 3)
+    switch (gBattlescriptCurrInstr[1])
     {
-        gMoveResultFlags |= MOVE_RESULT_MISSED;
-        gBattleCommunication[MULTISTRING_CHOOSER] = 1;
+        case 0:
+        if (gDisableStructs[gBattlerAttacker].stockpileCounter >= 3)
+        {
+            gMoveResultFlags |= MOVE_RESULT_MISSED;
+            gBattleCommunication[MULTISTRING_CHOOSER] = 1;
+        }
+        else
+        {
+            gDisableStructs[gBattlerAttacker].stockpileCounter++;
+            gDisableStructs[gBattlerAttacker].stockpileBeforeDef = gBattleMons[gBattlerAttacker].statStages[STAT_DEF];
+            gDisableStructs[gBattlerAttacker].stockpileBeforeSpDef = gBattleMons[gBattlerAttacker].statStages[STAT_SPDEF];
+            PREPARE_BYTE_NUMBER_BUFFER(gBattleTextBuff1, 1, gDisableStructs[gBattlerAttacker].stockpileCounter);
+            gBattleCommunication[MULTISTRING_CHOOSER] = 0;
+        }
+        break;
+    case 1: // Save def/sp def stats.
+        if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
+        {
+            gDisableStructs[gBattlerAttacker].stockpileDef += gBattleMons[gBattlerAttacker].statStages[STAT_DEF] - gDisableStructs[gBattlerAttacker].stockpileBeforeDef;
+            gDisableStructs[gBattlerAttacker].stockpileSpDef += gBattleMons[gBattlerAttacker].statStages[STAT_SPDEF] - gDisableStructs[gBattlerAttacker].stockpileBeforeSpDef;
+        }
+        break;
     }
-    else
-    {
-        gDisableStructs[gBattlerAttacker].stockpileCounter++;
-
-        PREPARE_BYTE_NUMBER_BUFFER(gBattleTextBuff1, 1, gDisableStructs[gBattlerAttacker].stockpileCounter)
-
-        gBattleCommunication[MULTISTRING_CHOOSER] = 0;
-    }
-    gBattlescriptCurrInstr++;
+     gBattlescriptCurrInstr += 2;
 }
 
 static void Cmd_stockpiletobasedamage(void)
@@ -7335,6 +7347,9 @@ static void Cmd_stockpiletobasedamage(void)
         }
 
         gDisableStructs[gBattlerAttacker].stockpileCounter = 0;
+		        // Restore stat changes from stockpile.
+        gBattleMons[gBattlerAttacker].statStages[STAT_DEF] -= gDisableStructs[gBattlerAttacker].stockpileDef;
+        gBattleMons[gBattlerAttacker].statStages[STAT_SPDEF] -= gDisableStructs[gBattlerAttacker].stockpileSpDef;
         gBattlescriptCurrInstr += 5;
     }
 }
@@ -7368,6 +7383,9 @@ static void Cmd_stockpiletohpheal(void)
         gBattlescriptCurrInstr += 5;
         gBattlerTarget = gBattlerAttacker;
     }
+	 // Restore stat changes from stockpile.
+        gBattleMons[gBattlerAttacker].statStages[STAT_DEF] -= gDisableStructs[gBattlerAttacker].stockpileDef;
+        gBattleMons[gBattlerAttacker].statStages[STAT_SPDEF] -= gDisableStructs[gBattlerAttacker].stockpileSpDef;
 }
 
 static void Cmd_negativedamage(void)
@@ -7617,6 +7635,8 @@ static void Cmd_normalisebuffs(void) // haze
 
     for (i = 0; i < gBattlersCount; i++)
     {
+		gDisableStructs[i].stockpileDef = 0;
+        gDisableStructs[i].stockpileSpDef = 0;
         for (j = 0; j < NUM_BATTLE_STATS; j++)
             gBattleMons[i].statStages[j] = 6;
     }
