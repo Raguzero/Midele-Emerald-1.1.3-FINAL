@@ -247,7 +247,6 @@ BattleScript_EffectAccuracyUp2::
 BattleScript_EffectEvasionUp2::
 BattleScript_EffectSpecialAttackDown2::
 BattleScript_EffectAccuracyDown2::
-BattleScript_EffectEvasionDown2::
 BattleScript_EffectEvasionDownHit::
 BattleScript_EffectVitalThrow::
 BattleScript_EffectUnused60::
@@ -2116,11 +2115,30 @@ BattleScript_EffectStockpile::
 	attackcanceler
 	attackstring
 	ppreduce
-	stockpile
+	stockpile 0
 	attackanimation
 	waitanimation
 	printfromtable gStockpileUsedStringIds
 	waitmessage 0x40
+	jumpifmovehadnoeffect BattleScript_EffectStockpileEnd
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_DEF, 0xC, BattleScript_EffectStockpileDef
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPDEF, 0xC, BattleScript_EffectStockpileEnd
+	BattleScript_EffectStockpileDef:
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_SPDEF, 0x0
+	setstatchanger STAT_DEF, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_BUFF_ALLOW_PTR, BattleScript_EffectStockpileSpDef
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, 0x2, BattleScript_EffectStockpileSpDef
+	printfromtable gStatUpStringIds
+	waitmessage 0x40
+BattleScript_EffectStockpileSpDef::
+	setstatchanger STAT_SPDEF, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_BUFF_ALLOW_PTR, BattleScript_EffectStockpileEnd
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, 0x2, BattleScript_EffectStockpileEnd
+	printfromtable gStatUpStringIds
+	waitmessage 0x40
+BattleScript_EffectStockpileEnd:
+	stockpile 1
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectSpitUp::
@@ -4769,6 +4787,10 @@ BattleScript_SturdyNewEffect::
     printstring STRINGID_PKMNPROTECTEDBY
     pause 0x40
     return
+	
+BattleScript_EffectEvasionDown2::
+	setstatchanger STAT_EVASION, 2, TRUE
+	goto BattleScript_EffectStatDown
 
 BattleScript_TotemAura::
 	playanimation BS_OPPONENT1, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
