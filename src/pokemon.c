@@ -6149,9 +6149,6 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                     SetMonData(mon, MON_DATA_SPEED_IV, &iv);
                     CalculateMonStats(mon);
                     retVal = FALSE;
-                } else
-                {
-                    retVal = TRUE;
                 }
             }
             break;
