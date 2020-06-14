@@ -806,8 +806,8 @@ static const u16 sNaturePowerMoves[] =
     MOVE_BUBBLE_BEAM,
     MOVE_ROCK_SLIDE,
     MOVE_SHADOW_BALL,
-    MOVE_SWIFT,
-    MOVE_SWIFT
+    MOVE_TRI_ATTACK,
+    MOVE_TRI_ATTACK
 };
 
 // format: min. weight (hectograms), base power

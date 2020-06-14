@@ -750,7 +750,7 @@ void RejectEggFromDayCare(void)
 static void AlterEggSpeciesWithIncenseItem(u16 *species, struct DayCare *daycare)
 {
     u16 motherItem, fatherItem;
-    if (*species == SPECIES_WYNAUT || *species == SPECIES_AZURILL)
+    if (*species == SPECIES_WYNAUT || *species == SPECIES_AZURILL || *species == SPECIES_MUNCHLAX || *species == SPECIES_BUDEW || *species == SPECIES_CHINGLING || *species == SPECIES_BONSLY || *species == SPECIES_MIMEJR || *species == SPECIES_HAPPINY || *species == SPECIES_MANTYKE)
     {
         motherItem = GetBoxMonData(&daycare->mons[0].mon, MON_DATA_HELD_ITEM);
         fatherItem = GetBoxMonData(&daycare->mons[1].mon, MON_DATA_HELD_ITEM);
@@ -762,6 +762,41 @@ static void AlterEggSpeciesWithIncenseItem(u16 *species, struct DayCare *daycare
         if (*species == SPECIES_AZURILL && motherItem != ITEM_SEA_INCENSE && fatherItem != ITEM_SEA_INCENSE)
         {
             *species = SPECIES_MARILL;
+        }
+	
+        if (*species == SPECIES_MUNCHLAX && motherItem != ITEM_LAX_INCENSE && fatherItem != ITEM_LAX_INCENSE)
+        {
+            *species = SPECIES_SNORLAX;
+        }
+
+        if (*species == SPECIES_BUDEW && motherItem != ITEM_MIRACLE_SEED && fatherItem != ITEM_MIRACLE_SEED)
+        {
+            *species = SPECIES_ROSELIA, SPECIES_ROSERADE;
+        }
+
+        if (*species == SPECIES_CHINGLING && motherItem != ITEM_CLEANSE_TAG && fatherItem != ITEM_CLEANSE_TAG)
+        {
+            *species = SPECIES_CHIMECHO;
+        }
+
+        if (*species == SPECIES_BONSLY && motherItem != ITEM_HARD_STONE && fatherItem != ITEM_HARD_STONE)
+        {
+            *species = SPECIES_SUDOWOODO;
+        }
+
+        if (*species == SPECIES_MIMEJR && motherItem != ITEM_TWISTED_SPOON && fatherItem != ITEM_TWISTED_SPOON)
+        {
+            *species = SPECIES_MR_MIME, SPECIES_GALAR_MRMIME, SPECIES_MRRIME;
+        }
+
+        if (*species == SPECIES_HAPPINY && motherItem != ITEM_LUCKY_PUNCH && fatherItem != ITEM_LUCKY_PUNCH)
+        {
+            *species = SPECIES_CHANSEY, SPECIES_BLISSEY;
+        }
+
+        if (*species == SPECIES_MANTYKE && motherItem != ITEM_SEA_INCENSE && fatherItem != ITEM_SEA_INCENSE)
+        {
+            *species = SPECIES_MANTINE;
         }
     }
 }
