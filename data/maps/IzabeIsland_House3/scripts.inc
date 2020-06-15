@@ -51,6 +51,8 @@ IzabeIsland_House3_EventScript_Machine::
 	end
 
 IzabeIsland_House3_EventScript_LabMon::
+	lock
+	goto_if_set FLAG_RECEIVED_MICOLO_MON, IzabeIsland_House3_EventScript_AlreadyReceivedMonEnd
 	msgbox IzabeIsland_House3_Text_LabMon, MSGBOX_DEFAULT
 	setvar VAR_TEMP_1, SPECIES_FLOETTE
 	givemon SPECIES_FLOETTE, 30, ITEM_LUCKY_EGG, TRUE
@@ -94,7 +96,12 @@ IzabeIsland_House3_EventScript_ReceiveMonFanfare:: @ 82700DB
 	return
 
 IzabeIsland_House3_EventScript_ReceiveMonEnd:
-	setflag FLAG_RECEIVED_CASTFORM
+	setflag FLAG_RECEIVED_MICOLO_MON
+	release
+	end
+
+IzabeIsland_House3_EventScript_AlreadyReceivedMonEnd:
+	msgbox IzabeIsland_House3_Text_LabMonAfterReceived, MSGBOX_DEFAULT
 	release
 	end
 
@@ -202,6 +209,12 @@ IzabeIsland_House3_Text_MicoloDiary::
 
 IzabeIsland_House3_Text_LabMon::
 	.string "Hay una POKé BALL junto a una nota.\n"
+	.string "“Dejo aquí a mi compañero más fiel. Él\l"
+	.string "se encargará de vigilar el LABORATORIO\l"
+	.string "en mi ausencia. Cuídate, amigo, volveré.$"
+
+IzabeIsland_House3_Text_LabMonAfterReceived::
+	.string "Ya solo queda la nota en la mesa.\n"
 	.string "“Dejo aquí a mi compañero más fiel. Él\l"
 	.string "se encargará de vigilar el LABORATORIO\l"
 	.string "en mi ausencia. Cuídate, amigo, volveré.$"
