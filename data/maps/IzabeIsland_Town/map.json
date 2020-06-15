@@ -42,7 +42,7 @@
     "id": "MAP_IZABE_ISLAND_TOWN",
     "layout": "LAYOUT_IZABE_ISLAND_TOWN",
     "map_type": "MAP_TYPE_CITY",
-    "music": "MUS_RG_NANA67",
+    "music": "MUS_NIBI",
     "name": "IzabeIsland_Town",
     "object_events": [
         {
