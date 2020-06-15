@@ -2110,17 +2110,17 @@ const struct MonCoords gMonBackPicCoords[] =
     [SPECIES_ALOLAN_MEOWTH] =
     {
         .size = 0x65,
-        .y_offset = 0x6,
+        .y_offset = 0x7,
     },
     [SPECIES_ALOLAN_PERSIAN] =
     {
         .size = 0x87,
-        .y_offset = 0x7,
+        .y_offset = 0x8,
     },
     [SPECIES_ALOLAN_GEODUDE] =
     {
         .size = 0x66,
-        .y_offset = 0xb,
+        .y_offset = 0xd,
     },
     [SPECIES_ALOLAN_GRAVELER] =
     {
@@ -2130,12 +2130,12 @@ const struct MonCoords gMonBackPicCoords[] =
     [SPECIES_ALOLAN_GOLEM] =
     {
         .size = 0x84,
-        .y_offset = 0xb,
+        .y_offset = 0xd,
     },
     [SPECIES_ALOLAN_GRIMER] =
     {
         .size = 0x75,
-        .y_offset = 0xd,
+        .y_offset = 0xe,
     },
     [SPECIES_ALOLAN_MUK] =
     {
@@ -2154,33 +2154,33 @@ const struct MonCoords gMonBackPicCoords[] =
     },
     [SPECIES_MEGA_BEEDRILL] =
     {
-        .size = 0x86,
-        .y_offset = 0x09,
+        .size = 0,
+        .y_offset = 5,
     },
     [SPECIES_MEGA_PIDGEOT] =
     {
-        .size = 0x78,
-        .y_offset = 0x02,
+        .size = 0,
+        .y_offset = 7,
     },
     [SPECIES_MEGA_BANETTE] =
     {
-        .size = 0x65,
-        .y_offset = 0x0c,
+        .size = 0,
+        .y_offset = 0,
     },
     [SPECIES_MEGA_SHARPEDO] =
     {
-        .size = 0x88,
-        .y_offset = 0x02,
+        .size = 0,
+        .y_offset = 3,
     },
     [SPECIES_MEGA_CAMERUPT] =
     {
-        .size = 0x84,
-        .y_offset = 0x13,
+        .size = 0,
+        .y_offset = 9,
     },
     [SPECIES_MEGA_MAWILE] =
     {
-        .size = 0x87,
-        .y_offset = 0x04,
+        .size = 0,
+        .y_offset = 6,
     },
     [SPECIES_GALAR_WEEZING] =
     {
@@ -2992,7 +2992,47 @@ const struct MonCoords gMonBackPicCoords[] =
         .size = 0x64,
         .y_offset = 0x1,
     },
+    [SPECIES_BUDEW] =
+    {
+        .size = 0x75,
+        .y_offset = 0xf,
+    },
+    [SPECIES_CHINGLING] =
+    {
+        .size = 0x87,
+        .y_offset = 0xd,
+    },
+    [SPECIES_BONSLY] =
+    {
+        .size = 0x65,
+        .y_offset = 0x9,
+    },
+    [SPECIES_MIMEJR] =
+    {
+        .size = 0x87,
+        .y_offset = 0x4,
+    },
+    [SPECIES_HAPPINY] =
+    {
+        .size = 0x67,
+        .y_offset = 0xc,
+    },
+    [SPECIES_MUNCHLAX] =
+    {
+        .size = 0x74,
+        .y_offset = 0x7,
+    },
+    [SPECIES_MANTYKE] =
+    {
+        .size = 0x56,
+        .y_offset = 0xa,
+    },
 // NUEVO POKES
+    [SPECIES_BOSS] =
+    {
+        .size = 0x64,
+        .y_offset = 0x0a,
+    },
     [SPECIES_EGG] =
     {
         .size = 0x36,

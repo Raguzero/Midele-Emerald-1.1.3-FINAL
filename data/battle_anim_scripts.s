@@ -10055,21 +10055,19 @@ Move_IRON_HEAD:
 	waitforvisualfinish
 	end
 
-Move_STONE_EDGE: @ Animation de Rock Slide por ahora
-	loadspritegfx ANIM_TAG_ROCKS
+Move_STONE_EDGE: 
+	loadspritegfx 10058
+	loadspritegfx 10135
 	monbg ANIM_DEF_PARTNER
-	createsprite gBattleAnimSpriteTemplate_85972D8, ANIM_ATTACKER, 2, 7, 1, 11, 1
-	createsprite gUnknown_08596B04, ANIM_TARGET, 2, -5, 1, -5, 1
-	playsewithpan SE_W088, SOUND_PAN_TARGET
-	delay 2
-	createsprite gUnknown_08596B04, ANIM_TARGET, 2, 5, 0, 6, 1
-	playsewithpan SE_W088, SOUND_PAN_TARGET
-	delay 2
-	createsprite gUnknown_08596B04, ANIM_TARGET, 2, 19, 1, 10, 1
-	playsewithpan SE_W088, SOUND_PAN_TARGET
-	delay 2
-	createsprite gUnknown_08596B04, ANIM_TARGET, 2, -23, 2, -10, 1
-	playsewithpan SE_W088, SOUND_PAN_TARGET
+	setalpha 12, 8
+	createsprite gBattleAnimSpriteTemplate_85972D8, 2, 4, 1, 10, 1
+	createsprite gUnknown_08596C10, 2, 20, 32, -48, 50, 2
+	createsprite gUnknown_08596C10, 2, 0, 32, -38, 25, 5
+	createsprite gUnknown_08596C10, 2, 32, 32, -28, 40, 3
+	createsprite gUnknown_08596C10, 2, -20, 32, -48, 50, 2
+	createsprite gUnknown_08596C10, 2, 20, 32, -28, 60, 1
+	createsprite gUnknown_08596C10, 2, 0, 32, -28, 30, 4
+	playsewithpan SE_W088, 63
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 5, 50, 1
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_DEF_PARTNER, 0, 5, 50, 1
 	delay 2

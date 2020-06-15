@@ -9,6 +9,7 @@
 #include "battle_pyramid.h"
 #include "battle_setup.h"
 #include "battle_tower.h"
+#include "boss_battles.h"
 #include "data.h"
 #include "event_data.h"
 #include "evolution_scene.h"
@@ -38,6 +39,7 @@
 #include "constants/abilities.h"
 #include "constants/battle_frontier.h"
 #include "constants/battle_move_effects.h"
+#include "constants/boss_battles.h"
 #include "constants/hold_effects.h"
 #include "constants/item_effects.h"
 #include "constants/items.h"
@@ -61,6 +63,9 @@ static void DecryptBoxMon(struct BoxPokemon *boxMon);
 static void sub_806E6CC(u8 taskId);
 static u16 GiveMoveToBoxMon(struct BoxPokemon *boxMon, u16 move);
 static bool8 ShouldSkipFriendshipChange(void);
+static void BossBattleToMon(struct Pokemon *mon, u16 battleBossId);
+static void BossToMon(struct Pokemon *mon, u16 battleBossId);
+static void TotemToMon(struct Pokemon *mon, u16 battleBossId);
 
 // EWRAM vars
 EWRAM_DATA static u8 sLearningMoveTableID = 0;
@@ -692,6 +697,13 @@ const u16 gSpeciesToHoennPokedexNum[] = // Assigns all species to the Hoenn Dex 
 	SPECIES_TO_HOENN(SERPERIOR),
 	SPECIES_TO_HOENN(MILCERY),
 	SPECIES_TO_HOENN(ALCREMIE),
+	SPECIES_TO_HOENN(BUDEW),
+	SPECIES_TO_HOENN(CHINGLING),
+	SPECIES_TO_HOENN(BONSLY),
+	SPECIES_TO_HOENN(MIMEJR),
+	SPECIES_TO_HOENN(HAPPINY),
+	SPECIES_TO_HOENN(MUNCHLAX),
+	SPECIES_TO_HOENN(MANTYKE),
 };
 
 const u16 gSpeciesToNationalPokedexNum[] = // Assigns all species to the National Dex Index (Summary No. for National Dex)
@@ -1293,6 +1305,13 @@ const u16 gSpeciesToNationalPokedexNum[] = // Assigns all species to the Nationa
 	SPECIES_TO_NATIONAL(SERPERIOR),
 	SPECIES_TO_NATIONAL(MILCERY),
 	SPECIES_TO_NATIONAL(ALCREMIE),
+	SPECIES_TO_NATIONAL(BUDEW),
+	SPECIES_TO_NATIONAL(CHINGLING),
+	SPECIES_TO_NATIONAL(BONSLY),
+	SPECIES_TO_NATIONAL(MIMEJR),
+	SPECIES_TO_NATIONAL(HAPPINY),
+	SPECIES_TO_NATIONAL(MUNCHLAX),
+	SPECIES_TO_NATIONAL(MANTYKE),
 };
 
 const u16 gHoennToNationalOrder[] = // Assigns Hoenn Dex Pokémon (Using National Dex Index)
@@ -1838,6 +1857,13 @@ const u16 gHoennToNationalOrder[] = // Assigns Hoenn Dex Pokémon (Using Nationa
 	HOENN_TO_NATIONAL(SERPERIOR),
 	HOENN_TO_NATIONAL(MILCERY),
 	HOENN_TO_NATIONAL(ALCREMIE),
+	HOENN_TO_NATIONAL(BUDEW),
+	HOENN_TO_NATIONAL(CHINGLING),
+	HOENN_TO_NATIONAL(BONSLY),
+	HOENN_TO_NATIONAL(MIMEJR),
+	HOENN_TO_NATIONAL(HAPPINY),
+	HOENN_TO_NATIONAL(MUNCHLAX),
+	HOENN_TO_NATIONAL(MANTYKE),
     HOENN_TO_NATIONAL(OLD_UNOWN_B),
     HOENN_TO_NATIONAL(OLD_UNOWN_C),
     HOENN_TO_NATIONAL(OLD_UNOWN_D),
@@ -1913,6 +1939,11 @@ const s8 gNatureStatTable[][NUM_EV_STATS] =
 #include "data/pokemon/level_up_learnsets.h"
 #include "data/pokemon/evolution.h"
 #include "data/pokemon/level_up_learnset_pointers.h"
+#include "data/boss_battles/boss_names.h"
+#include "data/boss_battles/boss_pics.h"
+#include "data/boss_battles/bosses.h"
+#include "data/boss_battles/totems.h"
+#include "data/boss_battles/battles.h"
 
 // SPECIES_NONE are ignored in the following two tables, so decrement before accessing these arrays to get the right result
 
@@ -2482,6 +2513,13 @@ static const u8 sMonFrontAnimIdsTable[] =
     [SPECIES_SERPERIOR - 1] = 0x17,
     [SPECIES_MILCERY - 1] = 0x00,
     [SPECIES_ALCREMIE - 1] = 0x4a,
+    [SPECIES_BUDEW - 1] = 0x13,
+    [SPECIES_CHINGLING - 1] = 0x1D,
+    [SPECIES_BONSLY - 1] = 0x52,
+    [SPECIES_MIMEJR - 1] = 0x40,
+    [SPECIES_HAPPINY - 1] = 0x45,
+    [SPECIES_MUNCHLAX - 1] = 0x13,
+    [SPECIES_MANTYKE - 1] = 0x4E,
 };
 
 static const u8 sMonAnimationDelayTable[NUM_SPECIES - 1] =
@@ -3564,6 +3602,74 @@ void CreateObedientEnemyMon(void)
     }
 }
 
+/*
+    Crea un boss o totem de boss battle.
+    El ID de esta se obtendrá de gSpecialVar_0x8004.
+*/
+void CreateBossBattleMon(void)
+{
+    u16 bossBattleId = gSpecialVar_0x8004;
+    ZeroEnemyPartyMons();
+    BossBattleToMon(&gEnemyParty[0], bossBattleId); 
+}
+
+static void BossBattleToMon(struct Pokemon *mon, u16 bossBattleId)
+{
+    u8 battleType = gBossBattles[bossBattleId].battleType;
+    switch (battleType) {
+        case BATTLE_TYPE_BOSS:
+            BossToMon(mon, bossBattleId);
+            break;
+        case BATTLE_TYPE_TOTEM:
+        default:
+            TotemToMon(mon, bossBattleId);
+            break;
+    }
+}
+
+static void BossToMon(struct Pokemon *mon, u16 bossBattleId)
+{
+    u8 i;
+    u8 bossId = gBossBattles[bossBattleId].boss.bossId;
+    CreateMon(mon, SPECIES_BOSS, gBosses[bossId].level, 31, 0, 0, 0, 0);
+    mon->hp = gBosses[bossId].hp;
+    mon->maxHP = gBosses[bossId].hp;
+    mon->attack = gBosses[bossId].attack;
+    mon->defense = gBosses[bossId].defense;
+    mon->spAttack = gBosses[bossId].spAttack;
+    mon->spDefense = gBosses[bossId].spDefense;
+    mon->speed = gBosses[bossId].speed;
+    
+    SetMonData(mon, MON_DATA_NICKNAME, gBosses[bossId].name);
+    for (i = 0; i < MAX_MON_MOVES; i++) {
+        u16 move = gBosses[bossId].moves[i];
+        u8 pp = gBattleMoves[move].pp;
+        SetMonData(mon, MON_DATA_MOVE1+i, &move);
+        SetMonData(mon, MON_DATA_PP1+i, &pp);
+    }
+    SetMonData(mon, MON_DATA_HELD_ITEM, &gBosses[bossId].item);
+}
+
+static void TotemToMon(struct Pokemon *mon, u16 bossBattleId)
+{
+    u8 i;
+    u8 totemId = gBossBattles[bossBattleId].boss.totemId;
+    CreateMonWithNature(mon, gTotemMons[totemId].species, gTotemMons[totemId].level, 31, gTotemMons[totemId].nature);
+    for (i = 0; i < MAX_MON_MOVES; i++) {
+        u16 move = gTotemMons[totemId].moves[i];
+        u8 pp = gBattleMoves[move].pp;
+        SetMonData(mon, MON_DATA_MOVE1+i, &move);
+        SetMonData(mon, MON_DATA_PP1+i, &pp);
+    }
+    
+    SetMonData(mon, MON_DATA_HELD_ITEM, &gTotemMons[totemId].item);
+    SetMonData(mon, MON_DATA_ABILITY_NUM, &gTotemMons[totemId].abilityNumber);
+    for (i = 0; i < NUM_STATS; i++)
+    {
+        SetMonData(mon, MON_DATA_HP_EV + i, &gTotemMons[totemId].evs[i]);
+    }
+}
+
 static u16 CalculateBoxMonChecksum(struct BoxPokemon *boxMon)
 {
     u16 checksum = 0;
@@ -3942,6 +4048,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 
     if (attackerHoldEffect == HOLD_EFFECT_CHOICE_BAND)
         attack = (150 * attack) / 100;
+    if (attackerHoldEffect == HOLD_EFFECT_CHOICE_SPECS)
+        spAttack = (150 * spAttack) / 100;
     if (attackerHoldEffect == HOLD_EFFECT_SOUL_DEW && !(gBattleTypeFlags & (BATTLE_TYPE_FRONTIER)) && (attacker->species == SPECIES_LATIAS || attacker->species == SPECIES_LATIOS))
         spAttack = (150 * spAttack) / 100;
     if (defenderHoldEffect == HOLD_EFFECT_SOUL_DEW && !(gBattleTypeFlags & (BATTLE_TYPE_FRONTIER)) && (defender->species == SPECIES_LATIAS || defender->species == SPECIES_LATIOS))
@@ -4026,7 +4134,6 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 
         damage = damage * gBattleMovePower;
         damage *= (2 * attacker->level / 5 + 2);
-
         if (gCritMultiplier == 2)
         {
             if (defender->statStages[STAT_DEF] < 6)
@@ -6042,9 +6149,6 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                     SetMonData(mon, MON_DATA_SPEED_IV, &iv);
                     CalculateMonStats(mon);
                     retVal = FALSE;
-                } else
-                {
-                    retVal = TRUE;
                 }
             }
             break;
@@ -7184,8 +7288,11 @@ u16 GetBattleBGM(void)
         return MUS_BATTLE20;
     else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {
-        u8 trainerClass;
-
+        u8 trainerClass; 
+#define MUSICOTE(a, b) { const u8 nombre[] = _(a); if (!StringCompare(gTrainers[gTrainerBattleOpponent_A].trainerName, nombre)) return b; }
+    MUSICOTE("MIDELE", FF6BOSS)
+	//MUSICOTE("MANEC", FF6BOSS) se ponen mas de la misma forma
+	
         if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
             trainerClass = GetFrontierOpponentClass(gTrainerBattleOpponent_A);
         else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_HILL)
@@ -7227,8 +7334,41 @@ u16 GetBattleBGM(void)
             return MUS_BATTLE20;
         }
     }
-    else
-        return MUS_BATTLE27;
+    else {
+    u16 species = SpeciesToNationalPokedexNum(GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, 0));
+    if (species >= SPECIES_CHIKORITA && species <= SPECIES_CELEBI) return WILD;
+    if (species >= SPECIES_BULBASAUR && species <= SPECIES_MEWTWO) return MUS_RG_VS_YASEI;
+	if (species == NATIONAL_DEX_YAMASK ||
+	species == NATIONAL_DEX_COFAGRIGUS ||
+	species == NATIONAL_DEX_GOLETT ||
+	species == NATIONAL_DEX_GOLURK ||
+	species == NATIONAL_DEX_DEINO ||
+	species == NATIONAL_DEX_ZWEILOUS ||
+	species == NATIONAL_DEX_HYDREIGON ||
+	species == NATIONAL_DEX_TYNAMO ||
+	species == NATIONAL_DEX_EELEKTRIK ||
+	species == NATIONAL_DEX_EELEKTROSS ||
+	species == NATIONAL_DEX_LITWICK ||
+	species == NATIONAL_DEX_LAMPENT ||
+	species == NATIONAL_DEX_CHANDELURE ||
+	species == NATIONAL_DEX_PAWNIARD ||
+	species == NATIONAL_DEX_BISHARP ||
+	species == NATIONAL_DEX_FERROSEED ||
+	species == NATIONAL_DEX_FERROTHORN ||
+	species == NATIONAL_DEX_SANDILE ||
+	species == NATIONAL_DEX_KROKOROK ||
+	species == NATIONAL_DEX_KROOKODILE ||
+	species == NATIONAL_DEX_LILLIPUP ||
+	species == NATIONAL_DEX_HERDIER ||
+	species == NATIONAL_DEX_STOUTLAND ||
+	species == NATIONAL_DEX_DURANT ||
+	species == NATIONAL_DEX_COTTONEE ||
+	species == NATIONAL_DEX_WHIMSICOTT ||
+	species == NATIONAL_DEX_SNIVY ||
+	species == NATIONAL_DEX_SERVINE ||
+	species == NATIONAL_DEX_SERPERIOR) return WILDBW2_FINAL;
+    return MUS_BATTLE27;
+  }
 }
 
 void PlayBattleBGM(void)
@@ -7422,7 +7562,8 @@ void SetWildMonHeldItem(void)
         u16 var1 = 45;
         u16 var2 = 95;
         if (!GetMonData(&gPlayerParty[0], MON_DATA_SANITY_IS_EGG, 0)
-            && GetMonAbility(&gPlayerParty[0]) == ABILITY_COMPOUND_EYES)
+            && (GetMonAbility(&gPlayerParty[0]) == ABILITY_COMPOUND_EYES
+		|| GetMonAbility(&gPlayerParty[0]) == ABILITY_SUPER_LUCK))
         {
             var1 = 20;
             var2 = 80;
@@ -7763,7 +7904,9 @@ bool8 HasTwoFramesAnimation(u16 species)
 			&& species != SPECIES_LYCANROC_DUSK
 			&& species != SPECIES_FLOETTE
 			&& species != SPECIES_MILCERY
-            && species != SPECIES_ALCREMIE);
+            && species != SPECIES_ALCREMIE
+            && species != SPECIES_APPLIN
+            && species != SPECIES_BOSS);
 }
 
 static bool8 ShouldSkipFriendshipChange(void)

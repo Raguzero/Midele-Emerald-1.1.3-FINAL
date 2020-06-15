@@ -264,19 +264,6 @@
         {
             "elevation": 3,
             "flag": "0",
-            "graphics_id": "EVENT_OBJ_GFX_BIG_REGIROCK_DOLL",
-            "movement_range_x": 0,
-            "movement_range_y": 0,
-            "movement_type": "MOVEMENT_TYPE_NONE",
-            "script": "NULL",
-            "trainer_sight_or_berry_tree_id": "0",
-            "trainer_type": "0",
-            "x": 10,
-            "y": 0
-        },
-        {
-            "elevation": 3,
-            "flag": "0",
             "graphics_id": "EVENT_OBJ_GFX_BIG_REGICE_DOLL",
             "movement_range_x": 0,
             "movement_range_y": 0,
@@ -285,19 +272,6 @@
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
             "x": 9,
-            "y": 0
-        },
-        {
-            "elevation": 3,
-            "flag": "0",
-            "graphics_id": "EVENT_OBJ_GFX_BIG_REGISTEEL_DOLL",
-            "movement_range_x": 0,
-            "movement_range_y": 0,
-            "movement_type": "MOVEMENT_TYPE_NONE",
-            "script": "NULL",
-            "trainer_sight_or_berry_tree_id": "0",
-            "trainer_type": "0",
-            "x": 8,
             "y": 0
         },
         {
@@ -325,6 +299,32 @@
             "trainer_type": "0",
             "x": 6,
             "y": 0
+        },
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_TRICK_HOUSE_STATUE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "LittlerootTown_DebugRoom_Script_Boss",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 13,
+            "y": 7
+        },
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_SUDOWOODO",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "LittlerootTown_DebugRoom_Script_Totem",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 12,
+            "y": 7
         }
     ],
     "region_map_section": "MAPSEC_LITTLEROOT_TOWN",

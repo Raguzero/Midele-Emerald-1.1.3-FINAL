@@ -720,8 +720,9 @@
 	.4byte \param0
 	.endm
 
-	.macro stockpile
+	.macro stockpile id:req
 	.byte 0x85
+	.byte \id
 	.endm
 
 	.macro stockpiletobasedamage param0:req
@@ -1389,6 +1390,7 @@
 	
 	.macro setmoveeffect effect:req
 	setbyte cEFFECT_CHOOSER \effect
+	setbyte sSAVED_MOVE_EFFECT \effect
 	.endm
 	
 	.macro chosenstatus1animation battler:req, status:req

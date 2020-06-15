@@ -6,6 +6,7 @@
 #include "main.h"
 #include "pokemon.h"
 #include "constants/songs.h"
+#include "constants/species.h"
 #include "task.h"
 
 struct Fanfare
@@ -377,6 +378,11 @@ void PlayCryInternal(u16 species, s8 pan, s8 volume, u8 priority, u8 mode)
     u32 chorus;
     u32 index;
     u8 table;
+    
+    // Midele: ignorar el grito si el POKÉMON es SPECIES_BOSS.
+    if (species == SPECIES_BOSS){
+        return;
+    }
 
     species--;
     length = 140;

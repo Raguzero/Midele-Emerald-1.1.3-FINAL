@@ -75,6 +75,10 @@ struct DisableStruct
     u16 encoredMove;
     u8 protectUses;
     u8 stockpileCounter;
+	s8 stockpileDef;
+    s8 stockpileSpDef;
+    s8 stockpileBeforeDef;
+    s8 stockpileBeforeSpDef;
     u8 substituteHP;
     u8 disableTimer:4;
     u8 disableTimerStartValue:4;
@@ -503,6 +507,7 @@ struct BattleScripting
     u8 multiplayerId;
     u8 specialTrainerBattleType;
     s32 savedDmg;
+	u8 savedMoveEffect; // For moves hitting multiple targets.
 };
 
 // rom_80A5C6C
@@ -617,6 +622,9 @@ extern u8 gBattleTextBuff1[TEXT_BUFF_ARRAY_COUNT];
 extern u8 gBattleTextBuff2[TEXT_BUFF_ARRAY_COUNT];
 extern u8 gBattleTextBuff3[TEXT_BUFF_ARRAY_COUNT];
 extern u32 gBattleTypeFlags;
+extern u8 gBossBattleFlags;
+extern u8 gBossOrTotemId;
+extern u8 gShouldShowTotemAura;
 extern u8 gBattleTerrain;
 extern u32 gUnknown_02022FF4;
 extern u8 *gUnknown_0202305C;

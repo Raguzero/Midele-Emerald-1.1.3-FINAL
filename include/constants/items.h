@@ -239,9 +239,9 @@
 #define ITEM_METAL_POWDER 223
 #define ITEM_THICK_CLUB 224
 #define ITEM_STICK 225
-#define ITEM_0E2 226
-#define ITEM_0E3 227
-#define ITEM_0E4 228
+#define ITEM_CHOICE_SCARF 226
+#define ITEM_CHOICE_SPECS 227
+#define ITEM_FOCUS_SASH 228
 #define ITEM_0E5 229
 #define ITEM_0E6 230
 #define ITEM_0E7 231
@@ -498,6 +498,9 @@
 // NUEVO: número de niveles que aumentan los caramelos
 #define GOLDEN_CANDY_LEVELS 20 
 #define RARE_CANDY_LEVELS   1
+
+// NUEVO: objeto que no puede ser usado en boss battles.
+#define ITEM_BATTLE_USAGE_UNUSABLE_BOSS_BATTLE 1
 
 // Check if the item is one that can be used on a Pokemon.
 #define ITEM_HAS_EFFECT(item) ((item) >= ITEM_POTION && (item) <= ITEM_UP_GRADE)

@@ -3,6 +3,7 @@
 #include "battle_controllers.h"
 #include "battle_ai_script_commands.h"
 #include "battle_anim.h"
+#include "boss_battles.h"
 #include "constants/battle_anim.h"
 #include "battle_interface.h"
 #include "main.h"
@@ -22,6 +23,7 @@
 #include "data.h"
 #include "palette.h"
 #include "contest.h"
+#include "constants/boss_battles.h"
 #include "constants/songs.h"
 #include "constants/rgb.h"
 
@@ -525,14 +527,36 @@ void BattleLoadOpponentMonSpriteGfx(struct Pokemon *mon, u8 battlerId)
 
     otId = GetMonData(mon, MON_DATA_OT_ID);
     position = GetBattlerPosition(battlerId);
-    HandleLoadSpecialPokePic_DontHandleDeoxys(&gMonFrontPicTable[species],
-                                              gMonSpritesGfxPtr->sprites[position],
-                                              species, currentPersonality);
+    
+    // MIDELE: si se está en combate contra jefe, cargar la FrontPic del Boss.
+    if (gBossBattleFlags == BATTLE_TYPE_BOSS)
+    {
+        HandleLoadSpecialPokePic_DontHandleDeoxys(&gBossFrontPicTable[gBossOrTotemId],
+                                                  gMonSpritesGfxPtr->sprites[position],
+                                                  species, currentPersonality);
+    }
+    else
+    {
+        HandleLoadSpecialPokePic_DontHandleDeoxys(&gMonFrontPicTable[species],
+                                                  gMonSpritesGfxPtr->sprites[position],
+                                                  species, currentPersonality);
+    }
+    
 
     paletteOffset = 0x100 + battlerId * 16;
 
     if (gBattleSpritesDataPtr->battlerData[battlerId].transformSpecies == SPECIES_NONE)
-        lzPaletteData = GetMonFrontSpritePal(mon);
+    {
+        // MIDELE: si se está en combate contra jefe, cargar la paleta del Boss.
+        if (gBossBattleFlags == BATTLE_TYPE_BOSS)
+        {
+            lzPaletteData = gBossPaletteTable[gBossOrTotemId].data;
+        }
+        else 
+        {
+            lzPaletteData = GetMonFrontSpritePal(mon);
+        }
+    }
     else
         lzPaletteData = GetMonSpritePalFromSpeciesAndPersonality(species, otId, monsPersonality);
 

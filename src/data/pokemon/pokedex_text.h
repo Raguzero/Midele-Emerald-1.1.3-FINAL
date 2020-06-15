@@ -2882,21 +2882,21 @@ const u8 gBisharpPokedexText[] = _(
     "driven from the group if it loses.");
 	
 const u8 gImpidimpPokedexText[] = _(
-    "Through its nose, it sucks in the emanations\n" 
-	"produced by people and Pokémon when they feel\n" 
-	"annoyed. It thrives off this negative energy.\n"
-	"The soul of seaweed adrift in the waves");
+    "Through its nose, it sucks in the\n" 
+	"emanations produced by people and Pokémon\n" 
+	"when they feel annoyed. It thrives off this\n" 
+	"negative energy.");
 	
 const u8 gMorgremPokedexText[] = _(
     "When it gets down on all fours as if to beg\n"
-	"for forgiveness, it's trying to lure opponents\n" 
-	"in so that it can stab them with its\n"
-	"spear-like hair.");
+	"for forgiveness, it's trying to lure\n" 
+	"opponents in so that it can stab them with\n" 
+	"its spear-like hair.");
 
 const u8 gGrimmsnarlPokedexText[] = _(
-    "With the hair wrapped around its body helping\n" 
-	"to enhance its muscles, this Pokémon can\n" 
-	"overwhelm even Machamp.");
+    "With the hair wrapped around its body\n" 
+	"helping to enhance its muscles, this\n" 
+	"Pokémon can overwhelm even MACHAMP.");
 
 const u8 gSalanditPokedexText[] = _(
     "It burns its bodily fluids to create a\n"
@@ -3239,4 +3239,47 @@ const u8 gAlcremiePokedexText[] = _(
     "When Alcremie is content, the cream it\n" 
 	"secretes from its hands becomes sweeter\n" 
 	"and richer.");
+	
+const u8 gBudewPokedexText[] = _(
+    "Over the winter, it closes its bud and\n"
+    "endures the cold. Sensitive to changing\n"
+    "temperature, the bud is said to bloom\n"
+    "when it feels the sun's warm touch.");
+	
+const u8 gChinglingPokedexText[] = _(
+    "There is an orb inside its mouth.\n"
+    "When it hops, the orb bounces all\n"
+    "over and makes a ringing sound.\n"
+    "It can cry for an awfully long time.");
+
+const u8 gBonslyPokedexText[] = _(
+    "Bonsly prefers an arid atmosphere.\n"
+    "In order to adjust the level of fluids\n"
+    "in its body, it exudes water from its eyes.\n"
+    "This makes it appear to be crying.");
+
+const u8 gMimeJrPokedexText[] = _(
+    "In an attempt to confuse its enemy,\n"
+    "it mimics the enemy's movements.\n"
+    "Once mimicked, the foe cannot take\n"
+    "its eyes off this Pokémon.");
+
+const u8 gHappinyPokedexText[] = _(
+    "It carries a round white rock in its\n"
+    "belly pouch. If it gets along well with\n"
+    "someone, it will sometimes give that\n"
+    "person the rock.");
+
+const u8 gMunchlaxPokedexText[] = _(
+    "When it finds something that looks like\n"
+    "it might be edible, it goes right ahead\n"
+    "and swallows it whole. That's why it gets\n"
+    "fatter day by day.");
+	
+const u8 gMantykePokedexText[] = _(
+    "When it swims close to the surface\n"
+    "of the ocean, people aboard ships are\n"
+    "able to observe the pattern on its back.\n"
+    "It often swims in a school of Remoraid.");
+
 

@@ -567,6 +567,15 @@ const u32 gItemIconPalette_YellowScarf[] = INCBIN_U32("graphics/items/icon_palet
 const u32 gItemIcon_DestinyKnot[] = INCBIN_U32("graphics/items/icons/destiny_knot.4bpp.lz");
 const u32 gItemIconPalette_DestinyKnot[] = INCBIN_U32("graphics/items/icon_palettes/destiny_knot.gbapal.lz");
 
+const u32 gItemIcon_ChoiceScarf[] = INCBIN_U32("graphics/items/icons/choice_scarf.4bpp.lz");
+const u32 gItemIconPalette_ChoiceScarf[] = INCBIN_U32("graphics/items/icon_palettes/choice_scarf.gbapal.lz");
+
+const u32 gItemIcon_ChoiceSpecs[] = INCBIN_U32("graphics/items/icons/choice_specs.4bpp.lz");
+const u32 gItemIconPalette_ChoiceSpecs[] = INCBIN_U32("graphics/items/icon_palettes/choice_specs.gbapal.lz");
+
+const u32 gItemIcon_FocusSash[] = INCBIN_U32("graphics/items/icons/focus_sash.4bpp.lz");
+const u32 gItemIconPalette_FocusSash[] = INCBIN_U32("graphics/items/icon_palettes/focus_sash.gbapal.lz");
+
 // Key items
 
 const u32 gItemIcon_MachBike[] = INCBIN_U32("graphics/items/icons/mach_bike.4bpp.lz");

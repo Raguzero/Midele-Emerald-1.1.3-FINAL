@@ -140,6 +140,34 @@ LittlerootTown_DebugRoom_Script_Combate::
     trainerbattle_single TRAINER_DEBUG, DebugCombateTextInicio, DebugCombateTextFin
     end
 
+@ Estatua es una boss battle.
+LittlerootTown_DebugRoom_Script_Boss::
+    lockall
+    setvar VAR_0x8004, BOSS_BATTLE_CORONA_DEBUG
+    special CreateBossBattleMon
+    special BattleSetup_StartBossBattle
+    waitstate
+    setvar VAR_LAST_TALKED, 1
+    specialvar VAR_RESULT, GetBattleOutcome
+    compare VAR_RESULT, B_OUTCOME_WON
+    call_if_eq LittlerootTown_DebugRoom_Script_CombateGanado
+    releaseall
+    end
+
+@ Sudowoodo es un combate contra totem.
+LittlerootTown_DebugRoom_Script_Totem::
+    lockall
+    setvar VAR_0x8004, BOSS_BATTLE_TOTEM_SUDOWOODO_DEBUG
+    special CreateBossBattleMon
+    special BattleSetup_StartBossBattle
+    waitstate
+    setvar VAR_LAST_TALKED, 1
+    specialvar VAR_RESULT, GetBattleOutcome
+    compare VAR_RESULT, B_OUTCOME_WON
+    call_if_eq LittlerootTown_DebugRoom_Script_CombateGanado
+    releaseall
+    end
+
 @ Snorlax vende todos los objetos
 LittlerootTown_DebugRoom_Script_Vendedor::
     lock
@@ -147,9 +175,16 @@ LittlerootTown_DebugRoom_Script_Vendedor::
     release
     end
 
+LittlerootTown_DebugRoom_Script_CombateGanado::
+    msgbox DebugCombateTextFin, MSGBOX_DEFAULT
+    return
+
 
     .align 2
 DebugShop::
+    .2byte ITEM_FOCUS_SASH
+    .2byte ITEM_CHOICE_SCARF
+    .2byte ITEM_CHOICE_SPECS
     .2byte ITEM_SECRET_POTION
     .2byte ITEM_SWEET_HEART
     .2byte ITEM_GOLDEN_CANDY

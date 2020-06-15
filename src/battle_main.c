@@ -12,6 +12,7 @@
 #include "battle_setup.h"
 #include "battle_tower.h"
 #include "berry.h"
+#include "boss_battles.h"
 #include "bg.h"
 #include "data.h"
 #include "decompress.h"
@@ -51,6 +52,7 @@
 #include "constants/abilities.h"
 #include "constants/battle_move_effects.h"
 #include "constants/battle_string_ids.h"
+#include "constants/boss_battles.h"
 #include "constants/hold_effects.h"
 #include "constants/items.h"
 #include "constants/moves.h"
@@ -257,6 +259,11 @@ EWRAM_DATA struct BattleHealthboxInfo *gUnknown_020244DC = NULL;
 EWRAM_DATA u16 gBattleMovePower = 0;
 EWRAM_DATA u16 gMoveToLearn = 0;
 EWRAM_DATA u8 gBattleMonForms[MAX_BATTLERS_COUNT] = {0};
+
+// Midele: variables para boss battles.
+EWRAM_DATA u8 gBossBattleFlags = 0; // Indica el tipo de boss battle (constants/boss_battles.h)
+EWRAM_DATA u8 gBossOrTotemId = 0;   // Indica el ID del boss o totem (src/data/boss_battles/)
+EWRAM_DATA u8 gShouldShowTotemAura = 0; // Indica si se debería mostrar o no el aura de un totem.
 
 // IWRAM common vars
 void (*gPreBattleCallback1)(void);
@@ -2002,7 +2009,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             case 0:
             {
                 const struct TrainerMonNoItemDefaultMoves *partyData = gTrainers[trainerNum].party.NoItemDefaultMoves;
-
+	
                 for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
                     nameHash += gSpeciesNames[partyData[i].species][j];
 
@@ -2067,10 +2074,38 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 	 case F_TRAINER_PARTY_CUSTOM_MIDELE:
             {
                 const struct TrainerMonCustomMidele *partyData = gTrainers[trainerNum].party.ItemCustomMidele;
-
+				
                 for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
                     nameHash += gSpeciesNames[partyData[i].species][j];
 
+		// NUEVO RANDOM BATTLE
+                if (FlagGet(FLAG_RYU_RANDOMBATTLE) == 1)
+                {
+                    u8 level = 100;
+				  u16 em1 = (Random() % (SPECIES_EGG - SPECIES_TREECKO + SPECIES_CELEBI));
+				if (em1 >= SPECIES_CELEBI) em1 += SPECIES_TREECKO - SPECIES_OLD_UNOWN_B;
+                    em1++;
+                    CreateMon(&gEnemyParty[i], em1, level, 31, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+                    break;
+                }
+		// NUEVO RANDOM BATTLE
+		
+		// NUEVO RANDOM BATTLE CC
+                if (FlagGet(FLAG_RYU_RANDOMBATTLECC) == 1)
+                {
+                    u8 level = 100;
+				  u16 em1 = (Random() % (SPECIES_EGG - SPECIES_TREECKO + SPECIES_CELEBI));
+				u16 pm1 = (Random() % (SPECIES_EGG - SPECIES_TREECKO + SPECIES_CELEBI));
+				if (em1 >= SPECIES_CELEBI) em1 += SPECIES_TREECKO - SPECIES_OLD_UNOWN_B;
+				if (pm1 >= SPECIES_CELEBI) pm1 += SPECIES_TREECKO - SPECIES_OLD_UNOWN_B;
+					em1++;
+					pm1++;
+                    CreateMon(&gEnemyParty[i], em1, level, 31, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+					CreateMon(&gPlayerParty[i], pm1, level, 31, FALSE, 0, OT_ID_PLAYER_ID, 0);
+                    break;
+                }
+		// NUEVO RANDOM BATTLE CC
+				
                 personalityValue += nameHash << 8;
                 fixedIV = partyData[i].iv;
                 CreateMonMidele(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, partyData[i].evs, partyData[i].nature, partyData[i].shiny, partyData[i].ability,
@@ -3431,13 +3466,37 @@ static void BattleIntroDrawTrainersOrMonsSprites(void)
             for (i = 0; i < sizeof(struct BattlePokemon); i++)
                 ptr[i] = gBattleBufferB[gActiveBattler][4 + i];
 
-            gBattleMons[gActiveBattler].type1 = gBaseStats[gBattleMons[gActiveBattler].species].type1;
-            gBattleMons[gActiveBattler].type2 = gBaseStats[gBattleMons[gActiveBattler].species].type2;
-            gBattleMons[gActiveBattler].ability = GetAbilityBySpecies(gBattleMons[gActiveBattler].species, gBattleMons[gActiveBattler].abilityNum);
+            // Midele: aplicar los datos correctos al enemigo si se está en una boss battle.
+            if (gBossBattleFlags == BATTLE_TYPE_BOSS && gActiveBattler == 1)
+            {
+                gBattleMons[gActiveBattler].attack = gBosses[gBossOrTotemId].attack;
+                gBattleMons[gActiveBattler].defense = gBosses[gBossOrTotemId].defense;
+                gBattleMons[gActiveBattler].speed = gBosses[gBossOrTotemId].speed;
+                gBattleMons[gActiveBattler].spAttack = gBosses[gBossOrTotemId].spAttack;
+                gBattleMons[gActiveBattler].spDefense = gBosses[gBossOrTotemId].spDefense;
+                gBattleMons[gActiveBattler].type1 = gBosses[gBossOrTotemId].type1;
+                gBattleMons[gActiveBattler].type2 = gBosses[gBossOrTotemId].type2;
+                gBattleMons[gActiveBattler].ability = gBosses[gBossOrTotemId].ability;
+            }
+            else 
+            {
+                gBattleMons[gActiveBattler].type1 = gBaseStats[gBattleMons[gActiveBattler].species].type1;
+                gBattleMons[gActiveBattler].type2 = gBaseStats[gBattleMons[gActiveBattler].species].type2;
+                gBattleMons[gActiveBattler].ability = GetAbilityBySpecies(gBattleMons[gActiveBattler].species, gBattleMons[gActiveBattler].abilityNum);
+            }
             hpOnSwitchout = &gBattleStruct->hpOnSwitchout[GetBattlerSide(gActiveBattler)];
             *hpOnSwitchout = gBattleMons[gActiveBattler].hp;
             for (i = 0; i < NUM_BATTLE_STATS; i++)
-                gBattleMons[gActiveBattler].statStages[i] = 6;
+            {
+                // Midele: en combate de totem, aplicar los cambios en los stats al enemigo.
+                if (gBossBattleFlags == BATTLE_TYPE_TOTEM && gActiveBattler == 1)
+                {
+                    gBattleMons[gActiveBattler].statStages[i] = gTotemMons[gBossOrTotemId].statBoosts[i];
+                } else 
+                {
+                    gBattleMons[gActiveBattler].statStages[i] = 6;
+                }
+            }
             gBattleMons[gActiveBattler].status2 = 0;
         }
 
@@ -3923,6 +3982,10 @@ static void TryDoEventsBeforeFirstTurn(void)
     u8 effect = 0;
 
     if (gBattleControllerExecFlags)
+        return;
+        
+    // Midele: aura de totem.
+    if (AbilityBattleEffects(ABILITYEFFECT_SPECIAL_TOTEM_AURA, 0, 0, 0, 0) != 0)
         return;
 
     if (gBattleStruct->switchInAbilitiesCounter == 0)
@@ -4728,6 +4791,9 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
 
 	if (gBattleMons[battler1].item == ITEM_STICK && gBattleMons[battler1].species == SPECIES_FARFETCHD)
         speedBattler1 *= 1.5;
+	
+	if (gBattleMons[battler1].item == ITEM_CHOICE_SCARF)
+        speedBattler1 *= 1.5;
 
 	// BUFF FORECAST
 	 	if (gBattleMons[battler1].ability == ABILITY_FORECAST && ((gBattleWeather & WEATHER_RAIN_ANY)
@@ -4763,6 +4829,9 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
     }
 
 	if (gBattleMons[battler2].item == ITEM_STICK && gBattleMons[battler2].species == SPECIES_FARFETCHD)
+        speedBattler2 *= 1.5;
+	
+	if (gBattleMons[battler2].item == ITEM_CHOICE_SCARF)
         speedBattler2 *= 1.5;
 
 	// BUFF FORECAST
@@ -5372,6 +5441,7 @@ static void HandleAction_UseMove(void)
     gMoveResultFlags = 0;
     gMultiHitCounter = 0;
     gBattleCommunication[6] = 0;
+	gBattleScripting.savedMoveEffect = 0;
     gCurrMovePos = gChosenMovePos = *(gBattleStruct->chosenMovePositions + gBattlerAttacker);
 
     // choose move
@@ -5518,6 +5588,17 @@ static void HandleAction_UseMove(void)
             && GetBattlerSide(gBattlerAttacker) != GetBattlerSide(gBattlerTarget))
         {
             gBattlerTarget = GetBattlerAtPosition(GetBattlerPosition(gBattlerTarget) ^ BIT_FLANK);
+        }
+    }
+	    else if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE
+             && gBattleMoves[gChosenMove].target == MOVE_TARGET_FOES_AND_ALLY)
+    {
+        for (gBattlerTarget = 0; gBattlerTarget < gBattlersCount; gBattlerTarget++)
+        {
+            if (gBattlerTarget == gBattlerAttacker)
+                continue;
+            if (IsBattlerAlive(gBattlerTarget))
+                break;
         }
     }
     else
@@ -5681,7 +5762,12 @@ bool8 TryRunFromBattle(u8 battler)
 
     gPotentialItemEffectBattler = battler;
 
-    if (holdEffect == HOLD_EFFECT_CAN_ALWAYS_RUN)
+    // Midele: Evitar huida en combate contra Totem o Boss.
+    if (gBossBattleFlags == BATTLE_TYPE_BOSS || gBossBattleFlags ==  BATTLE_TYPE_TOTEM) 
+    {
+        return effect;
+    }
+    else if (holdEffect == HOLD_EFFECT_CAN_ALWAYS_RUN)
     {
         gLastUsedItem = gBattleMons[battler].item;
         gProtectStructs[battler].fleeFlag = 1;

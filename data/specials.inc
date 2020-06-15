@@ -539,3 +539,5 @@ gSpecials:: @ 81DBA64
 	def_special GiveAllItems
 	def_special UpdateAllGymLeadersMaxRematches
 	def_special MideleChangeSelectedMonNature
+	def_special CreateBossBattleMon
+	def_special BattleSetup_StartBossBattle

@@ -247,7 +247,6 @@ BattleScript_EffectAccuracyUp2::
 BattleScript_EffectEvasionUp2::
 BattleScript_EffectSpecialAttackDown2::
 BattleScript_EffectAccuracyDown2::
-BattleScript_EffectEvasionDown2::
 BattleScript_EffectEvasionDownHit::
 BattleScript_EffectVitalThrow::
 BattleScript_EffectUnused60::
@@ -1868,6 +1867,7 @@ BattleScript_EffectEarthquake::
 	selectfirstvalidtarget
 BattleScript_HitsAllWithUndergroundBonusLoop::
 	movevaluescleanup
+	copybyte cEFFECT_CHOOSER, sSAVED_MOVE_EFFECT
 	jumpifnostatus3 BS_TARGET, STATUS3_UNDERGROUND, BattleScript_HitsAllNoUndergroundBonus
 	orword gHitMarker, HITMARKER_IGNORE_UNDERGROUND
 	setbyte sDMG_MULTIPLIER, 0x2
@@ -1892,6 +1892,7 @@ BattleScript_DoHitAllWithUndergroundBonus::
 	waitmessage 0x40
 	resultmessage
 	waitmessage 0x40
+	seteffectwithchance
 	printstring STRINGID_EMPTYSTRING3
 	waitmessage 0x1
 	tryfaintmon BS_TARGET, FALSE, NULL
@@ -2114,11 +2115,30 @@ BattleScript_EffectStockpile::
 	attackcanceler
 	attackstring
 	ppreduce
-	stockpile
+	stockpile 0
 	attackanimation
 	waitanimation
 	printfromtable gStockpileUsedStringIds
 	waitmessage 0x40
+	jumpifmovehadnoeffect BattleScript_EffectStockpileEnd
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_DEF, 0xC, BattleScript_EffectStockpileDef
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPDEF, 0xC, BattleScript_EffectStockpileEnd
+	BattleScript_EffectStockpileDef:
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_SPDEF, 0x0
+	setstatchanger STAT_DEF, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_BUFF_ALLOW_PTR, BattleScript_EffectStockpileSpDef
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, 0x2, BattleScript_EffectStockpileSpDef
+	printfromtable gStatUpStringIds
+	waitmessage 0x40
+BattleScript_EffectStockpileSpDef::
+	setstatchanger STAT_SPDEF, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_BUFF_ALLOW_PTR, BattleScript_EffectStockpileEnd
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, 0x2, BattleScript_EffectStockpileEnd
+	printfromtable gStatUpStringIds
+	waitmessage 0x40
+BattleScript_EffectStockpileEnd:
+	stockpile 1
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectSpitUp::
@@ -4431,7 +4451,10 @@ BattleScript_HangedOnMsg::
 	playanimation BS_TARGET, B_ANIM_HANGED_ON, NULL
 	printstring STRINGID_PKMNHUNGONWITHX
 	waitmessage 0x40
-	return
+    jumpifbyte CMP_EQUAL, gLastUsedItem, 196, BattleScript_HangedOnMsgEnd
+    removeitem BS_TARGET
+BattleScript_HangedOnMsgEnd:
+    return
 
 BattleScript_BerryConfuseHealEnd2::
 	playanimation BS_ATTACKER, B_ANIM_ITEM_EFFECT, NULL
@@ -4760,6 +4783,18 @@ BattleScript_FriskActivates::
 	tryfriskmsg BS_ATTACKER
 	end3
 
+BattleScript_SturdyNewEffect::
+    printstring STRINGID_PKMNPROTECTEDBY
+    pause 0x40
+    return
+	
+BattleScript_EffectEvasionDown2::
+	setstatchanger STAT_EVASION, 2, TRUE
+	goto BattleScript_EffectStatDown
 
-
-
+BattleScript_TotemAura::
+	playanimation BS_OPPONENT1, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	waitanimation
+	printstring STRINGID_TOTEM_AURA
+	waitmessage 0x40
+	end3

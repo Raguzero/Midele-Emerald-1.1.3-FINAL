@@ -6441,4 +6441,83 @@ const struct PokedexEntry gPokedexEntries[] =
 		.trainerScale = 256,
 		.trainerOffset = 0,
 	},
+	[NATIONAL_DEX_BUDEW] =
+	{
+		.categoryName = _("BUD"),
+		.height = 2,
+		.weight = 12,
+		.description = gBudewPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	[NATIONAL_DEX_CHINGLING] =
+	{
+		.categoryName = _("BELL"),
+		.height = 2,
+		.weight = 6,
+		.description = gChinglingPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	[NATIONAL_DEX_BONSLY] =
+	{
+		.categoryName = _("BONSAI"),
+		.height = 5,
+		.weight = 150,
+		.description = gBonslyPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_MIMEJR] =
+	{
+		.categoryName = _("MIME"),
+		.height = 6,
+		.weight = 130,
+		.description = gMimeJrPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_HAPPINY] =
+	{
+		.categoryName = _("PLAYHOUSE"),
+		.height = 6,
+		.weight = 244,
+		.description = gHappinyPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	[NATIONAL_DEX_MUNCHLAX] =
+	{
+		.categoryName = _("BIG EATER"),
+		.height = 6,
+		.weight = 1050,
+		.description = gMunchlaxPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	[NATIONAL_DEX_MANTYKE] =
+	{
+		.categoryName = _("KITE"),
+		.height = 10,
+		.weight = 650,
+		.description = gMantykePokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
 };
