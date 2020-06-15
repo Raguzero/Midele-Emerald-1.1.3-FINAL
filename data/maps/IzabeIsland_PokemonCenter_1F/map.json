@@ -58,6 +58,13 @@
             "elevation": 0,
             "x": 6,
             "y": 8
+        },
+        {
+            "dest_map": "MAP_IZABE_ISLAND_POKEMON_CENTER_2F",
+            "dest_warp_id": 0,
+            "elevation": 0,
+            "x": 1,
+            "y": 6
         }
     ],
     "weather": "WEATHER_NONE"
