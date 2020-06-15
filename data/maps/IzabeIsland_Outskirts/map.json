@@ -19,7 +19,7 @@
     "id": "MAP_IZABE_ISLAND_OUTSKIRTS",
     "layout": "LAYOUT_IZABE_ISLAND_OUTSKIRTS",
     "map_type": "MAP_TYPE_ROUTE",
-    "music": "MUS_RG_CHAMP_R",
+    "music": "MUS_FIELD13",
     "name": "IzabeIsland_Outskirts",
     "object_events": [
         {
