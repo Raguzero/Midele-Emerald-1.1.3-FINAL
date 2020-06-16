@@ -13782,7 +13782,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_MayLinkPlaceholder[] = {
 ////// NUEVOS ENTRENADORES A PARTIR DE AQUI ///////
 static const struct TrainerMonCustomMidele sParty_Debug[] = {
         {
-        .lvl = 100,
+        .lvl = 1,
         .iv = 31,
         .evs = {252, 0, 252, 0, 0, 0},
         .species = SPECIES_WIGGLYTUFF,
@@ -13794,7 +13794,7 @@ static const struct TrainerMonCustomMidele sParty_Debug[] = {
         .hpType = TYPE_GHOST
         },
         {
-        .lvl = 100,
+        .lvl = 1,
         .iv = 31,
         .evs = {252, 252, 6, 0, 0, 0},
         .species = SPECIES_DUSKNOIR,
@@ -13870,4 +13870,3 @@ static const struct TrainerMonCustomMidele sParty_Davian[] = {
     }
 };
 // GRANITE CAVE (POKEMON ORAS)
-
