@@ -1230,8 +1230,8 @@
 
 #define FLAG_ITEM_IZABE_ISLAND_OUTSKIRTS_4                          0x493 // Previously unused Flag
 #define FLAG_ITEM_IZABE_ISLAND_OUTSKIRTS_5                          0x494 // Previously unused Flag
-#define FLAG_UNUSED_0x495                                           0x495 // Unused Flag
-#define FLAG_UNUSED_0x496                                           0x496 // Unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_CAVE_1                               0x495 // Previously unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_CAVE_2                               0x496 // Previously unused Flag
 #define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
 #define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
 #define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
