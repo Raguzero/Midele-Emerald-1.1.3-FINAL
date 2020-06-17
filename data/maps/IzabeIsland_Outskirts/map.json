@@ -23,34 +23,6 @@
     ],
     "connections": null,
     "coord_events": [
-        {
-            "elevation": 0,
-            "type": "weather",
-            "weather": "COORD_EVENT_WEATHER_FOG_HORIZONTAL",
-            "x": 12,
-            "y": 8
-        },
-        {
-            "elevation": 0,
-            "type": "weather",
-            "weather": "COORD_EVENT_WEATHER_FOG_HORIZONTAL",
-            "x": 13,
-            "y": 8
-        },
-        {
-            "elevation": 0,
-            "type": "weather",
-            "weather": "COORD_EVENT_WEATHER_SNOW",
-            "x": 12,
-            "y": 9
-        },
-        {
-            "elevation": 0,
-            "type": "weather",
-            "weather": "COORD_EVENT_WEATHER_SNOW",
-            "x": 13,
-            "y": 9
-        }
     ],
     "id": "MAP_IZABE_ISLAND_OUTSKIRTS",
     "layout": "LAYOUT_IZABE_ISLAND_OUTSKIRTS",
@@ -318,7 +290,7 @@
             "y": 7
         },
         {
-            "dest_map": "MAP_IZABE_ISLAND_OUTSKIRTS_CAVE_F1",
+            "dest_map": "MAP_IZABE_ISLAND_OUTSKIRTS_CAVE_ENTRANCE",
             "dest_warp_id": 0,
             "elevation": 0,
             "x": 12,

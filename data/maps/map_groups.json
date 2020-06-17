@@ -540,7 +540,8 @@
         "IzabeIsland_OutskirtsCaveF1",
         "IzabeIsland_PokemonCenter_1F",
         "IzabeIsland_PokemonCenter_2F",
-        "IzabeIsland_Mart"
+        "IzabeIsland_Mart",
+        "IzabeIsland_OutskirtsCave_Entrance"
     ],
     "gMapGroup4": [
         "LavaridgeTown_HerbShop",
