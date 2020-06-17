@@ -656,8 +656,8 @@
 #define FLAG_HIDDEN_ITEM_IZABE_ISLAND_LAKE_1  (FLAG_HIDDEN_ITEMS_START + 0x62) // Previously unused Flag
 #define FLAG_HIDDEN_ITEM_IZABE_ISLAND_LAKE_2  (FLAG_HIDDEN_ITEMS_START + 0x63) // Previously unused Flag
 #define FLAG_HIDDEN_ITEM_IZABE_ISLAND_LAKE_CAVE_1  (FLAG_HIDDEN_ITEMS_START + 0x64) // Previously unused
-#define FLAG_UNUSED_0x26A  0x26A // Unused Flag
-#define FLAG_UNUSED_0x26B  0x26B // Unused Flag
+#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_OUTSKIRTS_1  (FLAG_HIDDEN_ITEMS_START + 0x65) // Previously unused Flag
+#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_OUTSKIRTS_2  (FLAG_HIDDEN_ITEMS_START + 0x65) // Previously unused Flag
 #define FLAG_UNUSED_0x26C  0x26C // Unused Flag
 #define FLAG_UNUSED_0x26D  0x26D // Unused Flag
 #define FLAG_UNUSED_0x26E  0x26E // Unused Flag
@@ -1187,11 +1187,11 @@
 #define FLAG_ITEM_ROUTE_119_NUGGET                                  0x46E
 #define FLAG_ITEM_ROUTE_104_POTION                                  0x46F
 
-#define FLAG_UNUSED_0x470                                           0x470 // Unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_OUTSKIRTS_1                          0x470 // Previously unused Flag
 
 #define FLAG_ITEM_ROUTE_103_PP_UP                                   0x471
 
-#define FLAG_UNUSED_0x472                                           0x472 // Unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_OUTSKIRTS_2                          0x472 // Previously unused Flag
 
 #define FLAG_ITEM_ROUTE_108_STAR_PIECE                              0x473
 #define FLAG_ITEM_ROUTE_109_POTION                                  0x474
@@ -1200,7 +1200,7 @@
 #define FLAG_ITEM_ROUTE_113_HYPER_POTION                            0x477
 #define FLAG_ITEM_ROUTE_115_HEAL_POWDER                             0x478
 
-#define FLAG_UNUSED_0x479                                           0x479 // Unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_OUTSKIRTS_3                          0x479 // Previously unused Flag
 
 #define FLAG_ITEM_ROUTE_116_POTION                                  0x47A
 #define FLAG_ITEM_ROUTE_119_ELIXIR_2                                0x47B
@@ -1228,8 +1228,8 @@
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_EAST_NUGGET                     0x491
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL                  0x492
 
-#define FLAG_UNUSED_0x493                                           0x493 // Unused Flag
-#define FLAG_UNUSED_0x494                                           0x494 // Unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_OUTSKIRTS_4                          0x493 // Previously unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_OUTSKIRTS_5                          0x494 // Previously unused Flag
 #define FLAG_UNUSED_0x495                                           0x495 // Unused Flag
 #define FLAG_UNUSED_0x496                                           0x496 // Unused Flag
 #define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
