@@ -1895,6 +1895,10 @@ const u8 gText_SassyNature[] = _("SASSY");
 const u8 gText_CarefulNature[] = _("CAREFUL");
 const u8 gText_QuirkyNature[] = _("QUIRKY");
 
+// NO COMPRA MTS REPES
+const u8 gText_YouAlreadyHaveThis[] = _("You already have this item.{PAUSE_UNTIL_PRESS}");
+
+// NUEVOS MUÑECOS COMPRABLES POR PB
 const u8 gText_RegirockDoll256BP[] = _("REGIROCK DOLL{CLEAR_TO 0x58}18BP");
 const u8 gText_RegiceDoll256BP[] = _("REGICE DOLL{CLEAR_TO 0x58}18BP");
 const u8 gText_RegisteelDoll256BP[] = _("REGISTEEL DOLL{CLEAR_TO 0x58}18BP");

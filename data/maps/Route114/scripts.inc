@@ -144,6 +144,25 @@ Route114_EventScript_RegisterBernie:: @ 81F272A
 	register_matchcall TRAINER_BERNIE_1
 	release
 	end
+	
+SlateportCity_EventScript_FossilShop:: @ 81DD16A
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart SlateportCity_PokemartFossil, 1
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+SlateportCity_PokemartFossil: @ 81DD184
+	.2byte ITEM_HELIX_FOSSIL
+	.2byte ITEM_DOME_FOSSIL
+	.2byte ITEM_OLD_AMBER
+	.2byte ITEM_NONE
+	release
+	end
 
 Route114_EventScript_RematchBernie:: @ 81F2749
 	trainerbattle_rematch TRAINER_BERNIE_1, Route114_Text_BernieRematchIntro, Route114_Text_BernieRematchDefeat
