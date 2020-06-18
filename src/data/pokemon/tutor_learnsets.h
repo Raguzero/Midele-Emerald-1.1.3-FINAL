@@ -6765,6 +6765,7 @@ static const u32 sTutorLearnsets[] =
                                 | TUTOR(MOVE_SLEEP_TALK)
                                 | TUTOR(MOVE_SWIFT)
                                 | TUTOR(MOVE_DEFENSE_CURL)
+                                | TUTOR(MOVE_ICY_WIND)
                                 | TUTOR(MOVE_FURY_CUTTER)),
 
     [SPECIES_ALOLAN_SANDSLASH]        = (TUTOR(MOVE_SWORDS_DANCE)
@@ -6784,6 +6785,7 @@ static const u32 sTutorLearnsets[] =
                                 | TUTOR(MOVE_SLEEP_TALK)
                                 | TUTOR(MOVE_SWIFT)
                                 | TUTOR(MOVE_DEFENSE_CURL)
+                                | TUTOR(MOVE_ICY_WIND)
                                 | TUTOR(MOVE_FURY_CUTTER)),
 
     [SPECIES_ALOLAN_VULPIX]           = (TUTOR(MOVE_BODY_SLAM)
