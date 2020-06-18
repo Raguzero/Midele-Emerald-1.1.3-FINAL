@@ -20,11 +20,24 @@
             "graphics_id": "EVENT_OBJ_GFX_QUINTY_PLUMP",
             "movement_range_x": 0,
             "movement_range_y": 0,
-            "movement_type": "MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE",
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
             "script": "NULL",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
             "x": 3,
+            "y": 1
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_HIDE_IZABE_ISLAND_CAVE_LAVENDER",
+            "graphics_id": "EVENT_OBJ_GFX_PSYCHIC_M",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+            "script": "IzabeIsland_OutskirtsCave_EventScript_Lavender",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 6,
             "y": 1
         }
     ],
