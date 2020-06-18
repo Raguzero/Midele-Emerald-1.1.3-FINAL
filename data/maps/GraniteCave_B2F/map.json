@@ -155,7 +155,7 @@
             "movement_range_y": 0,
             "movement_type": "MOVEMENT_TYPE_NONE",
             "script": "GraniteCave_B2F_EventScript_Davian",
-            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_sight_or_berry_tree_id": "3",
             "trainer_type": "1",
             "x": 23,
             "y": 16
@@ -168,7 +168,7 @@
             "movement_range_y": 0,
             "movement_type": "MOVEMENT_TYPE_NONE",
             "script": "GraniteCave_B2F_EventScript_Omari",
-            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_sight_or_berry_tree_id": "3",
             "trainer_type": "1",
             "x": 19,
             "y": 12
