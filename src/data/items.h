@@ -4539,7 +4539,7 @@ const struct Item gItems[] =
     {
         .name = _("OLD AMBER"),
         .itemId = ITEM_OLD_AMBER,
-        .price = 0,
+        .price = 20000,
         .description = sOldAmberDesc,
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
@@ -4578,7 +4578,7 @@ const struct Item gItems[] =
     {
         .name = _("HELIX FOSSIL"),
         .itemId = ITEM_HELIX_FOSSIL,
-        .price = 0,
+        .price = 20000,
         .description = sHelixFossilDesc,
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
@@ -4591,7 +4591,7 @@ const struct Item gItems[] =
     {
         .name = _("DOME FOSSIL"),
         .itemId = ITEM_DOME_FOSSIL,
-        .price = 0,
+        .price = 20000,
         .description = sDomeFossilDesc,
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,

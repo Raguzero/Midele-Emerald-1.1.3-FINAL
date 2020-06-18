@@ -3026,4 +3026,7 @@ extern const u8 gText_SassyNature[];
 extern const u8 gText_CarefulNature[];
 extern const u8 gText_QuirkyNature[];
 
+// NO COMPRAR MTS REPES
+extern const u8 gText_YouAlreadyHaveThis[];
+
 #endif // GUARD_STRINGS_H
