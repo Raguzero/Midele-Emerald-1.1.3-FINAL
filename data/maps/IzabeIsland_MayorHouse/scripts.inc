@@ -24,6 +24,8 @@ IzabeIsland_MayorHouse_EventScript_Guard::
 	goto_if_eq IzabeIsland_MayorHouse_EventScript_Guard_AskForHelp
 	compare VAR_IZABE_ISLAND_STATE, 1
 	goto_if_eq IzabeIsland_MayorHouse_EventScript_Guard_ThanksForHelp
+	compare VAR_IZABE_ISLAND_STATE, 2
+	goto_if_eq IzabeIsland_MayorHouse_EventScript_Guard_ThanksForHelp
 	end
 
 IzabeIsland_MayorHouse_EventScript_Mayor::
