@@ -2853,10 +2853,10 @@ static const u16 sBadgeFlags[8] =
 static const u8 gCapLevels[9] =
 {
     15, // 0 medallas
-    25, // 1 medalla
-    35, // 2 medallas
-    35, // 3 medallas
-    35, // 4 medallas
+    20, // 1 medalla
+    30, // 2 medallas
+    40, // 3 medallas
+    40, // 4 medallas
     45, // 5 medallas
     50, // 6 medallas
     55, // 7 medallas
