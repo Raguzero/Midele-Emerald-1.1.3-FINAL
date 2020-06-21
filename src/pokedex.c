@@ -1271,8 +1271,10 @@ void ResetPokedex(void)
     {
         gSaveBlock2Ptr->pokedex.owned[i] = 0;
         gSaveBlock2Ptr->pokedex.seen[i] = 0;
+        #ifndef FREE_EXTRA_SEEN_FLAGS
         gSaveBlock1Ptr->seen1[i] = 0;
         gSaveBlock1Ptr->seen2[i] = 0;
+        #endif
     }
 }
 
@@ -4310,6 +4312,7 @@ s8 GetSetPokedexFlag(u16 nationalDexNo, u8 caseID)
     case FLAG_GET_SEEN:
         if (gSaveBlock2Ptr->pokedex.seen[index] & mask)
         {
+            #ifndef FREE_EXTRA_SEEN_FLAGS
             if ((gSaveBlock2Ptr->pokedex.seen[index] & mask) == (gSaveBlock1Ptr->seen1[index] & mask)
              && (gSaveBlock2Ptr->pokedex.seen[index] & mask) == (gSaveBlock1Ptr->seen2[index] & mask))
                 retVal = 1;
@@ -4320,11 +4323,15 @@ s8 GetSetPokedexFlag(u16 nationalDexNo, u8 caseID)
                 gSaveBlock1Ptr->seen2[index] &= ~mask;
                 retVal = 0;
             }
+            #else
+                retVal = 1;
+            #endif
         }
         break;
     case FLAG_GET_CAUGHT:
         if (gSaveBlock2Ptr->pokedex.owned[index] & mask)
         {
+            #ifndef FREE_EXTRA_SEEN_FLAGS
             if ((gSaveBlock2Ptr->pokedex.owned[index] & mask) == (gSaveBlock2Ptr->pokedex.seen[index] & mask)
              && (gSaveBlock2Ptr->pokedex.owned[index] & mask) == (gSaveBlock1Ptr->seen1[index] & mask)
              && (gSaveBlock2Ptr->pokedex.owned[index] & mask) == (gSaveBlock1Ptr->seen2[index] & mask))
@@ -4337,12 +4344,17 @@ s8 GetSetPokedexFlag(u16 nationalDexNo, u8 caseID)
                 gSaveBlock1Ptr->seen2[index] &= ~mask;
                 retVal = 0;
             }
+            #else
+                retVal = 1;
+            #endif
         }
         break;
     case FLAG_SET_SEEN:
         gSaveBlock2Ptr->pokedex.seen[index] |= mask;
+        #ifndef FREE_EXTRA_SEEN_FLAGS
         gSaveBlock1Ptr->seen1[index] |= mask;
         gSaveBlock1Ptr->seen2[index] |= mask;
+        #endif
         break;
     case FLAG_SET_CAUGHT:
         gSaveBlock2Ptr->pokedex.owned[index] |= mask;

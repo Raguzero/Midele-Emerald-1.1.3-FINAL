@@ -313,6 +313,7 @@ u16 GetMatchCallMapSec(int index)
 
 bool32 ShouldDrawRematchPokeballIcon(int index)
 {
+    #ifndef FREE_MATCH_CALL
     struct Pokenav3Struct *state = GetSubstructPtr(5);
     if (!state->matchCallEntries[index].isSpecialTrainer)
         index = state->matchCallEntries[index].headerId;
@@ -323,6 +324,9 @@ bool32 ShouldDrawRematchPokeballIcon(int index)
         return FALSE;
 
     return gSaveBlock1Ptr->trainerRematches[index] != 0;
+    #else
+    return FALSE;
+    #endif
 }
 
 int GetMatchCallTrainerPic(int index)
@@ -466,6 +470,7 @@ int GetIndexDeltaOfNextCheckPageUp(int index)
 
 bool32 unref_sub_81CB16C(void)
 {
+    #ifndef FREE_MATCH_CALL
     int i;
 
     for (i = 0; i < REMATCH_TABLE_ENTRIES; i++)
@@ -483,12 +488,13 @@ bool32 unref_sub_81CB16C(void)
                 return TRUE;
         }
     }
-
+    #endif
     return FALSE;
 }
 
 static bool32 sub_81CB1D0(void)
 {
+    #ifndef FREE_MATCH_CALL
     struct Pokenav3Struct *state = GetSubstructPtr(5);
     int selection = GetSelectedMatchCall();
     if (!state->matchCallEntries[selection].isSpecialTrainer)
@@ -511,6 +517,6 @@ static bool32 sub_81CB1D0(void)
             }
         }
     }
-
+    #endif
     return FALSE;
 }
