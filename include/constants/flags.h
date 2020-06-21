@@ -510,7 +510,7 @@
 #define FLAG_DEFEATED_HO_OH                  0x1DC
 #define FLAG_DEFEATED_LUGIA                  0x1DD
 
-#define FLAG_RECEIVED_IZABE_ITEM_1           0x1DE // Previously unused Flag
+#define FLAG_RECEIVED_IZABE_ITEM_LUCKY_EGG           0x1DE // Previously unused Flag
 #define FLAG_RECEIVED_MICOLO_MON             0x1DF // Previously unused Flag
 #define FLAG_RECEIVED_IZABE_ITEM_LAVENDER    0x1E0 // Previously unused Flag
 #define FLAG_UNUSED_0x1E1                    0x1E1 // Unused Flag
@@ -650,14 +650,14 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_2             (FLAG_HIDDEN_ITEMS_START + 0x5D)
 #define FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_3             (FLAG_HIDDEN_ITEMS_START + 0x5E)
 
-#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_TOWN_POISON_BARB       (FLAG_HIDDEN_ITEMS_START + 0x5F) // Previously unused Flag
-#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_TOWN_SHARP_BEAK        (FLAG_HIDDEN_ITEMS_START + 0x60) // Previously unused Flag
+#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_TOWN_SACRED_ASH       (FLAG_HIDDEN_ITEMS_START + 0x5F) // Previously unused Flag
+#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_TOWN_LUCKY_PUNCH        (FLAG_HIDDEN_ITEMS_START + 0x60) // Previously unused Flag
 #define FLAG_HIDDEN_ITEM_IZABE_ISLAND_HOUSE_1_LEEK           (FLAG_HIDDEN_ITEMS_START + 0x61) // Previously unused Flag
 #define FLAG_HIDDEN_ITEM_IZABE_ISLAND_LAKE_1  (FLAG_HIDDEN_ITEMS_START + 0x62) // Previously unused Flag
 #define FLAG_HIDDEN_ITEM_IZABE_ISLAND_LAKE_2  (FLAG_HIDDEN_ITEMS_START + 0x63) // Previously unused Flag
 #define FLAG_HIDDEN_ITEM_IZABE_ISLAND_LAKE_CAVE_1  (FLAG_HIDDEN_ITEMS_START + 0x64) // Previously unused
-#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_OUTSKIRTS_1  (FLAG_HIDDEN_ITEMS_START + 0x65) // Previously unused Flag
-#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_OUTSKIRTS_2  (FLAG_HIDDEN_ITEMS_START + 0x65) // Previously unused Flag
+#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_OUTSKIRTS_POISON_BARB  (FLAG_HIDDEN_ITEMS_START + 0x65) // Previously unused Flag
+#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_OUTSKIRTS_SPELL_TAG  (FLAG_HIDDEN_ITEMS_START + 0x65) // Previously unused Flag
 #define FLAG_UNUSED_0x26C  0x26C // Unused Flag
 #define FLAG_UNUSED_0x26D  0x26D // Unused Flag
 #define FLAG_UNUSED_0x26E  0x26E // Unused Flag
@@ -1078,7 +1078,7 @@
 #define FLAG_ITEM_ROUTE_120_FULL_HEAL                               0x407
 #define FLAG_ITEM_ROUTE_123_CALCIUM                                 0x408
 
-#define FLAG_ITEM_IZABE_ISLAND_TOWN_TWISTEDSPOON                    0x409 // Previously unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_TOWN_SUN_STONE                    0x409 // Previously unused Flag
 
 #define FLAG_ITEM_ROUTE_127_ZINC                                    0x40A
 #define FLAG_ITEM_ROUTE_127_CARBOS                                  0x40B
@@ -1172,9 +1172,9 @@
 #define FLAG_ITEM_NEW_MAUVILLE_PARALYZE_HEAL                        0x463
 #define FLAG_ITEM_AQUA_HIDEOUT_B1F_MASTER_BALL                      0x464
 
-#define FLAG_ITEM_IZABE_ISLAND_TOWN_SPELL_TAG                       0x465 // Previously unused Flag
-#define FLAG_ITEM_IZABE_ISLAND_SECRET_HOUSE_1                       0x466 // Previously unused Flag
-#define FLAG_ITEM_IZABE_ISLAND_SECRET_HOUSE_2                       0x467 // Previously unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_TOWN_DRAGON_FANG                       0x465 // Previously unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_SECRET_HOUSE_METAL_COAT                       0x466 // Previously unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_SECRET_HOUSE_LIGHT_BALL                       0x467 // Previously unused Flag
 #define FLAG_ITEM_IZABE_ISLAND_UNDERWATER_CAVE_1                    0x468 // Previously unused Flag
 
 #define FLAG_ITEM_MT_PYRE_2F_ULTRA_BALL                             0x469
@@ -1182,16 +1182,16 @@
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_WEST_MAX_REVIVE                 0x46B
 #define FLAG_ITEM_AQUA_HIDEOUT_B1F_NUGGET                           0x46C
 
-#define FLAG_ITEM_IZABE_ISLAND_SECRET_HOUSE_B1                      0x46D // Previously unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_SECRET_HOUSE_B1_SCOPE_LENS                      0x46D // Previously unused Flag
 
 #define FLAG_ITEM_ROUTE_119_NUGGET                                  0x46E
 #define FLAG_ITEM_ROUTE_104_POTION                                  0x46F
 
-#define FLAG_ITEM_IZABE_ISLAND_OUTSKIRTS_1                          0x470 // Previously unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_OUTSKIRTS_SILVER_POWDER                          0x470 // Previously unused Flag
 
 #define FLAG_ITEM_ROUTE_103_PP_UP                                   0x471
 
-#define FLAG_ITEM_IZABE_ISLAND_OUTSKIRTS_2                          0x472 // Previously unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_OUTSKIRTS_SHARP_BEAK                          0x472 // Previously unused Flag
 
 #define FLAG_ITEM_ROUTE_108_STAR_PIECE                              0x473
 #define FLAG_ITEM_ROUTE_109_POTION                                  0x474
@@ -1200,7 +1200,7 @@
 #define FLAG_ITEM_ROUTE_113_HYPER_POTION                            0x477
 #define FLAG_ITEM_ROUTE_115_HEAL_POWDER                             0x478
 
-#define FLAG_ITEM_IZABE_ISLAND_OUTSKIRTS_3                          0x479 // Previously unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_OUTSKIRTS_KINGS_ROCK                          0x479 // Previously unused Flag
 
 #define FLAG_ITEM_ROUTE_116_POTION                                  0x47A
 #define FLAG_ITEM_ROUTE_119_ELIXIR_2                                0x47B
@@ -1228,10 +1228,10 @@
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_EAST_NUGGET                     0x491
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL                  0x492
 
-#define FLAG_ITEM_IZABE_ISLAND_OUTSKIRTS_4                          0x493 // Previously unused Flag
-#define FLAG_ITEM_IZABE_ISLAND_OUTSKIRTS_5                          0x494 // Previously unused Flag
-#define FLAG_ITEM_IZABE_ISLAND_CAVE_1                               0x495 // Previously unused Flag
-#define FLAG_ITEM_IZABE_ISLAND_CAVE_2                               0x496 // Previously unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_OUTSKIRTS_TWISTEDSPOON                          0x493 // Previously unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_OUTSKIRTS_BLACK_BELT                          0x494 // Previously unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_CAVE_THICK_CLUB                               0x495 // Previously unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_CAVE_NEVERMELTICE                               0x496 // Previously unused Flag
 #define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
 #define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
 #define FLAG_UNUSED_0x499                                           0x499 // Unused Flag

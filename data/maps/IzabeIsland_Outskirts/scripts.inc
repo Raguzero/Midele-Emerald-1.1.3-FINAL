@@ -1,24 +1,24 @@
 IzabeIsland_Outskirts_MapScripts::
 	.byte 0
 
-IzabeIsland_Town_EventScript_ItemOutskirts1::
-	finditem ITEM_G_PROTEIN
+IzabeIsland_Town_EventScript_ItemOutskirts_SilverPowder::
+	finditem ITEM_SILVER_POWDER
 	end
 
-IzabeIsland_Town_EventScript_ItemOutskirts2::
-	finditem ITEM_G_ZINC
+IzabeIsland_Town_EventScript_ItemOutskirts_SharpBeak::
+	finditem ITEM_SHARP_BEAK
 	end
 
-IzabeIsland_Town_EventScript_ItemOutskirts3::
-	finditem ITEM_G_IRON
+IzabeIsland_Town_EventScript_ItemOutskirts_KingsRock::
+	finditem ITEM_KINGS_ROCK
 	end
 
-IzabeIsland_Town_EventScript_ItemOutskirts4::
-	finditem ITEM_G_CARBOS
+IzabeIsland_Town_EventScript_ItemOutskirts_TwistedSpoon::
+	finditem ITEM_TWISTED_SPOON
 	end
 
-IzabeIsland_Town_EventScript_ItemOutskirts5::
-	finditem ITEM_G_HP_UP
+IzabeIsland_Town_EventScript_ItemOutskirts_BlackBelt::
+	finditem ITEM_BLACK_BELT
 	end
 
 IzabeIsland_Outskirts_EventScript_Camper::

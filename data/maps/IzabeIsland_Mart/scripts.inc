@@ -22,14 +22,18 @@ IzabeIsland_Mart_Text_HexManiac::
 
 	.align 2
 IzabeIsland_Mart_Pokemart_Basic: @ 8207D8C
-	.2byte ITEM_POKE_BALL
-	.2byte ITEM_POTION
-	.2byte ITEM_ANTIDOTE
-	.2byte ITEM_PARALYZE_HEAL
-	.2byte ITEM_AWAKENING
-	.2byte ITEM_ESCAPE_ROPE
-	.2byte ITEM_REPEL
-	.2byte ITEM_ORANGE_MAIL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_BERRY_JUICE
+	.2byte ITEM_MOOMOO_MILK
+	.2byte ITEM_LAVA_COOKIE
+	.2byte ITEM_REVIVE
+	.2byte ITEM_MAX_REPEL
+	.2byte ITEM_RETRO_MAIL
+	.2byte ITEM_FAB_MAIL
+	.2byte ITEM_DREAM_MAIL
+	.2byte ITEM_POKE_DOLL
 	.2byte ITEM_NONE
 	release
 	end

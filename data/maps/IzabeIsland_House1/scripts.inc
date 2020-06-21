@@ -75,7 +75,7 @@ IzabeIsland_House1_Text_ThanksForTrading::
 	.string "{STR_VAR_2}.$"
 
 IzabeIsland_House1_Text_HowIsIt::
-	.string "¿Qué tal está mi {STR_VAR_2}\n"
+	.string "¿Qué tal está mi {STR_VAR_2}?\n"
 	.string "Tu {STR_VAR_1} está bien, de momento...$"
 
 IzabeIsland_House1_Text_DeclineTrade::
