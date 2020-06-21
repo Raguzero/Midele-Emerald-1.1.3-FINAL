@@ -17,10 +17,7 @@ IzabeIsland_PokemonCenter_1F_EventScript_Nurse::
 	end
 
 IzabeIsland_PokemonCenter_1F_EventScript_Fisherman::
-	lock
-	faceplayer
-	msgbox IzabeIsland_PokemonCenter_1F_Text_Fisherman, MSGBOX_DEFAULT
-	release
+	msgbox IzabeIsland_PokemonCenter_1F_Text_Fisherman, MSGBOX_NPC
 	end
 
 IzabeIsland_PokemonCenter_1F_Text_Fisherman::

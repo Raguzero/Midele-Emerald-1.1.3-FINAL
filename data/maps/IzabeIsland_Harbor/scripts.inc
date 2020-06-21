@@ -9,6 +9,7 @@ IzabeIsland_Harbor_EventScript_GoBack::
 
 	msgbox IzabeIslandHarbor_Text_GoBack, MSGBOX_DEFAULT
 	warp MAP_SLATEPORT_CITY_HARBOR, 255, 22, 11
+	waitstate
 	end
 
 IzabeIsland_Harbor_EventScript_Bye::

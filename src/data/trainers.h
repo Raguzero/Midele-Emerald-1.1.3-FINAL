@@ -12102,4 +12102,30 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_Davian),
         .party = {.ItemCustomMidele = sParty_Davian},
     },
+    [TRAINER_IZABE_SAILOR] =
+    {
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
+        .trainerClass = TRAINER_CLASS_SAILOR,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR,
+        .trainerPic = TRAINER_PIC_ELITE_FOUR_DRAKE,
+        .trainerName = _("COMPLETAR1"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
+        .partySize = ARRAY_COUNT(sParty_IzabeIsland_Sailor),
+        .party = {.ItemCustomMidele = sParty_IzabeIsland_Sailor},
+    },
+    [TRAINER_IZABE_MAYOR] =
+    {
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
+        .trainerClass = TRAINER_CLASS_EXPERT,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR,
+        .trainerPic = TRAINER_PIC_EXPERT_M,
+        .trainerName = _("COMPLETAR2"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
+        .partySize = ARRAY_COUNT(sParty_IzabeIsland_Mayor),
+        .party = {.ItemCustomMidele = sParty_IzabeIsland_Mayor},
+    },
 };
