@@ -4566,7 +4566,7 @@
             "height": 20,
             "id": "LAYOUT_IZABE_ISLAND_OUTSKIRTS_CAVE_F1",
             "name": "IzabeIsland_OutskirtsCaveF1_Layout",
-            "primary_tileset": "gTileset_Building",
+            "primary_tileset": "gTileset_General",
             "secondary_tileset": "gTileset_Cave",
             "width": 20
         },
