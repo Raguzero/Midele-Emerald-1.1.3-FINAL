@@ -42,7 +42,7 @@ IzabeIsland_MayorHouse_EventScript_Mayor_AskForBattle::
 	lockall
 	faceplayer
 	msgbox IzabeIsland_MayorHouse_Text_Mayor_ExplainSituation, MSGBOX_NPC
-	trainerbattle_no_intro TRAINER_DEBUG, IzabeIsland_MayorHouse_Text_Mayor_BattleDefeated
+	trainerbattle_no_intro TRAINER_IZABE_MAYOR, IzabeIsland_MayorHouse_Text_Mayor_BattleDefeated
 	
 	msgbox IzabeIsland_MayorHouse_Text_Mayor_AskForCooperation, MSGBOX_NPC
 	setvar VAR_IZABE_ISLAND_STATE, 1
@@ -57,27 +57,18 @@ IzabeIsland_Movement_MoveGuardLeft::
 	step_end
 
 IzabeIsland_MayorHouse_EventScript_Mayor_RememberPetition::
-	lock
-	faceplayer
 	msgbox IzabeIsland_MayorHouse_Text_Mayor_AskForCooperation, MSGBOX_NPC
-	release
 	end
 
 IzabeIsland_MayorHouse_EventScript_Mayor_GiveItem::
 	end
 
 IzabeIsland_MayorHouse_EventScript_Guard_AskForHelp::
-	lock
-	faceplayer
 	msgbox IzabeIsland_MayorHouse_Text_Guard_AskForHelp, MSGBOX_NPC
-	release
 	end
 
 IzabeIsland_MayorHouse_EventScript_Guard_ThanksForHelp::
-	lock
-	faceplayer
 	msgbox IzabeIsland_MayorHouse_Text_Guard_ThanksForHelp, MSGBOX_NPC
-	release
 	end
 
 IzabeIsland_MayorHouse_EventScript_OldWoman::

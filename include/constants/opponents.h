@@ -866,10 +866,12 @@
 #define TRAINER_RANDOM_PARTY   862
 #define TRAINER_OMARI                     863
 #define TRAINER_DAVIAN  864
+#define TRAINER_IZABE_SAILOR 865
+#define TRAINER_IZABE_MAYOR  866
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
-#define TRAINERS_COUNT                      865 // NUEVO: aumentar para añadir nuevos entrenadores
-#define MAX_TRAINERS_COUNT                  866
+#define TRAINERS_COUNT                      867 // NUEVO: aumentar para añadir nuevos entrenadores
+#define MAX_TRAINERS_COUNT                  868
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

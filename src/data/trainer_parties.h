@@ -14166,3 +14166,27 @@ static const struct TrainerMonCustomMidele sParty_Davian[] = {
     }
 };
 // GRANITE CAVE (POKEMON ORAS)
+
+
+// IZABE ISLAND
+static const struct TrainerMonCustomMidele sParty_IzabeIsland_Sailor[] = {
+    {
+    .iv = 31,
+    .lvl = 1,
+    .species = SPECIES_BULBASAUR,
+	.heldItem = ITEM_SILK_SCARF,
+	.evs = {40, 0, 0, 0, 0, 0},
+    .moves = {MOVE_GLARE, MOVE_RAGE, MOVE_BITE, MOVE_COIL}
+    }
+};
+static const struct TrainerMonCustomMidele sParty_IzabeIsland_Mayor[] = {
+    {
+    .iv = 31,
+    .lvl = 1,
+    .species = SPECIES_CHIKORITA,
+	.heldItem = ITEM_SILK_SCARF,
+	.evs = {40, 0, 0, 0, 0, 0},
+    .moves = {MOVE_GLARE, MOVE_RAGE, MOVE_BITE, MOVE_COIL}
+    }
+};
+// IZABE ISLAND (end)

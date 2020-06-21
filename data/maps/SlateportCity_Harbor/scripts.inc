@@ -399,13 +399,14 @@ SlateportCity_Harbor_EventScript_TradedScanner:: @ 820CE11
 	
 @ TODO: Que sea un combate contra un NPC especial 
 SlateportCity_Harbor_EventScript_IzabeSailor::
-	trainerbattle_single TRAINER_DEBUG, SlateportCity_Harbor_Text_IzabeSailorIntro, SlateportCity_Harbor_Text_IzabeSailorDefeated
+	trainerbattle_single TRAINER_IZABE_SAILOR, SlateportCity_Harbor_Text_IzabeSailorIntro, SlateportCity_Harbor_Text_IzabeSailorDefeated
 	msgbox SlateportCity_Harbor_Text_IzabeSailorRideBoat, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq SlateportCity_Harbor_EventScript_IzabeSailorBye
 	
-	msgbox SlateportCity_Harbor_Text_IzabeSailorGoSail, MSGBOX_DEFAULT
+	msgbox SlateportCity_Harbor_Text_IzabeSailorGoSail, MSGBOX_NPC
 	warp MAP_IZABE_ISLAND_HARBOR, 255, 8, 4
+	waitstate
 	end
 	
 SlateportCity_Harbor_EventScript_IzabeSailorBye::

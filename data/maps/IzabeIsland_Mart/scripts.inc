@@ -12,9 +12,8 @@ IzabeIsland_Mart_EventScript_Clerk::
 	end
 
 IzabeIsland_Mart_EventScript_HexManiac::
-	lock
-	faceplayer
 	msgbox IzabeIsland_Mart_Text_HexManiac, MSGBOX_NPC
+	end
 
 IzabeIsland_Mart_Text_HexManiac::
 	.string "En esta tienda venden cosas que no\n"

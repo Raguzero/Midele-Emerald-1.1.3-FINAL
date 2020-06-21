@@ -2300,7 +2300,7 @@
                 {
                     "base_label": "gIzabeIsland_OutskirtsCaveF10",
                     "land_mons": {
-                        "encounter_rate": 0,
+                        "encounter_rate": 20,
                         "mons": [
                             {
                                 "max_level": 30,

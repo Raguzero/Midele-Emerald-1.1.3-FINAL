@@ -32,24 +32,24 @@ IzabeIsland_House1_EventScript_Judge::
 	special DoInGameTradeScene
 	waitstate
 	bufferspeciesname 0, VAR_0x8009
-	msgbox IzabeIsland_House1_Text_ThanksForTrading, MSGBOX_DEFAULT
+	msgbox IzabeIsland_House1_Text_ThanksForTrading, MSGBOX_NPC
 	setflag FLAG_IZABE_NPC_TRADE_COMPLETED
 	release
 	end
 	
 IzabeIsland_House1_EventScript_TradeCompleted:: @ 8203C93
-	msgbox IzabeIsland_House1_Text_HowIsIt, MSGBOX_DEFAULT
+	msgbox IzabeIsland_House1_Text_HowIsIt, MSGBOX_NPC
 	release
 	end
 
 IzabeIsland_House1_EventScript_NotRequestedMon:: @ 8203C9D
 	bufferspeciesname 0, VAR_0x8009
-	msgbox IzabeIsland_House1_Text_NotRequestedMon, MSGBOX_DEFAULT
+	msgbox IzabeIsland_House1_Text_NotRequestedMon, MSGBOX_NPC
 	release
 	end
 
 IzabeIsland_House1_EventScript_DeclineTrade:: @ 8203CAB
-	msgbox IzabeIsland_House1_Text_DeclineTrade, MSGBOX_DEFAULT
+	msgbox IzabeIsland_House1_Text_DeclineTrade, MSGBOX_NPC
 	release
 	end
 
@@ -83,5 +83,4 @@ IzabeIsland_House1_Text_DeclineTrade::
 	.string "necesita ayuda...$"
 
 IzabeIsland_House1_Text_NotRequestedMon::
-	.string "¡Eso no es el POKéMON que\n"
-	.string "te pedí!$"
+	.string "¡Eso no es el POKéMON que te pedí!$"
