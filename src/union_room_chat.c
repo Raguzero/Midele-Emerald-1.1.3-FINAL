@@ -615,8 +615,10 @@ static void sub_801DDD0(struct UnionRoomChat *unionRoomChat)
     unionRoomChat->unk17 = 0;
     unionRoomChat->unk18 = 0;
     sub_801EF1C(unionRoomChat->unk190);
+    #ifndef FREE_UNION_ROOM_CHAT
     for (i = 0; i < UNION_ROOM_KB_ROW_COUNT; i++)
         StringCopy(unionRoomChat->unkB9[i], gSaveBlock1Ptr->unk3C88[i]);
+    #endif
 }
 
 void sub_801DE30(void)
@@ -1452,9 +1454,11 @@ static void sub_801EE10(void)
 
 static void sub_801EE2C(void)
 {
+    #ifndef FREE_UNION_ROOM_CHAT
     int i;
     for (i = 0; i < UNION_ROOM_KB_ROW_COUNT; i++)
         StringCopy(gSaveBlock1Ptr->unk3C88[i], gUnknown_02022C84->unkB9[i]);
+    #endif
 }
 
 static u8 *sub_801EE6C(int arg0)
@@ -1698,6 +1702,7 @@ static u8 *sub_801F1D0(void)
 
 void copy_strings_to_sav1(void)
 {
+    #ifndef FREE_UNION_ROOM_CHAT
     StringCopy(gSaveBlock1Ptr->unk3C88[0], gText_Hello);
     StringCopy(gSaveBlock1Ptr->unk3C88[1], gText_Pokemon2);
     StringCopy(gSaveBlock1Ptr->unk3C88[2], gText_Trade);
@@ -1708,6 +1713,7 @@ void copy_strings_to_sav1(void)
     StringCopy(gSaveBlock1Ptr->unk3C88[7], gText_YaySmileEmoji);
     StringCopy(gSaveBlock1Ptr->unk3C88[8], gText_ThankYou);
     StringCopy(gSaveBlock1Ptr->unk3C88[9], gText_ByeBye);
+    #endif
 }
 
 static void sub_801F2B4(u8 taskId)
