@@ -102,6 +102,7 @@ static const u8 sToughClawsDescription[] = _("Boosts contact moves.");
 static const u8 sLightMetalDescription[] = _("Halves weight.");
 static const u8 sFlowerVeilDescription[] = _("Protects Grass-types.");
 static const u8 sFriskDescription[] = _("Checks a foe's item.");
+static const u8 sMotorDriveDescription[] = _("Electricity raises Speed.");
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 {
@@ -209,6 +210,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_LIGHT_METAL] = _("LIGHT METAL"),
     [ABILITY_FLOWER_VEIL] = _("FLOWER VEIL"),
     [ABILITY_FRISK] = _("FRISK"),
+    [ABILITY_MOTOR_DRIVE] = _("MOTOR DRIVE"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -317,4 +319,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_LIGHT_METAL] = sLightMetalDescription,
     [ABILITY_FLOWER_VEIL] = sFlowerVeilDescription,
     [ABILITY_FRISK] = sFriskDescription,
+    [ABILITY_MOTOR_DRIVE] = sMotorDriveDescription,
 };

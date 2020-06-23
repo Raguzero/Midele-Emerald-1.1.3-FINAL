@@ -1783,6 +1783,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
     u16 speciesDef;
     u32 pidAtk;
     u32 pidDef;
+	u8 statId;
 
     if (gBattlerAttacker >= gBattlersCount)
         gBattlerAttacker = battler;
@@ -2113,6 +2114,16 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                         effect = 1;
                     }
                     break;
+				case ABILITY_MOTOR_DRIVE:
+                if (moveType == TYPE_ELECTRIC)
+                    effect = 3, statId = STAT_SPEED;
+                    gBattleCommunication[MULTISTRING_CHOOSER] = 0;
+                break;
+            case ABILITY_LIGHTNING_ROD:
+                if (moveType == TYPE_ELECTRIC)
+                    effect = 3, statId = STAT_SPATK;
+                    gBattleCommunication[MULTISTRING_CHOOSER] = 1;
+                break;
                 case ABILITY_WATER_ABSORB:
 				case ABILITY_DRY_SKIN:
                     if (moveType == TYPE_WATER && gBattleMoves[move].power != 0)
@@ -2169,6 +2180,26 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                         gBattleMoveDamage *= -1;
                     }
                 }
+					else if (effect == 3)
+				{
+                if (gBattleMons[battler].statStages[statId] == 0xC)
+					{
+                    if ((gProtectStructs[gBattlerAttacker].notFirstStrike))
+                            gBattlescriptCurrInstr = BattleScript_MonMadeMoveUseless;
+                        else
+                            gBattlescriptCurrInstr = BattleScript_MonMadeMoveUseless_PPLoss;
+					}
+                else
+					{
+                    if (gProtectStructs[gBattlerAttacker].notFirstStrike)
+                        gBattlescriptCurrInstr = BattleScript_MoveStatDrain;
+                    else
+                        gBattlescriptCurrInstr = BattleScript_MoveStatDrain_PPLoss;
+
+                    SET_STATCHANGER(statId, 1, FALSE);
+                    gBattleMons[battler].statStages[statId]++;
+					}
+				}
             }
             break;
         case ABILITYEFFECT_ON_DAMAGE: // Contact abilities and Color Change
