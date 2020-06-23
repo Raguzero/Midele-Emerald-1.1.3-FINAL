@@ -615,7 +615,7 @@ const struct Item gItems[] =
     {
         .name = _("RED SHARD"),
         .itemId = ITEM_RED_SHARD,
-        .price = 200,
+        .price = 10000,
         .description = sRedShardDesc,
         .pocket = POCKET_ITEMS,
         .type = 4,
@@ -627,7 +627,7 @@ const struct Item gItems[] =
     {
         .name = _("BLUE SHARD"),
         .itemId = ITEM_BLUE_SHARD,
-        .price = 200,
+        .price = 10000,
         .description = sBlueShardDesc,
         .pocket = POCKET_ITEMS,
         .type = 4,
@@ -639,7 +639,7 @@ const struct Item gItems[] =
     {
         .name = _("YELLOW SHARD"),
         .itemId = ITEM_YELLOW_SHARD,
-        .price = 200,
+        .price = 10000,
         .description = sYellowShardDesc,
         .pocket = POCKET_ITEMS,
         .type = 4,
@@ -651,7 +651,7 @@ const struct Item gItems[] =
     {
         .name = _("GREEN SHARD"),
         .itemId = ITEM_GREEN_SHARD,
-        .price = 200,
+        .price = 10000,
         .description = sGreenShardDesc,
         .pocket = POCKET_ITEMS,
         .type = 4,
@@ -2270,7 +2270,7 @@ const struct Item gItems[] =
     {
         .name = _("WHITE HERB"),
         .itemId = ITEM_WHITE_HERB,
-        .price = 100,
+        .price = 1000,
         .holdEffect = HOLD_EFFECT_RESTORE_STATS,
         .description = sWhiteHerbDesc,
         .pocket = POCKET_ITEMS,
@@ -2336,7 +2336,7 @@ const struct Item gItems[] =
     {
         .name = _("MENTAL HERB"),
         .itemId = ITEM_MENTAL_HERB,
-        .price = 100,
+        .price = 500,
         .holdEffect = HOLD_EFFECT_CURE_ATTRACT,
         .description = sMentalHerbDesc,
         .pocket = POCKET_ITEMS,
