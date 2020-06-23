@@ -236,6 +236,8 @@ extern const u8 BattleScript_TrainerSlideMsgEnd2[];
 extern const u8 BattleScript_FriskActivates[];
 extern const u8 BattleScript_FriskMsg[];
 extern const u8 BattleScript_SturdyNewEffect[];
+extern const u8 BattleScript_MoveStatDrain_PPLoss[];
+extern const u8 BattleScript_MoveStatDrain[];
 // NUEVO HABILIDADES
 
 #endif // GUARD_BATTLE_SCRIPTS_H

@@ -294,6 +294,8 @@ static const u8 sText_ImposterTransform[] = _("{B_ATK_NAME_WITH_PREFIX} transfor
 static const u8 sText_CursedBodyDisabled[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_BUFF1} was disabled\nby {B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY}!");
 static const u8 sText_DrySkinDmg[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_ATK_ABILITY} caused damage \nfrom the sun's rays!");
 static const u8 sText_FriskActivates[] = _("{B_ATK_NAME_WITH_PREFIX} frisked {B_DEF_NAME_WITH_PREFIX} and\nfound its {B_LAST_ITEM}!");
+static const u8 sText_SpeedRaisedUsing[] = _("{B_DEF_NAME_WITH_PREFIX}'s raised its SPEED\nusing its {B_DEF_ABILITY}!");
+static const u8 sText_SpAttackRaisedUsing[] = _("{B_DEF_NAME_WITH_PREFIX}'s raised its SP.ATTACK\nusing its {B_DEF_ABILITY}!");
 // NUEVO HABILIDADES
 static const u8 sText_TotemAura[] = _("Totem {B_OPPONENT_MON1_NAME}'s aura flared to life!");
 static const u8 sText_PkmnsXIntensifiedSun[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\nintensified the sun's rays!");
@@ -904,6 +906,8 @@ const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 	[STRINGID_DRYSKIN - 12] = sText_DrySkinDmg,
     [STRINGID_FRISKACTIVATES - 12] = sText_FriskActivates,
     [STRINGID_TOTEM_AURA - 12] = sText_TotemAura,
+    [STRINGID_SATKRAISEUSING - 12] = sText_SpAttackRaisedUsing,
+    [STRINGID_SPEEDRAISEUSING - 12] = sText_SpeedRaisedUsing,
 	// NUEVO HABILIDADES
 };
 
@@ -3176,3 +3180,9 @@ bool32 ShouldDoTrainerSlide(u32 battlerId, u32 trainerId, u32 which)
 
     return FALSE;
 }
+
+const u16 gStatDrainStrings[] =
+{
+	STRINGID_SPEEDRAISEUSING,
+	STRINGID_SATKRAISEUSING,
+};

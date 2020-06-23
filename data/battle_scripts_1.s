@@ -4791,6 +4791,18 @@ BattleScript_SturdyNewEffect::
 BattleScript_EffectEvasionDown2::
 	setstatchanger STAT_EVASION, 2, TRUE
 	goto BattleScript_EffectStatDown
+	
+BattleScript_MoveStatDrain_PPLoss::
+	ppreduce
+BattleScript_MoveStatDrain::
+	attackstring
+	pause 0x20
+	setgraphicalstatchangevalues
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	waitanimation
+	printfromtable gStatDrainStrings
+	waitmessage 0x40
+	goto BattleScript_MoveEnd
 
 BattleScript_TotemAura::
 	playanimation BS_OPPONENT1, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
