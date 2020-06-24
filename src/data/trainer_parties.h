@@ -14179,11 +14179,78 @@ static const struct TrainerMonCustomMidele sParty_IzabeIsland_Sailor[] = {
     .moves = {MOVE_GLARE, MOVE_RAGE, MOVE_BITE, MOVE_COIL}
     }
 };
+
 static const struct TrainerMonCustomMidele sParty_IzabeIsland_Mayor[] = {
     {
     .iv = 31,
     .lvl = 1,
     .species = SPECIES_CHIKORITA,
+	.heldItem = ITEM_SILK_SCARF,
+	.evs = {40, 0, 0, 0, 0, 0},
+    .moves = {MOVE_GLARE, MOVE_RAGE, MOVE_BITE, MOVE_COIL}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_IzabeIsland_Camper[] = {
+    {
+    .iv = 31,
+    .lvl = 1,
+    .species = SPECIES_BELLOSSOM,
+	.heldItem = ITEM_SILK_SCARF,
+	.evs = {40, 0, 0, 0, 0, 0},
+    .moves = {MOVE_GLARE, MOVE_RAGE, MOVE_BITE, MOVE_COIL}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_IzabeIsland_Hiker[] = {
+    {
+    .iv = 31,
+    .lvl = 1,
+    .species = SPECIES_ALOLAN_GOLEM,
+	.heldItem = ITEM_SILK_SCARF,
+	.evs = {40, 0, 0, 0, 0, 0},
+    .moves = {MOVE_GLARE, MOVE_RAGE, MOVE_BITE, MOVE_COIL}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_IzabeIsland_Fisherman[] = {
+    {
+    .iv = 31,
+    .lvl = 1,
+    .species = SPECIES_KYOGRE,
+	.heldItem = ITEM_SILK_SCARF,
+	.evs = {40, 0, 0, 0, 0, 0},
+    .moves = {MOVE_GLARE, MOVE_RAGE, MOVE_BITE, MOVE_COIL}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_IzabeIsland_Pokemaniac[] = {
+    {
+    .iv = 31,
+    .lvl = 1,
+    .species = SPECIES_JYNX,
+	.heldItem = ITEM_SILK_SCARF,
+	.evs = {40, 0, 0, 0, 0, 0},
+    .moves = {MOVE_GLARE, MOVE_RAGE, MOVE_BITE, MOVE_COIL}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_IzabeIsland_Hexmaniac[] = {
+    {
+    .iv = 31,
+    .lvl = 1,
+    .species = SPECIES_DREEPY,
+	.heldItem = ITEM_SILK_SCARF,
+	.evs = {40, 0, 0, 0, 0, 0},
+    .moves = {MOVE_GLARE, MOVE_RAGE, MOVE_BITE, MOVE_COIL}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_IzabeIsland_Lavender[] = {
+    {
+    .iv = 31,
+    .lvl = 1,
+    .species = SPECIES_WOOLOO,
 	.heldItem = ITEM_SILK_SCARF,
 	.evs = {40, 0, 0, 0, 0, 0},
     .moves = {MOVE_GLARE, MOVE_RAGE, MOVE_BITE, MOVE_COIL}
