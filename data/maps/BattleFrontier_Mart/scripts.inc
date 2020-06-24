@@ -26,6 +26,7 @@ BattleFrontier_Mart_Pokemart: @ 8267AE4
 	.2byte ITEM_ZINC
 	.2byte ITEM_CARBOS
 	.2byte ITEM_HP_UP
+	.2byte ITEM_SALAC_BERRY
 	.2byte ITEM_GANLON_BERRY
 	.2byte ITEM_PETAYA_BERRY
 	.2byte ITEM_APICOT_BERRY

@@ -8,26 +8,50 @@ IzabeIsland_OutskirtsCave_OnTransition::
 	end
 
 IzabeIsland_OutskirtsCave_EventScript_HideLavender::
+	removeobject 2
 	end
 
 IzabeIsland_OutskirtsCave_EventScript_Lavender::
 	lockall
 	faceplayer
 	msgbox IzabeIsland_OutskirtsCave_Text_Lavender_ExplainSituation, MSGBOX_NPC
-	trainerbattle_no_intro TRAINER_DEBUG, IzabeIsland_OutskirtsCave_Text_Lavender_BattleDefeated
+	trainerbattle_no_intro TRAINER_IZABE_LAVENDER, IzabeIsland_OutskirtsCave_Text_Lavender_BattleDefeated
 
-	@ Here give item
 	msgbox IzabeIsland_OutskirtsCave_Text_Lavender_TryGiveItem, MSGBOX_DEFAULT
-	giveitem ITEM_LUCKY_EGG
-	compare VAR_RESULT, 0
-	goto_if_eq Common_EventScript_ShowBagIsFull
-	closemessage
-	setflag FLAG_RECEIVED_IZABE_ITEM_LAVENDER
-	
+	giveitem ITEM_HM02
+	setflag FLAG_RECEIVED_HM02
 	setvar VAR_IZABE_ISLAND_STATE, 2
+	
+	applymovement 2, IzabeIsland_OutskirtsCave_Movement_LavenderSpin
+	waitmovement 0
+	playse SE_W153
+	applymovement 2, IzabeIsland_OutskirtsCave_Movement_LavenderJumpAway
+	waitmovement 0
 	removeobject 2
 	releaseall
 	end
+
+IzabeIsland_OutskirtsCave_Movement_LavenderSpin:
+	face_up
+	delay_4
+	face_left
+	delay_4
+	face_down
+	delay_4
+	face_right
+	delay_4
+	step_end
+
+IzabeIsland_OutskirtsCave_Movement_LavenderJumpAway:
+	face_up
+	disable_anim
+	slide_up
+	slide_up
+	slide_up
+	slide_up
+	slide_up
+	slide_up
+	step_end
 
 IzabeIsland_OutskirtsCave_Text_Lavender_ExplainSituation::
 	.string "$"

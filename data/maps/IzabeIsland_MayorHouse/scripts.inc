@@ -61,6 +61,7 @@ IzabeIsland_MayorHouse_EventScript_Mayor_RememberPetition::
 	end
 
 IzabeIsland_MayorHouse_EventScript_Mayor_GiveItem::
+	msgbox IzabeIsland_MayorHouse_Text_Mayor_TakeYourReward, MSGBOX_NPC
 	end
 
 IzabeIsland_MayorHouse_EventScript_Guard_AskForHelp::
@@ -114,6 +115,9 @@ IzabeIsland_MayorHouse_Text_Mayor_BattleDefeated::
 
 IzabeIsland_MayorHouse_Text_Mayor_AskForCooperation::
 	.string "Go there, please.$"
+
+IzabeIsland_MayorHouse_Text_Mayor_TakeYourReward::
+	.string "This is your reward for helping us.$"
 
 IzabeIsland_MayorHouse_Text_OldWoman::
 	.string "Ay... este nieto mío siempre está con la\n"
