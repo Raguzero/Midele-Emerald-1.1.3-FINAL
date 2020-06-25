@@ -12905,7 +12905,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroup1 = EGG_GROUP_MONSTER,
         .eggGroup2 = EGG_GROUP_MONSTER,
-        .abilities = {ABILITY_ROCK_HEAD, ABILITY_CURSED_BODY},
+        .abilities = {ABILITY_CURSED_BODY, ABILITY_LIGHTNING_ROD},
         .bodyColor = BODY_COLOR_PURPLE,
     },
   [SPECIES_MEGA_BEEDRILL] =
@@ -13388,7 +13388,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_FAST,
         .eggGroup1 = EGG_GROUP_WATER_1,
         .eggGroup2 = EGG_GROUP_WATER_3,
-        .abilities = {ABILITY_NONE, ABILITY_NONE},
+        .abilities = {ABILITY_PERISH_BODY, ABILITY_NONE},
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
@@ -16980,7 +16980,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_SLOW,
 		.eggGroup1 = EGG_GROUP_UNDISCOVERED,
 		.eggGroup2 = EGG_GROUP_UNDISCOVERED,
-        .abilities = {ABILITY_NONE, ABILITY_NONE},
+        .abilities = {ABILITY_SLOW_START, ABILITY_NONE},
 		.bodyColor = BODY_COLOR_WHITE,
 	},
 	
