@@ -17,10 +17,12 @@ IzabeIsland_Harbor_EventScript_Bye::
 	end
 
 IzabeIslandHarbor_Text_AskGoBack::
-	.string "Go back?$"
+	.string "¿Quieres volver a SLATEPORT CITY?$"
 	
 IzabeIslandHarbor_Text_Bye::
-	.string "Bye$"
+	.string "¿Miedo de las olas? He visto micropagos\n"
+	.string "más grandes que eso, piratilla.$"
 	
 IzabeIslandHarbor_Text_GoBack::
-	.string "Let's go back$"
+	.string "Todos a bordo del TERROR DEL DLC.\n"
+	.string "¡Hora de hundir algunos DENUVO!$"

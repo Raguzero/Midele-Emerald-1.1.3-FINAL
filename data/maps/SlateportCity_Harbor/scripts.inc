@@ -573,16 +573,23 @@ SlateportCity_Harbor_Text_ThisWillHelpResearch: @ 820D970
 	.string "This will help our research a lot!$"
 	
 SlateportCity_Harbor_Text_IzabeSailorIntro:
-	.string "Battle intro$"
+	.string "¡ARR! ¡Muerte al DENUVO!\n"
+	.string "¿Quieres algo? ¡Antes tendrás que\p"
+	.string "derrotarme, piratilla del micropago!$"
 	
 SlateportCity_Harbor_Text_IzabeSailorDefeated:
-	.string "Defeated$"
+	.string "Pirateo a las empresas para dárselo\n"
+	.string "a los pobres.$"
 
 SlateportCity_Harbor_Text_IzabeSailorRideBoat:
-	.string "Go to IZABE?$"
+	.string "¿Quieres ir a ISLA IZABE? Te llevaré en\n"
+	.string "mi galeón, el TERROR DEL DLC...\l"
+	.string "¿Qué dices?$"
 	
 SlateportCity_Harbor_Text_IzabeSailorBye:
-	.string "Bye bye$"
+	.string "Vuélvete con tus FREE TO PLAY, DLC de\n"
+	.string "poca monta. ¡ARR!$"
 	
 SlateportCity_Harbor_Text_IzabeSailorGoSail:
-	.string "Let's go!$"
+	.string "Todos a bordo del TERROR DEL DLC.\n"
+	.string "¡Hora de hundir algunos DENUVO!$"

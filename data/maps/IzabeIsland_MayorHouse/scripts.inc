@@ -37,7 +37,6 @@ IzabeIsland_MayorHouse_EventScript_Mayor::
 	goto_if_eq IzabeIsland_MayorHouse_EventScript_Mayor_GiveItem
 	end
 
-@ TODO: crear combate
 IzabeIsland_MayorHouse_EventScript_Mayor_AskForBattle::
 	lockall
 	faceplayer
@@ -99,10 +98,18 @@ IzabeIsland_MayorHouse_EventScript_FatMan3::
 	end
 
 IzabeIsland_MayorHouse_Text_Guard_AskForHelp::
-	.string "Ask for help$"
+	.string "Hola, ¿has venido en respuesta a la\n"
+	.string "petición de nuestro ALCALDE?\p"
+	.string "Si quieres pasar por aquí, tendrás que\n"
+	.string "hablar con él. Es el hombre que está en\l"
+	.string "esa mesa de allí, a la derecha.$"
 
 IzabeIsland_MayorHouse_Text_Guard_ThanksForHelp::
-	.string "Thank you for help$"
+	.string "Gracias por la ayuda. Cruzando esta\n"
+	.string "puerta llegarás a las afueras de la\l"
+	.string "ciudad. Ten cuidado, encontrarás toda\p"
+	.string "clase de entrenadores y POKéMON\n"
+	.string "merodeando por la zona.$"
 
 IzabeIsland_MayorHouse_Text_Mayor_ExplainSituation::
 	.string "Hello, explain situation$"
