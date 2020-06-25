@@ -868,7 +868,7 @@
 #define TRAINER_DAVIAN                      864
 #define TRAINER_IZABE_SAILOR                865
 #define TRAINER_IZABE_MAYOR                 866
-#define TRAINER_IZABE_CAMPER                867
+#define TRAINER_IZABE_YOUNGSTER                867
 #define TRAINER_IZABE_HIKER                 868
 #define TRAINER_IZABE_FISHERMAN             869
 #define TRAINER_IZABE_POKEMANIAC            870

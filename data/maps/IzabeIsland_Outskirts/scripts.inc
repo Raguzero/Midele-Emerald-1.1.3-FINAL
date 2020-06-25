@@ -21,19 +21,23 @@ IzabeIsland_Town_EventScript_ItemOutskirts_BlackBelt::
 	finditem ITEM_BLACK_BELT
 	end
 
-IzabeIsland_Outskirts_EventScript_Camper::
-	trainerbattle_single TRAINER_IZABE_CAMPER, IzabeIsland_Outskirts_Text_CamperIntro, IzabeIsland_Outskirts_Text_CamperDefeat
-	msgbox IzabeIsland_Outskirts_Text_CamperPostBattle, MSGBOX_AUTOCLOSE
+IzabeIsland_Outskirts_EventScript_Youngster::
+	trainerbattle_single TRAINER_IZABE_YOUNGSTER, IzabeIsland_Outskirts_Text_YoungsterIntro, IzabeIsland_Outskirts_Text_YoungsterDefeat
+	msgbox IzabeIsland_Outskirts_Text_YoungsterPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-IzabeIsland_Outskirts_Text_CamperIntro::
-	.string "$"
+IzabeIsland_Outskirts_Text_YoungsterIntro::
+	.string "¿Cuántos RATTATA hacen falta para\n"
+	.string "cambiar una bombilla?\p"
+	.string "¡Vénceme y te lo diré!$"
 
-IzabeIsland_Outskirts_Text_CamperDefeat::
-	.string "$"
+IzabeIsland_Outskirts_Text_YoungsterDefeat::
+	.string "Mis queridos roedores...$"
 
-IzabeIsland_Outskirts_Text_CamperPostBattle::
-	.string "$"
+IzabeIsland_Outskirts_Text_YoungsterPostBattle::
+	.string "Las ratas no necesitan bombillas, su\n"
+	.string "majestuosidad ilumina hasta la más\l"
+	.string "profunda cueva.$"
 
 IzabeIsland_Outskirts_EventScript_Hiker::
 	trainerbattle_single TRAINER_IZABE_HIKER, IzabeIsland_Outskirts_Text_HikerIntro, IzabeIsland_Outskirts_Text_HikerDefeat
@@ -41,13 +45,15 @@ IzabeIsland_Outskirts_EventScript_Hiker::
 	end
 
 IzabeIsland_Outskirts_Text_HikerIntro::
-	.string "$"
+	.string "No te acerques a la cueva del oeste,\n"
+	.string "¡es peligrosa para los niños!$"
 
 IzabeIsland_Outskirts_Text_HikerDefeat::
-	.string "$"
+	.string "¿Es que nadie piensa en los niños?$"
 
 IzabeIsland_Outskirts_Text_HikerPostBattle::
-	.string "$"
+	.string "Dicen que un POKéMON legendario habita\n"
+	.string "en la cueva del oeste.$"
 
 IzabeIsland_Outskirts_EventScript_HexManiac::
 	trainerbattle_single TRAINER_IZABE_HEXMANIAC, IzabeIsland_Outskirts_Text_HexManiacIntro, IzabeIsland_Outskirts_Text_HexManiacDefeat
@@ -55,13 +61,14 @@ IzabeIsland_Outskirts_EventScript_HexManiac::
 	end
 
 IzabeIsland_Outskirts_Text_HexManiacIntro::
-	.string "$"
+	.string "Prepárate para morir... ¡FLUX!$"
 
 IzabeIsland_Outskirts_Text_HexManiacDefeat::
-	.string "$"
+	.string "¡Sin PM!$"
 
 IzabeIsland_Outskirts_Text_HexManiacPostBattle::
-	.string "$"
+	.string "¿Que cómo hago para llevar esta ropa con\n"
+	.string "el frío que hace? Es magia.$"
 
 IzabeIsland_Outskirts_EventScript_Fisherman::
 	trainerbattle_single TRAINER_IZABE_FISHERMAN, IzabeIsland_Outskirts_Text_FishermanIntro, IzabeIsland_Outskirts_Text_FishermanDefeat
@@ -69,13 +76,16 @@ IzabeIsland_Outskirts_EventScript_Fisherman::
 	end
 
 IzabeIsland_Outskirts_Text_FishermanIntro::
-	.string "$"
+	.string "Mi MAGIKARP tiene hambre...\n"
+	.string "Hambre de humanos.$"
 
 IzabeIsland_Outskirts_Text_FishermanDefeat::
-	.string "$"
+	.string "Alabada sea la carpa.$"
 
 IzabeIsland_Outskirts_Text_FishermanPostBattle::
-	.string "$"
+	.string "Esto es insostenible. Mis POKéMON\n"
+	.string "necesitan comer un humano por día.\p"
+	.string "Creo que ese tal MICOLO me ha estafado...$"
 
 IzabeIsland_Outskirts_EventScript_Pokemaniac::
 	trainerbattle_single TRAINER_IZABE_POKEMANIAC, IzabeIsland_Outskirts_Text_PokemaniacIntro, IzabeIsland_Outskirts_Text_PokemaniacDefeat
@@ -83,10 +93,11 @@ IzabeIsland_Outskirts_EventScript_Pokemaniac::
 	end
 
 IzabeIsland_Outskirts_Text_PokemaniacIntro::
-	.string "$"
+	.string "H-hola, ¿quieres ver mi colección de\n"
+	.string "figuritas anime articuladas?$"
 
 IzabeIsland_Outskirts_Text_PokemaniacDefeat::
-	.string "$"
+	.string "¡No! ¡Mis figuritas!$"
 
 IzabeIsland_Outskirts_Text_PokemaniacPostBattle::
-	.string "$"
+	.string "Se miran, pero no se tocan, jejeje...$"
