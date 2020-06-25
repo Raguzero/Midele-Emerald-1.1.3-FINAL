@@ -103,6 +103,8 @@ static const u8 sLightMetalDescription[] = _("Halves weight.");
 static const u8 sFlowerVeilDescription[] = _("Protects Grass-types.");
 static const u8 sFriskDescription[] = _("Checks a foe's item.");
 static const u8 sMotorDriveDescription[] = _("Electricity raises Speed.");
+static const u8 sSlowStartDescription[] = _("Takes a while to get going.");
+static const u8 sPerishBodyDescription[] = _("Perish Song with contact.");
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 {
@@ -211,6 +213,8 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_FLOWER_VEIL] = _("FLOWER VEIL"),
     [ABILITY_FRISK] = _("FRISK"),
     [ABILITY_MOTOR_DRIVE] = _("MOTOR DRIVE"),
+    [ABILITY_SLOW_START] = _("SLOW START"),
+    [ABILITY_PERISH_BODY] = _("PERISH BODY"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -320,4 +324,6 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_FLOWER_VEIL] = sFlowerVeilDescription,
     [ABILITY_FRISK] = sFriskDescription,
     [ABILITY_MOTOR_DRIVE] = sMotorDriveDescription,
+    [ABILITY_SLOW_START] = sSlowStartDescription,
+    [ABILITY_PERISH_BODY] = sPerishBodyDescription,
 };
