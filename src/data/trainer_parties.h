@@ -14191,11 +14191,11 @@ static const struct TrainerMonCustomMidele sParty_IzabeIsland_Mayor[] = {
     }
 };
 
-static const struct TrainerMonCustomMidele sParty_IzabeIsland_Camper[] = {
+static const struct TrainerMonCustomMidele sParty_IzabeIsland_Youngster[] = {
     {
     .iv = 31,
     .lvl = 1,
-    .species = SPECIES_BELLOSSOM,
+    .species = SPECIES_RATTATA,
 	.heldItem = ITEM_SILK_SCARF,
 	.evs = {40, 0, 0, 0, 0, 0},
     .moves = {MOVE_GLARE, MOVE_RAGE, MOVE_BITE, MOVE_COIL}
