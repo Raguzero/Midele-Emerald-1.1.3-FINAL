@@ -1,5 +1,10 @@
 IzabeIsland_Town_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, IzabeIsland_Town_OnTransition
 	.byte 0
+	
+IzabeIsland_Town_OnTransition:
+	setflag FLAG_VISITED_IZABE_ISLAND_TOWN
+	end
 	
 IzabeIsland_Town_Trigger_SecretHouse::
 	warp MAP_IZABE_ISLAND_SECRET_HOUSE, 255, 4, 1
