@@ -22,12 +22,12 @@ IzabeIsland_Town_EventScript_Cameraman::
 	msgbox IzabeIsland_Town_Text_Cameraman, MSGBOX_NPC
 	end
 	
-IzabeIsland_Town_EventScript_ItemTwistedspoon::
-	finditem ITEM_TWISTED_SPOON
+IzabeIsland_Town_EventScript_ItemSunStone::
+	finditem ITEM_SUN_STONE
 	end
 
-IzabeIsland_Town_EventScript_ItemSpellTag::
-	finditem ITEM_SPELL_TAG
+IzabeIsland_Town_EventScript_ItemDragonFang::
+	finditem ITEM_DRAGON_FANG
 	end
 
 IzabeIsland_Town_Text_Expert::

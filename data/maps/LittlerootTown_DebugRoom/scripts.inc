@@ -133,6 +133,7 @@ LittlerootTown_DebugRoom_Script_DesactivarMedallas::
 	clearflag FLAG_DEFEATED_GROUDON
 	clearflag FLAG_DEFEATED_KYOGRE
 	clearflag FLAG_DEFEATED_RAYQUAZA
+    clearflag FLAG_DEFEATED_REGIGIGAS
     end
 
 @ Leaf te reta a un combate

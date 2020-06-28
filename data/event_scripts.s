@@ -1091,3 +1091,13 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/IzabeIsland_OutskirtsCave/scripts.inc"
 
 	.include "data/maps/IzabeIsland_OutskirtsCaveF1/scripts.inc"
+
+	.include "data/maps/IzabeIsland_PokemonCenter_1F/scripts.inc"
+
+	.include "data/maps/IzabeIsland_PokemonCenter_2F/scripts.inc"
+
+	.include "data/maps/IzabeIsland_Mart/scripts.inc"
+
+	.include "data/maps/IzabeIsland_OutskirtsCave_Entrance/scripts.inc"
+
+	.include "data/maps/IzabeIsland_MicoloTruck/scripts.inc"

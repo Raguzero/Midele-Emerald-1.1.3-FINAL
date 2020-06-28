@@ -4553,12 +4553,12 @@
         {
             "blockdata_filepath": "data/layouts/IzabeIsland_OutskirtsCave/map.bin",
             "border_filepath": "data/layouts/IzabeIsland_OutskirtsCave/border.bin",
-            "height": 8,
+            "height": 33,
             "id": "LAYOUT_IZABE_ISLAND_OUTSKIRTS_CAVE",
             "name": "IzabeIsland_OutskirtsCave_Layout",
             "primary_tileset": "gTileset_Building",
             "secondary_tileset": "gTileset_Cave",
-            "width": 8
+            "width": 17
         },
         {
             "blockdata_filepath": "data/layouts/IzabeIsland_OutskirtsCaveF1/map.bin",
@@ -4566,9 +4566,29 @@
             "height": 20,
             "id": "LAYOUT_IZABE_ISLAND_OUTSKIRTS_CAVE_F1",
             "name": "IzabeIsland_OutskirtsCaveF1_Layout",
-            "primary_tileset": "gTileset_Building",
+            "primary_tileset": "gTileset_General",
             "secondary_tileset": "gTileset_Cave",
             "width": 20
+        },
+        {
+            "blockdata_filepath": "data/layouts/IzabeIsland_OutskirtsCave_Entrance/map.bin",
+            "border_filepath": "data/layouts/IzabeIsland_OutskirtsCave_Entrance/border.bin",
+            "height": 6,
+            "id": "LAYOUT_IZABE_ISLAND_OUTSKIRTS_CAVE_ENTRANCE",
+            "name": "IzabeIsland_OutskirtsCave_Entrance_Layout",
+            "primary_tileset": "gTileset_Building",
+            "secondary_tileset": "gTileset_Cave",
+            "width": 7
+        },
+        {
+            "blockdata_filepath": "data/layouts/IzabeIsland_MicoloTruck/map.bin",
+            "border_filepath": "data/layouts/IzabeIsland_MicoloTruck/border.bin",
+            "height": 5,
+            "id": "LAYOUT_IZABE_ISLAND_MICOLO_TRUCK",
+            "name": "IzabeIsland_MicoloTruck_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_InsideOfTruck",
+            "width": 5
         }
     ],
     "layouts_table_label": "gMapLayouts"

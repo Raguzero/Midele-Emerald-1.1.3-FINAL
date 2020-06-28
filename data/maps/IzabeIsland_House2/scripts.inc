@@ -1,17 +1,16 @@
 IzabeIsland_House2_MapScripts::
 	.byte 0
 
-@ TODO: Añadir objeto y diálogo
 IzabeIsland_House2_EventScript_OldWoman::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_IZABE_ITEM_1, IzabeIsland_House2_EventScript_AlreadyReceivedItem
+	goto_if_set FLAG_RECEIVED_IZABE_ITEM_LUCKY_EGG, IzabeIsland_House2_EventScript_AlreadyReceivedItem
 	msgbox IzabeIsland_House2_Text_GiveItem, MSGBOX_DEFAULT
 	giveitem ITEM_LUCKY_EGG
 	compare VAR_RESULT, 0
 	goto_if_eq Common_EventScript_ShowBagIsFull
 	closemessage
-	setflag FLAG_RECEIVED_IZABE_ITEM_1
+	setflag FLAG_RECEIVED_IZABE_ITEM_LUCKY_EGG
 	release 
 	end
 
@@ -21,7 +20,13 @@ IzabeIsland_House2_EventScript_AlreadyReceivedItem::
 	end
 
 IzabeIsland_House2_Text_GiveItem::
-	.string "Take this item!$"
+	.string "Ver crecer a tus POKéMON es algo muy\n"
+	.string "bonito...\p"
+	.string "Sin embargo, ¿no hay ocasiones en las\n"
+	.string "que te gustaría que tus POKéMON\l"
+	.string "creciesen más rápido?\p"
+	.string "En ese caso, esto te interesará.$"
 
 IzabeIsland_House2_Text_AlreadyReceivedItem::
-	.string "Did you like the item?$"
+	.string "El POKeMON que lleve equipado LUCKY EGG\n"
+	.string "ganará mucha más experiencia.$"

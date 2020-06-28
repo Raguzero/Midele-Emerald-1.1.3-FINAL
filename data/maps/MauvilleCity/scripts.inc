@@ -793,15 +793,15 @@ MauvilleCity_Text_IzabeIslandManGoToIsland::
 MauvilleCity_Text_GoToIzabeIsland::
 	.string "Perdona, joven...\p"
 	.string "¿Has oído hablar de ISLA IZABE?\n"
-	.string "Es una isla helada que se encuentra\p"
-	.string "al sur de ARRECÍPOLIS...\p"
+	.string "Es una isla helada que se encuentra\l"
+	.string "al sur de SOOTOPOLIS...\p"
 	.string "Pues bien, me han enviado desde allí\n"
 	.string "con el objetivo de buscarte.\p"
 	.string "Al parecer necesitan entrenadores para\n"
 	.string "hacerse cargo de algo...\p"
 	.string "Para llegar a la isla deberás ir al puerto\n"
-	.string "de CIUDAD PORTUAL. Ahí habrá alguien\p"
-	.string "que te estará esperando. Tal vez\n"
+	.string "de SLATEPORT CITY. Ahí habrá alguien\l"
+	.string "que te estará esperando. Tal vez\l"
 	.string "necesites utilizar el movimiento SURF...$"
 	
 MauvilleCity_Text_IzabeIslandManWaiting::
@@ -811,5 +811,5 @@ MauvilleCity_Text_IzabeIslandManWaiting::
 MauvilleCity_Text_IzabeIslandManYouAreBack::
 	.string "¡Has vuelto de ISLA IZABE!\p"
 	.string "Con esto mi trabajo ha terminado.\n"
-	.string "Supongo que me quedaré aquí durante\p"
+	.string "Supongo que me quedaré aquí durante\l"
 	.string "un tiempo...$"

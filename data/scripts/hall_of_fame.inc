@@ -39,6 +39,7 @@ EverGrandeCity_HallOfFame_EventScript_ResetDefeatedEventLegendaries:: @ 8271829
 	clearflag FLAG_DEFEATED_GROUDON
 	clearflag FLAG_DEFEATED_KYOGRE
 	clearflag FLAG_DEFEATED_RAYQUAZA
+	clearflag FLAG_DEFEATED_REGIGIGAS
 	return
 
 EverGrandeCity_HallOfFame_EventScript_SetDesertUnderpassCommentReady:: @ 8271839

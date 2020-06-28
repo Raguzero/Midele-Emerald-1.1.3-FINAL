@@ -17,6 +17,11 @@ LavaridgeTown_HerbShop_Pokemart: @ 81FE4F0
 	.2byte ITEM_ENERGY_ROOT
 	.2byte ITEM_HEAL_POWDER
 	.2byte ITEM_REVIVAL_HERB
+	.2byte ITEM_MENTAL_HERB
+	.2byte ITEM_WHITE_HERB
+	.2byte ITEM_WIKI_BERRY
+	.2byte ITEM_MAGO_BERRY
+	.2byte ITEM_AGUAV_BERRY
 	.2byte ITEM_NONE
 	release
 	end
@@ -64,4 +69,3 @@ LavaridgeTown_HerbShop_Text_HerbalMedicineWorksButMonWillDislike: @ 81FE685
 	.string "Herbal medicine works impressively well.\n"
 	.string "But your POKéMON will dislike you for it.\l"
 	.string "It must be horribly bitter!$"
-

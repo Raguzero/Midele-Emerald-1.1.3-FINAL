@@ -14078,7 +14078,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_MayLinkPlaceholder[] = {
 ////// NUEVOS ENTRENADORES A PARTIR DE AQUI ///////
 static const struct TrainerMonCustomMidele sParty_Debug[] = {
         {
-        .lvl = 100,
+        .lvl = 1,
         .iv = 31,
         .evs = {252, 0, 252, 0, 0, 0},
         .species = SPECIES_WIGGLYTUFF,
@@ -14090,7 +14090,7 @@ static const struct TrainerMonCustomMidele sParty_Debug[] = {
         .hpType = TYPE_GHOST
         },
         {
-        .lvl = 100,
+        .lvl = 1,
         .iv = 31,
         .evs = {252, 252, 6, 0, 0, 0},
         .species = SPECIES_DUSKNOIR,
@@ -14167,3 +14167,93 @@ static const struct TrainerMonCustomMidele sParty_Davian[] = {
 };
 // GRANITE CAVE (POKEMON ORAS)
 
+
+// IZABE ISLAND
+static const struct TrainerMonCustomMidele sParty_IzabeIsland_Sailor[] = {
+    {
+    .iv = 31,
+    .lvl = 1,
+    .species = SPECIES_BULBASAUR,
+	.heldItem = ITEM_SILK_SCARF,
+	.evs = {40, 0, 0, 0, 0, 0},
+    .moves = {MOVE_GLARE, MOVE_RAGE, MOVE_BITE, MOVE_COIL}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_IzabeIsland_Mayor[] = {
+    {
+    .iv = 31,
+    .lvl = 1,
+    .species = SPECIES_CHIKORITA,
+	.heldItem = ITEM_SILK_SCARF,
+	.evs = {40, 0, 0, 0, 0, 0},
+    .moves = {MOVE_GLARE, MOVE_RAGE, MOVE_BITE, MOVE_COIL}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_IzabeIsland_Youngster[] = {
+    {
+    .iv = 31,
+    .lvl = 1,
+    .species = SPECIES_RATTATA,
+	.heldItem = ITEM_SILK_SCARF,
+	.evs = {40, 0, 0, 0, 0, 0},
+    .moves = {MOVE_GLARE, MOVE_RAGE, MOVE_BITE, MOVE_COIL}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_IzabeIsland_Hiker[] = {
+    {
+    .iv = 31,
+    .lvl = 1,
+    .species = SPECIES_ALOLAN_GOLEM,
+	.heldItem = ITEM_SILK_SCARF,
+	.evs = {40, 0, 0, 0, 0, 0},
+    .moves = {MOVE_GLARE, MOVE_RAGE, MOVE_BITE, MOVE_COIL}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_IzabeIsland_Fisherman[] = {
+    {
+    .iv = 31,
+    .lvl = 1,
+    .species = SPECIES_KYOGRE,
+	.heldItem = ITEM_SILK_SCARF,
+	.evs = {40, 0, 0, 0, 0, 0},
+    .moves = {MOVE_GLARE, MOVE_RAGE, MOVE_BITE, MOVE_COIL}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_IzabeIsland_Pokemaniac[] = {
+    {
+    .iv = 31,
+    .lvl = 1,
+    .species = SPECIES_JYNX,
+	.heldItem = ITEM_SILK_SCARF,
+	.evs = {40, 0, 0, 0, 0, 0},
+    .moves = {MOVE_GLARE, MOVE_RAGE, MOVE_BITE, MOVE_COIL}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_IzabeIsland_Hexmaniac[] = {
+    {
+    .iv = 31,
+    .lvl = 1,
+    .species = SPECIES_DREEPY,
+	.heldItem = ITEM_SILK_SCARF,
+	.evs = {40, 0, 0, 0, 0, 0},
+    .moves = {MOVE_GLARE, MOVE_RAGE, MOVE_BITE, MOVE_COIL}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_IzabeIsland_Lavender[] = {
+    {
+    .iv = 31,
+    .lvl = 1,
+    .species = SPECIES_WOOLOO,
+	.heldItem = ITEM_SILK_SCARF,
+	.evs = {40, 0, 0, 0, 0, 0},
+    .moves = {MOVE_GLARE, MOVE_RAGE, MOVE_BITE, MOVE_COIL}
+    }
+};
+// IZABE ISLAND (end)

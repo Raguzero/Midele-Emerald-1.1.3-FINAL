@@ -16,12 +16,12 @@
     "object_events": [
         {
             "elevation": 3,
-            "flag": "0",
+            "flag": "FLAG_ITEM_IZABE_ISLAND_CAVE_THICK_CLUB",
             "graphics_id": "EVENT_OBJ_GFX_ITEM_BALL",
             "movement_range_x": 0,
             "movement_range_y": 0,
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "script": "NULL",
+            "script": "IzabeIsland_OutskirtsCaveF1_EventScript_Item_ThickClub",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
             "x": 6,
@@ -29,12 +29,12 @@
         },
         {
             "elevation": 3,
-            "flag": "0",
+            "flag": "FLAG_ITEM_IZABE_ISLAND_CAVE_NEVERMELTICE",
             "graphics_id": "EVENT_OBJ_GFX_ITEM_BALL",
             "movement_range_x": 0,
             "movement_range_y": 0,
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "script": "NULL",
+            "script": "IzabeIsland_OutskirtsCaveF1_EventScript_Item_NeverMeltIce",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
             "x": 2,
@@ -43,10 +43,10 @@
     ],
     "region_map_section": "MAPSEC_IZABE_ISLAND",
     "requires_flash": true,
-    "show_map_name": true,
+    "show_map_name": false,
     "warp_events": [
         {
-            "dest_map": "MAP_IZABE_ISLAND_OUTSKIRTS",
+            "dest_map": "MAP_IZABE_ISLAND_OUTSKIRTS_CAVE_ENTRANCE",
             "dest_warp_id": 1,
             "elevation": 0,
             "x": 2,
@@ -60,5 +60,5 @@
             "y": 10
         }
     ],
-    "weather": "WEATHER_SNOW"
+    "weather": "WEATHER_FOG_HORIZONTAL"
 }
