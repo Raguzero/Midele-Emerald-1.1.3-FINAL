@@ -1298,6 +1298,8 @@ u8 get_flagnr_blue_points(u16 mapSecId)
 			return FlagGet(FLAG_VISITED_ROUTE134) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
 		case MAPSEC_MT_CHIMNEY:
 			return FlagGet(FLAG_VISITED_MT_CHIMNEY) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+		case MAPSEC_IZABE_ISLAND:
+			return FlagGet(FLAG_VISITED_IZABE_ISLAND_TOWN) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
 		default:
             return MAPSECTYPE_PLAIN;
     }
@@ -2090,6 +2092,9 @@ static void sub_8124E0C(void)
                             break;
 						case MAPSEC_MT_CHIMNEY:
 							SetWarpDestinationToHealLocation(HEAL_LOCATION_MT_CHIMNEY);
+							break;
+						case MAPSEC_IZABE_ISLAND:
+							SetWarpDestinationToHealLocation(HEAL_LOCATION_IZABE_ISLAND_TOWN);
 							break;
                         default:
                             if (sMapHealLocations[sFlyMap->regionMap.mapSecId][2] != 0)
