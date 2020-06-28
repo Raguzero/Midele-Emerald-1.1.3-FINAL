@@ -7,7 +7,7 @@
         {
             "elevation": 3,
             "flag": "FLAG_HIDDEN_ITEM_IZABE_ISLAND_LAKE_CAVE_1",
-            "item": "ITEM_DRAGON_SCALE",
+            "item": "ITEM_BRIGHT_POWDER",
             "type": "hidden_item",
             "x": 9,
             "y": 5
