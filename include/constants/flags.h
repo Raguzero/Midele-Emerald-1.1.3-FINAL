@@ -658,8 +658,8 @@
 #define FLAG_HIDDEN_ITEM_IZABE_ISLAND_LAKE_CAVE_1  (FLAG_HIDDEN_ITEMS_START + 0x64) // Previously unused
 #define FLAG_HIDDEN_ITEM_IZABE_ISLAND_OUTSKIRTS_POISON_BARB  (FLAG_HIDDEN_ITEMS_START + 0x65) // Previously unused Flag
 #define FLAG_HIDDEN_ITEM_IZABE_ISLAND_OUTSKIRTS_SPELL_TAG  (FLAG_HIDDEN_ITEMS_START + 0x65) // Previously unused Flag
-#define FLAG_HIDE_REGIGIGAS  0x26C // Previously unused Flag
-#define FLAG_UNUSED_0x26D  0x26D // Unused Flag
+#define FLAG_HIDE_REGIGIGAS          0x26C // Previously unused Flag
+#define FLAG_DEFEATED_IZABE_GIANT_2  0x26D // Previously unused Flag
 #define FLAG_UNUSED_0x26E  0x26E // Unused Flag
 #define FLAG_UNUSED_0x26F  0x26F // Unused Flag
 #define FLAG_UNUSED_0x270  0x270 // Unused Flag
@@ -1228,13 +1228,13 @@
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_EAST_NUGGET                     0x491
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL                  0x492
 
-#define FLAG_ITEM_IZABE_ISLAND_OUTSKIRTS_TWISTEDSPOON                          0x493 // Previously unused Flag
-#define FLAG_ITEM_IZABE_ISLAND_OUTSKIRTS_BLACK_BELT                          0x494 // Previously unused Flag
-#define FLAG_ITEM_IZABE_ISLAND_CAVE_THICK_CLUB                               0x495 // Previously unused Flag
-#define FLAG_ITEM_IZABE_ISLAND_CAVE_NEVERMELTICE                               0x496 // Previously unused Flag
-#define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
-#define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
-#define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_OUTSKIRTS_TWISTEDSPOON               0x493 // Previously unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_OUTSKIRTS_BLACK_BELT                 0x494 // Previously unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_CAVE_THICK_CLUB                      0x495 // Previously unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_CAVE_NEVERMELTICE                    0x496 // Previously unused Flag
+#define FLAG_ITEM_IZABE_TRUCK_CHOICE_SPECS                          0x497 // Previously unused Flag
+#define FLAG_ITEM_IZABE_TRUCK_CHOICE_BAND                           0x498 // Previously unused Flag
+#define FLAG_ITEM_IZABE_TRUCK_CHOICE_SCARF                          0x499 // Previously unused Flag
 #define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag
 #define FLAG_UNUSED_0x49B                                           0x49B // Unused Flag
 #define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag

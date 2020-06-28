@@ -911,13 +911,15 @@ const struct Item gItems[] =
         .secondaryId = 0,
     },
 
-    [ITEM_048] =
+    [ITEM_MICOLO_KEY] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
+        .name = _("LL. CAMIÓN"),
+        .itemId = ITEM_MICOLO_KEY,
         .price = 0,
-        .description = sDummyDesc,
-        .pocket = POCKET_ITEMS,
+        .description = sMicoloKeyDesc,
+        .pocket = POCKET_KEY_ITEMS,
+        .importance = 1,
+        .unk19 = 1,
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,

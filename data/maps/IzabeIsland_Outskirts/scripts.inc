@@ -21,6 +21,24 @@ IzabeIsland_Town_EventScript_ItemOutskirts_BlackBelt::
 	finditem ITEM_BLACK_BELT
 	end
 
+IzabeIsland_Outskirts_EventScript_Truck::
+	lock
+	checkitem ITEM_MICOLO_KEY, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq IzabeIsland_Outskirts_EventScript_EnterTruck
+	msgbox IzabeIsland_Outskirts_Text_Truck, MSGBOX_DEFAULT
+	release
+	end
+
+IzabeIsland_Outskirts_EventScript_EnterTruck:
+	msgbox IzabeIsland_Outskirts_Text_UsedTruckKey, MSGBOX_DEFAULT
+	playse SE_PIN 
+	waitse
+	warp MAP_IZABE_ISLAND_MICOLO_TRUCK, 255, 4, 2
+	waitstate
+	release
+	end
+
 IzabeIsland_Outskirts_EventScript_Youngster::
 	trainerbattle_single TRAINER_IZABE_YOUNGSTER, IzabeIsland_Outskirts_Text_YoungsterIntro, IzabeIsland_Outskirts_Text_YoungsterDefeat
 	msgbox IzabeIsland_Outskirts_Text_YoungsterPostBattle, MSGBOX_AUTOCLOSE
@@ -101,3 +119,11 @@ IzabeIsland_Outskirts_Text_PokemaniacDefeat::
 
 IzabeIsland_Outskirts_Text_PokemaniacPostBattle::
 	.string "Se miran, pero no se tocan, jejeje...$"
+
+IzabeIsland_Outskirts_Text_Truck::
+	.string "Un camión azul. Está cerrado.\n"
+	.string "Te resulta familiar...$"
+
+IzabeIsland_Outskirts_Text_UsedTruckKey::
+	.string "Usaste la LL. CAMIÓN.\n"
+	.string "¡La puerta del camión se ha abierto!$"

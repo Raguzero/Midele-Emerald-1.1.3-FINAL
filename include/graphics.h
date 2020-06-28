@@ -4888,6 +4888,8 @@ extern const u32 gItemIconPalette_PowderJar[];
 extern const u32 gItemIcon_Gem[];
 extern const u32 gItemIconPalette_Ruby[];
 extern const u32 gItemIconPalette_Sapphire[];
+extern const u32 gItemIcon_MicoloKey[];
+extern const u32 gItemIconPalette_MicoloKey[];
 // Emerald-only key items
 extern const u32 gItemIcon_MagmaEmblem[];
 extern const u32 gItemIconPalette_MagmaEmblem[];

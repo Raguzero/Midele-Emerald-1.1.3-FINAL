@@ -1627,6 +1627,12 @@ static const u8 sSapphireDesc[] = _(
     "that symbolizes\n"
     "honesty.");
 
+static const u8 sMicoloKeyDesc[] = _(
+    "Una llave de camión \n"
+    "azul que pertenece\n"
+    "a MICOLO."
+);
+
 // Emerald-specific key items
 static const u8 sMagmaEmblemDesc[] = _(
     "A medal-like item in\n"
