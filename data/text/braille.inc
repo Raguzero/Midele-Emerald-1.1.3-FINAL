@@ -221,3 +221,15 @@ AncientTomb_Braille_ShineInTheMiddle: @ 82A6D06
 	.braille "INHERIT OUR\n"
 	.braille "WILL, SHINE\n"
 	.braille "IN THE MIDDLE.$"
+
+IzabeIsland_OutskirtsCave_Braille_ThreeRegi: @ 82A6B99
+	.byte 0
+	.byte 0
+	.byte 29
+	.byte 19
+	.byte 3
+	.byte 3
+	.braille "PRESENTA\n"
+	.braille "ROCA,\n"
+	.braille "ACERO,\n"
+	.braille "Y HIELO.$"

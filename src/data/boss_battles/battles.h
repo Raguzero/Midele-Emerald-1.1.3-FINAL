@@ -11,4 +11,10 @@ const struct BossBattle gBossBattles[] = {
         .music = FF6BOSS,
         .boss = BOSS_CORONA,
     },
+    [BOSS_BATTLE_YETI] =
+    {
+        .battleType = BATTLE_TYPE_BOSS,
+        .music = FF6BOSS,
+        .boss = BOSS_YETI,
+    },
 };
