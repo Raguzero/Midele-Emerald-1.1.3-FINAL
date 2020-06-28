@@ -4553,12 +4553,12 @@
         {
             "blockdata_filepath": "data/layouts/IzabeIsland_OutskirtsCave/map.bin",
             "border_filepath": "data/layouts/IzabeIsland_OutskirtsCave/border.bin",
-            "height": 9,
+            "height": 33,
             "id": "LAYOUT_IZABE_ISLAND_OUTSKIRTS_CAVE",
             "name": "IzabeIsland_OutskirtsCave_Layout",
             "primary_tileset": "gTileset_Building",
             "secondary_tileset": "gTileset_Cave",
-            "width": 8
+            "width": 17
         },
         {
             "blockdata_filepath": "data/layouts/IzabeIsland_OutskirtsCaveF1/map.bin",

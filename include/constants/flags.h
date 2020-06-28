@@ -513,9 +513,9 @@
 #define FLAG_RECEIVED_IZABE_ITEM_LUCKY_EGG           0x1DE // Previously unused Flag
 #define FLAG_RECEIVED_MICOLO_MON             0x1DF // Previously unused Flag
 #define FLAG_RECEIVED_IZABE_ITEM_LAVENDER    0x1E0 // Previously unused Flag
-#define FLAG_UNUSED_0x1E1                    0x1E1 // Unused Flag
-#define FLAG_UNUSED_0x1E2                    0x1E2 // Unused Flag
-#define FLAG_UNUSED_0x1E3                    0x1E3 // Unused Flag
+#define FLAG_DEFEATED_IZABE_GIANT_1          0x1E1 // Previously unused Flag
+#define FLAG_DEFEATED_REGIGIGAS              0x1E2 // Previously unused Flag
+#define FLAG_CAUGHT_REGIGIGAS                0x1E3 // Previously unused Flag
 
 // Mystery Gift Flags (Unknown)
 #define FLAG_MYSTERY_EVENT_DONE              0x1E4
@@ -658,7 +658,7 @@
 #define FLAG_HIDDEN_ITEM_IZABE_ISLAND_LAKE_CAVE_1  (FLAG_HIDDEN_ITEMS_START + 0x64) // Previously unused
 #define FLAG_HIDDEN_ITEM_IZABE_ISLAND_OUTSKIRTS_POISON_BARB  (FLAG_HIDDEN_ITEMS_START + 0x65) // Previously unused Flag
 #define FLAG_HIDDEN_ITEM_IZABE_ISLAND_OUTSKIRTS_SPELL_TAG  (FLAG_HIDDEN_ITEMS_START + 0x65) // Previously unused Flag
-#define FLAG_UNUSED_0x26C  0x26C // Unused Flag
+#define FLAG_HIDE_REGIGIGAS  0x26C // Previously unused Flag
 #define FLAG_UNUSED_0x26D  0x26D // Unused Flag
 #define FLAG_UNUSED_0x26E  0x26E // Unused Flag
 #define FLAG_UNUSED_0x26F  0x26F // Unused Flag
@@ -1406,7 +1406,7 @@
 #define FLAG_SYS_SAFARI_MODE                        (SYSTEM_FLAGS + 0x2C)
 #define FLAG_SYS_CRUISE_MODE                        (SYSTEM_FLAGS + 0x2D)
 
-#define FLAG_UNUSED_0x88E                           (SYSTEM_FLAGS + 0x2E) // Unused Flag
+#define FLAG_SYS_BRAILLE_SHOWN_THREE_REGI           (SYSTEM_FLAGS + 0x2E) // Previously unused Flag
 #define FLAG_UNUSED_0x88F                           (SYSTEM_FLAGS + 0x2F) // Unused Flag
 
 #define FLAG_SYS_TV_HOME                            (SYSTEM_FLAGS + 0x30)

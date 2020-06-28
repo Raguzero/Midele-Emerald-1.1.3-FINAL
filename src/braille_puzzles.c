@@ -485,3 +485,35 @@ bool8 ShouldDoBrailleRegicePuzzle(void)
 
     return FALSE;
 }
+
+bool8 CheckThreeRegi(void)
+{
+    u8 i;
+    bool8 hasRegirock = FALSE;
+    bool8 hasRegisteel = FALSE;
+    bool8 hasRegice = FALSE;
+    
+    CalculatePlayerPartyCount();
+    if (gPlayerPartyCount < 3)
+    {
+        return FALSE;
+    }
+    
+    for (i = 0; i < gPlayerPartyCount; i++)
+    {
+        switch (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2, 0))
+        {
+            case SPECIES_REGIROCK:
+                hasRegirock = TRUE;
+                break;
+            case SPECIES_REGISTEEL:
+                hasRegisteel = TRUE;
+                break;
+            case SPECIES_REGICE:
+                hasRegice = TRUE;
+                break;
+        }
+    }
+    
+    return hasRegice && hasRegirock && hasRegisteel;
+}
