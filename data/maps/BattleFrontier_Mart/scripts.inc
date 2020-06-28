@@ -30,6 +30,7 @@ BattleFrontier_Mart_Pokemart: @ 8267AE4
 	.2byte ITEM_GANLON_BERRY
 	.2byte ITEM_PETAYA_BERRY
 	.2byte ITEM_APICOT_BERRY
+	.2byte ITEM_LIECHI_BERRY
 	.2byte ITEM_NONE
 	release
 	end
