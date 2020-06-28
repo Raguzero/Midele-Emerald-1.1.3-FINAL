@@ -1,0 +1,84 @@
+{
+    "allow_bike": false,
+    "allow_escape_rope": false,
+    "allow_running": false,
+    "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+    "bg_events": [
+    ],
+    "connections": null,
+    "coord_events": [
+    ],
+    "id": "MAP_IZABE_ISLAND_MICOLO_TRUCK",
+    "layout": "LAYOUT_IZABE_ISLAND_MICOLO_TRUCK",
+    "map_type": "MAP_TYPE_INDOOR",
+    "music": "MUS_NONE",
+    "name": "IzabeIsland_MicoloTruck",
+    "object_events": [
+        {
+            "elevation": 3,
+            "flag": "FLAG_ITEM_IZABE_TRUCK_CHOICE_SPECS",
+            "graphics_id": "EVENT_OBJ_GFX_ITEM_BALL",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "IzabeIsland_MicoloTruck_EventScript_ItemChoiceSpecs",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 1,
+            "y": 1
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_ITEM_IZABE_TRUCK_CHOICE_SCARF",
+            "graphics_id": "EVENT_OBJ_GFX_ITEM_BALL",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "IzabeIsland_MicoloTruck_EventScript_ItemChoiceScarf",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 3,
+            "y": 1
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_ITEM_IZABE_TRUCK_CHOICE_BAND",
+            "graphics_id": "EVENT_OBJ_GFX_ITEM_BALL",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "IzabeIsland_MicoloTruck_EventScript_ItemChoiceBand",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 2,
+            "y": 1
+        }
+    ],
+    "region_map_section": "MAPSEC_IZABE_ISLAND",
+    "requires_flash": false,
+    "show_map_name": false,
+    "warp_events": [
+        {
+            "dest_map": "MAP_IZABE_ISLAND_OUTSKIRTS",
+            "dest_warp_id": 2,
+            "elevation": 0,
+            "x": 4,
+            "y": 2
+        },
+        {
+            "dest_map": "MAP_IZABE_ISLAND_OUTSKIRTS",
+            "dest_warp_id": 2,
+            "elevation": 0,
+            "x": 4,
+            "y": 1
+        },
+        {
+            "dest_map": "MAP_IZABE_ISLAND_OUTSKIRTS",
+            "dest_warp_id": 2,
+            "elevation": 0,
+            "x": 4,
+            "y": 3
+        }
+    ],
+    "weather": "WEATHER_NONE"
+}

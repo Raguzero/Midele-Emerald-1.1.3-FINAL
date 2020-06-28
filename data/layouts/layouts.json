@@ -4579,6 +4579,16 @@
             "primary_tileset": "gTileset_Building",
             "secondary_tileset": "gTileset_Cave",
             "width": 7
+        },
+        {
+            "blockdata_filepath": "data/layouts/IzabeIsland_MicoloTruck/map.bin",
+            "border_filepath": "data/layouts/IzabeIsland_MicoloTruck/border.bin",
+            "height": 5,
+            "id": "LAYOUT_IZABE_ISLAND_MICOLO_TRUCK",
+            "name": "IzabeIsland_MicoloTruck_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_InsideOfTruck",
+            "width": 5
         }
     ],
     "layouts_table_label": "gMapLayouts"

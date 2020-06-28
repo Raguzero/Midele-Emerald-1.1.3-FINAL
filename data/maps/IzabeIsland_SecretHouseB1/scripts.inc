@@ -11,6 +11,26 @@ IzabeIsland_SecretHouseB1_EventScript_PC::
 	msgbox IzabeIsland_SecretHouseB1_Text_PC, MSGBOX_SIGN
 	end
 
+IzabeIsland_SecretHouseB1_EventScript_Titan::
+	lockall
+	setvar VAR_0x8004, BOSS_BATTLE_CORONA_DEBUG
+	special CreateBossBattleMon
+	special BattleSetup_StartBossBattle
+	waitstate
+	setvar VAR_LAST_TALKED, 1
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_WON
+	call_if_eq IzabeIsland_SecretHouseB1_EventScript_TitanDefeated
+	releaseall
+	end
+
+IzabeIsland_SecretHouseB1_EventScript_TitanDefeated::
+	giveitem ITEM_MICOLO_KEY
+	setflag FLAG_DEFEATED_IZABE_GIANT_2
+	removeobject 1
+	releaseall
+	end
+
 IzabeIsland_SecretHouseB1_Text_PC::
 	.string "Hay un documento abierto en el PC.\n"
 	.string "“MICOLO: DIARIO SECRETO”\p"
