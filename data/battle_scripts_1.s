@@ -4810,3 +4810,9 @@ BattleScript_TotemAura::
 	printstring STRINGID_TOTEM_AURA
 	waitmessage 0x40
 	end3
+
+BattleScript_BossCuresStatus::
+	printstring STRINGID_BOSSCUREDSTATUS
+	waitmessage 0x40
+	updatestatusicon BS_ATTACKER
+	end3

@@ -20,6 +20,7 @@
 #include "constants/battle_script_commands.h"
 #include "constants/battle_string_ids.h"
 #include "constants/berry.h"
+#include "constants/boss_battles.h"
 #include "constants/hold_effects.h"
 #include "constants/items.h"
 #include "constants/moves.h"
@@ -1889,7 +1890,8 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
             if (IsBattlerAlive(BATTLE_OPPOSITE(battler))
                 && !(gBattleMons[BATTLE_OPPOSITE(battler)].status2 & (STATUS2_TRANSFORMED | STATUS2_SUBSTITUTE))
                 && !(gBattleMons[battler].status2 & STATUS2_TRANSFORMED)
-                && !(gStatuses3[BATTLE_OPPOSITE(battler)] & STATUS3_SEMI_INVULNERABLE))
+                && !(gStatuses3[BATTLE_OPPOSITE(battler)] & STATUS3_SEMI_INVULNERABLE)
+                && !(gBossBattleFlags == BATTLE_TYPE_BOSS || gBossBattleFlags == BATTLE_TYPE_TOTEM))
             {
                 gBattlerTarget = BATTLE_OPPOSITE(battler);
 				gBattlerAttacker = battler;
@@ -1990,6 +1992,31 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
         case ABILITYEFFECT_ENDTURN: // 1
             if (gBattleMons[battler].hp != 0)
             {
+                // Midele: en boss battle simular SHED_SKIN 100% al final del turno para el jefe
+                // battler = 1, oponente en batalla 1 vs 1
+                if ((gBossBattleFlags == BATTLE_TYPE_BOSS || gBossBattleFlags == BATTLE_TYPE_TOTEM)
+                     && battler == 1
+                     && gBattleMons[battler].status1 & STATUS1_ANY)
+                {
+                    if (gBattleMons[battler].status1 & (STATUS1_POISON | STATUS1_TOXIC_POISON))
+                        StringCopy(gBattleTextBuff1, gStatusConditionString_PoisonJpn);
+                    if (gBattleMons[battler].status1 & STATUS1_SLEEP)
+                        StringCopy(gBattleTextBuff1, gStatusConditionString_SleepJpn);
+                    if (gBattleMons[battler].status1 & STATUS1_PARALYSIS)
+                        StringCopy(gBattleTextBuff1, gStatusConditionString_ParalysisJpn);
+                    if (gBattleMons[battler].status1 & STATUS1_BURN)
+                        StringCopy(gBattleTextBuff1, gStatusConditionString_BurnJpn);
+                    if (gBattleMons[battler].status1 & STATUS1_FREEZE)
+                        StringCopy(gBattleTextBuff1, gStatusConditionString_IceJpn);
+                    gBattleMons[battler].status1 = 0;
+                    gBattleMons[battler].status2 &= ~(STATUS2_NIGHTMARE);  // fix nightmare glitch
+                    gBattleScripting.battler = gActiveBattler = battler;
+                    BattleScriptPushCursorAndCallback(BattleScript_BossCuresStatus);
+                    BtlController_EmitSetMonData(0, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[battler].status1);
+                    MarkBattlerForControllerExec(gActiveBattler);
+                    effect++;
+                }
+                
                 gBattlerAttacker = battler;
                 switch (gLastUsedAbility)
                 {
