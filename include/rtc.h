@@ -47,8 +47,6 @@ u32 RtcGetMinuteCount(void);
 u32 RtcGetLocalDayCount(void);
 
 // Mostrar hora en menú
-u8 Rtc_GetCurrentHour(void);
-u8 Rtc_GetCurrentMinute(void);
 void FormatDecimalTimeWOSeconds(u8 *dest, u8 hour, u8 minute);
 
 #endif // GUARD_RTC_UTIL_H
