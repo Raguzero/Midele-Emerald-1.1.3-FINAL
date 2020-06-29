@@ -29,6 +29,7 @@
 #include "party_menu.h"
 #include "pokedex.h"
 #include "pokenav.h"
+#include "rtc.h"
 #include "safari_zone.h"
 #include "save.h"
 #include "scanline_effect.h"
@@ -139,6 +140,9 @@ static bool8 FieldCB_ReturnToFieldStartMenu(void);
 
 static const struct WindowTemplate sSafariBallsWindowTemplate = {0, 1, 1, 9, 4, 0xF, 8};
 
+// Menú de hora
+static const struct WindowTemplate sStartMenuWindowTemplate = {0, 1, 1, 4, 2, 0xF, 8}; // Parámetros de la ventana extra
+
 static const u8* const sPyramindFloorNames[] =
 {
     gText_Floor1,
@@ -224,6 +228,8 @@ static void sub_80A0540(void);
 static void ShowSaveInfoWindow(void);
 static void RemoveSaveInfoWindow(void);
 static void HideStartMenuWindow(void);
+// Menú de hora
+static void ShowStartMenuExtraWindow(void);
 
 void SetDexPokemonPokenavFlags(void) // unused
 {
@@ -293,6 +299,7 @@ static void BuildNormalStartMenu(void)
     AddStartMenuAction(MENU_ACTION_SAVE);
     AddStartMenuAction(MENU_ACTION_OPTION);
     AddStartMenuAction(MENU_ACTION_EXIT);
+    ShowStartMenuExtraWindow();
 }
 
 static void BuildSafariZoneStartMenu(void)
@@ -398,10 +405,15 @@ static void RemoveExtraStartMenuWindows(void)
         CopyWindowToVram(sSafariBallsWindowId, 2);
         RemoveWindow(sSafariBallsWindowId);
     }
-    if (InBattlePyramid())
+    else if (InBattlePyramid())
     {
         ClearStdWindowAndFrameToTransparent(sBattlePyramidFloorWindowId, FALSE);
         RemoveWindow(sBattlePyramidFloorWindowId);
+    }
+    else
+    { //Borra de la pantalla la venta auxiliar de la hora
+        ClearStdWindowAndFrameToTransparent(sSafariBallsWindowId, FALSE);
+        RemoveWindow(sSafariBallsWindowId);	
     }
 }
 
@@ -1404,4 +1416,14 @@ bool8 IsInList(u8 *list, u8 *size, u8 entry) {
     }
     
     return FALSE;
+}
+
+static void ShowStartMenuExtraWindow(void) // Función que carga una ventana auxiliar en el menú de pausa.
+{	
+    sSafariBallsWindowId = AddWindow(&sStartMenuWindowTemplate);
+    PutWindowTilemap(sSafariBallsWindowId);
+    DrawStdWindowFrame(sSafariBallsWindowId, FALSE);
+	FormatDecimalTimeWOSeconds(gStringVar4, Rtc_GetCurrentHour(), Rtc_GetCurrentMinute());                                     
+    AddTextPrinterParameterized(sSafariBallsWindowId, 1, gStringVar4, 0, 1, 0xFF, NULL); 
+    CopyWindowToVram(sSafariBallsWindowId, 2);
 }
