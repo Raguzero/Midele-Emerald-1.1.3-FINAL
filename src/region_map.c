@@ -411,6 +411,10 @@ static const u16 sUnknown_085A1F18[][2] =
         MAPSEC_BATTLE_FRONTIER
     },
     {
+        FLAG_VISITED_IZABE_ISLAND_TOWN,
+        MAPSEC_IZABE_ISLAND
+    },
+    {
         -1,
         MAPSEC_NONE
     }
