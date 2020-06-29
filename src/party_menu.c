@@ -6602,3 +6602,12 @@ void MideleChangeSelectedMonNature(void)
     SetNature(&gPlayerParty[gSpecialVar_0x8004], &nature);
     CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
 }
+
+// NUEVO: special, establece los EVs a 0 del Pokémon y stat seleccionados
+void MideleResetSelectedMonEVs(void)
+{
+    u8 monDataEV = gSpecialVar_0x8005;
+    u8 resetEvValue = 0;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], monDataEV, &resetEvValue);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}

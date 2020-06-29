@@ -831,6 +831,17 @@ static const struct MenuAction MultichoiceList_MideleNatures2[] =
     {gText_Exit}
 };
 
+static const struct MenuAction MultichoiceList_MideleEVStats[] =
+{
+    {gText_HP4},
+    {gText_Attack},
+    {gText_Defense},
+    {gText_SpAtk},
+    {gText_SpDef},
+    {gText_Speed},
+    {gText_Exit}
+};
+
 static const struct MenuAction MultichoiceList_GameCornerPkmn[] =
 {
     {gText_Bulbasaur},
@@ -994,6 +1005,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_GAME_CORNER_PKMN3]                = MULTICHOICE(MultichoiceList_GameCornerPkmn3),
     [MULTI_MIDELE_NATURES_1]           =MULTICHOICE(MultichoiceList_MideleNatures1),
     [MULTI_MIDELE_NATURES_2]           =MULTICHOICE(MultichoiceList_MideleNatures2),
+    [MULTI_MIDELE_EV_STATS]           =MULTICHOICE(MultichoiceList_MideleEVStats),
 };
 
 const u8 *const gStdStrings[] =
