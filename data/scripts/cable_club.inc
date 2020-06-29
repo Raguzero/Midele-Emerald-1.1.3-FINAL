@@ -1,5 +1,5 @@
 CableClub_OnTransition: @ 8276ACF
-	call CableClub_EventScript_HideOrShowMysteryGiftMan
+	call CableClub_EventScript_HideMysteryGiftMan
 	end
 
 CableClub_EventScript_HideOrShowMysteryGiftMan:: @ 8276AD5
