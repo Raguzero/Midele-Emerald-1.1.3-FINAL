@@ -2784,8 +2784,12 @@ static void PrintMonInfo(void)
         PrintNotEggInfo();
     else
         PrintEggInfo();
-    // NUEVO: eliminado para arreglar bug del menú (no acabo de entender la razón)
-    // schedule_bg_copy_tilemap_to_vram(0);
+    // BUG: al cambiar de huevo a mon se borra temporalmente el nivel y nickname.
+    if (sMonSummaryScreen->summary.isEgg ) {
+        schedule_bg_copy_tilemap_to_vram(0);
+    } else {
+    }
+     
 }
 
 static void PrintNotEggInfo(void)
@@ -3297,21 +3301,31 @@ static void PrintEggOTID(void)
 
 static void PrintEggState(void)
 {
-    const u8 *text;
+    u32 friendshipAmount;
+    int x;
     struct PokeSummary *sum = &sMonSummaryScreen->summary;
 
     if (sMonSummaryScreen->summary.sanity == TRUE)
-        text = gText_EggWillTakeALongTime;
-    else if (sum->friendship <= 5)
-        text = gText_EggAboutToHatch;
-    else if (sum->friendship <= 10)
-        text = gText_EggWillHatchSoon;
-    else if (sum->friendship <= 40)
-        text = gText_EggWillTakeSomeTime;
+    {
+        SummaryScreen_PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), gText_EggWillTakeALongTime, 0, 1, 0, 0);
+    }
     else
-        text = gText_EggWillTakeALongTime;
+    {
+        friendshipAmount = 40 - (sum->friendship);
+        if (friendshipAmount < 10)
+        {
+            ConvertIntToDecimalStringN(gStringVar1, friendshipAmount, 1, 1);	
+        }
+        else
+        {
+            ConvertIntToDecimalStringN(gStringVar1, friendshipAmount, 1, 2);
+        }
+    }
 
-    SummaryScreen_PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), text, 0, 1, 0, 0);
+    SummaryScreen_PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), gText_EggHappiness, 0, 1, 0, 1);
+    SummaryScreen_PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), gStringVar1, 0, 17, 0, 3);
+    x = GetStringWidth(1, gStringVar1, 0);
+    SummaryScreen_PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, 2), gText_EggHatch, x, 17, 0, 0);
 }
 
 static void PrintEggMemo(void)

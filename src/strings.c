@@ -1903,3 +1903,6 @@ const u8 gText_RegirockDoll256BP[] = _("REGIROCK DOLL{CLEAR_TO 0x58}18BP");
 const u8 gText_RegiceDoll256BP[] = _("REGICE DOLL{CLEAR_TO 0x58}18BP");
 const u8 gText_RegisteelDoll256BP[] = _("REGISTEEL DOLL{CLEAR_TO 0x58}18BP");
 
+// Contador de pasos de huevo
+const u8 gText_EggHatch[] = _("/40");
+const u8 gText_EggHappiness[] = _("HAPPINESS");
