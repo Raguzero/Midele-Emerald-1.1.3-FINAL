@@ -1420,10 +1420,14 @@ bool8 IsInList(u8 *list, u8 *size, u8 entry) {
 
 static void ShowStartMenuExtraWindow(void) // Función que carga una ventana auxiliar en el menú de pausa.
 {	
+    u8 hours, minutes;
+    RtcCalcLocalTime();
+    hours = gLocalTime.hours;
+    minutes = gLocalTime.minutes;
     sSafariBallsWindowId = AddWindow(&sStartMenuWindowTemplate);
     PutWindowTilemap(sSafariBallsWindowId);
     DrawStdWindowFrame(sSafariBallsWindowId, FALSE);
-	FormatDecimalTimeWOSeconds(gStringVar4, Rtc_GetCurrentHour(), Rtc_GetCurrentMinute());                                     
+	FormatDecimalTimeWOSeconds(gStringVar4, hours, minutes);                                     
     AddTextPrinterParameterized(sSafariBallsWindowId, 1, gStringVar4, 0, 1, 0xFF, NULL); 
     CopyWindowToVram(sSafariBallsWindowId, 2);
 }
