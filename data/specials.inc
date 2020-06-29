@@ -542,3 +542,4 @@ gSpecials:: @ 81DBA64
 	def_special CreateBossBattleMon
 	def_special BattleSetup_StartBossBattle
 	def_special CheckThreeRegi
+	def_special MideleResetSelectedMonEVs
