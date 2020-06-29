@@ -3029,4 +3029,8 @@ extern const u8 gText_QuirkyNature[];
 // NO COMPRAR MTS REPES
 extern const u8 gText_YouAlreadyHaveThis[];
 
+// Contador de pasos de huevo
+extern const u8 gText_EggHappiness[];
+extern const u8 gText_EggHatch[];
+
 #endif // GUARD_STRINGS_H
