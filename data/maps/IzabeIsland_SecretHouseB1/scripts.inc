@@ -1,8 +1,8 @@
 IzabeIsland_SecretHouseB1_MapScripts::
 	.byte 0
 
-IzabeIsland_SecretHouseB1_EventScript_Item_ScopeLens::
-	finditem ITEM_SCOPE_LENS
+IzabeIsland_SecretHouseB1_EventScript_Item_FocusSash::
+	finditem ITEM_FOCUS_SASH
 	end
 
 IzabeIsland_SecretHouseB1_EventScript_PC::

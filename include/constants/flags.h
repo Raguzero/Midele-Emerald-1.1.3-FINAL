@@ -1182,7 +1182,7 @@
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_WEST_MAX_REVIVE                 0x46B
 #define FLAG_ITEM_AQUA_HIDEOUT_B1F_NUGGET                           0x46C
 
-#define FLAG_ITEM_IZABE_ISLAND_SECRET_HOUSE_B1_SCOPE_LENS                      0x46D // Previously unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_SECRET_HOUSE_B1_FOCUS_SASH                      0x46D // Previously unused Flag
 
 #define FLAG_ITEM_ROUTE_119_NUGGET                                  0x46E
 #define FLAG_ITEM_ROUTE_104_POTION                                  0x46F
@@ -1231,7 +1231,7 @@
 #define FLAG_ITEM_IZABE_ISLAND_OUTSKIRTS_TWISTEDSPOON               0x493 // Previously unused Flag
 #define FLAG_ITEM_IZABE_ISLAND_OUTSKIRTS_BLACK_BELT                 0x494 // Previously unused Flag
 #define FLAG_ITEM_IZABE_ISLAND_CAVE_THICK_CLUB                      0x495 // Previously unused Flag
-#define FLAG_ITEM_IZABE_ISLAND_CAVE_NEVERMELTICE                    0x496 // Previously unused Flag
+#define FLAG_ITEM_IZABE_ISLAND_CAVE_DESTINY_KNOT                    0x496 // Previously unused Flag
 #define FLAG_ITEM_IZABE_TRUCK_CHOICE_SPECS                          0x497 // Previously unused Flag
 #define FLAG_ITEM_IZABE_TRUCK_CHOICE_BAND                           0x498 // Previously unused Flag
 #define FLAG_ITEM_IZABE_TRUCK_CHOICE_SCARF                          0x499 // Previously unused Flag
