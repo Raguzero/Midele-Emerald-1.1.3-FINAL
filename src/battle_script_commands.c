@@ -52,6 +52,7 @@
 #include "menu_specialized.h"
 #include "constants/rgb.h"
 #include "data.h"
+#include "constants/boss_battles.h"
 #include "constants/party_menu.h"
 
 extern struct MusicPlayerInfo gMPlayInfo_BGM;
@@ -8073,9 +8074,17 @@ static void Cmd_tryKO(void)
 
 static void Cmd_damagetohalftargethp(void) // super fang
 {
-    gBattleMoveDamage = gBattleMons[gBattlerTarget].hp / 2;
-    if (gBattleMoveDamage == 0)
-        gBattleMoveDamage = 1;
+    if (gBossBattleFlags == BATTLE_TYPE_BOSS || gBossBattleFlags == BATTLE_TYPE_TOTEM)
+    {
+        gMoveResultFlags |= MOVE_RESULT_MISSED;
+        gBattleCommunication[MULTISTRING_CHOOSER] = 2;
+    } 
+    else
+    {
+        gBattleMoveDamage = gBattleMons[gBattlerTarget].hp / 2;
+        if (gBattleMoveDamage == 0)
+            gBattleMoveDamage = 1;
+    }
 
     gBattlescriptCurrInstr++;
 }
@@ -8265,7 +8274,8 @@ static void Cmd_transformdataexecution(void)
     gChosenMove = 0xFFFF;
     gBattlescriptCurrInstr++;
     if (gBattleMons[gBattlerTarget].status2 & STATUS2_TRANSFORMED
-        || gStatuses3[gBattlerTarget] & STATUS3_SEMI_INVULNERABLE)
+        || gStatuses3[gBattlerTarget] & STATUS3_SEMI_INVULNERABLE
+        || (gBossBattleFlags == BATTLE_TYPE_BOSS || gBossBattleFlags == BATTLE_TYPE_TOTEM))
     {
         gMoveResultFlags |= MOVE_RESULT_FAILED;
         gBattleCommunication[MULTISTRING_CHOOSER] = 1;
@@ -8774,7 +8784,8 @@ static void TrySetDestinyBondToHappen(void)
     u8 sideTarget = GetBattlerSide(gBattlerTarget);
     if (gBattleMons[gBattlerTarget].status2 & STATUS2_DESTINY_BOND
         && sideAttacker != sideTarget
-        && !(gHitMarker & HITMARKER_GRUDGE))
+        && !(gHitMarker & HITMARKER_GRUDGE)
+        && !(gBossBattleFlags == BATTLE_TYPE_BOSS || gBossBattleFlags == BATTLE_TYPE_TOTEM))
     {
         gHitMarker |= HITMARKER_DESTINYBOND;
     }

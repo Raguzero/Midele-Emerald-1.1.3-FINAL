@@ -398,6 +398,7 @@ static const u8 sText_WildPkmnAppeared[] = _("Wild {B_OPPONENT_MON1_NAME} appear
 static const u8 sText_WildPkmnAppeared2[] = _("Wild {B_OPPONENT_MON1_NAME} appeared!\p");
 static const u8 sText_BossBlocksTheWay[]  = _("BOSS {B_OPPONENT_MON1_NAME} blocks the way!\p");
 static const u8 sText_TotemPkmnAppeared[]  = _("Totem {B_OPPONENT_MON1_NAME} appeared!\p");
+static const u8 sText_BossCuredStatus[]  = _("Enemy {B_OPPONENT_MON1_NAME} had its status cured!");
 static const u8 sText_WildPkmnAppearedPause[] = _("Wild {B_OPPONENT_MON1_NAME} appeared!{PAUSE 127}");
 static const u8 sText_TwoWildPkmnAppeared[] = _("Wild {B_OPPONENT_MON1_NAME} and\n{B_OPPONENT_MON2_NAME} appeared!\p");
 static const u8 sText_Trainer1WantsToBattle[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME}\nwould like to battle!\p");
@@ -908,6 +909,7 @@ const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_TOTEM_AURA - 12] = sText_TotemAura,
     [STRINGID_SATKRAISEUSING - 12] = sText_SpAttackRaisedUsing,
     [STRINGID_SPEEDRAISEUSING - 12] = sText_SpeedRaisedUsing,
+    [STRINGID_BOSSCUREDSTATUS - 12] = sText_BossCuredStatus,
 	// NUEVO HABILIDADES
 };
 
