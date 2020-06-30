@@ -88,23 +88,24 @@ static const u8 sNoGuardDescription[] = _("All moves will always hit.");
 static const u8 sImposterDescription[] = _("Transforms into the foe.");
 static const u8 sCursedBodyDescription[] = _("Disables moves on contact.");
 static const u8 sDrySkinDescription[] = _("Prefers moisture to heat.");
-static const u8 sSteelworkerDescription[] = _("Powers up Steel moves.");
+static const u8 sSteelworkerDescription[] = _("Powers up STEEL moves.");
 static const u8 sIceScalesDescription[] = _("Protect from special moves.");
 static const u8 sGluttonyDescription[] = _("Eats Berries early.");
-static const u8 sSandRushDescription[] = _("Ups Speed in a sandstorm.");
-static const u8 sSlushRushDescription[] = _("Raises Speed in hail.");
+static const u8 sSandRushDescription[] = _("Ups SPEED in a sandstorm.");
+static const u8 sSlushRushDescription[] = _("Raises SPEED in hail.");
 static const u8 sPunkRockDescription[] = _("Affect sound moves power.");
 static const u8 sWanderingSpiritDescription[] = _("Swap ABILITY with contact.");
 static const u8 sAdaptabilityDescription[] = _("Boosts x2 same type attacks.");
-static const u8 sFurCoatDescription[] = _("x2 Defense.");
+static const u8 sFurCoatDescription[] = _("x2 DEFENSE.");
 static const u8 sFluffyDescription[] = _("Tougher but flammable.");
 static const u8 sToughClawsDescription[] = _("Boosts contact moves.");
 static const u8 sLightMetalDescription[] = _("Halves weight.");
 static const u8 sFlowerVeilDescription[] = _("Protects Grass-types.");
 static const u8 sFriskDescription[] = _("Checks a foe's item.");
-static const u8 sMotorDriveDescription[] = _("Electricity raises Speed.");
+static const u8 sMotorDriveDescription[] = _("Electricity raises SPEED.");
 static const u8 sSlowStartDescription[] = _("Takes a while to get going.");
 static const u8 sPerishBodyDescription[] = _("Perish Song with contact.");
+static const u8 sProteanDescription[] = _("Changes type to used move.");
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 {
@@ -215,6 +216,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_MOTOR_DRIVE] = _("MOTOR DRIVE"),
     [ABILITY_SLOW_START] = _("SLOW START"),
     [ABILITY_PERISH_BODY] = _("PERISH BODY"),
+    [ABILITY_PROTEAN] = _("PROTEAN"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -326,4 +328,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_MOTOR_DRIVE] = sMotorDriveDescription,
     [ABILITY_SLOW_START] = sSlowStartDescription,
     [ABILITY_PERISH_BODY] = sPerishBodyDescription,
+    [ABILITY_PROTEAN] = sProteanDescription,
 };
