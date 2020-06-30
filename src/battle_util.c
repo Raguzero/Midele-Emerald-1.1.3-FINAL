@@ -1327,6 +1327,7 @@ enum
     CANCELLER_IN_LOVE,
     CANCELLER_BIDE,
     CANCELLER_THAW,
+	CANCELER_PROTEAN,
     CANCELLER_END,
 };
 
@@ -1590,6 +1591,12 @@ u8 AtkCanceller_UnableToUseMove(void)
             }
             gBattleStruct->atkCancellerTracker++;
             break;
+		case CANCELER_PROTEAN: // protean
+			if (gBattleMons[gBattlerAttacker].ability == ABILITY_PROTEAN)
+			{
+			}
+            gBattleStruct->atkCancellerTracker++;
+			break;
         case CANCELLER_END:
             break;
         }

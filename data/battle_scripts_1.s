@@ -4803,6 +4803,11 @@ BattleScript_MoveStatDrain::
 	printfromtable gStatDrainStrings
 	waitmessage 0x40
 	goto BattleScript_MoveEnd
+	
+BattleScript_Protean::
+    printstring STRINGID_PROTEANACTIVATES
+    pause 0x64
+    return
 
 BattleScript_TotemAura::
 	playanimation BS_OPPONENT1, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
