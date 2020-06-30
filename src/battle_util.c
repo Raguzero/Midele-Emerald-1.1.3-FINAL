@@ -1975,6 +1975,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
 				{
 					gSpecialStatuses[battler].slowStarted = 1; // This is entirely useless, but I'm leaving it in as some sort of ritual thingy anyway.
 					BattleScriptPushCursorAndCallback(BattleScript_SlowStarted);
+					gBattleScripting.battler = battler;
                     effect++;
 				}
 				break;
@@ -2123,6 +2124,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
 					if (gDisableStructs[battler].slowStartTimer == 5)
 					{
 						BattleScriptPushCursorAndCallback(BattleScript_SlowStartEnds);
+						gBattleScripting.battler = battler;
 						gDisableStructs[battler].slowStartTimer = 6;
 						effect++;
 					}
