@@ -217,6 +217,7 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_QUIVER_DANCE, AI_CBM_QuiverDance
 	if_effect EFFECT_COIL, AI_CBM_Coil
 	if_effect EFFECT_HEAL_PULSE, Score_Minus5
+	if_effect EFFECT_MIDELE_POWER Score_Plus10
 	end
 
 AI_CBM_Sleep: @ 82DC2D4
