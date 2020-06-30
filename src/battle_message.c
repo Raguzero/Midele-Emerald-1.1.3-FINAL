@@ -297,6 +297,8 @@ static const u8 sText_FriskActivates[] = _("{B_ATK_NAME_WITH_PREFIX} frisked {B_
 static const u8 sText_SpeedRaisedUsing[] = _("{B_DEF_NAME_WITH_PREFIX}'s raised its SPEED\nusing its {B_DEF_ABILITY}!");
 static const u8 sText_SpAttackRaisedUsing[] = _("{B_DEF_NAME_WITH_PREFIX}'s raised its SP.ATTACK\nusing its {B_DEF_ABILITY}!");
 static const u8 sText_Protean[] = _("{B_ATK_NAME_WITH_PREFIX}'s PROTEAN\nmade it the {STRING 0} type!");
+static const u8 sText_SlowStarted[] = _("{B_DEF_NAME_WITH_PREFIX} can't get it going!");
+static const u8 sText_SlowStartEnds[] = _("{B_DEF_NAME_WITH_PREFIX} put its act together!");
 // NUEVO HABILIDADES
 static const u8 sText_TotemAura[] = _("Totem {B_OPPONENT_MON1_NAME}'s aura flared to life!");
 static const u8 sText_PkmnsXIntensifiedSun[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\nintensified the sun's rays!");
@@ -912,6 +914,8 @@ const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_SPEEDRAISEUSING - 12] = sText_SpeedRaisedUsing,
     [STRINGID_BOSSCUREDSTATUS - 12] = sText_BossCuredStatus,
     [STRINGID_PROTEANACTIVATES - 12] = sText_Protean,
+    [STRINGID_SLOWSTARTED - 12] = sText_SlowStarted,
+    [STRINGID_SLOWSTARTENDS - 12] = sText_SlowStartEnds,
 	// NUEVO HABILIDADES
 };
 

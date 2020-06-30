@@ -98,7 +98,7 @@ struct DisableStruct
     u8 battlerPreventingEscape;
     u8 battlerWithSureHit;
     u8 isFirstTurn;
-    u8 filler_17; // Unused field.
+    u8 slowStartTimer;
     u8 truantCounter:1;
     u8 truantSwitchInHack:1;
     u8 filler_18_2:2; // Unused field.
@@ -150,6 +150,7 @@ struct SpecialStatus
     u8 physicalBattlerId;
     u8 specialBattlerId;
     u8 switchInAbilityDone:1;
+	u8 slowStarted:1;
 };
 
 struct SideTimer

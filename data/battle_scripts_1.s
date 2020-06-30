@@ -4806,8 +4806,18 @@ BattleScript_MoveStatDrain::
 	
 BattleScript_Protean::
     printstring STRINGID_PROTEANACTIVATES
-    pause 0x64
+    pause 0x40
     return
+	
+BattleScript_SlowStarted::
+	printstring STRINGID_SLOWSTARTED
+	waitmessage 64
+	end3
+
+BattleScript_SlowStartEnds::
+	printstring STRINGID_SLOWSTARTENDS
+	waitmessage 64
+	end3
 
 BattleScript_TotemAura::
 	playanimation BS_OPPONENT1, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
