@@ -1493,6 +1493,9 @@ static const u8 sHEADSMASHDescription[] = _(
 static const u8 sHEAL_PULSEDescription[] = _(
 	"Recovers up to half the\n"
 	"target's maximum HP.");
+	
+static const u8 sMidelePowerDescription[] = _(
+	"Micolo's ultimate attack.");
 
 // MOVE_NONE is ignored in this table. Make sure to always subtract 1 before getting the right pointer.
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
@@ -1871,5 +1874,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_LIGHT_OF_RUIN - 1] = sLIGHTOFRUINDescription,
     [MOVE_HEAD_SMASH - 1] = sHEADSMASHDescription,
     [MOVE_HEAL_PULSE - 1] = sHEAL_PULSEDescription,
+    [MOVE_MIDELE_POWER - 1] = sMidelePowerDescription,
 	// NUEVO MOVE TIPO HADA
 };
