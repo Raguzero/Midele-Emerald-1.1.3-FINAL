@@ -4808,6 +4808,9 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
 
     if (holdEffect == HOLD_EFFECT_MACHO_BRACE)
         speedBattler1 /= 2;
+	
+	if (gBattleMons[battler1].ability == ABILITY_SLOW_START && gDisableStructs[battler1].slowStartTimer <= 4)
+        speedBattler1 /= 2;
 
     if (gBattleMons[battler1].status1 & STATUS1_PARALYSIS)
         speedBattler1 /= 4;
@@ -4846,6 +4849,9 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
 	// BUFF FORECAST
 
     if (holdEffect == HOLD_EFFECT_MACHO_BRACE)
+        speedBattler2 /= 2;
+	
+	if (gBattleMons[battler2].ability == ABILITY_SLOW_START && gDisableStructs[battler2].slowStartTimer <= 4)
         speedBattler2 /= 2;
 
     if (gBattleMons[battler2].status1 & STATUS1_PARALYSIS)

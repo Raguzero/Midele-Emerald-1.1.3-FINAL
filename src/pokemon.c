@@ -4091,6 +4091,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         spAttack = (150 * spAttack) / 100;
     if (attacker->ability == ABILITY_GUTS && attacker->status1)
         attack = (150 * attack) / 100;
+	if (attacker->ability == ABILITY_SLOW_START && gDisableStructs[battlerIdAtk].slowStartTimer <= 4)
+        attack /= 2;
     if (defender->ability == ABILITY_MARVEL_SCALE && defender->status1)
         defense = (150 * defense) / 100;
 	if (defender->ability == ABILITY_DRY_SKIN && (gBattleMoves[gCurrentMove].type == TYPE_FIRE))
