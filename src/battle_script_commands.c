@@ -1209,6 +1209,29 @@ static void Cmd_attackstring(void)
 {
     if (gBattleControllerExecFlags)
          return;
+	 
+		if (gBattleMons[gBattlerAttacker].ability == ABILITY_PROTEAN)
+	{
+		u8 moveType = gBattleMoves[gCurrentMove].type;
+		if (gBattleStruct->dynamicMoveType & 0x3F)
+			moveType = gBattleStruct->dynamicMoveType & 0x3F;
+
+		if (gBattleMons[gBattlerAttacker].type1 != moveType || gBattleMons[gBattlerAttacker].type2 != moveType)
+		{
+			gBattleMons[gBattlerAttacker].type1 = moveType;
+			gBattleMons[gBattlerAttacker].type2 = moveType;
+
+			gBattleTextBuff1[0] = 0xFD;
+			gBattleTextBuff1[1] = 3;
+			gBattleTextBuff1[2] = moveType;
+			gBattleTextBuff1[3] = 0xFF;
+
+			BattleScriptPushCursor();
+			gBattlescriptCurrInstr = BattleScript_Protean;
+			return;
+		}
+	} 
+	 
     if (!(gHitMarker & (HITMARKER_NO_ATTACKSTRING | HITMARKER_ATTACKSTRING_PRINTED)))
     {
         PrepareStringBattle(STRINGID_USEDMOVE, gBattlerAttacker);

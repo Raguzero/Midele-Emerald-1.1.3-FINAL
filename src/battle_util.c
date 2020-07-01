@@ -1327,6 +1327,7 @@ enum
     CANCELLER_IN_LOVE,
     CANCELLER_BIDE,
     CANCELLER_THAW,
+	CANCELER_PROTEAN,
     CANCELLER_END,
 };
 
@@ -1590,6 +1591,12 @@ u8 AtkCanceller_UnableToUseMove(void)
             }
             gBattleStruct->atkCancellerTracker++;
             break;
+		case CANCELER_PROTEAN: // protean
+			if (gBattleMons[gBattlerAttacker].ability == ABILITY_PROTEAN)
+			{
+			}
+            gBattleStruct->atkCancellerTracker++;
+			break;
         case CANCELLER_END:
             break;
         }
@@ -1963,6 +1970,15 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     *(&gBattleStruct->formToChangeInto) = effect - 1;
                 }
                 break;
+			case ABILITY_SLOW_START:
+				if (!(gSpecialStatuses[battler].slowStarted))
+				{
+					gSpecialStatuses[battler].slowStarted = 1; // This is entirely useless, but I'm leaving it in as some sort of ritual thingy anyway.
+					BattleScriptPushCursorAndCallback(BattleScript_SlowStarted);
+					gBattleScripting.battler = battler;
+                    effect++;
+				}
+				break;
             case ABILITY_TRACE:
                 if (!(gSpecialStatuses[battler].traced))
                 {
@@ -2102,6 +2118,17 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                         effect++;
                     }
                     break;
+				case ABILITY_SLOW_START:
+					if (gDisableStructs[battler].slowStartTimer <= 4)
+						gDisableStructs[battler].slowStartTimer++;
+					if (gDisableStructs[battler].slowStartTimer == 5)
+					{
+						BattleScriptPushCursorAndCallback(BattleScript_SlowStartEnds);
+						gBattleScripting.battler = battler;
+						gDisableStructs[battler].slowStartTimer = 6;
+						effect++;
+					}
+					break;
                 case ABILITY_TRUANT:
                     gDisableStructs[gBattlerAttacker].truantCounter ^= 1;
                     break;
