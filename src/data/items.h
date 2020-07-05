@@ -1653,7 +1653,7 @@ const struct Item gItems[] =
     {
         .name = _("RETRO MAIL"),
         .itemId = ITEM_RETRO_MAIL,
-        .price = 0,
+        .price = 50,
         .description = sRetroMailDesc,
         .pocket = POCKET_ITEMS,
         .type = 0,
@@ -1814,7 +1814,7 @@ const struct Item gItems[] =
     {
         .name = _("WIKI BERRY"),
         .itemId = ITEM_WIKI_BERRY,
-        .price = 20,
+        .price = 300,
         .holdEffect = HOLD_EFFECT_CONFUSE_DRY,
         .holdEffectParam = 8,
         .description = sWikiBerryDesc,
@@ -1828,7 +1828,7 @@ const struct Item gItems[] =
     {
         .name = _("MAGO BERRY"),
         .itemId = ITEM_MAGO_BERRY,
-        .price = 20,
+        .price = 300,
         .holdEffect = HOLD_EFFECT_CONFUSE_SWEET,
         .holdEffectParam = 8,
         .description = sMagoBerryDesc,
@@ -1842,7 +1842,7 @@ const struct Item gItems[] =
     {
         .name = _("AGUAV BERRY"),
         .itemId = ITEM_AGUAV_BERRY,
-        .price = 20,
+        .price = 300,
         .holdEffect = HOLD_EFFECT_CONFUSE_BITTER,
         .holdEffectParam = 8,
         .description = sAguavBerryDesc,
@@ -2110,7 +2110,7 @@ const struct Item gItems[] =
     {
         .name = _("LIECHI BERRY"),
         .itemId = ITEM_LIECHI_BERRY,
-        .price = 20,
+        .price = 2000,
         .holdEffect = HOLD_EFFECT_ATTACK_UP,
         .holdEffectParam = 4,
         .description = sLiechiBerryDesc,
@@ -2124,7 +2124,7 @@ const struct Item gItems[] =
     {
         .name = _("GANLON BERRY"),
         .itemId = ITEM_GANLON_BERRY,
-        .price = 20,
+        .price = 2000,
         .holdEffect = HOLD_EFFECT_DEFENSE_UP,
         .holdEffectParam = 4,
         .description = sGanlonBerryDesc,
@@ -2138,7 +2138,7 @@ const struct Item gItems[] =
     {
         .name = _("SALAC BERRY"),
         .itemId = ITEM_SALAC_BERRY,
-        .price = 20,
+        .price = 2000,
         .holdEffect = HOLD_EFFECT_SPEED_UP,
         .holdEffectParam = 4,
         .description = sSalacBerryDesc,
@@ -2152,7 +2152,7 @@ const struct Item gItems[] =
     {
         .name = _("PETAYA BERRY"),
         .itemId = ITEM_PETAYA_BERRY,
-        .price = 20,
+        .price = 2000,
         .holdEffect = HOLD_EFFECT_SP_ATTACK_UP,
         .holdEffectParam = 4,
         .description = sPetayaBerryDesc,
@@ -2166,7 +2166,7 @@ const struct Item gItems[] =
     {
         .name = _("APICOT BERRY"),
         .itemId = ITEM_APICOT_BERRY,
-        .price = 20,
+        .price = 2000,
         .holdEffect = HOLD_EFFECT_SP_DEFENSE_UP,
         .holdEffectParam = 4,
         .description = sApicotBerryDesc,
