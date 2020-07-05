@@ -650,17 +650,17 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_2             (FLAG_HIDDEN_ITEMS_START + 0x5D)
 #define FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_3             (FLAG_HIDDEN_ITEMS_START + 0x5E)
 
-#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_TOWN_SACRED_ASH       (FLAG_HIDDEN_ITEMS_START + 0x5F) // Previously unused Flag
-#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_TOWN_LUCKY_PUNCH        (FLAG_HIDDEN_ITEMS_START + 0x60) // Previously unused Flag
-#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_HOUSE_1_LEEK           (FLAG_HIDDEN_ITEMS_START + 0x61) // Previously unused Flag
-#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_LAKE_1  (FLAG_HIDDEN_ITEMS_START + 0x62) // Previously unused Flag
-#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_LAKE_2  (FLAG_HIDDEN_ITEMS_START + 0x63) // Previously unused Flag
-#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_LAKE_CAVE_1  (FLAG_HIDDEN_ITEMS_START + 0x64) // Previously unused
-#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_OUTSKIRTS_POISON_BARB  (FLAG_HIDDEN_ITEMS_START + 0x65) // Previously unused Flag
-#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_OUTSKIRTS_SPELL_TAG  (FLAG_HIDDEN_ITEMS_START + 0x65) // Previously unused Flag
-#define FLAG_HIDE_REGIGIGAS          0x26C // Previously unused Flag
-#define FLAG_DEFEATED_IZABE_GIANT_2  0x26D // Previously unused Flag
-#define FLAG_UNUSED_0x26E  0x26E // Unused Flag
+#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_TOWN_SACRED_ASH        0X264 // Previously unused Flag
+#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_TOWN_LUCKY_PUNCH       0x265 // Previously unused Flag
+#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_HOUSE_1_LEEK           0x266 // Previously unused Flag
+#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_LAKE_1                 0x267 // Previously unused Flag
+#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_LAKE_2                 0x268 // Previously unused Flag
+#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_LAKE_CAVE_1            0x269 // Previously unused
+#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_OUTSKIRTS_POISON_BARB  0x26A // Previously unused Flag
+#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_OUTSKIRTS_SPELL_TAG    0x26B // Previously unused Flag
+#define FLAG_HIDE_REGIGIGAS                                  0x26C // Previously unused Flag
+#define FLAG_DEFEATED_IZABE_GIANT_2                          0x26D // Previously unused Flag
+#define FLAG_RECEIVED_DITTO                                  0x26E // Previously unused Flag
 #define FLAG_UNUSED_0x26F  0x26F // Unused Flag
 #define FLAG_UNUSED_0x270  0x270 // Unused Flag
 #define FLAG_UNUSED_0x271  0x271 // Unused Flag
