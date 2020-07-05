@@ -563,7 +563,7 @@ void HealPlayerParty(void)
     }
 }
 
-u8 ScriptGiveMon(u16 species, u8 level, u16 item, u32 unused1, u32 unused2, u8 unused3)
+u8 ScriptGiveMon(u16 species, u8 level, u16 item, bool32 hasPokerus, bool32 fullIVs, u8 unused3)
 {
     u16 nationalDexNum;
     int sentToPc;
@@ -583,10 +583,19 @@ u8 ScriptGiveMon(u16 species, u8 level, u16 item, u32 unused1, u32 unused2, u8 u
     heldItem[0] = item;
     heldItem[1] = item >> 8;
     SetMonData(&mon, MON_DATA_HELD_ITEM, heldItem);
-    if (unused1 == 1) {
+    if (hasPokerus == TRUE) {
         // Pokérus 4 días
         u8 pokerus = 0xF4;
         SetMonData(&mon, MON_DATA_POKERUS, &pokerus);
+    }
+    if (fullIVs == TRUE)
+    {
+        u8 i;
+        for (i = MON_DATA_HP_IV; i <= MON_DATA_SPDEF_IV; i++)
+        {
+            const u8 iv = 31;
+            SetMonData(&mon, i, &iv);
+        }
     }
     sentToPc = GiveMonToPlayer(&mon);
     nationalDexNum = SpeciesToNationalPokedexNum(species);
