@@ -6125,10 +6125,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
             if (itemEffect[cmdIndex] & ITEM6_FRIENDSHIP)
             {
                 u8 friendship = GetMonData(mon, MON_DATA_FRIENDSHIP, 0);
-                if (friendship == MAX_FRIENDSHIP)
-                {
-                    retVal = TRUE;
-                } else
+                if (friendship != MAX_FRIENDSHIP)
                 {
                     SetMonData(mon, MON_DATA_FRIENDSHIP, &(itemEffect[7]));
                     retVal = FALSE;
