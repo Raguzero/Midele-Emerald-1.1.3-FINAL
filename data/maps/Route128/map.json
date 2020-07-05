@@ -65,12 +65,12 @@
             "graphics_id": "EVENT_OBJ_GFX_SWIMMER_M",
             "movement_range_x": 5,
             "movement_range_y": 5,
-            "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_UP_LEFT_DOWN",
+            "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
             "script": "Route128_EventScript_Isaiah",
             "trainer_sight_or_berry_tree_id": "3",
             "trainer_type": "1",
             "x": 35,
-            "y": 33
+            "y": 34
         },
         {
             "elevation": 1,
@@ -134,8 +134,8 @@
             "script": "Route128_EventScript_Wayne",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "1",
-            "x": 63,
-            "y": 28
+            "x": 61,
+            "y": 32
         },
         {
             "elevation": 3,
@@ -143,11 +143,11 @@
             "graphics_id": "EVENT_OBJ_GFX_MAN_3",
             "movement_range_x": 1,
             "movement_range_y": 1,
-            "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+            "movement_type": "MOVEMENT_TYPE_FACE_UP",
             "script": "Route128_EventScript_Ruben",
             "trainer_sight_or_berry_tree_id": "3",
             "trainer_type": "1",
-            "x": 47,
+            "x": 46,
             "y": 9
         },
         {
