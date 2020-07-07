@@ -1224,6 +1224,8 @@ const u16 gEggMoves[] = {
               MOVE_DOUBLE_EDGE,
               MOVE_MAGIC_COAT,
               MOVE_CURSE,
+              MOVE_MEGAHORN,
+              MOVE_MEAN_LOOK,
               MOVE_SUBSTITUTE),
 
     egg_moves(SHUPPET,
