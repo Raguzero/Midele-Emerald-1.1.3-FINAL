@@ -7881,6 +7881,9 @@ bool8 HasTwoFramesAnimation(u16 species)
             && species != SPECIES_DEOXYS
             && species != SPECIES_SPINDA
             && species != SPECIES_UNOWN
+            && species != SPECIES_GALAR_YAMASK
+            && species != SPECIES_GROOKEY
+            && species != SPECIES_THWACKEY
 		    && species != SPECIES_GRUBBIN
 		    && species != SPECIES_CHARJABUG
 			&& species != SPECIES_VIKAVOLT
@@ -7929,6 +7932,7 @@ bool8 HasTwoFramesAnimation(u16 species)
 			&& species != SPECIES_FLOETTE
 			&& species != SPECIES_MILCERY
             && species != SPECIES_ALCREMIE
+            && species != SPECIES_TOXTRICITY_LK
             && species != SPECIES_APPLIN
             && species != SPECIES_BOSS);
 }

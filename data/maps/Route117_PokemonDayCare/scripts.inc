@@ -31,7 +31,7 @@ Route117_PokemonDayCare_EventScript_ReceiveDittoParty:: @ 8270085
 	end
 
 Route117_PokemonDayCare_EventScript_ReceiveDittoPC:: @ 82700AD
-	call Route119_WeatherInstitute_2F_EventScript_ReceivedCastformFanfare
+	call Route117_PokemonDayCare_EventScript_ReceiveDittoFanfare
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq Route117_PokemonDayCare_EventScript_SendDittoToPC
