@@ -13050,7 +13050,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_MEDIUM_FAST,
 		.eggGroup1 = EGG_GROUP_FIELD,
 		.eggGroup2 = EGG_GROUP_FIELD,
-        .abilities = {ABILITY_MAGMA_ARMOR, ABILITY_NONE},
+        .abilities = {ABILITY_MAGMA_ARMOR, ABILITY_MAGMA_ARMOR},
 		.bodyColor = BODY_COLOR_RED,
 	},
 	[SPECIES_MEGA_MAWILE] =
