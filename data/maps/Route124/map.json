@@ -93,11 +93,11 @@
             "graphics_id": "EVENT_OBJ_GFX_SWIMMER_F",
             "movement_range_x": 6,
             "movement_range_y": 8,
-            "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
+            "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
             "script": "Route124_EventScript_Grace",
             "trainer_sight_or_berry_tree_id": "5",
             "trainer_type": "1",
-            "x": 7,
+            "x": 3,
             "y": 23
         },
         {
@@ -188,8 +188,8 @@
             "script": "Route124_EventScript_Declan",
             "trainer_sight_or_berry_tree_id": "5",
             "trainer_type": "1",
-            "x": 7,
-            "y": 29
+            "x": 3,
+            "y": 28
         },
         {
             "elevation": 1,
