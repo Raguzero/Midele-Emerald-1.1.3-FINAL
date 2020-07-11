@@ -3639,6 +3639,7 @@ static void BossToMon(struct Pokemon *mon, u16 bossBattleId)
     mon->spAttack = gBosses[bossId].spAttack;
     mon->spDefense = gBosses[bossId].spDefense;
     mon->speed = gBosses[bossId].speed;
+    mon->box.hpType = gBosses[bossId].hpType;
     
     SetMonData(mon, MON_DATA_NICKNAME, gBosses[bossId].name);
     for (i = 0; i < MAX_MON_MOVES; i++) {
@@ -3655,6 +3656,8 @@ static void TotemToMon(struct Pokemon *mon, u16 bossBattleId)
     u8 i;
     u8 totemId = gBossBattles[bossBattleId].boss.totemId;
     CreateMonWithNature(mon, gTotemMons[totemId].species, gTotemMons[totemId].level, 31, gTotemMons[totemId].nature);
+    mon->box.hpType = gTotemMons[totemId].hpType;
+    
     for (i = 0; i < MAX_MON_MOVES; i++) {
         u16 move = gTotemMons[totemId].moves[i];
         u8 pp = gBattleMoves[move].pp;

@@ -26,6 +26,7 @@ struct Boss
     u8 type1;
     u8 type2;
     u8 ability;
+    u8 hpType;
     u16 hp;
     u16 attack;
     u16 defense;
@@ -48,6 +49,7 @@ struct TotemMon
     u8 level;
     u8 nature;
     u8 abilityNumber;
+    u8 hpType;
     u8 statBoosts[NUM_BATTLE_STATS];
     u8 evs[NUM_STATS];
     u16 species;
