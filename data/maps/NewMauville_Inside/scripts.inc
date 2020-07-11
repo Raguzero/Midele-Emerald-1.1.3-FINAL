@@ -258,6 +258,20 @@ NewMauville_Inside_EventScript_DefeatedVoltorb3:: @ 823788D
 	setflag FLAG_DEFEATED_VOLTORB_3_NEW_MAUVILLE
 	goto Common_EventScript_RemoveStaticPokemon
 	end
+	
+@ Combate contra totem.
+NewMauville_Inside_Script_Totem::
+    lockall
+    setvar VAR_0x8004, BOSS_BATTLE_TOTEM_MANECTRIC
+    special CreateBossBattleMon
+    special BattleSetup_StartBossBattle
+    waitstate
+    setvar VAR_LAST_TALKED, 1
+    specialvar VAR_RESULT, GetBattleOutcome
+    compare VAR_RESULT, B_OUTCOME_WON
+    call_if_eq LittlerootTown_DebugRoom_Script_CombateGanado
+    releaseall
+    end
 
 NewMauville_Inside_Text_GeneratorRadiatingHeat: @ 8237896
 	.string "The generator is radiating heat that\n"
