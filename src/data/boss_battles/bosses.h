@@ -4,6 +4,7 @@ const struct Boss gBosses[] =
     {
         .name = gBossNameCorona,
         .level = 100,
+        .hpType = TYPE_FIRE,
         .hp = 600,
         .attack = 1,
         .defense = 200,
@@ -11,7 +12,7 @@ const struct Boss gBosses[] =
         .spDefense = 400,
         .speed = 5,
         .item = ITEM_LEFTOVERS,
-        .moves = {MOVE_TOXIC, MOVE_PAIN_SPLIT, MOVE_SLUDGE_BOMB, MOVE_THUNDER},
+        .moves = {MOVE_TOXIC, MOVE_HIDDEN_POWER, MOVE_SLUDGE_BOMB, MOVE_THUNDER},
         .ability = ABILITY_DRIZZLE,
         .type1 = TYPE_POISON,
         .type2 = TYPE_GHOST,

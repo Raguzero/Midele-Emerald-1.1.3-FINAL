@@ -4,7 +4,8 @@ const struct TotemMon gTotemMons[] =
     {
         .species = SPECIES_SUDOWOODO,
         .level = 100,
-        .moves = {MOVE_AMNESIA, MOVE_NASTY_PLOT, MOVE_ACID_ARMOR, MOVE_AGILITY},
+        .hpType = TYPE_GRASS,
+        .moves = {MOVE_HIDDEN_POWER, MOVE_NASTY_PLOT, MOVE_ACID_ARMOR, MOVE_AGILITY},
         .item = ITEM_LEFTOVERS,
         .nature = NATURE_CALM,
         .abilityNumber = 0,
