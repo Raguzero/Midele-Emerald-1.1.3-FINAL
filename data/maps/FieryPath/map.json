@@ -117,6 +117,19 @@
             "trainer_type": "0",
             "x": 7,
             "y": 32
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_TOTEM_FIERYPATH",
+            "graphics_id": "EVENT_OBJ_GFX_TRICK_HOUSE_STATUE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "Fiery_Path_EventScript_Totem",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 19,
+            "y": 6
         }
     ],
     "region_map_section": "MAPSEC_FIERY_PATH",
