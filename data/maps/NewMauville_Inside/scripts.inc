@@ -156,14 +156,14 @@ NewMauville_Inside_EventScript_RedButton:: @ 8237725
 	delay 40
 	waitmoncry
 	msgbox NewMauville_Inside_Text_Totemaparece, MSGBOX_DEFAULT
+	removeobject 9, MAP_NEW_MAUVILLE_INSIDE
+	setflag FLAG_TOTEM_NEWMAUVILLE
     setvar VAR_0x8004, BOSS_BATTLE_TOTEM_TOXTRICITY
     special CreateBossBattleMon
     special BattleSetup_StartBossBattle
     waitstate
     setvar VAR_LAST_TALKED, 1
     specialvar VAR_RESULT, GetBattleOutcome
-	removeobject 9, MAP_NEW_MAUVILLE_INSIDE
-	setflag FLAG_TOTEM_NEWMAUVILLE
     msgbox NewMauville_Inside_Text_Totemderrotado
 	applymovement EVENT_OBJ_ID_PLAYER, NewMauvilleCity_Inside_Movement2
 	waitmovement 0
