@@ -17,10 +17,10 @@ const struct BossBattle gBossBattles[] = {
         .music = FF6BOSS,
         .boss = BOSS_YETI,
     },
-    [BOSS_BATTLE_TOTEM_MANECTRIC] =
+    [BOSS_BATTLE_TOTEM_TOXTRICITY] =
     {
         .battleType = BATTLE_TYPE_TOTEM,
         .music = MUS_RG_VS_LAST,
-        .boss = TOTEM_MANECTRIC,
+        .boss = TOTEM_TOXTRICITY,
     },
 };
