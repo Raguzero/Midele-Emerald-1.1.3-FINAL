@@ -3655,7 +3655,28 @@ static void TotemToMon(struct Pokemon *mon, u16 bossBattleId)
 {
     u8 i;
     u8 totemId = gBossBattles[bossBattleId].boss.totemId;
-    CreateMonWithNature(mon, gTotemMons[totemId].species, gTotemMons[totemId].level, 31, gTotemMons[totemId].nature);
+    u8 currPartyMonLevel;
+    u8 level = 1;
+    
+    // Calculate max party level in "level" var.
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) != SPECIES_NONE)
+        {
+            currPartyMonLevel = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL, NULL);
+            if (currPartyMonLevel > level)
+            {
+                level = currPartyMonLevel;
+            }
+        }
+    }
+    
+    if (currPartyMonLevel < gTotemMons[totemId].minLevel)
+    {
+        level = gTotemMons[totemId].minLevel;
+    }
+    
+    CreateMonWithNature(mon, gTotemMons[totemId].species, level, 31, gTotemMons[totemId].nature);
     mon->box.hpType = gTotemMons[totemId].hpType;
     
     for (i = 0; i < MAX_MON_MOVES; i++) {

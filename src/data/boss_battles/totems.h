@@ -3,7 +3,7 @@ const struct TotemMon gTotemMons[] =
     [TOTEM_SUDOWOODO_DEBUG] = 
     {
         .species = SPECIES_SUDOWOODO,
-        .level = 100,
+        .minLevel = 30,
         .hpType = TYPE_GRASS,
         .moves = {MOVE_HIDDEN_POWER, MOVE_NASTY_PLOT, MOVE_ACID_ARMOR, MOVE_AGILITY},
         .item = ITEM_LEFTOVERS,
@@ -15,7 +15,7 @@ const struct TotemMon gTotemMons[] =
 	[TOTEM_MANECTRIC] = 
     {
         .species = SPECIES_MANECTRIC,
-        .level = 30,
+        .minLevel = 30,
         .moves = {MOVE_THUNDER, MOVE_FLAMETHROWER, MOVE_HIDDEN_POWER, MOVE_CRUNCH},
         .item = ITEM_LEFTOVERS,
         .nature = NATURE_TIMID,
