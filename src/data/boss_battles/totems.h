@@ -15,10 +15,8 @@ const struct TotemMon gTotemMons[] =
 	[TOTEM_TOXTRICITY] = 
     {
         .species = SPECIES_TOXTRICITY_LK,
-        .level = 30,
-        .moves = {MOVE_OVERDRIVE, MOVE_HYPER_VOICE, MOVE_FIRE_PUNCH, MOVE_SLUDGE_BOMB},
-        .species = SPECIES_MANECTRIC,
         .minLevel = 30,
+        .moves = {MOVE_OVERDRIVE, MOVE_HYPER_VOICE, MOVE_FIRE_PUNCH, MOVE_SLUDGE_BOMB},
         .item = ITEM_LEFTOVERS,
         .nature = NATURE_NAIVE,
         .abilityNumber = 0,
