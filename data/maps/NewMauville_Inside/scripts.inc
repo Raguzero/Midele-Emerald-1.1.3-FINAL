@@ -146,11 +146,42 @@ NewMauville_Inside_EventScript_SetBarrierStateGreenButton:: @ 82375D7
 
 NewMauville_Inside_EventScript_RedButton:: @ 8237725
 	lockall
+	@ Combate contra totem.
+	showobjectat 9, MAP_NEW_MAUVILLE_INSIDE
+	clearflag FLAG_TOTEM_NEWMAUVILLE
+	waitse
+	applymovement EVENT_OBJ_ID_PLAYER, NewMauvilleCity_Inside_Movement
+	waitmovement 0
+	playmoncry SPECIES_TOXTRICITY, 2
+	delay 40
+	waitmoncry
+	msgbox NewMauville_Inside_Text_Totemaparece, MSGBOX_DEFAULT
+    setvar VAR_0x8004, BOSS_BATTLE_TOTEM_TOXTRICITY
+    special CreateBossBattleMon
+    special BattleSetup_StartBossBattle
+    waitstate
+    setvar VAR_LAST_TALKED, 1
+    specialvar VAR_RESULT, GetBattleOutcome
+	removeobject 9, MAP_NEW_MAUVILLE_INSIDE
+	setflag FLAG_TOTEM_NEWMAUVILLE
+    msgbox NewMauville_Inside_Text_Totemderrotado
+	applymovement EVENT_OBJ_ID_PLAYER, NewMauvilleCity_Inside_Movement2
+	waitmovement 0
+    @ Combate contra totem.	
 	msgbox NewMauville_Inside_Text_SteppedOnSwitchGeneratorStopped, MSGBOX_DEFAULT
 	call NewMauville_Inside_EventScript_SetGeneratorOffMetatiles
 	setvar VAR_NEW_MAUVILLE_STATE, 2
 	releaseall
 	end
+	
+NewMauvilleCity_Inside_Movement::
+	walk_down
+	face_up
+	step_end
+	
+NewMauvilleCity_Inside_Movement2::
+	walk_up
+	step_end
 
 NewMauville_Inside_EventScript_SetGeneratorOffMetatiles:: @ 823773A
 	setmetatile 33, 6, METATILE_BikeShop_Button_Pressed, 0
@@ -258,20 +289,6 @@ NewMauville_Inside_EventScript_DefeatedVoltorb3:: @ 823788D
 	setflag FLAG_DEFEATED_VOLTORB_3_NEW_MAUVILLE
 	goto Common_EventScript_RemoveStaticPokemon
 	end
-	
-@ Combate contra totem.
-NewMauville_Inside_Script_Totem::
-    lockall
-    setvar VAR_0x8004, BOSS_BATTLE_TOTEM_MANECTRIC
-    special CreateBossBattleMon
-    special BattleSetup_StartBossBattle
-    waitstate
-    setvar VAR_LAST_TALKED, 1
-    specialvar VAR_RESULT, GetBattleOutcome
-    compare VAR_RESULT, B_OUTCOME_WON
-    call_if_eq LittlerootTown_DebugRoom_Script_CombateGanado
-    releaseall
-    end
 
 NewMauville_Inside_Text_GeneratorRadiatingHeat: @ 8237896
 	.string "The generator is radiating heat that\n"
@@ -289,3 +306,10 @@ NewMauville_Inside_Text_SteppedOnSwitchGeneratorStopped: @ 8237932
 	.string "… … … … … … … …\p"
 	.string "The generator appears to have\n"
 	.string "stopped…$"
+
+NewMauville_Inside_Text_Totemaparece:
+	.string "TOXTRICITY, the Totem Pokémon of\n" 
+	.string "NewMauville, has appeared!$"
+	
+NewMauville_Inside_Text_Totemderrotado:
+	.string "TOXTRICITY disappeared...$"

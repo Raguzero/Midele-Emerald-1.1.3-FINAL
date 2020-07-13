@@ -274,16 +274,16 @@
         },
         {
             "elevation": 3,
-            "flag": "0",
-            "graphics_id": "EVENT_OBJ_GFX_DITTO_DOLL",
+            "flag": "FLAG_TOTEM_NEWMAUVILLE",
+            "graphics_id": "EVENT_OBJ_GFX_TRICK_HOUSE_STATUE",
             "movement_range_x": 0,
             "movement_range_y": 0,
-            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-            "script": "NewMauville_Inside_Script_Totem",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "NULL",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
-            "x": 25,
-            "y": 4
+            "x": 33,
+            "y": 5
         }
     ],
     "region_map_section": "MAPSEC_NEW_MAUVILLE",
