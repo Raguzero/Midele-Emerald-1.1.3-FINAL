@@ -23,4 +23,10 @@ const struct BossBattle gBossBattles[] = {
         .music = MUS_RG_VS_LAST,
         .boss = TOTEM_TOXTRICITY,
     },
+    [BOSS_BATTLE_TOTEM_COFAGRIGUS] =
+    {
+        .battleType = BATTLE_TYPE_TOTEM,
+        .music = MUS_RG_VS_LAST,
+        .boss = TOTEM_COFAGRIGUS,
+    },
 };

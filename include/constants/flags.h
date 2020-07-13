@@ -45,7 +45,7 @@
 #define FLAG_RYU_RANDOMBATTLE    0x21 // NEW SPECIAL TRAINER
 #define FLAG_RYU_RANDOMBATTLECC    0x22 // NEW SPECIAL TRAINER
 #define FLAG_TOTEM_NEWMAUVILLE    0x23 // NEW TOTEM
-#define FLAG_UNUSED_0x024    0x24 // Unused Flag
+#define FLAG_TOTEM_MIRAGETOWER  0x24 // Unused Flag
 #define FLAG_UNUSED_0x025    0x25 // Unused Flag
 #define FLAG_UNUSED_0x026    0x26 // Unused Flag
 #define FLAG_UNUSED_0x027    0x27 // Unused Flag

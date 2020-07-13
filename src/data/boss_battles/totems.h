@@ -22,5 +22,16 @@ const struct TotemMon gTotemMons[] =
         .abilityNumber = 0,
         .statBoosts = {6, 6, 8, 6, 6, 8, 6, 6},
         .evs = {252, 100, 56, 100, 56, 56},
+    },
+	[TOTEM_COFAGRIGUS] = 
+    {
+        .species = SPECIES_COFAGRIGUS,
+        .minLevel = 30,
+        .moves = {MOVE_SHADOW_BALL, MOVE_REVENGE, MOVE_PSYCHIC, MOVE_WILL_O_WISP},
+        .item = ITEM_LEFTOVERS,
+        .nature = NATURE_BRAVE,
+        .abilityNumber = 0,
+        .statBoosts = {6, 8, 8, 6, 8, 8, 6, 6},
+        .evs = {252, 100, 56, 100, 56, 56},
     }
 };
