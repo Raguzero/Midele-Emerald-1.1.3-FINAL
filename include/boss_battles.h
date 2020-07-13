@@ -40,13 +40,14 @@ struct Boss
 
 /*
     Estructura de datos de los Pokémon Totem.
+    minLevel: nivel mínimo del combate.
     statBoosts: Incremento de los stats en este orden: HP, ATK, DEF, SPD, SPATK, SPDEF, ACC, EVA.
                 Los valores de boost van desde 0 (-6) hasta 12 (+6).
     evs: Los EVs, en este orden: HP, ATK, DEF, SPD, SPATK, SPDEF.
 */
 struct TotemMon
 {
-    u8 level;
+    u8 minLevel;
     u8 nature;
     u8 abilityNumber;
     u8 hpType;
