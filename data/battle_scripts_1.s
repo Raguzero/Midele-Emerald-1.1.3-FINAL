@@ -588,9 +588,10 @@ BattleScript_EffectHaze::
 	attackcanceler
 	attackstring
 	ppreduce
+	normalisebuffs
+	jumpifbyte CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_MISSED, BattleScript_PrintMoveMissed
 	attackanimation
 	waitanimation
-	normalisebuffs
 	printstring STRINGID_STATCHANGESGONE
 	waitmessage 0x40
 	goto BattleScript_MoveEnd
@@ -1821,6 +1822,7 @@ BattleScript_EffectPsychUp::
 	attackstring
 	ppreduce
 	copyfoestats BattleScript_ButItFailed
+	jumpifbyte CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_MISSED, BattleScript_PrintMoveMissed
 	attackanimation
 	waitanimation
 	printstring STRINGID_PKMNCOPIEDSTATCHANGES

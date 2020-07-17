@@ -7665,12 +7665,20 @@ static void Cmd_normalisebuffs(void) // haze
 {
     s32 i, j;
 
-    for (i = 0; i < gBattlersCount; i++)
+    if (gBossBattleFlags != BATTLE_TYPE_NORMAL)
     {
-		gDisableStructs[i].stockpileDef = 0;
-        gDisableStructs[i].stockpileSpDef = 0;
-        for (j = 0; j < NUM_BATTLE_STATS; j++)
-            gBattleMons[i].statStages[j] = 6;
+        gMoveResultFlags |= MOVE_RESULT_MISSED;
+        gBattleCommunication[MULTISTRING_CHOOSER] = 0;
+    }
+    else 
+    {
+        for (i = 0; i < gBattlersCount; i++)
+        {
+    		gDisableStructs[i].stockpileDef = 0;
+            gDisableStructs[i].stockpileSpDef = 0;
+            for (j = 0; j < NUM_BATTLE_STATS; j++)
+                gBattleMons[i].statStages[j] = 6;
+        }
     }
 
     gBattlescriptCurrInstr++;
@@ -8575,7 +8583,8 @@ static void Cmd_trysetencore(void)
 
 static void Cmd_painsplitdmgcalc(void)
 {
-    if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE))
+    if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
+        && gBossBattleFlags == BATTLE_TYPE_NORMAL)
     {
         s32 hpDiff = (gBattleMons[gBattlerAttacker].hp + gBattleMons[gBattlerTarget].hp) / 2;
         s32 painSplitHp = gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - hpDiff;
@@ -9319,10 +9328,17 @@ static void Cmd_maxattackhalvehp(void) // belly drum
 static void Cmd_copyfoestats(void) // psych up
 {
     s32 i;
-
-    for (i = 0; i < NUM_BATTLE_STATS; i++)
+    if (gBossBattleFlags != BATTLE_TYPE_NORMAL)
     {
-        gBattleMons[gBattlerAttacker].statStages[i] = gBattleMons[gBattlerTarget].statStages[i];
+        gMoveResultFlags |= MOVE_RESULT_MISSED;
+        gBattleCommunication[MULTISTRING_CHOOSER] = 0;
+    }
+    else
+    {
+        for (i = 0; i < NUM_BATTLE_STATS; i++)
+        {
+            gBattleMons[gBattlerAttacker].statStages[i] = gBattleMons[gBattlerTarget].statStages[i];
+        }
     }
 
     gBattlescriptCurrInstr += 5; // Has an unused jump ptr(possibly for a failed attempt) parameter.
@@ -9685,6 +9701,7 @@ static void Cmd_tryswapitems(void) // trick
 {
     // opponent can't swap items with player in regular battles
     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_HILL
+        || gBossBattleFlags != BATTLE_TYPE_NORMAL
         || (GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT
             && !(gBattleTypeFlags & (BATTLE_TYPE_LINK
                                   | BATTLE_TYPE_EREADER_TRAINER
@@ -9858,7 +9875,8 @@ static void Cmd_setyawn(void)
 
 static void Cmd_setdamagetohealthdifference(void)
 {
-    if (gBattleMons[gBattlerTarget].hp <= gBattleMons[gBattlerAttacker].hp)
+    if (gBattleMons[gBattlerTarget].hp <= gBattleMons[gBattlerAttacker].hp
+        || gBossBattleFlags != BATTLE_TYPE_NORMAL)
     {
         gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
     }
@@ -9887,7 +9905,8 @@ static void Cmd_tryswapabilities(void) // skill swap
          && gBattleMons[gBattlerTarget].ability == 0)
      || gBattleMons[gBattlerAttacker].ability == ABILITY_WONDER_GUARD
      || gBattleMons[gBattlerTarget].ability == ABILITY_WONDER_GUARD
-     || gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+     || gMoveResultFlags & MOVE_RESULT_NO_EFFECT
+     || gBossBattleFlags != BATTLE_TYPE_NORMAL)
      {
          gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
      }
