@@ -7958,6 +7958,15 @@ bool8 HasTwoFramesAnimation(u16 species)
             && species != SPECIES_ALCREMIE
             && species != SPECIES_TOXTRICITY_LK
             && species != SPECIES_APPLIN
+            && species != SPECIES_RUNERIGUS
+			&& species != SPECIES_DURALUDON
+            && species != SPECIES_TOXEL
+            && species != SPECIES_TOXTRICITY
+            && species != SPECIES_RILLABOOM
+		    && species != SPECIES_FLAPPLE
+			&& species != SPECIES_APPLETUN
+		    && species != SPECIES_SILICOBRA
+			&& species != SPECIES_SANDACONDA
             && species != SPECIES_BOSS);
 }
 
