@@ -1945,7 +1945,7 @@
                     },
                     "map": "MAP_GRANITE_CAVE_B2F",
                     "rock_smash_mons": {
-                        "encounter_rate": 20,
+                        "encounter_rate": 60,
                         "mons": [
                             {
                                 "max_level": 15,
@@ -1960,17 +1960,17 @@
                             {
                                 "max_level": 10,
                                 "min_level": 5,
-                                "species": "SPECIES_GEODUDE"
+                                "species": "SPECIES_ALOLAN_GEODUDE"
                             },
                             {
                                 "max_level": 20,
                                 "min_level": 15,
-                                "species": "SPECIES_GEODUDE"
+                                "species": "SPECIES_ALOLAN_GEODUDE"
                             },
                             {
                                 "max_level": 20,
                                 "min_level": 15,
-                                "species": "SPECIES_GEODUDE"
+                                "species": "SPECIES_ALOLAN_GEODUDE"
                             }
                         ]
                     }
@@ -2216,12 +2216,12 @@
                             {
                                 "max_level": 29,
                                 "min_level": 24,
-                                "species": "SPECIES_SNEASEL"
+                                "species": "SPECIES_TEDDIURSA"
                             },
                             {
                                 "max_level": 30,
                                 "min_level": 25,
-                                "species": "SPECIES_SNEASEL"
+                                "species": "SPECIES_TEDDIURSA"
                             },
                             {
                                 "max_level": 30,
@@ -2237,7 +2237,7 @@
                     },
                     "map": "MAP_IZABE_ISLAND_OUTSKIRTS",
                     "rock_smash_mons": {
-                        "encounter_rate": 20,
+                        "encounter_rate": 60,
                         "mons": [
                             {
                                 "max_level": 30,
@@ -6470,7 +6470,7 @@
                     },
                     "map": "MAP_ROUTE111",
                     "rock_smash_mons": {
-                        "encounter_rate": 20,
+                        "encounter_rate": 60,
                         "mons": [
                             {
                                 "max_level": 15,
@@ -6792,7 +6792,7 @@
                     },
                     "map": "MAP_ROUTE114",
                     "rock_smash_mons": {
-                        "encounter_rate": 20,
+                        "encounter_rate": 60,
                         "mons": [
                             {
                                 "max_level": 15,
@@ -6930,7 +6930,7 @@
                             {
                                 "max_level": 24,
                                 "min_level": 24,
-                                "species": "SPECIES_NATU"
+                                "species": "SPECIES_TEDDIURSA"
                             },
                             {
                                 "max_level": 25,
@@ -6955,7 +6955,7 @@
                             {
                                 "max_level": 24,
                                 "min_level": 24,
-                                "species": "SPECIES_WINGULL"
+                                "species": "SPECIES_MISDREAVUS"
                             },
                             {
                                 "max_level": 24,
@@ -9530,7 +9530,7 @@
                     },
                     "map": "MAP_SAFARI_ZONE_NORTH",
                     "rock_smash_mons": {
-                        "encounter_rate": 25,
+                        "encounter_rate": 60,
                         "mons": [
                             {
                                 "max_level": 15,
@@ -9545,7 +9545,7 @@
                             {
                                 "max_level": 20,
                                 "min_level": 15,
-                                "species": "SPECIES_ALOLAN_GEODUDE"
+                                "species": "SPECIES_NOSEPASS"
                             },
                             {
                                 "max_level": 25,
@@ -9629,7 +9629,7 @@
                     },
                     "map": "MAP_SAFARI_ZONE_NORTHEAST",
                     "rock_smash_mons": {
-                        "encounter_rate": 25,
+                        "encounter_rate": 60,
                         "mons": [
                             {
                                 "max_level": 30,
@@ -12245,7 +12245,7 @@
                     },
                     "map": "MAP_VICTORY_ROAD_B1F",
                     "rock_smash_mons": {
-                        "encounter_rate": 20,
+                        "encounter_rate": 60,
                         "mons": [
                             {
                                 "max_level": 40,

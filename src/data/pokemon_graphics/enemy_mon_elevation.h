@@ -83,4 +83,5 @@ const u8 gEnemyMonElevation[NUM_SPECIES] =
 	[SPECIES_YANMEGA] = 6,
 	[SPECIES_GLISCOR] = 6,
     [SPECIES_VIKAVOLT] = 8,
+    [SPECIES_CORVISQUIRE] = 16,
 };
