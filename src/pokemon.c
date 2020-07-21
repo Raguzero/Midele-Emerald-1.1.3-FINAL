@@ -7415,6 +7415,46 @@ u16 GetBattleBGM(void)
 	species == NATIONAL_DEX_SNIVY ||
 	species == NATIONAL_DEX_SERVINE ||
 	species == NATIONAL_DEX_SERPERIOR) return WILDBW2_FINAL;
+	if (species == NATIONAL_DEX_PROBOPASS ||
+	species == NATIONAL_DEX_DUSKNOIR ||
+	species == NATIONAL_DEX_FROSLASS ||
+	species == NATIONAL_DEX_SNOVER ||
+	species == NATIONAL_DEX_ABOMASNOW ||
+	species == NATIONAL_DEX_WEAVILE ||
+	species == NATIONAL_DEX_MAGNEZONE ||
+	species == NATIONAL_DEX_LICKILICKY ||
+	species == NATIONAL_DEX_RHYPERIOR ||
+	species == NATIONAL_DEX_TANGROWTH ||
+	species == NATIONAL_DEX_ELECTIVIRE ||
+	species == NATIONAL_DEX_MAGMORTAR ||
+	species == NATIONAL_DEX_TOGEKISS ||
+	species == NATIONAL_DEX_YANMEGA ||
+	species == NATIONAL_DEX_LEAFEON ||
+	species == NATIONAL_DEX_GLACEON ||
+	species == NATIONAL_DEX_GLISCOR ||
+	species == NATIONAL_DEX_MAMOSWINE ||
+	species == NATIONAL_DEX_PORYGON_Z ||
+	species == NATIONAL_DEX_GALLADE ||
+	species == NATIONAL_DEX_ROSERADE ||
+	species == NATIONAL_DEX_AMBIPOM ||
+	species == NATIONAL_DEX_MISMAGIUS ||
+	species == NATIONAL_DEX_HONCHKROW ||
+	species == NATIONAL_DEX_TURTWIG ||
+	species == NATIONAL_DEX_GROTLE ||
+	species == NATIONAL_DEX_TORTERRA ||
+	species == NATIONAL_DEX_PIPLUP ||
+	species == NATIONAL_DEX_PRINPLUP ||
+	species == NATIONAL_DEX_EMPOLEON ||
+	species == NATIONAL_DEX_COMBEE ||
+	species == NATIONAL_DEX_VESPIQUEN ||
+	species == NATIONAL_DEX_RIOLU ||
+	species == NATIONAL_DEX_LUCARIO ||
+	species == NATIONAL_DEX_HIPPOPOTAS ||
+	species == NATIONAL_DEX_HIPPOWDON ||
+	species == NATIONAL_DEX_SKORUPI ||
+	species == NATIONAL_DEX_DRAPION ||
+	species == NATIONAL_DEX_CROAGUNK ||
+	species == NATIONAL_DEX_TOXICROAK) return SEQ_BA_POKE;
     return MUS_BATTLE27;
   }
 }

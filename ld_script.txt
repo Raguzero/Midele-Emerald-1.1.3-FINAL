@@ -1227,6 +1227,7 @@ SECTIONS {
         sound/songs/wild.o(.rodata);
         sound/songs/ff6boss.o(.rodata);
         sound/songs/jenova.o(.rodata);
+	    sound/songs/midi/seq_ba_poke.o(.rodata);
     } =0
 
     lib_rodata :

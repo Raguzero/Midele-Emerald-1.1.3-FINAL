@@ -612,9 +612,10 @@ gSongTable:: @ 86B49F0
 	song ph_nurse_held, 2, 2
 	song ph_nurse_solo, 2, 2
 	song wildbw2_FINAL, 0, 0
-	song Wild, 0, 0
+	song Wild, 0, 0 // GSC WILD
 	song ff6boss, 0, 0
 	song Jenova, 0, 0
+	song SEQ_BA_POKE, 0, 0 // DP WILD
 
 	.align 2
 dummy_song_header: @ 86B5D00
