@@ -6423,27 +6423,7 @@ void IsSelectedMonEgg(void)
 
 void IsLastMonThatKnowsSurf(void)
 {
-    u16 move;
-    u32 i, j;
-
-    gSpecialVar_Result = FALSE;
-    move = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_MOVE1 + gSpecialVar_0x8005);
-    if (move == MOVE_SURF)
-    {
-        for (i = 0; i < CalculatePlayerPartyCount(); i++)
-        {
-            if (i != gSpecialVar_0x8004)
-            {
-                for (j = 0; j < MAX_MON_MOVES; j++)
-                {
-                    if (GetMonData(&gPlayerParty[i], MON_DATA_MOVE1 + j) == MOVE_SURF)
-                        return;
-                }
-            }
-        }
-        if (AnyStorageMonWithMove(move) != TRUE)
-            gSpecialVar_Result = TRUE;
-    }
+            gSpecialVar_Result = FALSE;
 }
 
 #define tState      data[0]
