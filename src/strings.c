@@ -1853,21 +1853,21 @@ const u8 gText_DomeFossil[] = _("DOME FOSSIL");
 const u8 gText_OldAmber[] = _("OLD AMBER");
 
 // NUEVO POKES CASINO
-const u8 gText_Bulbasaur[] = _("Bulbasaur{CLEAR_TO 0x48}3000 Coins");
-const u8 gText_Charmander[] = _("Charmander{CLEAR_TO 0x48}3000 Coins");
-const u8 gText_Squirtle[] = _("Squirtle{CLEAR_TO 0x48}3000 Coins");
-const u8 gText_Chikorita[] = _("Chikorita{CLEAR_TO 0x48}3000 Coins");
-const u8 gText_Cyndaquil[] = _("Cyndaquil{CLEAR_TO 0x48}3000 Coins");
-const u8 gText_Totodile[] = _("Totodile{CLEAR_TO 0x48}3000 Coins");
-const u8 gText_Treecko[] = _("Treecko{CLEAR_TO 0x48}3000 Coins");
-const u8 gText_Torchic[] = _("Torchic{CLEAR_TO 0x48}3000 Coins");
-const u8 gText_Mudkip[] = _("Mudkip{CLEAR_TO 0x48}3000 Coins");
-const u8 gText_Turtwig[] = _("Turtwig{CLEAR_TO 0x48}3000 Coins");
-const u8 gText_Piplup[] = _("Piplup{CLEAR_TO 0x48}3000 Coins");
-const u8 gText_Rowlet[] = _("Rowlet{CLEAR_TO 0x48}3000 Coins");
-const u8 gText_Popplio[] = _("Popplio{CLEAR_TO 0x48}3000 Coins");
-const u8 gText_Sobble[] = _("Sobble{CLEAR_TO 0x48}3000 Coins");
-const u8 gText_Snivy[] = _("Snivy{CLEAR_TO 0x48}3000 Coins");
+const u8 gText_Bulbasaur[] = _("FERROSEED{CLEAR_TO 0x48}1500 Coins");
+const u8 gText_Charmander[] = _("LICKITUNG{CLEAR_TO 0x48}1200 Coins");
+const u8 gText_Squirtle[] = _("EXEGGCUTE{CLEAR_TO 0x48}800 Coins");
+const u8 gText_Chikorita[] = _("PINECO{CLEAR_TO 0x48}500 Coins");
+const u8 gText_Cyndaquil[] = _("MEDITITE{CLEAR_TO 0x48}1300 Coins");
+const u8 gText_Totodile[] = _("SPHEAL{CLEAR_TO 0x48}800 Coins");
+const u8 gText_Treecko[] = _("CUBONE{CLEAR_TO 0x48}500 Coins");
+const u8 gText_Torchic[] = _("VENONAT{CLEAR_TO 0x48}500 Coins");
+const u8 gText_Mudkip[] = _("HAPPINY{CLEAR_TO 0x48}2500 Coins");
+const u8 gText_Turtwig[] = _("HOUNDOUR{CLEAR_TO 0x48}2000 Coins");
+const u8 gText_Piplup[] = _("Piplup{CLEAR_TO 0x48}3000 Coins"); // NO SE USA YA
+const u8 gText_Rowlet[] = _("Rowlet{CLEAR_TO 0x48}3000 Coins"); // NO SE USA YA
+const u8 gText_Popplio[] = _("Popplio{CLEAR_TO 0x48}3000 Coins"); // NO SE USA YA
+const u8 gText_Sobble[] = _("Sobble{CLEAR_TO 0x48}3000 Coins"); // NO SE USA YA
+const u8 gText_Snivy[] = _("Snivy{CLEAR_TO 0x48}3000 Coins"); // NO SE USA YA
 
 const u8 gText_HardyNature[] = _("HARDY");
 const u8 gText_LonelyNature[] = _("LONELY");
