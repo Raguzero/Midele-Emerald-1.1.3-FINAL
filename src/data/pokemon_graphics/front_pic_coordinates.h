@@ -3023,6 +3023,21 @@ const struct MonCoords gMonFrontPicCoords[] =
         .size = 0x46,
         .y_offset = 0xc,
     },
+	[SPECIES_DEOXYS_ATTACK] =
+    {
+        .size = 0x88,
+        .y_offset = 0x0,
+    },
+    [SPECIES_DEOXYS_DEFENSE] =
+    {
+        .size = 0x88,
+        .y_offset = 0x0,
+    },
+    [SPECIES_DEOXYS_SPEED] =
+    {
+        .size = 0x88,
+        .y_offset = 0x0,
+    },
     [SPECIES_BOSS] =
     {
         .size = 0x88,
