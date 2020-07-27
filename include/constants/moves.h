@@ -376,8 +376,9 @@
 #define MOVE_HEAD_SMASH 372
 #define MOVE_HEAL_PULSE 373
 #define MOVE_MIDELE_POWER 374
+#define MOVE_GUNK_SHOT 375
 
-#define MOVES_COUNT 375
+#define MOVES_COUNT 376
 
 // NUEVO: Poder de Hidden Power
 #define MOVE_HIDDEN_POWER_DMG 70
