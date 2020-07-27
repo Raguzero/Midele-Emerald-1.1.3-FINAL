@@ -390,6 +390,7 @@ gBattleAnims_Moves::
 	.4byte Move_HEAD_SMASH
 	.4byte Move_HEAL_PULSE
 	.4byte Move_MIDELE_POWER
+	.4byte Move_GUNK_SHOT
 	.4byte Move_COUNT @ cannot be reached, because last move is Psycho Boost
 
 	.align 2
@@ -10726,6 +10727,51 @@ Move_MIDELE_POWER:
 	waitforvisualfinish
 	delay 1
 	call UnsetPsychicBackground
+	end
+	
+Move_GUNK_SHOT:
+	loadspritegfx 10150
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_BATTLER_ATTACKER, 2, 1, 1, 0, 12, 0x2D0D
+	waitforvisualfinish
+	call _GunkShotSubcall
+	call _GunkShotSubcall
+	call _GunkShotSubcall
+	call _GunkShotSubcall
+	call _GunkShotSubcall
+	call _GunkShotSubcall
+	call _GunkShotSubcall
+	createvisualtask AnimTask_ShakeMon2, 5, 1, 3, 0, 15, 1
+	createvisualtask sub_8115A04, 2, 4, 1, 2, 0, 12, 31774
+	createsprite gUnknown_085961D8, ANIM_BATTLER_TARGET, 2, 42, 27, 20
+	createsprite gUnknown_085961D8, ANIM_BATTLER_TARGET, 2, -27, 44, 20
+	createsprite gUnknown_085961D8, ANIM_BATTLER_TARGET, 2, 39, -28, 20
+	createsprite gUnknown_085961D8, ANIM_BATTLER_TARGET, 2, -42, -42, 20
+	playsewithpan SE_W091, 63
+	delay 5
+	createsprite gUnknown_085961D8, ANIM_BATTLER_TARGET, 2, 0, 40, 20
+	createsprite gUnknown_085961D8, ANIM_BATTLER_TARGET, 2, -8, -44, 20
+	createsprite gUnknown_085961D8, ANIM_BATTLER_TARGET, 2, -46, -28, 20
+	createsprite gUnknown_085961D8, ANIM_BATTLER_TARGET, 2, 46, 9, 20
+	playsewithpan SE_W091, 63
+	delay 5
+	createsprite gUnknown_085961D8, ANIM_BATTLER_TARGET, 2, 42, 0, 20
+	createsprite gUnknown_085961D8, ANIM_BATTLER_TARGET, 2, -43, -12, 20
+	createsprite gUnknown_085961D8, ANIM_BATTLER_TARGET, 2, 16, -46, 20
+	createsprite gUnknown_085961D8, ANIM_BATTLER_TARGET, 2, -16, 44, 20
+	playsewithpan SE_W091, 63
+	delay 0
+	waitsound
+	waitforvisualfinish
+	call PoisonBubblesEffect
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_BATTLER_ATTACKER, 2, 1, 1, 12, 0, 0x2D0D
+	waitforvisualfinish
+	end
+_GunkShotSubcall:
+	playsewithpan SE_W145C, 192
+	createsprite gUnknown_085961A8, ANIM_BATTLER_TARGET, 3, 10, 0, 0, 0, 20, 0
+	delay 1
+	return
 	end
 
 Move_COUNT:

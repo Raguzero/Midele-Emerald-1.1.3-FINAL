@@ -416,6 +416,9 @@ static const s8 sMindRatings[] =
     [MOVE_OVERDRIVE] = 1,
     [MOVE_LIGHT_OF_RUIN] = 1,
     [MOVE_HEAD_SMASH] = 1,
+    [MOVE_HEAL_PULSE] = 0,
+    [MOVE_MIDELE_POWER] = 1,
+    [MOVE_GUNK_SHOT] = 1,
 };
 
 #define TAG_JUDGEMENT_ICON 1000

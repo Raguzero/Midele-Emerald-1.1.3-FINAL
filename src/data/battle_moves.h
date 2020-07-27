@@ -4855,4 +4855,16 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 2,
         .flags = 0,
     },
+    [MOVE_GUNK_SHOT] =
+    {
+        .effect = EFFECT_POISON_HIT,
+        .power = 120,
+        .type = TYPE_POISON,
+        .accuracy = 80,
+        .pp = 5,
+        .secondaryEffectChance = 30,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+    },
 };
