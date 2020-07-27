@@ -1262,3 +1262,6 @@ $(MID_SUBDIR)/se_w043.s: %.s: %.mid
 
 $(MID_SUBDIR)/se_z_search.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G127 -v100 -P5
+
+$(MID_SUBDIR)/seq_ba_poke.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G000 -v100 -P5
