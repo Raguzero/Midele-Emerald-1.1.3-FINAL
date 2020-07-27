@@ -607,6 +607,9 @@ const u16 *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_HAPPINY] = sHappinyLevelUpLearnset,
     [SPECIES_MUNCHLAX] = sMunchlaxLevelUpLearnset,
     [SPECIES_MANTYKE] = sMantykeLevelUpLearnset,
+    [SPECIES_DEOXYS_ATTACK] = sDeoxysAttackLevelUpLearnset,
+    [SPECIES_DEOXYS_DEFENSE] = sDeoxysDefenseLevelUpLearnset,
+    [SPECIES_DEOXYS_SPEED] = sDeoxysSpeedLevelUpLearnset,
     [SPECIES_BOSS] = sBulbasaurLevelUpLearnset,
 // NUEVO PARA FORMAS ALOLA
 };

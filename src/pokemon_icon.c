@@ -632,6 +632,9 @@ const u8 *const gMonIconTable[] =
 	[SPECIES_HAPPINY] = gMonIcon_Happiny,
 	[SPECIES_MUNCHLAX] = gMonIcon_Munchlax,
 	[SPECIES_MANTYKE] = gMonIcon_Mantyke,
+    [SPECIES_DEOXYS_ATTACK] = gMonIcon_DeoxysAttack,
+    [SPECIES_DEOXYS_DEFENSE] = gMonIcon_DeoxysDefense,
+    [SPECIES_DEOXYS_SPEED] = gMonIcon_DeoxysSpeed,
     [SPECIES_BOSS] = gMonIcon_Bulbasaur,
     [SPECIES_EGG] = gMonIcon_Egg,
     [SPECIES_UNOWN_B] = gMonIcon_UnownB,
@@ -1581,12 +1584,7 @@ void SpriteCB_MonIcon(struct Sprite *sprite)
 
 const u8* GetMonIconTiles(u16 species, bool32 handleDeoxys)
 {
-    const u8* iconSprite = gMonIconTable[species];
-    if (species == SPECIES_DEOXYS && handleDeoxys == TRUE)
-    {
-        iconSprite = (const u8*)(0x400 + (u32)iconSprite); // use the specific Deoxys form icon (Speed in this case)
-    }
-    return iconSprite;
+    return gMonIconTable[species];
 }
 
 void sub_80D304C(u16 offset)

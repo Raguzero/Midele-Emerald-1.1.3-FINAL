@@ -5920,6 +5920,24 @@ static const union AnimCmd sAnim_MANTYKE_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_DEOXYS_ATTACK_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_DEOXYS_DEFENSE_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_DEOXYS_SPEED_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_EGG_1[] =
 {
     ANIMCMD_FRAME(0, 6),
@@ -9091,6 +9109,21 @@ static const union AnimCmd *const sAnims_MANTYKE[] ={
     sAnim_MANTYKE_1,
 };
 
+static const union AnimCmd *const sAnims_DEOXYS_ATTACK[] ={
+    sAnim_GeneralFrame0,
+    sAnim_DEOXYS_ATTACK_1,
+};
+
+static const union AnimCmd *const sAnims_DEOXYS_DEFENSE[] ={
+    sAnim_GeneralFrame0,
+    sAnim_DEOXYS_DEFENSE_1,
+};
+
+static const union AnimCmd *const sAnims_DEOXYS_SPEED[] ={
+    sAnim_GeneralFrame0,
+    sAnim_DEOXYS_SPEED_1,
+};
+
 static const union AnimCmd *const sAnims_EGG[] ={
     sAnim_GeneralFrame0,
     sAnim_EGG_1,
@@ -9842,6 +9875,9 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(HAPPINY),
     ANIM_CMD(MUNCHLAX),
     ANIM_CMD(MANTYKE),
+    ANIM_CMD(DEOXYS_ATTACK),
+    ANIM_CMD(DEOXYS_DEFENSE),
+    ANIM_CMD(DEOXYS_SPEED),
 // NUEVO PARA FORMAS ALOLA
     ANIM_CMD_FULL(BOSS, sAnims_WOOLOO),
     ANIM_CMD(EGG),
