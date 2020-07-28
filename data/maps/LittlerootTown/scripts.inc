@@ -50,8 +50,6 @@ LittlerootTown_OnTransition: @ 81E7DDB
 	call_if_eq LittlerootTown_EventScript_MoveRivalFromOldale
 	compare VAR_LITTLEROOT_RIVAL_STATE, 3
 	call_if_eq LittlerootTown_EventScript_SetRivalLeftForRoute103
-	compare VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1
-	call_if_eq LittlerootTown_EventScript_HideMapNamePopup
 	compare VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2
 	call_if_eq LittlerootTown_EventScript_LeftLabAfterDexUpgrade
 	end
@@ -115,7 +113,6 @@ LittlerootTown_EventScript_SetMomInFrontOfDoorFemale:: @ 81E7EB9
 LittlerootTown_OnFrame: @ 81E7EC1
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 1, LittlerootTown_EventScript_StepOffTruckMale
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 2, LittlerootTown_EventScript_StepOffTruckFemale
-	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_BeginDexUpgradeScene
 	.2byte 0
 
 LittlerootTown_EventScript_StepOffTruckMale:: @ 81E7EDB
