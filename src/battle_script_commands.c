@@ -784,6 +784,7 @@ static const u16 sMovesForbiddenToCopy[] =
     MOVE_COVET,
     MOVE_TRICK,
     MOVE_FOCUS_PUNCH,
+    MOVE_MIDELE_POWER,
     METRONOME_FORBIDDEN_END
 };
 

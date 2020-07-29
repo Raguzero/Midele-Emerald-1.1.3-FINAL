@@ -9459,7 +9459,37 @@
                             }
                         ]
                     },
-                    "map": "MAP_RUSTURF_TUNNEL"
+                    "map": "MAP_RUSTURF_TUNNEL",
+                    "rock_smash_mons": {
+                        "encounter_rate": 60,
+                        "mons": [
+                            {
+                                "max_level": 25,
+                                "min_level": 20,
+                                "species": "SPECIES_ONIX"
+                            },
+                            {
+                                "max_level": 25,
+                                "min_level": 20,
+                                "species": "SPECIES_GEODUDE"
+                            },
+                            {
+                                "max_level": 25,
+                                "min_level": 20,
+                                "species": "SPECIES_ALOLAN_GEODUDE"
+                            },
+                            {
+                                "max_level": 25,
+                                "min_level": 20,
+                                "species": "SPECIES_ALOLAN_GEODUDE"
+                            },
+                            {
+                                "max_level": 25,
+                                "min_level": 20,
+                                "species": "SPECIES_ALOLAN_GEODUDE"
+                            }
+                        ]
+                    }
                 },
                 {
                     "base_label": "gSafariZone_North",
