@@ -1862,7 +1862,10 @@ static void FillFactoryFrontierTrainerParty(u16 trainerId, u8 firstMonId)
     {
         u8 lvlMode = gSaveBlock2Ptr->frontier.lvlMode; // Unused variable.
         u8 battleMode = VarGet(VAR_FRONTIER_BATTLE_MODE);
-        u8 challengeNum = gSaveBlock2Ptr->frontier.towerWinStreaks[battleMode][0] / 7;
+		// FIX A little known glitch is in the Battle Factory, the IVs of the opponent are based off your progress in the Battle Tower instead of the Battle Factory, so for instance if you just got a gold medal in the Battle Tower then started in the Battle Factory, you would start off with pokemon that have IVs of 3 while your opponent would have IVs of 31
+		//  ADD   --> u8 challengeNum = gSaveBlock2Ptr->frontier.factoryWinStreaks[battleMode][lvlMode] / 7;
+		// DELETE --> u8 challengeNum = gSaveBlock2Ptr->frontier.towerWinStreaks[battleMode][0] / 7;
+		u8 challengeNum = gSaveBlock2Ptr->frontier.factoryWinStreaks[battleMode][lvlMode] / 7;
         if (gSaveBlock2Ptr->frontier.curChallengeBattleNum < 6)
             fixedIV = GetFactoryMonFixedIV(challengeNum, 0);
         else
