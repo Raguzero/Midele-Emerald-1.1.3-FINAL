@@ -8,37 +8,37 @@
     "connections": null,
     "coord_events": [
     ],
-    "id": "MAP_SCORCHED_SLAB_B3F",
-    "layout": "LAYOUT_SCORCHED_SLAB_B3F",
+    "id": "MAP_SHOAL_CAVE_LOW_SUICUNE",
+    "layout": "LAYOUT_SHOAL_CAVE_LOW_SUICUNE",
     "map_type": "MAP_TYPE_UNDERGROUND",
-    "music": "MUS_DAN01",
-    "name": "ScorchedSlab_B3F",
+    "music": "MUS_M_DUNGON",
+    "name": "ShoalCave_Low_Suicune",
     "object_events": [
         {
             "elevation": 3,
-            "flag": "FLAG_HIDE_ENTEI",
+            "flag": "FLAG_HIDE_SUICUNE",
             "graphics_id": "EVENT_OBJ_GFX_DUSCLOPS",
             "movement_range_x": 0,
             "movement_range_y": 0,
             "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-            "script": "ScorchedSlab_B3F_EventScript_Entei",
+            "script": "ShoalCave_Low_Suicune_EventScript_Suicune",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
             "x": 10,
             "y": 8
         }
     ],
-    "region_map_section": "MAPSEC_SCORCHED_SLAB",
+    "region_map_section": "MAPSEC_SHOAL_CAVE",
     "requires_flash": false,
     "show_map_name": true,
     "warp_events": [
         {
-            "dest_map": "MAP_SCORCHED_SLAB_B2F",
+            "dest_map": "MAP_SHOAL_CAVE_LOW_TIDE_ICE_ROOM",
             "dest_warp_id": 1,
             "elevation": 0,
             "x": 10,
             "y": 16
         }
     ],
-    "weather": "WEATHER_FOG_DIAGONAL"
+    "weather": "WEATHER_NONE"
 }

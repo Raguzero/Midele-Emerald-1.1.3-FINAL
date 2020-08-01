@@ -400,6 +400,7 @@
 #define MAP_SCORCHED_SLAB_1F                         (108 | (24 << 8))
 #define MAP_SCORCHED_SLAB_B2F                        (109 | (24 << 8))
 #define MAP_SCORCHED_SLAB_B3F                        (110 | (24 << 8))
+#define MAP_SHOAL_CAVE_LOW_SUICUNE                   (111 | (24 << 8))
 
 // Map Group 25
 #define MAP_SECRET_BASE_RED_CAVE1           (0 | (25 << 8))

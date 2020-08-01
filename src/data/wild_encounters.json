@@ -11616,6 +11616,75 @@
                     "map": "MAP_SEALED_CHAMBER_OUTER_ROOM"
                 },
                 {
+                    "base_label": "gShoalCave_Low_Suicune0",
+                    "land_mons": {
+                        "encounter_rate": 10,
+                        "mons": [
+                            {
+                                "max_level": 26,
+                                "min_level": 26,
+                                "species": "SPECIES_SWINUB"
+                            },
+                            {
+                                "max_level": 26,
+                                "min_level": 26,
+                                "species": "SPECIES_SPHEAL"
+                            },
+                            {
+                                "max_level": 28,
+                                "min_level": 28,
+                                "species": "SPECIES_ALOLAN_VULPIX"
+                            },
+                            {
+                                "max_level": 28,
+                                "min_level": 28,
+                                "species": "SPECIES_SPHEAL"
+                            },
+                            {
+                                "max_level": 30,
+                                "min_level": 30,
+                                "species": "SPECIES_ALOLAN_SANDSHREW"
+                            },
+                            {
+                                "max_level": 30,
+                                "min_level": 30,
+                                "species": "SPECIES_SPHEAL"
+                            },
+                            {
+                                "max_level": 32,
+                                "min_level": 32,
+                                "species": "SPECIES_ALOLAN_SANDSHREW"
+                            },
+                            {
+                                "max_level": 32,
+                                "min_level": 32,
+                                "species": "SPECIES_SPHEAL"
+                            },
+                            {
+                                "max_level": 32,
+                                "min_level": 32,
+                                "species": "SPECIES_ALOLAN_SANDSLASH"
+                            },
+                            {
+                                "max_level": 32,
+                                "min_level": 32,
+                                "species": "SPECIES_SPHEAL"
+                            },
+                            {
+                                "max_level": 32,
+                                "min_level": 32,
+                                "species": "SPECIES_MRRIME"
+                            },
+                            {
+                                "max_level": 32,
+                                "min_level": 32,
+                                "species": "SPECIES_MRRIME"
+                            }
+                        ]
+                    },
+                    "map": "MAP_SHOAL_CAVE_LOW_SUICUNE"
+                },
+                {
                     "base_label": "gShoalCave_LowTideEntranceRoom",
                     "fishing_mons": {
                         "encounter_rate": 10,
