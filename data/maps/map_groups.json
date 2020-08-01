@@ -322,7 +322,10 @@
         "TerraCave_Entrance",
         "TerraCave_End",
         "AlteringCave",
-        "MeteorFalls_StevensCave"
+        "MeteorFalls_StevensCave",
+        "ScorchedSlab_1F",
+        "ScorchedSlab_B2F",
+        "ScorchedSlab_B3F"
     ],
     "gMapGroup25": [
         "SecretBase_RedCave1",

@@ -1101,3 +1101,9 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/IzabeIsland_OutskirtsCave_Entrance/scripts.inc"
 
 	.include "data/maps/IzabeIsland_MicoloTruck/scripts.inc"
+
+	.include "data/maps/ScorchedSlab_1F/scripts.inc"
+
+	.include "data/maps/ScorchedSlab_B2F/scripts.inc"
+
+	.include "data/maps/ScorchedSlab_B3F/scripts.inc"

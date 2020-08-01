@@ -4589,6 +4589,36 @@
             "primary_tileset": "gTileset_General",
             "secondary_tileset": "gTileset_InsideOfTruck",
             "width": 5
+        },
+        {
+            "blockdata_filepath": "data/layouts/ScorchedSlab_1F/map.bin",
+            "border_filepath": "data/layouts/ScorchedSlab_1F/border.bin",
+            "height": 40,
+            "id": "LAYOUT_SCORCHED_SLAB_1F",
+            "name": "ScorchedSlab_1F_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_Cave",
+            "width": 40
+        },
+        {
+            "blockdata_filepath": "data/layouts/ScorchedSlab_B2F/map.bin",
+            "border_filepath": "data/layouts/ScorchedSlab_B2F/border.bin",
+            "height": 40,
+            "id": "LAYOUT_SCORCHED_SLAB_B2F",
+            "name": "ScorchedSlab_B2F_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_Cave",
+            "width": 40
+        },
+        {
+            "blockdata_filepath": "data/layouts/ScorchedSlab_B3F/map.bin",
+            "border_filepath": "data/layouts/ScorchedSlab_B3F/border.bin",
+            "height": 20,
+            "id": "LAYOUT_SCORCHED_SLAB_B3F",
+            "name": "ScorchedSlab_B3F_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_Cave",
+            "width": 20
         }
     ],
     "layouts_table_label": "gMapLayouts"

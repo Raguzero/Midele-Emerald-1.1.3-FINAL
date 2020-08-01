@@ -657,3 +657,19 @@ MagmaHideout_4F_EventScript_MaxRevive:: @ 829151F
 MagmaHideout_3F_3R_EventScript_ItemEscapeRope:: @ 829152C
 	finditem ITEM_ESCAPE_ROPE
 	end
+	
+ScorchedSlab_B1F_EventScript_ItemEscapeRope::
+	finditem ITEM_ESCAPE_ROPE
+	end
+	
+ScorchedSlab_B1F_EventScript_Item::
+	finditem ITEM_MAX_REPEL
+	end
+	
+ScorchedSlab_B2F_EventScript_Item1::
+	finditem ITEM_SUN_STONE
+	end
+	
+ScorchedSlab_B2F_EventScript_Item2::
+	finditem ITEM_NUGGET
+	end
