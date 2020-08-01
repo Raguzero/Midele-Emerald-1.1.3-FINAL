@@ -10221,6 +10221,452 @@
                     }
                 },
                 {
+                    "base_label": "gScorchedSlab0",
+                    "fishing_mons": {
+                        "encounter_rate": 30,
+                        "mons": [
+                            {
+                                "max_level": 10,
+                                "min_level": 5,
+                                "species": "SPECIES_POLIWAG"
+                            },
+                            {
+                                "max_level": 10,
+                                "min_level": 5,
+                                "species": "SPECIES_GOLDEEN"
+                            },
+                            {
+                                "max_level": 30,
+                                "min_level": 10,
+                                "species": "SPECIES_SEAKING"
+                            },
+                            {
+                                "max_level": 30,
+                                "min_level": 10,
+                                "species": "SPECIES_POLIWHIRL"
+                            },
+                            {
+                                "max_level": 30,
+                                "min_level": 10,
+                                "species": "SPECIES_POLIWHIRL"
+                            },
+                            {
+                                "max_level": 35,
+                                "min_level": 25,
+                                "species": "SPECIES_SEAKING"
+                            },
+                            {
+                                "max_level": 35,
+                                "min_level": 25,
+                                "species": "SPECIES_POLIWHIRL"
+                            },
+                            {
+                                "max_level": 35,
+                                "min_level": 30,
+                                "species": "SPECIES_SEAKING"
+                            },
+                            {
+                                "max_level": 35,
+                                "min_level": 30,
+                                "species": "SPECIES_POLIWHIRL"
+                            },
+                            {
+                                "max_level": 35,
+                                "min_level": 30,
+                                "species": "SPECIES_POLIWHIRL"
+                            }
+                        ]
+                    },
+                    "land_mons": {
+                        "encounter_rate": 10,
+                        "mons": [
+                            {
+                                "max_level": 34,
+                                "min_level": 28,
+                                "species": "SPECIES_GOLBAT"
+                            },
+                            {
+                                "max_level": 34,
+                                "min_level": 32,
+                                "species": "SPECIES_MORGREM"
+                            },
+                            {
+                                "max_level": 34,
+                                "min_level": 29,
+                                "species": "SPECIES_SLUGMA"
+                            },
+                            {
+                                "max_level": 35,
+                                "min_level": 30,
+                                "species": "SPECIES_RHYHORN"
+                            },
+                            {
+                                "max_level": 35,
+                                "min_level": 30,
+                                "species": "SPECIES_SLUGMA"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 29,
+                                "species": "SPECIES_KROKOROK"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 30,
+                                "species": "SPECIES_MR_MIME"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 29,
+                                "species": "SPECIES_HOUNDOUR"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 29,
+                                "species": "SPECIES_HOUNDOUR"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 29,
+                                "species": "SPECIES_MAGMAR"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 30,
+                                "species": "SPECIES_MAGMAR"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 31,
+                                "species": "SPECIES_MAGMAR"
+                            }
+                        ]
+                    },
+                    "map": "MAP_SCORCHED_SLAB",
+                    "water_mons": {
+                        "encounter_rate": 4,
+                        "mons": [
+                            {
+                                "max_level": 33,
+                                "min_level": 28,
+                                "species": "SPECIES_BARBOACH"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 28,
+                                "species": "SPECIES_SLOWPOKE"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 30,
+                                "species": "SPECIES_WHISCASH"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 31,
+                                "species": "SPECIES_WHISCASH"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 31,
+                                "species": "SPECIES_WHISCASH"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "base_label": "gScorchedSlab_1F0",
+                    "fishing_mons": {
+                        "encounter_rate": 30,
+                        "mons": [
+                            {
+                                "max_level": 10,
+                                "min_level": 5,
+                                "species": "SPECIES_POLIWAG"
+                            },
+                            {
+                                "max_level": 10,
+                                "min_level": 5,
+                                "species": "SPECIES_GOLDEEN"
+                            },
+                            {
+                                "max_level": 30,
+                                "min_level": 10,
+                                "species": "SPECIES_SEAKING"
+                            },
+                            {
+                                "max_level": 30,
+                                "min_level": 10,
+                                "species": "SPECIES_POLIWHIRL"
+                            },
+                            {
+                                "max_level": 30,
+                                "min_level": 10,
+                                "species": "SPECIES_POLIWHIRL"
+                            },
+                            {
+                                "max_level": 35,
+                                "min_level": 25,
+                                "species": "SPECIES_SEAKING"
+                            },
+                            {
+                                "max_level": 35,
+                                "min_level": 25,
+                                "species": "SPECIES_POLIWHIRL"
+                            },
+                            {
+                                "max_level": 35,
+                                "min_level": 30,
+                                "species": "SPECIES_SEAKING"
+                            },
+                            {
+                                "max_level": 35,
+                                "min_level": 30,
+                                "species": "SPECIES_POLIWHIRL"
+                            },
+                            {
+                                "max_level": 35,
+                                "min_level": 30,
+                                "species": "SPECIES_POLIWHIRL"
+                            }
+                        ]
+                    },
+                    "land_mons": {
+                        "encounter_rate": 10,
+                        "mons": [
+                            {
+                                "max_level": 34,
+                                "min_level": 28,
+                                "species": "SPECIES_GOLBAT"
+                            },
+                            {
+                                "max_level": 34,
+                                "min_level": 32,
+                                "species": "SPECIES_MORGREM"
+                            },
+                            {
+                                "max_level": 34,
+                                "min_level": 29,
+                                "species": "SPECIES_SLUGMA"
+                            },
+                            {
+                                "max_level": 35,
+                                "min_level": 30,
+                                "species": "SPECIES_RHYHORN"
+                            },
+                            {
+                                "max_level": 35,
+                                "min_level": 30,
+                                "species": "SPECIES_SLUGMA"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 29,
+                                "species": "SPECIES_KROKOROK"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 30,
+                                "species": "SPECIES_MR_MIME"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 29,
+                                "species": "SPECIES_HOUNDOUR"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 29,
+                                "species": "SPECIES_HOUNDOUR"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 29,
+                                "species": "SPECIES_MAGMAR"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 30,
+                                "species": "SPECIES_MAGMAR"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 31,
+                                "species": "SPECIES_MAGMAR"
+                            }
+                        ]
+                    },
+                    "map": "MAP_SCORCHED_SLAB_1F",
+                    "water_mons": {
+                        "encounter_rate": 4,
+                        "mons": [
+                            {
+                                "max_level": 33,
+                                "min_level": 28,
+                                "species": "SPECIES_BARBOACH"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 28,
+                                "species": "SPECIES_SLOWPOKE"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 30,
+                                "species": "SPECIES_WHISCASH"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 31,
+                                "species": "SPECIES_WHISCASH"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 31,
+                                "species": "SPECIES_WHISCASH"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "base_label": "gScorchedSlab_B2F0",
+                    "land_mons": {
+                        "encounter_rate": 10,
+                        "mons": [
+                            {
+                                "max_level": 34,
+                                "min_level": 28,
+                                "species": "SPECIES_GOLBAT"
+                            },
+                            {
+                                "max_level": 34,
+                                "min_level": 32,
+                                "species": "SPECIES_MORGREM"
+                            },
+                            {
+                                "max_level": 34,
+                                "min_level": 29,
+                                "species": "SPECIES_SLUGMA"
+                            },
+                            {
+                                "max_level": 35,
+                                "min_level": 30,
+                                "species": "SPECIES_RHYHORN"
+                            },
+                            {
+                                "max_level": 35,
+                                "min_level": 30,
+                                "species": "SPECIES_SLUGMA"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 29,
+                                "species": "SPECIES_KROKOROK"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 30,
+                                "species": "SPECIES_MR_MIME"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 29,
+                                "species": "SPECIES_HOUNDOUR"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 29,
+                                "species": "SPECIES_HOUNDOUR"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 29,
+                                "species": "SPECIES_MAGMAR"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 30,
+                                "species": "SPECIES_MAGMAR"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 31,
+                                "species": "SPECIES_MAGMAR"
+                            }
+                        ]
+                    },
+                    "map": "MAP_SCORCHED_SLAB_B2F"
+                },
+                {
+                    "base_label": "gScorchedSlab_B3F0",
+                    "land_mons": {
+                        "encounter_rate": 10,
+                        "mons": [
+                            {
+                                "max_level": 34,
+                                "min_level": 28,
+                                "species": "SPECIES_GOLBAT"
+                            },
+                            {
+                                "max_level": 34,
+                                "min_level": 32,
+                                "species": "SPECIES_MORGREM"
+                            },
+                            {
+                                "max_level": 34,
+                                "min_level": 29,
+                                "species": "SPECIES_SLUGMA"
+                            },
+                            {
+                                "max_level": 35,
+                                "min_level": 30,
+                                "species": "SPECIES_RHYHORN"
+                            },
+                            {
+                                "max_level": 35,
+                                "min_level": 30,
+                                "species": "SPECIES_SLUGMA"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 29,
+                                "species": "SPECIES_KROKOROK"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 30,
+                                "species": "SPECIES_MR_MIME"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 29,
+                                "species": "SPECIES_HOUNDOUR"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 29,
+                                "species": "SPECIES_HOUNDOUR"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 29,
+                                "species": "SPECIES_MAGMAR"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 30,
+                                "species": "SPECIES_MAGMAR"
+                            },
+                            {
+                                "max_level": 33,
+                                "min_level": 31,
+                                "species": "SPECIES_MAGMAR"
+                            }
+                        ]
+                    },
+                    "map": "MAP_SCORCHED_SLAB_B3F"
+                },
+                {
                     "base_label": "gSeafloorCavern_Entrance",
                     "fishing_mons": {
                         "encounter_rate": 10,
