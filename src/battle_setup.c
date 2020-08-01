@@ -609,6 +609,20 @@ void StartRegiBattle(void)
     TryUpdateGymLeaderRematchFromWild();
 }
 
+void StartLegendDogsBattle(void)
+{
+    ScriptContext2_Enable();
+    gMain.savedCallback = CB2_EndScriptedWildBattle;
+    gBattleTypeFlags = BATTLE_TYPE_LEGENDARY;
+
+    CreateBattleStartTask(B_TRANSITION_BLACKHOLE1 , MUS_SUIKUN); 
+
+    IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
+    IncrementGameStat(GAME_STAT_WILD_BATTLES);
+    IncrementDailyWildBattles();
+    TryUpdateGymLeaderRematchFromWild();
+}
+
 static void CB2_EndWildBattle(void)
 {
     CpuFill16(0, (void*)(BG_PLTT), BG_PLTT_SIZE);

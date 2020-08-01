@@ -543,3 +543,4 @@ gSpecials:: @ 81DBA64
 	def_special BattleSetup_StartBossBattle
 	def_special CheckThreeRegi
 	def_special MideleResetSelectedMonEVs
+	def_special StartLegendDogsBattle
