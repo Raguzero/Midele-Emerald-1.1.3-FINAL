@@ -1107,3 +1107,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/ScorchedSlab_B2F/scripts.inc"
 
 	.include "data/maps/ScorchedSlab_B3F/scripts.inc"
+
+	.include "data/maps/ShoalCave_Low_Suicune/scripts.inc"
