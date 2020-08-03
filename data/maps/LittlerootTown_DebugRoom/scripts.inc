@@ -93,6 +93,8 @@ LittlerootTown_DebugRoom_Script_ActivarTodo::
 	setflag FLAG_LANDMARK_BATTLE_FRONTIER
 	setflag FLAG_LANDMARK_POKEMON_LEAGUE
 	// setflag FLAG_TOTEM_NEWMAUVILLE    PARA PROBAR EL TOTEM DE NEWMAUVILLE Y HACER QUE NO APAREZCA SU OVERWORLD POR DEFECTO SI ACTIVAMOS ESTE SETFLAG, Y EVITAMOS TENER QUE EMPEZAR PARTIDA
+    // Sootopolis tras derrotar el gym
+    setvar VAR_SOOTOPOLIS_CITY_STATE, 6
     end
 
 @ Magnemite desactiva eventos
@@ -135,6 +137,7 @@ LittlerootTown_DebugRoom_Script_DesactivarMedallas::
 	clearflag FLAG_DEFEATED_KYOGRE
 	clearflag FLAG_DEFEATED_RAYQUAZA
     clearflag FLAG_DEFEATED_REGIGIGAS
+    setvar VAR_SOOTOPOLIS_CITY_STATE, 0
     end
 
 @ Leaf te reta a un combate
