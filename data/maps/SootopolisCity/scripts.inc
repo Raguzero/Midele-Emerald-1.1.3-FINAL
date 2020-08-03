@@ -163,8 +163,9 @@ SootopolisCity_EventScript_SetWallaceLeft:: @ 81E58C7
 	setobjectmovementtype 18, MOVEMENT_TYPE_FACE_DOWN
 	return
 
+@ Midele: ahora desbloquea la cueva
 SootopolisCity_EventScript_SetExpertBlockCaveEntrance:: @ 81E58D3
-	setobjectxyperm 1, 31, 18   @ Expert
+	setobjectxyperm 1, 30, 18   @ Expert
 	return
 
 SootopolisCity_OnWarp: @ 81E58DB

@@ -129,9 +129,7 @@ Route119_EventScript_BattleBrendanMudkip:: @ 81F45D4
 	end
 
 Route119_EventScript_DefeatedBrendan:: @ 81F45E4
-	msgbox Route119_Text_BrendanIllGiveYouThis, MSGBOX_DEFAULT
-	call Route119_EventScript_GiveFlyHM
-	msgbox Route119_Text_BrendanExplainFly, MSGBOX_DEFAULT
+	msgbox Route119_Text_BrendanGoodBye, MSGBOX_DEFAULT
 	goto Route119_EventScript_RivalExitScottArrive
 	end
 
@@ -524,18 +522,9 @@ Route119_Text_BrendanDefeat: @ 81F4D24
 	.string "Hmm…\n"
 	.string "You've gotten pretty darn decent.$"
 
-Route119_Text_BrendanIllGiveYouThis: @ 81F4D4B
+Route119_Text_BrendanGoodBye: @ 81F4D4B
 	.string "BRENDAN: I'd say you're good enough\n"
 	.string "to search for POKéMON anywhere.\p"
-	.string "Here, I'll give you this.\n"
-	.string "Try it out.$"
-
-Route119_Text_BrendanExplainFly: @ 81F4DB5
-	.string "BRENDAN: Use FLY, and your POKéMON\n"
-	.string "instantly carries you to any town\l"
-	.string "you've already visited.\p"
-	.string "But you need the FORTREE GYM BADGE \n"
-	.string "to do that.\p"
 	.string "Anyway, I have to move along.$"
 
 Route119_Text_ScottWayToGoBeSeeingYou: @ 81F4E60
