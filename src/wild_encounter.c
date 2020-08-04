@@ -16,6 +16,7 @@
 #include "script.h"
 #include "battle_pike.h"
 #include "battle_pyramid.h"
+#include "item.h"
 #include "constants/abilities.h"
 #include "constants/game_stat.h"
 #include "constants/items.h"
@@ -24,6 +25,7 @@
 #include "constants/species.h"
 
 extern const u8 EventScript_RepelWoreOff[];
+extern const u8 EventScript_ReuseRepel[];
 
 #define NUM_FEEBAS_SPOTS    6
 
@@ -848,8 +850,16 @@ bool8 UpdateRepelCounter(void)
         VarSet(VAR_REPEL_STEP_COUNT, steps);
         if (steps == 0)
         {
-            ScriptContext1_SetupScript(EventScript_RepelWoreOff);
-            return TRUE;
+            if (CheckBagHasItem(VarGet(VAR_LAST_USED_REPEL), 1))
+            {
+                ScriptContext1_SetupScript(EventScript_ReuseRepel);
+                return TRUE;
+            }
+            else
+            {
+                ScriptContext1_SetupScript(EventScript_RepelWoreOff);
+                return TRUE;
+            }
         }
     }
     return FALSE;
@@ -941,4 +951,9 @@ static void ApplyCleanseTagEncounterRateMod(u32 *encRate)
 {
     if (GetMonData(&gPlayerParty[0], MON_DATA_HELD_ITEM) == ITEM_CLEANSE_TAG)
         *encRate = *encRate * 2 / 3;
+}
+
+void ResetLastRepelSteps()
+{
+    VarSet(VAR_REPEL_STEP_COUNT, ItemId_GetHoldEffectParam(VarGet(VAR_LAST_USED_REPEL)));
 }

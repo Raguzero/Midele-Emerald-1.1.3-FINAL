@@ -544,3 +544,4 @@ gSpecials:: @ 81DBA64
 	def_special CheckThreeRegi
 	def_special MideleResetSelectedMonEVs
 	def_special StartLegendDogsBattle
+	def_special ResetLastRepelSteps
