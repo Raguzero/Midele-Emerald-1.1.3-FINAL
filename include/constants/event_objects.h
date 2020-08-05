@@ -240,14 +240,22 @@
 #define EVENT_OBJ_GFX_LINK_RS_MAY                236
 #define EVENT_OBJ_GFX_LUGIA                      237
 #define EVENT_OBJ_GFX_HOOH                       238
+#define EVENT_OBJ_GFX_ARTICUNO                   239
+#define EVENT_OBJ_GFX_ZAPDOS                     240
+#define EVENT_OBJ_GFX_MOLTRES                    241
+#define EVENT_OBJ_GFX_ENTEI                      242
+#define EVENT_OBJ_GFX_RAIKOU                     243
+#define EVENT_OBJ_GFX_SUICUNE                    244
+#define EVENT_OBJ_GFX_MEWTWO                     245
+#define EVENT_OBJ_GFX_CELEBI                     246
 
-#define NUM_OBJ_EVENT_GFX                        239
+#define NUM_OBJ_EVENT_GFX                        247
 
 // These are dynamic object gfx ids.
 // They correspond with the values of the VAR_OBJ_GFX_ID_X vars.
 // More info about them in include/constants/vars.h
 #define OBJ_EVENT_GFX_VARS   (NUM_OBJ_EVENT_GFX + 1)
-#define EVENT_OBJ_GFX_VAR_0  (OBJ_EVENT_GFX_VARS + 0x0) // 240
+#define EVENT_OBJ_GFX_VAR_0  (OBJ_EVENT_GFX_VARS + 0x0) // 248
 #define EVENT_OBJ_GFX_VAR_1  (OBJ_EVENT_GFX_VARS + 0x1)
 #define EVENT_OBJ_GFX_VAR_2  (OBJ_EVENT_GFX_VARS + 0x2)
 #define EVENT_OBJ_GFX_VAR_3  (OBJ_EVENT_GFX_VARS + 0x3)
@@ -262,7 +270,7 @@
 #define EVENT_OBJ_GFX_VAR_C  (OBJ_EVENT_GFX_VARS + 0xC)
 #define EVENT_OBJ_GFX_VAR_D  (OBJ_EVENT_GFX_VARS + 0xD)
 #define EVENT_OBJ_GFX_VAR_E  (OBJ_EVENT_GFX_VARS + 0xE)
-#define EVENT_OBJ_GFX_VAR_F  (OBJ_EVENT_GFX_VARS + 0xF) // 255
+#define EVENT_OBJ_GFX_VAR_F  (OBJ_EVENT_GFX_VARS + 0xF) // 263
 
 #define SHADOW_SIZE_S   0
 #define SHADOW_SIZE_M   1
