@@ -5369,7 +5369,7 @@ static const struct TrainerMonCustomMidele sParty_Maria1[] = {
     .lvl = 18,
     .species = SPECIES_PONYTA,
 	.evs = {0, 0, 0, 0, 0, 48},
-    .moves = {MOVE_LOW_KICK, MOVE_FURY_ATTACK, MOVE_PECK, MOVE_QUICK_ATTACK}
+    .moves = {MOVE_FIRE_SPIN, MOVE_FLAME_WHEEL, MOVE_TACKLE, MOVE_DOUBLE_KICK}
     },
 };
 
@@ -5606,7 +5606,7 @@ static const struct TrainerMonCustomMidele sParty_Melina[] = {
     .lvl = 18,
     .species = SPECIES_FURRET,
 	.evs = {0, 0, 0, 0, 0, 48},
-    .moves = {MOVE_FURY_CUTTER, MOVE_QUICK_ATTACK, MOVE_HYPER_VOICE, MOVE_HELPING_HAND}
+    .moves = {MOVE_FURY_CUTTER, MOVE_QUICK_ATTACK, MOVE_REVERSAL, MOVE_HELPING_HAND}
     }
 };
 
@@ -10773,7 +10773,7 @@ static const struct TrainerMonCustomMidele sParty_Shayla[] = {
 static const struct TrainerMonCustomMidele sParty_Eric[] = {
     {
     .iv = 31,
-    .lvl = 28,
+    .lvl = 27,
     .species = SPECIES_GRAVELER,
 	.evs = {0, 80, 0, 0, 0, 0},
 	.heldItem = ITEM_SILVER_POWDER,
@@ -10781,7 +10781,7 @@ static const struct TrainerMonCustomMidele sParty_Eric[] = {
     },
     {
     .iv = 31,
-    .lvl = 29,
+    .lvl = 28,
     .species = SPECIES_SILICOBRA,
 	.evs = {80, 0, 0, 0, 0, 0},
 	.heldItem = ITEM_SOFT_SAND,
@@ -10791,7 +10791,7 @@ static const struct TrainerMonCustomMidele sParty_Eric[] = {
 static const struct TrainerMonCustomMidele sParty_Diana1[] = {
     {
     .iv = 31,
-    .lvl = 27,
+    .lvl = 26,
     .species = SPECIES_BRELOOM,
 	.evs = {0, 40, 0, 40, 0, 0},
 	.ability = 1,
@@ -10891,7 +10891,7 @@ static const struct TrainerMonCustomMidele sParty_Autumn[] = {
 static const struct TrainerMonCustomMidele sParty_Julio[] = {
     {
     .iv = 31,
-    .lvl = 29,
+    .lvl = 28,
     .species = SPECIES_GROWLITHE,
 	.evs = {0, 40, 0, 40, 0, 0},
 	.heldItem = ITEM_DRAGON_FANG,
@@ -10901,7 +10901,7 @@ static const struct TrainerMonCustomMidele sParty_Julio[] = {
 static const struct TrainerMonCustomMidele sParty_Ethan1[] = {
     {
     .iv = 31,
-    .lvl = 28,
+    .lvl = 26,
     .species = SPECIES_FURRET,
 	.heldItem = ITEM_LEFTOVERS,
 	.nature = NATURE_JOLLY,

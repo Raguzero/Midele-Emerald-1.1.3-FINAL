@@ -448,7 +448,7 @@ const struct CompressedSpritePalette gMonPaletteTable[] =
     SPECIES_PAL(GALAR_CORSOLA, gMonPalette_GalarCorsola),
     SPECIES_PAL(CURSOLA, gMonPalette_Cursola),
     SPECIES_PAL(GALAR_PONYTA, gMonPalette_GalarPonyta),
-    SPECIES_PAL(GALAR_RAPIDASH, gMonPalette_Rapidash),
+    SPECIES_PAL(GALAR_RAPIDASH, gMonPalette_GalarRapidash),
     SPECIES_PAL(GALAR_MRMIME, gMonPalette_GalarMrmime),
     SPECIES_PAL(MRRIME, gMonPalette_Mrrime),
 	SPECIES_PAL(WEAVILE, gMonPalette_Weavile),
