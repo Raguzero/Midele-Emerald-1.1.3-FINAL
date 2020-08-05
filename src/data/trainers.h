@@ -12196,9 +12196,9 @@ const struct Trainer gTrainers[] = {
     [TRAINER_IZABE_LAVENDER] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_EXPERT,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
-        .trainerPic = TRAINER_PIC_PSYCHIC_M,
+        .trainerPic = TRAINER_PIC_SOPHOCLES,
         .trainerName = _("LAVENDER"),
         .items = {},
         .doubleBattle = FALSE,
