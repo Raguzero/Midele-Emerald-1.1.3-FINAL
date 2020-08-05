@@ -5,10 +5,10 @@ const struct BossBattle gBossBattles[] = {
         .music = MUS_RG_VS_LAST,
         .boss = TOTEM_SUDOWOODO_DEBUG,
     },
-    [BOSS_BATTLE_CORONA_DEBUG] =
+    [BOSS_BATTLE_CORONA] =
     {
         .battleType = BATTLE_TYPE_BOSS,
-        .music = FF6BOSS,
+        .music = JENOVA,
         .boss = BOSS_CORONA,
     },
     [BOSS_BATTLE_YETI] =

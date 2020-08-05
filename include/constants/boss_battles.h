@@ -12,7 +12,7 @@
 
 // Boss battles
 #define BOSS_BATTLE_TOTEM_SUDOWOODO_DEBUG 1
-#define BOSS_BATTLE_CORONA_DEBUG          2
+#define BOSS_BATTLE_CORONA          2
 #define BOSS_BATTLE_YETI                  3
 #define BOSS_BATTLE_TOTEM_TOXTRICITY 4
 #define BOSS_BATTLE_TOTEM_COFAGRIGUS 5
