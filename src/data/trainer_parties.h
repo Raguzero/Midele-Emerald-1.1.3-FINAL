@@ -15569,11 +15569,75 @@ static const struct TrainerMonCustomMidele sParty_IzabeIsland_Hexmaniac[] = {
 static const struct TrainerMonCustomMidele sParty_IzabeIsland_Lavender[] = {
     {
     .iv = 31,
-    .lvl = 1,
+    .lvl = 40,
     .species = SPECIES_WOOLOO,
-	.heldItem = ITEM_SILK_SCARF,
-	.evs = {40, 0, 0, 0, 0, 0},
-    .moves = {MOVE_GLARE, MOVE_RAGE, MOVE_BITE, MOVE_COIL}
+	.heldItem = ITEM_LEFTOVERS,
+    .ability = 1,
+    .shiny = 1,
+    .friendship = 255,
+    .nature = NATURE_ADAMANT,
+	.evs = {0, 84, 0, 0, 0, 84},
+    .moves = {MOVE_RETURN, MOVE_MILK_DRINK, MOVE_ROLLOUT, MOVE_THUNDER_WAVE}
+    },
+    {
+    .iv = 31,
+    .lvl = 38,
+    .species = SPECIES_FROSMOTH,
+	.heldItem = ITEM_CHESTO_BERRY,
+    .ability = 1,
+    .shiny = 0,
+    .friendship = 255,
+    .nature = NATURE_MODEST,
+	.evs = {0, 0, 0, 84, 0, 84},
+    .moves = {MOVE_BLIZZARD, MOVE_CALM_MIND, MOVE_REST, MOVE_DAZZLING_GLEAM}
+    },
+    {
+    .iv = 31,
+    .lvl = 37,
+    .species = SPECIES_APPLETUN,
+	.heldItem = ITEM_LEFTOVERS,
+    .ability = 0,
+    .shiny = 0,
+    .friendship = 255,
+    .nature = NATURE_CALM,
+	.evs = {84, 0, 0, 0, 84, 0},
+    .moves = {MOVE_REST, MOVE_SLEEP_TALK, MOVE_LEECH_SEED, MOVE_DRAGON_BREATH}
+    },
+    {
+    .iv = 31,
+    .lvl = 38,
+    .species = SPECIES_CORVIKNIGHT,
+	.heldItem = ITEM_METAL_COAT,
+    .ability = 0,
+    .shiny = 1,
+    .friendship = 255,
+    .nature = NATURE_ADAMANT,
+	.evs = {0, 84, 0, 0, 0, 84},
+    .moves = {MOVE_STEEL_WING, MOVE_DRILL_PECK, MOVE_BULK_UP, MOVE_SWAGGER}
+    },
+    {
+    .iv = 31,
+    .lvl = 36,
+    .species = SPECIES_PORYGON_Z,
+	.heldItem = ITEM_METAL_COAT,
+    .ability = 0,
+    .shiny = 1,
+    .friendship = 255,
+    .nature = NATURE_JOLLY,
+	.evs = {0, 0, 0, 84, 0, 84},
+    .moves = {MOVE_THUNDERBOLT, MOVE_PSYCHIC, MOVE_BLIZZARD, MOVE_THUNDER_WAVE}
+    },
+    {
+    .iv = 31,
+    .lvl = 40,
+    .species = SPECIES_ZWEILOUS,
+	.heldItem = ITEM_METAL_COAT,
+    .ability = 0,
+    .shiny = 1,
+    .friendship = 255,
+    .nature = NATURE_LONELY,
+	.evs = {0, 42, 0, 42, 0, 84},
+    .moves = {MOVE_CRUNCH, MOVE_BODY_SLAM, MOVE_DRAGON_BREATH, MOVE_PROTECT}
     }
 };
 // IZABE ISLAND (end)

@@ -50,7 +50,7 @@ struct TrainerMonItemCustomMoves
 struct TrainerMonCustomMidele
 {
     u16 iv;
-    u8 evs[6];
+    u8 evs[6]; // HP, ATK, DEF, SPATK, SPDEF, SPEED
     u8 nature;
     u8 lvl;
     u16 species;
