@@ -13,7 +13,7 @@ IzabeIsland_SecretHouseB1_EventScript_PC::
 
 IzabeIsland_SecretHouseB1_EventScript_Titan::
 	lockall
-	setvar VAR_0x8004, BOSS_BATTLE_CORONA_DEBUG
+	setvar VAR_0x8004, BOSS_BATTLE_CORONA
 	special CreateBossBattleMon
 	special BattleSetup_StartBossBattle
 	waitstate

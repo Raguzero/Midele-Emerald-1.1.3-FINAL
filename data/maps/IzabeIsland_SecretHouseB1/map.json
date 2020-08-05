@@ -24,7 +24,7 @@
     ],
     "id": "MAP_IZABE_ISLAND_SECRET_HOUSE_B1",
     "layout": "LAYOUT_IZABE_ISLAND_SECRET_HOUSE_B1",
-    "map_type": "MAP_TYPE_UNDERGROUND",
+    "map_type": "MAP_TYPE_INDOOR",
     "music": "MUS_RG_POKEYASHI",
     "name": "IzabeIsland_SecretHouseB1",
     "object_events": [
