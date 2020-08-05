@@ -244,7 +244,14 @@ const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_Storyteller;
 const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_Giddy;
 const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_UnusedMauvilleOldMan1;
 const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_UnusedMauvilleOldMan2;
-
+const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_Articuno;
+const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_Zapdos;
+const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_Moltres;
+const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_Entei;
+const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_Raikou;
+const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_Suicune;
+const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_Mewtwo;
+const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_Celebi;
 
 const struct EventObjectGraphicsInfo *const gEventObjectGraphicsInfoPointers[] = {
     [EVENT_OBJ_GFX_BRENDAN_NORMAL] =           &gEventObjectGraphicsInfo_BrendanNormal,
@@ -486,6 +493,14 @@ const struct EventObjectGraphicsInfo *const gEventObjectGraphicsInfoPointers[] =
     [EVENT_OBJ_GFX_LINK_RS_MAY] =              &gEventObjectGraphicsInfo_RubySapphireMay,
     [EVENT_OBJ_GFX_LUGIA] =                    &gEventObjectGraphicsInfo_Lugia,
     [EVENT_OBJ_GFX_HOOH] =                     &gEventObjectGraphicsInfo_HoOh,
+    [EVENT_OBJ_GFX_ARTICUNO] =                &gEventObjectGraphicsInfo_Articuno,
+    [EVENT_OBJ_GFX_ZAPDOS] =                &gEventObjectGraphicsInfo_Zapdos,
+    [EVENT_OBJ_GFX_MOLTRES] =                &gEventObjectGraphicsInfo_Moltres,
+    [EVENT_OBJ_GFX_ENTEI] =                &gEventObjectGraphicsInfo_Entei,
+    [EVENT_OBJ_GFX_RAIKOU] =                &gEventObjectGraphicsInfo_Raikou,
+    [EVENT_OBJ_GFX_SUICUNE] =                &gEventObjectGraphicsInfo_Suicune,
+    [EVENT_OBJ_GFX_MEWTWO] =                &gEventObjectGraphicsInfo_Mewtwo,
+    [EVENT_OBJ_GFX_CELEBI] =                &gEventObjectGraphicsInfo_Celebi,
 };
 
 const struct EventObjectGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

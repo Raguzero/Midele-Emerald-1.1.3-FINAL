@@ -431,6 +431,14 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define EVENT_OBJ_PAL_TAG_32 0x1121
 #define EVENT_OBJ_PAL_TAG_33 0x1122
 #define EVENT_OBJ_PAL_TAG_34 0x1123
+#define EVENT_OBJ_PAL_TAG_35 0x1124 // ARTICUNO
+#define EVENT_OBJ_PAL_TAG_36 0x1125 // ZAPDOS
+#define EVENT_OBJ_PAL_TAG_37 0x1126 // MOLTRES
+#define EVENT_OBJ_PAL_TAG_38 0x1127 // ENTEI
+#define EVENT_OBJ_PAL_TAG_39 0x1128 // RAIKOU
+#define EVENT_OBJ_PAL_TAG_40 0x1129 // SUICUNE
+#define EVENT_OBJ_PAL_TAG_41 0x112A // MEWTWO
+#define EVENT_OBJ_PAL_TAG_42 0x112B // CELEBI
 #define EVENT_OBJ_PAL_TAG_NONE 0x11FF
 
 #include "data/field_event_obj/event_object_graphics_info_pointers.h"
@@ -474,9 +482,17 @@ const struct SpritePalette sEventObjectSpritePalettes[] = {
     {gEventObjectPalette29, EVENT_OBJ_PAL_TAG_29},
     {gEventObjectPalette30, EVENT_OBJ_PAL_TAG_30},
     {gEventObjectPalette31, EVENT_OBJ_PAL_TAG_31},
-    {gEventObjectPalette32, EVENT_OBJ_PAL_TAG_32},
+    {gEventObjectPalette32, EVENT_OBJ_PAL_TAG_32}, 
     {gEventObjectPalette33, EVENT_OBJ_PAL_TAG_33},
     {gEventObjectPalette34, EVENT_OBJ_PAL_TAG_34},
+    {gEventObjectPalette35, EVENT_OBJ_PAL_TAG_35}, // ARTICUNO
+    {gEventObjectPalette36, EVENT_OBJ_PAL_TAG_36}, // ZAPDOS
+    {gEventObjectPalette37, EVENT_OBJ_PAL_TAG_37}, // MOLTRES
+    {gEventObjectPalette38, EVENT_OBJ_PAL_TAG_38}, // ENTEI
+    {gEventObjectPalette39, EVENT_OBJ_PAL_TAG_39}, // RAIKOU
+    {gEventObjectPalette40, EVENT_OBJ_PAL_TAG_40},	// SUICUNE                                     // SUICUNE
+    {gEventObjectPalette41, EVENT_OBJ_PAL_TAG_41}, // MEWTWO
+    {gEventObjectPalette42, EVENT_OBJ_PAL_TAG_42}, // CELEBI
     {NULL,                  0x0000},
 };
 
