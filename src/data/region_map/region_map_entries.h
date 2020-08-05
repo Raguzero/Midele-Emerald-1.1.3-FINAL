@@ -198,7 +198,7 @@ static const u8 sMapName_MarineCave[] = _("MARINE CAVE");
 static const u8 sMapName_TerraCave[] = _("TERRA CAVE");
 static const u8 sMapName_DesertUnderpass[] = _("DESERT UNDERPASS");
 static const u8 sMapName_TrainerHill[] = _("TRAINER HILL");
-static const u8 sMapName_IzabeIsland[] = _("IZABE ISLAND");
+static const u8 sMapName_IzabeIsland[] = _("ISLA IZABE");
 
 const struct RegionMapLocation gRegionMapEntries[] = {
     [MAPSEC_ABANDONED_SHIP]            = {6, 14, 1, 1, sMapName_AbandonedShip},
