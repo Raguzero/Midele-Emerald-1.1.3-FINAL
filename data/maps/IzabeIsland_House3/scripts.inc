@@ -172,7 +172,7 @@ IzabeIsland_House3_Text_Izabe2::
 	.string "“Necesitaré una gran fuente de energía\n"
 	.string "para realizar los experimentos. n.n”\l"
 	.string "“He decidido utilizar el viejo generador\l"
-	.string "abandonada de la isla. n.n”\l"
+	.string "abandonado de la isla. n.n”\l"
 	.string "“Solo se puede acceder por el lago de la\l"
 	.string "isla, así que no creo que nadie sea\l"
 	.string "capaz de bucear hasta allí. n.n”\p"
