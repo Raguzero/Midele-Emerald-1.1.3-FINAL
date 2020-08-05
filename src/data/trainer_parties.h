@@ -15569,7 +15569,7 @@ static const struct TrainerMonCustomMidele sParty_IzabeIsland_Hexmaniac[] = {
 static const struct TrainerMonCustomMidele sParty_IzabeIsland_Lavender[] = {
     {
     .iv = 31,
-    .lvl = 40,
+    .lvl = 34,
     .species = SPECIES_WOOLOO,
 	.heldItem = ITEM_LEFTOVERS,
     .ability = 1,
@@ -15581,7 +15581,7 @@ static const struct TrainerMonCustomMidele sParty_IzabeIsland_Lavender[] = {
     },
     {
     .iv = 31,
-    .lvl = 38,
+    .lvl = 34,
     .species = SPECIES_FROSMOTH,
 	.heldItem = ITEM_CHESTO_BERRY,
     .ability = 1,
@@ -15589,11 +15589,11 @@ static const struct TrainerMonCustomMidele sParty_IzabeIsland_Lavender[] = {
     .friendship = 255,
     .nature = NATURE_MODEST,
 	.evs = {0, 0, 0, 84, 0, 84},
-    .moves = {MOVE_BLIZZARD, MOVE_CALM_MIND, MOVE_REST, MOVE_DAZZLING_GLEAM}
+    .moves = {MOVE_ICE_BEAM, MOVE_CALM_MIND, MOVE_REST, MOVE_DAZZLING_GLEAM}
     },
     {
     .iv = 31,
-    .lvl = 37,
+    .lvl = 33,
     .species = SPECIES_APPLETUN,
 	.heldItem = ITEM_LEFTOVERS,
     .ability = 0,
@@ -15605,39 +15605,40 @@ static const struct TrainerMonCustomMidele sParty_IzabeIsland_Lavender[] = {
     },
     {
     .iv = 31,
-    .lvl = 38,
-    .species = SPECIES_CORVIKNIGHT,
-	.heldItem = ITEM_METAL_COAT,
+    .lvl = 35,
+    .species = SPECIES_CORVISQUIRE,
+	.heldItem = ITEM_SHARP_BEAK,
     .ability = 0,
-    .shiny = 1,
+    .shiny = 0,
     .friendship = 255,
     .nature = NATURE_ADAMANT,
 	.evs = {0, 84, 0, 0, 0, 84},
-    .moves = {MOVE_STEEL_WING, MOVE_DRILL_PECK, MOVE_BULK_UP, MOVE_SWAGGER}
+    .moves = {MOVE_DOUBLE_TEAM, MOVE_DRILL_PECK, MOVE_BULK_UP, MOVE_SWAGGER}
     },
     {
     .iv = 31,
-    .lvl = 36,
+    .lvl = 33,
     .species = SPECIES_PORYGON_Z,
-	.heldItem = ITEM_METAL_COAT,
+	.heldItem = ITEM_SITRUS_BERRY,
     .ability = 0,
     .shiny = 1,
     .friendship = 255,
     .nature = NATURE_JOLLY,
 	.evs = {0, 0, 0, 84, 0, 84},
-    .moves = {MOVE_THUNDERBOLT, MOVE_PSYCHIC, MOVE_BLIZZARD, MOVE_THUNDER_WAVE}
+    .moves = {MOVE_THUNDERBOLT, MOVE_PSYCHIC, MOVE_ICE_BEAM, MOVE_THUNDER_WAVE}
     },
     {
     .iv = 31,
-    .lvl = 40,
+    .lvl = 35,
+    .hpType = TYPE_FIRE,
     .species = SPECIES_ZWEILOUS,
-	.heldItem = ITEM_METAL_COAT,
+	.heldItem = ITEM_FOCUS_BAND,
     .ability = 0,
     .shiny = 1,
     .friendship = 255,
     .nature = NATURE_LONELY,
 	.evs = {0, 42, 0, 42, 0, 84},
-    .moves = {MOVE_CRUNCH, MOVE_BODY_SLAM, MOVE_DRAGON_BREATH, MOVE_PROTECT}
+    .moves = {MOVE_HIDDEN_POWER, MOVE_RETURN, MOVE_DRAGON_BREATH, MOVE_PROTECT}
     }
 };
 // IZABE ISLAND (end)
