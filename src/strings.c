@@ -1895,6 +1895,15 @@ const u8 gText_SassyNature[] = _("SASSY");
 const u8 gText_CarefulNature[] = _("CAREFUL");
 const u8 gText_QuirkyNature[] = _("QUIRKY");
 
+const u8 gText_AlteringCaveGen1[] = _("Gen 1");
+const u8 gText_AlteringCaveGen2[] = _("Gen 2");
+const u8 gText_AlteringCaveGen3[] = _("Gen 3");
+const u8 gText_AlteringCaveGen4[] = _("Gen 4");
+const u8 gText_AlteringCaveGen5[] = _("Gen 5");
+const u8 gText_AlteringCaveGen6[] = _("Gen 6");
+const u8 gText_AlteringCaveGen7[] = _("Gen 7");
+const u8 gText_AlteringCaveGen8[] = _("Gen 8");
+
 // NO COMPRA MTS REPES
 const u8 gText_YouAlreadyHaveThis[] = _("You already have this item.{PAUSE_UNTIL_PRESS}");
 

@@ -291,6 +291,162 @@ Route103_EventScript_Isabelle:: @ 81EC78F
 	msgbox Route103_Text_IsabellePostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route103_EventScript_AlteringCaveChanger::	
+	lock
+	faceplayer
+	msgbox Route103_Text_AlteringCaveNPC, MSGBOX_NPC
+	showmoneybox 0, 0, 0
+	msgbox Route103_Text_AlteringCaveChanger, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq Route103_EventScript_AlteringCave_NoChange
+	hidemoneybox
+	msgbox Route103_Text_AlteringCaveChoose, MSGBOX_DEFAULT
+	multichoicegrid 0, 0, MULTI_ALTERINGCAVECHANGER, 3, 0
+	switch VAR_RESULT
+	case 0, Route103_EventScript_AlteringCaveGen1
+	case 1, Route103_EventScript_AlteringCaveGen2
+	case 2, Route103_EventScript_AlteringCaveGen3
+	case 3, Route103_EventScript_AlteringCaveGen4
+	case 4, Route103_EventScript_AlteringCaveGen5
+	case 5, Route103_EventScript_AlteringCaveGen6
+	case 6, Route103_EventScript_AlteringCaveGen7
+	case 7, Route103_EventScript_AlteringCaveGen8
+	case 8, Route103_EventScript_AlteringCave_NoChange
+	case MULTI_B_PRESSED, Route103_EventScript_AlteringCave_NoChange
+	end
+	
+Route103_EventScript_AlteringCave_NoChange::
+	hidemoneybox
+	msgbox Route103_Text_AlteringCaveNoChange
+	release
+	end
+	
+Route103_EventScript_AlteringCaveGen1::
+	showmoneybox 0, 0, 0
+	checkmoney 20000, 0
+    compare VAR_RESULT, 0
+    goto_if_eq Route103_EventScript_NotEnoughMoney
+    playse SE_REGI
+    removemoney 20000, 0
+	delay 8
+    updatemoneybox 0, 0
+	setvar VAR_ALTERING_CAVE_RND, 0
+	msgbox Route103_Text_AlteringCaveGen1
+	hidemoneybox
+	release
+	end
+	
+Route103_EventScript_AlteringCaveGen2::
+	showmoneybox 0, 0, 0
+	checkmoney 20000, 0
+    compare VAR_RESULT, 0
+    goto_if_eq Route103_EventScript_NotEnoughMoney
+    playse SE_REGI
+    removemoney 20000, 0
+	delay 8
+    updatemoneybox 0, 0
+	setvar VAR_ALTERING_CAVE_RND, 1
+	msgbox Route103_Text_AlteringCaveGen2
+	hidemoneybox
+	release
+	end
+	
+Route103_EventScript_AlteringCaveGen3::
+	showmoneybox 0, 0, 0
+	checkmoney 20000, 0
+    compare VAR_RESULT, 0
+    goto_if_eq Route103_EventScript_NotEnoughMoney
+    playse SE_REGI
+    removemoney 20000, 0
+	delay 8
+    updatemoneybox 0, 0
+	setvar VAR_ALTERING_CAVE_RND, 2
+	msgbox Route103_Text_AlteringCaveGen3
+	hidemoneybox
+	release
+	end
+	
+Route103_EventScript_AlteringCaveGen4::
+	showmoneybox 0, 0, 0
+	checkmoney 20000, 0
+    compare VAR_RESULT, 0
+    goto_if_eq Route103_EventScript_NotEnoughMoney
+    playse SE_REGI
+    removemoney 20000, 0
+	delay 8
+    updatemoneybox 0, 0
+	setvar VAR_ALTERING_CAVE_RND, 3
+	msgbox Route103_Text_AlteringCaveGen4
+	hidemoneybox
+	release
+	end
+	
+Route103_EventScript_AlteringCaveGen5::
+	showmoneybox 0, 0, 0
+	checkmoney 20000, 0
+    compare VAR_RESULT, 0
+    goto_if_eq Route103_EventScript_NotEnoughMoney
+    playse SE_REGI
+    removemoney 20000, 0
+	delay 8
+    updatemoneybox 0, 0
+	setvar VAR_ALTERING_CAVE_RND, 4
+	msgbox Route103_Text_AlteringCaveGen5
+	hidemoneybox
+	release
+	end
+	
+Route103_EventScript_AlteringCaveGen6::
+	showmoneybox 0, 0, 0
+	checkmoney 20000, 0
+    compare VAR_RESULT, 0
+    goto_if_eq Route103_EventScript_NotEnoughMoney
+    playse SE_REGI
+    removemoney 20000, 0
+	delay 8
+    updatemoneybox 0, 0
+	setvar VAR_ALTERING_CAVE_RND, 5
+	msgbox Route103_Text_AlteringCaveGen6
+	hidemoneybox
+	release
+	end
+	
+Route103_EventScript_AlteringCaveGen7::
+	showmoneybox 0, 0, 0
+	checkmoney 20000, 0
+    compare VAR_RESULT, 0
+    goto_if_eq Route103_EventScript_NotEnoughMoney
+    playse SE_REGI
+    removemoney 20000, 0
+	delay 8
+    updatemoneybox 0, 0
+	setvar VAR_ALTERING_CAVE_RND, 6
+	msgbox Route103_Text_AlteringCaveGen7
+	hidemoneybox
+	release
+	end
+	
+Route103_EventScript_AlteringCaveGen8::
+	showmoneybox 0, 0, 0
+	checkmoney 20000, 0
+    compare VAR_RESULT, 0
+    goto_if_eq Route103_EventScript_NotEnoughMoney
+    playse SE_REGI
+    removemoney 20000, 0
+	delay 8
+    updatemoneybox 0, 0
+	setvar VAR_ALTERING_CAVE_RND, 7
+	msgbox Route103_Text_AlteringCaveGen8
+	hidemoneybox
+	release
+	end
+	
+Route103_EventScript_NotEnoughMoney::
+	msgbox Route103_Text_NotEnoughMoney
+	hidemoneybox
+	release
+	end
+	
 Route103_Text_MayRoute103Pokemon: @ 81EC7A6
 	.string "MAY: Let's see… The POKéMON found\n"
 	.string "on ROUTE 103 include…$"
@@ -355,4 +511,59 @@ Route103_Text_ShortcutToOldale: @ 81ECBB5
 Route103_Text_RouteSign: @ 81ECC1A
 	.string "ROUTE 103\n"
 	.string "{DOWN_ARROW} OLDALE TOWN$"
+	
+Route103_Text_AlteringCaveChanger:
+	.string "¿Cambiar Altering Cave?$"
 
+Route103_Text_AlteringCaveChoose:
+	.string "Elige Altering Cave.$"
+	
+Route103_Text_AlteringCaveNoChange:
+	.string "Vuelve cuando quieras$"
+	
+Route103_Text_AlteringCaveGen1:
+	.string "Altering Cave ahora es Gen 1$"
+
+Route103_Text_AlteringCaveGen2:
+	.string "Altering Cave ahora es Gen 2$"
+	
+Route103_Text_AlteringCaveGen3:
+	.string "Altering Cave ahora es Gen 3$"
+	
+Route103_Text_AlteringCaveGen4:
+	.string "Altering Cave ahora es Gen 4$"
+	
+Route103_Text_AlteringCaveGen5:
+	.string "Altering Cave ahora es Gen 5$"
+	
+Route103_Text_AlteringCaveGen6:
+	.string "Altering Cave ahora es Gen 6$"
+	
+Route103_Text_AlteringCaveGen7:
+	.string "Altering Cave ahora es Gen 7$"
+	
+Route103_Text_AlteringCaveGen8:
+	.string "Altering Cave ahora es Gen 8$"
+	
+Route103_Text_AlteringCaveNPC:
+	.string "¿Conoces esta cueva?\p"
+	.string "La llaman Altering Cave.\p"
+
+	.string "En ella salen pokemon especiales\n"
+	.string "que van cambiando cada día.\p"
+
+	.string "Eso puede ocasionar un problema\n"
+	.string "para atrapar a los POKÉMON que buscas.\p"
+	
+	.string "¡Pero no tienes de que preocuparte!\p"
+	
+	.string "Con mis poderes psiquicos, por un\n"
+	.string "módico precio de 20000, cambiaré\p"
+	.string "la forma en que funciona esta cueva\n"
+	.string "para elegir que tipo de POKÉMON\p"
+	.string "especiales quieres hacer aparecer.\p"
+	
+	.string "¿Qué te parece? ¿Aceptas el trato?$"
+	
+Route103_Text_NotEnoughMoney:
+	.string "¡Pero si no tienes suficiente dinero!$"
