@@ -129,6 +129,7 @@
 #define MULTI_MIDELE_NATURES_1             118
 #define MULTI_MIDELE_NATURES_2             119
 #define MULTI_MIDELE_EV_STATS              120
+#define MULTI_ALTERINGCAVECHANGER 121
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0

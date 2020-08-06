@@ -872,6 +872,19 @@ static const struct MenuAction MultichoiceList_GameCornerPkmn3[] =
     {gText_Exit},
 };
 
+static const struct MenuAction MultichoiceList_AlteringCaveChanger[] =
+{
+    {gText_AlteringCaveGen1},
+    {gText_AlteringCaveGen2},
+    {gText_AlteringCaveGen3},
+    {gText_AlteringCaveGen4},
+    {gText_AlteringCaveGen5},
+    {gText_AlteringCaveGen6},
+    {gText_AlteringCaveGen7},
+    {gText_AlteringCaveGen8},
+    {gText_Exit}
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -1006,6 +1019,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_MIDELE_NATURES_1]           =MULTICHOICE(MultichoiceList_MideleNatures1),
     [MULTI_MIDELE_NATURES_2]           =MULTICHOICE(MultichoiceList_MideleNatures2),
     [MULTI_MIDELE_EV_STATS]           =MULTICHOICE(MultichoiceList_MideleEVStats),
+    [MULTI_ALTERINGCAVECHANGER]     =MULTICHOICE(MultichoiceList_AlteringCaveChanger),
 };
 
 const u8 *const gStdStrings[] =

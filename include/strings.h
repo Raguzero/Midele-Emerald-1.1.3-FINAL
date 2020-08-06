@@ -3026,6 +3026,15 @@ extern const u8 gText_SassyNature[];
 extern const u8 gText_CarefulNature[];
 extern const u8 gText_QuirkyNature[];
 
+extern const u8 gText_AlteringCaveGen1[];
+extern const u8 gText_AlteringCaveGen2[];
+extern const u8 gText_AlteringCaveGen3[];
+extern const u8 gText_AlteringCaveGen4[];
+extern const u8 gText_AlteringCaveGen5[];
+extern const u8 gText_AlteringCaveGen6[];
+extern const u8 gText_AlteringCaveGen7[];
+extern const u8 gText_AlteringCaveGen8[];
+
 // NO COMPRAR MTS REPES
 extern const u8 gText_YouAlreadyHaveThis[];
 
