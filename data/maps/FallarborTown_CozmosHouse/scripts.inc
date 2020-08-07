@@ -45,6 +45,57 @@ FallarborTown_CozmosHouse_EventScript_DeclineGiveMeteorite:: @ 8200FA5
 
 FallarborTown_CozmosHouse_EventScript_GaveMeteorite:: @ 8200FB2
 	msgbox FallarborTown_CozmosHouse_Text_ReallyGoingToHelpMyResearch, MSGBOX_DEFAULT
+	specialvar VAR_RESULT, CheckDeoxys
+	compare VAR_RESULT, FALSE
+	goto_if_eq FallarborTown_CozmosHouse_EventScript_NoEffect
+	msgbox FallarborTown_CozmosHouse_Text_Deoxys, MSGBOX_DEFAULT
+	msgbox FallarborTown_Text_Deoxys_Changer, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq FallarborTown_EventScript_Deoxys_NoChange
+	multichoicegrid 0, 0, MULTI_DEOXYS_CHANGE_FORM, 4, 0
+	switch VAR_RESULT
+	case 0, FallarborTown_EventScript_Deoxys
+	case 1, FallarborTown_EventScript_Deoxys_Attack
+	case 2, FallarborTown_EventScript_Deoxys_Defense
+	case 3, FallarborTown_EventScript_Deoxys_Speed
+	case MULTI_B_PRESSED, FallarborTown_EventScript_Deoxys_NoChange
+	release
+	end
+	
+FallarborTown_CozmosHouse_EventScript_NoEffect::
+	release
+	end
+	
+FallarborTown_EventScript_Deoxys_NoChange::
+	msgbox FallarborTown_Deoxys_NoChange_Text
+	release
+	end
+	
+FallarborTown_EventScript_Deoxys::
+	specialvar VAR_RESULT, ChangeDeoxysForm1
+	delay 20
+	msgbox FallarborTown_Deoxys_Change1
+	release
+	end
+	
+FallarborTown_EventScript_Deoxys_Attack::
+	specialvar VAR_RESULT, ChangeDeoxysForm2
+	delay 20
+	msgbox FallarborTown_Deoxys_Change2
+	release
+	end
+	
+FallarborTown_EventScript_Deoxys_Defense::
+	specialvar VAR_RESULT, ChangeDeoxysForm3
+	delay 20
+	msgbox FallarborTown_Deoxys_Change3
+	release
+	end
+	
+FallarborTown_EventScript_Deoxys_Speed::
+	specialvar VAR_RESULT, ChangeDeoxysForm4
+	delay 20
+	msgbox FallarborTown_Deoxys_Change4
 	release
 	end
 
@@ -118,4 +169,28 @@ FallarborTown_CozmosHouse_Text_FeelSorryForCozmo: @ 8201310
 FallarborTown_CozmosHouse_Text_CozmoIsSoHappy: @ 820134B
 	.string "Look at PROF. COZMO…\n"
 	.string "He's so happy! I think it's cute.$"
+	
+FallarborTown_CozmosHouse_Text_Deoxys: 
+	.string "DEOXYS is reacting to the METEORITE.\p"
+
+	.string "PROF. COZMO: OH MY GOD!\n"
+	.string "THE METEORITE IS SHINING!$"
+	
+FallarborTown_Deoxys_NoChange_Text: 
+	.string "The METEORITE stopped glowing!$"
+	
+FallarborTown_Deoxys_Change1: 
+	.string "DEOXYS changed to NORMAL FORM!$"
+
+FallarborTown_Deoxys_Change2: 
+	.string "DEOXYS changed to ATTACK FORM!$"
+	
+FallarborTown_Deoxys_Change3: 
+	.string "DEOXYS changed to DEFENSE FORM!$"
+	
+FallarborTown_Deoxys_Change4: 
+	.string "DEOXYS changed to SPEED FORM!$"
+	
+FallarborTown_Text_Deoxys_Changer:
+	.string "Change DEOXYS form?$"
 

@@ -3035,6 +3035,11 @@ extern const u8 gText_AlteringCaveGen6[];
 extern const u8 gText_AlteringCaveGen7[];
 extern const u8 gText_AlteringCaveGen8[];
 
+extern const u8 gText_Deoxys[];
+extern const u8 gText_Deoxys_Attack[];
+extern const u8 gText_Deoxys_Defense[];
+extern const u8 gText_Deoxys_Speed[];
+
 // NO COMPRAR MTS REPES
 extern const u8 gText_YouAlreadyHaveThis[];
 

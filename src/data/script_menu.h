@@ -885,6 +885,15 @@ static const struct MenuAction MultichoiceList_AlteringCaveChanger[] =
     {gText_Exit}
 };
 
+static const struct MenuAction MultichoiceList_Deoxys_Change_Form[] =
+{
+    {gText_Deoxys},
+    {gText_Deoxys_Attack},
+    {gText_Deoxys_Defense},
+    {gText_Deoxys_Speed},
+    {gText_Exit}
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -1020,6 +1029,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_MIDELE_NATURES_2]           =MULTICHOICE(MultichoiceList_MideleNatures2),
     [MULTI_MIDELE_EV_STATS]           =MULTICHOICE(MultichoiceList_MideleEVStats),
     [MULTI_ALTERINGCAVECHANGER]     =MULTICHOICE(MultichoiceList_AlteringCaveChanger),
+    [MULTI_DEOXYS_CHANGE_FORM]     =MULTICHOICE(MultichoiceList_Deoxys_Change_Form),
 };
 
 const u8 *const gStdStrings[] =
