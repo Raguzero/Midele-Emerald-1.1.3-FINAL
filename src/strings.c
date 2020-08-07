@@ -1904,6 +1904,11 @@ const u8 gText_AlteringCaveGen6[] = _("Gen 6");
 const u8 gText_AlteringCaveGen7[] = _("Gen 7");
 const u8 gText_AlteringCaveGen8[] = _("Gen 8");
 
+const u8 gText_Deoxys[]    =     _("NORMAL");
+const u8 gText_Deoxys_Attack[] =  _("ATTACK");
+const u8 gText_Deoxys_Defense[] = _("DEFENSE");
+const u8 gText_Deoxys_Speed[] =  _("SPEED");
+
 // NO COMPRA MTS REPES
 const u8 gText_YouAlreadyHaveThis[] = _("You already have this item.{PAUSE_UNTIL_PRESS}");
 
