@@ -46,18 +46,65 @@ FallarborTown_CozmosHouse_EventScript_DeclineGiveMeteorite:: @ 8200FA5
 FallarborTown_CozmosHouse_EventScript_GaveMeteorite:: @ 8200FB2
 	msgbox FallarborTown_CozmosHouse_Text_ReallyGoingToHelpMyResearch, MSGBOX_DEFAULT
 	specialvar VAR_RESULT, CheckDeoxys
+	copyvar VAR_0x8004, VAR_RESULT
 	compare VAR_RESULT, FALSE
 	goto_if_eq FallarborTown_CozmosHouse_EventScript_NoEffect
 	msgbox FallarborTown_CozmosHouse_Text_Deoxys, MSGBOX_DEFAULT
 	msgbox FallarborTown_Text_Deoxys_Changer, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq FallarborTown_EventScript_Deoxys_NoChange
-	multichoicegrid 0, 0, MULTI_DEOXYS_CHANGE_FORM, 4, 0
+	
+	compare VAR_0x8004, SPECIES_DEOXYS
+	goto_if_eq FallarborTown_CozmosHouse_EventScript_ChangeForm_Normal
+	compare VAR_0x8004, SPECIES_DEOXYS_ATTACK
+	goto_if_eq FallarborTown_CozmosHouse_EventScript_ChangeForm_Attack
+	compare VAR_0x8004, SPECIES_DEOXYS_DEFENSE
+	goto_if_eq FallarborTown_CozmosHouse_EventScript_ChangeForm_Defense
+	compare VAR_0x8004, SPECIES_DEOXYS_SPEED
+	goto_if_eq FallarborTown_CozmosHouse_EventScript_ChangeForm_Speed
+	release
+	end
+	
+FallarborTown_CozmosHouse_EventScript_ChangeForm_Normal:
+	multichoicegrid 0, 0, MULTI_DEOXYS_CHANGE_FORM_NORMAL, 4, 0
+	switch VAR_RESULT
+	case 0, FallarborTown_EventScript_Deoxys_Attack
+	case 1, FallarborTown_EventScript_Deoxys_Defense
+	case 2, FallarborTown_EventScript_Deoxys_Speed
+	case 3, FallarborTown_EventScript_Deoxys_NoChange
+	case MULTI_B_PRESSED, FallarborTown_EventScript_Deoxys_NoChange
+	release
+	end
+	
+FallarborTown_CozmosHouse_EventScript_ChangeForm_Attack:
+	multichoicegrid 0, 0, MULTI_DEOXYS_CHANGE_FORM_ATTACK, 4, 0
+	switch VAR_RESULT
+	case 0, FallarborTown_EventScript_Deoxys
+	case 1, FallarborTown_EventScript_Deoxys_Defense
+	case 2, FallarborTown_EventScript_Deoxys_Speed
+	case 3, FallarborTown_EventScript_Deoxys_NoChange
+	case MULTI_B_PRESSED, FallarborTown_EventScript_Deoxys_NoChange
+	release
+	end
+	
+FallarborTown_CozmosHouse_EventScript_ChangeForm_Defense:
+	multichoicegrid 0, 0, MULTI_DEOXYS_CHANGE_FORM_DEFENSE, 4, 0
+	switch VAR_RESULT
+	case 0, FallarborTown_EventScript_Deoxys
+	case 1, FallarborTown_EventScript_Deoxys_Attack
+	case 2, FallarborTown_EventScript_Deoxys_Speed
+	case 3, FallarborTown_EventScript_Deoxys_NoChange
+	case MULTI_B_PRESSED, FallarborTown_EventScript_Deoxys_NoChange
+	release
+	end
+
+FallarborTown_CozmosHouse_EventScript_ChangeForm_Speed:
+	multichoicegrid 0, 0, MULTI_DEOXYS_CHANGE_FORM_SPEED, 4, 0
 	switch VAR_RESULT
 	case 0, FallarborTown_EventScript_Deoxys
 	case 1, FallarborTown_EventScript_Deoxys_Attack
 	case 2, FallarborTown_EventScript_Deoxys_Defense
-	case 3, FallarborTown_EventScript_Deoxys_Speed
+	case 3, FallarborTown_EventScript_Deoxys_NoChange
 	case MULTI_B_PRESSED, FallarborTown_EventScript_Deoxys_NoChange
 	release
 	end
@@ -72,28 +119,32 @@ FallarborTown_EventScript_Deoxys_NoChange::
 	end
 	
 FallarborTown_EventScript_Deoxys::
-	specialvar VAR_RESULT, ChangeDeoxysForm1
+	setvar VAR_0x8005, SPECIES_DEOXYS
+	special ChangeDeoxysForm
 	delay 20
 	msgbox FallarborTown_Deoxys_Change1
 	release
 	end
 	
 FallarborTown_EventScript_Deoxys_Attack::
-	specialvar VAR_RESULT, ChangeDeoxysForm2
+	setvar VAR_0x8005, SPECIES_DEOXYS_ATTACK
+	special ChangeDeoxysForm
 	delay 20
 	msgbox FallarborTown_Deoxys_Change2
 	release
 	end
 	
 FallarborTown_EventScript_Deoxys_Defense::
-	specialvar VAR_RESULT, ChangeDeoxysForm3
+	setvar VAR_0x8005, SPECIES_DEOXYS_DEFENSE
+	special ChangeDeoxysForm
 	delay 20
 	msgbox FallarborTown_Deoxys_Change3
 	release
 	end
 	
 FallarborTown_EventScript_Deoxys_Speed::
-	specialvar VAR_RESULT, ChangeDeoxysForm4
+	setvar VAR_0x8005, SPECIES_DEOXYS_SPEED
+	special ChangeDeoxysForm
 	delay 20
 	msgbox FallarborTown_Deoxys_Change4
 	release
@@ -193,4 +244,3 @@ FallarborTown_Deoxys_Change4:
 	
 FallarborTown_Text_Deoxys_Changer:
 	.string "Change DEOXYS form?$"
-

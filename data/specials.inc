@@ -546,7 +546,4 @@ gSpecials:: @ 81DBA64
 	def_special StartLegendDogsBattle
 	def_special ResetLastRepelSteps
 	def_special CheckDeoxys
-	def_special ChangeDeoxysForm1
-	def_special ChangeDeoxysForm2
-	def_special ChangeDeoxysForm3
-	def_special ChangeDeoxysForm4
+	def_special ChangeDeoxysForm
