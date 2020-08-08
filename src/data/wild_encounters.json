@@ -1499,7 +1499,7 @@
                             {
                                 "max_level": 10,
                                 "min_level": 5,
-                                "species": "SPECIES_MAGIKARP"
+                                "species": "SPECIES_KRABBY"
                             },
                             {
                                 "max_level": 10,
@@ -1509,7 +1509,7 @@
                             {
                                 "max_level": 30,
                                 "min_level": 10,
-                                "species": "SPECIES_MAGIKARP"
+                                "species": "SPECIES_KRABBY"
                             },
                             {
                                 "max_level": 30,
@@ -1943,37 +1943,7 @@
                             }
                         ]
                     },
-                    "map": "MAP_GRANITE_CAVE_B2F",
-                    "rock_smash_mons": {
-                        "encounter_rate": 60,
-                        "mons": [
-                            {
-                                "max_level": 25,
-                                "min_level": 20,
-                                "species": "SPECIES_GEODUDE"
-                            },
-                            {
-                                "max_level": 25,
-                                "min_level": 20,
-                                "species": "SPECIES_NOSEPASS"
-                            },
-                            {
-                                "max_level": 25,
-                                "min_level": 20,
-                                "species": "SPECIES_ALOLAN_GEODUDE"
-                            },
-                            {
-                                "max_level": 25,
-                                "min_level": 20,
-                                "species": "SPECIES_ALOLAN_GEODUDE"
-                            },
-                            {
-                                "max_level": 25,
-                                "min_level": 25,
-                                "species": "SPECIES_ALOLAN_GEODUDE"
-                            }
-                        ]
-                    }
+                    "map": "MAP_GRANITE_CAVE_B2F"
                 },
                 {
                     "base_label": "gGraniteCave_StevensRoom",
@@ -2236,36 +2206,6 @@
                         ]
                     },
                     "map": "MAP_IZABE_ISLAND_OUTSKIRTS",
-                    "rock_smash_mons": {
-                        "encounter_rate": 60,
-                        "mons": [
-                            {
-                                "max_level": 30,
-                                "min_level": 25,
-                                "species": "SPECIES_GRAVELER"
-                            },
-                            {
-                                "max_level": 30,
-                                "min_level": 25,
-                                "species": "SPECIES_ALOLAN_GRAVELER"
-                            },
-                            {
-                                "max_level": 30,
-                                "min_level": 25,
-                                "species": "SPECIES_NOSEPASS"
-                            },
-                            {
-                                "max_level": 30,
-                                "min_level": 25,
-                                "species": "SPECIES_NOSEPASS"
-                            },
-                            {
-                                "max_level": 35,
-                                "min_level": 30,
-                                "species": "SPECIES_PROBOPASS"
-                            }
-                        ]
-                    },
                     "water_mons": {
                         "encounter_rate": 4,
                         "mons": [
@@ -5686,36 +5626,6 @@
                         ]
                     },
                     "map": "MAP_ROUTE104",
-                    "rock_smash_mons": {
-                        "encounter_rate": 180,
-                        "mons": [
-                            {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_KRABBY"
-                            },
-                            {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_GRUBBIN"
-                            },
-                            {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_SANDYGAST"
-                            },
-                            {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_SANDYGAST"
-                            },
-                            {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_SANDYGAST"
-                            }
-                        ]
-                    },
                     "water_mons": {
                         "encounter_rate": 4,
                         "mons": [
@@ -5844,7 +5754,7 @@
                             {
                                 "max_level": 10,
                                 "min_level": 5,
-                                "species": "SPECIES_MAGIKARP"
+                                "species": "SPECIES_KRABBY"
                             },
                             {
                                 "max_level": 10,
@@ -5854,7 +5764,7 @@
                             {
                                 "max_level": 30,
                                 "min_level": 10,
-                                "species": "SPECIES_MAGIKARP"
+                                "species": "SPECIES_KRABBY"
                             },
                             {
                                 "max_level": 30,
@@ -6469,36 +6379,6 @@
                         ]
                     },
                     "map": "MAP_ROUTE111",
-                    "rock_smash_mons": {
-                        "encounter_rate": 60,
-                        "mons": [
-                            {
-                                "max_level": 25,
-                                "min_level": 20,
-                                "species": "SPECIES_GEODUDE"
-                            },
-                            {
-                                "max_level": 25,
-                                "min_level": 20,
-                                "species": "SPECIES_ALOLAN_GEODUDE"
-                            },
-                            {
-                                "max_level": 25,
-                                "min_level": 20,
-                                "species": "SPECIES_NOSEPASS"
-                            },
-                            {
-                                "max_level": 25,
-                                "min_level": 20,
-                                "species": "SPECIES_NOSEPASS"
-                            },
-                            {
-                                "max_level": 25,
-                                "min_level": 25,
-                                "species": "SPECIES_NOSEPASS"
-                            }
-                        ]
-                    },
                     "water_mons": {
                         "encounter_rate": 4,
                         "mons": [
@@ -6791,36 +6671,6 @@
                         ]
                     },
                     "map": "MAP_ROUTE114",
-                    "rock_smash_mons": {
-                        "encounter_rate": 60,
-                        "mons": [
-                            {
-                                "max_level": 25,
-                                "min_level": 20,
-                                "species": "SPECIES_GEODUDE"
-                            },
-                            {
-                                "max_level": 25,
-                                "min_level": 20,
-                                "species": "SPECIES_ALOLAN_GEODUDE"
-                            },
-                            {
-                                "max_level": 25,
-                                "min_level": 20,
-                                "species": "SPECIES_NOSEPASS"
-                            },
-                            {
-                                "max_level": 25,
-                                "min_level": 20,
-                                "species": "SPECIES_NOSEPASS"
-                            },
-                            {
-                                "max_level": 25,
-                                "min_level": 25,
-                                "species": "SPECIES_NOSEPASS"
-                            }
-                        ]
-                    },
                     "water_mons": {
                         "encounter_rate": 4,
                         "mons": [
@@ -9459,37 +9309,7 @@
                             }
                         ]
                     },
-                    "map": "MAP_RUSTURF_TUNNEL",
-                    "rock_smash_mons": {
-                        "encounter_rate": 60,
-                        "mons": [
-                            {
-                                "max_level": 25,
-                                "min_level": 20,
-                                "species": "SPECIES_ONIX"
-                            },
-                            {
-                                "max_level": 25,
-                                "min_level": 20,
-                                "species": "SPECIES_GEODUDE"
-                            },
-                            {
-                                "max_level": 25,
-                                "min_level": 20,
-                                "species": "SPECIES_ALOLAN_GEODUDE"
-                            },
-                            {
-                                "max_level": 25,
-                                "min_level": 20,
-                                "species": "SPECIES_ALOLAN_GEODUDE"
-                            },
-                            {
-                                "max_level": 25,
-                                "min_level": 20,
-                                "species": "SPECIES_ALOLAN_GEODUDE"
-                            }
-                        ]
-                    }
+                    "map": "MAP_RUSTURF_TUNNEL"
                 },
                 {
                     "base_label": "gSafariZone_North",
@@ -9558,37 +9378,7 @@
                             }
                         ]
                     },
-                    "map": "MAP_SAFARI_ZONE_NORTH",
-                    "rock_smash_mons": {
-                        "encounter_rate": 60,
-                        "mons": [
-                            {
-                                "max_level": 35,
-                                "min_level": 30,
-                                "species": "SPECIES_GEODUDE"
-                            },
-                            {
-                                "max_level": 35,
-                                "min_level": 30,
-                                "species": "SPECIES_ALOLAN_GEODUDE"
-                            },
-                            {
-                                "max_level": 35,
-                                "min_level": 30,
-                                "species": "SPECIES_NOSEPASS"
-                            },
-                            {
-                                "max_level": 35,
-                                "min_level": 30,
-                                "species": "SPECIES_NOSEPASS"
-                            },
-                            {
-                                "max_level": 40,
-                                "min_level": 35,
-                                "species": "SPECIES_NOSEPASS"
-                            }
-                        ]
-                    }
+                    "map": "MAP_SAFARI_ZONE_NORTH"
                 },
                 {
                     "base_label": "gSafariZone_Northeast",
@@ -9657,37 +9447,7 @@
                             }
                         ]
                     },
-                    "map": "MAP_SAFARI_ZONE_NORTHEAST",
-                    "rock_smash_mons": {
-                        "encounter_rate": 60,
-                        "mons": [
-                            {
-                                "max_level": 30,
-                                "min_level": 25,
-                                "species": "SPECIES_SHUCKLE"
-                            },
-                            {
-                                "max_level": 25,
-                                "min_level": 20,
-                                "species": "SPECIES_SHUCKLE"
-                            },
-                            {
-                                "max_level": 35,
-                                "min_level": 30,
-                                "species": "SPECIES_SHUCKLE"
-                            },
-                            {
-                                "max_level": 35,
-                                "min_level": 30,
-                                "species": "SPECIES_SHUCKLE"
-                            },
-                            {
-                                "max_level": 40,
-                                "min_level": 35,
-                                "species": "SPECIES_SHUCKLE"
-                            }
-                        ]
-                    }
+                    "map": "MAP_SAFARI_ZONE_NORTHEAST"
                 },
                 {
                     "base_label": "gSafariZone_Northwest",
@@ -12788,37 +12548,7 @@
                             }
                         ]
                     },
-                    "map": "MAP_VICTORY_ROAD_B1F",
-                    "rock_smash_mons": {
-                        "encounter_rate": 60,
-                        "mons": [
-                            {
-                                "max_level": 45,
-                                "min_level": 40,
-                                "species": "SPECIES_GRAVELER"
-                            },
-                            {
-                                "max_level": 45,
-                                "min_level": 40,
-                                "species": "SPECIES_ALOLAN_GRAVELER"
-                            },
-                            {
-                                "max_level": 45,
-                                "min_level": 40,
-                                "species": "SPECIES_PROBOPASS"
-                            },
-                            {
-                                "max_level": 45,
-                                "min_level": 45,
-                                "species": "SPECIES_PROBOPASS"
-                            },
-                            {
-                                "max_level": 50,
-                                "min_level": 45,
-                                "species": "SPECIES_PROBOPASS"
-                            }
-                        ]
-                    }
+                    "map": "MAP_VICTORY_ROAD_B1F"
                 },
                 {
                     "base_label": "gVictoryRoad_B2F",
@@ -12903,7 +12633,7 @@
                             {
                                 "max_level": 48,
                                 "min_level": 44,
-                                "species": "SPECIES_DURANT"
+                                "species": "SPECIES_SIRFETCH"
                             },
                             {
                                 "max_level": 47,
@@ -12918,7 +12648,7 @@
                             {
                                 "max_level": 47,
                                 "min_level": 44,
-                                "species": "SPECIES_MACHAMP"
+                                "species": "SPECIES_DURANT"
                             },
                             {
                                 "max_level": 48,
@@ -13002,16 +12732,6 @@
                         1
                     ],
                     "type": "water_mons"
-                },
-                {
-                    "encounter_rates": [
-                        60,
-                        30,
-                        5,
-                        4,
-                        1
-                    ],
-                    "type": "rock_smash_mons"
                 },
                 {
                     "encounter_rates": [
