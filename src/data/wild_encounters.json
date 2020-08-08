@@ -1499,7 +1499,7 @@
                             {
                                 "max_level": 10,
                                 "min_level": 5,
-                                "species": "SPECIES_MAGIKARP"
+                                "species": "SPECIES_KRABBY"
                             },
                             {
                                 "max_level": 10,
@@ -1509,7 +1509,7 @@
                             {
                                 "max_level": 30,
                                 "min_level": 10,
-                                "species": "SPECIES_MAGIKARP"
+                                "species": "SPECIES_KRABBY"
                             },
                             {
                                 "max_level": 30,
@@ -5686,36 +5686,6 @@
                         ]
                     },
                     "map": "MAP_ROUTE104",
-                    "rock_smash_mons": {
-                        "encounter_rate": 180,
-                        "mons": [
-                            {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_KRABBY"
-                            },
-                            {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_GRUBBIN"
-                            },
-                            {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_SANDYGAST"
-                            },
-                            {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_SANDYGAST"
-                            },
-                            {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_SANDYGAST"
-                            }
-                        ]
-                    },
                     "water_mons": {
                         "encounter_rate": 4,
                         "mons": [
@@ -5844,7 +5814,7 @@
                             {
                                 "max_level": 10,
                                 "min_level": 5,
-                                "species": "SPECIES_MAGIKARP"
+                                "species": "SPECIES_KRABBY"
                             },
                             {
                                 "max_level": 10,
@@ -5854,7 +5824,7 @@
                             {
                                 "max_level": 30,
                                 "min_level": 10,
-                                "species": "SPECIES_MAGIKARP"
+                                "species": "SPECIES_KRABBY"
                             },
                             {
                                 "max_level": 30,
@@ -12903,7 +12873,7 @@
                             {
                                 "max_level": 48,
                                 "min_level": 44,
-                                "species": "SPECIES_DURANT"
+                                "species": "SPECIES_SIRFETCH"
                             },
                             {
                                 "max_level": 47,
@@ -12918,7 +12888,7 @@
                             {
                                 "max_level": 47,
                                 "min_level": 44,
-                                "species": "SPECIES_MACHAMP"
+                                "species": "SPECIES_DURANT"
                             },
                             {
                                 "max_level": 48,
