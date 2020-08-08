@@ -885,12 +885,35 @@ static const struct MenuAction MultichoiceList_AlteringCaveChanger[] =
     {gText_Exit}
 };
 
-static const struct MenuAction MultichoiceList_Deoxys_Change_Form[] =
+static const struct MenuAction MultichoiceList_Deoxys_Change_Form_Normal[] =
+{
+    {gText_Deoxys_Attack},
+    {gText_Deoxys_Defense},
+    {gText_Deoxys_Speed},
+    {gText_Exit}
+};
+
+static const struct MenuAction MultichoiceList_Deoxys_Change_Form_Attack[] =
+{
+    {gText_Deoxys},
+    {gText_Deoxys_Defense},
+    {gText_Deoxys_Speed},
+    {gText_Exit}
+};
+
+static const struct MenuAction MultichoiceList_Deoxys_Change_Form_Defense[] =
+{
+    {gText_Deoxys},
+    {gText_Deoxys_Attack},
+    {gText_Deoxys_Speed},
+    {gText_Exit}
+};
+
+static const struct MenuAction MultichoiceList_Deoxys_Change_Form_Speed[] =
 {
     {gText_Deoxys},
     {gText_Deoxys_Attack},
     {gText_Deoxys_Defense},
-    {gText_Deoxys_Speed},
     {gText_Exit}
 };
 
@@ -1029,7 +1052,10 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_MIDELE_NATURES_2]           =MULTICHOICE(MultichoiceList_MideleNatures2),
     [MULTI_MIDELE_EV_STATS]           =MULTICHOICE(MultichoiceList_MideleEVStats),
     [MULTI_ALTERINGCAVECHANGER]     =MULTICHOICE(MultichoiceList_AlteringCaveChanger),
-    [MULTI_DEOXYS_CHANGE_FORM]     =MULTICHOICE(MultichoiceList_Deoxys_Change_Form),
+    [MULTI_DEOXYS_CHANGE_FORM_NORMAL]     =MULTICHOICE(MultichoiceList_Deoxys_Change_Form_Normal),
+    [MULTI_DEOXYS_CHANGE_FORM_ATTACK]     =MULTICHOICE(MultichoiceList_Deoxys_Change_Form_Attack),
+    [MULTI_DEOXYS_CHANGE_FORM_DEFENSE]     =MULTICHOICE(MultichoiceList_Deoxys_Change_Form_Defense),
+    [MULTI_DEOXYS_CHANGE_FORM_SPEED]     =MULTICHOICE(MultichoiceList_Deoxys_Change_Form_Speed),
 };
 
 const u8 *const gStdStrings[] =

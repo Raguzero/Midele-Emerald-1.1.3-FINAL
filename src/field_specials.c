@@ -4412,134 +4412,42 @@ u8 Script_TryGainNewFanFromCounter(void)
     return TryGainNewFanFromCounter(gSpecialVar_0x8004);
 }
 
-bool8 CheckDeoxys(void)
+u16 CheckDeoxys(void)
 {
     u8 i;
     for (i = 0; i < PARTY_SIZE; i++)
     {
          if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS)
          {
-             return TRUE;
+             return SPECIES_DEOXYS;
          }
 		 if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS_ATTACK)
          {
-             return TRUE;
+             return SPECIES_DEOXYS_ATTACK;
          }
 		 if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS_DEFENSE)
          {
-             return TRUE;
+             return SPECIES_DEOXYS_DEFENSE;
          }
 		 if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS_SPEED)
          {
-             return TRUE;
+             return SPECIES_DEOXYS_SPEED;
          }
     }
     return FALSE;
 }
 
-bool8 ChangeDeoxysForm1(void)
+bool8 ChangeDeoxysForm(void)
 {
     u8 i;
-    u16 deoxys = SPECIES_DEOXYS; // DEOXYS NORMAL
+    u16 deoxys = gSpecialVar_0x8005; // Forma de deoxys
+    // Solo cambia la forma del primer DEOXYS que encuentre en el equipo (en teoría debería haber solo uno como mucho)
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS_ATTACK)
-        {
-            SetMonData(&gPlayerParty[i], MON_DATA_SPECIES, &deoxys);
-            CalculateMonStats(&gPlayerParty[i]);
-            return TRUE;
-        }
-		if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS_DEFENSE)
-        {
-            SetMonData(&gPlayerParty[i], MON_DATA_SPECIES, &deoxys);
-            CalculateMonStats(&gPlayerParty[i]);
-            return TRUE;
-        }
-	    if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS_SPEED)
-        {
-            SetMonData(&gPlayerParty[i], MON_DATA_SPECIES, &deoxys);
-            CalculateMonStats(&gPlayerParty[i]);
-            return TRUE;
-        }
-    }
-    return FALSE;
-}
-
-bool8 ChangeDeoxysForm2(void)
-{
-    u8 i;
-    u16 deoxys = SPECIES_DEOXYS_ATTACK;
-    for (i = 0; i < PARTY_SIZE; i++)
-    {
-        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS)
-        {
-            SetMonData(&gPlayerParty[i], MON_DATA_SPECIES, &deoxys);
-            CalculateMonStats(&gPlayerParty[i]);
-            return TRUE;
-        }
-        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS_DEFENSE)
-        {
-            SetMonData(&gPlayerParty[i], MON_DATA_SPECIES, &deoxys);
-            CalculateMonStats(&gPlayerParty[i]);
-            return TRUE;
-        }
-	    if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS_SPEED)
-        {
-            SetMonData(&gPlayerParty[i], MON_DATA_SPECIES, &deoxys);
-            CalculateMonStats(&gPlayerParty[i]);
-            return TRUE;
-        }
-    }
-    return FALSE;
-}
-
-bool8 ChangeDeoxysForm3(void)
-{
-    u8 i;
-    u16 deoxys = SPECIES_DEOXYS_DEFENSE;
-    for (i = 0; i < PARTY_SIZE; i++)
-    {
-        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS)
-        {
-            SetMonData(&gPlayerParty[i], MON_DATA_SPECIES, &deoxys);
-            CalculateMonStats(&gPlayerParty[i]);
-            return TRUE;
-        }
-		        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS_ATTACK)
-        {
-            SetMonData(&gPlayerParty[i], MON_DATA_SPECIES, &deoxys);
-            CalculateMonStats(&gPlayerParty[i]);
-            return TRUE;
-        }
-	    if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS_SPEED)
-        {
-            SetMonData(&gPlayerParty[i], MON_DATA_SPECIES, &deoxys);
-            CalculateMonStats(&gPlayerParty[i]);
-            return TRUE;
-        }
-    }
-    return FALSE;
-}
-
-bool8 ChangeDeoxysForm4(void)
-{
-    u8 i;
-    u16 deoxys = SPECIES_DEOXYS_SPEED;
-    for (i = 0; i < PARTY_SIZE; i++)
-    {
-        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS)
-        {
-            SetMonData(&gPlayerParty[i], MON_DATA_SPECIES, &deoxys);
-            CalculateMonStats(&gPlayerParty[i]);
-            return TRUE;
-        }
-		if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS_ATTACK)
-        {
-            SetMonData(&gPlayerParty[i], MON_DATA_SPECIES, &deoxys);
-            CalculateMonStats(&gPlayerParty[i]);
-            return TRUE;
-        }
-	    if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS_DEFENSE)
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS
+            || GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS_ATTACK
+            || GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS_DEFENSE
+            || GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS_SPEED)
         {
             SetMonData(&gPlayerParty[i], MON_DATA_SPECIES, &deoxys);
             CalculateMonStats(&gPlayerParty[i]);
