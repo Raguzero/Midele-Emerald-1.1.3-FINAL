@@ -1013,6 +1013,13 @@ Route104_EventScript_Darian:: @ 81ED5D5
 	trainerbattle_single TRAINER_DARIAN, Route104_Text_DarianIntro, Route104_Text_DarianDefeat
 	msgbox Route104_Text_DarianPostBattle, MSGBOX_AUTOCLOSE
 	end
+	
+Route104_Arena:: 
+  lock
+  special RockSmashWildEncounter
+  removeobject VAR_LAST_TALKED
+  release
+  end
 
 Route104_Text_BrineyLivesInSeasideCottage: @ 81ED5EC
 	.string "That seaside cottage is where\n"
