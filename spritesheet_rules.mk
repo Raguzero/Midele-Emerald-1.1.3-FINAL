@@ -672,16 +672,16 @@ $(EVENTOBJGFXDIR)/pokemon/moltres.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 	
 $(EVENTOBJGFXDIR)/pokemon/entei.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 4 -mheight 4
+	$(GFX) $< $@ -mwidth 2 -mheight 2
 	
 $(EVENTOBJGFXDIR)/pokemon/raikou.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 4 -mheight 4
+	$(GFX) $< $@ -mwidth 2 -mheight 2
 	
 $(EVENTOBJGFXDIR)/pokemon/suicune.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 4 -mheight 4
+	$(GFX) $< $@ -mwidth 2 -mheight 2
 	
 $(EVENTOBJGFXDIR)/pokemon/mewtwo.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 4 -mheight 4
+	$(GFX) $< $@ -mwidth 2 -mheight 2
 	
 $(EVENTOBJGFXDIR)/pokemon/celebi.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 4 -mheight 4
+	$(GFX) $< $@ -mwidth 2 -mheight 2
