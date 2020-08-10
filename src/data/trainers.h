@@ -12206,4 +12206,87 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_IzabeIsland_Lavender),
         .party = {.ItemCustomMidele = sParty_IzabeIsland_Lavender},
     },
+    [TRAINER_BRENDAN_PROFESSORBIRCHSLAB_MUDKIP] =
+    {
+        .partyFlags = 0,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_BRENDAN,
+        .trainerName = _("BRENDAN"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
+        .partySize = ARRAY_COUNT(sParty_BrendanProfessorBirchsLabMudkip),
+        .party = {.NoItemDefaultMoves = sParty_BrendanProfessorBirchsLabMudkip},
+    },
+
+    [TRAINER_BRENDAN_PROFESSORBIRCHSLAB_TREECKO] =
+    {
+        .partyFlags = 0,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_BRENDAN,
+        .trainerName = _("BRENDAN"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
+        .partySize = ARRAY_COUNT(sParty_BrendanProfessorBirchsLabTreecko),
+        .party = {.NoItemDefaultMoves = sParty_BrendanProfessorBirchsLabTreecko},
+    },
+
+    [TRAINER_BRENDAN_PROFESSORBIRCHSLAB_TORCHIC] =
+    {
+        .partyFlags = 0,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_BRENDAN,
+        .trainerName = _("BRENDAN"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
+        .partySize = ARRAY_COUNT(sParty_BrendanProfessorBirchsLabTorchic),
+        .party = {.NoItemDefaultMoves = sParty_BrendanProfessorBirchsLabTorchic},
+    },
+
+    [TRAINER_MAY_PROFESSORBIRCHSLAB_MUDKIP] =
+    {
+        .partyFlags = 0,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .trainerPic = TRAINER_PIC_MAY,
+        .trainerName = _("MAY"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
+        .partySize = ARRAY_COUNT(sParty_MayProfessorBirchsLabMudkip),
+        .party = {.NoItemDefaultMoves = sParty_MayProfessorBirchsLabMudkip},
+    },
+
+    [TRAINER_MAY_PROFESSORBIRCHSLAB_TREECKO] =
+    {
+        .partyFlags = 0,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .trainerPic = TRAINER_PIC_MAY,
+        .trainerName = _("MAY"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
+        .partySize = ARRAY_COUNT(sParty_MayProfessorBirchsLabTreecko),
+        .party = {.NoItemDefaultMoves = sParty_MayProfessorBirchsLabTreecko},
+    },
+
+    [TRAINER_MAY_PROFESSORBIRCHSLAB_TORCHIC] =
+    {
+        .partyFlags = 0,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .trainerPic = TRAINER_PIC_MAY,
+        .trainerName = _("MAY"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
+        .partySize = ARRAY_COUNT(sParty_MayProfessorBirchsLabTorchic),
+        .party = {.NoItemDefaultMoves = sParty_MayProfessorBirchsLabTorchic},
+    },
 };

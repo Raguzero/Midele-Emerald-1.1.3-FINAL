@@ -627,11 +627,15 @@ LittlerootTown_ProfessorBirchsLab_EventScript_RivalHaveYouGoneToBattleFrontier::
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_MayHaveYouGoneToBattleFrontier:: @ 81FA47E
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_MayHaveYouGoneToBattleFrontier, MSGBOX_DEFAULT
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_MayHaveYouGoneToBattleFrontier, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_FinalBattleMay
 	return
 
 LittlerootTown_ProfessorBirchsLab_EventScript_BrendanHaveYouGoneToBattleFrontier:: @ 81FA487
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanHaveYouGoneToBattleFrontier, MSGBOX_DEFAULT
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanHaveYouGoneToBattleFrontier, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_FinalBattleBrendan
 	return
 
 LittlerootTown_ProfessorBirchsLab_EventScript_RivalTakeBreakFromFieldwork:: @ 81FA490
@@ -644,11 +648,15 @@ LittlerootTown_ProfessorBirchsLab_EventScript_RivalTakeBreakFromFieldwork:: @ 81
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_MayTakeBreakFromFieldwork:: @ 81FA4A9
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_MayTakeBreakFromFieldwork, MSGBOX_DEFAULT
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_MayTakeBreakFromFieldwork, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_FinalBattleMay
 	return
 
 LittlerootTown_ProfessorBirchsLab_EventScript_BrendanTakeBreakFromFieldwork:: @ 81FA4B2
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanTakeBreakFromFieldwork, MSGBOX_DEFAULT
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanTakeBreakFromFieldwork, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_FinalBattleBrendan
 	return
 
 LittlerootTown_ProfessorBirchsLab_EventScript_PC:: @ 81FA4BB
@@ -669,6 +677,55 @@ LittlerootTown_ProfessorBirchsLab_EventScript_ScottAboardSSTidalCall:: @ 81FA4D6
 	waitmessage
 	clearflag FLAG_SCOTT_CALL_BATTLE_FRONTIER
 	releaseall
+	end
+	
+LittlerootTown_ProfessorBirchsLab_EventScript_FinalBattleBrendan::
+	switch VAR_STARTER_MON
+	case 0, LittlerootTown_ProfessorBirchsLab_EventScript_StartBrendanBattleTreecko
+	case 1, LittlerootTown_ProfessorBirchsLab_EventScript_StartBrendanBattleTorchic
+	case 2, LittlerootTown_ProfessorBirchsLab_EventScript_StartBrendanBattleMudkip
+	end
+	
+LittlerootTown_ProfessorBirchsLab_EventScript_FinalBattleMay::
+	switch VAR_STARTER_MON
+	case 0, LittlerootTown_ProfessorBirchsLab_EventScript_StartMayBattleTreecko
+	case 1, LittlerootTown_ProfessorBirchsLab_EventScript_StartMayBattleTorchic
+	case 2, LittlerootTown_ProfessorBirchsLab_EventScript_StartMayBattleMudkip
+	end
+	
+LittlerootTown_ProfessorBirchsLab_EventScript_StartMayBattleTreecko:: @ 81EC48E
+	trainerbattle_no_intro TRAINER_MAY_PROFESSORBIRCHSLAB_TREECKO, Route103_Text_MayDefeated
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_AfterBrendanMayBattle
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_StartMayBattleTorchic:: @ 81EC49E
+	trainerbattle_no_intro TRAINER_MAY_PROFESSORBIRCHSLAB_TORCHIC, Route103_Text_MayDefeated
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_AfterBrendanMayBattle
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_StartMayBattleMudkip:: @ 81EC4AE
+	trainerbattle_no_intro TRAINER_MAY_PROFESSORBIRCHSLAB_MUDKIP, Route103_Text_MayDefeated
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_AfterBrendanMayBattle
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_StartBrendanBattleTreecko:: @ 81EC4BE
+	trainerbattle_no_intro TRAINER_BRENDAN_PROFESSORBIRCHSLAB_TREECKO, Route103_Text_BrendanDefeated
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_AfterBrendanMayBattle
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_StartBrendanBattleTorchic:: @ 81EC4CE
+	trainerbattle_no_intro TRAINER_BRENDAN_PROFESSORBIRCHSLAB_TORCHIC, Route103_Text_BrendanDefeated
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_AfterBrendanMayBattle
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_StartBrendanBattleMudkip:: @ 81EC4DE
+	trainerbattle_no_intro TRAINER_BRENDAN_PROFESSORBIRCHSLAB_MUDKIP, Route103_Text_BrendanDefeated
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_AfterBrendanMayBattle
+	end
+	
+LittlerootTown_ProfessorBirchsLab_EventScript_AfterBrendanMayBattle::
+	msgbox LittlerootTown_ProfessorBirchsLab_AfterBrendanMayBattle, MSGBOX_DEFAULT
+	closemessage
 	end
 
 LittlerootTown_ProfessorBirchsLab_Text_BirchAwayOnFieldwork: @ 81FA4E2
@@ -881,13 +938,35 @@ LittlerootTown_ProfessorBirchsLab_Text_MayTakeBreakFromFieldwork: @ 81FB528
 	.string "MAY: I think I'll take a short break\n"
 	.string "from fieldwork.\p"
 	.string "I think I'll help the PROF here for\n"
-	.string "a while.$"
+	.string "a while.\p"
+	
+	.string "Anyways, let's battle one more time!\n" 
+	.string "I wanna know about what you saw on\p" 
+	.string "your journey, how you felt, and what\n" 
+	.string "you experienced out there.\p" 
+	
+	.string "I want to know all about you and your\n" 
+	.string "Pokémon, {PLAYER}. But that's not all...\p" 
+	
+	.string "I want you to know all about me\n" 
+	.string "and mine! Do we battle?$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BrendanTakeBreakFromFieldwork: @ 81FB58A
 	.string "BRENDAN: For the time being,\n"
 	.string "I'm taking a break from fieldwork.\p"
 	.string "I'll be helping out the PROF here\n"
-	.string "for a while.$"
+	.string "for a while.\p"
+	
+	.string "Anyways, let's battle one more time!\n" 
+	.string "I wanna know about what you saw on\p" 
+	.string "your journey, how you felt, and what\n" 
+	.string "you experienced out there.\p" 
+	
+	.string "I want to know all about you and your\n" 
+	.string "Pokémon, {PLAYER}. But that's not all...\p" 
+	
+	.string "I want you to know all about me\n" 
+	.string "and mine! Do we battle?$"
 
 LittlerootTown_ProfessorBirchsLab_Text_CompletedDexChoosePokemon: @ 81FB5F9
 	.string "PROF. BIRCH: Oh, {PLAYER}{KUN}!\n"
@@ -984,12 +1063,34 @@ LittlerootTown_ProfessorBirchsLab_Text_BrendanPreferCollectingSlowly: @ 81FBC2D
 LittlerootTown_ProfessorBirchsLab_Text_MayHaveYouGoneToBattleFrontier: @ 81FBC8D
 	.string "MAY: Oh, hi, {PLAYER}{KUN}!\n"
 	.string "Have you gone to that place,\l"
-	.string "the BATTLE FRONTIER?$"
+	.string "the BATTLE FRONTIER?\p"
+	
+	.string "Anyways, let's battle one more time!\n" 
+	.string "I wanna know about what you saw on\p" 
+	.string "your journey, how you felt, and what\n" 
+	.string "you experienced out there.\p" 
+	
+	.string "I want to know all about you and your\n" 
+	.string "Pokémon, {PLAYER}. But that's not all...\p" 
+	
+	.string "I want you to know all about me\n" 
+	.string "and mine! Do we battle?$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BrendanHaveYouGoneToBattleFrontier: @ 81FBCD2
 	.string "BRENDAN: Hey, {PLAYER}!\n"
 	.string "Have you gone out to that place,\l"
-	.string "the BATTLE FRONTIER?$"
+	.string "the BATTLE FRONTIER?\p"
+	
+	.string "Anyways, let's battle one more time!\n" 
+	.string "I wanna know about what you saw on\p" 
+	.string "your journey, how you felt, and what\n" 
+	.string "you experienced out there.\p" 
+	
+	.string "I want to know all about you and your\n" 
+	.string "Pokémon, {PLAYER}. But that's not all...\p" 
+	
+	.string "I want you to know all about me\n" 
+	.string "and mine! Do we battle?$"
 
 LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall: @ 81FBD1A
 	.string "… … … … … …\n"
@@ -1007,3 +1108,17 @@ LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall: @ 81FBD1A
 	.string "we meet. I'll be waiting!\p"
 	.string "… … … … … …\n"
 	.string "… … … … … Click!$"
+
+LittlerootTown_ProfessorBirchsLab_AfterBrendanMayBattle:	
+	.string "Thanks, {PLAYER}!\p" 
+	
+	.string "Just what I'd expect from a Champion!\n" 
+	.string "Getting to meet so many\l" 
+	.string "different people...\p" 
+	
+	.string "And so many different Pokémon...\n"
+	.string "It's like... I don't know...\l"
+	.string "It's been really, really fun!\p"
+
+	.string "When you want another battle,\n"
+	.string "let me know!$"

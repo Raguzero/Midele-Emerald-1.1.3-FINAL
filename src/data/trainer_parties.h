@@ -475,6 +475,152 @@ static const struct TrainerMonNoItemDefaultMoves sParty_MayRustboroMudkip[] = {
     .species = SPECIES_DRATINI,
     }
 };
+
+/// NEW BATTLE AFTER POKEMON LEAGUE
+static const struct TrainerMonNoItemDefaultMoves sParty_BrendanProfessorBirchsLabMudkip[] = {
+    {
+    .iv = 150,
+    .lvl = 61,
+    .species = SPECIES_TROPIUS,
+    },
+    {
+    .iv = 150,
+    .lvl = 62,
+    .species = SPECIES_SLUGMA,
+    },
+    {
+    .iv = 150,
+    .lvl = 62,
+    .species = SPECIES_PELIPPER,
+    },
+    {
+    .iv = 150,
+    .lvl = 62,
+    .species = SPECIES_PELIPPER,
+    },
+    {
+    .iv = 200,
+    .lvl = 64,
+    .species = SPECIES_DRAGONAIR,
+    }
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_BrendanProfessorBirchsLabTreecko[] = {
+    {
+    .iv = 150,
+    .lvl = 61,
+    .species = SPECIES_TROPIUS,
+    },
+    {
+    .iv = 150,
+    .lvl = 62,
+    .species = SPECIES_PELIPPER,
+    },
+    {
+    .iv = 150,
+    .lvl = 62,
+    .species = SPECIES_LUDICOLO,
+    },
+    {
+    .iv = 200,
+    .lvl = 64,
+    .species = SPECIES_ZWEILOUS,
+    }
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_BrendanProfessorBirchsLabTorchic[] = {
+    {
+    .iv = 150,
+    .lvl = 61,
+    .species = SPECIES_TROPIUS,
+    },
+    {
+    .iv = 150,
+    .lvl = 62,
+    .species = SPECIES_LUDICOLO,
+    },
+    {
+    .iv = 150,
+    .lvl = 62,
+    .species = SPECIES_SLUGMA,
+    },
+    {
+    .iv = 200,
+    .lvl = 64,
+    .species = SPECIES_HAKAMO_O,
+    }
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_MayProfessorBirchsLabMudkip[] = {
+    {
+    .iv = 150,
+    .lvl = 61,
+    .species = SPECIES_TROPIUS,
+    },
+    {
+    .iv = 150,
+    .lvl = 62,
+    .species = SPECIES_SLUGMA,
+    },
+    {
+    .iv = 150,
+    .lvl = 62,
+    .species = SPECIES_PELIPPER,
+    },
+    {
+    .iv = 200,
+    .lvl = 64,
+    .species = SPECIES_DRAGONAIR,
+    }
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_MayProfessorBirchsLabTreecko[] = {
+    {
+    .iv = 150,
+    .lvl = 61,
+    .species = SPECIES_TROPIUS,
+    },
+    {
+    .iv = 150,
+    .lvl = 62,
+    .species = SPECIES_PELIPPER,
+    },
+    {
+    .iv = 150,
+    .lvl = 62,
+    .species = SPECIES_LUDICOLO,
+    },
+    {
+    .iv = 200,
+    .lvl = 64,
+    .species = SPECIES_ZWEILOUS,
+    }
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_MayProfessorBirchsLabTorchic[] = {
+    {
+    .iv = 150,
+    .lvl = 61,
+    .species = SPECIES_TROPIUS,
+    },
+    {
+    .iv = 150,
+    .lvl = 62,
+    .species = SPECIES_LUDICOLO,
+    },
+    {
+    .iv = 150,
+    .lvl = 62,
+    .species = SPECIES_SLUGMA,
+    },
+    {
+    .iv = 200,
+    .lvl = 64,
+    .species = SPECIES_HAKAMO_O,
+    }
+};
+/// NEW BATTLE AFTER POKEMON LEAGUE
+
 static const struct TrainerMonNoItemDefaultMoves sParty_WallyMauville[] = {
     {
     .iv = 30,
