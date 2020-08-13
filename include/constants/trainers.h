@@ -110,6 +110,14 @@
 #define TRAINER_PIC_RS_BRENDAN            91
 #define TRAINER_PIC_RS_MAY                92
 #define TRAINER_PIC_SOPHOCLES             93
+#define TRAINER_PIC_BROCK             	  94
+#define TRAINER_PIC_MISTY                 95
+#define TRAINER_PIC_LT_SURGE              96
+#define TRAINER_PIC_ERIKA                 97
+#define TRAINER_PIC_SABRINA               98
+#define TRAINER_PIC_KOGA                  99
+#define TRAINER_PIC_BLAINE                100
+#define TRAINER_PIC_GIOVANNI              101
 
 #define TRAINER_BACK_PIC_BRENDAN                0
 #define TRAINER_BACK_PIC_MAY                    1

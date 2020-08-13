@@ -94,6 +94,14 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     [TRAINER_PIC_RS_BRENDAN] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_RS_MAY] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_SOPHOCLES] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_BROCK] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_MISTY] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_LT_SURGE] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_ERIKA] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_SABRINA] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_KOGA] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_BLAINE] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_GIOVANNI] = {.size = 8, .y_offset = 1},
 };
 
 const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
@@ -192,6 +200,14 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(RS_BRENDAN, gTrainerFrontPic_RubySapphireBrendan, 0x800),
     TRAINER_SPRITE(RS_MAY, gTrainerFrontPic_RubySapphireMay, 0x800),
     TRAINER_SPRITE(SOPHOCLES, gTrainerFrontPic_Sophocles, 0x800),
+    TRAINER_SPRITE(BROCK, gTrainerFrontPic_Brock, 0x800),
+    TRAINER_SPRITE(MISTY, gTrainerFrontPic_Misty, 0x800),
+    TRAINER_SPRITE(LT_SURGE, gTrainerFrontPic_Lt_Surge, 0x800),
+    TRAINER_SPRITE(ERIKA, gTrainerFrontPic_Erika, 0x800),
+    TRAINER_SPRITE(SABRINA, gTrainerFrontPic_Sabrina, 0x800),
+    TRAINER_SPRITE(KOGA, gTrainerFrontPic_Koga, 0x800),
+    TRAINER_SPRITE(BLAINE, gTrainerFrontPic_Blaine, 0x800),
+    TRAINER_SPRITE(GIOVANNI, gTrainerFrontPic_Giovanni, 0x800),
 };
 
 const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
@@ -290,4 +306,12 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(RS_BRENDAN, gTrainerPalette_RubySapphireBrendan),
     TRAINER_PAL(RS_MAY, gTrainerPalette_RubySapphireMay),
     TRAINER_PAL(SOPHOCLES, gTrainerPalette_Sophocles),
+    TRAINER_PAL(BROCK, gTrainerPalette_Brock),
+    TRAINER_PAL(MISTY, gTrainerPalette_Misty),
+    TRAINER_PAL(LT_SURGE, gTrainerPalette_Lt_Surge),
+    TRAINER_PAL(ERIKA, gTrainerPalette_Erika),
+    TRAINER_PAL(SABRINA, gTrainerPalette_Sabrina),
+    TRAINER_PAL(KOGA, gTrainerPalette_Koga),
+    TRAINER_PAL(BLAINE, gTrainerPalette_Blaine),
+    TRAINER_PAL(GIOVANNI, gTrainerPalette_Giovanni),
 };

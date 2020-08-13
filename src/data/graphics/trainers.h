@@ -280,6 +280,31 @@ const u32 gTrainerPalette_RubySapphireMay[] = INCBIN_U32("graphics/trainers/pale
 const u32 gTrainerFrontPic_Sophocles[] = INCBIN_U32("graphics/trainers/front_pics/sophocles_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Sophocles[] = INCBIN_U32("graphics/trainers/palettes/sophocles.gbapal.lz");
 
+const u32 gTrainerFrontPic_Brock[] = INCBIN_U32("graphics/trainers/front_pics/leader_brock_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Brock[] = INCBIN_U32("graphics/trainers/palettes/leader_brock.gbapal.lz");
+
+const u32 gTrainerFrontPic_Misty[] = INCBIN_U32("graphics/trainers/front_pics/leader_misty_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Misty[] = INCBIN_U32("graphics/trainers/palettes/leader_misty.gbapal.lz");
+
+const u32 gTrainerFrontPic_Lt_Surge[] = INCBIN_U32("graphics/trainers/front_pics/leader_lt_surge_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Lt_Surge[] = INCBIN_U32("graphics/trainers/palettes/leader_lt_surge.gbapal.lz");
+
+const u32 gTrainerFrontPic_Erika[] = INCBIN_U32("graphics/trainers/front_pics/leader_erika_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Erika[] = INCBIN_U32("graphics/trainers/palettes/leader_erika.gbapal.lz");
+
+const u32 gTrainerFrontPic_Sabrina[] = INCBIN_U32("graphics/trainers/front_pics/leader_sabrina_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Sabrina[] = INCBIN_U32("graphics/trainers/palettes/leader_sabrina.gbapal.lz");
+
+const u32 gTrainerFrontPic_Koga[] = INCBIN_U32("graphics/trainers/front_pics/leader_koga_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Koga[] = INCBIN_U32("graphics/trainers/palettes/leader_koga.gbapal.lz");
+
+const u32 gTrainerFrontPic_Blaine[] = INCBIN_U32("graphics/trainers/front_pics/leader_blaine_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Blaine[] = INCBIN_U32("graphics/trainers/palettes/leader_blaine.gbapal.lz");
+
+const u32 gTrainerFrontPic_Giovanni[] = INCBIN_U32("graphics/trainers/front_pics/leader_giovanni_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Giovanni[] = INCBIN_U32("graphics/trainers/palettes/leader_giovanni.gbapal.lz");
+
+
 const u8 gTrainerBackPic_Brendan[] = INCBIN_U8("graphics/trainers/back_pics/brendan_back_pic.4bpp");
 const u8 gTrainerBackPic_May[] = INCBIN_U8("graphics/trainers/back_pics/may_back_pic.4bpp");
 const u8 gTrainerBackPic_Red[] = INCBIN_U8("graphics/trainers/back_pics/red_back_pic.4bpp");
