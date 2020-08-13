@@ -374,6 +374,38 @@ static const union AnimCmd *const sAnims_Sophocles[] ={
     sAnim_GeneralFrame0,
 };
 
+static const union AnimCmd *const sAnims_Brock[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Misty[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Lt_Surge[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Erika[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Sabrina[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Koga[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Blaine[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Giovanni[] ={
+    sAnim_GeneralFrame0,
+};
+
 const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
 {
     [TRAINER_PIC_HIKER] = sAnims_Hiker,
@@ -470,4 +502,12 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_RS_BRENDAN] = sAnims_RubySapphireBrendan,
     [TRAINER_PIC_RS_MAY] = sAnims_RubySapphireMay,
     [TRAINER_PIC_SOPHOCLES] = sAnims_Sophocles,
+    [TRAINER_PIC_BROCK] = sAnims_Brock,
+    [TRAINER_PIC_MISTY] = sAnims_Misty,
+    [TRAINER_PIC_LT_SURGE] = sAnims_Lt_Surge,
+    [TRAINER_PIC_ERIKA] = sAnims_Erika,
+    [TRAINER_PIC_SABRINA] = sAnims_Sabrina,
+    [TRAINER_PIC_KOGA] = sAnims_Koga,
+    [TRAINER_PIC_BLAINE] = sAnims_Blaine,
+    [TRAINER_PIC_GIOVANNI] = sAnims_Giovanni,
 };
