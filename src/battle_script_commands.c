@@ -1580,11 +1580,24 @@ u8 TypeCalc(u16 move, u8 attacker, u8 defender)
     s32 i = 0;
     u8 flags = 0;
     u8 moveType;
-
+    struct Pokemon *monAttacker;
+    
     if (move == MOVE_STRUGGLE)
         return 0;
+    
+    if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
+        monAttacker = &gPlayerParty[gBattlerPartyIndexes[gBattlerAttacker]];
+    else
+        monAttacker = &gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker]];
 
-    moveType = gBattleMoves[move].type;
+    if (move == MOVE_HIDDEN_POWER)
+    {
+        moveType = monAttacker->box.hpType;;
+    }
+    else
+    {
+        moveType = gBattleMoves[move].type;
+    }
 
     // check stab
     if (IS_BATTLER_OF_TYPE(attacker, moveType))
