@@ -215,6 +215,7 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_CALM_MIND, AI_CBM_CalmMind
 	if_effect EFFECT_DRAGON_DANCE, AI_CBM_DragonDance
 	if_effect EFFECT_QUIVER_DANCE, AI_CBM_QuiverDance
+	if_effect EFFECT_LOCK_ON, AI_CBM_LockOn
 	if_effect EFFECT_COIL, AI_CBM_Coil
 	if_effect EFFECT_HEAL_PULSE, Score_Minus5
 	if_effect EFFECT_MIDELE_POWER Score_Plus10
@@ -612,6 +613,12 @@ AI_CBM_QuiverDance:
 	if_stat_level_not_equal AI_USER, STAT_SPATK, 12, AI_Ret
 	if_stat_level_not_equal AI_USER, STAT_SPDEF, 12, AI_Ret
 	if_stat_level_equal AI_USER, STAT_SPEED, 12, Score_Minus10
+	end
+	
+AI_CBM_LockOn:
+	if_status3 AI_TARGET, STATUS3_ALWAYS_HITS, Score_Minus10
+	if_ability AI_TARGET, ABILITY_NO_GUARD, Score_Minus10
+	if_ability AI_USER, ABILITY_NO_GUARD, Score_Minus10
 	end
 	
 AI_CBM_Coil:
