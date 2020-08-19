@@ -1920,3 +1920,11 @@ const u8 gText_RegisteelDoll256BP[] = _("REGISTEEL DOLL{CLEAR_TO 0x58}18BP");
 // Contador de pasos de huevo
 const u8 gText_EggHatch[] = _("/40");
 const u8 gText_EggHappiness[] = _("HAPPINESS");
+
+const u8 gText_Sunday[] = _("Sunday");
+const u8 gText_Monday[] = _("Monday");
+const u8 gText_Tuesday[] = _("Tuesday");
+const u8 gText_Wednesday[] = _("Wednesday");
+const u8 gText_Thursday[] = _("Thursday");
+const u8 gText_Friday[] = _("Friday");
+const u8 gText_Saturday[] = _("Saturday");
