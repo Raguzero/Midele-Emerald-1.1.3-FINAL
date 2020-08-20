@@ -5133,9 +5133,9 @@
                                 "species": "SPECIES_WURMPLE"
                             },
                             {
-                                "max_level": 6,
+                                "max_level": 7,
                                 "min_level": 4,
-                                "species": "SPECIES_AIPOM"
+                                "species": "SPECIES_LEDYBA"
                             },
                             {
                                 "max_level": 6,
@@ -5154,17 +5154,82 @@
                             },
                             {
                                 "max_level": 7,
-                                "min_level": 6,
+                                "min_level": 4,
                                 "species": "SPECIES_SHROOMISH"
                             },
                             {
-                                "max_level": 7,
-                                "min_level": 6,
-                                "species": "SPECIES_SILCOON"
+                                "max_level": 6,
+                                "min_level": 4,
+                                "species": "SPECIES_AIPOM"
                             },
                             {
                                 "max_level": 7,
+                                "min_level": 5,
+                                "species": "SPECIES_SILCOON"
+                            },
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_SLAKOTH"
+                            },
+                            {
+                                "max_level": 6,
                                 "min_level": 6,
+                                "species": "SPECIES_SLAKOTH"
+                            },
+                            {
+                                "max_level": 7,
+                                "min_level": 7,
+                                "species": "SPECIES_SLAKOTH"
+                            }
+                        ]
+                    },
+                    "land_mons_night": {
+                        "encounter_rate": 0,
+                        "mons": [
+                            {
+                                "max_level": 7,
+                                "min_level": 4,
+                                "species": "SPECIES_ROOKIDEE"
+                            },
+                            {
+                                "max_level": 6,
+                                "min_level": 5,
+                                "species": "SPECIES_WURMPLE"
+                            },
+                            {
+                                "max_level": 7,
+                                "min_level": 4,
+                                "species": "SPECIES_SPINARAK"
+                            },
+                            {
+                                "max_level": 6,
+                                "min_level": 5,
+                                "species": "SPECIES_WEEDLE"
+                            },
+                            {
+                                "max_level": 7,
+                                "min_level": 5,
+                                "species": "SPECIES_COTTONEE"
+                            },
+                            {
+                                "max_level": 6,
+                                "min_level": 5,
+                                "species": "SPECIES_CATERPIE"
+                            },
+                            {
+                                "max_level": 7,
+                                "min_level": 4,
+                                "species": "SPECIES_SHROOMISH"
+                            },
+                            {
+                                "max_level": 6,
+                                "min_level": 4,
+                                "species": "SPECIES_AIPOM"
+                            },
+                            {
+                                "max_level": 7,
+                                "min_level": 5,
                                 "species": "SPECIES_CASCOON"
                             },
                             {
@@ -5194,6 +5259,71 @@
                             {
                                 "max_level": 4,
                                 "min_level": 2,
+                                "species": "SPECIES_ZIGZAGOON"
+                            },
+                            {
+                                "max_level": 4,
+                                "min_level": 2,
+                                "species": "SPECIES_POOCHYENA"
+                            },
+                            {
+                                "max_level": 4,
+                                "min_level": 2,
+                                "species": "SPECIES_SENTRET"
+                            },
+                            {
+                                "max_level": 4,
+                                "min_level": 2,
+                                "species": "SPECIES_RATTATA"
+                            },
+                            {
+                                "max_level": 4,
+                                "min_level": 3,
+                                "species": "SPECIES_RATTATA"
+                            },
+                            {
+                                "max_level": 4,
+                                "min_level": 2,
+                                "species": "SPECIES_LILLIPUP"
+                            },
+                            {
+                                "max_level": 3,
+                                "min_level": 3,
+                                "species": "SPECIES_GALAR_ZIGZAGOON"
+                            },
+                            {
+                                "max_level": 3,
+                                "min_level": 2,
+                                "species": "SPECIES_ZIGZAGOON"
+                            },
+                            {
+                                "max_level": 4,
+                                "min_level": 2,
+                                "species": "SPECIES_ALOLAN_RATTATA"
+                            },
+                            {
+                                "max_level": 2,
+                                "min_level": 2,
+                                "species": "SPECIES_GALAR_ZIGZAGOON"
+                            },
+                            {
+                                "max_level": 3,
+                                "min_level": 2,
+                                "species": "SPECIES_ALOLAN_RATTATA"
+                            },
+                            {
+                                "max_level": 3,
+                                "min_level": 3,
+                                "species": "SPECIES_ALOLAN_RATTATA"
+                            }
+                        ]
+                    },
+                    "land_mons_night": {
+                        "encounter_rate": 20,
+                        "mons": [
+                            {
+                                "max_level": 4,
+                                "min_level": 2,
                                 "species": "SPECIES_GALAR_ZIGZAGOON"
                             },
                             {
@@ -5204,7 +5334,12 @@
                             {
                                 "max_level": 4,
                                 "min_level": 2,
-                                "species": "SPECIES_ZIGZAGOON"
+                                "species": "SPECIES_ALOLAN_RATTATA"
+                            },
+                            {
+                                "max_level": 4,
+                                "min_level": 2,
+                                "species": "SPECIES_ALOLAN_RATTATA"
                             },
                             {
                                 "max_level": 4,
@@ -5214,42 +5349,37 @@
                             {
                                 "max_level": 4,
                                 "min_level": 2,
-                                "species": "SPECIES_RATTATA"
-                            },
-                            {
-                                "max_level": 3,
-                                "min_level": 3,
-                                "species": "SPECIES_ALOLAN_RATTATA"
-                            },
-                            {
-                                "max_level": 3,
-                                "min_level": 3,
                                 "species": "SPECIES_GALAR_ZIGZAGOON"
                             },
                             {
                                 "max_level": 3,
-                                "min_level": 2,
+                                "min_level": 3,
                                 "species": "SPECIES_ZIGZAGOON"
                             },
                             {
-                                "max_level": 2,
+                                "max_level": 3,
                                 "min_level": 2,
-                                "species": "SPECIES_ALOLAN_RATTATA"
+                                "species": "SPECIES_LILLIPUP"
                             },
                             {
-                                "max_level": 2,
+                                "max_level": 4,
                                 "min_level": 2,
                                 "species": "SPECIES_RATTATA"
                             },
                             {
+                                "max_level": 2,
+                                "min_level": 2,
+                                "species": "SPECIES_SENTRET"
+                            },
+                            {
                                 "max_level": 3,
                                 "min_level": 2,
-                                "species": "SPECIES_ALOLAN_RATTATA"
+                                "species": "SPECIES_SENTRET"
                             },
                             {
                                 "max_level": 3,
                                 "min_level": 3,
-                                "species": "SPECIES_ALOLAN_RATTATA"
+                                "species": "SPECIES_RATTATA"
                             }
                         ]
                     },
@@ -13015,6 +13145,23 @@
                         ]
                     },
                     "type": "fishing_mons"
+                },
+                {
+                    "encounter_rates": [
+                        20,
+                        20,
+                        10,
+                        10,
+                        10,
+                        10,
+                        5,
+                        5,
+                        4,
+                        4,
+                        1,
+                        1
+                    ],
+                    "type": "land_mons_night"
                 }
             ],
             "for_maps": true,
