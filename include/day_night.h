@@ -13,6 +13,7 @@ struct PaletteOverride
 extern u16 gPlttBufferPreDN[];
 extern struct PaletteOverride *gPaletteOverrides[];
 
+bool8 IsCurrentlyDay(void);
 u8 GetCurrentTimeOfDay(void);
 u8 GetTimeOfDay(s8 hours);
 void LoadCompressedPaletteDayNight(const void *src, u16 offset, u16 size);
