@@ -8069,18 +8069,12 @@ static void Cmd_tryKO(void)
         {
             chance = FALSE;
         }
-        else if (!(gStatuses3[gBattlerTarget] & STATUS3_ALWAYS_HITS))
+        else if ((((gStatuses3[gBattlerTarget] & STATUS3_ALWAYS_HITS) && gDisableStructs[gBattlerTarget].battlerWithSureHit == gBattlerAttacker) // si debe no fallar por Telépata/Fijar Blanco
+              || gBattleMons[gBattlerTarget].ability == ABILITY_NO_GUARD    // o porque alguno tiene No Guard
+              || gBattleMons[gBattlerAttacker].ability == ABILITY_NO_GUARD)
+            && gBattleMons[gBattlerAttacker].level >= gBattleMons[gBattlerTarget].level) // y siempre que el nivel no sea superior
         {
-            chance = gBattleMoves[gCurrentMove].accuracy + (gBattleMons[gBattlerAttacker].level - gBattleMons[gBattlerTarget].level);
-            if (Random() % 100 + 1 < chance && gBattleMons[gBattlerAttacker].level >= gBattleMons[gBattlerTarget].level)
-                chance = TRUE;
-            else
-                chance = FALSE;
-        }
-        else if (gDisableStructs[gBattlerTarget].battlerWithSureHit == gBattlerAttacker
-                 && gBattleMons[gBattlerAttacker].level >= gBattleMons[gBattlerTarget].level)
-        {
-            chance = TRUE;
+            chance = TRUE; // acierta siempre
         }
         else
         {
