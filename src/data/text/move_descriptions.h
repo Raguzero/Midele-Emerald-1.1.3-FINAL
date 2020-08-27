@@ -295,7 +295,7 @@ static const u8 sLeechSeedDescription[] = _(
 
 static const u8 sGrowthDescription[] = _(
     "Forces the body to grow\n"
-    "and heightens SP. ATK.");
+    "and heightens ATK & SPATK.");
 
 static const u8 sRazorLeafDescription[] = _(
     "Cuts the enemy with leaves.\n"
@@ -323,7 +323,7 @@ static const u8 sPetalDanceDescription[] = _(
 
 static const u8 sStringShotDescription[] = _(
     "Binds the foe with string\n"
-    "to reduce its SPEED.");
+    "to sharply reduce SPEED.");
 
 static const u8 sDragonRageDescription[] = _(
     "Launches shock waves that\n"
@@ -918,8 +918,8 @@ static const u8 sRapidSpinDescription[] = _(
     "speed to strike the foe.");
 
 static const u8 sSweetScentDescription[] = _(
-    "Allures the foe to reduce\n"
-    "evasiveness.");
+    "Allures the foe to sharply\n"
+    "reduce evasiveness.");
 
 static const u8 sIronTailDescription[] = _(
     "Attacks with a rock-hard\n"
@@ -1174,8 +1174,8 @@ static const u8 sCamouflageDescription[] = _(
     "depending on the location.");
 
 static const u8 sTailGlowDescription[] = _(
-    "Flashes a light that sharply\n"
-    "raises SP. ATK.");
+    "Flashes a light that\n"
+    "drastically raises SP. ATK.");
 
 static const u8 sLusterPurgeDescription[] = _(
     "Attacks with a burst of\n"
