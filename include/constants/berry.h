@@ -25,4 +25,7 @@
 #define BERRY_STAGE_BERRIES     5
 #define BERRY_STAGE_SPARKLING   255
 
+// NUEVO: número máximo de bayas por árbol
+#define BERRY_MAX_YIELD 5
+
 #endif // GUARD_CONSTANTS_BERRY_H
