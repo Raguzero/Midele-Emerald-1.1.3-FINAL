@@ -1824,10 +1824,6 @@ const u8 gText_Berry[] = _("BERRY");
 const u8 gText_Berries[] = _("BERRIES");
 const u8 gText_Nickname[] = _("NICKNAME"); // NUEVO PARA MOTE EN EQUIPO
 
-// NUEVO: Menú Midele
-const u8 gText_IVs[] = _("IVs");
-const u8 gText_EVs[] = _("EVs");
-
 // NUEVO: nombres de tipos (para NPC Hidden Power)
 const u8 gText_FightingType[] = _("FIGHTING");
 const u8 gText_FlyingType[] = _("FLYING");

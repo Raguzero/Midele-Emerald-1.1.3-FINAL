@@ -2963,10 +2963,6 @@ extern const u8 gText_Thursday[];
 extern const u8 gText_Friday[];
 extern const u8 gText_Saturday[];
 
-// NUEVO: Menú midele
-extern const u8 gText_IVs[];
-extern const u8 gText_EVs[];
-
 // NUEVO: nombres de tipos (para NPC Hidden Power)
 extern const u8 gText_FightingType[];
 extern const u8 gText_FlyingType[];
