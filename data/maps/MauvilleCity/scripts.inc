@@ -792,7 +792,7 @@ MauvilleCity_Text_BeenCheckingOutTV: @ 81E0699
 MauvilleCity_Text_IzabeIslandManGoToIsland::
 MauvilleCity_Text_GoToIzabeIsland::
 	.string "Perdona, joven...\p"
-	.string "¿Has oído hablar de ISLA IZABE?\n"
+	.string "¿Has oído hablar de IZABE ISLAND?\n"
 	.string "Es una isla helada que se encuentra\l"
 	.string "al sur de SOOTOPOLIS...\p"
 	.string "Pues bien, me han enviado desde allí\n"
@@ -809,7 +809,7 @@ MauvilleCity_Text_IzabeIslandManWaiting::
 	.string "fuerte...$"
 
 MauvilleCity_Text_IzabeIslandManYouAreBack::
-	.string "¡Has vuelto de ISLA IZABE!\p"
+	.string "¡Has vuelto de IZABE ISLAND!\p"
 	.string "Con esto mi trabajo ha terminado.\n"
 	.string "Supongo que me quedaré aquí durante\l"
 	.string "un tiempo...$"

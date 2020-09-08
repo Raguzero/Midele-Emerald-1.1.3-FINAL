@@ -582,7 +582,7 @@ SlateportCity_Harbor_Text_IzabeSailorDefeated:
 	.string "a los pobres.$"
 
 SlateportCity_Harbor_Text_IzabeSailorRideBoat:
-	.string "¿Quieres ir a ISLA IZABE? Te llevaré en\n"
+	.string "¿Quieres ir a IZABE ISLAND? Te llevaré en\n"
 	.string "mi galeón, el TERROR DEL DLC...\l"
 	.string "¿Qué dices?$"
 	
