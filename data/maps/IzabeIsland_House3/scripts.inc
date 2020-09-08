@@ -55,7 +55,7 @@ IzabeIsland_House3_EventScript_LabMon::
 	goto_if_set FLAG_RECEIVED_MICOLO_MON, IzabeIsland_House3_EventScript_AlreadyReceivedMonEnd
 	msgbox IzabeIsland_House3_Text_LabMon, MSGBOX_DEFAULT
 	setvar VAR_TEMP_1, SPECIES_FLOETTE
-	givemon SPECIES_FLOETTE, 35, ITEM_PETAYA_BERRY, TRUE, TRUE
+	givemon SPECIES_FLOETTE, 30, ITEM_PETAYA_BERRY, TRUE, TRUE
 	compare VAR_RESULT, 0
 	goto_if_eq IzabeIsland_House3_EventScript_ReceiveMonParty
 	compare VAR_RESULT, 1
