@@ -99,11 +99,6 @@
 #define PSS_DATA_WINDOW_MOVE_PP 1
 #define PSS_DATA_WINDOW_MOVE_DESCRIPTION 2
 
-// NUEVO: Definiciones del estado del menú de SKILLS al pulsar A
-#define MIDELE_SKILLS_NEXT_IVS 0
-#define MIDELE_SKILLS_NEXT_EVS 1
-#define MIDELE_SKILLS_NEXT_STATS 2
-
 static EWRAM_DATA struct PokemonSummaryScreenData
 {
     /*0x00*/ union {
@@ -169,23 +164,6 @@ static EWRAM_DATA struct PokemonSummaryScreenData
 } *sMonSummaryScreen = NULL;
 EWRAM_DATA u8 gLastViewedMonIndex = 0;
 static EWRAM_DATA u8 sMoveSlotToReplace = 0;
-static EWRAM_DATA struct MideleSummaryData {
-    // ** NUEVO: EVs e IVs para la pantalla
-    u8 hpEV; // 0x49
-    u8 atkEV; // 0x4A
-    u8 defEV; // 0x4B
-    u8 spatkEV; // 0x4C
-    u8 spdefEV; // 0x4D
-    u8 speedEV; // 0x4E
-    u8 hpIV; // 0x4F
-    u8 atkIV; // 0x50
-    u8 defIV; // 0x51
-    u8 spatkIV; // 0x52
-    u8 spdefIV; // 0x53
-    u8 speedIV; // 0x54
-    u8 skillsPageState; // Decide qué mostrar al pulsar A
-    // **
-} *sMideleData = NULL;
 static EWRAM_DATA u8 sMideleHiddenPowerType = 0;
 ALIGNED(4) static EWRAM_DATA u8 sUnknownTaskId = 0;
 
@@ -318,13 +296,6 @@ static void sub_81C4BE4(struct Sprite *sprite);
 static void sub_81C4C60(u8 a);
 static void sub_81C4C84(u8 a);
 static void sub_81C4D18(u8 a);
-static void MideleChangeSkillsPage(void);
-static void MidelePrintIVsPageText(void);
-static void MideleBufferLeftColumnIVStats(void);
-static void MideleBufferRightColumnIVStats(void);
-static void MidelePrintEVsPageText(void);
-static void MideleBufferLeftColumnEVStats(void);
-static void MideleBufferRightColumnEVStats(void);
 
 // const rom data
 #include "data/text/move_descriptions.h"
@@ -1086,10 +1057,6 @@ static const u16 sSummaryMarkingsPalette[] = INCBIN_U16("graphics/interface/summ
 void ShowPokemonSummaryScreen(u8 mode, void *mons, u8 monIndex, u8 maxMonIndex, void (*callback)(void))
 {
     sMonSummaryScreen = AllocZeroed(sizeof(*sMonSummaryScreen));
-    // ** NUEVO: Inicializar estructura IVs/EVs y estado
-    sMideleData = AllocZeroed(sizeof(*sMideleData));
-    sMideleData->skillsPageState = MIDELE_SKILLS_NEXT_IVS;
-    // **
     sMonSummaryScreen->mode = mode;
     sMonSummaryScreen->monList.mons = mons;
     sMonSummaryScreen->curMonIndex = monIndex;
@@ -1446,21 +1413,6 @@ static bool8 ExtractMonDataToSummaryStruct(struct Pokemon *mon)
             sum->spdef = GetMonData(mon, MON_DATA_SPDEF2);
             sum->speed = GetMonData(mon, MON_DATA_SPEED2);
         }
-        //** NUEVO: EVs e IVs para la pantalla
-        sMideleData->hpEV = GetMonData(mon, MON_DATA_HP_EV);
-        sMideleData->atkEV = GetMonData(mon, MON_DATA_ATK_EV);
-        sMideleData->defEV = GetMonData(mon, MON_DATA_DEF_EV);
-        sMideleData->spatkEV = GetMonData(mon, MON_DATA_SPATK_EV);
-        sMideleData->spdefEV = GetMonData(mon, MON_DATA_SPDEF_EV);
-        sMideleData->speedEV = GetMonData(mon, MON_DATA_SPEED_EV);
-        sMideleData->hpIV = GetMonData(mon, MON_DATA_HP_IV);
-        sMideleData->atkIV = GetMonData(mon, MON_DATA_ATK_IV);
-        sMideleData->defIV = GetMonData(mon, MON_DATA_DEF_IV);
-        sMideleData->spatkIV = GetMonData(mon, MON_DATA_SPATK_IV);
-        sMideleData->spdefIV = GetMonData(mon, MON_DATA_SPDEF_IV);
-        sMideleData->speedIV = GetMonData(mon, MON_DATA_SPEED_IV);
-        sMideleHiddenPowerType = mon->box.hpType;
-        //**
         break;
     case 3:
         GetMonData(mon, MON_DATA_OT_NAME, sum->OTName);
@@ -1516,7 +1468,6 @@ static void FreeSummaryScreen(void)
 {
     FreeAllWindowBuffers();
     Free(sMonSummaryScreen);
-    Free(sMideleData);
 }
 
 static void BeginCloseSummaryScreen(u8 taskId)
@@ -1578,19 +1529,6 @@ static void HandleInput(u8 taskId)
                     PlaySE(SE_SELECT);
                     sub_81C0E48(taskId);
                 }
-            } else {
-                // ** NUEVO: pulsar botón A en pantalla de SKILLS para ver IVs/EVs
-                u8 i;
-                PlaySE(SE_SELECT);
-                ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_LEFT);
-                ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_RIGHT);
-                 for (i = 0; i < ARRAY_COUNT(sMonSummaryScreen->windowIds); i++)
-                 {
-                     SummaryScreen_RemoveWindowByIndex(i);
-                 }
-                MideleChangeSkillsPage();
-
-                // **
             }
         }
         else if (gMain.newKeys & B_BUTTON)
@@ -1606,9 +1544,6 @@ static void ChangeSummaryPokemon(u8 taskId, s8 delta)
 {
     s8 v1;
     s8 v2;
-
-    // NUEVO: resetear el ciclo de menús IVs/EVs pulsar A cuando cambias el mon visualizado en el menú
-    sMideleData->skillsPageState = MIDELE_SKILLS_NEXT_IVS;
 
     if (!sMonSummaryScreen->lockMonFlag)
     {
@@ -1795,9 +1730,6 @@ static void ChangePage(u8 taskId, s8 delta)
 {
     struct PokeSummary *summary = &sMonSummaryScreen->summary;
     s16 *data = gTasks[taskId].data;
-
-    // NUEVO: resetear el ciclo de menús IVs/EVs cuando cambias de página del menú
-    sMideleData->skillsPageState = MIDELE_SKILLS_NEXT_IVS;
 
     if (summary->isEgg)
         return;
@@ -2781,11 +2713,7 @@ static void PrintMonInfo(void)
         PrintNotEggInfo();
     else
         PrintEggInfo();
-    // BUG: al cambiar de huevo a mon se borra temporalmente el nivel y nickname.
-    if (sMonSummaryScreen->summary.isEgg ) {
-        schedule_bg_copy_tilemap_to_vram(0);
-    } else {
-    }
+    schedule_bg_copy_tilemap_to_vram(0);
      
 }
 
@@ -4293,101 +4221,4 @@ static void sub_81C4D18(u8 firstSpriteId)
         gSprites[spriteIds[i]].data[1] = 0;
         gSprites[spriteIds[i]].invisible = FALSE;
     }
-}
-
-static void MideleChangeSkillsPage(void) {
-    u8 skillsState = sMideleData->skillsPageState;
-    switch (skillsState)
-    {
-        case MIDELE_SKILLS_NEXT_IVS:
-            MidelePrintIVsPageText();
-            sMideleData->skillsPageState = MIDELE_SKILLS_NEXT_EVS;
-            break;
-        case MIDELE_SKILLS_NEXT_EVS:
-            MidelePrintEVsPageText();
-            sMideleData->skillsPageState = MIDELE_SKILLS_NEXT_STATS;
-            break;
-        case MIDELE_SKILLS_NEXT_STATS:
-            PrintSkillsPageText();
-            sMideleData->skillsPageState = MIDELE_SKILLS_NEXT_IVS;
-            break;
-        default:
-            PrintSkillsPageText();
-            sMideleData->skillsPageState = MIDELE_SKILLS_NEXT_IVS;
-            break;
-    }
-}
-
-static void MidelePrintIVsPageText(void) {
-    PrintHeldItemName();
-    PrintRibbonCount();
-    MideleBufferLeftColumnIVStats();
-    PrintLeftColumnStats();
-    MideleBufferRightColumnIVStats();
-    PrintRightColumnStats();
-    PrintExpPointsNextLevel();
-}
-
-static void MideleBufferLeftColumnIVStats(void)
-{
-    u8 *hpIVString = Alloc(20);
-    u8 *atkIVString = Alloc(20);
-    u8 *defIVString = Alloc(20);
-
-    DynamicPlaceholderTextUtil_Reset();
-    DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gText_IVs);
-    BufferStat(hpIVString, 0, sMideleData->hpIV, 1, 3);
-    BufferStat(atkIVString, 0, sMideleData->atkIV, 2, 7);
-    BufferStat(defIVString, 0, sMideleData->defIV, 3, 7);
-    DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, sStatsLeftColumnLayout);
-
-    Free(hpIVString);
-    Free(atkIVString);
-    Free(defIVString);
-}
-
-static void MideleBufferRightColumnIVStats(void)
-{
-    DynamicPlaceholderTextUtil_Reset();
-    BufferStat(gStringVar1, 0, sMideleData->spatkIV, 0, 3);
-    BufferStat(gStringVar2, 0, sMideleData->spdefIV, 1, 3);
-    BufferStat(gStringVar3, 0, sMideleData->speedIV, 2, 3);
-    DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, sStatsRightColumnLayout);
-}
-
-static void MidelePrintEVsPageText(void) {
-    PrintHeldItemName();
-    PrintRibbonCount();
-    MideleBufferLeftColumnEVStats();
-    PrintLeftColumnStats();
-    MideleBufferRightColumnEVStats();
-    PrintRightColumnStats();
-    PrintExpPointsNextLevel();
-}
-
-static void MideleBufferLeftColumnEVStats(void)
-{
-    u8 *hpEVString = Alloc(20);
-    u8 *atkEVString = Alloc(20);
-    u8 *defEVString = Alloc(20);
-
-    DynamicPlaceholderTextUtil_Reset();
-    DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gText_EVs);
-    BufferStat(hpEVString, 0, sMideleData->hpEV, 1, 3);
-    BufferStat(atkEVString, 0, sMideleData->atkEV, 2, 7);
-    BufferStat(defEVString, 0, sMideleData->defEV, 3, 7);
-    DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, sStatsLeftColumnLayout);
-
-    Free(hpEVString);
-    Free(atkEVString);
-    Free(defEVString);
-}
-
-static void MideleBufferRightColumnEVStats(void)
-{
-    DynamicPlaceholderTextUtil_Reset();
-    BufferStat(gStringVar1, 0, sMideleData->spatkEV, 0, 3);
-    BufferStat(gStringVar2, 0, sMideleData->spdefEV, 1, 3);
-    BufferStat(gStringVar3, 0, sMideleData->speedEV, 2, 3);
-    DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, sStatsRightColumnLayout);
 }
