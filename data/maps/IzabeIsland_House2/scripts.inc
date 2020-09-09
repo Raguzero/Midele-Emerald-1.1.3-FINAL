@@ -4,6 +4,7 @@ IzabeIsland_House2_MapScripts::
 IzabeIsland_House2_EventScript_OldWoman::
 	lock
 	faceplayer
+	goto_if_unset FLAG_SYS_GAME_CLEAR, IzabeIsland_House2_EventScript_NotStrong
 	goto_if_set FLAG_RECEIVED_IZABE_ITEM_LUCKY_EGG, IzabeIsland_House2_EventScript_AlreadyReceivedItem
 	msgbox IzabeIsland_House2_Text_GiveItem, MSGBOX_DEFAULT
 	giveitem ITEM_LUCKY_EGG
@@ -19,6 +20,11 @@ IzabeIsland_House2_EventScript_AlreadyReceivedItem::
 	release
 	end
 
+IzabeIsland_House2_EventScript_NotStrong::
+	msgbox IzabeIsland_House2_Text_NotStrong, MSGBOX_DEFAULT
+	release
+	end
+
 IzabeIsland_House2_Text_GiveItem::
 	.string "Ver crecer a tus POKéMON es algo muy\n"
 	.string "bonito...\p"
@@ -30,3 +36,8 @@ IzabeIsland_House2_Text_GiveItem::
 IzabeIsland_House2_Text_AlreadyReceivedItem::
 	.string "El POKeMON que lleve equipado LUCKY EGG\n"
 	.string "ganará mucha más experiencia.$"
+
+IzabeIsland_House2_Text_NotStrong::
+	.string "Mmm... Tus POKéMON...\p"
+	.string "Todavía no. Vuelve cuando seas más\n"
+	.string "fuerte y te regalaré algo.$"
