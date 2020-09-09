@@ -17431,7 +17431,7 @@ static const struct TrainerMonCustomMidele sParty_IzabeIsland_Lavender[] = {
     .friendship = 255,
     .nature = NATURE_ADAMANT,
 	.evs = {0, 84, 0, 0, 0, 84},
-    .moves = {MOVE_RETURN, MOVE_MILK_DRINK, MOVE_ROLLOUT, MOVE_THUNDER_WAVE}
+    .moves = {MOVE_HEADBUTT, MOVE_MILK_DRINK, MOVE_ROLLOUT, MOVE_THUNDER_WAVE}
     },
     {
     .iv = 31,
@@ -17471,15 +17471,15 @@ static const struct TrainerMonCustomMidele sParty_IzabeIsland_Lavender[] = {
     },
     {
     .iv = 31,
-    .lvl = 33,
-    .species = SPECIES_PORYGON_Z,
+    .lvl = 32,
+    .species = SPECIES_PORYGON2,
 	.heldItem = ITEM_SITRUS_BERRY,
     .ability = 0,
     .shiny = 1,
     .friendship = 255,
     .nature = NATURE_JOLLY,
 	.evs = {0, 0, 0, 84, 0, 84},
-    .moves = {MOVE_THUNDERBOLT, MOVE_PSYCHIC, MOVE_ICE_BEAM, MOVE_THUNDER_WAVE}
+    .moves = {MOVE_THUNDERBOLT, MOVE_PSYCHIC, MOVE_ICE_BEAM, MOVE_AGILITY}
     },
     {
     .iv = 31,
