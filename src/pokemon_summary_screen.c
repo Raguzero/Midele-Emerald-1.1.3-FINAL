@@ -700,7 +700,8 @@ static void (*const sTextPrinterTasks[])(u8 taskId) =
 static const u8 sMemoNatureTextColor[] = _("{COLOR LIGHT_RED}{SHADOW GREEN}");
 static const u8 sMemoMiscTextColor[] = _("{COLOR WHITE}{SHADOW DARK_GREY}"); // This is also affected by palettes, apparently
 static const u8 sStatsLeftColumnLayout[] = _("{SPECIAL_F7 0x00}/{SPECIAL_F7 0x01}\n{SPECIAL_F7 0x02}\n{SPECIAL_F7 0x03}");
-static const u8 sStatsLeftColumnLayoutIVEV[] = _("{SPECIAL_F7 0x00}\n{SPECIAL_F7 0x01}\n{SPECIAL_F7 0x02}");
+static const u8 sStatsLeftColumnLayoutIV[] = _("IVs/{SPECIAL_F7 0x00}\n{SPECIAL_F7 0x01}\n{SPECIAL_F7 0x02}");
+static const u8 sStatsLeftColumnLayoutEV[] = _("EVs/{SPECIAL_F7 0x00}\n{SPECIAL_F7 0x01}\n{SPECIAL_F7 0x02}");
 static const u8 sStatsRightColumnLayout[] = _("{SPECIAL_F7 0x00}\n{SPECIAL_F7 0x01}\n{SPECIAL_F7 0x02}");
 static const u8 sMovesPPLayout[] = _("{PP}{SPECIAL_F7 0x00}/{SPECIAL_F7 0x01}");
 
@@ -3411,12 +3412,14 @@ static void BufferStat(u8 *dst, s8 natureMod, u32 stat, u32 strId, u32 n)
 static void BufferIvOrEvStats(u8 mode)
 {
     u16 hp, hp2, atk, def, spA, spD, spe;
+    const u8* leftRowTemplate;
     u8 *currHPString = Alloc(20);
     const s8 *natureMod = gNatureStatTable[sMonSummaryScreen->summary.nature];
 
     switch (mode)
     {
     case 0: // iv mode
+        leftRowTemplate = sStatsLeftColumnLayoutIV;
         hp = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HP_IV);
         atk = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_ATK_IV);
         def = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_DEF_IV);
@@ -3426,6 +3429,7 @@ static void BufferIvOrEvStats(u8 mode)
         spe = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPEED_IV);
         break;
     case 1: // ev mode
+        leftRowTemplate = sStatsLeftColumnLayoutEV;
         hp = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HP_EV);
         atk = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_ATK_EV);
         def = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_DEF_EV);
@@ -3454,10 +3458,10 @@ static void BufferIvOrEvStats(u8 mode)
     {
     case 0:
     case 1:
-        BufferStat(gStringVar1, 0, hp, 0, 7);
+        BufferStat(gStringVar1, 0, hp, 0, 3);
         BufferStat(gStringVar2, 0, atk, 1, 7);
         BufferStat(gStringVar3, 0, def, 2, 7);
-        DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, sStatsLeftColumnLayoutIVEV);
+        DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, leftRowTemplate);
         PrintLeftColumnStats();
 
         BufferStat(gStringVar1, 0, spA, 0, 3);
