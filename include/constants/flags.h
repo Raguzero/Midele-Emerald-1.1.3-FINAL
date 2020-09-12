@@ -41,7 +41,7 @@
 #define FLAG_TEMP_1F     (TEMP_FLAGS_START + 0x1F)
 #define TEMP_FLAGS_END   FLAG_TEMP_1F
 
-#define FLAG_JIRACHI    0x20 // NEW LEGEND ENCOUNTER
+#define FLAG_DEFEATED_JIRACHI    0x20 // NEW LEGEND ENCOUNTER
 #define FLAG_RYU_RANDOMBATTLE    0x21 // NEW SPECIAL TRAINER
 #define FLAG_RYU_RANDOMBATTLECC    0x22 // NEW SPECIAL TRAINER
 #define FLAG_TOTEM_NEWMAUVILLE    0x23 // NEW TOTEM
@@ -57,7 +57,7 @@
 #define FLAG_CAUGHT_SUICUNE    0x2D // Unused Flag
 #define FLAG_DEFEATED_SUICUNE    0x2E // Unused Flag
 #define FLAG_HIDE_SUICUNE    0x2F // Unused Flag
-#define FLAG_UNUSED_0x030    0x30 // Unused Flag
+#define FLAG_CAUGHT_JIRACHI  0x30 // Previously unused Flag
 #define FLAG_UNUSED_0x031    0x31 // Unused Flag
 #define FLAG_UNUSED_0x032    0x32 // Unused Flag
 #define FLAG_UNUSED_0x033    0x33 // Unused Flag

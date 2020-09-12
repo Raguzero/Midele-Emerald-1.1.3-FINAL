@@ -54,7 +54,9 @@ MossdeepCity_EventScript_Woman:: @ 81E4B0B
 	end
 
 MossdeepCity_EventScript_WhiteRock:: @ 81E4B14
-    goto_if_set FLAG_JIRACHI WHITEROCK
+	goto_if_unset FLAG_SYS_GAME_CLEAR, WHITEROCK
+	goto_if_set FLAG_CAUGHT_JIRACHI, WHITEROCK
+    goto_if_set FLAG_DEFEATED_JIRACHI WHITEROCK
 	msgbox PEDIR_DESEO MSGBOX_YESNO
 	Compare VAR_RESULT 1
 	goto_if 0 NOPEDIRDESEO
@@ -64,9 +66,18 @@ MossdeepCity_EventScript_WhiteRock:: @ 81E4B14
 	delay 20
 	waitmoncry
 	setwildbattle SPECIES_JIRACHI, 60, ITEM_STAR_PIECE
-	setflag FLAG_JIRACHI
 	special BattleSetup_StartLegendaryBattle
 	waitstate
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq MossdeepCity_EventScript_WhiteRock_End
+	compare VAR_RESULT, B_OUTCOME_RAN
+	goto_if_eq MossdeepCity_EventScript_WhiteRock_End
+	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
+	goto_if_eq MossdeepCity_EventScript_WhiteRock_End
+	setflag FLAG_CAUGHT_JIRACHI
+MossdeepCity_EventScript_WhiteRock_End:
+	setflag FLAG_DEFEATED_JIRACHI
 	releaseall
 	end
 
