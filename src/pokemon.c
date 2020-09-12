@@ -5435,6 +5435,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                         r5 = itemEffect[var_3C];
                         dataSigned = GetMonData(mon, sGetMonDataEVConstants[var_38], NULL);
                         r2 = r5;
+						if (r2 == 246) r2 = -10;
                         if (r2 > 0)
                         {
                             if (evCount >= MAX_TOTAL_EVS)
@@ -5639,6 +5640,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                         r5 = itemEffect[var_3C];
                         dataSigned = GetMonData(mon, sGetMonDataEVConstants[var_38 + 2], NULL);
                         r2 = r5;
+						if (r2 == 246) r2 = -10;
                         if (r2 > 0)
                         {
                             if (evCount >= MAX_TOTAL_EVS)

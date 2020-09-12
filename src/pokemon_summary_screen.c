@@ -1416,6 +1416,7 @@ static bool8 ExtractMonDataToSummaryStruct(struct Pokemon *mon)
             sum->spdef = GetMonData(mon, MON_DATA_SPDEF2);
             sum->speed = GetMonData(mon, MON_DATA_SPEED2);
         }
+		sMideleHiddenPowerType = mon->box.hpType;
         break;
     case 3:
         GetMonData(mon, MON_DATA_OT_NAME, sum->OTName);
