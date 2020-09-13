@@ -5598,7 +5598,7 @@
                             {
                                 "max_level": 5,
                                 "min_level": 3,
-                                "species": "SPECIES_ROOKIDEE"
+                                "species": "SPECIES_PIDGEY"
                             },
                             {
                                 "max_level": 5,
@@ -8898,7 +8898,7 @@
                             },
                             {
                                 "max_level": 33,
-                                "min_level": 29,
+                                "min_level": 30,
                                 "species": "SPECIES_ROCKRUFF"
                             },
                             {
@@ -8912,39 +8912,39 @@
                                 "species": "SPECIES_CORVISQUIRE"
                             },
                             {
-                                "max_level": 32,
-                                "min_level": 29,
+                                "max_level": 33,
+                                "min_level": 30,
                                 "species": "SPECIES_STUFFUL"
                             },
                             {
-                                "max_level": 33,
-                                "min_level": 29,
+                                "max_level": 35,
+                                "min_level": 30,
                                 "species": "SPECIES_PERSIAN"
                             },
                             {
-                                "max_level": 32,
-                                "min_level": 28,
+                                "max_level": 34,
+                                "min_level": 30,
                                 "species": "SPECIES_GALAR_MRMIME"
                             },
                             {
-                                "max_level": 32,
+                                "max_level": 33,
                                 "min_level": 30,
                                 "species": "SPECIES_PUMPKABOO"
                             },
                             {
                                 "max_level": 33,
-                                "min_level": 27,
-                                "species": "SPECIES_CUBONE"
+                                "min_level": 30,
+                                "species": "SPECIES_WIGGLYTUFF"
                             },
                             {
                                 "max_level": 33,
-                                "min_level": 27,
-                                "species": "SPECIES_CUBONE"
+                                "min_level": 30,
+                                "species": "SPECIES_WIGGLYTUFF"
                             },
                             {
                                 "max_level": 33,
-                                "min_level": 28,
-                                "species": "SPECIES_CUBONE"
+                                "min_level": 30,
+                                "species": "SPECIES_WIGGLYTUFF"
                             },
                             {
                                 "max_level": 33,
@@ -8963,7 +8963,7 @@
                             },
                             {
                                 "max_level": 33,
-                                "min_level": 29,
+                                "min_level": 30,
                                 "species": "SPECIES_ROCKRUFF"
                             },
                             {
@@ -8977,39 +8977,39 @@
                                 "species": "SPECIES_CORVISQUIRE"
                             },
                             {
-                                "max_level": 32,
-                                "min_level": 29,
+                                "max_level": 33,
+                                "min_level": 30,
                                 "species": "SPECIES_STUFFUL"
                             },
                             {
-                                "max_level": 33,
-                                "min_level": 29,
+                                "max_level": 35,
+                                "min_level": 30,
                                 "species": "SPECIES_ALOLAN_PERSIAN"
                             },
                             {
-                                "max_level": 32,
-                                "min_level": 28,
+                                "max_level": 34,
+                                "min_level": 30,
                                 "species": "SPECIES_GALAR_MRMIME"
                             },
                             {
-                                "max_level": 32,
+                                "max_level": 33,
                                 "min_level": 30,
                                 "species": "SPECIES_PUMPKABOO"
                             },
                             {
                                 "max_level": 33,
-                                "min_level": 27,
-                                "species": "SPECIES_WIGGLYTUFF"
+                                "min_level": 30,
+                                "species": "SPECIES_CUBONE"
                             },
                             {
                                 "max_level": 33,
-                                "min_level": 27,
-                                "species": "SPECIES_WIGGLYTUFF"
+                                "min_level": 30,
+                                "species": "SPECIES_CUBONE"
                             },
                             {
                                 "max_level": 33,
-                                "min_level": 28,
-                                "species": "SPECIES_WIGGLYTUFF"
+                                "min_level": 30,
+                                "species": "SPECIES_CUBONE"
                             },
                             {
                                 "max_level": 33,

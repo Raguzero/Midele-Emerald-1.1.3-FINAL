@@ -1401,6 +1401,7 @@ const struct Item gItems[] =
         .name = _("HEART SCALE"),
         .itemId = ITEM_HEART_SCALE,
         .price = 10000,
+        .holdEffect = HOLD_EFFECT_HEART_SCALE,
         .description = sHeartScaleDesc,
         .pocket = POCKET_ITEMS,
         .type = 4,
