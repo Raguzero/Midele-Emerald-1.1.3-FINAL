@@ -3720,13 +3720,15 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         spAttack *= 2;
     if (defenderHoldEffect == HOLD_EFFECT_DEEP_SEA_SCALE && defender->species == SPECIES_CLAMPERL)
         spDefense *= 2;
+    if (defenderHoldEffect == HOLD_EFFECT_HEART_SCALE && defender->species == SPECIES_LUVDISC)
+        defense *= 2, spDefense *= 2;
     if (attackerHoldEffect == HOLD_EFFECT_LIGHT_BALL && attacker->species == SPECIES_PIKACHU)
         spAttack *= 2, attack *= 2;
     if (attackerHoldEffect == HOLD_EFFECT_STICK && attacker->species == SPECIES_FARFETCHD)
         attack *= 1.5;
     if (defenderHoldEffect == HOLD_EFFECT_METAL_POWDER && defender->species == SPECIES_DITTO)
         defense *= 2;
-    if (attackerHoldEffect == HOLD_EFFECT_THICK_CLUB && (attacker->species == SPECIES_CUBONE || attacker->species == SPECIES_MAROWAK))
+    if (attackerHoldEffect == HOLD_EFFECT_THICK_CLUB && (attacker->species == SPECIES_CUBONE || attacker->species == SPECIES_MAROWAK || attacker->species == SPECIES_ALOLAN_MAROWAK))
         attack *= 2;
 	if (defender->ability == ABILITY_FUR_COAT)
         defense *= 2; 
