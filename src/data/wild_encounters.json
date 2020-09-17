@@ -9958,7 +9958,7 @@
                             {
                                 "max_level": 40,
                                 "min_level": 36,
-                                "species": "SPECIES_PERSERKER"
+                                "species": "SPECIES_SKIPLOOM"
                             },
                             {
                                 "max_level": 37,
@@ -10102,17 +10102,17 @@
                             {
                                 "max_level": 42,
                                 "min_level": 38,
-                                "species": "SPECIES_PIDGEOT"
+                                "species": "SPECIES_AZUMARILL"
                             },
                             {
                                 "max_level": 42,
                                 "min_level": 38,
-                                "species": "SPECIES_PERSERKER"
+                                "species": "SPECIES_SKIPLOOM"
                             },
                             {
                                 "max_level": 43,
                                 "min_level": 38,
-                                "species": "SPECIES_AZUMARILL"
+                                "species": "SPECIES_PIDGEOT"
                             },
                             {
                                 "max_level": 41,
@@ -10142,7 +10142,7 @@
                             {
                                 "max_level": 44,
                                 "min_level": 39,
-                                "species": "SPECIES_DRAGONAIR"
+                                "species": "SPECIES_PERSERKER"
                             },
                             {
                                 "max_level": 41,
