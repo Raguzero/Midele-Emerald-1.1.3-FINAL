@@ -126,12 +126,12 @@ static const u8 sStarterLabelCoords[][2] =
 
 static const u16 sStarterMon[STARTER_MON_COUNT] =
 {
- /*   SPECIES_SPHEAL,
-    SPECIES_RALTS,
-    SPECIES_BAGON, */
-    SPECIES_DRATINI,
-    SPECIES_DEINO,
-    SPECIES_JANGMO_O, 
+ /*   SPECIES_TREECKO,
+    SPECIES_TORCHIC,
+    SPECIES_MUDKIP, */
+    SPECIES_SNOVER,
+    SPECIES_LITWICK,
+    SPECIES_TRAPINCH,
 };
 
 static const struct BgTemplate gUnknown_085B1E00[3] =
