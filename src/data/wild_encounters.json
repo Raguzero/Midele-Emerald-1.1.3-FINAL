@@ -6039,9 +6039,9 @@
                                 "species": "SPECIES_MARILL"
                             },
                             {
-                                "max_level": 5,
+                                "max_level": 6,
                                 "min_level": 4,
-                                "species": "SPECIES_LUVDISC"
+                                "species": "SPECIES_KRABBY"
                             },
                             {
                                 "max_level": 4,
@@ -6104,9 +6104,9 @@
                                 "species": "SPECIES_POLIWAG"
                             },
                             {
-                                "max_level": 5,
+                                "max_level": 6,
                                 "min_level": 4,
-                                "species": "SPECIES_LUVDISC"
+                                "species": "SPECIES_KRABBY"
                             },
                             {
                                 "max_level": 4,
@@ -6693,8 +6693,8 @@
                                 "species": "SPECIES_GULPIN"
                             },
                             {
-                                "max_level": 15,
-                                "min_level": 13,
+                                "max_level": 14,
+                                "min_level": 12,
                                 "species": "SPECIES_BELLSPROUT"
                             },
                             {
@@ -6708,13 +6708,13 @@
                                 "species": "SPECIES_LILLIPUP"
                             },
                             {
-                                "max_level": 18,
-                                "min_level": 15,
+                                "max_level": 16,
+                                "min_level": 13,
                                 "species": "SPECIES_GRUBBIN"
                             },
                             {
-                                "max_level": 18,
-                                "min_level": 15,
+                                "max_level": 17,
+                                "min_level": 14,
                                 "species": "SPECIES_TOXEL"
                             },
                             {
@@ -6773,13 +6773,13 @@
                                 "species": "SPECIES_POOCHYENA"
                             },
                             {
-                                "max_level": 18,
-                                "min_level": 15,
+                                "max_level": 16,
+                                "min_level": 13,
                                 "species": "SPECIES_GRUBBIN"
                             },
                             {
-                                "max_level": 18,
-                                "min_level": 15,
+                                "max_level": 17,
+                                "min_level": 14,
                                 "species": "SPECIES_TOXEL"
                             },
                             {
