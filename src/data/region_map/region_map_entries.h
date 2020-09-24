@@ -199,6 +199,7 @@ static const u8 sMapName_TerraCave[] = _("TERRA CAVE");
 static const u8 sMapName_DesertUnderpass[] = _("DESERT UNDERPASS");
 static const u8 sMapName_TrainerHill[] = _("TRAINER HILL");
 static const u8 sMapName_IzabeIsland[] = _("IZABE ISLAND");
+static const u8 sMapName_Micolandia[] = _("MICOLANDIA");
 
 const struct RegionMapLocation gRegionMapEntries[] = {
     [MAPSEC_ABANDONED_SHIP]            = {6, 14, 1, 1, sMapName_AbandonedShip},
@@ -262,7 +263,8 @@ const struct RegionMapLocation gRegionMapEntries[] = {
     [MAPSEC_MEMORIAL_PILLAR]           = {0, 0, 1, 1, sMapName_MemorialPillar},
     [MAPSEC_METEOR_FALLS]              = {0, 3, 1, 1, sMapName_MeteorFalls},
     [MAPSEC_METEOR_FALLS2]             = {1, 2, 1, 1, sMapName_MeteorFalls},
-    [MAPSEC_MIRAGE_ISLAND]             = {17, 10, 1, 1, sMapName_MirageIsland},
+    [MAPSEC_MICOLANDIA]                = {18, 12, 1, 1, sMapName_Micolandia},
+	[MAPSEC_MIRAGE_ISLAND]             = {17, 10, 1, 1, sMapName_MirageIsland},
     [MAPSEC_MIRAGE_TOWER]              = {8, 2, 1, 1, sMapName_MirageTower},
     [MAPSEC_MONEAN_CHAMBER]            = {0, 0, 1, 1, sMapName_MoneanChamber},
     [MAPSEC_MOSSDEEP_CITY]             = {24, 5, 2, 1, sMapName_MossdeepCity},

@@ -613,6 +613,7 @@
 #define MAP_IZABE_ISLAND_MART                    (17 | (34 << 8))
 #define MAP_IZABE_ISLAND_OUTSKIRTS_CAVE_ENTRANCE (18 | (34 << 8))
 #define MAP_IZABE_ISLAND_MICOLO_TRUCK            (19 | (34 << 8))
+#define MAP_MICOLANDIA                           (20 | (34 << 8))
 
 #define MAP_GROUPS_COUNT 35
 

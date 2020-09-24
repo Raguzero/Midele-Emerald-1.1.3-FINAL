@@ -4629,6 +4629,16 @@
             "primary_tileset": "gTileset_General",
             "secondary_tileset": "gTileset_Cave",
             "width": 20
+        },
+        {
+            "blockdata_filepath": "data/layouts/Micolandia/map.bin",
+            "border_filepath": "data/layouts/Micolandia/border.bin",
+            "height": 50,
+            "id": "LAYOUT_MICOLANDIA",
+            "name": "Micolandia_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_Petalburg",
+            "width": 84
         }
     ],
     "layouts_table_label": "gMapLayouts"
