@@ -4639,6 +4639,36 @@
             "primary_tileset": "gTileset_General",
             "secondary_tileset": "gTileset_Petalburg",
             "width": 84
+        },
+        {
+            "blockdata_filepath": "data/layouts/Micolandia_Mart/map.bin",
+            "border_filepath": "data/layouts/Micolandia_Mart/border.bin",
+            "height": 8,
+            "id": "LAYOUT_MICOLANDIA_MART",
+            "name": "Micolandia_Mart_Layout",
+            "primary_tileset": "gTileset_Building",
+            "secondary_tileset": "gTileset_Shop",
+            "width": 11
+        },
+        {
+            "blockdata_filepath": "data/layouts/Micolandia_PokemonCenter1F/map.bin",
+            "border_filepath": "data/layouts/Micolandia_PokemonCenter1F/border.bin",
+            "height": 9,
+            "id": "LAYOUT_MICOLANDIA_POKEMON_CENTER1F",
+            "name": "Micolandia_PokemonCenter1F_Layout",
+            "primary_tileset": "gTileset_Building",
+            "secondary_tileset": "gTileset_PokemonCenter",
+            "width": 14
+        },
+        {
+            "blockdata_filepath": "data/layouts/Micolandia_PokemonCenter2F/map.bin",
+            "border_filepath": "data/layouts/Micolandia_PokemonCenter2F/border.bin",
+            "height": 10,
+            "id": "LAYOUT_MICOLANDIA_POKEMON_CENTER2F",
+            "name": "Micolandia_PokemonCenter2F_Layout",
+            "primary_tileset": "gTileset_Building",
+            "secondary_tileset": "gTileset_PokemonCenter",
+            "width": 14
         }
     ],
     "layouts_table_label": "gMapLayouts"

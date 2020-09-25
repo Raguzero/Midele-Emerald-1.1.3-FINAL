@@ -1,5 +1,10 @@
 Micolandia_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Micolandia_OnTransition
 	.byte 0
+
+Micolandia_OnTransition: @ 81DC2D7
+	//setflag FLAG_VISITED_PETALBURG_CITY
+	end
 	
 Micolandia_EventScript_Marihuana::
 	msgbox Micolandia_Text_Marihuana, MSGBOX_NPC
@@ -11,6 +16,22 @@ Micolandia_EventScript_BienvenidaSign::
 	
 Micolandia_EventScript_LigaSign::
 	msgbox Micolandia_Text_LigaSign, MSGBOX_SIGN
+	end
+	
+Micolandia_EventScript_GymNoroesteSign::
+	msgbox Micolandia_GymNoroesteSign, MSGBOX_SIGN
+	end
+
+Micolandia_EventScript_GymNoresteSign::
+	msgbox Micolandia_GymNoresteSign, MSGBOX_SIGN
+	end
+
+Micolandia_EventScript_GymSuroesteSign::
+	msgbox Micolandia_GymSuroesteSign, MSGBOX_SIGN
+	end
+
+Micolandia_EventScript_GymSuresteSign::
+	msgbox Micolandia_GymSuresteSign, MSGBOX_SIGN
 	end
 	
 Micolandia_Text_Marihuana:
@@ -34,3 +55,24 @@ Micolandia_Text_BienvenidaSign:
 	
 Micolandia_Text_LigaSign:
 	.string "Liga Pokemon Midelar$"
+	
+Micolandia_GymNoroesteSign: @ 81DCAAA
+	.string "POKEMON GYM Nº1\n"
+	.string "LEADER: ????1\l"
+	.string "“Mensaje descriptivo del lider”$"
+
+Micolandia_GymNoresteSign: @ 81DCAAA
+	.string "POKEMON GYM Nº2\n"
+	.string "LEADER: ????1\l"
+	.string "“Mensaje descriptivo del lider”$"
+
+Micolandia_GymSuroesteSign: @ 81DCAAA
+	.string "POKEMON GYM Nº3\n"
+	.string "LEADER: ????1\l"
+	.string "“Mensaje descriptivo del lider”$"
+
+Micolandia_GymSuresteSign: @ 81DCAAA
+	.string "POKEMON GYM Nº4\n"
+	.string "LEADER: ????1\l"
+	.string "“Mensaje descriptivo del lider”$"
+
