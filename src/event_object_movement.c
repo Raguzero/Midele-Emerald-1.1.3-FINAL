@@ -4728,6 +4728,12 @@ static u8 GetCollisionInDirection(struct EventObject *eventObject, u8 direction)
 u8 GetCollisionAtCoords(struct EventObject *eventObject, s16 x, s16 y, u32 dir)
 {
     u8 direction = dir;
+
+#if DEBUG //DEBUG
+    if (FlagGet(FLAG_SYS_NO_COLLISION))
+        return COLLISION_NONE;
+#endif //
+
     if (IsCoordOutsideEventObjectMovementRange(eventObject, x, y))
         return COLLISION_OUTSIDE_RANGE;
     else if (MapGridIsImpassableAt(x, y) || GetMapBorderIdAt(x, y) == -1 || IsMetatileDirectionallyImpassable(eventObject, x, y, direction))
