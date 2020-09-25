@@ -547,7 +547,10 @@
         "IzabeIsland_Mart",
         "IzabeIsland_OutskirtsCave_Entrance",
         "IzabeIsland_MicoloTruck",
-        "Micolandia"
+        "Micolandia",
+        "Micolandia_Mart",
+        "Micolandia_PokemonCenter1F",
+        "Micolandia_PokemonCenter2F"
     ],
     "gMapGroup4": [
         "LavaridgeTown_HerbShop",

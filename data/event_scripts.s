@@ -1112,3 +1112,9 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/ShoalCave_Low_Suicune/scripts.inc"
 
 	.include "data/maps/Micolandia/scripts.inc"
+
+	.include "data/maps/Micolandia_Mart/scripts.inc"
+
+	.include "data/maps/Micolandia_PokemonCenter1F/scripts.inc"
+
+	.include "data/maps/Micolandia_PokemonCenter2F/scripts.inc"
