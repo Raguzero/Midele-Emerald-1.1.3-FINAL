@@ -1118,3 +1118,9 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/Micolandia_PokemonCenter1F/scripts.inc"
 
 	.include "data/maps/Micolandia_PokemonCenter2F/scripts.inc"
+
+	.include "data/maps/Micolandia_Cibercafe/scripts.inc"
+
+	.include "data/maps/Micolandia_House1/scripts.inc"
+
+	.include "data/maps/Micolandia_House2/scripts.inc"

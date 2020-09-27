@@ -95,7 +95,7 @@
         {
             "elevation": 0,
             "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-            "script": "NULL",
+            "script": "Micolandia_EventScript_CibercafeSign",
             "type": "sign",
             "x": 40,
             "y": 34
@@ -103,7 +103,7 @@
         {
             "elevation": 0,
             "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-            "script": "NULL",
+            "script": "Micolandia_EventScript_CibercafeSign",
             "type": "sign",
             "x": 43,
             "y": 34
@@ -162,6 +162,34 @@
             "elevation": 0,
             "x": 37,
             "y": 41
+        },
+        {
+            "dest_map": "MAP_MICOLANDIA_CIBERCAFE",
+            "dest_warp_id": 1,
+            "elevation": 0,
+            "x": 41,
+            "y": 33
+        },
+        {
+            "dest_map": "MAP_MICOLANDIA_CIBERCAFE",
+            "dest_warp_id": 1,
+            "elevation": 0,
+            "x": 42,
+            "y": 33
+        },
+        {
+            "dest_map": "MAP_MICOLANDIA_HOUSE1",
+            "dest_warp_id": 1,
+            "elevation": 0,
+            "x": 33,
+            "y": 36
+        },
+        {
+            "dest_map": "MAP_MICOLANDIA_HOUSE2",
+            "dest_warp_id": 1,
+            "elevation": 0,
+            "x": 50,
+            "y": 36
         }
     ],
     "weather": "WEATHER_SUNNY"
