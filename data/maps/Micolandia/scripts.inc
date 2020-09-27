@@ -34,6 +34,10 @@ Micolandia_EventScript_GymSuresteSign::
 	msgbox Micolandia_GymSuresteSign, MSGBOX_SIGN
 	end
 	
+Micolandia_EventScript_CibercafeSign::
+	msgbox Micolandia_CibercafeSign, MSGBOX_SIGN
+	end
+	
 Micolandia_Text_Marihuana:
 	.string "¿Ves esas plantas de ahí?\p"
 	.string "Cualquiera diría que hay\n" 
@@ -75,4 +79,7 @@ Micolandia_GymSuresteSign: @ 81DCAAA
 	.string "POKEMON GYM Nº4\n"
 	.string "LEADER: ????1\l"
 	.string "“Mensaje descriptivo del lider”$"
+	
+Micolandia_CibercafeSign:
+	.string "CiberCafé Batalla$"
 

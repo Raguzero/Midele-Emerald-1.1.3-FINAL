@@ -550,7 +550,10 @@
         "Micolandia",
         "Micolandia_Mart",
         "Micolandia_PokemonCenter1F",
-        "Micolandia_PokemonCenter2F"
+        "Micolandia_PokemonCenter2F",
+        "Micolandia_Cibercafe",
+        "Micolandia_House1",
+        "Micolandia_House2"
     ],
     "gMapGroup4": [
         "LavaridgeTown_HerbShop",

@@ -617,6 +617,9 @@
 #define MAP_MICOLANDIA_MART                      (21 | (34 << 8))
 #define MAP_MICOLANDIA_POKEMON_CENTER1F          (22 | (34 << 8))
 #define MAP_MICOLANDIA_POKEMON_CENTER2F          (23 | (34 << 8))
+#define MAP_MICOLANDIA_CIBERCAFE                 (24 | (34 << 8))
+#define MAP_MICOLANDIA_HOUSE1                    (25 | (34 << 8))
+#define MAP_MICOLANDIA_HOUSE2                    (26 | (34 << 8))
 
 #define MAP_GROUPS_COUNT 35
 
