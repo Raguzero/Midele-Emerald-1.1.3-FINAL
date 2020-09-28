@@ -18071,3 +18071,128 @@ static const struct TrainerMonCustomMidele sParty_IzabeIsland_Lavender[] = {
     }
 };
 // IZABE ISLAND (end)
+
+// CIBERCAFE BATALLA
+static const struct TrainerMonCustomMidele sParty_Brock[] = {
+    {
+    .iv = 31,
+    .lvl = 32,
+    .species = SPECIES_LYCANROC_NIGHT,
+	.heldItem = ITEM_HARD_STONE,
+	.ability = 1,
+	.nature = NATURE_ADAMANT,
+	.evs = {0, 168, 0, 0, 0, 0},
+    .moves = {MOVE_REVENGE, MOVE_ROCK_SLIDE, MOVE_CRUSH_CLAW, MOVE_ROCK_BLAST}
+    },
+    {
+    .iv = 31,
+    .lvl = 33,
+    .species = SPECIES_MISDREAVUS,
+	.heldItem = ITEM_LUM_BERRY,
+	.nature = NATURE_TIMID,
+	.evs = {0, 0, 0, 0, 0, 168},
+    .moves = {MOVE_CONFUSE_RAY, MOVE_WILL_O_WISP, MOVE_PSYBEAM, MOVE_DARK_PULSE}
+    },
+    {
+    .iv = 31,
+    .lvl = 33,
+    .species = SPECIES_CACTURNE,
+	.heldItem = ITEM_MIRACLE_SEED,
+	.nature = NATURE_QUIET,
+	.ability = 1,
+	.evs = {0, 84, 0, 84, 0, 0},
+    .moves = {MOVE_NEEDLE_ARM, MOVE_REVENGE, MOVE_FAINT_ATTACK, MOVE_ENCORE}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_Misty[] = {
+    {
+    .iv = 31,
+    .lvl = 32,
+    .species = SPECIES_STARMIE,
+	.heldItem = ITEM_HARD_STONE,
+	.ability = 1,
+	.nature = NATURE_ADAMANT,
+	.evs = {0, 168, 0, 0, 0, 0},
+    .moves = {MOVE_REVENGE, MOVE_ROCK_SLIDE, MOVE_CRUSH_CLAW, MOVE_ROCK_BLAST}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_LtSurge[] = {
+    {
+    .iv = 31,
+    .lvl = 32,
+    .species = SPECIES_RAICHU,
+	.heldItem = ITEM_HARD_STONE,
+	.ability = 1,
+	.nature = NATURE_ADAMANT,
+	.evs = {0, 168, 0, 0, 0, 0},
+    .moves = {MOVE_REVENGE, MOVE_ROCK_SLIDE, MOVE_CRUSH_CLAW, MOVE_ROCK_BLAST}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_Erika[] = {
+    {
+    .iv = 31,
+    .lvl = 32,
+    .species = SPECIES_BELLOSSOM,
+	.heldItem = ITEM_HARD_STONE,
+	.ability = 1,
+	.nature = NATURE_ADAMANT,
+	.evs = {0, 168, 0, 0, 0, 0},
+    .moves = {MOVE_GIGA_DRAIN, MOVE_MOONBLAST, MOVE_SLEEP_POWDER, MOVE_LEECH_SEED}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_Sabrina[] = {
+    {
+    .iv = 31,
+    .lvl = 32,
+    .species = SPECIES_ALAKAZAM,
+	.heldItem = ITEM_HARD_STONE,
+	.ability = 1,
+	.nature = NATURE_ADAMANT,
+	.evs = {0, 168, 0, 0, 0, 0},
+    .moves = {MOVE_REVENGE, MOVE_ROCK_SLIDE, MOVE_CRUSH_CLAW, MOVE_ROCK_BLAST}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_Koga[] = {
+    {
+    .iv = 31,
+    .lvl = 32,
+    .species = SPECIES_CROBAT,
+	.heldItem = ITEM_HARD_STONE,
+	.ability = 1,
+	.nature = NATURE_ADAMANT,
+	.evs = {0, 168, 0, 0, 0, 0},
+    .moves = {MOVE_REVENGE, MOVE_ROCK_SLIDE, MOVE_CRUSH_CLAW, MOVE_ROCK_BLAST}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_Blaine[] = {
+    {
+    .iv = 31,
+    .lvl = 32,
+    .species = SPECIES_MOLTRES,
+	.heldItem = ITEM_HARD_STONE,
+	.ability = 1,
+	.nature = NATURE_ADAMANT,
+	.evs = {0, 168, 0, 0, 0, 0},
+    .moves = {MOVE_FLAMETHROWER, MOVE_SOLAR_BEAM, MOVE_SUNNY_DAY, MOVE_RECOVER}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_Giovanni[] = {
+    {
+    .iv = 31,
+    .lvl = 32,
+    .species = SPECIES_RHYPERIOR,
+	.heldItem = ITEM_HARD_STONE,
+	.ability = 1,
+	.nature = NATURE_ADAMANT,
+	.evs = {0, 168, 0, 0, 0, 0},
+    .moves = {MOVE_REVENGE, MOVE_ROCK_SLIDE, MOVE_CRUSH_CLAW, MOVE_ROCK_BLAST}
+    }
+};
+// CIBERCAFE BATALLA

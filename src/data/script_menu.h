@@ -917,6 +917,28 @@ static const struct MenuAction MultichoiceList_Deoxys_Change_Form_Speed[] =
     {gText_Exit}
 };
 
+static const struct MenuAction MultichoiceList_CiberCafe_Batalla[] =
+{
+    {gText_Brock},
+    {gText_Misty},
+    {gText_LtSurge},
+    {gText_Erika},
+    {gText_Sabrina},
+    {gText_Koga},
+    {gText_Blaine},
+    {gText_Giovanni},
+    {gText_Brock},
+    {gText_Brock},
+    {gText_Brock},
+    {gText_Brock},
+    {gText_Brock},
+    {gText_Brock},
+    {gText_Brock},
+    {gText_Brock},
+    {gText_Brock},
+    {gText_Exit}
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -1056,6 +1078,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_DEOXYS_CHANGE_FORM_ATTACK]     =MULTICHOICE(MultichoiceList_Deoxys_Change_Form_Attack),
     [MULTI_DEOXYS_CHANGE_FORM_DEFENSE]     =MULTICHOICE(MultichoiceList_Deoxys_Change_Form_Defense),
     [MULTI_DEOXYS_CHANGE_FORM_SPEED]     =MULTICHOICE(MultichoiceList_Deoxys_Change_Form_Speed),
+    [MULTI_CIBERCAFE_BATALLA]     =MULTICHOICE(MultichoiceList_CiberCafe_Batalla),
 };
 
 const u8 *const gStdStrings[] =

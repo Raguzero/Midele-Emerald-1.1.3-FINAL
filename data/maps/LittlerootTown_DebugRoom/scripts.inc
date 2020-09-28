@@ -224,7 +224,7 @@ LittlerootTown_DebugRoom_Script_DesactivarMedallas::
 
 @ Leaf te reta a un combate
 LittlerootTown_DebugRoom_Script_Combate::
-    trainerbattle_single TRAINER_DEBUG, DebugCombateTextInicio, DebugCombateTextFin
+    trainerbattle_no_intro TRAINER_DEBUG, DebugCombateTextFin
     end
 
 @ Estatua es una boss battle.

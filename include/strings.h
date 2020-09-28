@@ -3044,6 +3044,15 @@ extern const u8 gText_Deoxys_Attack[];
 extern const u8 gText_Deoxys_Defense[];
 extern const u8 gText_Deoxys_Speed[];
 
+extern const u8 gText_Brock[];
+extern const u8 gText_Misty[]; 
+extern const u8 gText_LtSurge[];
+extern const u8 gText_Erika[]; 
+extern const u8 gText_Sabrina[];
+extern const u8 gText_Koga[];
+extern const u8 gText_Blaine[];
+extern const u8 gText_Giovanni[];
+
 // NO COMPRAR MTS REPES
 extern const u8 gText_YouAlreadyHaveThis[];
 
