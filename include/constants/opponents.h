@@ -880,10 +880,18 @@
 #define TRAINER_MAY_PROFESSORBIRCHSLAB_MUDKIP         876
 #define TRAINER_MAY_PROFESSORBIRCHSLAB_TREECKO        877
 #define TRAINER_MAY_PROFESSORBIRCHSLAB_TORCHIC        878
+#define TRAINER_BROCK                                 879
+#define TRAINER_MISTY                                 880
+#define TRAINER_ERIKA                                 881
+#define TRAINER_LTSURGE                                 882
+#define TRAINER_SABRINA                                 883
+#define TRAINER_KOGA                                 884
+#define TRAINER_BLAINE                                 885
+#define TRAINER_GIOVANNI                                886
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
-#define TRAINERS_COUNT                      879 // NUEVO: aumentar para añadir nuevos entrenadores
-#define MAX_TRAINERS_COUNT                  880
+#define TRAINERS_COUNT                      887 // NUEVO: aumentar para añadir nuevos entrenadores
+#define MAX_TRAINERS_COUNT                  888
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

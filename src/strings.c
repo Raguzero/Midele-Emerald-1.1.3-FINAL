@@ -1905,6 +1905,15 @@ const u8 gText_Deoxys_Attack[] =  _("ATTACK");
 const u8 gText_Deoxys_Defense[] = _("DEFENSE");
 const u8 gText_Deoxys_Speed[] =  _("SPEED");
 
+const u8 gText_Brock[] =  _("BROCK");
+const u8 gText_Misty[] =  _("MISTY");
+const u8 gText_LtSurge[] =  _("LT.SURGE");
+const u8 gText_Erika[] =  _("ERIKA");
+const u8 gText_Sabrina[] =  _("SABRINA");
+const u8 gText_Koga[] =  _("KOGA");
+const u8 gText_Blaine[] =  _("BLAINE");
+const u8 gText_Giovanni[] =  _("GIOVANNI");
+
 // NO COMPRA MTS REPES
 const u8 gText_YouAlreadyHaveThis[] = _("You already have this item.{PAUSE_UNTIL_PRESS}");
 
