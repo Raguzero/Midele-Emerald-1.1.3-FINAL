@@ -3294,24 +3294,16 @@ static void TotemToMon(struct Pokemon *mon, u16 bossBattleId)
     u8 i;
     u8 totemId = gBossBattles[bossBattleId].boss.totemId;
     u8 currPartyMonLevel;
-    u8 level = 1;
+    u8 level;
     
-    // Calculate max party level in "level" var.
-    for (i = 0; i < PARTY_SIZE; i++)
-    {
-        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) != SPECIES_NONE)
-        {
-            currPartyMonLevel = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL, NULL);
-            if (currPartyMonLevel > level)
-            {
-                level = currPartyMonLevel;
-            }
-        }
-    }
+    currPartyMonLevel = GetPlayerPartyMaxLevel();
     
     if (currPartyMonLevel < gTotemMons[totemId].minLevel)
     {
         level = gTotemMons[totemId].minLevel;
+    } 
+    else {
+        level = currPartyMonLevel;
     }
     
     CreateMonWithNature(mon, gTotemMons[totemId].species, level, 31, gTotemMons[totemId].nature);
@@ -7858,4 +7850,25 @@ void SetBoxMonLanguage(struct BoxPokemon *mon, u8 *language)
     languageAndNature &= MON_DATA_NATURE_MASK; // clear 3 lower bits
     languageAndNature |= *language; // set 3 lower bits
     SetBoxMonData(mon, MON_DATA_LANGUAGE_AND_NATURE, &languageAndNature);
+}
+
+u8 GetPlayerPartyMaxLevel(void) {
+    u8 currPartyMonLevel;
+    u8 maxLevel = 1;
+    u8 i;
+    
+    // Calculate max party level in "maxLevel" var.
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) != SPECIES_NONE)
+        {
+            currPartyMonLevel = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL, NULL);
+            if (currPartyMonLevel > maxLevel)
+            {
+                maxLevel = currPartyMonLevel;
+            }
+        }
+    }
+    
+    return maxLevel;
 }
