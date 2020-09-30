@@ -431,4 +431,5 @@ u8 GetLanguage(struct Pokemon *mon);
 u8 GetBoxMonLanguage(struct BoxPokemon *mon);
 void SetLanguage(struct Pokemon *mon, u8 *language);
 void SetBoxMonLanguage(struct BoxPokemon *mon, u8 *language);
+u8 GetPlayerPartyMaxLevel(void);
 #endif // GUARD_POKEMON_H
