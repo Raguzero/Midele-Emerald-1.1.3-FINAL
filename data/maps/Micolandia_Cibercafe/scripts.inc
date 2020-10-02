@@ -65,6 +65,11 @@ PC_NoBatalla::
 	msgbox PC_NoBatalla_Text
 	release
 	end
+	
+PC_Roto::
+	msgbox PC_Roto_Text
+	release
+	end
 
 PC_Batalla:
 	.string "Bienvenido al servidor\n"
@@ -72,6 +77,9 @@ PC_Batalla:
 	
 PC_NoBatalla_Text:
 	.string "Vuelve cuando quieras.$"
+	
+PC_Roto_Text:
+	.string "Parece que no funciona.$"
 	
 PC_ChooseEnemy:
 	.string "Elige un contrincante.$"
