@@ -406,6 +406,26 @@ static const union AnimCmd *const sAnims_Giovanni[] ={
     sAnim_GeneralFrame0,
 };
 
+static const union AnimCmd *const sAnims_Lorelei[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Bruno[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Agatha[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Lance[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Blue[] ={
+    sAnim_GeneralFrame0,
+};
+
 const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
 {
     [TRAINER_PIC_HIKER] = sAnims_Hiker,
@@ -510,4 +530,9 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_KOGA] = sAnims_Koga,
     [TRAINER_PIC_BLAINE] = sAnims_Blaine,
     [TRAINER_PIC_GIOVANNI] = sAnims_Giovanni,
+    [TRAINER_PIC_LORELEI] = sAnims_Lorelei,
+    [TRAINER_PIC_BRUNO] = sAnims_Bruno,
+    [TRAINER_PIC_AGATHA] = sAnims_Agatha,
+    [TRAINER_PIC_LANCE] = sAnims_Lance,
+    [TRAINER_PIC_BLUE] = sAnims_Blue,
 };

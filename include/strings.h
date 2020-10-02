@@ -3052,6 +3052,13 @@ extern const u8 gText_Sabrina[];
 extern const u8 gText_Koga[];
 extern const u8 gText_Blaine[];
 extern const u8 gText_Giovanni[];
+extern const u8 gText_Lorelei[]; 
+extern const u8 gText_Bruno[];
+extern const u8 gText_Agatha[];
+extern const u8 gText_Lance[];
+extern const u8 gText_Blue2[];
+extern const u8 gText_Red2[];
+extern const u8 gText_Leaf[];
 
 // NO COMPRAR MTS REPES
 extern const u8 gText_YouAlreadyHaveThis[];

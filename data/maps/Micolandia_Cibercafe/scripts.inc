@@ -16,13 +16,13 @@ Cibercafe_PCBatalla::
 	case 5, PC_BatalllaKOGA
 	case 6, PC_BatalllaBLAINE
 	case 7, PC_BatalllaGIOVANNI
-	case 8, PC_BatalllaBROCK
-	case 9, PC_BatalllaBROCK
-	case 10, PC_BatalllaBROCK
-	case 11, PC_BatalllaBROCK
-	case 12, PC_BatalllaBROCK
-	case 13, PC_BatalllaBROCK
-	case 14, PC_BatalllaBROCK
+	case 8, PC_BatalllaLORELEI
+	case 9, PC_BatalllaBRUNO
+	case 10, PC_BatalllaAGATHA
+	case 11, PC_BatalllaLANCE
+	case 12, PC_BatalllaBLUE
+	case 13, PC_BatalllaRED
+	case 14, PC_BatalllaLEAF
 	case 15, PC_BatalllaBROCK
 	case 16, PC_BatalllaBROCK
 	case 17, PC_NoBatalla
@@ -59,6 +59,34 @@ PC_BatalllaBLAINE::
 	
 PC_BatalllaGIOVANNI::
 	trainerbattle_no_intro TRAINER_GIOVANNI, SlateportCity_Harbor_Text_IzabeSailorDefeated
+	end
+	
+PC_BatalllaLORELEI::
+	trainerbattle_no_intro TRAINER_LORELEI, SlateportCity_Harbor_Text_IzabeSailorDefeated
+	end
+	
+PC_BatalllaBRUNO::
+	trainerbattle_no_intro TRAINER_BRUNO, SlateportCity_Harbor_Text_IzabeSailorDefeated
+	end
+	
+PC_BatalllaAGATHA::
+	trainerbattle_no_intro TRAINER_AGATHA, SlateportCity_Harbor_Text_IzabeSailorDefeated
+	end
+	
+PC_BatalllaLANCE::
+	trainerbattle_no_intro TRAINER_LANCE, SlateportCity_Harbor_Text_IzabeSailorDefeated
+	end
+	
+PC_BatalllaBLUE::
+	trainerbattle_no_intro TRAINER_BLUE, SlateportCity_Harbor_Text_IzabeSailorDefeated
+	end
+	
+PC_BatalllaRED::
+	trainerbattle_no_intro TRAINER_RED2, SlateportCity_Harbor_Text_IzabeSailorDefeated
+	end
+	
+PC_BatalllaLEAF::
+	trainerbattle_no_intro TRAINER_LEAF2, SlateportCity_Harbor_Text_IzabeSailorDefeated
 	end
 	
 PC_NoBatalla::
