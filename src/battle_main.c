@@ -2076,7 +2076,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 	 case F_TRAINER_PARTY_CUSTOM_MIDELE:
             {
                 const struct TrainerMonCustomMidele *partyData = gTrainers[trainerNum].party.ItemCustomMidele;
-				
+				u8 mideleLevel;
                 for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
                     nameHash += gSpeciesNames[partyData[i].species][j];
 
@@ -2110,7 +2110,18 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 				
                 personalityValue += nameHash << 8;
                 fixedIV = partyData[i].iv;
-                CreateMonMidele(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, partyData[i].evs, partyData[i].nature, partyData[i].shiny, partyData[i].ability,
+                if (partyData[i].syncLevel == TRUE)
+                {
+                    u8 playerPartyMaxLevel = GetPlayerPartyMaxLevel();
+                    u8 minLevel = partyData[i].lvl;
+                    mideleLevel = max(playerPartyMaxLevel, minLevel);
+                } 
+                else
+                {
+                    mideleLevel = partyData[i].lvl;
+                }
+                
+                CreateMonMidele(&party[i], partyData[i].species, mideleLevel, fixedIV, partyData[i].evs, partyData[i].nature, partyData[i].shiny, partyData[i].ability,
                 partyData[i].friendship, partyData[i].hpType);
 
                 SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);

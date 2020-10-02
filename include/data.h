@@ -53,6 +53,7 @@ struct TrainerMonCustomMidele
     u8 evs[6]; // HP, ATK, DEF, SPATK, SPDEF, SPEED
     u8 nature;
     u8 lvl;
+    bool8 syncLevel;
     u16 species;
     u16 heldItem;
     u8 ability;
