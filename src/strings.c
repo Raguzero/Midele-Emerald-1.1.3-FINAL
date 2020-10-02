@@ -1913,6 +1913,13 @@ const u8 gText_Sabrina[] =  _("SABRINA");
 const u8 gText_Koga[] =  _("KOGA");
 const u8 gText_Blaine[] =  _("BLAINE");
 const u8 gText_Giovanni[] =  _("GIOVANNI");
+const u8 gText_Lorelei[] =  _("LORELEI");
+const u8 gText_Bruno[] =  _("BRUNO");
+const u8 gText_Agatha[] =  _("AGATHA");
+const u8 gText_Lance[] =  _("LANCE");
+const u8 gText_Blue2[] =  _("BLUE");
+const u8 gText_Red2[] =  _("RED");
+const u8 gText_Leaf[] =  _("LEAF");
 
 // NO COMPRA MTS REPES
 const u8 gText_YouAlreadyHaveThis[] = _("You already have this item.{PAUSE_UNTIL_PRESS}");

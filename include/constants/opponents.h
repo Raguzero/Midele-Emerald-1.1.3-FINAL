@@ -888,10 +888,17 @@
 #define TRAINER_KOGA                                 884
 #define TRAINER_BLAINE                                 885
 #define TRAINER_GIOVANNI                                886
+#define TRAINER_LORELEI                                 887
+#define TRAINER_BRUNO                                 888
+#define TRAINER_AGATHA                                889
+#define TRAINER_LANCE                                 890
+#define TRAINER_BLUE                                891
+#define TRAINER_RED2                                 892
+#define TRAINER_LEAF2                               893
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
-#define TRAINERS_COUNT                      887 // NUEVO: aumentar para añadir nuevos entrenadores
-#define MAX_TRAINERS_COUNT                  888
+#define TRAINERS_COUNT                      894 // NUEVO: aumentar para añadir nuevos entrenadores
+#define MAX_TRAINERS_COUNT                  895
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

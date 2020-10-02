@@ -118,6 +118,11 @@
 #define TRAINER_PIC_KOGA                  99
 #define TRAINER_PIC_BLAINE                100
 #define TRAINER_PIC_GIOVANNI              101
+#define TRAINER_PIC_LORELEI               102
+#define TRAINER_PIC_BRUNO                  103
+#define TRAINER_PIC_AGATHA                 104
+#define TRAINER_PIC_LANCE              105
+#define TRAINER_PIC_BLUE             106
 
 #define TRAINER_BACK_PIC_BRENDAN                0
 #define TRAINER_BACK_PIC_MAY                    1

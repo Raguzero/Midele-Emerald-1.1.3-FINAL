@@ -18076,61 +18076,67 @@ static const struct TrainerMonCustomMidele sParty_IzabeIsland_Lavender[] = {
 static const struct TrainerMonCustomMidele sParty_Brock[] = {
     {
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_FORRETRESS,
 	.heldItem = ITEM_SALAC_BERRY,
 	.nature = NATURE_CAREFUL,
 	.evs = {252, 6, 0, 0, 252, 0},
 	.hpType = TYPE_ROCK,
+	.syncLevel = TRUE,
     .moves = {MOVE_HIDDEN_POWER, MOVE_EARTHQUAKE, MOVE_SPIKES, MOVE_TOXIC}
     },
 	{
     .iv = 31,
-    .lvl = 72,
+    .lvl = 60,
     .species = SPECIES_GOLEM,
 	.heldItem = ITEM_LIECHI_BERRY,
 	.ability = 1,
 	.nature = NATURE_ADAMANT,
 	.evs = {6, 252, 0, 0, 0, 252},
+	.syncLevel = TRUE,
     .moves = {MOVE_ROCK_POLISH, MOVE_ROCK_SLIDE, MOVE_EARTHQUAKE, MOVE_EXPLOSION}
     },
     {
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_STEELIX,
 	.heldItem = ITEM_LUM_BERRY,
 	.ability = 1,
 	.nature = NATURE_JOLLY,
 	.evs = {6, 252, 0, 0, 0, 252},
+	.syncLevel = TRUE,
     .moves = {MOVE_EARTHQUAKE, MOVE_DRAGON_DANCE, MOVE_ROCK_SLIDE, MOVE_IRON_HEAD}
     },
     {
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_CROBAT,
 	.heldItem = ITEM_LEFTOVERS,
 	.nature = NATURE_JOLLY,
 	.evs = {252, 6, 0, 0, 0, 252},
+	.syncLevel = TRUE,
     .moves = {MOVE_CONFUSE_RAY, MOVE_TOXIC, MOVE_DOUBLE_TEAM, MOVE_LEECH_LIFE}
     },
     {
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_SUDOWOODO,
 	.heldItem = ITEM_CHOICE_BAND,
 	.nature = NATURE_ADAMANT,
 	.ability = 1,
 	.evs = {252, 252, 0, 0, 0, 6},
+	.syncLevel = TRUE,
     .moves = {MOVE_HEAD_SMASH, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_OMASTAR,
 	.heldItem = ITEM_FOCUS_SASH,
 	.nature = NATURE_MODEST,
 	.ability = 1,
 	.evs = {252, 0, 0, 252, 0, 6},
+	.syncLevel = TRUE,
     .moves = {MOVE_SURF, MOVE_ICE_BEAM, MOVE_KNOCK_OFF, MOVE_SPIKES}
     }
 };
@@ -18138,56 +18144,62 @@ static const struct TrainerMonCustomMidele sParty_Brock[] = {
 static const struct TrainerMonCustomMidele sParty_Misty[] = {
 	{
     .iv = 31,
-    .lvl = 72,
+    .lvl = 60,
     .species = SPECIES_POLITOED,
 	.heldItem = ITEM_MYSTIC_WATER,
 	.nature = NATURE_MODEST,
 	.evs = {252, 0, 0, 252, 0, 6},
+	.syncLevel = TRUE,
     .moves = {MOVE_SURF, MOVE_ICE_BEAM, MOVE_PSYCHIC, MOVE_LOVELY_KISS}
     },
 	{
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_LANTURN,
 	.heldItem = ITEM_LEFTOVERS,
 	.nature = NATURE_IMPISH,
 	.evs = {252, 0, 252, 0, 0, 6},
+	.syncLevel = TRUE,
     .moves = {MOVE_SURF, MOVE_CONFUSE_RAY, MOVE_THUNDER_WAVE, MOVE_THUNDERBOLT}
     },
     {
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_TOGEKISS,
 	.heldItem = ITEM_LEFTOVERS,
 	.nature = NATURE_TIMID,
 	.evs = {6, 0, 0, 252, 0, 252},
+	.syncLevel = TRUE,
     .moves = {MOVE_SOFT_BOILED, MOVE_NASTY_PLOT, MOVE_DAZZLING_GLEAM, MOVE_PSYCHIC}
     },
     {
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_GYARADOS,
 	.heldItem = ITEM_LUM_BERRY,
 	.nature = NATURE_ADAMANT,
 	.evs = {6, 252, 0, 0, 0, 252},
+	.syncLevel = TRUE,
     .moves = {MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE, MOVE_BOUNCE, MOVE_STONE_EDGE}
     },
     {
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_LAPRAS,
 	.heldItem = ITEM_LEFTOVERS,
 	.nature = NATURE_MODEST,
 	.evs = {252, 0, 0, 252, 0, 6},
+	.syncLevel = TRUE,
     .moves = {MOVE_SURF, MOVE_ICE_BEAM, MOVE_CONFUSE_RAY, MOVE_PROTECT}
     },
 	{
     .iv = 31,
-    .lvl = 72,
+    .lvl = 60,
     .species = SPECIES_STARMIE,
 	.heldItem = ITEM_MYSTIC_WATER,
 	.nature = NATURE_TIMID,
 	.evs = {0, 0, 0, 252, 0, 252},
+	.syncLevel = TRUE,
     .moves = {MOVE_THUNDERBOLT, MOVE_DAZZLING_GLEAM, MOVE_SURF, MOVE_PSYCHIC}
     }
 };
@@ -18195,61 +18207,67 @@ static const struct TrainerMonCustomMidele sParty_Misty[] = {
 static const struct TrainerMonCustomMidele sParty_LtSurge[] = {
 	{
     .iv = 31,
-    .lvl = 72,
+    .lvl = 60,
     .species = SPECIES_ELECTRODE,
 	.heldItem = ITEM_SILK_SCARF,
 	.nature = NATURE_MODEST,
 	.evs = {6, 0, 0, 252, 0, 252},
 	.hpType = TYPE_GRASS,
+	.syncLevel = TRUE,
     .moves = {MOVE_EXPLOSION, MOVE_THUNDERBOLT, MOVE_HIDDEN_POWER, MOVE_REFLECT}
     },
 	{
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_JOLTEON,
 	.heldItem = ITEM_MAGNET,
 	.nature = NATURE_TIMID,
 	.evs = {6, 0, 0, 252, 0, 252},
 	.hpType = TYPE_ICE,
+	.syncLevel = TRUE,
     .moves = {MOVE_THUNDERBOLT, MOVE_BITE, MOVE_GROWTH, MOVE_HIDDEN_POWER}
     },
     {
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_PORYGON_Z,
 	.heldItem = ITEM_FOCUS_SASH,
 	.nature = NATURE_TIMID,
 	.evs = {6, 0, 0, 252, 0, 252},
+	.syncLevel = TRUE,
     .moves = {MOVE_ICE_BEAM, MOVE_NASTY_PLOT, MOVE_THUNDERBOLT, MOVE_PSYCHIC}
     },
     {
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_MAGNEZONE,
 	.heldItem = ITEM_MAGNET,
 	.nature = NATURE_MODEST,
 	.evs = {6, 0, 0, 252, 0, 252},
 	.hpType = TYPE_GRASS,
+	.syncLevel = TRUE,
     .moves = {MOVE_THUNDERBOLT, MOVE_HIDDEN_POWER, MOVE_THUNDER_WAVE, MOVE_METAL_SOUND}
     },
     {
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_ELECTIVIRE,
 	.heldItem = ITEM_BLACK_BELT,
 	.nature = NATURE_NAIVE,
 	.evs = {6, 0, 0, 252, 0, 252},
+	.syncLevel = TRUE,
     .moves = {MOVE_FLAMETHROWER, MOVE_ICE_PUNCH, MOVE_THUNDERBOLT, MOVE_CROSS_CHOP}
     },
 	{
     .iv = 31,
-    .lvl = 72,
+    .lvl = 60,
     .species = SPECIES_RAICHU,
 	.heldItem = ITEM_FOCUS_SASH,
 	.ability = 1,
 	.nature = NATURE_TIMID,
 	.evs = {6, 0, 0, 252, 0, 252},
 	.hpType = TYPE_FIRE,
+	.syncLevel = TRUE,
     .moves = {MOVE_THUNDERBOLT, MOVE_SURF, MOVE_HIDDEN_POWER, MOVE_NASTY_PLOT}
     }
 };
@@ -18257,57 +18275,63 @@ static const struct TrainerMonCustomMidele sParty_LtSurge[] = {
 static const struct TrainerMonCustomMidele sParty_Erika[] = {
     {
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_ROSERADE,
 	.heldItem = ITEM_FOCUS_SASH,
 	.nature = NATURE_TIMID,
 	.evs = {6, 0, 0, 252, 0, 252},
 	.hpType = TYPE_WATER,
+	.syncLevel = TRUE,
     .moves = {MOVE_EXTRASENSORY, MOVE_MAGICAL_LEAF, MOVE_HIDDEN_POWER, MOVE_SPIKES}
     },
 	{
     .iv = 31,
-    .lvl = 72,
+    .lvl = 60,
     .species = SPECIES_JUMPLUFF,
 	.heldItem = ITEM_LEFTOVERS,
 	.nature = NATURE_TIMID,
 	.evs = {252, 0, 0, 6, 0, 252},
+	.syncLevel = TRUE,
     .moves = {MOVE_SLEEP_POWDER, MOVE_GIGA_DRAIN, MOVE_SUBSTITUTE, MOVE_LEECH_SEED}
     },
 	{
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_VICTREEBEL,
 	.heldItem = ITEM_SALAC_BERRY,
 	.nature = NATURE_NAUGHTY,
 	.evs = {6, 252, 0, 252, 0, 0},
+	.syncLevel = TRUE,
     .moves = {MOVE_LEECH_LIFE, MOVE_LEAF_BLADE, MOVE_SLUDGE_BOMB, MOVE_KNOCK_OFF}
     },
     {
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_TANGROWTH,
 	.heldItem = ITEM_LEFTOVERS,
 	.nature = NATURE_RELAXED,
 	.evs = {252, 6, 252, 0, 0, 0},
+	.syncLevel = TRUE,
     .moves = {MOVE_SLEEP_POWDER, MOVE_GIGA_DRAIN, MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE}
     },
     {
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_SHIFTRY,
 	.heldItem = ITEM_FOCUS_SASH,
 	.nature = NATURE_TIMID,
 	.evs = {6, 0, 0, 252, 0, 252},
+	.syncLevel = TRUE,
     .moves = {MOVE_NASTY_PLOT, MOVE_HEAT_WAVE, MOVE_LEAF_BLADE, MOVE_DARK_PULSE}
     },
 	{
     .iv = 31,
-    .lvl = 72,
+    .lvl = 60,
     .species = SPECIES_BELLOSSOM,
 	.heldItem = ITEM_LEFTOVERS,
 	.nature = NATURE_TIMID,
 	.evs = {6, 0, 0, 252, 0, 252},
+	.syncLevel = TRUE,
     .moves = {MOVE_GIGA_DRAIN, MOVE_MOONBLAST, MOVE_SLEEP_POWDER, MOVE_QUIVER_DANCE}
     }
 };
@@ -18315,59 +18339,65 @@ static const struct TrainerMonCustomMidele sParty_Erika[] = {
 static const struct TrainerMonCustomMidele sParty_Sabrina[] = {
     {
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_MR_MIME,
 	.heldItem = ITEM_FOCUS_SASH,
 	.nature = NATURE_TIMID,
 	.evs = {6, 0, 0, 252, 0, 252},
 	.ability = 1,
+	.syncLevel = TRUE,
     .moves = {MOVE_NASTY_PLOT, MOVE_MAGICAL_LEAF, MOVE_ICY_WIND, MOVE_PSYCHIC}
     },
 	{
     .iv = 31,
-    .lvl = 72,
+    .lvl = 60,
     .species = SPECIES_ESPEON,
 	.heldItem = ITEM_LEFTOVERS,
 	.nature = NATURE_TIMID,
 	.evs = {6, 0, 0, 252, 0, 252},
+	.syncLevel = TRUE,
     .moves = {MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_MORNING_SUN, MOVE_DAZZLING_GLEAM}
     },
 	{
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_VENOMOTH,
 	.heldItem = ITEM_LUM_BERRY,
 	.nature = NATURE_MODEST,
 	.evs = {6, 0, 0, 252, 0, 252},
+	.syncLevel = TRUE,
     .moves = {MOVE_QUIVER_DANCE, MOVE_ENERGY_BALL, MOVE_PSYCHIC, MOVE_MORNING_SUN}
     },
     {
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_JYNX,
 	.heldItem = ITEM_NEVER_MELT_ICE,
 	.nature = NATURE_TIMID,
 	.evs = {6, 0, 0, 252, 0, 252},
 	.ability = 1,
+	.syncLevel = TRUE,
     .moves = {MOVE_LOVELY_KISS, MOVE_ENERGY_BALL, MOVE_ICE_BEAM, MOVE_PSYCHIC}
     },
     {
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_HYPNO,
 	.heldItem = ITEM_LEFTOVERS,
 	.nature = NATURE_BOLD,
 	.evs = {252, 0, 152, 106, 0, 0},
+	.syncLevel = TRUE,
     .moves = {MOVE_WISH, MOVE_PROTECT, MOVE_PSYCHIC, MOVE_DAZZLING_GLEAM}
     },
     {
     .iv = 31,
-    .lvl = 72,
+    .lvl = 60,
     .species = SPECIES_ALAKAZAM,
 	.heldItem = ITEM_TWISTED_SPOON,
 	.ability = 1,
 	.nature = NATURE_TIMID,
 	.evs = {6, 0, 0, 252, 0, 252},
+	.syncLevel = TRUE,
     .moves = {MOVE_PSYCHIC, MOVE_FIRE_PUNCH, MOVE_ICE_PUNCH, MOVE_THUNDER_PUNCH}
     }
 };
@@ -18375,58 +18405,64 @@ static const struct TrainerMonCustomMidele sParty_Sabrina[] = {
 static const struct TrainerMonCustomMidele sParty_Koga[] = {
     {
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_ARIADOS,
 	.heldItem = ITEM_FOCUS_SASH,
 	.nature = NATURE_ADAMANT,
 	.evs = {6, 252, 0, 0, 0, 252},
+	.syncLevel = TRUE,
     .moves = {MOVE_SWORDS_DANCE, MOVE_SHADOW_SNEAK, MOVE_LEECH_LIFE, MOVE_SLUDGE_BOMB}
     },
 	{
     .iv = 31,
-    .lvl = 72,
+    .lvl = 60,
     .species = SPECIES_MUK,
 	.heldItem = ITEM_LEFTOVERS,
 	.nature = NATURE_CAREFUL,
 	.evs = {252, 6, 0, 0, 252, 0},
 	.ability = 1,
+	.syncLevel = TRUE,
     .moves = {MOVE_MINIMIZE, MOVE_SHADOW_BALL, MOVE_ROCK_SLIDE, MOVE_GUNK_SHOT}
     },
 	{
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_SCYTHER,
 	.heldItem = ITEM_BRIGHT_POWDER,
 	.nature = NATURE_JOLLY,
 	.evs = {6, 252, 0, 0, 0, 252},
 	.ability = 1,
+	.syncLevel = TRUE,
     .moves = {MOVE_DOUBLE_TEAM, MOVE_AERIAL_ACE, MOVE_X_SCISSOR, MOVE_ROCK_SMASH}
     },
     {
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_WEEZING,
 	.heldItem = ITEM_CHESTO_BERRY,
 	.nature = NATURE_CAREFUL,
 	.evs = {252, 6, 0, 0, 252, 0},
+	.syncLevel = TRUE,
     .moves = {MOVE_REST, MOVE_SHADOW_BALL, MOVE_SLUDGE_BOMB, MOVE_CURSE}
     },
     {
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_TENTACRUEL,
 	.heldItem = ITEM_LEFTOVERS,
 	.nature = NATURE_BOLD,
 	.evs = {252, 0, 252, 0, 0, 6},
+	.syncLevel = TRUE,
     .moves = {MOVE_TOXIC, MOVE_DOUBLE_TEAM, MOVE_SURF, MOVE_GIGA_DRAIN}
     },
 	{
     .iv = 31,
-    .lvl = 72,
+    .lvl = 60,
     .species = SPECIES_CROBAT,
 	.heldItem = ITEM_LEFTOVERS,
 	.nature = NATURE_JOLLY,
 	.evs = {252, 6, 0, 0, 0, 252},
+	.syncLevel = TRUE,
     .moves = {MOVE_DOUBLE_TEAM, MOVE_LEECH_LIFE, MOVE_TOXIC, MOVE_FLY}
     }
 };
@@ -18434,59 +18470,65 @@ static const struct TrainerMonCustomMidele sParty_Koga[] = {
 static const struct TrainerMonCustomMidele sParty_Blaine[] = {
     {
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_NINETALES,
 	.heldItem = ITEM_CHARCOAL,
 	.nature = NATURE_MODEST,
 	.evs = {6, 0, 0, 252, 0, 252},
 	.ability = 1,
+	.syncLevel = TRUE,
     .moves = {MOVE_FIRE_BLAST, MOVE_SOLAR_BEAM, MOVE_DARK_PULSE, MOVE_EXTRASENSORY}
     },
 	{
     .iv = 31,
-    .lvl = 72,
+    .lvl = 60,
     .species = SPECIES_CHARIZARD,
 	.heldItem = ITEM_SHARP_BEAK,
 	.nature = NATURE_ADAMANT,
 	.evs = {6, 252, 0, 0, 0, 252},
+	.syncLevel = TRUE,
     .moves = {MOVE_DRAGON_DANCE, MOVE_FIRE_BLAST, MOVE_EARTHQUAKE, MOVE_AERIAL_ACE}
     },
 	{
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_RAPIDASH,
 	.heldItem = ITEM_FOCUS_SASH,
 	.nature = NATURE_JOLLY,
 	.evs = {6, 252, 0, 0, 0, 252},
 	.friendship = 255,
+	.syncLevel = TRUE,
     .moves = {MOVE_MEGAHORN, MOVE_SWORDS_DANCE, MOVE_BOUNCE, MOVE_RETURN}
     },
     {
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_ARCANINE,
 	.heldItem = ITEM_WHITE_HERB,
 	.nature = NATURE_NAUGHTY,
 	.evs = {0, 252, 0, 252, 0, 6},
+	.syncLevel = TRUE,
     .moves = {MOVE_MORNING_SUN, MOVE_SUPERPOWER, MOVE_FLAMETHROWER, MOVE_CRUNCH}
     },
     {
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_MAGMORTAR,
 	.heldItem = ITEM_BLACK_BELT,
 	.nature = NATURE_QUIET,
 	.evs = {0, 252, 0, 252, 0, 6},
+	.syncLevel = TRUE,
     .moves = {MOVE_THUNDERBOLT, MOVE_CROSS_CHOP, MOVE_FLAMETHROWER, MOVE_EARTHQUAKE}
     },
 	{
     .iv = 31,
-    .lvl = 72,
+    .lvl = 60,
     .species = SPECIES_MOLTRES,
 	.heldItem = ITEM_LUM_BERRY,
 	.nature = NATURE_MODEST,
 	.evs = {6, 0, 0, 252, 0, 252},
 	.hpType = TYPE_GRASS,
+	.syncLevel = TRUE,
     .moves = {MOVE_FLAMETHROWER, MOVE_HIDDEN_POWER, MOVE_MORNING_SUN, MOVE_WILL_O_WISP}
     }
 };
@@ -18494,60 +18536,535 @@ static const struct TrainerMonCustomMidele sParty_Blaine[] = {
 static const struct TrainerMonCustomMidele sParty_Giovanni[] = {
     {
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_NIDOKING,
 	.heldItem = ITEM_SOFT_SAND,
 	.nature = NATURE_QUIET,
 	.evs = {6, 252, 0, 252, 0, 0},
+	.syncLevel = TRUE,
     .moves = {MOVE_FIRE_BLAST, MOVE_THUNDERBOLT, MOVE_EARTHQUAKE, MOVE_SLUDGE_BOMB}
     },
 	{
     .iv = 31,
-    .lvl = 72,
+    .lvl = 60,
     .species = SPECIES_DUGTRIO,
 	.heldItem = ITEM_FOCUS_SASH,
 	.nature = NATURE_ADAMANT,
 	.evs = {6, 252, 0, 0, 0, 252},
 	.ability = 1,
+	.syncLevel = TRUE,
     .moves = {MOVE_EARTHQUAKE, MOVE_STONE_EDGE, MOVE_SLUDGE_BOMB, MOVE_FISSURE}
     },
 	{
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_HONCHKROW,
 	.heldItem = ITEM_SCOPE_LENS,
 	.nature = NATURE_MILD,
 	.evs = {6, 252, 0, 252, 0, 0},
 	.ability = 1,
+	.syncLevel = TRUE,
     .moves = {MOVE_BRAVE_BIRD, MOVE_HEAT_WAVE, MOVE_DARK_PULSE, MOVE_THUNDER_WAVE}
     },
     {
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_KANGASKHAN,
 	.heldItem = ITEM_LEFTOVERS,
 	.nature = NATURE_ADAMANT,
 	.evs = {252, 252, 0, 0, 0, 6},
 	.friendship = 255,
 	.ability = 1,
+	.syncLevel = TRUE,
     .moves = {MOVE_EARTHQUAKE, MOVE_REST, MOVE_SLEEP_TALK, MOVE_RETURN}
     },
 	{
     .iv = 31,
-    .lvl = 73,
+    .lvl = 60,
     .species = SPECIES_RHYPERIOR,
 	.heldItem = ITEM_HARD_STONE,
 	.nature = NATURE_ADAMANT,
 	.evs = {252, 252, 0, 0, 0, 6},
+	.syncLevel = TRUE,
     .moves = {MOVE_EARTHQUAKE, MOVE_STONE_EDGE, MOVE_MEGAHORN, MOVE_IRON_HEAD}
     },
 	{
     .iv = 31,
-    .lvl = 72,
+    .lvl = 60,
     .species = SPECIES_MEWTWO,
 	.heldItem = ITEM_TWISTED_SPOON,
 	.nature = NATURE_MODEST,
 	.evs = {6, 0, 0, 252, 0, 252},
+	.syncLevel = TRUE,
+    .moves = {MOVE_RECOVER, MOVE_PSYCHIC, MOVE_FLAMETHROWER, MOVE_ICE_BEAM}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_Lorelei[] = {
+    {
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_NIDOKING,
+	.heldItem = ITEM_SOFT_SAND,
+	.nature = NATURE_QUIET,
+	.evs = {6, 252, 0, 252, 0, 0},
+	.syncLevel = TRUE,
+    .moves = {MOVE_FIRE_BLAST, MOVE_THUNDERBOLT, MOVE_EARTHQUAKE, MOVE_SLUDGE_BOMB}
+    },
+	{
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_DUGTRIO,
+	.heldItem = ITEM_FOCUS_SASH,
+	.nature = NATURE_ADAMANT,
+	.evs = {6, 252, 0, 0, 0, 252},
+	.ability = 1,
+	.syncLevel = TRUE,
+    .moves = {MOVE_EARTHQUAKE, MOVE_STONE_EDGE, MOVE_SLUDGE_BOMB, MOVE_FISSURE}
+    },
+	{
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_HONCHKROW,
+	.heldItem = ITEM_SCOPE_LENS,
+	.nature = NATURE_MILD,
+	.evs = {6, 252, 0, 252, 0, 0},
+	.ability = 1,
+	.syncLevel = TRUE,
+    .moves = {MOVE_BRAVE_BIRD, MOVE_HEAT_WAVE, MOVE_DARK_PULSE, MOVE_THUNDER_WAVE}
+    },
+    {
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_KANGASKHAN,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_ADAMANT,
+	.evs = {252, 252, 0, 0, 0, 6},
+	.friendship = 255,
+	.ability = 1,
+	.syncLevel = TRUE,
+    .moves = {MOVE_EARTHQUAKE, MOVE_REST, MOVE_SLEEP_TALK, MOVE_RETURN}
+    },
+	{
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_RHYPERIOR,
+	.heldItem = ITEM_HARD_STONE,
+	.nature = NATURE_ADAMANT,
+	.evs = {252, 252, 0, 0, 0, 6},
+	.syncLevel = TRUE,
+    .moves = {MOVE_EARTHQUAKE, MOVE_STONE_EDGE, MOVE_MEGAHORN, MOVE_IRON_HEAD}
+    },
+	{
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_MEWTWO,
+	.heldItem = ITEM_TWISTED_SPOON,
+	.nature = NATURE_MODEST,
+	.evs = {6, 0, 0, 252, 0, 252},
+	.syncLevel = TRUE,
+    .moves = {MOVE_RECOVER, MOVE_PSYCHIC, MOVE_FLAMETHROWER, MOVE_ICE_BEAM}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_Bruno[] = {
+    {
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_NIDOKING,
+	.heldItem = ITEM_SOFT_SAND,
+	.nature = NATURE_QUIET,
+	.evs = {6, 252, 0, 252, 0, 0},
+	.syncLevel = TRUE,
+    .moves = {MOVE_FIRE_BLAST, MOVE_THUNDERBOLT, MOVE_EARTHQUAKE, MOVE_SLUDGE_BOMB}
+    },
+	{
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_DUGTRIO,
+	.heldItem = ITEM_FOCUS_SASH,
+	.nature = NATURE_ADAMANT,
+	.evs = {6, 252, 0, 0, 0, 252},
+	.ability = 1,
+	.syncLevel = TRUE,
+    .moves = {MOVE_EARTHQUAKE, MOVE_STONE_EDGE, MOVE_SLUDGE_BOMB, MOVE_FISSURE}
+    },
+	{
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_HONCHKROW,
+	.heldItem = ITEM_SCOPE_LENS,
+	.nature = NATURE_MILD,
+	.evs = {6, 252, 0, 252, 0, 0},
+	.ability = 1,
+	.syncLevel = TRUE,
+    .moves = {MOVE_BRAVE_BIRD, MOVE_HEAT_WAVE, MOVE_DARK_PULSE, MOVE_THUNDER_WAVE}
+    },
+    {
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_KANGASKHAN,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_ADAMANT,
+	.evs = {252, 252, 0, 0, 0, 6},
+	.friendship = 255,
+	.ability = 1,
+	.syncLevel = TRUE,
+    .moves = {MOVE_EARTHQUAKE, MOVE_REST, MOVE_SLEEP_TALK, MOVE_RETURN}
+    },
+	{
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_RHYPERIOR,
+	.heldItem = ITEM_HARD_STONE,
+	.nature = NATURE_ADAMANT,
+	.evs = {252, 252, 0, 0, 0, 6},
+	.syncLevel = TRUE,
+    .moves = {MOVE_EARTHQUAKE, MOVE_STONE_EDGE, MOVE_MEGAHORN, MOVE_IRON_HEAD}
+    },
+	{
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_MEWTWO,
+	.heldItem = ITEM_TWISTED_SPOON,
+	.nature = NATURE_MODEST,
+	.evs = {6, 0, 0, 252, 0, 252},
+	.syncLevel = TRUE,
+    .moves = {MOVE_RECOVER, MOVE_PSYCHIC, MOVE_FLAMETHROWER, MOVE_ICE_BEAM}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_Agatha[] = {
+    {
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_NIDOKING,
+	.heldItem = ITEM_SOFT_SAND,
+	.nature = NATURE_QUIET,
+	.evs = {6, 252, 0, 252, 0, 0},
+	.syncLevel = TRUE,
+    .moves = {MOVE_FIRE_BLAST, MOVE_THUNDERBOLT, MOVE_EARTHQUAKE, MOVE_SLUDGE_BOMB}
+    },
+	{
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_DUGTRIO,
+	.heldItem = ITEM_FOCUS_SASH,
+	.nature = NATURE_ADAMANT,
+	.evs = {6, 252, 0, 0, 0, 252},
+	.ability = 1,
+	.syncLevel = TRUE,
+    .moves = {MOVE_EARTHQUAKE, MOVE_STONE_EDGE, MOVE_SLUDGE_BOMB, MOVE_FISSURE}
+    },
+	{
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_HONCHKROW,
+	.heldItem = ITEM_SCOPE_LENS,
+	.nature = NATURE_MILD,
+	.evs = {6, 252, 0, 252, 0, 0},
+	.ability = 1,
+	.syncLevel = TRUE,
+    .moves = {MOVE_BRAVE_BIRD, MOVE_HEAT_WAVE, MOVE_DARK_PULSE, MOVE_THUNDER_WAVE}
+    },
+    {
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_KANGASKHAN,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_ADAMANT,
+	.evs = {252, 252, 0, 0, 0, 6},
+	.friendship = 255,
+	.ability = 1,
+	.syncLevel = TRUE,
+    .moves = {MOVE_EARTHQUAKE, MOVE_REST, MOVE_SLEEP_TALK, MOVE_RETURN}
+    },
+	{
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_RHYPERIOR,
+	.heldItem = ITEM_HARD_STONE,
+	.nature = NATURE_ADAMANT,
+	.evs = {252, 252, 0, 0, 0, 6},
+	.syncLevel = TRUE,
+    .moves = {MOVE_EARTHQUAKE, MOVE_STONE_EDGE, MOVE_MEGAHORN, MOVE_IRON_HEAD}
+    },
+	{
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_MEWTWO,
+	.heldItem = ITEM_TWISTED_SPOON,
+	.nature = NATURE_MODEST,
+	.evs = {6, 0, 0, 252, 0, 252},
+	.syncLevel = TRUE,
+    .moves = {MOVE_RECOVER, MOVE_PSYCHIC, MOVE_FLAMETHROWER, MOVE_ICE_BEAM}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_Lance[] = {
+    {
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_NIDOKING,
+	.heldItem = ITEM_SOFT_SAND,
+	.nature = NATURE_QUIET,
+	.evs = {6, 252, 0, 252, 0, 0},
+	.syncLevel = TRUE,
+    .moves = {MOVE_FIRE_BLAST, MOVE_THUNDERBOLT, MOVE_EARTHQUAKE, MOVE_SLUDGE_BOMB}
+    },
+	{
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_DUGTRIO,
+	.heldItem = ITEM_FOCUS_SASH,
+	.nature = NATURE_ADAMANT,
+	.evs = {6, 252, 0, 0, 0, 252},
+	.ability = 1,
+	.syncLevel = TRUE,
+    .moves = {MOVE_EARTHQUAKE, MOVE_STONE_EDGE, MOVE_SLUDGE_BOMB, MOVE_FISSURE}
+    },
+	{
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_HONCHKROW,
+	.heldItem = ITEM_SCOPE_LENS,
+	.nature = NATURE_MILD,
+	.evs = {6, 252, 0, 252, 0, 0},
+	.ability = 1,
+	.syncLevel = TRUE,
+    .moves = {MOVE_BRAVE_BIRD, MOVE_HEAT_WAVE, MOVE_DARK_PULSE, MOVE_THUNDER_WAVE}
+    },
+    {
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_KANGASKHAN,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_ADAMANT,
+	.evs = {252, 252, 0, 0, 0, 6},
+	.friendship = 255,
+	.ability = 1,
+	.syncLevel = TRUE,
+    .moves = {MOVE_EARTHQUAKE, MOVE_REST, MOVE_SLEEP_TALK, MOVE_RETURN}
+    },
+	{
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_RHYPERIOR,
+	.heldItem = ITEM_HARD_STONE,
+	.nature = NATURE_ADAMANT,
+	.evs = {252, 252, 0, 0, 0, 6},
+	.syncLevel = TRUE,
+    .moves = {MOVE_EARTHQUAKE, MOVE_STONE_EDGE, MOVE_MEGAHORN, MOVE_IRON_HEAD}
+    },
+	{
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_MEWTWO,
+	.heldItem = ITEM_TWISTED_SPOON,
+	.nature = NATURE_MODEST,
+	.evs = {6, 0, 0, 252, 0, 252},
+	.syncLevel = TRUE,
+    .moves = {MOVE_RECOVER, MOVE_PSYCHIC, MOVE_FLAMETHROWER, MOVE_ICE_BEAM}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_Blue[] = {
+    {
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_NIDOKING,
+	.heldItem = ITEM_SOFT_SAND,
+	.nature = NATURE_QUIET,
+	.evs = {6, 252, 0, 252, 0, 0},
+	.syncLevel = TRUE,
+    .moves = {MOVE_FIRE_BLAST, MOVE_THUNDERBOLT, MOVE_EARTHQUAKE, MOVE_SLUDGE_BOMB}
+    },
+	{
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_DUGTRIO,
+	.heldItem = ITEM_FOCUS_SASH,
+	.nature = NATURE_ADAMANT,
+	.evs = {6, 252, 0, 0, 0, 252},
+	.ability = 1,
+	.syncLevel = TRUE,
+    .moves = {MOVE_EARTHQUAKE, MOVE_STONE_EDGE, MOVE_SLUDGE_BOMB, MOVE_FISSURE}
+    },
+	{
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_HONCHKROW,
+	.heldItem = ITEM_SCOPE_LENS,
+	.nature = NATURE_MILD,
+	.evs = {6, 252, 0, 252, 0, 0},
+	.ability = 1,
+	.syncLevel = TRUE,
+    .moves = {MOVE_BRAVE_BIRD, MOVE_HEAT_WAVE, MOVE_DARK_PULSE, MOVE_THUNDER_WAVE}
+    },
+    {
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_KANGASKHAN,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_ADAMANT,
+	.evs = {252, 252, 0, 0, 0, 6},
+	.friendship = 255,
+	.ability = 1,
+	.syncLevel = TRUE,
+    .moves = {MOVE_EARTHQUAKE, MOVE_REST, MOVE_SLEEP_TALK, MOVE_RETURN}
+    },
+	{
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_RHYPERIOR,
+	.heldItem = ITEM_HARD_STONE,
+	.nature = NATURE_ADAMANT,
+	.evs = {252, 252, 0, 0, 0, 6},
+	.syncLevel = TRUE,
+    .moves = {MOVE_EARTHQUAKE, MOVE_STONE_EDGE, MOVE_MEGAHORN, MOVE_IRON_HEAD}
+    },
+	{
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_MEWTWO,
+	.heldItem = ITEM_TWISTED_SPOON,
+	.nature = NATURE_MODEST,
+	.evs = {6, 0, 0, 252, 0, 252},
+	.syncLevel = TRUE,
+    .moves = {MOVE_RECOVER, MOVE_PSYCHIC, MOVE_FLAMETHROWER, MOVE_ICE_BEAM}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_Red2[] = {
+    {
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_NIDOKING,
+	.heldItem = ITEM_SOFT_SAND,
+	.nature = NATURE_QUIET,
+	.evs = {6, 252, 0, 252, 0, 0},
+	.syncLevel = TRUE,
+    .moves = {MOVE_FIRE_BLAST, MOVE_THUNDERBOLT, MOVE_EARTHQUAKE, MOVE_SLUDGE_BOMB}
+    },
+	{
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_DUGTRIO,
+	.heldItem = ITEM_FOCUS_SASH,
+	.nature = NATURE_ADAMANT,
+	.evs = {6, 252, 0, 0, 0, 252},
+	.ability = 1,
+	.syncLevel = TRUE,
+    .moves = {MOVE_EARTHQUAKE, MOVE_STONE_EDGE, MOVE_SLUDGE_BOMB, MOVE_FISSURE}
+    },
+	{
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_HONCHKROW,
+	.heldItem = ITEM_SCOPE_LENS,
+	.nature = NATURE_MILD,
+	.evs = {6, 252, 0, 252, 0, 0},
+	.ability = 1,
+	.syncLevel = TRUE,
+    .moves = {MOVE_BRAVE_BIRD, MOVE_HEAT_WAVE, MOVE_DARK_PULSE, MOVE_THUNDER_WAVE}
+    },
+    {
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_KANGASKHAN,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_ADAMANT,
+	.evs = {252, 252, 0, 0, 0, 6},
+	.friendship = 255,
+	.ability = 1,
+	.syncLevel = TRUE,
+    .moves = {MOVE_EARTHQUAKE, MOVE_REST, MOVE_SLEEP_TALK, MOVE_RETURN}
+    },
+	{
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_RHYPERIOR,
+	.heldItem = ITEM_HARD_STONE,
+	.nature = NATURE_ADAMANT,
+	.evs = {252, 252, 0, 0, 0, 6},
+	.syncLevel = TRUE,
+    .moves = {MOVE_EARTHQUAKE, MOVE_STONE_EDGE, MOVE_MEGAHORN, MOVE_IRON_HEAD}
+    },
+	{
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_MEWTWO,
+	.heldItem = ITEM_TWISTED_SPOON,
+	.nature = NATURE_MODEST,
+	.evs = {6, 0, 0, 252, 0, 252},
+	.syncLevel = TRUE,
+    .moves = {MOVE_RECOVER, MOVE_PSYCHIC, MOVE_FLAMETHROWER, MOVE_ICE_BEAM}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_Leaf2[] = {
+    {
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_NIDOKING,
+	.heldItem = ITEM_SOFT_SAND,
+	.nature = NATURE_QUIET,
+	.evs = {6, 252, 0, 252, 0, 0},
+	.syncLevel = TRUE,
+    .moves = {MOVE_FIRE_BLAST, MOVE_THUNDERBOLT, MOVE_EARTHQUAKE, MOVE_SLUDGE_BOMB}
+    },
+	{
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_DUGTRIO,
+	.heldItem = ITEM_FOCUS_SASH,
+	.nature = NATURE_ADAMANT,
+	.evs = {6, 252, 0, 0, 0, 252},
+	.ability = 1,
+	.syncLevel = TRUE,
+    .moves = {MOVE_EARTHQUAKE, MOVE_STONE_EDGE, MOVE_SLUDGE_BOMB, MOVE_FISSURE}
+    },
+	{
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_HONCHKROW,
+	.heldItem = ITEM_SCOPE_LENS,
+	.nature = NATURE_MILD,
+	.evs = {6, 252, 0, 252, 0, 0},
+	.ability = 1,
+	.syncLevel = TRUE,
+    .moves = {MOVE_BRAVE_BIRD, MOVE_HEAT_WAVE, MOVE_DARK_PULSE, MOVE_THUNDER_WAVE}
+    },
+    {
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_KANGASKHAN,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_ADAMANT,
+	.evs = {252, 252, 0, 0, 0, 6},
+	.friendship = 255,
+	.ability = 1,
+	.syncLevel = TRUE,
+    .moves = {MOVE_EARTHQUAKE, MOVE_REST, MOVE_SLEEP_TALK, MOVE_RETURN}
+    },
+	{
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_RHYPERIOR,
+	.heldItem = ITEM_HARD_STONE,
+	.nature = NATURE_ADAMANT,
+	.evs = {252, 252, 0, 0, 0, 6},
+	.syncLevel = TRUE,
+    .moves = {MOVE_EARTHQUAKE, MOVE_STONE_EDGE, MOVE_MEGAHORN, MOVE_IRON_HEAD}
+    },
+	{
+    .iv = 31,
+    .lvl = 60,
+    .species = SPECIES_MEWTWO,
+	.heldItem = ITEM_TWISTED_SPOON,
+	.nature = NATURE_MODEST,
+	.evs = {6, 0, 0, 252, 0, 252},
+	.syncLevel = TRUE,
     .moves = {MOVE_RECOVER, MOVE_PSYCHIC, MOVE_FLAMETHROWER, MOVE_ICE_BEAM}
     }
 };
