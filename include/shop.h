@@ -47,6 +47,7 @@ struct ShopData
 };
 
 void CreatePokemartMenu(const u16 *);
+void CreateEVMartMenu(const u16 *);
 void CreateTMShopMenu(const u16 *, u8 shopId);
 void CreateDecorationShop1Menu(const u16 *);
 void CreateDecorationShop2Menu(const u16 *);

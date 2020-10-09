@@ -1573,6 +1573,12 @@
 	.byte 0xe3
 	.2byte \index
 	.endm
+	
+@ Opens the Pokemart system, offering the specified products for sale.
+	.macro evmart products:req
+	.byte 0xe4
+	.4byte \products
+	.endm
 
 
 @ Supplementary

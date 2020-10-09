@@ -5146,6 +5146,7 @@ extern const u32 gStatusGfx_Icons[];
 extern const u32 gStatusPal_Icons[];
 
 extern const u32 gBuyMenuFrame_Gfx[];
+extern const u32 gBuyEVMenuFrame_Tilemap[];
 extern const u32 gBuyMenuFrame_Tilemap[];
 extern const u32 gMenuMoneyGfx[];
 extern const u32 gMenuMoneyPal[];

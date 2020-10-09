@@ -20,10 +20,12 @@
 
 // this file's functions
 static void Task_ContinueTaskAfterMessagePrints(u8 taskId);
+static void Task_CallEVYesOrNoCallback(u8 taskId);
 static void Task_CallYesOrNoCallback(u8 taskId);
 
 // EWRAM vars
 EWRAM_DATA static struct YesNoFuncTable gUnknown_0203A138 = {0};
+EWRAM_DATA static struct EVYesNoFuncTable idk = {0};
 EWRAM_DATA static u8 gUnknown_0203A140 = 0;
 
 // IWRAM bss vars
@@ -156,11 +158,34 @@ void DoYesNoFuncWithChoice(u8 taskId, const struct YesNoFuncTable *data)
     gTasks[taskId].func = Task_CallYesOrNoCallback;
 }
 
+void CreateEVYesNoMenuWithCallbacks(u8 taskId, const struct WindowTemplate *template, u8 arg2, u8 arg3, u8 arg4, u16 tileStart, u8 palette, const struct EVYesNoFuncTable *yesNo)
+{
+    CreateYesNoMenu(template, tileStart, palette, 0);
+    idk = *yesNo;
+    gTasks[taskId].func = Task_CallEVYesOrNoCallback;
+}
+
 void CreateYesNoMenuWithCallbacks(u8 taskId, const struct WindowTemplate *template, u8 arg2, u8 arg3, u8 arg4, u16 tileStart, u8 palette, const struct YesNoFuncTable *yesNo)
 {
     CreateYesNoMenu(template, tileStart, palette, 0);
     gUnknown_0203A138 = *yesNo;
     gTasks[taskId].func = Task_CallYesOrNoCallback;
+}
+
+static void Task_CallEVYesOrNoCallback(u8 taskId)
+{
+    switch (Menu_ProcessInputNoWrapClearOnChoose())
+    {
+    case 0:
+        PlaySE(SE_SELECT);
+        idk.yesFunc(taskId);
+        break;
+    case 1:
+    case MENU_B_PRESSED:
+        PlaySE(SE_SELECT);
+        idk.noFunc(taskId);
+        break;
+    }
 }
 
 static void Task_CallYesOrNoCallback(u8 taskId)
@@ -177,6 +202,76 @@ static void Task_CallYesOrNoCallback(u8 taskId)
         gUnknown_0203A138.noFunc(taskId);
         break;
     }
+}
+
+bool8 AdjustEVQuantityAccordingToDPadInput(s16 *arg0, u16 arg1)
+{
+    s16 valBefore = (*arg0);
+
+    if ((gMain.newAndRepeatedKeys & DPAD_ANY) == DPAD_UP)
+    {
+        (*arg0) += 4;
+        if ((*arg0) > arg1)
+            (*arg0) = 0;
+
+        if ((*arg0) == valBefore)
+        {
+            return FALSE;
+        }
+        else
+        {
+            PlaySE(SE_SELECT);
+            return TRUE;
+        }
+    }
+    else if ((gMain.newAndRepeatedKeys & DPAD_ANY) == DPAD_DOWN)
+    {
+        (*arg0) -= 4;
+        if ((*arg0) <= 0)
+            (*arg0) = arg1;
+
+        if ((*arg0) == valBefore)
+        {
+            return FALSE;
+        }
+        else
+        {
+            PlaySE(SE_SELECT);
+            return TRUE;
+        }
+    }
+    else if ((gMain.newAndRepeatedKeys & DPAD_ANY) == DPAD_RIGHT)
+    {
+        (*arg0) = 252;
+        if ((*arg0) > arg1)
+            (*arg0) = arg1;
+
+        if ((*arg0) == valBefore)
+        {
+            return FALSE;
+        }
+        else
+        {
+            PlaySE(SE_SELECT);
+            return TRUE;
+        }
+    }
+    else if ((gMain.newAndRepeatedKeys & DPAD_ANY) == DPAD_LEFT)
+    {
+        (*arg0) = 0;
+
+        if ((*arg0) == valBefore)
+        {
+            return FALSE;
+        }
+        else
+        {
+            PlaySE(SE_SELECT);
+            return TRUE;
+        }
+    }
+
+    return FALSE;
 }
 
 bool8 AdjustQuantityAccordingToDPadInput(s16 *arg0, u16 arg1)

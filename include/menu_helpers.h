@@ -15,6 +15,12 @@ struct YesNoFuncTable
     TaskFunc noFunc;
 };
 
+struct EVYesNoFuncTable
+{
+    TaskFunc yesFunc;
+    TaskFunc noFunc;
+};
+
 // Exported RAM declarations
 
 // Exported ROM declarations
@@ -24,7 +30,9 @@ void SetVBlankHBlankCallbacksToNull(void);
 void DisplayMessageAndContinueTask(u8 taskId, u8 windowId, u16 arg2, u8 arg3, u8 fontId, u8 textSpeed, const u8 *string, void *taskFunc);
 bool16 RunTextPrintersRetIsActive(u8 textPrinterId);
 void DoYesNoFuncWithChoice(u8 taskId, const struct YesNoFuncTable *data);
+void CreateEVYesNoMenuWithCallbacks(u8 taskId, const struct WindowTemplate *template, u8 arg2, u8 arg3, u8 arg4, u16 tileStart, u8 palette, const struct EVYesNoFuncTable *yesNo);
 void CreateYesNoMenuWithCallbacks(u8 taskId, const struct WindowTemplate *template, u8 arg2, u8 arg3, u8 arg4, u16 tileStart, u8 palette, const struct YesNoFuncTable *yesNo);
+bool8 AdjustEVQuantityAccordingToDPadInput(s16 *arg0, u16 arg1);
 bool8 AdjustQuantityAccordingToDPadInput(s16 *arg0, u16 arg1);
 u8 GetLRKeysPressed(void);
 u8 GetLRKeysPressedAndHeld(void);

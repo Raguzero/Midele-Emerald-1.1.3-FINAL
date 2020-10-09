@@ -39,6 +39,7 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "constants/tv.h"
+#include "event_data.h"
 
 EWRAM_DATA struct MartInfo gMartInfo = {0};
 EWRAM_DATA struct ShopData *gShopDataPtr = NULL;
@@ -49,18 +50,28 @@ EWRAM_DATA struct ItemSlot gMartPurchaseHistory[3] = {0};
 
 static void Task_ShopMenu(u8 taskId);
 static void Task_HandleShopMenuQuit(u8 taskId);
+static void CB2_InitBuyEVMenu(void);
 static void CB2_InitBuyMenu(void);
 static void Task_GoToBuyOrSellMenu(u8 taskId);
+static void MapPostLoadHook_ReturnToEVShopMenu(void);
 static void MapPostLoadHook_ReturnToShopMenu(void);
+static void Task_ReturnToEVShopMenu(u8 taskId);
 static void Task_ReturnToShopMenu(u8 taskId);
+static void ShowEVShopMenuAfterExitingBuyOrSellMenu(u8 taskId);
 static void ShowShopMenuAfterExitingBuyOrSellMenu(u8 taskId);
+static void BuyEVMenuDrawGraphics(void);
 static void BuyMenuDrawGraphics(void);
 static void BuyMenuAddScrollIndicatorArrows(void);
+static void Task_BuyEVMenu(u8 taskId);
 static void Task_BuyMenu(u8 taskId);
+static void BuyEVMenuBuildListMenuTemplate(void);
 static void BuyMenuBuildListMenuTemplate(void);
+static void BuyEVMenuInitBgs(void);
 static void BuyMenuInitBgs(void);
 static void BuyMenuInitWindows(void);
+static void BuyEVMenuDecompressBgGraphics(void);
 static void BuyMenuDecompressBgGraphics(void);
+static void BuyEVMenuSetListEntry(struct ListMenuItem *menuItem, u16 item, u8 *name);
 static void BuyMenuSetListEntry(struct ListMenuItem*, u16, u8*);
 static void BuyMenuAddItemIcon(u16, u8);
 static void BuyMenuRemoveItemIcon(u16, u8);
@@ -74,28 +85,49 @@ static bool8 BuyMenuCheckForOverlapWithMenuBg(int, int);
 static void BuyMenuDrawMapMetatile(s16, s16, const u16*, u8);
 static void BuyMenuDrawMapMetatileLayer(u16 *dest, s16 offset1, s16 offset2, const u16 *src);
 static bool8 BuyMenuCheckIfEventObjectOverlapsMenuBg(s16 *);
+static void ExitEVBuyMenu(u8 taskId);
 static void ExitBuyMenu(u8 taskId);
 static void Task_ExitBuyMenu(u8 taskId);
+static void BuyEVMenuTryMakePurchase(u8 taskId);
 static void BuyMenuTryMakePurchase(u8 taskId);
+static void BuyEVMenuReturnToItemList(u8 taskId);
 static void BuyMenuReturnToItemList(u8 taskId);
+static void Task_BuyHowManyEVDialogueInit(u8 taskId);
 static void Task_BuyHowManyDialogueInit(u8 taskId);
+static void BuyEVMenuConfirmPurchase(u8 taskId);
 static void BuyMenuConfirmPurchase(u8 taskId);
+static void BuyEVMenuPrintItemQuantityAndPrice(u8 taskId);
 static void BuyMenuPrintItemQuantityAndPrice(u8 taskId);
+static void Task_BuyHowManyEVDialogueHandleInput(u8 taskId);
 static void Task_BuyHowManyDialogueHandleInput(u8 taskId);
 static void BuyMenuSubtractMoney(u8 taskId);
 static void RecordItemPurchase(u8 taskId);
 static void Task_ReturnToItemListAfterItemPurchase(u8 taskId);
 static void Task_ReturnToItemListAfterTMShopPurchase(u8 taskId);
 static void Task_ReturnToItemListAfterDecorationPurchase(u8 taskId);
+static void Task_HandleShopMenuBuyEV(u8 taskId);
 static void Task_HandleShopMenuBuy(u8 taskId);
 static void Task_HandleShopMenuSell(u8 taskId);
+static void BuyEVMenuPrintItemDescription(s32 item, bool8 onInit, struct ListMenu *list);
 static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, struct ListMenu *list);
 static void BuyMenuPrintPriceInList(u8 windowId, s32 item, u8 y, u8 itemPos);
+
+static const struct EVYesNoFuncTable sShopPurchaseEVYesNoFuncs =
+{
+    BuyEVMenuTryMakePurchase,
+    BuyEVMenuReturnToItemList
+};
 
 static const struct YesNoFuncTable sShopPurchaseYesNoFuncs =
 {
     BuyMenuTryMakePurchase,
     BuyMenuReturnToItemList
+};
+
+static const struct MenuAction sShopMenuActions_BuyEVQuit[] =
+{
+    { gText_ShopBuy, {.void_u8=Task_HandleShopMenuBuyEV} },
+    { gText_ShopQuit, {.void_u8=Task_HandleShopMenuQuit} }
 };
 
 static const struct MenuAction sShopMenuActions_BuySellQuit[] =
@@ -133,6 +165,28 @@ static const struct WindowTemplate sShopMenuWindowTemplates[] =
     }
 };
 
+static const struct ListMenuTemplate sEVShopBuyMenuListTemplate =
+{
+    .items = NULL,
+    .moveCursorFunc = BuyEVMenuPrintItemDescription,
+    .itemPrintFunc = NULL,
+    .totalItems = 0,
+    .maxShowed = 0,
+    .windowId = 1,
+    .header_X = 0,
+    .item_X = 8,
+    .cursor_X = 0,
+    .upText_Y = 1,
+    .cursorPal = 2,
+    .fillValue = 0,
+    .cursorShadowPal = 3,
+    .lettersSpacing = 0,
+    .itemVerticalPadding = 0,
+    .scrollMultiple = LIST_NO_MULTIPLE_SCROLL,
+    .fontId = 7,
+    .cursorKind = 0
+};
+
 static const struct ListMenuTemplate sShopBuyMenuListTemplate =
 {
     .items = NULL,
@@ -153,6 +207,46 @@ static const struct ListMenuTemplate sShopBuyMenuListTemplate =
     .scrollMultiple = LIST_NO_MULTIPLE_SCROLL,
     .fontId = 7,
     .cursorKind = 0
+};
+
+static const struct BgTemplate sEVShopBuyMenuBgTemplates[] =
+{
+    {
+        .bg = 0,
+        .charBaseIndex = 2,
+        .mapBaseIndex = 31,
+        .screenSize = 0,
+        .paletteMode = 0,
+        .priority = 0,
+        .baseTile = 0
+    },
+    {
+        .bg = 1,
+        .charBaseIndex = 0,
+        .mapBaseIndex = 30,
+        .screenSize = 0,
+        .paletteMode = 0,
+        .priority = 1,
+        .baseTile = 0
+    },
+    {
+        .bg = 2,
+        .charBaseIndex = 0,
+        .mapBaseIndex = 29,
+        .screenSize = 0,
+        .paletteMode = 0,
+        .priority = 2,
+        .baseTile = 0
+    },
+    {
+        .bg = 3,
+        .charBaseIndex = 0,
+        .mapBaseIndex = 28,
+        .screenSize = 0,
+        .paletteMode = 0,
+        .priority = 3,
+        .baseTile = 0
+    }
 };
 
 static const struct BgTemplate sShopBuyMenuBgTemplates[] =
@@ -272,6 +366,29 @@ static const u8 sShopBuyMenuTextColors[][3] =
     {0, 3, 2}
 };
 
+static u8 CreateEVShopMenu(u8 martType)
+{
+    int numMenuItems;
+	struct WindowTemplate winTemplate;
+
+    ScriptContext2_Enable();
+    gMartInfo.martType = martType;
+
+	winTemplate = sShopMenuWindowTemplates[1];
+	winTemplate.width = GetMaxWidthInMenuTable(sShopMenuActions_BuyEVQuit, ARRAY_COUNT(sShopMenuActions_BuyEVQuit));
+	gMartInfo.windowId = AddWindow(&winTemplate);
+	gMartInfo.menuActions = sShopMenuActions_BuyEVQuit;
+	numMenuItems = ARRAY_COUNT(sShopMenuActions_BuyEVQuit);
+
+    SetStandardWindowBorderStyle(gMartInfo.windowId, 0);
+    PrintMenuTable(gMartInfo.windowId, numMenuItems, gMartInfo.menuActions);
+    InitMenuInUpperLeftCornerPlaySoundWhenAPressed(gMartInfo.windowId, numMenuItems, 0);
+    PutWindowTilemap(gMartInfo.windowId);
+    CopyWindowToVram(gMartInfo.windowId, 1);
+
+    return CreateTask(Task_ShopMenu, 8);
+}
+
 static u8 CreateShopMenu(u8 martType)
 {
     int numMenuItems;
@@ -346,6 +463,20 @@ static void SetShopId(u8 shopId)
     gMartInfo.shopId = shopId;
 }
 
+static void SetEVShopItemsForSale(const u16 *items)
+{
+    u16 i = 0;
+
+    gMartInfo.itemList = items;
+    gMartInfo.itemCount = 0;
+
+    while (gMartInfo.itemList[i])
+    {
+        gMartInfo.itemCount++;
+        i++;
+    }
+}
+
 static void Task_ShopMenu(u8 taskId)
 {
     s8 inputCode = Menu_ProcessInputNoWrap();
@@ -361,6 +492,15 @@ static void Task_ShopMenu(u8 taskId)
         gMartInfo.menuActions[inputCode].func.void_u8(taskId);
         break;
     }
+}
+
+static void Task_HandleShopMenuBuyEV(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+    data[8] = (u32)CB2_InitBuyEVMenu >> 16;
+    data[9] = (u32)CB2_InitBuyEVMenu;
+    gTasks[taskId].func = Task_GoToBuyOrSellMenu;
+    FadeScreen(FADE_TO_BLACK, 0);
 }
 
 static void Task_HandleShopMenuBuy(u8 taskId)
@@ -409,10 +549,27 @@ static void Task_GoToBuyOrSellMenu(u8 taskId)
     }
 }
 
+static void MapPostLoadHook_ReturnToEVShopMenu(void)
+{
+    FadeInFromBlack();
+    CreateTask(Task_ReturnToEVShopMenu, 8);
+}
+
 static void MapPostLoadHook_ReturnToShopMenu(void)
 {
     FadeInFromBlack();
     CreateTask(Task_ReturnToShopMenu, 8);
+}
+
+static void Task_ReturnToEVShopMenu(u8 taskId)
+{
+    if (IsWeatherNotFadingIn() == TRUE)
+    {
+        if (gMartInfo.martType == MART_TYPE_DECOR2)
+            DisplayItemMessageOnField(taskId, gText_CanIHelpWithAnythingElse, ShowEVShopMenuAfterExitingBuyOrSellMenu);
+        else
+            DisplayItemMessageOnField(taskId, gText_AnythingElseICanHelp, ShowEVShopMenuAfterExitingBuyOrSellMenu);
+    }
 }
 
 static void Task_ReturnToShopMenu(u8 taskId)
@@ -424,6 +581,12 @@ static void Task_ReturnToShopMenu(u8 taskId)
         else
             DisplayItemMessageOnField(taskId, gText_AnythingElseICanHelp, ShowShopMenuAfterExitingBuyOrSellMenu);
     }
+}
+
+static void ShowEVShopMenuAfterExitingBuyOrSellMenu(u8 taskId)
+{
+    CreateEVShopMenu(gMartInfo.martType);
+    DestroyTask(taskId);
 }
 
 static void ShowShopMenuAfterExitingBuyOrSellMenu(u8 taskId)
@@ -451,6 +614,53 @@ static void VBlankCB_BuyMenu(void)
 #define tItemCount data[1]
 #define tItemId data[5]
 #define tListTaskId data[7]
+
+static void CB2_InitBuyEVMenu(void)
+{
+    u8 taskId;
+
+    switch (gMain.state)
+    {
+    case 0:
+        SetVBlankHBlankCallbacksToNull();
+        CpuFastFill(0, (void *)OAM, OAM_SIZE);
+        ScanlineEffect_Stop();
+        reset_temp_tile_data_buffers();
+        FreeAllSpritePalettes();
+        ResetPaletteFade();
+        ResetSpriteData();
+        ResetTasks();
+        clear_scheduled_bg_copies_to_vram();
+        gShopDataPtr = AllocZeroed(sizeof(struct ShopData));
+        gShopDataPtr->scrollIndicatorsTaskId = 0xFF;
+        gShopDataPtr->itemSpriteIds[0] = 0xFF;
+        gShopDataPtr->itemSpriteIds[1] = 0xFF;
+        BuyEVMenuBuildListMenuTemplate();
+        BuyEVMenuInitBgs();
+        FillBgTilemapBufferRect_Palette0(0, 0, 0, 0, 0x20, 0x20);
+        FillBgTilemapBufferRect_Palette0(1, 0, 0, 0, 0x20, 0x20);
+        FillBgTilemapBufferRect_Palette0(2, 0, 0, 0, 0x20, 0x20);
+        FillBgTilemapBufferRect_Palette0(3, 0, 0, 0, 0x20, 0x20);
+        BuyMenuInitWindows();
+        BuyEVMenuDecompressBgGraphics();
+        gMain.state++;
+        break;
+    case 1:
+        if (!free_temp_tile_data_buffers_if_possible())
+            gMain.state++;
+        break;
+    default:
+        BuyEVMenuDrawGraphics();
+        BuyMenuAddScrollIndicatorArrows();
+        taskId = CreateTask(Task_BuyEVMenu, 8);
+        gTasks[taskId].tListTaskId = ListMenuInit(&gMultiuseListMenuTemplate, 0, 0);
+        BlendPalettes(0xFFFFFFFF, 0x10, RGB_BLACK);
+        BeginNormalPaletteFade(0xFFFFFFFF, 0, 0x10, 0, RGB_BLACK);
+        SetVBlankCallback(VBlankCB_BuyMenu);
+        SetMainCallback2(CB2_BuyMenu);
+        break;
+    }
+}
 
 static void CB2_InitBuyMenu(void)
 {
@@ -507,6 +717,31 @@ static void BuyMenuFreeMemory(void)
     FreeAllWindowBuffers();
 }
 
+static void BuyEVMenuBuildListMenuTemplate(void)
+{
+    u16 i;
+    u16 itemCount;
+
+    gUnknown_02039F74 = Alloc((gMartInfo.itemCount + 1) * sizeof(*gUnknown_02039F74));
+    gUnknown_02039F78 = Alloc((gMartInfo.itemCount + 1) * sizeof(*gUnknown_02039F78));
+    for (i = 0; i < gMartInfo.itemCount; i++)
+        BuyEVMenuSetListEntry(&gUnknown_02039F74[i], gMartInfo.itemList[i], gUnknown_02039F78[i]);
+
+    StringCopy(gUnknown_02039F78[i], gText_Cancel2);
+    gUnknown_02039F74[i].name = gUnknown_02039F78[i];
+    gUnknown_02039F74[i].id = -2;
+
+    gMultiuseListMenuTemplate = sEVShopBuyMenuListTemplate;
+    gMultiuseListMenuTemplate.items = gUnknown_02039F74;
+    gMultiuseListMenuTemplate.totalItems = gMartInfo.itemCount + 1;
+    if (gMultiuseListMenuTemplate.totalItems > 8)
+        gMultiuseListMenuTemplate.maxShowed = 8;
+    else
+        gMultiuseListMenuTemplate.maxShowed = gMultiuseListMenuTemplate.totalItems;
+
+    gShopDataPtr->itemsShowed = gMultiuseListMenuTemplate.maxShowed;
+}
+
 static void BuyMenuBuildListMenuTemplate(void)
 {
     u16 i;
@@ -532,6 +767,30 @@ static void BuyMenuBuildListMenuTemplate(void)
     gShopDataPtr->itemsShowed = gMultiuseListMenuTemplate.maxShowed;
 }
 
+static const u8* const sEVShopItems[] =
+{
+    gText_HP3,
+	gText_Attack,
+	gText_Defense,
+	gText_Speed,
+	gText_SpAtk,
+	gText_SpDef
+};
+
+static void BuyEVMenuSetListEntry(struct ListMenuItem *menuItem, u16 item, u8 *name)
+{
+	u8 itemNo;
+	if (itemNo > 5) itemNo = 0;
+	if (gMartInfo.martType == MART_TYPE_NORMAL)
+		CopyItemName(item, name);
+	else
+		StringCopy(name, gDecorations[item].name);
+
+	menuItem->name = sEVShopItems[itemNo];
+	itemNo++;
+	menuItem->id = item;
+}
+
 static void BuyMenuSetListEntry(struct ListMenuItem *menuItem, u16 item, u8 *name)
 {
     if (gMartInfo.martType == MART_TYPE_NORMAL || gMartInfo.martType == MART_TYPE_TM)
@@ -541,6 +800,25 @@ static void BuyMenuSetListEntry(struct ListMenuItem *menuItem, u16 item, u8 *nam
 
     menuItem->name = name;
     menuItem->id = item;
+}
+
+static void BuyEVMenuPrintItemDescription(s32 item, bool8 onInit, struct ListMenu *list)
+{
+    const u8 *description;
+    if (onInit != TRUE)
+        PlaySE(SE_SELECT);
+
+    if (item != -2)
+    {
+        description = gText_ExpandedPlaceholder_Empty;
+    }
+    else
+    {
+        description = gText_QuitShopping;
+    }
+
+    FillWindowPixelBuffer(2, PIXEL_FILL(0));
+    BuyMenuPrint(2, description, 3, 1, 0, 0);
 }
 
 static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, struct ListMenu *list)
@@ -705,6 +983,29 @@ static void BuyMenuRemoveItemIcon(u16 item, u8 iconSlot)
     *spriteIdPtr = 0xFF;
 }
 
+static void BuyEVMenuInitBgs(void)
+{
+    ResetBgsAndClearDma3BusyFlags(0);
+    InitBgsFromTemplates(0, sEVShopBuyMenuBgTemplates, ARRAY_COUNT(sEVShopBuyMenuBgTemplates));
+    SetBgTilemapBuffer(1, gShopDataPtr->tilemapBuffers[1]);
+    SetBgTilemapBuffer(2, gShopDataPtr->tilemapBuffers[3]);
+    SetBgTilemapBuffer(3, gShopDataPtr->tilemapBuffers[2]);
+    SetGpuReg(REG_OFFSET_BG0HOFS, 0);
+    SetGpuReg(REG_OFFSET_BG0VOFS, 0);
+    SetGpuReg(REG_OFFSET_BG1HOFS, 0);
+    SetGpuReg(REG_OFFSET_BG1VOFS, 0);
+    SetGpuReg(REG_OFFSET_BG2HOFS, 0);
+    SetGpuReg(REG_OFFSET_BG2VOFS, 0);
+    SetGpuReg(REG_OFFSET_BG3HOFS, 0);
+    SetGpuReg(REG_OFFSET_BG3VOFS, 0);
+    SetGpuReg(REG_OFFSET_BLDCNT, 0);
+    SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_MODE_0 | DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP);
+    ShowBg(0);
+    ShowBg(1);
+    ShowBg(2);
+    ShowBg(3);
+}
+
 static void BuyMenuInitBgs(void)
 {
     ResetBgsAndClearDma3BusyFlags(0);
@@ -726,6 +1027,13 @@ static void BuyMenuInitBgs(void)
     ShowBg(1);
     ShowBg(2);
     ShowBg(3);
+}
+
+static void BuyEVMenuDecompressBgGraphics(void)
+{
+    decompress_and_copy_tile_data_to_vram(1, gBuyMenuFrame_Gfx, 0x3A0, 0x3E3, 0);
+    LZDecompressWram(gBuyEVMenuFrame_Tilemap, gShopDataPtr->tilemapBuffers[0]);
+    LoadCompressedPalette(gMenuMoneyPal, 0xC0, 0x20);
 }
 
 static void BuyMenuDecompressBgGraphics(void)
@@ -755,6 +1063,16 @@ static void BuyMenuDisplayMessage(u8 taskId, const u8 *text, TaskFunc callback)
 {
     DisplayMessageAndContinueTask(taskId, 5, 10, 14, 1, GetPlayerTextSpeedDelay(), text, callback);
     schedule_bg_copy_tilemap_to_vram(0);
+}
+
+static void BuyEVMenuDrawGraphics(void)
+{
+    BuyMenuDrawMapGraphics();
+    BuyMenuCopyMenuBgToBg1TilemapBuffer();
+    schedule_bg_copy_tilemap_to_vram(0);
+    schedule_bg_copy_tilemap_to_vram(1);
+    schedule_bg_copy_tilemap_to_vram(2);
+    schedule_bg_copy_tilemap_to_vram(3);
 }
 
 static void BuyMenuDrawGraphics(void)
@@ -964,6 +1282,75 @@ static bool8 BuyMenuCheckForOverlapWithMenuBg(int x, int y)
     return FALSE;
 }
 
+static void Task_BuyEVMenu(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+
+    if (!gPaletteFade.active)
+    {
+        s32 itemId = ListMenu_ProcessInput(tListTaskId);
+        ListMenuGetScrollAndRow(tListTaskId, &gShopDataPtr->scrollOffset, &gShopDataPtr->selectedRow);
+
+        switch (itemId)
+        {
+        case LIST_NOTHING_CHOSEN:
+            break;
+        case LIST_CANCEL:
+            PlaySE(SE_SELECT);
+            ExitEVBuyMenu(taskId);
+            break;
+        default:
+            PlaySE(SE_SELECT);
+            tItemId = itemId;
+            ClearWindowTilemap(2);
+            BuyMenuRemoveScrollIndicatorArrows();
+            BuyMenuPrintCursor(tListTaskId, 2);
+
+            if (gMartInfo.martType == MART_TYPE_NORMAL)
+            {
+                gShopDataPtr->totalCost = (ItemId_GetPrice(itemId) >> GetPriceReduction(POKENEWS_SLATEPORT));
+            }
+            else
+            {
+                gShopDataPtr->totalCost = gDecorations[itemId].price;
+            }
+
+            if (!IsEnoughMoney(&gSaveBlock1Ptr->money, gShopDataPtr->totalCost))
+            {
+                BuyMenuDisplayMessage(taskId, gText_YouDontHaveMoney, BuyEVMenuReturnToItemList);
+            }
+            else
+            {
+                if (gMartInfo.martType == MART_TYPE_NORMAL)
+                {
+                    StringCopy(gStringVar1, sEVShopItems[gShopDataPtr->selectedRow]);
+                    if (ItemId_GetPocket(itemId) == POCKET_TM_HM)
+                    {
+                        StringCopy(gStringVar2, gMoveNames[ItemIdToBattleMoveId(itemId)]);
+                        BuyMenuDisplayMessage(taskId, gText_Var1CertainlyHowMany2, Task_BuyHowManyEVDialogueInit);
+                    }
+                    else
+                    {
+                        BuyMenuDisplayMessage(taskId, gText_Var1CertainlyHowMany, Task_BuyHowManyEVDialogueInit);
+                    }
+                }
+                else
+                {
+                    StringCopy(gStringVar1, gDecorations[itemId].name);
+                    ConvertIntToDecimalStringN(gStringVar2, gShopDataPtr->totalCost, STR_CONV_MODE_LEFT_ALIGN, 6);
+
+                    if (gMartInfo.martType == MART_TYPE_DECOR)
+                        StringExpandPlaceholders(gStringVar4, gText_Var1IsItThatllBeVar2);
+                    else
+                        StringExpandPlaceholders(gStringVar4, gText_YouWantedVar1);
+                    BuyMenuDisplayMessage(taskId, gStringVar4, BuyEVMenuConfirmPurchase);
+                }
+            }
+            break;
+        }
+    }
+}
+
 static void Task_BuyMenu(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
@@ -1060,6 +1447,39 @@ static void Task_BuyMenu(u8 taskId)
     }
 }
 
+static void Task_BuyHowManyEVDialogueInit(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+	u8 pos = gSpecialVar_0x8004;
+	u8 hp = GetMonData(&gPlayerParty[pos], MON_DATA_HP_EV, NULL);
+	u8 atk = GetMonData(&gPlayerParty[pos], MON_DATA_ATK_EV, NULL);
+	u8 def = GetMonData(&gPlayerParty[pos], MON_DATA_DEF_EV, NULL);
+	u8 spe = GetMonData(&gPlayerParty[pos], MON_DATA_SPEED_EV, NULL);
+	u8 spa = GetMonData(&gPlayerParty[pos], MON_DATA_SPATK_EV, NULL);
+	u8 spd = GetMonData(&gPlayerParty[pos], MON_DATA_SPDEF_EV, NULL);
+
+    u16 quantityInBag = CountTotalItemQuantityInBag(tItemId);
+    u16 maxQuantity;
+
+    // DrawStdFrameWithCustomTileAndPalette(3, FALSE, 1, 13);
+    // ConvertIntToDecimalStringN(gStringVar1, quantityInBag, STR_CONV_MODE_RIGHT_ALIGN, 4);
+    // StringExpandPlaceholders(gStringVar4, gText_InBagVar1);
+    // BuyMenuPrint(3, gStringVar4, 0, 1, 0, 0);
+    tItemCount = 0;
+    DrawStdFrameWithCustomTileAndPalette(4, FALSE, 1, 13);
+    BuyEVMenuPrintItemQuantityAndPrice(taskId);
+    schedule_bg_copy_tilemap_to_vram(0);
+
+    if (508 - hp - atk - def - spe - spa - spd > 252)
+		maxQuantity = 252;
+	else
+		maxQuantity = 508 - hp - atk - def - spe - spa - spd;
+
+    gShopDataPtr->maxQuantity = maxQuantity;
+
+    gTasks[taskId].func = Task_BuyHowManyEVDialogueHandleInput;
+}
+
 static void Task_BuyHowManyDialogueInit(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
@@ -1088,6 +1508,42 @@ static void Task_BuyHowManyDialogueInit(u8 taskId)
     }
 
     gTasks[taskId].func = Task_BuyHowManyDialogueHandleInput;
+}
+
+static void Task_BuyHowManyEVDialogueHandleInput(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+
+    if (AdjustEVQuantityAccordingToDPadInput(&tItemCount, gShopDataPtr->maxQuantity) == TRUE)
+    {
+        gShopDataPtr->totalCost = (ItemId_GetPrice(tItemId) >> GetPriceReduction(POKENEWS_SLATEPORT)) * tItemCount;
+        BuyEVMenuPrintItemQuantityAndPrice(taskId);
+    }
+    else
+    {
+        if (JOY_NEW(A_BUTTON))
+        {
+            PlaySE(SE_SELECT);
+            ClearStdWindowAndFrameToTransparent(4, 0);
+            ClearStdWindowAndFrameToTransparent(3, 0);
+            ClearWindowTilemap(4);
+            ClearWindowTilemap(3);
+            PutWindowTilemap(1);
+            StringCopy(gStringVar1, sEVShopItems[gShopDataPtr->selectedRow]);
+            ConvertIntToDecimalStringN(gStringVar2, tItemCount, STR_CONV_MODE_LEFT_ALIGN, 3);
+            ConvertIntToDecimalStringN(gStringVar3, gShopDataPtr->totalCost, STR_CONV_MODE_LEFT_ALIGN, 6);
+            BuyMenuDisplayMessage(taskId, gText_YouWantedVar1, BuyEVMenuConfirmPurchase);
+        }
+        else if (JOY_NEW(B_BUTTON))
+        {
+            PlaySE(SE_SELECT);
+            ClearStdWindowAndFrameToTransparent(4, 0);
+            ClearStdWindowAndFrameToTransparent(3, 0);
+            ClearWindowTilemap(4);
+            ClearWindowTilemap(3);
+            BuyEVMenuReturnToItemList(taskId);
+        }
+    }
 }
 
 static void Task_BuyHowManyDialogueHandleInput(u8 taskId)
@@ -1126,9 +1582,26 @@ static void Task_BuyHowManyDialogueHandleInput(u8 taskId)
     }
 }
 
+static void BuyEVMenuConfirmPurchase(u8 taskId)
+{
+    CreateEVYesNoMenuWithCallbacks(taskId, &sShopBuyMenuYesNoWindowTemplates, 1, 0, 0, 1, 13, &sShopPurchaseEVYesNoFuncs);
+}
+
 static void BuyMenuConfirmPurchase(u8 taskId)
 {
     CreateYesNoMenuWithCallbacks(taskId, &sShopBuyMenuYesNoWindowTemplates, 1, 0, 0, 1, 13, &sShopPurchaseYesNoFuncs);
+}
+
+static void BuyEVMenuTryMakePurchase(u8 taskId)
+{
+	s16 *data = gTasks[taskId].data;
+	u8 pos = gSpecialVar_0x8004;
+
+    PutWindowTilemap(1);
+
+	SetMonData(&gPlayerParty[pos], MON_DATA_HP_EV + gShopDataPtr->selectedRow, &tItemCount);
+	CalculateMonStats(&gPlayerParty[pos]);
+	BuyMenuDisplayMessage(taskId, gText_HereYouGoThankYou, BuyEVMenuReturnToItemList);
 }
 
 static void BuyMenuTryMakePurchase(u8 taskId)
@@ -1242,6 +1715,19 @@ static void Task_ReturnToItemListAfterDecorationPurchase(u8 taskId)
     }
 }
 
+static void BuyEVMenuReturnToItemList(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+
+    ClearDialogWindowAndFrameToTransparent(5, 0);
+    BuyMenuPrintCursor(tListTaskId, 1);
+    PutWindowTilemap(1);
+    PutWindowTilemap(2);
+    schedule_bg_copy_tilemap_to_vram(0);
+    BuyMenuAddScrollIndicatorArrows();
+    gTasks[taskId].func = Task_BuyEVMenu;
+}
+
 static void BuyMenuReturnToItemList(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
@@ -1255,6 +1741,16 @@ static void BuyMenuReturnToItemList(u8 taskId)
     gTasks[taskId].func = Task_BuyMenu;
 }
 
+static void BuyEVMenuPrintItemQuantityAndPrice(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+
+    FillWindowPixelBuffer(4, PIXEL_FILL(1));
+    ConvertIntToDecimalStringN(gStringVar1, tItemCount, STR_CONV_MODE_LEADING_ZEROS, 3);
+    StringExpandPlaceholders(gStringVar4, gText_xVar1);
+    BuyMenuPrint(4, gStringVar4, 0, 1, 0, 0);
+}
+
 static void BuyMenuPrintItemQuantityAndPrice(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
@@ -1264,6 +1760,13 @@ static void BuyMenuPrintItemQuantityAndPrice(u8 taskId)
     ConvertIntToDecimalStringN(gStringVar1, tItemCount, STR_CONV_MODE_LEADING_ZEROS, 2);
     StringExpandPlaceholders(gStringVar4, gText_xVar1);
     BuyMenuPrint(4, gStringVar4, 0, 1, 0, 0);
+}
+
+static void ExitEVBuyMenu(u8 taskId)
+{
+    gFieldCallback = MapPostLoadHook_ReturnToEVShopMenu;
+    BeginNormalPaletteFade(0xFFFFFFFF, 0, 0, 16, RGB_BLACK);
+    gTasks[taskId].func = Task_ExitBuyMenu;
 }
 
 static void ExitBuyMenu(u8 taskId)
@@ -1323,6 +1826,15 @@ static void RecordItemPurchase(u8 taskId)
 #undef tItemCount
 #undef tItemId
 #undef tListTaskId
+
+
+void CreateEVMartMenu(const u16 *itemsForSale)
+{
+    CreateEVShopMenu(MART_TYPE_NORMAL);
+    SetEVShopItemsForSale(itemsForSale);
+    ClearItemPurchases();
+    SetShopMenuCallback(EnableBothScriptContexts);
+}
 
 void CreatePokemartMenu(const u16 *itemsForSale)
 {
