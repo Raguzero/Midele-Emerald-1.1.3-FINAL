@@ -13,7 +13,7 @@ LittlerootTown_DebugRoom_Script_PC::
 
 @ Porygon2 activa eventos, cura,  da dinero y objetos
 LittlerootTown_DebugRoom_Script_ActivarTodo::
-    addmoney 900000, 0
+    addmoney 900001, 0
     special GiveAllItems
     special HealPlayerParty
     setflag FLAG_SYS_POKEMON_GET
