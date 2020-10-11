@@ -1460,20 +1460,22 @@ static void Task_BuyHowManyEVDialogueInit(u8 taskId)
 
     u16 quantityInBag = CountTotalItemQuantityInBag(tItemId);
     u16 maxQuantity;
+	s16 remaining;
 
     // DrawStdFrameWithCustomTileAndPalette(3, FALSE, 1, 13);
     // ConvertIntToDecimalStringN(gStringVar1, quantityInBag, STR_CONV_MODE_RIGHT_ALIGN, 4);
     // StringExpandPlaceholders(gStringVar4, gText_InBagVar1);
     // BuyMenuPrint(3, gStringVar4, 0, 1, 0, 0);
-    tItemCount = 0;
+    tItemCount = GetMonData(&gPlayerParty[pos], MON_DATA_HP_EV + gShopDataPtr->selectedRow);
     DrawStdFrameWithCustomTileAndPalette(4, FALSE, 1, 13);
     BuyEVMenuPrintItemQuantityAndPrice(taskId);
     schedule_bg_copy_tilemap_to_vram(0);
 
-    if (508 - hp - atk - def - spe - spa - spd > 252)
-		maxQuantity = 252;
-	else
-		maxQuantity = 508 - hp - atk - def - spe - spa - spd;
+	remaining = 508 - hp - atk - def - spe - spa - spd + tItemCount;
+
+    if (remaining < 0) remaining = 0;
+    if (remaining > 252) remaining = 252;
+    maxQuantity = remaining;
 
     gShopDataPtr->maxQuantity = maxQuantity;
 
