@@ -5768,7 +5768,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
             break;
         // friendship increase
         case 6:
-            if (itemEffect[cmdIndex] & ITEM6_FRIENDSHIP)
+            if ((itemEffect[cmdIndex] == ITEM6_FRIENDSHIP) || ((itemEffect[cmdIndex] & ITEM6_FRIENDSHIP) && retVal == FALSE && itemEffect[5] == ITEM5_FRIENDSHIP_ALL))
             {
                 u8 friendship = GetMonData(mon, MON_DATA_FRIENDSHIP, 0);
                 if (friendship != MAX_FRIENDSHIP)
