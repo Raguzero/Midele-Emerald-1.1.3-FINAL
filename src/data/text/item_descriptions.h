@@ -187,19 +187,19 @@ static const u8 sLavaCookieDesc[] = _(
     "status problems.");
 
 static const u8 sBlueFluteDesc[] = _(
-    "A glass flute that\n"
-    "awakens sleeping\n"
-    "POKéMON.");
+    "A hold item that\n"
+    "raises DELIBIRD's\n"
+    "SP.ATK & SPEED.");
 
 static const u8 sYellowFluteDesc[] = _(
-    "A glass flute that\n"
-    "snaps POKéMON\n"
-    "out of confusion.");
+    "A hold item that\n"
+    "raises SPINDA's\n"
+	"STATS.");
 
 static const u8 sRedFluteDesc[] = _(
-    "A glass flute that\n"
-    "snaps POKéMON\n"
-    "out of attraction.");
+    "Hold item: raises\n"
+    "ILLUMISE & VOLBEAT\n"
+    "DEF, SPDEF & SPEED.");
 
 static const u8 sBlackFluteDesc[] = _(
     "A glass flute that\n"
@@ -464,14 +464,14 @@ static const u8 sIceStoneDesc[] = _(
 
 // Valuable items
 static const u8 sTinyMushroomDesc[] = _(
-    "A plain mushroom\n"
-    "that would sell\n"
-    "at a cheap price.");
+    "Hold item: doubles\n"
+    "PARAS & PARASECT's\n"
+    "ATK, SATK & SPEED.");
 
 static const u8 sBigMushroomDesc[] = _(
-    "A rare mushroom\n"
-    "that would sell at a\n"
-    "high price.");
+    "Hold item: doubles\n"
+    "PARAS & PARASECT's\n"
+    "SP.DEF & DEF.");
 
 static const u8 sPearlDesc[] = _(
     "A pretty pearl\n"
@@ -494,14 +494,14 @@ static const u8 sStarPieceDesc[] = _(
     "very high price.");
 
 static const u8 sNuggetDesc[] = _(
-    "A nugget of pure\n"
-    "gold. Can be sold at\n"
-    "a high price.");
+    "Hold item: Ensures\n"
+    "CRIT of PERSIAN.\n"
+    "Sold at high price.");
 
 static const u8 sHeartScaleDesc[] = _(
-    "A lovely scale.\n"
-    "It is coveted by\n"
-    "collectors.");
+    "A hold item that\n"
+    "doubles DEF & SDEF\n"
+    "of LUVDISC.");
 
 // Mail
 static const u8 sOrangeMailDesc[] = _(
@@ -817,9 +817,9 @@ static const u8 sMentalHerbDesc[] = _(
     "of infatuation.");
 
 static const u8 sChoiceBandDesc[] = _(
-    "Raises a move's\n"
-    "power, but permits\n"
-    "only that move.");
+    "Boosts ATTACK, but\n"
+    "allows the use of\n"
+    "only one move.");
 
 static const u8 sKingsRockDesc[] = _(
     "A hold item that\n"
@@ -848,12 +848,12 @@ static const u8 sSoulDewDesc[] = _(
 
 static const u8 sDeepSeaToothDesc[] = _(
     "A hold item that\n"
-    "raises the SP. ATK\n"
+    "doubles the SP. ATK\n"
     "of CLAMPERL.");
 
 static const u8 sDeepSeaScaleDesc[] = _(
     "A hold item that\n"
-    "raises the SP. DEF\n"
+    "doubles the SP. DEF\n"
     "of CLAMPERL.");
 
 static const u8 sSmokeBallDesc[] = _(
@@ -862,9 +862,9 @@ static const u8 sSmokeBallDesc[] = _(
     "from wild POKéMON.");
 
 static const u8 sEverstoneDesc[] = _(
-    "A wondrous hold\n"
-    "item that prevents\n"
-    "evolution.");
+    "A hold item that\n"
+    "raises EEVEE STATS\n"
+	"& prevents evolve.");
 
 static const u8 sFocusBandDesc[] = _(
     "A hold item that\n"
@@ -898,7 +898,7 @@ static const u8 sDragonScaleDesc[] = _(
 
 static const u8 sLightBallDesc[] = _(
     "A hold item that\n"
-    "raises the ATK &\n"
+    "doubles the ATK &\n"
     "SP.ATK of PIKACHU.");
 
 static const u8 sSoftSandDesc[] = _(
@@ -996,18 +996,18 @@ static const u8 sLaxIncenseDesc[] = _(
     "foe's accuracy.");
 
 static const u8 sLuckyPunchDesc[] = _(
-    "A hold item that\n"
-    "raises CHANSEY's\n"
-    "critical-hit rate.");
+    "Hold item: doubles\n"
+    "LEDYBA & LEDIAN's\n"
+    "ATK, SATK & CRIT.");
 
 static const u8 sMetalPowderDesc[] = _(
     "A hold item that\n"
-    "raises DITTO's\n"
+    "doubles DITTO's\n"
     "DEFENSE.");
 
 static const u8 sThickClubDesc[] = _(
     "A hold item that \n"
-    "raises CUBONE or\n"
+    "doubles CUBONE or\n"
     "MAROWAK's ATTACK.");
 
 static const u8 sStickDesc[] = _(
@@ -1046,12 +1046,12 @@ static const u8 sDestinyKnotDesc[] = _(
     "IV inheritance.");
 	
 static const u8 sChoiceScarfDesc[] = _(
-    "Boosts Speed, but\n"
+    "Boosts SPEED, but\n"
     "allows the use of\n"
     "only one move.");
 
 static const u8 sChoiceSpecsDesc[] = _(
-    "Boosts Sp. Atk, but\n"
+    "Boosts SP.ATK, but\n"
     "allows the use of\n"
     "only one move.");
 	

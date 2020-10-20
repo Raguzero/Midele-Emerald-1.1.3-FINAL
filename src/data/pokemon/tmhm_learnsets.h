@@ -12072,6 +12072,7 @@ const u32 gTMHMLearnsets[][2] =
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM21_FRUSTRATION)
                                         | TMHM(TM27_RETURN)
+                                        | TMHM(TM26_EARTHQUAKE) // --> Nuevo Movimiento
                                         | TMHM(TM10_HIDDEN_POWER)
                                         | TMHM(TM06_TOXIC)
                                         | TMHM(TM43_SECRET_POWER)
