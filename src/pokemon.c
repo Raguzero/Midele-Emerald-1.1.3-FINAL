@@ -3712,7 +3712,25 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         spAttack *= 2;
     if (defenderHoldEffect == HOLD_EFFECT_DEEP_SEA_SCALE && defender->species == SPECIES_CLAMPERL)
         spDefense *= 2;
+    if (attackerHoldEffect == HOLD_EFFECT_PREVENT_EVOLVE && attacker->species == SPECIES_EEVEE)
+        spAttack *= 1.5, attack *= 1.5;
+    if (defenderHoldEffect == HOLD_EFFECT_PREVENT_EVOLVE && defender->species == SPECIES_EEVEE)
+        spDefense *= 1.5, defense *= 1.5;
+    if (attackerHoldEffect == HOLD_EFFECT_YELLOW_FLUTE && attacker->species == SPECIES_SPINDA)
+        spAttack *= 1.5, attack *= 1.5;
+    if (defenderHoldEffect == HOLD_EFFECT_YELLOW_FLUTE && defender->species == SPECIES_SPINDA)
+        spDefense *= 1.5, defense *= 1.5;
+    if (attackerHoldEffect == HOLD_EFFECT_BLUE_FLUTE && attacker->species == SPECIES_DELIBIRD)
+        spAttack *= 1.5;
+    if (defenderHoldEffect == HOLD_EFFECT_RED_FLUTE && (defender->species == SPECIES_VOLBEAT || defender->species == SPECIES_ILLUMISE))
+        spDefense *= 1.5, defense *= 1.5;
     if (defenderHoldEffect == HOLD_EFFECT_HEART_SCALE && defender->species == SPECIES_LUVDISC)
+        defense *= 2, spDefense *= 2;
+    if (attackerHoldEffect == HOLD_EFFECT_LUCKY_PUNCH && (attacker->species == SPECIES_LEDYBA || attacker->species == SPECIES_LEDIAN))
+        spAttack *= 2, attack *= 2;
+    if (attackerHoldEffect == HOLD_EFFECT_TINY_MUSHROOM && (attacker->species == SPECIES_PARAS || attacker->species == SPECIES_PARASECT))
+        spAttack *= 2, attack *= 2;
+    if (defenderHoldEffect == HOLD_EFFECT_BIG_MUSHROOM && (defender->species == SPECIES_PARAS || defender->species == SPECIES_PARASECT))
         defense *= 2, spDefense *= 2;
     if (attackerHoldEffect == HOLD_EFFECT_LIGHT_BALL && attacker->species == SPECIES_PIKACHU)
         spAttack *= 2, attack *= 2;

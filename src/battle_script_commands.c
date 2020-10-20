@@ -1311,7 +1311,7 @@ static void Cmd_critcalc(void)
                 + (gBattleMoves[gCurrentMove].effect == EFFECT_BLAZE_KICK)
                 + (gBattleMoves[gCurrentMove].effect == EFFECT_POISON_TAIL)
                 + (holdEffect == HOLD_EFFECT_SCOPE_LENS)
-                + 2 * (holdEffect == HOLD_EFFECT_LUCKY_PUNCH && gBattleMons[gBattlerAttacker].species == SPECIES_CHANSEY)
+                + 2 * (holdEffect == HOLD_EFFECT_LUCKY_PUNCH && (gBattleMons[gBattlerAttacker].species == SPECIES_LEDYBA || gBattleMons[gBattlerAttacker].species == SPECIES_LEDIAN))
                 + 2 * (holdEffect == HOLD_EFFECT_STICK && (gBattleMons[gBattlerAttacker].species == SPECIES_FARFETCHD || gBattleMons[gBattlerAttacker].species == SPECIES_GALAR_FARFETCH || gBattleMons[gBattlerAttacker].species == SPECIES_SIRFETCH));
 
     if (critChance >= ARRAY_COUNT(sCriticalHitChance))
@@ -1320,7 +1320,7 @@ static void Cmd_critcalc(void)
     if ((gBattleMons[gBattlerTarget].ability != ABILITY_BATTLE_ARMOR && gBattleMons[gBattlerTarget].ability != ABILITY_SHELL_ARMOR)
      && !(gStatuses3[gBattlerAttacker] & STATUS3_CANT_SCORE_A_CRIT)
      && !(gBattleTypeFlags & (BATTLE_TYPE_WALLY_TUTORIAL | BATTLE_TYPE_FIRST_BATTLE))
-     && !(Random() % sCriticalHitChance[critChance]))
+     && ((item == ITEM_NUGGET && gBattleMons[gBattlerAttacker].species == SPECIES_PERSIAN) || !(Random() % sCriticalHitChance[critChance])))
         gCritMultiplier = 2;
     else
         gCritMultiplier = 1;

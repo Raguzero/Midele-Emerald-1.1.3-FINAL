@@ -4809,6 +4809,21 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
 	if (gBattleMons[battler1].item == ITEM_STICK && gBattleMons[battler1].species == SPECIES_FARFETCHD)
         speedBattler1 *= 1.5;
 	
+	if (gBattleMons[battler1].item == ITEM_EVERSTONE && gBattleMons[battler1].species == SPECIES_EEVEE)
+        speedBattler1 *= 1.5;
+	
+	if (gBattleMons[battler1].item == ITEM_YELLOW_FLUTE && gBattleMons[battler1].species == SPECIES_SPINDA)
+        speedBattler1 *= 1.5;
+	
+	if (gBattleMons[battler1].item == ITEM_BLUE_FLUTE && gBattleMons[battler1].species == SPECIES_DELIBIRD)
+        speedBattler1 *= 1.5;
+	
+	if (gBattleMons[battler1].item == ITEM_RED_FLUTE && (gBattleMons[battler1].species == SPECIES_VOLBEAT || gBattleMons[battler1].species == SPECIES_ILLUMISE))
+        speedBattler1 *= 1.5;
+	
+	if (gBattleMons[battler1].item == ITEM_TINY_MUSHROOM && (gBattleMons[battler1].species == SPECIES_PARAS || gBattleMons[battler1].species == SPECIES_PARASECT))
+        speedBattler1 *= 2;
+	
 	if (gBattleMons[battler1].item == ITEM_CHOICE_SCARF)
         speedBattler1 *= 1.5;
 
@@ -4850,6 +4865,21 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
 
 	if (gBattleMons[battler2].item == ITEM_STICK && gBattleMons[battler2].species == SPECIES_FARFETCHD)
         speedBattler2 *= 1.5;
+	
+	if (gBattleMons[battler2].item == ITEM_EVERSTONE && gBattleMons[battler2].species == SPECIES_EEVEE)
+        speedBattler2 *= 1.5;
+	
+	if (gBattleMons[battler2].item == ITEM_YELLOW_FLUTE && gBattleMons[battler2].species == SPECIES_SPINDA)
+        speedBattler2 *= 1.5;
+	
+	if (gBattleMons[battler2].item == ITEM_BLUE_FLUTE && gBattleMons[battler2].species == SPECIES_DELIBIRD)
+        speedBattler2 *= 1.5;
+	
+	if (gBattleMons[battler2].item == ITEM_RED_FLUTE && (gBattleMons[battler2].species == SPECIES_VOLBEAT || gBattleMons[battler2].species == SPECIES_ILLUMISE))
+        speedBattler2 *= 1.5;
+	
+	if (gBattleMons[battler2].item == ITEM_TINY_MUSHROOM && (gBattleMons[battler2].species == SPECIES_PARAS || gBattleMons[battler2].species == SPECIES_PARASECT))
+        speedBattler2 *= 2;
 	
 	if (gBattleMons[battler2].item == ITEM_CHOICE_SCARF)
         speedBattler2 *= 1.5;

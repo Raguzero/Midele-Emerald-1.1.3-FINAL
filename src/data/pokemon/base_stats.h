@@ -5305,7 +5305,7 @@ const struct BaseStats gBaseStats[] =
         .evYield_SpAttack  = 0,
         .evYield_SpDefense = 1,
         .item1 = ITEM_NONE,
-        .item2 = ITEM_NONE,
+        .item2 = ITEM_LUCKY_PUNCH,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 15,
         .friendship = 70,
@@ -5336,7 +5336,7 @@ const struct BaseStats gBaseStats[] =
         .evYield_Speed     = 0,
         .evYield_SpAttack  = 0,
         .evYield_SpDefense = 2,
-        .item1 = ITEM_NONE,
+        .item1 = ITEM_LUCKY_PUNCH,
         .item2 = ITEM_NONE,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 15,
@@ -14824,7 +14824,7 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_BATTLE_ARMOR, ABILITY_KEEN_EYE},
         .bodyColor = BODY_COLOR_PURPLE,
     },
-    // WOOLOO con stats de su evolución (mejorables)
+    // WOOLOO con stats de su evolución
     [SPECIES_WOOLOO] =
     {
         .baseHP        = 72,
@@ -16432,7 +16432,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_SLOW,
 		.eggGroup1 = EGG_GROUP_FIELD,
 		.eggGroup2 = EGG_GROUP_FIELD,
-        .abilities = {ABILITY_SAND_STREAM, ABILITY_NONE}, // SAND FORCE
+        .abilities = {ABILITY_SAND_STREAM, ABILITY_NONE}, 
 		.bodyColor = BODY_COLOR_BROWN,
 	},
 
@@ -16455,7 +16455,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_SLOW,
 		.eggGroup1 = EGG_GROUP_FIELD,
 		.eggGroup2 = EGG_GROUP_FIELD,
-        .abilities = {ABILITY_SAND_STREAM, ABILITY_NONE}, // SAND FORCE
+        .abilities = {ABILITY_SAND_STREAM, ABILITY_NONE}, 
 		.bodyColor = BODY_COLOR_BROWN,
 	},
 	
