@@ -4820,6 +4820,11 @@ BattleScript_SlowStartEnds::
 	printstring STRINGID_SLOWSTARTENDS
 	waitmessage 64
 	end3
+	
+BattleScript_PerishBodyActivates::
+	printstring STRINGID_PERISHBODY
+	waitmessage 0x30
+	return
 
 BattleScript_TotemAura::
 	playanimation BS_OPPONENT1, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
