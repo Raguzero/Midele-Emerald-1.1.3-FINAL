@@ -1934,6 +1934,9 @@ const u8 gText_RegisteelDoll256BP[] = _("REGISTEEL DOLL{CLEAR_TO 0x58}18BP");
 const u8 gText_EggHatch[] = _("/40");
 const u8 gText_EggHappiness[] = _("HAPPINESS");
 
+// ASH QUANTITY
+const u8 gText_AshQty[] = _("ASH QTY:\n{STR_VAR_1}{PAUSE_UNTIL_PRESS}");
+
 const u8 gText_Sunday[] = _("Sunday");
 const u8 gText_Monday[] = _("Monday");
 const u8 gText_Tuesday[] = _("Tuesday");
