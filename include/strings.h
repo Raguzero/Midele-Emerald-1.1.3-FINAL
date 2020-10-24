@@ -3064,6 +3064,9 @@ extern const u8 gText_Leaf[];
 // NO COMPRAR MTS REPES
 extern const u8 gText_YouAlreadyHaveThis[];
 
+// ASH QUANTITY
+extern const u8 gText_AshQty[];
+
 // Contador de pasos de huevo
 extern const u8 gText_EggHappiness[];
 extern const u8 gText_EggHatch[];
