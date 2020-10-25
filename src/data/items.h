@@ -2937,12 +2937,13 @@ const struct Item gItems[] =
         .secondaryId = 0,
     },
 
-    [ITEM_0E5] =
+    [ITEM_POWER_HERB] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
-        .price = 0,
-        .description = sDummyDesc,
+        .name = _("POWER HERB"),
+        .itemId = ITEM_POWER_HERB,
+        .price = 1000,
+        .holdEffect = HOLD_EFFECT_POWER_HERB,
+        .description = sPowerHerbDesc,
         .pocket = POCKET_ITEMS,
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
