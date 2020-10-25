@@ -4,6 +4,7 @@
 #include "constants/battle_anim.h"
 #include "constants/battle_string_ids.h"
 #include "constants/abilities.h"
+#include "constants/hold_effects.h"
 #include "constants/moves.h"
 #include "constants/songs.h"
 #include "constants/game_stat.h"
@@ -807,6 +808,12 @@ BattleScript_EffectRazorWind::
 	setbyte sTWOTURN_STRINGID, 0x0
 	call BattleScriptFirstChargingTurn
 	goto BattleScript_MoveEnd
+	
+BattleScript_PowerHerbActivates:
+	removeitem BS_ATTACKER
+	playanimation BS_ATTACKER, B_ANIM_ITEM_EFFECT, NULL
+	printstring STRINGID_POWERHERB
+	waitmessage 0x40
 
 BattleScript_TwoTurnMovesSecondTurn::
 	attackcanceler
@@ -829,7 +836,16 @@ BattleScriptFirstChargingTurn::
 	seteffectprimary
 	copybyte cMULTISTRING_CHOOSER, sTWOTURN_STRINGID
 	printfromtable gFirstTurnOfTwoStringIds
+	jumpifnotmove MOVE_SKULL_BASH, BattleScript_SkullBashEnd
+	setstatchanger STAT_DEF, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_BUFF_ALLOW_PTR, BattleScript_SkullBashEnd
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, 0x2, BattleScript_SkullBashEnd
+	setgraphicalstatchangevalues
+	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printfromtable gStatUpStringIds
 	waitmessage 0x40
+BattleScript_SkullBashEnd::
+	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_POWER_HERB, BattleScript_PowerHerbActivates
 	return
 
 BattleScript_EffectSuperFang::
@@ -1844,14 +1860,6 @@ BattleScript_EffectSkullBash::
 	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING, BattleScript_TwoTurnMovesSecondTurn
 	setbyte sTWOTURN_STRINGID, 0x2
 	call BattleScriptFirstChargingTurn
-	setstatchanger STAT_DEF, 1, FALSE
-	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_BUFF_ALLOW_PTR, BattleScript_SkullBashEnd
-	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, 0x2, BattleScript_SkullBashEnd
-	setgraphicalstatchangevalues
-	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
-	printfromtable gStatUpStringIds
-	waitmessage 0x40
-BattleScript_SkullBashEnd::
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectTwister::

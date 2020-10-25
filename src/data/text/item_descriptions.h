@@ -1059,6 +1059,11 @@ static const u8 sFocusSashDesc[] = _(
     "A hold item that\n"
     "prevents fainting\n"
     "in one hit.");
+	
+static const u8 sPowerHerbDesc[] = _(
+    "A single-use item\n"
+    "that fully charges\n"
+    "a two-turn move.");
 
 // Key items
 static const u8 sMachBikeDesc[] = _(

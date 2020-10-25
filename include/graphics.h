@@ -4800,6 +4800,8 @@ extern const u32 gItemIcon_ChoiceSpecs[];
 extern const u32 gItemIconPalette_ChoiceSpecs[];
 extern const u32 gItemIcon_FocusSash[];
 extern const u32 gItemIconPalette_FocusSash[];
+extern const u32 gItemIcon_PowerHerb[];
+extern const u32 gItemIconPalette_PowerHerb[];
 // Contest hold items
 extern const u32 gItemIcon_Scarf[];
 extern const u32 gItemIconPalette_RedScarf[];

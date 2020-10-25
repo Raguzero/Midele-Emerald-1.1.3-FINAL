@@ -576,6 +576,9 @@ const u32 gItemIconPalette_ChoiceSpecs[] = INCBIN_U32("graphics/items/icon_palet
 const u32 gItemIcon_FocusSash[] = INCBIN_U32("graphics/items/icons/focus_sash.4bpp.lz");
 const u32 gItemIconPalette_FocusSash[] = INCBIN_U32("graphics/items/icon_palettes/focus_sash.gbapal.lz");
 
+const u32 gItemIcon_PowerHerb[] = INCBIN_U32("graphics/items/icons/power_herb.4bpp.lz");
+const u32 gItemIconPalette_PowerHerb[] = INCBIN_U32("graphics/items/icon_palettes/power_herb.gbapal.lz");
+
 // Key items
 
 const u32 gItemIcon_MachBike[] = INCBIN_U32("graphics/items/icons/mach_bike.4bpp.lz");

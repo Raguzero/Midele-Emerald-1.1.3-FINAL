@@ -327,6 +327,7 @@ static void Cmd_removeattackerstatus1(void);
 static void Cmd_finishaction(void);
 static void Cmd_finishturn(void);
 static void Cmd_trainerslideout(void);
+static void Cmd_jumpifholdeffect(void);
 
 void (* const gBattleScriptingCommandsTable[])(void) =
 {
@@ -578,7 +579,8 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_removeattackerstatus1,                   //0xF5
     Cmd_finishaction,                            //0xF6
     Cmd_finishturn,                              //0xF7
-    Cmd_trainerslideout                          //0xF8
+    Cmd_trainerslideout,                          //0xF8
+	Cmd_jumpifholdeffect                         //0xF9
 };
 
 struct StatFractions
@@ -10837,4 +10839,15 @@ static void Cmd_trainerslideout(void)
     MarkBattlerForControllerExec(gActiveBattler);
 
     gBattlescriptCurrInstr += 2;
+}
+
+static void Cmd_jumpifholdeffect(void)
+{
+    u8 holdEffect = gBattlescriptCurrInstr[2];
+    gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
+
+    if (ItemId_GetHoldEffect(gBattleMons[gActiveBattler].item) == holdEffect)
+        gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 3);
+    else
+        gBattlescriptCurrInstr += 7;
 }
