@@ -662,9 +662,9 @@
 #define FLAG_DEFEATED_IZABE_GIANT_2                          0x26D // Previously unused Flag
 #define FLAG_RECEIVED_DITTO                                  0x26E // Previously unused Flag
 #define FLAG_DAYCARE_TRADE_COMPLETED                         0x26F // Previously unused Flag
-#define FLAG_UNUSED_0x270  0x270 // Unused Flag
-#define FLAG_UNUSED_0x271  0x271 // Unused Flag
-#define FLAG_UNUSED_0x272  0x272 // Unused Flag
+#define FLAG_CAUGHT_REGIDRAGO  0x270 // Previously unused Flag
+#define FLAG_DEFEATED_REGIDRAGO  0x271 // Previously unused Flag
+#define FLAG_HIDE_REGIDRAGO  0x272 // Previously unused Flag
 #define FLAG_UNUSED_0x273  0x273 // Unused Flag
 #define FLAG_UNUSED_0x274  0x274 // Unused Flag
 #define FLAG_UNUSED_0x275  0x275 // Unused Flag
@@ -1407,7 +1407,7 @@
 #define FLAG_SYS_CRUISE_MODE                        (SYSTEM_FLAGS + 0x2D)
 
 #define FLAG_SYS_BRAILLE_SHOWN_THREE_REGI           (SYSTEM_FLAGS + 0x2E) // Previously unused Flag
-#define FLAG_UNUSED_0x88F                           (SYSTEM_FLAGS + 0x2F) // Unused Flag
+#define FLAG_SYS_BRAILLE_REGIDRAGO_COMPLETED                           (SYSTEM_FLAGS + 0x2F) // Previously unused Flag
 
 #define FLAG_SYS_TV_HOME                            (SYSTEM_FLAGS + 0x30)
 #define FLAG_SYS_TV_WATCH                           (SYSTEM_FLAGS + 0x31)

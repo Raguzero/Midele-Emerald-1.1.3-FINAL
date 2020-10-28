@@ -10,7 +10,13 @@ Route103_OnTransition: @ 81EC399
 
 Route103_OnLoad: @ 81EC3A4
 	call_if_set FLAG_SYS_POKEDEX_GET, Route103_EventScript_OpenAlteringCave
+	call_if_unset FLAG_REGI_DOORS_OPENED, Route103_EventScript_CloseOldaleRuins
 	end
+
+Route103_EventScript_CloseOldaleRuins:: @ 81F0CD1
+	setmetatile 23, 18, METATILE_General_RockWall_RockBase, 1
+	setmetatile 23, 19, METATILE_General_RockWall_SandBase, 1
+	return
 
 Route103_EventScript_OpenAlteringCave:: @ 81EC3AE
 	setmetatile 45, 5, METATILE_General_CaveEntrance_Top, 1
