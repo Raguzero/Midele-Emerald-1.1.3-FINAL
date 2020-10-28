@@ -317,6 +317,13 @@
             "elevation": 0,
             "x": 45,
             "y": 6
+        },
+        {
+            "dest_map": "MAP_OLDALE_RUINS",
+            "dest_warp_id": 0,
+            "elevation": 0,
+            "x": 23,
+            "y": 19
         }
     ],
     "weather": "WEATHER_SUNNY"
