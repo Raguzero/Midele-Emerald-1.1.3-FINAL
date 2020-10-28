@@ -610,6 +610,16 @@ const u16 *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_DEOXYS_ATTACK] = sDeoxysAttackLevelUpLearnset,
     [SPECIES_DEOXYS_DEFENSE] = sDeoxysDefenseLevelUpLearnset,
     [SPECIES_DEOXYS_SPEED] = sDeoxysSpeedLevelUpLearnset,
+    [SPECIES_MEGA_HOUNDOOM] = sMegaHoundoomLevelUpLearnset,
+    [SPECIES_CHESPIN] = sChespinLevelUpLearnset,
+    [SPECIES_QUILLADIN] = sQuilladinLevelUpLearnset,
+    [SPECIES_CHESNAUGHT] = sChesnaughtLevelUpLearnset,
+    [SPECIES_CHIMCHAR] = sChimcharLevelUpLearnset,
+    [SPECIES_MONFERNO] = sMonfernoLevelUpLearnset,
+    [SPECIES_INFERNAPE] = sInfernapeLevelUpLearnset,
+    [SPECIES_REGIELEKI] = sRegielekiLevelUpLearnset,
+    [SPECIES_REGIDRAGO] = sRegidragoLevelUpLearnset,
+    [SPECIES_WINTASS] = sWintassLevelUpLearnset,
     [SPECIES_BOSS] = sBulbasaurLevelUpLearnset,
 // NUEVO PARA FORMAS ALOLA
 };

@@ -1147,6 +1147,16 @@ const u16 gSpeciesToNationalPokedexNum[] = // Assigns all species to the Nationa
 	SPECIES_TO_NATIONAL(HAPPINY),
 	SPECIES_TO_NATIONAL(MUNCHLAX),
 	SPECIES_TO_NATIONAL(MANTYKE),
+	SPECIES_TO_NATIONAL(MEGA_HOUNDOOM),
+	SPECIES_TO_NATIONAL(CHESPIN),
+	SPECIES_TO_NATIONAL(QUILLADIN),
+	SPECIES_TO_NATIONAL(CHESNAUGHT),
+	SPECIES_TO_NATIONAL(CHIMCHAR),
+	SPECIES_TO_NATIONAL(MONFERNO),
+	SPECIES_TO_NATIONAL(INFERNAPE),
+	SPECIES_TO_NATIONAL(REGIELEKI),
+	SPECIES_TO_NATIONAL(REGIDRAGO),
+	SPECIES_TO_NATIONAL(WINTASS),
 };
 
 const u16 gHoennToNationalOrder[] = // Assigns Hoenn Dex Pokémon (Using National Dex Index)
@@ -2226,6 +2236,16 @@ static const u8 sMonFrontAnimIdsTable[] =
     [SPECIES_HAPPINY - 1] = 0x45,
     [SPECIES_MUNCHLAX - 1] = 0x13,
     [SPECIES_MANTYKE - 1] = 0x4E,
+    [SPECIES_MEGA_HOUNDOOM - 1] = 0x10,
+    [SPECIES_CHESPIN - 1] = 0x31,
+    [SPECIES_QUILLADIN - 1] = 0x00,
+    [SPECIES_CHESNAUGHT - 1] = 0x19,
+    [SPECIES_CHIMCHAR - 1] = 0x1E,
+    [SPECIES_MONFERNO - 1] = 0x4c,
+    [SPECIES_INFERNAPE - 1] = 0x25,
+    [SPECIES_REGIELEKI - 1] = 0x01,
+    [SPECIES_REGIDRAGO - 1] = 0x44,
+    [SPECIES_WINTASS - 1] = 0x44,
 };
 
 static const u8 sMonAnimationDelayTable[NUM_SPECIES - 1] =
@@ -7632,6 +7652,15 @@ bool8 HasTwoFramesAnimation(u16 species)
 			&& species != SPECIES_APPLETUN
 		    && species != SPECIES_SILICOBRA
 			&& species != SPECIES_SANDACONDA
+			&& species != SPECIES_MEGA_HOUNDOOM
+			&& species != SPECIES_QUILLADIN
+			&& species != SPECIES_CHESNAUGHT
+			&& species != SPECIES_CHIMCHAR
+			&& species != SPECIES_MONFERNO
+			&& species != SPECIES_INFERNAPE
+			&& species != SPECIES_REGIELEKI
+			&& species != SPECIES_REGIDRAGO
+			&& species != SPECIES_WINTASS 
             && species != SPECIES_BOSS);
 }
 
