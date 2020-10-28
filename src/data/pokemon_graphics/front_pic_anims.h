@@ -5938,6 +5938,91 @@ static const union AnimCmd sAnim_DEOXYS_SPEED_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_MEGA_HOUNDOOM_1[] =
+{
+	ANIMCMD_FRAME(0, 1),
+	ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_CHESPIN_1[] =
+{
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(1, 24),
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(1, 24),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_QUILLADIN_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_CHESNAUGHT_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_CHIMCHAR_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 20),
+    ANIMCMD_FRAME(0, 7),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_MONFERNO_1[] =
+{
+    ANIMCMD_FRAME(0, 12),
+    ANIMCMD_FRAME(1, 12),
+    ANIMCMD_FRAME(0, 12),
+    ANIMCMD_FRAME(1, 12),
+    ANIMCMD_FRAME(0, 12),
+    ANIMCMD_FRAME(1, 12),
+    ANIMCMD_FRAME(0, 7),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_INFERNAPE_1[] =
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 25),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_REGIELEKI_1[] =
+{
+    ANIMCMD_FRAME(0, 20),
+    ANIMCMD_FRAME(2, 20),
+    ANIMCMD_FRAME(0, 20),
+    ANIMCMD_FRAME(2, 20),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_REGIDRAGO_1[] =
+{
+    ANIMCMD_FRAME(0, 20),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 18),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_WINTASS_1[] =
+{
+    ANIMCMD_FRAME(0, 20),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 18),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_EGG_1[] =
 {
     ANIMCMD_FRAME(0, 6),
@@ -9124,6 +9209,56 @@ static const union AnimCmd *const sAnims_DEOXYS_SPEED[] ={
     sAnim_DEOXYS_SPEED_1,
 };
 
+static const union AnimCmd *const sAnims_MEGA_HOUNDOOM[] ={
+	sAnim_GeneralFrame0,
+	sAnim_MEGA_HOUNDOOM_1,
+};
+
+static const union AnimCmd *const sAnims_CHESPIN[] ={
+    sAnim_GeneralFrame0,
+    sAnim_CHESPIN_1,
+};
+
+static const union AnimCmd *const sAnims_QUILLADIN[] ={
+    sAnim_GeneralFrame0,
+    sAnim_QUILLADIN_1,
+};
+
+static const union AnimCmd *const sAnims_CHESNAUGHT[] ={
+    sAnim_GeneralFrame0,
+    sAnim_CHESNAUGHT_1,
+};
+
+static const union AnimCmd *const sAnims_CHIMCHAR[] ={
+    sAnim_GeneralFrame0,
+    sAnim_CHIMCHAR_1,
+};
+
+static const union AnimCmd *const sAnims_MONFERNO[] ={
+    sAnim_GeneralFrame0,
+    sAnim_MONFERNO_1,
+};
+
+static const union AnimCmd *const sAnims_INFERNAPE[] ={
+    sAnim_GeneralFrame0,
+    sAnim_INFERNAPE_1,
+};
+
+static const union AnimCmd *const sAnims_REGIELEKI[] ={
+    sAnim_GeneralFrame0,
+    sAnim_REGIELEKI_1,
+};
+
+static const union AnimCmd *const sAnims_REGIDRAGO[] ={
+    sAnim_GeneralFrame0,
+    sAnim_REGIDRAGO_1,
+};
+
+static const union AnimCmd *const sAnims_WINTASS[] ={
+    sAnim_GeneralFrame0,
+    sAnim_WINTASS_1,
+};
+
 static const union AnimCmd *const sAnims_EGG[] ={
     sAnim_GeneralFrame0,
     sAnim_EGG_1,
@@ -9878,6 +10013,16 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(DEOXYS_ATTACK),
     ANIM_CMD(DEOXYS_DEFENSE),
     ANIM_CMD(DEOXYS_SPEED),
+	ANIM_CMD(MEGA_HOUNDOOM),
+    ANIM_CMD(CHESPIN),
+    ANIM_CMD(QUILLADIN),
+    ANIM_CMD(CHESNAUGHT),
+    ANIM_CMD(CHIMCHAR),
+    ANIM_CMD(MONFERNO),
+    ANIM_CMD(INFERNAPE),
+    ANIM_CMD(REGIELEKI),
+    ANIM_CMD(REGIDRAGO),
+    ANIM_CMD(WINTASS),
 // NUEVO PARA FORMAS ALOLA
     ANIM_CMD_FULL(BOSS, sAnims_WOOLOO),
     ANIM_CMD(EGG),

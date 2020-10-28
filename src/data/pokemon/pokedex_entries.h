@@ -6520,4 +6520,122 @@ const struct PokedexEntry gPokedexEntries[] =
 		.trainerScale = 256,
 		.trainerOffset = 0,
 	},
+	
+    [NATIONAL_DEX_MEGA_HOUNDOOM] =
+    {
+        .categoryName = _("DARK"),
+        .height = 14,
+        .weight = 350,
+        .description = gMegaHoundoomPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 4,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+	[NATIONAL_DEX_CHESPIN] =
+	{
+		.categoryName = _("SPINY NUT"),
+		.height = 4,
+		.weight = 90,
+		.description = gChespinPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_QUILLADIN] =
+	{
+		.categoryName = _("SPINY ARMOR"),
+		.height = 7,
+		.weight = 290,
+		.description = gQuilladinPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_CHESNAUGHT] =
+	{
+		.categoryName = _("SPINY ARMOR"),
+		.height = 16,
+		.weight = 900,
+		.description = gChesnaughtPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	[NATIONAL_DEX_CHIMCHAR] =
+	{
+		.categoryName = _("CHIMP"),
+		.height = 5,
+		.weight = 62,
+		.description = gChimcharPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_MONFERNO] =
+	{
+		.categoryName = _("PLAYFUL"),
+		.height = 9,
+		.weight = 220,
+		.description = gMonfernoPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_INFERNAPE] =
+	{
+		.categoryName = _("FLAME"),
+		.height = 12,
+		.weight = 550,
+		.description = gInfernapePokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+    [NATIONAL_DEX_REGIELEKI] =
+    {
+        .categoryName = _("ELECTRON"),
+        .height = 12,
+        .weight = 1450,
+        .description = gRegielekiPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 2,
+        .trainerScale = 309,
+        .trainerOffset = 1,
+    },
+
+    [NATIONAL_DEX_REGIDRAGO] =
+    {
+        .categoryName = _("DRAGONORB"),
+        .height = 21,
+        .weight = 2000,
+        .description = gRegidragoPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 301,
+        .trainerOffset = 2,
+    },
+	
+    [NATIONAL_DEX_WINTASS] =
+    {
+        .categoryName = _("SNOWFALL"),
+        .height = 22,
+        .weight = 2355,
+        .description = gWintassPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 301,
+        .trainerOffset = 2,
+    },
 };
