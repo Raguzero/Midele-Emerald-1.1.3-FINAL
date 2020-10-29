@@ -517,3 +517,20 @@ bool8 CheckThreeRegi(void)
     
     return hasRegice && hasRegirock && hasRegisteel;
 }
+
+bool8 CheckRegidragoPuzzle(void)
+{
+    u8 i;
+    bool8 hasCharizard = FALSE;
+    
+    CalculatePlayerPartyCount();
+    for (i = 0; i < gPlayerPartyCount; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2, 0) == SPECIES_CHARIZARD) {
+            hasCharizard = TRUE;
+            break;
+        }
+    }
+    
+    return hasCharizard;
+}
