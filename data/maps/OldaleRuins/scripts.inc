@@ -48,12 +48,20 @@ OldaleRuins_EventScript_OpenRegiEntrance:: @ 8238EAF
 	special DrawWholeMapView
 	playse SE_BAN
 	setflag FLAG_SYS_BRAILLE_REGIDRAGO_COMPLETED
-	end
+	return
 
 OldaleRuins_EventScript_CaveEntranceMiddle:: @ 8238EEF
 	lockall
 	goto_if_set FLAG_SYS_BRAILLE_REGIDRAGO_COMPLETED, OldaleRuins_EventScript_BigHoleInWall
-	goto OldaleRuins_EventScript_CloseBrailleMsg
+	braillemessage OldaleRuins_Braille_RegidragoPuzzle
+	waitbuttonpress
+	closebraillemessage
+	specialvar VAR_RESULT, CheckRegidragoPuzzle
+	compare VAR_RESULT, FALSE
+	goto_if_eq OldaleRuins_EventScript_CaveEntranceMiddle_End
+	call OldaleRuins_EventScript_OpenRegiEntrance
+OldaleRuins_EventScript_CaveEntranceMiddle_End:
+	releaseall
 	end
 
 OldaleRuins_EventScript_BigHoleInWall:: @ 8238F13
@@ -63,9 +71,17 @@ OldaleRuins_EventScript_BigHoleInWall:: @ 8238F13
 
 OldaleRuins_EventScript_CaveEntranceSide:: @ 8238F1D
 	lockall
-	braillemessage IslandCave_Braille_RunLapAroundWall
+	braillemessage OldaleRuins_Braille_RegidragoPuzzle
 	goto_if_set FLAG_SYS_BRAILLE_REGIDRAGO_COMPLETED, OldaleRuins_EventScript_CloseBrailleMsg
-	goto OldaleRuins_EventScript_CloseBrailleMsg
+	braillemessage OldaleRuins_Braille_RegidragoPuzzle
+	waitbuttonpress
+	closebraillemessage
+	specialvar VAR_RESULT, CheckRegidragoPuzzle
+	compare VAR_RESULT, FALSE
+	goto_if_eq OldaleRuins_EventScript_CaveEntranceSide_End
+	call OldaleRuins_EventScript_OpenRegiEntrance
+OldaleRuins_EventScript_CaveEntranceSide_End:
+	releaseall
 	end
 
 OldaleRuins_EventScript_CloseBrailleMsg:: @ 8238F41
@@ -78,10 +94,10 @@ OldaleRuins_EventScript_Regidrago:: @ 8238F58
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_WOOLOO, 2
+	playmoncry SPECIES_REGIDRAGO, 2
 	delay 40
 	waitmoncry
-	setwildbattle SPECIES_WOOLOO, 40, ITEM_NONE
+	setwildbattle SPECIES_REGIDRAGO, 40, ITEM_NONE
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special StartRegiBattle
 	waitstate
@@ -103,6 +119,6 @@ OldaleRuins_EventScript_DefeatedRegidrago:: @ 8238F9F
 	end
 
 OldaleRuins_EventScript_RanFromRegidrago:: @ 8238FA8
-	setvar VAR_0x8004, SPECIES_WOOLOO
+	setvar VAR_0x8004, SPECIES_REGIDRAGO
 	goto Common_EventScript_LegendaryFlewAway
 	end

@@ -547,3 +547,4 @@ gSpecials:: @ 81DBA64
 	def_special ResetLastRepelSteps
 	def_special CheckDeoxys
 	def_special ChangeDeoxysForm
+	def_special CheckRegidragoPuzzle
