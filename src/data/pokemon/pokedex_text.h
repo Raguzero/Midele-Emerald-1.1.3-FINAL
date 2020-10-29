@@ -3282,4 +3282,63 @@ const u8 gMantykePokedexText[] = _(
     "able to observe the pattern on its back.\n"
     "It often swims in a school of Remoraid.");
 
+const u8 gMegaHoundoomPokedexText[] = _(
+    "In a HOUNDOOM pack, the one with its horns\n"
+    "raked sharply back serves a leadership\n"
+    "role. They choose their leader by fighting\n"
+    "among themselves.");
+	
+const u8 gChespinPokedexText[] = _(
+    "The quills on its head are usually soft.\n"
+    "When it flexes them, the points become\n"
+    "so hard and sharp that they can pierce\n"
+    "rock without any effort.");
+
+const u8 gQuilladinPokedexText[] = _(
+    "They strengthen the sturdy shell covering\n"
+    "their bodies by running into one another.\n"
+    "They are very kind and won't start fights,\n"
+    "but will counterattack with sharp quills.");
+
+const u8 gChesnaughtPokedexText[] = _(
+    "It shields its allies from danger with\n"
+    "its own body. When it takes a defensive\n"
+    "posture with its fists guarding its face,\n"
+    "it can withstand a bomb blast.");
+	
+const u8 gChimcharPokedexText[] = _(
+    "Its fiery rear end is fueled by gas made\n"
+    "in its belly. Before going to sleep,\n"
+    "Chimchar extinguish the flame on their\n"
+    "tails to prevent fires.");
+
+const u8 gMonfernoPokedexText[] = _(
+    "It carefully controls the intensity of\n"
+    "the flame on its tail, so as to keep its\n"
+    "foes at an adequate distance.\n"
+    "Its fiery tail is but one weapon.");
+
+const u8 gInfernapePokedexText[] = _(
+    "Its crown of fire is indicative of its\n"
+    "fiery nature. It uses a special kind of\n"
+    "martial arts involving all of its limbs to\n"
+    "take on any opponent.");
+
+const u8 gRegielekiPokedexText[] = _(
+    "A POKéMON that is made entirely of rocks\n"
+    "and boulders. If parts of its body chip off\n"
+    "in battle, REGIROCK repairs itself by\n"
+    "adding new rocks.");
+
+const u8 gRegidragoPokedexText[] = _(
+    "Its entire body is made of Antarctic ice.\n"
+    "After extensive studies, researchers\n"
+    "believe the ice was formed during an\n"
+    "ice age.");
+	
+const u8 gWintassPokedexText[] = _(
+    "Its entire body is made of Antarctic ice.\n"
+    "After extensive studies, researchers\n"
+    "believe the ice was formed during an\n"
+    "ice age.");
 

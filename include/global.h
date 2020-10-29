@@ -81,7 +81,7 @@
 // Converts a Q24.8 fixed-point format number to a regular integer
 #define Q_24_8_TO_INT(n) ((int)((n) >> 8))
 
-#define POKEMON_SLOTS_NUMBER 604
+#define POKEMON_SLOTS_NUMBER 617
 
 #define min(a, b) ((a) < (b) ? (a) : (b))
 #define max(a, b) ((a) >= (b) ? (a) : (b))

@@ -3038,6 +3038,56 @@ const struct MonCoords gMonFrontPicCoords[] =
         .size = 0x88,
         .y_offset = 0x0,
     },
+    [SPECIES_MEGA_HOUNDOOM] =
+    {
+        .size = 0,
+        .y_offset = 0,
+    },
+    [SPECIES_CHESPIN] =
+    {
+        .size = 0x45,
+        .y_offset = 10,
+    },
+    [SPECIES_QUILLADIN] =
+    {
+        .size = 0x45,
+        .y_offset = 10,
+    },
+    [SPECIES_CHESNAUGHT] =
+    {
+        .size = 0x45,
+        .y_offset = 4,
+    },
+    [SPECIES_CHIMCHAR] =
+    {
+        .size = 0x55,
+        .y_offset = 10,
+    },
+    [SPECIES_MONFERNO] =
+    {
+        .size = 0x66,
+        .y_offset = 8,
+    },
+    [SPECIES_INFERNAPE] =
+    {
+        .size = 0x88,
+        .y_offset = 1,
+    },
+    [SPECIES_REGIELEKI] =
+    {
+        .size = 0x78,
+        .y_offset = 0x04,
+    },
+    [SPECIES_REGIDRAGO] =
+    {
+        .size = 0x88,
+        .y_offset = 0x02,
+    },
+    [SPECIES_WINTASS] =
+    {
+        .size = 0x88,
+        .y_offset = 0x02,
+    },
     [SPECIES_BOSS] =
     {
         .size = 0x88,
