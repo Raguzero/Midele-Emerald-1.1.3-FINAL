@@ -1406,7 +1406,7 @@
 #define FLAG_SYS_SAFARI_MODE                        (SYSTEM_FLAGS + 0x2C)
 #define FLAG_SYS_CRUISE_MODE                        (SYSTEM_FLAGS + 0x2D)
 
-#define FLAG_SYS_BRAILLE_SHOWN_THREE_REGI           (SYSTEM_FLAGS + 0x2E) // Previously unused Flag
+#define FLAG_SYS_BRAILLE_SHOWN_FIVE_REGI           (SYSTEM_FLAGS + 0x2E) // Previously unused Flag
 #define FLAG_SYS_BRAILLE_REGIDRAGO_COMPLETED                           (SYSTEM_FLAGS + 0x2F) // Previously unused Flag
 
 #define FLAG_SYS_TV_HOME                            (SYSTEM_FLAGS + 0x30)
