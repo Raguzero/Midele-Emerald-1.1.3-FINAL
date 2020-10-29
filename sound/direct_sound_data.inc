@@ -2694,6 +2694,56 @@ Cry_Mega_Beedrill::
 	.incbin "sound/direct_sound_samples/cry_not_mega_beedrill.bin"
 
 	.align 2
+	
+Cry_Mega_Houndoom::
+	.incbin "sound/direct_sound_samples/cry_not_mega_houndoom.bin"
+
+	.align 2
+	
+Cry_Chespin::
+	.incbin "sound/direct_sound_samples/cry_not_chespin.bin"
+
+	.align 2
+	
+Cry_Quilladin::
+	.incbin "sound/direct_sound_samples/cry_not_quilladin.bin"
+
+	.align 2
+	
+Cry_Chesnaught::
+	.incbin "sound/direct_sound_samples/cry_not_chesnaught.bin"
+
+	.align 2
+	
+Cry_Chimchar::
+	.incbin "sound/direct_sound_samples/cry_not_chimchar.bin"
+
+	.align 2
+	
+Cry_Monferno::
+	.incbin "sound/direct_sound_samples/cry_not_monferno.bin"
+
+	.align 2
+	
+Cry_Infernape::
+	.incbin "sound/direct_sound_samples/cry_not_infernape.bin"
+
+	.align 2
+	
+Cry_Regieleki::
+	.incbin "sound/direct_sound_samples/cry_regieleki.bin"
+
+	.align 2
+	
+Cry_Regidrago::
+	.incbin "sound/direct_sound_samples/cry_regidrago.bin"
+
+	.align 2
+	
+Cry_Wintass::
+	.incbin "sound/direct_sound_samples/cry_wintass.bin"
+
+	.align 2
 
 DirectSoundWaveData_register_noise::
 	.incbin "sound/direct_sound_samples/register_noise.bin"

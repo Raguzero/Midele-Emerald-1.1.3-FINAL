@@ -3283,10 +3283,10 @@ const u8 gMantykePokedexText[] = _(
     "It often swims in a school of Remoraid.");
 
 const u8 gMegaHoundoomPokedexText[] = _(
-    "In a HOUNDOOM pack, the one with its horns\n"
-    "raked sharply back serves a leadership\n"
-    "role. They choose their leader by fighting\n"
-    "among themselves.");
+    "Its red claws and the tips of its tail\n" 
+	"are melting from high internal\n" 
+	"temperatures that are painful to\n" 
+	"M-HOUNDOOM itself.");
 	
 const u8 gChespinPokedexText[] = _(
     "The quills on its head are usually soft.\n"
@@ -3325,20 +3325,19 @@ const u8 gInfernapePokedexText[] = _(
     "take on any opponent.");
 
 const u8 gRegielekiPokedexText[] = _(
-    "A POKéMON that is made entirely of rocks\n"
-    "and boulders. If parts of its body chip off\n"
-    "in battle, REGIROCK repairs itself by\n"
-    "adding new rocks.");
+    "This POKéMON is a cluster of electrical\n" 
+	"energy. It's said that removing the rings\n" 
+	"on REGIELEKI's body will unleash the\n" 
+	"Pokémon's latent power.");
 
 const u8 gRegidragoPokedexText[] = _(
-    "Its entire body is made of Antarctic ice.\n"
-    "After extensive studies, researchers\n"
-    "believe the ice was formed during an\n"
-    "ice age.");
+    "Its body is composed of crystallized dragon\n" 
+	"energy. REGIDRAGO is said to have the\n" 
+	"powers of every dragon Pokémon.");
 	
 const u8 gWintassPokedexText[] = _(
-    "Its entire body is made of Antarctic ice.\n"
-    "After extensive studies, researchers\n"
-    "believe the ice was formed during an\n"
-    "ice age.");
+    "Emerged from the snow from a past winter.\n" 
+	"Its body is covered of branches, stones and\n" 
+	"snowmans that people made before WINTASS\n" 
+	"came to life.");
 
