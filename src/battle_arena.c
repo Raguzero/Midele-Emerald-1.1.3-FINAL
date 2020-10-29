@@ -419,6 +419,8 @@ static const s8 sMindRatings[] =
     [MOVE_HEAL_PULSE] = 0,
     [MOVE_MIDELE_POWER] = 1,
     [MOVE_GUNK_SHOT] = 1,
+    [MOVE_THUNDER_CAGE] = 1,
+    [MOVE_DRAGON_ENERGY] = 1,
 };
 
 #define TAG_JUDGEMENT_ICON 1000

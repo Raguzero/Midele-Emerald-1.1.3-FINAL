@@ -4867,4 +4867,28 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
     },
+    [MOVE_THUNDER_CAGE] =
+    {
+        .effect = EFFECT_TRAP,
+        .power = 80,
+        .type = TYPE_ELECTRIC,
+        .accuracy = 90,
+        .pp = 15,
+        .secondaryEffectChance = 100,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+    },
+    [MOVE_DRAGON_ENERGY] =
+    {
+        .effect = EFFECT_ERUPTION,
+        .power = 150,
+        .type = TYPE_DRAGON,
+        .accuracy = 100,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_BOTH,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
+    },
 };

@@ -1500,6 +1500,14 @@ static const u8 sMidelePowerDescription[] = _(
 static const u8 sGUNK_SHOTDescription[] = _(
 	"Shoots filthy garbage at\n"
 	"the foe. May also poison.");
+	
+static const u8 sTHUNDER_CAGEDescription[] = _(
+	"Trap the foe in a cage of\n" 
+	"sparks for 2-5 turns.");
+	
+static const u8 sDRAGON_ENERGYDescription[] = _(
+    "Inflicts more damage if the\n"
+    "user's HP is high.");
 
 // MOVE_NONE is ignored in this table. Make sure to always subtract 1 before getting the right pointer.
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
@@ -1880,5 +1888,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_HEAL_PULSE - 1] = sHEAL_PULSEDescription,
     [MOVE_MIDELE_POWER - 1] = sMidelePowerDescription,
     [MOVE_GUNK_SHOT - 1] = sGUNK_SHOTDescription,
+    [MOVE_THUNDER_CAGE - 1] = sTHUNDER_CAGEDescription,
+    [MOVE_DRAGON_ENERGY - 1] = sDRAGON_ENERGYDescription,
 	// NUEVO MOVE TIPO HADA
 };
