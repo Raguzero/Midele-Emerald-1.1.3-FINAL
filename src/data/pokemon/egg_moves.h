@@ -834,6 +834,7 @@ const u16 gEggMoves[] = {
               MOVE_SPITE,
               MOVE_REVERSAL,
               MOVE_BEAT_UP,
+              MOVE_NASTY_PLOT,
               MOVE_WILL_O_WISP),
 
     egg_moves(PHANPY,
