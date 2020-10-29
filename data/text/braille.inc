@@ -233,3 +233,15 @@ IzabeIsland_OutskirtsCave_Braille_ThreeRegi: @ 82A6B99
 	.braille "ROCA,\n"
 	.braille "ACERO,\n"
 	.braille "Y HIELO.$"
+
+OldaleRuins_Braille_RegidragoPuzzle: @ 82A6B99
+	.byte 0
+	.byte 0
+	.byte 29
+	.byte 19
+	.byte 3
+	.byte 3
+	.braille "PRESENTA\n"
+	.braille "EL DRAGON\n"
+	.braille "QUE NO ES\n"
+	.braille "DRAGON.$"
