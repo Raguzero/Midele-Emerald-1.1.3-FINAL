@@ -58,7 +58,7 @@
 #define FLAG_DEFEATED_SUICUNE    0x2E // Unused Flag
 #define FLAG_HIDE_SUICUNE    0x2F // Unused Flag
 #define FLAG_CAUGHT_JIRACHI  0x30 // Previously unused Flag
-#define FLAG_UNUSED_0x031    0x31 // Unused Flag
+#define FLAG_DEFEATED_OLDALE_AVADER    0x31 // Previously unused Flag
 #define FLAG_UNUSED_0x032    0x32 // Unused Flag
 #define FLAG_UNUSED_0x033    0x33 // Unused Flag
 #define FLAG_UNUSED_0x034    0x34 // Unused Flag

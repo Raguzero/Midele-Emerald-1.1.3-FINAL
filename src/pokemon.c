@@ -7003,6 +7003,7 @@ u16 GetBattleBGM(void)
 #define MUSICOTE(a, b) { const u8 nombre[] = _(a); if (!StringCompare(gTrainers[gTrainerBattleOpponent_A].trainerName, nombre)) return b; }
     MUSICOTE("MIDELE", FF6BOSS)
     MUSICOTE("LAVENDER", MUS_VS_FRONT)
+    MUSICOTE("a.vader", MUS_VS_FRONT)
 	//MUSICOTE("MANEC", FF6BOSS) se ponen mas de la misma forma
 	
         if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)

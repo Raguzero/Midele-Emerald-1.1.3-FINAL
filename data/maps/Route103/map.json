@@ -305,6 +305,19 @@
             "trainer_type": "0",
             "x": 44,
             "y": 7
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_DEFEATED_OLDALE_AVADER",
+            "graphics_id": "EVENT_OBJ_GFX_MANIAC",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "script": "Route103_EventScript_Avader",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 21,
+            "y": 16
         }
     ],
     "region_map_section": "MAPSEC_ROUTE_103",

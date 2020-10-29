@@ -6,6 +6,7 @@ OldaleTown_OnTransition: @ 81E8EA8
 	call Common_EventScript_SetupRivalGfxId
 	setflag FLAG_VISITED_OLDALE_TOWN
 	call_if_unset FLAG_ADVENTURE_STARTED, OldaleTown_EventScript_BlockWestEntrance
+	call_if_unset FLAG_DEFEATED_OLDALE_AVADER, OldaleTown_EventScript_BlockWestEntrance
 	call_if_unset FLAG_RECEIVED_POTION_OLDALE, OldaleTown_EventScript_MoveMartEmployee
 	call_if_set FLAG_ADVENTURE_STARTED, OldaleTown_EventScript_SetOldaleState
 	end
@@ -188,11 +189,13 @@ OldaleTown_Movement_Unknown2: @ 81E9013
 	walk_up
 	step_end
 
-OldaleTown_EventScript_FootprintsMan:: @ 81E901F
+OldaleTown_EventScript_VaderMew:: @ 81E901F
 	lock
 	faceplayer
+	playmoncry SPECIES_MEW, 2
+	waitmoncry
 	goto_if_set FLAG_ADVENTURE_STARTED, OldaleTown_EventScript_NotBlockingPath
-	msgbox OldaleTown_Text_DiscoveredFootprints, MSGBOX_DEFAULT
+	msgbox OldaleTown_Text_MewHoldingNote, MSGBOX_DEFAULT
 	closemessage
 	applymovement 3, Common_Movement_FaceOriginalDirection
 	waitmovement 0
@@ -204,7 +207,9 @@ OldaleTown_EventScript_BlockedPath:: @ 81E903F
 	applymovement EVENT_OBJ_ID_PLAYER, OldaleTown_Movement_PlayerStepBack
 	applymovement 3, OldaleTown_Movement_BackUp
 	waitmovement 0
-	msgbox OldaleTown_Text_WaitDontComeInHere, MSGBOX_DEFAULT
+	playmoncry SPECIES_MEW, 2
+	waitmoncry
+	msgbox OldaleTown_Text_MewBlocksPath, MSGBOX_DEFAULT
 	closemessage
 	applymovement 3, OldaleTown_Movement_ReturnToOriginalPosition
 	waitmovement 0
@@ -212,7 +217,7 @@ OldaleTown_EventScript_BlockedPath:: @ 81E903F
 	end
 
 OldaleTown_EventScript_NotBlockingPath:: @ 81E9066
-	msgbox OldaleTown_Text_FinishedSketchingFootprints, MSGBOX_DEFAULT
+	msgbox OldaleTown_Text_MewAbandoned, MSGBOX_DEFAULT
 	release
 	end
 
@@ -367,25 +372,26 @@ OldaleTown_Text_PotionExplanation: @ 81E92AF
 	.string "even more useful than a POKéMON CENTER\l"
 	.string "in certain situations.$"
 
-OldaleTown_Text_WaitDontComeInHere: @ 81E9313
-	.string "Aaaaah! Wait!\n"
-	.string "Please don't come in here.\p"
-	.string "I just discovered the footprints of\n"
-	.string "a rare POKéMON!\p"
-	.string "Wait until I finish sketching\n"
-	.string "them, okay?$"
+OldaleTown_Text_MewBlocksPath: @ 81E9313
+	.string "Un raro POKéMON te bloquea el camino...\p"
+	.string "Tiene una nota con algo escrito:\n"
+	.string "“Si quieres que mi POKéMON te deje paso,\l"
+	.string " espera a que termine mi investigación\l"
+	.string " en la ROUTE 103.”\p"
+	.string "“Firmado, tu madre. Jeje.”$"
 
-OldaleTown_Text_DiscoveredFootprints: @ 81E939A
-	.string "I just discovered the footprints of\n"
-	.string "a rare POKéMON!\p"
-	.string "Wait until I finish sketching\n"
-	.string "them, okay?$"
+OldaleTown_Text_MewHoldingNote: @ 81E939A
+	.string "Parece tratarse de un raro POKéMON...\p"
+	.string "Tiene una nota con algo escrito:\n"
+	.string "“Si quieres que mi POKéMON te deje paso,\l"
+	.string " espera a que termine mi investigación\l"
+	.string " en la ROUTE 103.”\p"
+	.string "“Firmado, tu madre. Jeje.”$"
 
-OldaleTown_Text_FinishedSketchingFootprints: @ 81E93F8
-	.string "I finished sketching the footprints of\n"
-	.string "a rare POKéMON.\p"
-	.string "But it turns out they were only my\n"
-	.string "own footprints…$"
+OldaleTown_Text_MewAbandoned: @ 81E93F8
+	.string "Mew, meeeew...\p"
+	.string "Parece que su entrenador lo ha\n"
+	.string "abandonado...$"
 
 OldaleTown_Text_MayLetsGoBack: @ 81E9462
 	.string "MAY: {PLAYER}{KUN}!\n"
@@ -400,4 +406,3 @@ OldaleTown_Text_BrendanLetsGoBack: @ 81E948A
 OldaleTown_Text_CitySign: @ 81E94DA
 	.string "OLDALE TOWN\n"
 	.string "“Where things start off scarce.”$"
-

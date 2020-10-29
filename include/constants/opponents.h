@@ -895,10 +895,11 @@
 #define TRAINER_BLUE                                891
 #define TRAINER_RED2                                 892
 #define TRAINER_LEAF2                               893
+#define TRAINER_AVADER_OLDALE                       894
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
-#define TRAINERS_COUNT                      894 // NUEVO: aumentar para añadir nuevos entrenadores
-#define MAX_TRAINERS_COUNT                  895
+#define TRAINERS_COUNT                      895 // NUEVO: aumentar para añadir nuevos entrenadores
+#define MAX_TRAINERS_COUNT                  896
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

@@ -533,6 +533,9 @@ static const u8 sText_Trainer2WinText[];
 static const u8 sText_TwoInGameTrainersDefeated[];
 static const u8 sText_Trainer2LoseText[];
 
+// Frases en mitad de combate
+static const u8 sText_RedHPOldaleVader[] = _("Your blade... it didn't cut deep enough.$");
+
 const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
     [STRINGID_TRAINER1LOSETEXT - 12] = sText_Trainer1LoseText,
@@ -3120,6 +3123,7 @@ struct TrainerSlide
 static const struct TrainerSlide sTrainerSlides[] =
 {
     {TRAINER_WALLACE_2, sText_AarghAlmostHadIt, sText_BoxIsFull, sText_123Poof},
+    {TRAINER_AVADER_OLDALE, NULL, sText_RedHPOldaleVader, NULL},
 };
 
 static u32 GetEnemyMonCount(bool32 onlyAlive)
