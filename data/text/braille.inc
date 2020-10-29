@@ -222,7 +222,7 @@ AncientTomb_Braille_ShineInTheMiddle: @ 82A6D06
 	.braille "WILL, SHINE\n"
 	.braille "IN THE MIDDLE.$"
 
-IzabeIsland_OutskirtsCave_Braille_ThreeRegi: @ 82A6B99
+IzabeIsland_OutskirtsCave_Braille_FiveRegi: @ 82A6B99
 	.byte 0
 	.byte 0
 	.byte 29
@@ -232,7 +232,9 @@ IzabeIsland_OutskirtsCave_Braille_ThreeRegi: @ 82A6B99
 	.braille "PRESENTA\n"
 	.braille "ROCA,\n"
 	.braille "ACERO,\n"
-	.braille "Y HIELO.$"
+	.braille "HIELO,\n"
+	.braille "ELECTRICO\n"
+	.braille  "Y DRAGON.$"
 
 OldaleRuins_Braille_RegidragoPuzzle: @ 82A6B99
 	.byte 0
