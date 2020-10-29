@@ -301,6 +301,7 @@ static const u8 sText_SlowStarted[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} can't g
 static const u8 sText_SlowStartEnds[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} put its act together!");
 static const u8 sText_PerishBody[] = _("Both Pokémon will faint\nin 3 turns!");
 static const s8 sText_PowerHerbActivation[] = _("{B_ATK_NAME_WITH_PREFIX} became fully charged\ndue to its POWER HERB!");
+static const u8 sText_PkmnTrappedByThunderCage[] = _("{B_DEF_NAME_WITH_PREFIX} was trapped\nby THUNDER CAGE!");
 // NUEVO HABILIDADES
 static const u8 sText_TotemAura[] = _("Totem {B_OPPONENT_MON1_NAME}'s aura flared to life!");
 static const u8 sText_PkmnsXIntensifiedSun[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\nintensified the sun's rays!");
@@ -920,6 +921,7 @@ const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_SLOWSTARTENDS - 12] = sText_SlowStartEnds,
 	[STRINGID_PERISHBODY - 12] = sText_PerishBody,
     [STRINGID_POWERHERB - 12] = sText_PowerHerbActivation,
+    [STRINGID_TRAPPEDBYTHUNDERCAGE - 12] = sText_PkmnTrappedByThunderCage,
 	// NUEVO HABILIDADES
 };
 
@@ -1029,7 +1031,8 @@ const u16 gFirstTurnOfTwoStringIds[] =
 const u16 gWrappedStringIds[] =
 {
     STRINGID_PKMNSQUEEZEDBYBIND, STRINGID_PKMNWRAPPEDBY, STRINGID_PKMNTRAPPEDINVORTEX,
-    STRINGID_PKMNCLAMPED, STRINGID_PKMNTRAPPEDINVORTEX, STRINGID_PKMNTRAPPEDBYSANDTOMB
+    STRINGID_PKMNCLAMPED, STRINGID_PKMNTRAPPEDINVORTEX, STRINGID_PKMNTRAPPEDBYSANDTOMB,
+	STRINGID_TRAPPEDBYTHUNDERCAGE
 };
 
 const u16 gMistUsedStringIds[] =
@@ -1187,7 +1190,7 @@ const u16 gCaughtMonStringIds[] =
 
 const u16 gTrappingMoves[] =
 {
-    MOVE_BIND, MOVE_WRAP, MOVE_FIRE_SPIN, MOVE_CLAMP, MOVE_WHIRLPOOL, MOVE_SAND_TOMB, 0xFFFF
+    MOVE_BIND, MOVE_WRAP, MOVE_FIRE_SPIN, MOVE_CLAMP, MOVE_WHIRLPOOL, MOVE_SAND_TOMB, MOVE_THUNDER_CAGE, 0xFFFF
 };
 
 const u8 gText_PkmnIsEvolving[] = _("What?\n{STR_VAR_1} is evolving!");
