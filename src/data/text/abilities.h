@@ -106,6 +106,8 @@ static const u8 sMotorDriveDescription[] = _("Electricity raises SPEED.");
 static const u8 sSlowStartDescription[] = _("Takes a while to get going.");
 static const u8 sPerishBodyDescription[] = _("Perish Song with contact.");
 static const u8 sProteanDescription[] = _("Changes type to used move.");
+static const u8 sTransistorDescription[] = _("Powers up ELECTRIC moves.");
+static const u8 sDragonMawDescription[] = _("Powers up DRAGON moves.");
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 {
@@ -217,6 +219,8 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_SLOW_START] = _("SLOW START"),
     [ABILITY_PERISH_BODY] = _("PERISH BODY"),
     [ABILITY_PROTEAN] = _("PROTEAN"),
+    [ABILITY_TRANSISTOR] = _("TRANSISTOR"),
+    [ABILITY_DRAGON_MAW] = _("DRAGON'S MAW"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -329,4 +333,6 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_SLOW_START] = sSlowStartDescription,
     [ABILITY_PERISH_BODY] = sPerishBodyDescription,
     [ABILITY_PROTEAN] = sProteanDescription,
+    [ABILITY_TRANSISTOR] = sTransistorDescription,
+    [ABILITY_DRAGON_MAW] = sDragonMawDescription,
 };

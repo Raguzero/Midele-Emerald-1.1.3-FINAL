@@ -391,6 +391,8 @@ gBattleAnims_Moves::
 	.4byte Move_HEAL_PULSE
 	.4byte Move_MIDELE_POWER
 	.4byte Move_GUNK_SHOT
+	.4byte Move_THUNDER_CAGE
+	.4byte Move_DRAGON_ENERGY
 	.4byte Move_COUNT @ cannot be reached, because last move is Psycho Boost
 
 	.align 2
@@ -10773,6 +10775,51 @@ _GunkShotSubcall:
 	delay 1
 	return
 	end
+	
+Move_THUNDER_CAGE:
+	loadspritegfx ANIM_TAG_ELECTRICITY
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 0, 4, 2, 0, 7, RGB(19, 17, 0)
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 0, 2, 43, 1
+	playsewithpan SE_W328, SOUND_PAN_TARGET
+	call ThunderCageEffect
+	call ThunderCageEffect
+	call ThunderCageEffect
+	delay 22
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 0, 4, 2, 7, 0, RGB(19, 17, 0)
+	waitforvisualfinish
+	end
+	
+ThunderCageEffect:
+	createsprite gUnknown_08596B34, ANIM_TARGET, 2, 0, 32, 528, 30, 10, 50, 1
+	delay 2
+	createsprite gUnknown_08596B34, ANIM_TARGET, 2, 0, 36, 480, 20, 13, -46, 1
+	delay 2
+	createsprite gUnknown_08596B34, ANIM_TARGET, 2, 0, 37, 576, 20, 5, 42, 1
+	delay 2
+	createsprite gUnknown_08596B34, ANIM_TARGET, 2, 0, 35, 400, 25, 8, -42, 1
+	delay 2
+	createsprite gUnknown_08596B34, ANIM_TARGET, 2, 0, 32, 512, 25, 13, 46, 1
+	delay 2
+	createsprite gUnknown_08596B34, ANIM_TARGET, 2, 0, 37, 464, 30, 12, -50, 1
+	delay 2
+	return
+	
+Move_DRAGON_ENERGY:
+	loadspritegfx ANIM_TAG_GLOWY_BLUE_ORB
+	loadspritegfx ANIM_TAG_WATER_IMPACT
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 8
+	createvisualtask sub_81080E4, 5
+	playsewithpan SE_W029, SOUND_PAN_ATTACKER
+	delay 44
+	playsewithpan SE_W291, SOUND_PAN_ATTACKER
+	waitforvisualfinish
+	delay 16
+	createvisualtask sub_81085C8, 5
+	playsewithpan SE_W057, SOUND_PAN_TARGET
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
 
 Move_COUNT:
 	loadspritegfx ANIM_TAG_IMPACT
@@ -11211,6 +11258,7 @@ General_TurnTrap:
 	jumpargeq 0, TRAP_ANIM_WHIRLPOOL, Status_Whrilpool
 	jumpargeq 0, TRAP_ANIM_CLAMP, Status_Clamp
 	jumpargeq 0, TRAP_ANIM_SAND_TOMB, Status_SandTomb
+	jumpargeq 0, ANIM_TAG_LIGHTNING, Status_ThunderCage
 	goto Status_BindWrap
 Status_BindWrap:
 	loadspritegfx ANIM_TAG_TENDRILS
@@ -11274,6 +11322,18 @@ Status_SandTomb:
 	playsewithpan SE_W328, SOUND_PAN_TARGET
 	call SandTombEffect
 	call SandTombEffect
+	delay 22
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 0, 4, 2, 7, 0, RGB(19, 17, 0)
+	waitforvisualfinish
+	stopsound
+	end
+Status_ThunderCage:
+	loadspritegfx ANIM_TAG_ELECTRIC_ORBS
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 0, 4, 2, 0, 7, RGB(19, 17, 0)
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 0, 2, 30, 1
+	playsewithpan SE_W328, SOUND_PAN_TARGET
+	call ThunderCageEffect
+	call ThunderCageEffect
 	delay 22
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 0, 4, 2, 7, 0, RGB(19, 17, 0)
 	waitforvisualfinish
