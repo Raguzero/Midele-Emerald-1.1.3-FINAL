@@ -5070,6 +5070,160 @@
                     "map": "MAP_NEW_MAUVILLE_INSIDE"
                 },
                 {
+                    "base_label": "gOldaleRuins0",
+                    "fishing_mons": {
+                        "encounter_rate": 10,
+                        "mons": [
+                            {
+                                "max_level": 5,
+                                "min_level": 5,
+                                "species": "SPECIES_RELICANTH"
+                            },
+                            {
+                                "max_level": 10,
+                                "min_level": 5,
+                                "species": "SPECIES_RELICANTH"
+                            },
+                            {
+                                "max_level": 30,
+                                "min_level": 20,
+                                "species": "SPECIES_RELICANTH"
+                            },
+                            {
+                                "max_level": 35,
+                                "min_level": 30,
+                                "species": "SPECIES_RELICANTH"
+                            },
+                            {
+                                "max_level": 35,
+                                "min_level": 30,
+                                "species": "SPECIES_RELICANTH"
+                            },
+                            {
+                                "max_level": 40,
+                                "min_level": 35,
+                                "species": "SPECIES_RELICANTH"
+                            },
+                            {
+                                "max_level": 40,
+                                "min_level": 35,
+                                "species": "SPECIES_RELICANTH"
+                            },
+                            {
+                                "max_level": 45,
+                                "min_level": 40,
+                                "species": "SPECIES_RELICANTH"
+                            },
+                            {
+                                "max_level": 50,
+                                "min_level": 50,
+                                "species": "SPECIES_RELICANTH"
+                            },
+                            {
+                                "max_level": 59,
+                                "min_level": 50,
+                                "species": "SPECIES_RELICANTH"
+                            }
+                        ]
+                    },
+                    "land_mons": {
+                        "encounter_rate": 20,
+                        "mons": [
+                            {
+                                "max_level": 10,
+                                "min_level": 5,
+                                "species": "SPECIES_UNOWN"
+                            },
+                            {
+                                "max_level": 20,
+                                "min_level": 15,
+                                "species": "SPECIES_UNOWN"
+                            },
+                            {
+                                "max_level": 25,
+                                "min_level": 20,
+                                "species": "SPECIES_UNOWN"
+                            },
+                            {
+                                "max_level": 30,
+                                "min_level": 25,
+                                "species": "SPECIES_UNOWN"
+                            },
+                            {
+                                "max_level": 40,
+                                "min_level": 35,
+                                "species": "SPECIES_UNOWN"
+                            },
+                            {
+                                "max_level": 45,
+                                "min_level": 40,
+                                "species": "SPECIES_UNOWN"
+                            },
+                            {
+                                "max_level": 55,
+                                "min_level": 50,
+                                "species": "SPECIES_UNOWN"
+                            },
+                            {
+                                "max_level": 70,
+                                "min_level": 60,
+                                "species": "SPECIES_UNOWN"
+                            },
+                            {
+                                "max_level": 100,
+                                "min_level": 70,
+                                "species": "SPECIES_UNOWN"
+                            },
+                            {
+                                "max_level": 100,
+                                "min_level": 85,
+                                "species": "SPECIES_UNOWN"
+                            },
+                            {
+                                "max_level": 100,
+                                "min_level": 90,
+                                "species": "SPECIES_UNOWN"
+                            },
+                            {
+                                "max_level": 100,
+                                "min_level": 90,
+                                "species": "SPECIES_UNOWN"
+                            }
+                        ]
+                    },
+                    "map": "MAP_OLDALE_RUINS",
+                    "water_mons": {
+                        "encounter_rate": 4,
+                        "mons": [
+                            {
+                                "max_level": 40,
+                                "min_level": 30,
+                                "species": "SPECIES_RELICANTH"
+                            },
+                            {
+                                "max_level": 40,
+                                "min_level": 35,
+                                "species": "SPECIES_RELICANTH"
+                            },
+                            {
+                                "max_level": 45,
+                                "min_level": 40,
+                                "species": "SPECIES_RELICANTH"
+                            },
+                            {
+                                "max_level": 50,
+                                "min_level": 50,
+                                "species": "SPECIES_RELICANTH"
+                            },
+                            {
+                                "max_level": 50,
+                                "min_level": 50,
+                                "species": "SPECIES_RELICANTH"
+                            }
+                        ]
+                    }
+                },
+                {
                     "base_label": "gPacifidlogTown",
                     "fishing_mons": {
                         "encounter_rate": 10,
