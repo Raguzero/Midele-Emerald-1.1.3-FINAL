@@ -452,6 +452,46 @@ Route103_EventScript_NotEnoughMoney::
 	hidemoneybox
 	release
 	end
+
+Route103_EventScript_Avader::
+	lockall
+	faceplayer
+	msgbox Route103_Text_Avader_BeforeBattle, MSGBOX_NPC
+	trainerbattle_no_intro TRAINER_AVADER_OLDALE, Route103_Text_Avader_Defeated
+
+	msgbox Route103_Text_Avader_AfterBattle, MSGBOX_DEFAULT
+	setflag FLAG_DEFEATED_OLDALE_AVADER
+
+	applymovement 22, Route103_Movement_AvaderSpin
+	waitmovement 0
+	playse SE_W100
+	applymovement 22, Route103_Movement_AvaderJumpaway
+	waitmovement 0
+	removeobject 22
+	releaseall
+	end
+
+Route103_Movement_AvaderSpin:
+	face_up
+	delay_4
+	face_left
+	delay_4
+	face_down
+	delay_4
+	face_right
+	delay_4
+	step_end
+
+Route103_Movement_AvaderJumpaway:
+	face_up
+	disable_anim
+	slide_up
+	slide_up
+	slide_up
+	slide_up
+	slide_up
+	slide_up
+	step_end
 	
 Route103_Text_MayRoute103Pokemon: @ 81EC7A6
 	.string "MAY: Let's see… The POKéMON found\n"
@@ -573,3 +613,26 @@ Route103_Text_AlteringCaveNPC:
 	
 Route103_Text_NotEnoughMoney:
 	.string "¡Pero si no tienes suficiente dinero!$"
+
+Route103_Text_Avader_BeforeBattle:
+	.string "He oído que aquí hay un regi producto de\n"
+	.string "la concetración de energía dracónica.\p"
+	.string "¿Puede ser usada tal energía para\n"
+	.string "ayudar en nuestras investigaciones?\p"
+	.string "¡AH, un niño autista me ha visto!\p"
+	.string "Te daré tu merecido con mi\n"
+	.string "POKéMON LEGENDARIO.$"
+
+Route103_Text_Avader_Defeated:
+	.string "How could this happen, even with\n"
+	.string "the apocrypha?$"
+
+Route103_Text_Avader_AfterBattle:
+	.string "Seguiremos tu carrera con gran interés.\n"
+	.string "Sí... de hecho, me ayudarás.\p"
+	.string "Tú resolverás por mí el misterio de estas\n"
+	.string "cuevas. Lo harás porque eres autista.\p"
+	.string "Y no te acordarás de esta conversación\n"
+	.string "para entonces.\p"
+	.string "Muajaja, volveremos a vernos.\p"
+	.string "¡Mew, teletransporte!$"

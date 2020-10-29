@@ -19063,3 +19063,32 @@ static const struct TrainerMonCustomMidele sParty_Leaf2[] = {
     }
 };
 // CIBERCAFE BATALLA
+
+// ENTRENADORES PERSONALIZADOS
+static const struct TrainerMonCustomMidele sParty_Oldale_Avader[] = {
+    {
+    .iv = 31,
+    .lvl = 3,
+    .species = SPECIES_MEW,
+	.heldItem = ITEM_NONE,
+    .ability = 0,
+    .shiny = 0,
+    .friendship = 0,
+    .nature = NATURE_TIMID,
+	.evs = {0, 0, 0, 0, 0, 0},
+    .moves = {MOVE_MEMENTO, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 31,
+    .lvl = 5,
+    .species = SPECIES_UNOWN,
+	.heldItem = ITEM_ORAN_BERRY,
+    .ability = 0,
+    .shiny = 1,
+    .friendship = 255,
+    .nature = NATURE_HARDY,
+	.evs = {0, 0, 0, 0, 0, 0},
+    .moves = {MOVE_HIDDEN_POWER, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+    .hpType = TYPE_DRAGON
+    }
+};
