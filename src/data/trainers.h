@@ -12502,7 +12502,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_AVADER_OLDALE] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = ,
+        .trainerClass = TRAINER_CLASS_COLLECTOR,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .trainerPic = TRAINER_PIC_COLLECTOR,
         .trainerName = _("a.vader"),
