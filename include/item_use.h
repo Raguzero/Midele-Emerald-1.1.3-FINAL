@@ -33,7 +33,6 @@ void ItemUseInBattle_Escape(u8);
 void ItemUseInBattle_EnigmaBerry(u8);
 void Task_UseDigEscapeRopeOnField(u8 taskId);
 u8 CanUseEscapeRopeOnCurrMap(void);
-void ItemUseOutOfBattle_EonFlute(u8 taskId);
 u8 CheckIfItemIsTMHMOrEvolutionStone(u16 itemId);
 void ItemUseOutOfBattle_SootSack(u8);
 u16 GetAshCount(void);

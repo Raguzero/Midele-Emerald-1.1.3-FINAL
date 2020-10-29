@@ -3411,16 +3411,15 @@ const struct Item gItems[] =
         .secondaryId = 0,
     },
 
-    [ITEM_EON_FLUTE] =
+    [ITEM_10B] =
     {
-       .name = _("EON FLUTE"),
-        .itemId = ITEM_EON_FLUTE,
+        .name = _("????????"),
+        .itemId = ITEM_NONE,
         .price = 0,
-		.description = sEonFluteDesc,
-		.importance = 1,
-        .pocket = POCKET_KEY_ITEMS,
-        .type = 2,
-        .fieldUseFunc = ItemUseOutOfBattle_EonFlute,
+        .description = sDummyDesc,
+        .pocket = POCKET_ITEMS,
+        .type = 4,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
     },
 

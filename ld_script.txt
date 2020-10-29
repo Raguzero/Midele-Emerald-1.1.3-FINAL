@@ -326,7 +326,6 @@ SECTIONS {
         src/gym_leader_rematch.o(.text);
         src/unk_transition.o(.text);
         src/international_string_util.o(.text);
-		src/soar.o(.text);
         src/day_night.o(.text);
     } =0
 
@@ -686,7 +685,6 @@ SECTIONS {
         data/fonts.o(.rodata);
         src/mystery_event_msg.o(.rodata);
         data/mystery_event.o(.rodata);
-		src/soar.o(.rodata);
         src/day_night.o(.rodata);
         src/m4a_tables.o(.rodata);
         data/sound_data.o(.rodata);
