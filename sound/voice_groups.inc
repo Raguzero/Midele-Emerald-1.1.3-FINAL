@@ -14590,6 +14590,16 @@ gCryTable:: @ 869DCF4
 	cry Cry_Mega_Glalie
 	cry Cry_Mega_Camerupt
 	cry Cry_Mega_Beedrill
+	cry Cry_Mega_Houndoom
+	cry Cry_Chespin
+	cry Cry_Quilladin
+	cry Cry_Chesnaught
+	cry Cry_Chimchar
+	cry Cry_Monferno
+	cry Cry_Infernape
+	cry Cry_Regieleki
+	cry Cry_Regidrago
+	cry Cry_Wintass
 
 
 	.align 2
@@ -15145,6 +15155,16 @@ gCryTable2:: @ 869EF24
 	cry2 Cry_Mega_Glalie
 	cry2 Cry_Mega_Camerupt
 	cry2 Cry_Mega_Beedrill
+	cry2 Cry_Mega_Houndoom
+	cry2 Cry_Chespin
+	cry2 Cry_Quilladin
+	cry2 Cry_Chesnaught
+	cry2 Cry_Chimchar
+	cry2 Cry_Monferno
+	cry2 Cry_Infernape
+	cry2 Cry_Regieleki
+	cry2 Cry_Regidrago
+	cry2 Cry_Wintass
 
 	.align 2
 voicegroup129:: @ 86A0154

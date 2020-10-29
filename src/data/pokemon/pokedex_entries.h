@@ -6524,8 +6524,8 @@ const struct PokedexEntry gPokedexEntries[] =
     [NATIONAL_DEX_MEGA_HOUNDOOM] =
     {
         .categoryName = _("DARK"),
-        .height = 14,
-        .weight = 350,
+        .height = 19,
+        .weight = 495,
         .description = gMegaHoundoomPokedexText,
         .pokemonScale = 256,
         .pokemonOffset = 4,
