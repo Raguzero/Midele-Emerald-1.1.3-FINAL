@@ -29,6 +29,7 @@ OldaleRuins_EventScript_HideRegiEntrance:: @ 8238E62
 	return
 
 OldaleRuins_OnTransition: @ 8238E99
+	setflag FLAG_LANDMARK_OLDALE_RUINS
 	call_if_unset FLAG_CAUGHT_REGIDRAGO, OldaleRuins_EventScript_TryShowRegidrago
 	end
 
