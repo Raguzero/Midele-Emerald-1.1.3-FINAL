@@ -455,7 +455,11 @@ Route103_EventScript_NotEnoughMoney::
 
 Route103_EventScript_Avader::
 	lockall
+	msgbox Route103_Text_Avader_TalkToHimself, MSGBOX_DEFAULT
 	faceplayer
+	playse SE_PIN
+	applymovement 22, Common_Movement_ExclamationMark
+	waitmovement 0
 	msgbox Route103_Text_Avader_BeforeBattle, MSGBOX_NPC
 	trainerbattle_no_intro TRAINER_AVADER_OLDALE, Route103_Text_Avader_Defeated
 
@@ -614,11 +618,13 @@ Route103_Text_AlteringCaveNPC:
 Route103_Text_NotEnoughMoney:
 	.string "¡Pero si no tienes suficiente dinero!$"
 
-Route103_Text_Avader_BeforeBattle:
+Route103_Text_Avader_TalkToHimself:
 	.string "He oído que aquí hay un regi producto de\n"
 	.string "la concetración de energía dracónica.\p"
 	.string "¿Puede ser usada tal energía para\n"
-	.string "ayudar en nuestras investigaciones?\p"
+	.string "ayudar en nuestras investigaciones?$"
+
+Route103_Text_Avader_BeforeBattle:
 	.string "¡AH, un niño autista me ha visto!\p"
 	.string "Te daré tu merecido con mi\n"
 	.string "POKéMON LEGENDARIO.$"
