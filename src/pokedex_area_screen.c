@@ -374,6 +374,7 @@ static void FindMapsWithMon(u16 species)
                 switch (gWildMonHeaders[i].mapGroup)
                 {
                     case MAP_GROUP_OVERWORLD_MONS:
+                    case MAP_GROUP_34:
                         SetAreaHasMon(gWildMonHeaders[i].mapGroup, gWildMonHeaders[i].mapNum);
                         break;
                     case MAP_GROUP_SPECIAL_MONS_1:
