@@ -319,6 +319,9 @@ const u32 gTrainerPalette_Lance[] = INCBIN_U32("graphics/trainers/palettes/elite
 const u32 gTrainerFrontPic_Blue[] = INCBIN_U32("graphics/trainers/front_pics/champion_rival_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Blue[] = INCBIN_U32("graphics/trainers/palettes/champion_rival.gbapal.lz");
 
+const u32 gTrainerFrontPic_Doctor[] = INCBIN_U32("graphics/trainers/front_pics/doctor_bw_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Doctor[] = INCBIN_U32("graphics/trainers/palettes/doctor_bw.gbapal.lz");
+
 
 const u8 gTrainerBackPic_Brendan[] = INCBIN_U8("graphics/trainers/back_pics/brendan_back_pic.4bpp");
 const u8 gTrainerBackPic_May[] = INCBIN_U8("graphics/trainers/back_pics/may_back_pic.4bpp");
