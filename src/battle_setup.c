@@ -855,13 +855,13 @@ static u8 GetTrainerBattleTransition(void)
 
     if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_ELITE_FOUR)
     {
-        if (gTrainerBattleOpponent_A == TRAINER_SIDNEY)
+        if (gTrainerBattleOpponent_A == TRAINER_SIDNEY || gTrainerBattleOpponent_A == TRAINER_SIDNEY_2)
             return B_TRANSITION_SIDNEY;
-        if (gTrainerBattleOpponent_A == TRAINER_PHOEBE)
+        if (gTrainerBattleOpponent_A == TRAINER_PHOEBE || gTrainerBattleOpponent_A == TRAINER_PHOEBE_2)
             return B_TRANSITION_PHOEBE;
-        if (gTrainerBattleOpponent_A == TRAINER_GLACIA)
+        if (gTrainerBattleOpponent_A == TRAINER_GLACIA || gTrainerBattleOpponent_A == TRAINER_GLACIA_2)
             return B_TRANSITION_GLACIA;
-        if (gTrainerBattleOpponent_A == TRAINER_DRAKE)
+        if (gTrainerBattleOpponent_A == TRAINER_DRAKE || gTrainerBattleOpponent_A == TRAINER_DRAKE_2)
             return B_TRANSITION_DRAKE;
         return B_TRANSITION_CHAMPION;
     }
