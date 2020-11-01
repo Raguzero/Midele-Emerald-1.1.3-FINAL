@@ -1990,11 +1990,11 @@ static void CreatePokedexList(u8 dexMode, u8 sortMode)
             }
             break;
         case SORT_ALPHABETICAL:
-            for (i = 0; i < POKEMON_SLOTS_NUMBER - 1; i++)
+            for (i = 0; i < ARRAY_COUNT(gPokedexOrder_Alphabetical); i++)
             {
                 temp_dexNum = gPokedexOrder_Alphabetical[i];
 
-                if (NationalToHoennOrder(temp_dexNum) <= temp_dexCount && GetSetPokedexFlag(temp_dexNum, FLAG_GET_SEEN))
+                if ((!temp_isHoennDex || NationalToHoennOrder(temp_dexNum) <= temp_dexCount) && GetSetPokedexFlag(temp_dexNum, FLAG_GET_SEEN))
                 {
                     sPokedexView->pokedexList[sPokedexView->pokemonListCount].dexNum = temp_dexNum;
                     sPokedexView->pokedexList[sPokedexView->pokemonListCount].seen = TRUE;
@@ -2004,11 +2004,11 @@ static void CreatePokedexList(u8 dexMode, u8 sortMode)
             }
             break;
         case SORT_HEAVIEST:
-            for (i = NATIONAL_DEX_COUNT - 1; i >= 0; i--)
+            for (i = ARRAY_COUNT(gPokedexOrder_Weight) - 1; i >= 0; i--)
             {
                 temp_dexNum = gPokedexOrder_Weight[i];
 
-                if (NationalToHoennOrder(temp_dexNum) <= temp_dexCount && GetSetPokedexFlag(temp_dexNum, FLAG_GET_CAUGHT))
+                 if ((!temp_isHoennDex || NationalToHoennOrder(temp_dexNum) <= temp_dexCount) && GetSetPokedexFlag(temp_dexNum, FLAG_GET_CAUGHT))
                 {
                     sPokedexView->pokedexList[sPokedexView->pokemonListCount].dexNum = temp_dexNum;
                     sPokedexView->pokedexList[sPokedexView->pokemonListCount].seen = TRUE;
@@ -2018,11 +2018,11 @@ static void CreatePokedexList(u8 dexMode, u8 sortMode)
             }
             break;
         case SORT_LIGHTEST:
-            for (i = 0; i < NATIONAL_DEX_COUNT; i++)
+            for (i = 0; i < ARRAY_COUNT(gPokedexOrder_Weight); i++)
             {
                 temp_dexNum = gPokedexOrder_Weight[i];
 
-                if (NationalToHoennOrder(temp_dexNum) <= temp_dexCount && GetSetPokedexFlag(temp_dexNum, FLAG_GET_CAUGHT))
+                if ((!temp_isHoennDex || NationalToHoennOrder(temp_dexNum) <= temp_dexCount) && GetSetPokedexFlag(temp_dexNum, FLAG_GET_CAUGHT))
                 {
                     sPokedexView->pokedexList[sPokedexView->pokemonListCount].dexNum = temp_dexNum;
                     sPokedexView->pokedexList[sPokedexView->pokemonListCount].seen = TRUE;
@@ -2032,11 +2032,11 @@ static void CreatePokedexList(u8 dexMode, u8 sortMode)
             }
             break;
         case SORT_TALLEST:
-            for (i = NATIONAL_DEX_COUNT - 1; i >= 0; i--)
+            for (i = ARRAY_COUNT(gPokedexOrder_Height) - 1; i >= 0; i--)
             {
                 temp_dexNum = gPokedexOrder_Height[i];
 
-                if (NationalToHoennOrder(temp_dexNum) <= temp_dexCount && GetSetPokedexFlag(temp_dexNum, FLAG_GET_CAUGHT))
+                if ((!temp_isHoennDex || NationalToHoennOrder(temp_dexNum) <= temp_dexCount) && GetSetPokedexFlag(temp_dexNum, FLAG_GET_CAUGHT))
                 {
                     sPokedexView->pokedexList[sPokedexView->pokemonListCount].dexNum = temp_dexNum;
                     sPokedexView->pokedexList[sPokedexView->pokemonListCount].seen = TRUE;
@@ -2046,11 +2046,11 @@ static void CreatePokedexList(u8 dexMode, u8 sortMode)
             }
             break;
         case SORT_SMALLEST:
-            for (i = 0; i < NATIONAL_DEX_COUNT; i++)
+            for (i = 0; i < ARRAY_COUNT(gPokedexOrder_Height); i++)
             {
                 temp_dexNum = gPokedexOrder_Height[i];
 
-                if (NationalToHoennOrder(temp_dexNum) <= temp_dexCount && GetSetPokedexFlag(temp_dexNum, FLAG_GET_CAUGHT))
+                if ((!temp_isHoennDex || NationalToHoennOrder(temp_dexNum) <= temp_dexCount) && GetSetPokedexFlag(temp_dexNum, FLAG_GET_CAUGHT))
                 {
                     sPokedexView->pokedexList[sPokedexView->pokemonListCount].dexNum = temp_dexNum;
                     sPokedexView->pokedexList[sPokedexView->pokemonListCount].seen = TRUE;
