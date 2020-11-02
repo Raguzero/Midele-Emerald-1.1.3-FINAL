@@ -5383,7 +5383,7 @@ const struct PokedexEntry gPokedexEntries[] =
 	{
 		.categoryName = _("SHEEP"),
 		.height = 6,
-		.weight = 80,
+		.weight = 60,
 		.description = gWoolooPokedexText,
         .pokemonScale = 379,
         .pokemonOffset = 18,
@@ -6289,8 +6289,8 @@ const struct PokedexEntry gPokedexEntries[] =
 	[NATIONAL_DEX_PUMPKABOO] =
 	{
 		.categoryName = _("PUMPKIN"),
-		.height = 4,
-		.weight = 50,
+		.height = 8,
+		.weight = 150,
 		.description = gPumpkabooPokedexText,
 		.pokemonScale = 356,
 		.pokemonOffset = 17,
@@ -6301,8 +6301,8 @@ const struct PokedexEntry gPokedexEntries[] =
 	[NATIONAL_DEX_GOURGEIST] =
 	{
 		.categoryName = _("PUMPKIN"),
-		.height = 9,
-		.weight = 125,
+		.height = 17,
+		.weight = 390,
 		.description = gGourgeistPokedexText,
 		.pokemonScale = 356,
 		.pokemonOffset = 17,
