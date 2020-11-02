@@ -366,6 +366,7 @@
 #define TRAINER_CLASS_PYRAMID_KING   0x40
 #define TRAINER_CLASS_RS_PROTAG      0x41
 #define TRAINER_CLASS_DEBUG          0x42
+#define TRAINER_CLASS_DOCTOR         0x43
 
 #define TRAINER_ENCOUNTER_MUSIC_MALE         0 // standard male encounter music
 #define TRAINER_ENCOUNTER_MUSIC_FEMALE       1 // standard female encounter music
