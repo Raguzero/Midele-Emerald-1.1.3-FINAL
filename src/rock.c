@@ -305,6 +305,17 @@ const struct SpriteTemplate gUnknown_08596CE0 =
     .callback = sub_80A8EE4,
 };
 
+const struct SpriteTemplate gStoneEdgeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_STONE_EDGE,
+    .paletteTag = ANIM_TAG_STONE_EDGE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gUnknown_085954D0,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = sub_8110B38,
+};
+
 void sub_81109F0(struct Sprite *sprite)
 {
     if (gBattleAnimArgs[3] != 0)
