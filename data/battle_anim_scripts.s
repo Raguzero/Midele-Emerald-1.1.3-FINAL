@@ -10060,25 +10060,62 @@ Move_IRON_HEAD:
 	end
 
 Move_STONE_EDGE: 
-	loadspritegfx 10058
-	loadspritegfx 10135
-	monbg ANIM_DEF_PARTNER
-	setalpha 12, 8
-	createsprite gBattleAnimSpriteTemplate_85972D8, 2, 4, 1, 10, 1
-	createsprite gUnknown_08596C10, 2, 20, 32, -48, 50, 2
-	createsprite gUnknown_08596C10, 2, 0, 32, -38, 25, 5
-	createsprite gUnknown_08596C10, 2, 32, 32, -28, 40, 3
-	createsprite gUnknown_08596C10, 2, -20, 32, -48, 50, 2
-	createsprite gUnknown_08596C10, 2, 20, 32, -28, 60, 1
-	createsprite gUnknown_08596C10, 2, 0, 32, -28, 30, 4
-	playsewithpan SE_W088, 63
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 5, 50, 1
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_DEF_PARTNER, 0, 5, 50, 1
+	loadspritegfx ANIM_TAG_STONE_EDGE
+	loadspritegfx ANIM_TAG_IMPACT
+	playsewithpan SE_W088 SOUND_PAN_TARGET   
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 28, 528, 30, 13, 50, 1
 	delay 2
-	call RockSlide1
-	call RockSlide1
-	waitforvisualfinish
-	clearmonbg ANIM_DEF_PARTNER
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 32, 480, 20, 16, -46, 1
+	delay 2
+	loopsewithpan 131, SOUND_PAN_TARGET 24, 3
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 33, 576, 20, 8, 42, 1
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 31, 400, 25, 11, -42, 1
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 28, 512, 25, 16, 46, 1 
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 33, 464, 30, 15, 49, 1
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 28, 528, 30, 13, 50, 1
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 32, 480, 20, 16, -46, 1
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 33, 576, 20, 8, 42, 1
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 31, 400, 25, 11, -42, 1
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 28, 512, 25, 16, 46, 1
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 33, 464, 30, 15, 49, 1 
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 28, 528, 30, 13, 50, 1
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 32, 480, 20, 16, -46, 1
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 33, 576, 20, 8, 42, 1
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 31, 400, 25, 11, -42, 1
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 28, 512, 25, 16, 46, 1
+	delay 2
+	createsprite gStoneEdgeSpriteTemplate, 130, 7, 0, 33, 464, 30, 15, 49, 1 
+	delay 2
+    createsprite gBasicHitSplatSpriteTemplate, 131, 4, -32, -16, 1, 3
+	playsewithpan SE_W004, SOUND_PAN_TARGET 
+	createvisualtask AnimTask_ShakeMonInPlace, 2, 5, 1, 3, 0, 12, 1
+	createvisualtask AnimTask_ShakeMonInPlace, 2, 5, 3, 3, 0, 12, 1
+	delay 4
+	createsprite gUnknown_085973A0, 131, 2, 1, 3
+	playsewithpan SE_W004, SOUND_PAN_TARGET 
+	delay 4
+	createsprite gUnknown_085973A0, 131, 2, 1, 3
+	playsewithpan SE_W004, SOUND_PAN_TARGET 
+	delay 4
+	createsprite gBasicHitSplatSpriteTemplate, 131, 4, 32, 20, 1, 3  
+	playsewithpan SE_W004, SOUND_PAN_TARGET 
+	waitforvisualfinish 
+	clearmonbg ANIM_DEF_PARTNER 
+	blendoff
 	end
 
 Move_DARK_PULSE:
