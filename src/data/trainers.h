@@ -12522,7 +12522,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
-        .partySize = ARRAY_COUNT(sParty_Oldale_Avader),
-        .party = {.ItemCustomMidele = sParty_Oldale_Avader},
+        .partySize = ARRAY_COUNT(sParty_Covid_Doctor_1),
+        .party = {.ItemCustomMidele = sParty_Covid_Doctor_1},
     },
 };
