@@ -6106,5 +6106,7 @@ extern const u16 gPokenavOptions_Pal[];
 
 extern const u32 gBattleAnimSpriteGfx_EnergyBall[];
 extern const u32 gBattleAnimSpritePal_EnergyBall[];
+extern const u32 gBattleAnimSpriteGfx_StoneEdge[];
+extern const u32 gBattleAnimSpritePal_StoneEdge[];
 
 #endif //GUARD_GRAPHICS_H
