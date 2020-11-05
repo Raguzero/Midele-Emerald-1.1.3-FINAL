@@ -320,7 +320,8 @@ static const u8 sMapHealLocations[][3] =
     {MAP_GROUP(ROUTE132), MAP_NUM(ROUTE132), 0},
     {MAP_GROUP(ROUTE133), MAP_NUM(ROUTE133), 0},
     {MAP_GROUP(ROUTE134), MAP_NUM(ROUTE134), 0},
-    {MAP_GROUP(IZABE_ISLAND_TOWN), MAP_NUM(IZABE_ISLAND_TOWN), HEAL_LOCATION_IZABE_ISLAND_TOWN}
+    {MAP_GROUP(IZABE_ISLAND_TOWN), MAP_NUM(IZABE_ISLAND_TOWN), HEAL_LOCATION_IZABE_ISLAND_TOWN},
+    {MAP_GROUP(MICOLANDIA), MAP_NUM(MICOLANDIA), HEAL_LOCATION_MICOLANDIA}
 };
 
 static const u8 *const gUnknown_085A1ED4[] =
@@ -413,6 +414,10 @@ static const u16 sUnknown_085A1F18[][2] =
     {
         FLAG_VISITED_IZABE_ISLAND_TOWN,
         MAPSEC_IZABE_ISLAND
+    },
+    {
+        FLAG_VISITED_MICOLANDIA,
+        MAPSEC_MICOLANDIA
     },
     {
         -1,
@@ -1229,6 +1234,8 @@ static u8 get_flagnr_blue_points(u16 mapSecId)
             return FlagGet(FLAG_LANDMARK_BATTLE_FRONTIER) ? MAPSECTYPE_BATTLE_FRONTIER : MAPSECTYPE_NONE;
         case MAPSEC_IZABE_ISLAND:
             return FlagGet(FLAG_VISITED_IZABE_ISLAND_TOWN) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_MICOLANDIA:
+            return FlagGet(FLAG_VISITED_MICOLANDIA) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
         case MAPSEC_SOUTHERN_ISLAND:
             return FlagGet(FLAG_LANDMARK_SOUTHERN_ISLAND) ? MAPSECTYPE_PLAIN : MAPSECTYPE_NONE;
         default:
@@ -2023,6 +2030,9 @@ static void sub_8124E0C(void)
                             break;
 						case MAPSEC_IZABE_ISLAND:
 							SetWarpDestinationToHealLocation(HEAL_LOCATION_IZABE_ISLAND_TOWN);
+							break;
+						case MAPSEC_MICOLANDIA:
+							SetWarpDestinationToHealLocation(HEAL_LOCATION_MICOLANDIA);
 							break;
                         default:
                             if (sMapHealLocations[sFlyMap->regionMap.mapSecId][2] != 0)

@@ -3,7 +3,7 @@ Micolandia_MapScripts::
 	.byte 0
 
 Micolandia_OnTransition: @ 81DC2D7
-	//setflag FLAG_VISITED_PETALBURG_CITY
+	setflag FLAG_VISITED_MICOLANDIA
 	end
 	
 Micolandia_EventScript_Marihuana::
@@ -41,7 +41,7 @@ Micolandia_EventScript_CibercafeSign::
 Micolandia_VentaTickets::
 	lock
 	faceplayer
-	checkitem ITEM_EON_TICKET, 1 
+	checkflag FLAG_SYS_HAS_EON_TICKET 
 	compare VAR_RESULT, TRUE
 	goto_if_eq MicolandiaYaCompradoTickets
 	showmoneybox 0, 0, 0
