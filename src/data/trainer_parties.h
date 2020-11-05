@@ -19092,3 +19092,18 @@ static const struct TrainerMonCustomMidele sParty_Oldale_Avader[] = {
     .hpType = TYPE_DRAGON
     }
 };
+
+static const struct TrainerMonCustomMidele sParty_Covid_Doctor_1[] = {
+    {
+    .iv = 31,
+    .lvl = 100,
+    .species = SPECIES_DEOXYS,
+	.heldItem = ITEM_NONE,
+    .ability = 0,
+    .shiny = 0,
+    .friendship = 0,
+    .nature = NATURE_TIMID,
+	.evs = {0, 0, 0, 0, 0, 0},
+    .moves = {MOVE_MEMENTO, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};

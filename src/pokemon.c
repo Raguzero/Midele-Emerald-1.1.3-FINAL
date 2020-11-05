@@ -7356,6 +7356,7 @@ u16 GetBattleBGM(void)
     MUSICOTE("MIDELE", FF6BOSS)
     MUSICOTE("LAVENDER", MUS_VS_FRONT)
     MUSICOTE("a.vader", MUS_VS_FRONT)
+    MUSICOTE("FLEMING", MUS_RG_VS_LAST)
 	//MUSICOTE("MANEC", FF6BOSS) se ponen mas de la misma forma
 	
         if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
