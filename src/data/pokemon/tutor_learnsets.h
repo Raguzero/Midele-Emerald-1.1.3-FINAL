@@ -201,7 +201,7 @@ static const u32 sTutorLearnsets[] =
 								| TUTOR(MOVE_ROCK_SLIDE)
                                 | TUTOR(MOVE_DEFENSE_CURL)),
 
-    [SPECIES_CATERPIE]         = (0),
+    [SPECIES_CATERPIE]         = (TUTOR(MOVE_SNORE)),
 
     [SPECIES_METAPOD]          = (0),
 
