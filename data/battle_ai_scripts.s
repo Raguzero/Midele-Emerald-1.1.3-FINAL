@@ -406,12 +406,18 @@ AI_CBM_Reflect: @ 82DC53A
 	end
 
 AI_CBM_Paralyze: @ 82DC545
-	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
-	get_ability AI_TARGET
-	if_equal ABILITY_LIMBER, Score_Minus10
-	if_status AI_TARGET, STATUS1_ANY, Score_Minus10
-	if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
-	end
+    if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
+    get_ability AI_TARGET
+    if_equal ABILITY_LIMBER, Score_Minus10
+    if_status AI_TARGET, STATUS1_ANY, Score_Minus10
+    if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
+    if_move MOVE_THUNDER_WAVE, AI_ThunderWave
+    end
+    
+AI_ThunderWave:
+    if_equal ABILITY_MOTOR_DRIVE, Score_Minus10
+    if_equal ABILITY_LIGHTNING_ROD, Score_Minus10
+    end
 
 AI_CBM_Substitute: @ 82DC568
 	if_status2 AI_USER, STATUS2_SUBSTITUTE, Score_Minus8
@@ -542,6 +548,7 @@ AI_CBM_Torment: @ 82DC6A9
 
 AI_CBM_WillOWisp: @ 82DC6B4
 	get_ability AI_TARGET
+	if_equal ABILITY_FLASH_FIRE, Score_Minus10
 	if_equal ABILITY_WATER_VEIL, Score_Minus10
 	if_status AI_TARGET, STATUS1_ANY, Score_Minus10
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
