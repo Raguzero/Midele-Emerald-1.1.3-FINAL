@@ -1508,6 +1508,10 @@ static const u8 sTHUNDER_CAGEDescription[] = _(
 static const u8 sDRAGON_ENERGYDescription[] = _(
     "Inflicts more damage if the\n"
     "user's HP is high.");
+	
+static const u8 sELECTROWEBDescription[] = _(
+	"Snares the foe with an\n"
+	"electric net. Lowers SPEED.");
 
 // MOVE_NONE is ignored in this table. Make sure to always subtract 1 before getting the right pointer.
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
@@ -1890,5 +1894,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_GUNK_SHOT - 1] = sGUNK_SHOTDescription,
     [MOVE_THUNDER_CAGE - 1] = sTHUNDER_CAGEDescription,
     [MOVE_DRAGON_ENERGY - 1] = sDRAGON_ENERGYDescription,
+    [MOVE_ELECTROWEB - 1] = sELECTROWEBDescription,
 	// NUEVO MOVE TIPO HADA
 };
