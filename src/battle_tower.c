@@ -145,7 +145,21 @@ const u16 gBattleFrontierHeldItems[] =
     ITEM_METAL_POWDER,
     ITEM_PETAYA_BERRY,
     ITEM_LUCKY_PUNCH,
-    ITEM_GANLON_BERRY
+    ITEM_GANLON_BERRY,
+    ITEM_CHOICE_SCARF,
+    ITEM_CHOICE_SPECS,
+    ITEM_POWER_HERB,
+    ITEM_FOCUS_SASH,
+    ITEM_HEART_SCALE,
+    ITEM_TINY_MUSHROOM,
+    ITEM_BIG_MUSHROOM,
+    ITEM_EVERSTONE,
+    ITEM_YELLOW_FLUTE,
+    ITEM_BLUE_FLUTE,
+    ITEM_RED_FLUTE,
+    ITEM_NUGGET,
+    ITEM_POKE_DOLL,
+    ITEM_FLUFFY_TAIL
 };
 
 #include "data/battle_frontier/battle_frontier_trainer_mons.h"
