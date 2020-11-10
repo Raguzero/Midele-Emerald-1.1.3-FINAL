@@ -1126,3 +1126,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/Micolandia_House2/scripts.inc"
 
 	.include "data/maps/OldaleRuins/scripts.inc"
+
+	.include "data/maps/ForbiddenForest/scripts.inc"

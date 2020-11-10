@@ -157,6 +157,7 @@ LittlerootTown_DebugRoom_Script_DesactivarMedallas::
 	clearflag FLAG_DEFEATED_KYOGRE
 	clearflag FLAG_DEFEATED_RAYQUAZA
     clearflag FLAG_DEFEATED_REGIGIGAS
+	clearflag FLAG_DEFEATED_CELEBI
     setvar VAR_SOOTOPOLIS_CITY_STATE, 0
     end
 

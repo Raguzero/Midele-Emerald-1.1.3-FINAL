@@ -4709,6 +4709,16 @@
             "primary_tileset": "gTileset_General",
             "secondary_tileset": "gTileset_Cave",
             "width": 17
+        },
+        {
+            "blockdata_filepath": "data/layouts/ForbiddenForest/map.bin",
+            "border_filepath": "data/layouts/ForbiddenForest/border.bin",
+            "height": 140,
+            "id": "LAYOUT_FORBIDDEN_FOREST",
+            "name": "ForbiddenForest_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_BattleFrontierOutsideEast",
+            "width": 40
         }
     ],
     "layouts_table_label": "gMapLayouts"
