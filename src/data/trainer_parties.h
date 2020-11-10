@@ -18148,6 +18148,7 @@ static const struct TrainerMonCustomMidele sParty_Misty[] = {
     .species = SPECIES_POLITOED,
 	.heldItem = ITEM_MYSTIC_WATER,
 	.nature = NATURE_MODEST,
+	.ability = 1,
 	.evs = {252, 0, 0, 252, 0, 6},
 	.syncLevel = TRUE,
     .moves = {MOVE_SURF, MOVE_ICE_BEAM, MOVE_PSYCHIC, MOVE_LOVELY_KISS}

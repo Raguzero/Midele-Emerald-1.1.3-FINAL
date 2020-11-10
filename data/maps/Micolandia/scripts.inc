@@ -109,12 +109,12 @@ Micolandia_Text_LigaSign:
 	
 Micolandia_GymNoroesteSign: @ 81DCAAA
 	.string "POKEMON GYM Nº1\n"
-	.string "LEADER: ????1\l"
+	.string "LEADER: SANTYGRASS\l"
 	.string "“Mensaje descriptivo del lider”$"
 
 Micolandia_GymNoresteSign: @ 81DCAAA
 	.string "POKEMON GYM Nº2\n"
-	.string "LEADER: ????1\l"
+	.string "LEADER: DARKI\l"
 	.string "“Mensaje descriptivo del lider”$"
 
 Micolandia_GymSuroesteSign: @ 81DCAAA
@@ -146,8 +146,8 @@ Micolandia_VentaTickets_Text:
 	
 	.string "¡Eso no es asunto tuyo!\p"
 	
-	.string "Bah, te vendo los tres\n"
-	.string "por solo 50000\l"
+	.string "Bah, te los vendo por solo\n"
+	.string "50000 Pokeyens.\l"
 	.string "¿Trato hecho?$"
 
 Micolandia_Text_NotEnoughMoney:
@@ -155,4 +155,4 @@ Micolandia_Text_NotEnoughMoney:
 	.string "timar?$"
 	
 Micolandia_SiVendido_Text:
-	.string "Esto es un trato dabuten!!$"
+	.string "¡¡Esto es un trato dabuten!!$"

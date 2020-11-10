@@ -3991,7 +3991,7 @@ static const u32 sTutorLearnsets[] =
                                 | TUTOR(MOVE_DEFENSE_CURL)
                                 | TUTOR(MOVE_FURY_CUTTER)),
 
-    [SPECIES_WURMPLE]          = (0),
+    [SPECIES_WURMPLE]          = (TUTOR(MOVE_SNORE)),
 
     [SPECIES_SILCOON]          = (0),
 
