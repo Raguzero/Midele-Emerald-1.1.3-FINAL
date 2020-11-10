@@ -621,6 +621,7 @@
 #define MAP_MICOLANDIA_HOUSE1                    (25 | (34 << 8))
 #define MAP_MICOLANDIA_HOUSE2                    (26 | (34 << 8))
 #define MAP_OLDALE_RUINS                         (27 | (34 << 8))
+#define MAP_FORBIDDEN_FOREST                     (28 | (34 << 8))
 
 #define MAP_GROUPS_COUNT 35
 

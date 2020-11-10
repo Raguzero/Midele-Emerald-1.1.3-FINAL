@@ -665,9 +665,9 @@
 #define FLAG_CAUGHT_REGIDRAGO  0x270 // Previously unused Flag
 #define FLAG_DEFEATED_REGIDRAGO  0x271 // Previously unused Flag
 #define FLAG_HIDE_REGIDRAGO  0x272 // Previously unused Flag
-#define FLAG_UNUSED_0x273  0x273 // Unused Flag
-#define FLAG_UNUSED_0x274  0x274 // Unused Flag
-#define FLAG_UNUSED_0x275  0x275 // Unused Flag
+#define FLAG_CAUGHT_CELEBI  0x273 // Previously unused Flag
+#define FLAG_DEFEATED_CELEBI  0x274 // Previously unused Flag
+#define FLAG_HIDE_CELEBI 0x275 // Previously unused Flag
 #define FLAG_UNUSED_0x276  0x276 // Unused Flag
 #define FLAG_UNUSED_0x277  0x277 // Unused Flag
 #define FLAG_UNUSED_0x278  0x278 // Unused Flag

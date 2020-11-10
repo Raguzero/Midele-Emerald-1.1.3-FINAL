@@ -428,6 +428,13 @@
             "elevation": 0,
             "x": 4,
             "y": 1
+        },
+        {
+            "dest_map": "MAP_FORBIDDEN_FOREST",
+            "dest_warp_id": 0,
+            "elevation": 0,
+            "x": 2,
+            "y": 1
         }
     ],
     "weather": "WEATHER_NONE"
