@@ -8,6 +8,7 @@ ForbiddenForest_OnResume:
 	end
 	
 ForbiddenForest_OnTransition:
+	setflag FLAG_LANDMARK_FORBIDDEN_FOREST
 	call_if_unset FLAG_CAUGHT_CELEBI, ForbiddenForest_EventScript_TryShowCelebi
 	end
 	
