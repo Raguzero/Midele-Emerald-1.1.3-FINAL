@@ -201,6 +201,7 @@ static const u8 sMapName_TrainerHill[] = _("TRAINER HILL");
 static const u8 sMapName_IzabeIsland[] = _("IZABE ISLAND");
 static const u8 sMapName_Micolandia[] = _("MICOLANDIA");
 static const u8 sMapName_OldaleRuins[] = _("OLDALE RUINS");
+static const u8 sMapName_ForbiddenForest[] = _("FORBIDDEN FOREST");
 
 const struct RegionMapLocation gRegionMapEntries[] = {
     [MAPSEC_ABANDONED_SHIP]            = {6, 14, 1, 1, sMapName_AbandonedShip},
@@ -237,7 +238,8 @@ const struct RegionMapLocation gRegionMapEntries[] = {
     [MAPSEC_FIERY_PATH2]               = {7, 3, 1, 1, sMapName_FieryPath},
     [MAPSEC_FIVE_ISLAND]               = {0, 0, 1, 1, sMapName_FiveIsland},
     [MAPSEC_FIVE_ISLE_MEADOW]          = {0, 0, 1, 1, sMapName_FiveIsleMeadow},
-    [MAPSEC_FORTREE_CITY]              = {12, 0, 1, 1, sMapName_FortreeCity},
+    [MAPSEC_FORBIDDEN_FOREST]          = {18, 12, 1, 1, sMapName_ForbiddenForest},
+	[MAPSEC_FORTREE_CITY]              = {12, 0, 1, 1, sMapName_FortreeCity},
     [MAPSEC_FOUR_ISLAND]               = {0, 0, 1, 1, sMapName_FourIsland},
     [MAPSEC_FUCHSIA_CITY]              = {0, 0, 1, 1, sMapName_FuchsiaCity},
     [MAPSEC_GRANITE_CAVE]              = {1, 13, 1, 1, sMapName_GraniteCave},
