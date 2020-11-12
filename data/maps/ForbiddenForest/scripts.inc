@@ -58,14 +58,19 @@ ForbiddenForest_EventScript_Celebi::
 	release
 	end
 
-ForbiddenForest_EventScript_DefeatedCelebi:: @ 8238F9F
+ForbiddenForest_EventScript_DefeatedCelebi:: 
 	setflag FLAG_DEFEATED_CELEBI
 	goto Common_EventScript_RemoveStaticPokemon
 	end
 
-ForbiddenForest_EventScript_RanFromCelebi:: @ 8238FA8
+ForbiddenForest_EventScript_RanFromCelebi:: 
 	setvar VAR_0x8004, SPECIES_CELEBI
 	goto Common_EventScript_LegendaryFlewAway
+	end
+	
+ForbiddenForest_EventScript_Barny::  @ ESTO ES COPYPASTE DE OTRO ENTRENADOR, YA SE CAMBIARÁ
+	trainerbattle_single TRAINER_BARNY, ForbiddenForest_Text_BarnyIntro, ForbiddenForest_Text_BarnyDefeat
+	msgbox ForbiddenForest_Text_BarnyPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
 ForbiddenForest_Text_Celebi:
@@ -76,4 +81,17 @@ ForbiddenForest_Text_Celebi:
 	.string "El ca..no sol. s. .br.r.\n"
 	.string "c.n l.s mi.tic.s M.W y\p"
 	.string "JI...HI\n$"
+
+ForbiddenForest_Text_BarnyIntro: 
+	.string "I'm a FISHERMAN, but also a TRAINER.\n"
+	.string "I'm raising the POKéMON I caught.$"
+
+ForbiddenForest_Text_BarnyDefeat: 
+	.string "I thought I was doing okay in my\n"
+	.string "training…$"
+
+ForbiddenForest_Text_BarnyPostBattle: 
+	.string "I couldn't win by training POKéMON\n"
+	.string "while I fished…\p"
+	.string "Was I doing things in half measures?$"
 
