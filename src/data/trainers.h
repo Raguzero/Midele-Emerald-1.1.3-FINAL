@@ -12071,7 +12071,7 @@ const struct Trainer gTrainers[] = {
         .trainerPic = TRAINER_PIC_GUITARIST,
         .trainerName = _("RANDOM"),
         .items = {},
-        .doubleBattle = TRUE,
+        .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
         .partySize = ARRAY_COUNT(sParty_Random),
         .party = {.ItemCustomMidele = sParty_Random},
@@ -12524,5 +12524,18 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
         .partySize = ARRAY_COUNT(sParty_Covid_Doctor_1),
         .party = {.ItemCustomMidele = sParty_Covid_Doctor_1},
+    },
+    [TRAINER_RANDOM_PARTY_2] =
+    {
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
+        .trainerClass = TRAINER_CLASS_GUITARIST,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR,
+        .trainerPic = TRAINER_PIC_GUITARIST,
+        .trainerName = _("RANDOM"),
+        .items = {},
+        .doubleBattle = TRUE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
+        .partySize = ARRAY_COUNT(sParty_Random_2),
+        .party = {.ItemCustomMidele = sParty_Random_2},
     },
 };

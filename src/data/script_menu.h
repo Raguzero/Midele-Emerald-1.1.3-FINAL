@@ -862,16 +862,6 @@ static const struct MenuAction MultichoiceList_GameCornerPkmn2[] =
     {gText_Exit},
 };
 
-static const struct MenuAction MultichoiceList_GameCornerPkmn3[] =
-{
-    {gText_Piplup},
-    {gText_Rowlet},
-    {gText_Popplio},
-    {gText_Sobble},
-    {gText_Snivy},
-    {gText_Exit},
-};
-
 static const struct MenuAction MultichoiceList_AlteringCaveChanger[] =
 {
     {gText_AlteringCaveGen1},
@@ -936,6 +926,13 @@ static const struct MenuAction MultichoiceList_CiberCafe_Batalla[] =
     {gText_Leaf},
     {gText_Brock},
     {gText_Brock},
+    {gText_Exit}
+};
+
+static const struct MenuAction MultichoiceList_RandomBattle[] =
+{
+    {gText_Individual},
+    {gText_Dobles},
     {gText_Exit}
 };
 
@@ -1069,7 +1066,6 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_MIDELE_HIDDEN_POWER_TYPES]                = MULTICHOICE(MultichoiceList_MideleHiddenPowerTypes),
     [MULTI_GAME_CORNER_PKMN]                = MULTICHOICE(MultichoiceList_GameCornerPkmn),
     [MULTI_GAME_CORNER_PKMN2]                = MULTICHOICE(MultichoiceList_GameCornerPkmn2),
-    [MULTI_GAME_CORNER_PKMN3]                = MULTICHOICE(MultichoiceList_GameCornerPkmn3),
     [MULTI_MIDELE_NATURES_1]           =MULTICHOICE(MultichoiceList_MideleNatures1),
     [MULTI_MIDELE_NATURES_2]           =MULTICHOICE(MultichoiceList_MideleNatures2),
     [MULTI_MIDELE_EV_STATS]           =MULTICHOICE(MultichoiceList_MideleEVStats),
@@ -1079,6 +1075,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_DEOXYS_CHANGE_FORM_DEFENSE]     =MULTICHOICE(MultichoiceList_Deoxys_Change_Form_Defense),
     [MULTI_DEOXYS_CHANGE_FORM_SPEED]     =MULTICHOICE(MultichoiceList_Deoxys_Change_Form_Speed),
     [MULTI_CIBERCAFE_BATALLA]     =MULTICHOICE(MultichoiceList_CiberCafe_Batalla),
+    [MULTI_RANDOMBATTLE]     =MULTICHOICE(MultichoiceList_RandomBattle),
 };
 
 const u8 *const gStdStrings[] =
