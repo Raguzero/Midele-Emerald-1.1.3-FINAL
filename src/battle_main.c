@@ -62,6 +62,8 @@
 #include "constants/species.h"
 #include "constants/trainers.h"
 #include "cable_club.h"
+#include "battle_factory.h"
+#include "constants/battle_frontier_mons.h"
 
 extern struct MusicPlayerInfo gMPlayInfo_SE1;
 extern struct MusicPlayerInfo gMPlayInfo_SE2;
@@ -2084,10 +2086,15 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 if (FlagGet(FLAG_RYU_RANDOMBATTLE) == 1)
                 {
                     u8 level = 100;
-				  u16 em1 = (Random() % (SPECIES_EGG - SPECIES_TREECKO + SPECIES_CELEBI));
-				if (em1 >= SPECIES_CELEBI) em1 += SPECIES_TREECKO - SPECIES_OLD_UNOWN_B;
-                    em1++;
-                    CreateMon(&gEnemyParty[i], em1, level, 31, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+				  const struct FacilityMon * pokeenemy  = &gBattleFrontierMons[Random() % NUM_FRONTIER_MONS];
+				CreateMonWithEVSpreadNatureOTID(&gEnemyParty[i], pokeenemy -> species, level, pokeenemy -> nature, 31, pokeenemy -> evSpread, 0);
+                for (j = 0; j < MAX_MON_MOVES; j++)
+        {
+            SetMonMoveAvoidReturn(&gEnemyParty[i], pokeenemy -> moves[j], j);
+        }
+
+        SetMonData(&gEnemyParty[i], MON_DATA_FRIENDSHIP, 0);
+        SetMonData(&gEnemyParty[i], MON_DATA_HELD_ITEM, &gBattleFrontierHeldItems[pokeenemy -> itemTableId]);
                     break;
                 }
 		// NUEVO RANDOM BATTLE
@@ -2096,15 +2103,22 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 if (FlagGet(FLAG_RYU_RANDOMBATTLECC) == 1)
                 {
                     u8 level = 100;
-				  u16 em1 = (Random() % (SPECIES_EGG - SPECIES_TREECKO + SPECIES_CELEBI));
-				u16 pm1 = (Random() % (SPECIES_EGG - SPECIES_TREECKO + SPECIES_CELEBI));
-				if (em1 >= SPECIES_CELEBI) em1 += SPECIES_TREECKO - SPECIES_OLD_UNOWN_B;
-				if (pm1 >= SPECIES_CELEBI) pm1 += SPECIES_TREECKO - SPECIES_OLD_UNOWN_B;
-					em1++;
-					pm1++;
-                    CreateMon(&gEnemyParty[i], em1, level, 31, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
-					CreateMon(&gPlayerParty[i], pm1, level, 31, FALSE, 0, OT_ID_PLAYER_ID, 0);
-                    break;
+					u32 otID = T1_READ_32(gSaveBlock2Ptr->playerTrainerId);
+				  const struct FacilityMon * pokeenemy  = &gBattleFrontierMons[Random() % NUM_FRONTIER_MONS];
+				  const struct FacilityMon * pokeplayer = &gBattleFrontierMons[Random() % NUM_FRONTIER_MONS];
+				CreateMonWithEVSpreadNatureOTID(&gEnemyParty[i], pokeenemy -> species, level, pokeenemy -> nature, 31, pokeenemy -> evSpread, otID);
+                CreateMonWithEVSpreadNatureOTID(&gPlayerParty[i], pokeplayer -> species, level, pokeplayer -> nature, 31, pokeplayer -> evSpread, otID);
+                for (j = 0; j < MAX_MON_MOVES; j++)
+        {
+            SetMonMoveAvoidReturn(&gEnemyParty[i], pokeenemy -> moves[j], j);
+            SetMonMoveAvoidReturn(&gPlayerParty[i], pokeplayer -> moves[j], j);
+        }
+
+        SetMonData(&gEnemyParty[i], MON_DATA_FRIENDSHIP, 0);
+        SetMonData(&gEnemyParty[i], MON_DATA_HELD_ITEM, &gBattleFrontierHeldItems[pokeenemy -> itemTableId]);
+        SetMonData(&gPlayerParty[i], MON_DATA_FRIENDSHIP, 0);
+        SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &gBattleFrontierHeldItems[pokeplayer -> itemTableId]); 
+					break;
                 }
 		// NUEVO RANDOM BATTLE CC
 				

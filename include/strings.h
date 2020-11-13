@@ -2999,11 +2999,6 @@ extern const u8 gText_Treecko[];
 extern const u8 gText_Torchic[];
 extern const u8 gText_Mudkip[];
 extern const u8 gText_Turtwig[];
-extern const u8 gText_Piplup[];
-extern const u8 gText_Rowlet[];
-extern const u8 gText_Popplio[];
-extern const u8 gText_Sobble[];
-extern const u8 gText_Snivy[];
 
 extern const u8 gText_HardyNature[];
 extern const u8 gText_LonelyNature[];
@@ -3060,6 +3055,9 @@ extern const u8 gText_Lance[];
 extern const u8 gText_Blue2[];
 extern const u8 gText_Red2[];
 extern const u8 gText_Leaf[];
+
+extern const u8 gText_Individual[];
+extern const u8 gText_Dobles[];
 
 // NO COMPRAR MTS REPES
 extern const u8 gText_YouAlreadyHaveThis[];

@@ -2183,8 +2183,15 @@ void DoSpecialTrainerBattle(void)
         gBattleTypeFlags = BATTLE_TYPE_TRAINER;
 		CreateTask(Task_StartBattleAfterTransition, 1);
         PlayMapChosenOrBattleBGM(0);
-        BattleTransition_StartOnField(B_TRANSITION_MAGMA);
+        BattleTransition_StartOnField(sub_80B100C(6));
 		gTrainerBattleOpponent_A = TRAINER_RANDOM_PARTY;
+		break;
+		case SPECIAL_RANDOM_BATTLE_2:
+        gBattleTypeFlags = BATTLE_TYPE_TRAINER;
+		CreateTask(Task_StartBattleAfterTransition, 1);
+        PlayMapChosenOrBattleBGM(0);
+        BattleTransition_StartOnField(sub_80B100C(6));
+		gTrainerBattleOpponent_A = TRAINER_RANDOM_PARTY_2;
 		break;
 	// NUEVO RANDOM BATTLE
     }
