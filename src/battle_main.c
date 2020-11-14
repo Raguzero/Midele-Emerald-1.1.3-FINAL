@@ -2085,7 +2085,9 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 		// NUEVO RANDOM BATTLE
                 if (FlagGet(FLAG_RYU_RANDOMBATTLE) == 1)
                 {
-                    u8 level = 100;
+                    u8 playerPartyMaxLevel = GetPlayerPartyMaxLevel();
+					u8 minLevel = 60;
+					u8 level = max(playerPartyMaxLevel, minLevel);
 				  const struct FacilityMon * pokeenemy  = &gBattleFrontierMons[Random() % NUM_FRONTIER_MONS];
 				CreateMonWithEVSpreadNatureOTID(&gEnemyParty[i], pokeenemy -> species, level, pokeenemy -> nature, 31, pokeenemy -> evSpread, 0);
                 for (j = 0; j < MAX_MON_MOVES; j++)
@@ -2102,7 +2104,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 		// NUEVO RANDOM BATTLE CC
                 if (FlagGet(FLAG_RYU_RANDOMBATTLECC) == 1)
                 {
-                    u8 level = 100;
+					 u8 level = 100;
 					u32 otID = T1_READ_32(gSaveBlock2Ptr->playerTrainerId);
 				  const struct FacilityMon * pokeenemy  = &gBattleFrontierMons[Random() % NUM_FRONTIER_MONS];
 				  const struct FacilityMon * pokeplayer = &gBattleFrontierMons[Random() % NUM_FRONTIER_MONS];
