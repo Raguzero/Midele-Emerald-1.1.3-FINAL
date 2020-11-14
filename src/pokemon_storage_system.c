@@ -1653,6 +1653,11 @@ u8 CountPartyNonEggMons(void)
     return count;
 }
 
+u8 CountPartyAliveNonEggMons_perodeverdad(void)
+{
+  return CountPartyAliveNonEggMonsExcept(PARTY_SIZE);
+}
+
 u8 CountPartyAliveNonEggMonsExcept(u8 slotToIgnore)
 {
     u16 i, count;

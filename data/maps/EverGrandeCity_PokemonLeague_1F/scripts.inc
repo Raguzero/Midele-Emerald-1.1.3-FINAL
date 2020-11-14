@@ -140,8 +140,6 @@ RANDOMINDIVIDUAL::
 	special HealPlayerParty
 	setflag FLAG_RYU_RANDOMBATTLE
 	msgbox StartingRandomBattleMsg
-	//cleartrainerflag TRAINER_RANDOM_PARTY
-	//trainerbattle_single TRAINER_RANDOM_PARTY, BF_battleintro, BF_battledefeat, BF_RandomBattleCleanup
 	setvar VAR_0x8004, SPECIAL_RANDOM_BATTLE
     setvar VAR_0x8005, 0
     special DoSpecialTrainerBattle
@@ -156,10 +154,11 @@ RANDOMINDIVIDUAL::
 
 RANDOMDOBLES::	
 	special HealPlayerParty
+	specialvar VAR_RESULT, CountPartyAliveNonEggMons_perodeverdad
+	compare VAR_RESULT, 1
+	goto_if_le DoblesObligatorio2Pokes
 	setflag FLAG_RYU_RANDOMBATTLE
 	msgbox StartingRandomBattleMsg
-	//cleartrainerflag TRAINER_RANDOM_PARTY
-	//trainerbattle_single TRAINER_RANDOM_PARTY, BF_battleintro, BF_battledefeat, BF_RandomBattleCleanup
 	setvar VAR_0x8004, SPECIAL_RANDOM_BATTLE_2
     setvar VAR_0x8005, 0
     special DoSpecialTrainerBattle
@@ -202,6 +201,12 @@ BF_NoBattle::
 	release
 	end
 	
+DoblesObligatorio2Pokes::
+	msgbox DoblesObligatorio2Pokes_Text
+	closemessage
+	release
+	end	
+	
 Ryu_StartRandomBattleCC::
 	msgbox RANDOMCC_Batalla, MSGBOX_YESNO
 	compare VAR_RESULT, NO
@@ -218,8 +223,6 @@ RANDOMCCINDIVIDUAL::
     special SavePlayerParty
 	setflag FLAG_RYU_RANDOMBATTLECC
 	msgbox StartingRandomBattleMsg
-	//cleartrainerflag TRAINER_RANDOM_PARTY
-	//trainerbattle_single TRAINER_RANDOM_PARTY, BF_battleintro, BF_battledefeat, BF_RandomBattleCleanupCC
 	setvar VAR_0x8004, SPECIAL_RANDOM_BATTLE
     setvar VAR_0x8005, 0
     special DoSpecialTrainerBattle
@@ -236,8 +239,6 @@ RANDOMCCDOBLES::
     special SavePlayerParty
 	setflag FLAG_RYU_RANDOMBATTLECC
 	msgbox StartingRandomBattleMsg
-	//cleartrainerflag TRAINER_RANDOM_PARTY
-	//trainerbattle_single TRAINER_RANDOM_PARTY, BF_battleintro, BF_battledefeat, BF_RandomBattleCleanupCC
 	setvar VAR_0x8004, SPECIAL_RANDOM_BATTLE_2
     setvar VAR_0x8005, 0
     special DoSpecialTrainerBattle
@@ -329,6 +330,11 @@ Empate:
 BF_NoBattleMsg:
     .string "Muy bien. ¡Hablame de nuevo\n"
     .string "si quieres una batalla!$"
+	
+DoblesObligatorio2Pokes_Text:
+    .string "Lo siento, pero debes llevar\n"
+	.string "al menos dos POKéMON en el equipo\l"
+	.string "para participar en Batalla Dobles$"
 
 EverGrandeCity_PokemonLeague_1F_Text_MustHaveAllGymBadges: @ 82296E8
 	.string "Beyond this point, only those TRAINERS\n"
