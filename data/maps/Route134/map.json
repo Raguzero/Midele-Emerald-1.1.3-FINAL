@@ -167,6 +167,19 @@
             "trainer_type": "0",
             "x": 22,
             "y": 27
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_HIDE_ARTICUNO",
+            "graphics_id": "EVENT_OBJ_GFX_ARTICUNO",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+            "script": "Route134_EventScript_Articuno",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 74,
+            "y": 32
         }
     ],
     "region_map_section": "MAPSEC_ROUTE_134",
