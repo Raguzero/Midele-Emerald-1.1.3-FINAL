@@ -45,6 +45,9 @@ EverGrandeCity_HallOfFame_EventScript_ResetDefeatedEventLegendaries:: @ 8271829
 	clearflag FLAG_DEFEATED_JIRACHI
 	clearflag FLAG_DEFEATED_REGIDRAGO
 	clearflag FLAG_DEFEATED_CELEBI
+	clearflag FLAG_DEFEATED_ARTICUNO
+	clearflag FLAG_DEFEATED_MOLTRES
+	clearflag FLAG_DEFEATED_ZAPDOS
 	return
 
 EverGrandeCity_HallOfFame_EventScript_SetDesertUnderpassCommentReady:: @ 8271839

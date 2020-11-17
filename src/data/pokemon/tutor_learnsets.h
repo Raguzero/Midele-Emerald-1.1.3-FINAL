@@ -2190,6 +2190,8 @@ static const u32 sTutorLearnsets[] =
                                 | TUTOR(MOVE_THUNDER_PUNCH)
                                 | TUTOR(MOVE_FIRE_PUNCH)
 								| TUTOR(MOVE_ROCK_SLIDE)
+                                | TUTOR(MOVE_MEGA_PUNCH)
+								| TUTOR(MOVE_MEGA_KICK)
                                 | TUTOR(MOVE_FURY_CUTTER)),
 
     [SPECIES_MEWTWO]           = (TUTOR(MOVE_MEGA_PUNCH)
@@ -7977,6 +7979,8 @@ static const u32 sTutorLearnsets[] =
 											| TUTOR(MOVE_SLEEP_TALK)
 											| TUTOR(MOVE_SNORE)
 											| TUTOR(MOVE_SUBSTITUTE)
+											| TUTOR(MOVE_MEGA_KICK)
+											| TUTOR(MOVE_BODY_SLAM)
 											| TUTOR(MOVE_SWAGGER)
 											| TUTOR(MOVE_THUNDER_PUNCH)
 											| TUTOR(MOVE_THUNDER_WAVE)),

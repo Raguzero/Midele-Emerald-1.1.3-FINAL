@@ -3554,6 +3554,7 @@ const u32 gTMHMLearnsets[][2] =
 
     [SPECIES_ZAPDOS]      = TMHM_LEARNSET(TMHM(TM05_ROAR)
                                         | TMHM(TM06_TOXIC)
+										| TMHM(TM07_HAIL)
                                         | TMHM(TM10_HIDDEN_POWER)
                                         | TMHM(TM11_SUNNY_DAY)
                                         | TMHM(TM15_HYPER_BEAM)

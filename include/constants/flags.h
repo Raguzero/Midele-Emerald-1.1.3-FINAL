@@ -668,15 +668,15 @@
 #define FLAG_CAUGHT_CELEBI  0x273 // Previously unused Flag
 #define FLAG_DEFEATED_CELEBI  0x274 // Previously unused Flag
 #define FLAG_HIDE_CELEBI 0x275 // Previously unused Flag
-#define FLAG_UNUSED_0x276  0x276 // Unused Flag
-#define FLAG_UNUSED_0x277  0x277 // Unused Flag
-#define FLAG_UNUSED_0x278  0x278 // Unused Flag
-#define FLAG_UNUSED_0x279  0x279 // Unused Flag
-#define FLAG_UNUSED_0x27A  0x27A // Unused Flag
-#define FLAG_UNUSED_0x27B  0x27B // Unused Flag
-#define FLAG_UNUSED_0x27C  0x27C // Unused Flag
-#define FLAG_UNUSED_0x27D  0x27D // Unused Flag
-#define FLAG_UNUSED_0x27E  0x27E // Unused Flag
+#define FLAG_CAUGHT_ARTICUNO  0x276 // Previously unused Flag
+#define FLAG_DEFEATED_ARTICUNO  0x277 // Previously unused Flag
+#define FLAG_HIDE_ARTICUNO  0x278 // Previously unused Flag
+#define FLAG_CAUGHT_MOLTRES  0x279 // Previously unused Flag
+#define FLAG_DEFEATED_MOLTRES  0x27A // Previously unused Flag
+#define FLAG_HIDE_MOLTRES  0x27B // Previously unused Flag
+#define FLAG_CAUGHT_ZAPDOS  0x27C // Previously unused Flag
+#define FLAG_DEFEATED_ZAPDOS  0x27D // Previously unused Flag
+#define FLAG_HIDE_ZAPDOS  0x27E // Previously unused Flag
 #define FLAG_UNUSED_0x27F  0x27F // Unused Flag
 #define FLAG_UNUSED_0x280  0x280 // Unused Flag
 #define FLAG_UNUSED_0x281  0x281 // Unused Flag
