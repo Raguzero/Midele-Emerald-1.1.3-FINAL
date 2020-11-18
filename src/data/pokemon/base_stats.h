@@ -14186,7 +14186,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_SLOW,
 		.eggGroup1 = EGG_GROUP_MONSTER,
 		.eggGroup2 = EGG_GROUP_GRASS,
-        .abilities = {ABILITY_SNOW_WARNING, ABILITY_SOUNDPROOF},
+        .abilities = {ABILITY_SOUNDPROOF, ABILITY_SNOW_WARNING},
 		.bodyColor = BODY_COLOR_WHITE,
 	},
 
@@ -14211,7 +14211,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_SLOW,
 		.eggGroup1 = EGG_GROUP_MONSTER,
 		.eggGroup2 = EGG_GROUP_GRASS,
-        .abilities = {ABILITY_SNOW_WARNING, ABILITY_SOUNDPROOF},
+        .abilities = {ABILITY_SOUNDPROOF, ABILITY_SNOW_WARNING},
 		.bodyColor = BODY_COLOR_WHITE,
 	},
 	[SPECIES_MEGA_ABOMASNOW] =
@@ -14235,7 +14235,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_SLOW,
 		.eggGroup1 = EGG_GROUP_MONSTER,
 		.eggGroup2 = EGG_GROUP_GRASS,
-        .abilities = {ABILITY_SNOW_WARNING, ABILITY_SOUNDPROOF},
+        .abilities = {ABILITY_SOUNDPROOF, ABILITY_SNOW_WARNING},
 		.bodyColor = BODY_COLOR_WHITE,
 	},
 	[SPECIES_MEGA_GLALIE] =

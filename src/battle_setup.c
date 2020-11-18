@@ -520,9 +520,15 @@ void BattleSetup_StartLegendaryBattle(void)
         break;
     case SPECIES_LUGIA:
     case SPECIES_HO_OH:
+    case SPECIES_ARTICUNO:
+    case SPECIES_ZAPDOS:
+    case SPECIES_MOLTRES:
         CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_DEN);
         break;
     case SPECIES_MEW:
+    case SPECIES_CELEBI:
+    case SPECIES_JIRACHI:
+    case SPECIES_MEWTWO:
         CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_VS_MEW);
         break;
     }
@@ -953,7 +959,7 @@ static void CB2_GiveStarter(void)
 
     *GetVarPointer(VAR_STARTER_MON) = gSpecialVar_Result;
     starterMon = GetStarterPokemon(gSpecialVar_Result);
-    ScriptGiveMon(starterMon, 5, ITEM_ORAN_BERRY, 0, 0, 0);
+	GiveMonWithLevelAndAbilityNum(starterMon, 5, ITEM_ORAN_BERRY, 0);
     ResetTasks();
     PlayBattleBGM();
     SetMainCallback2(CB2_StartFirstBattle);

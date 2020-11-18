@@ -229,6 +229,7 @@ gScriptCmdTable:: @ 81DB67C
 	.4byte ScrCmd_bufferitemnameplural
 	.4byte ScrCmd_checkpartytmhm
 	.4byte ScrCmd_evmart
+	.4byte ScrCmd_givecustommon
 
 gScriptCmdTableEnd:: @ 81DBA08
 	.4byte ScrCmd_nop
