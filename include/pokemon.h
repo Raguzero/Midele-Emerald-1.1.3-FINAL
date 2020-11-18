@@ -432,4 +432,5 @@ u8 GetBoxMonLanguage(struct BoxPokemon *mon);
 void SetLanguage(struct Pokemon *mon, u8 *language);
 void SetBoxMonLanguage(struct BoxPokemon *mon, u8 *language);
 u8 GetPlayerPartyMaxLevel(void);
+void CreateShinyMonWithNature(struct Pokemon *mon, u16 species, u8 level, u8 nature);
 #endif // GUARD_POKEMON_H
