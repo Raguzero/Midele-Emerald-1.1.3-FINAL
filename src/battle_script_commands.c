@@ -9716,11 +9716,11 @@ static void Cmd_tryswapitems(void) // trick
     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_HILL
         || gBossBattleFlags != BATTLE_TYPE_NORMAL
         || (GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT
-            && !(gBattleTypeFlags & (BATTLE_TYPE_LINK
+            && !(FlagGet(FLAG_RYU_RANDOMBATTLECC) == 1 || (gBattleTypeFlags & (BATTLE_TYPE_LINK
                                   | BATTLE_TYPE_EREADER_TRAINER
                                   | BATTLE_TYPE_FRONTIER
                                   | BATTLE_TYPE_SECRET_BASE
-                                  | BATTLE_TYPE_x2000000))))
+                                  | BATTLE_TYPE_x2000000)))))
     {
         gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
     }
@@ -9730,11 +9730,11 @@ static void Cmd_tryswapitems(void) // trick
         u8 sideTarget = GetBattlerSide(gBattlerTarget);
 
         // you can't swap items if they were knocked off in regular battles
-        if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK
+        if (!(FlagGet(FLAG_RYU_RANDOMBATTLECC) == 1 || (gBattleTypeFlags & (BATTLE_TYPE_LINK
                              | BATTLE_TYPE_EREADER_TRAINER
                              | BATTLE_TYPE_FRONTIER
                              | BATTLE_TYPE_SECRET_BASE
-                             | BATTLE_TYPE_x2000000))
+                             | BATTLE_TYPE_x2000000)))
             && (gWishFutureKnock.knockedOffMons[sideAttacker] & gBitTable[gBattlerPartyIndexes[gBattlerAttacker]]
                 || gWishFutureKnock.knockedOffMons[sideTarget] & gBitTable[gBattlerPartyIndexes[gBattlerTarget]]))
         {
