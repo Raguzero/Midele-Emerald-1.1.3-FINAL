@@ -895,6 +895,19 @@
             "trainer_type": "0",
             "x": 28,
             "y": 25
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_HIDE_ZAPDOS",
+            "graphics_id": "EVENT_OBJ_GFX_ZAPDOS",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+            "script": "Route119_EventScript_Zapdos",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 1,
+            "y": 17
         }
     ],
     "region_map_section": "MAPSEC_ROUTE_119",

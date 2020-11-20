@@ -2,6 +2,7 @@ Route114_MapScripts:: @ 81F252F
 	map_script MAP_SCRIPT_ON_TRANSITION, Route114_OnTransition
 	map_script MAP_SCRIPT_ON_LOAD, Route114_OnLoad
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route114_OnFrame
+	map_script MAP_SCRIPT_ON_RESUME, Route114_OnResume
 	.byte 0
 
 Route114_OnTransition: @ 81F253F
@@ -11,6 +12,11 @@ Route114_OnTransition: @ 81F253F
 	call_if_eq AbnormalWeather_StartGroudonWeather
 	compare VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_114_SOUTH
 	call_if_eq AbnormalWeather_StartGroudonWeather
+	call_if_unset FLAG_CAUGHT_RAIKOU, Route114_EventScript_TryShowRaikou
+	end
+	
+Route114_OnResume: @ 81F442F
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route114_EventScript_TryRemoveRaikou
 	end
 
 Route114_OnLoad: @ 81F2561
@@ -202,6 +208,58 @@ Route114_EventScript_Charlotte:: @ 81F27DB
 Route114_EventScript_Kai:: @ 81F27F2
 	trainerbattle_single TRAINER_KAI, Route114_Text_KaiIntro, Route114_Text_KaiDefeat
 	msgbox Route114_Text_KaiPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+Route114_EventScript_TryRemoveRaikou::
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_CAUGHT
+	goto_if_ne Common_EventScript_NopReturn
+	removeobject 29
+	return
+
+Route114_EventScript_HideRaikou::
+	setvar VAR_TEMP_1, 1
+	setflag FLAG_HIDE_RAIKOU
+	return
+
+Route114_EventScript_TryShowRaikou::
+	setvar VAR_TEMP_1, 1
+	goto_if_set FLAG_DEFEATED_RAIKOU, Common_EventScript_NopReturn
+	setvar VAR_TEMP_1, 0
+	clearflag FLAG_HIDE_RAIKOU
+	return
+
+Route114_EventScript_Raikou::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_RAIKOU, 2
+	delay 40
+	waitmoncry
+	setwildbattle SPECIES_RAIKOU, 60, ITEM_NONE
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special StartLegendDogsBattle
+	waitstate
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq Route114_EventScript_DefeatedRaikou
+	compare VAR_RESULT, B_OUTCOME_RAN
+	goto_if_eq Route114_EventScript_RanFromRaikou
+	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
+	goto_if_eq Route114_EventScript_RanFromRaikou
+	setflag FLAG_CAUGHT_RAIKOU
+	release
+	end
+
+Route114_EventScript_DefeatedRaikou:: 
+	setflag FLAG_DEFEATED_RAIKOU
+	goto Common_EventScript_RemoveStaticPokemon
+	end
+
+Route114_EventScript_RanFromRaikou:: 
+	setvar VAR_0x8004, SPECIES_RAIKOU
+	goto Common_EventScript_LegendaryFlewAway
 	end
 
 Route114_Text_AllMyMonDoesIsRoarTakeThis: @ 81F2809
