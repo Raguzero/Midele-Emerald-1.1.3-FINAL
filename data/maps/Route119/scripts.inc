@@ -5,6 +5,7 @@ Route119_MapScripts:: @ 81F4424
 
 Route119_OnResume: @ 81F442F
 	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route119_EventScript_TryRemoveKecleon
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route119_EventScript_TryRemoveZapdos
 	end
 
 Route119_EventScript_TryRemoveKecleon:: @ 81F4439
@@ -20,6 +21,7 @@ Route119_OnTransition: @ 81F444D
 	compare VAR_WEATHER_INSTITUTE_STATE, 1
 	call_if_eq Route119_EventScript_MoveInstituteWorkersDownstairs
 	special SetRoute119Weather
+	call_if_unset FLAG_CAUGHT_ZAPDOS, Route119_EventScript_TryShowZapdos
 	end
 
 Route119_EventScript_MoveInstituteWorkersDownstairs:: @ 81F4466
@@ -489,6 +491,58 @@ Route119_EventScript_ScottWonAtFortreeGymCall:: @ 81F49EC
 	clearflag FLAG_SCOTT_CALL_FORTREE_GYM
 	addvar VAR_SCOTT_STATE, 1
 	releaseall
+	end
+	
+Route119_EventScript_TryRemoveZapdos::
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_CAUGHT
+	goto_if_ne Common_EventScript_NopReturn
+	removeobject 44
+	return
+
+Route119_EventScript_HideZapdos::
+	setvar VAR_TEMP_1, 1
+	setflag FLAG_HIDE_ZAPDOS
+	return
+
+Route119_EventScript_TryShowZapdos::
+	setvar VAR_TEMP_1, 1
+	goto_if_set FLAG_DEFEATED_ZAPDOS, Common_EventScript_NopReturn
+	setvar VAR_TEMP_1, 0
+	clearflag FLAG_HIDE_ZAPDOS
+	return
+
+Route119_EventScript_Zapdos::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_ZAPDOS, 2
+	delay 40
+	waitmoncry
+	setwildbattle SPECIES_ZAPDOS, 60, ITEM_NONE
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	waitstate
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq Route119_EventScript_DefeatedZapdos
+	compare VAR_RESULT, B_OUTCOME_RAN
+	goto_if_eq Route119_EventScript_RanFromZapdos
+	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
+	goto_if_eq Route119_EventScript_RanFromZapdos
+	setflag FLAG_CAUGHT_ZAPDOS
+	release
+	end
+
+Route119_EventScript_DefeatedZapdos:: 
+	setflag FLAG_DEFEATED_ZAPDOS
+	goto Common_EventScript_RemoveStaticPokemon
+	end
+
+Route119_EventScript_RanFromZapdos:: 
+	setvar VAR_0x8004, SPECIES_ZAPDOS
+	goto Common_EventScript_LegendaryFlewAway
 	end
 
 Route119_Text_MayIntro: @ 81F49FD

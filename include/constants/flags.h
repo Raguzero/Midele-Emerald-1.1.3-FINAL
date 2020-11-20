@@ -677,9 +677,9 @@
 #define FLAG_CAUGHT_ZAPDOS  0x27C // Previously unused Flag
 #define FLAG_DEFEATED_ZAPDOS  0x27D // Previously unused Flag
 #define FLAG_HIDE_ZAPDOS  0x27E // Previously unused Flag
-#define FLAG_UNUSED_0x27F  0x27F // Unused Flag
-#define FLAG_UNUSED_0x280  0x280 // Unused Flag
-#define FLAG_UNUSED_0x281  0x281 // Unused Flag
+#define FLAG_CAUGHT_RAIKOU  0x27F // Previously unused Flag
+#define FLAG_DEFEATED_RAIKOU  0x280 // Previously unused Flag
+#define FLAG_HIDE_RAIKOU  0x281 // Previously unused Flag
 #define FLAG_UNUSED_0x282  0x282 // Unused Flag
 #define FLAG_UNUSED_0x283  0x283 // Unused Flag
 #define FLAG_UNUSED_0x284  0x284 // Unused Flag
