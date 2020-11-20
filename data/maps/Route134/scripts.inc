@@ -1,6 +1,7 @@
 Route134_MapScripts:: @ 81F7644
 	map_script MAP_SCRIPT_ON_RESUME, Route134_OnResume
 	map_script MAP_SCRIPT_ON_TRANSITION, Route134_OnTransition
+	map_script MAP_SCRIPT_ON_LOAD, Route134_OnLoad
 	.byte 0
 
 Route134_OnResume: @ 81F764A
@@ -10,6 +11,10 @@ Route134_OnResume: @ 81F764A
 	
 Route134_OnTransition:
 	call_if_unset FLAG_CAUGHT_ARTICUNO, Route134_EventScript_TryShowArticuno
+	end
+	
+Route134_OnLoad: @ 81F2561
+	call_if_unset FLAG_SYS_GAME_CLEAR, Route134_EventScript_HideArticuno
 	end
 
 Route134_EventScript_Jack:: @ 81F7653
@@ -71,6 +76,7 @@ Route134_EventScript_HideArticuno::
 
 Route134_EventScript_TryShowArticuno::
 	setvar VAR_TEMP_1, 1
+	goto_if_unset FLAG_SYS_GAME_CLEAR, Common_EventScript_NopReturn
 	goto_if_set FLAG_DEFEATED_ARTICUNO, Common_EventScript_NopReturn
 	setvar VAR_TEMP_1, 0
 	clearflag FLAG_HIDE_ARTICUNO

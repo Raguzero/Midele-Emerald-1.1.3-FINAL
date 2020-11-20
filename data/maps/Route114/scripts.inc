@@ -24,6 +24,7 @@ Route114_OnLoad: @ 81F2561
 	call_if_eq AbnormalWeather_EventScript_PlaceTilesRoute114North
 	compare VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_114_SOUTH
 	call_if_eq AbnormalWeather_EventScript_PlaceTilesRoute114South
+	call_if_unset FLAG_SYS_GAME_CLEAR, Route114_EventScript_HideRaikou
 	end
 
 Route114_OnFrame: @ 81F2578
@@ -224,6 +225,7 @@ Route114_EventScript_HideRaikou::
 
 Route114_EventScript_TryShowRaikou::
 	setvar VAR_TEMP_1, 1
+	goto_if_unset FLAG_SYS_GAME_CLEAR, Common_EventScript_NopReturn
 	goto_if_set FLAG_DEFEATED_RAIKOU, Common_EventScript_NopReturn
 	setvar VAR_TEMP_1, 0
 	clearflag FLAG_HIDE_RAIKOU

@@ -1,11 +1,16 @@
 Route119_MapScripts:: @ 81F4424
 	map_script MAP_SCRIPT_ON_RESUME, Route119_OnResume
 	map_script MAP_SCRIPT_ON_TRANSITION, Route119_OnTransition
+	map_script MAP_SCRIPT_ON_LOAD, Route119_OnLoad
 	.byte 0
 
 Route119_OnResume: @ 81F442F
 	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route119_EventScript_TryRemoveKecleon
 	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route119_EventScript_TryRemoveZapdos
+	end
+	
+Route119_OnLoad: @ 81F2561
+	call_if_unset FLAG_SYS_GAME_CLEAR, Route119_EventScript_HideZapdos
 	end
 
 Route119_EventScript_TryRemoveKecleon:: @ 81F4439
@@ -507,6 +512,7 @@ Route119_EventScript_HideZapdos::
 
 Route119_EventScript_TryShowZapdos::
 	setvar VAR_TEMP_1, 1
+	goto_if_unset FLAG_SYS_GAME_CLEAR, Common_EventScript_NopReturn
 	goto_if_set FLAG_DEFEATED_ZAPDOS, Common_EventScript_NopReturn
 	setvar VAR_TEMP_1, 0
 	clearflag FLAG_HIDE_ZAPDOS
