@@ -1,6 +1,7 @@
 FieryPath_MapScripts:: @ 8230F24
 	map_script MAP_SCRIPT_ON_RESUME, FieryPath_OnResume
 	map_script MAP_SCRIPT_ON_TRANSITION, FieryPath_OnTransition
+	map_script MAP_SCRIPT_ON_LOAD, FieryPath_OnLoad
 	.byte 0
 
 FieryPath_OnTransition: @ 8230F2A
@@ -11,6 +12,10 @@ FieryPath_OnTransition: @ 8230F2A
 	
 FieryPath_OnResume: 
 	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Fiery_Path_EventScript_TryRemoveMoltres
+	end
+	
+FieryPath_OnLoad: @ 81F2561
+	call_if_unset FLAG_SYS_GAME_CLEAR, Fiery_Path_EventScript_HideMoltres
 	end
 	
     @ Combate contra totem.
@@ -52,6 +57,7 @@ Fiery_Path_EventScript_HideMoltres::
 
 Fiery_Path_EventScript_TryShowMoltres::
 	setvar VAR_TEMP_1, 1
+	goto_if_unset FLAG_SYS_GAME_CLEAR, Common_EventScript_NopReturn
 	goto_if_set FLAG_DEFEATED_MOLTRES, Common_EventScript_NopReturn
 	setvar VAR_TEMP_1, 0
 	clearflag FLAG_HIDE_MOLTRES
