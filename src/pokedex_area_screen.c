@@ -8,6 +8,7 @@
 #include "menu.h"
 #include "overworld.h"
 #include "palette.h"
+#include "pokedex.h"
 #include "pokedex_area_screen.h"
 #include "region_map.h"
 #include "roamer.h"
@@ -727,10 +728,20 @@ static void Task_PokedexAreaScreen_1(u8 taskId)
         if (gMain.newKeys & B_BUTTON)
         {
             gTasks[taskId].data[1] = 1;
+         PlaySE(SE_PC_OFF);
+        }
+        else if (gMain.newKeys & DPAD_LEFT || (gMain.newKeys & L_BUTTON && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_LR))
+        {
+            gTasks[taskId].data[1] = 1;
             PlaySE(SE_PC_OFF);
         }
         else if (gMain.newKeys & DPAD_RIGHT || (gMain.newKeys & R_BUTTON && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_LR))
         {
+		   if (!GetSetPokedexFlag(SpeciesToNationalPokedexNum(sPokedexAreaScreen->species), FLAG_GET_CAUGHT))
+            {
+                PlaySE(SE_HAZURE);
+                return;
+            }
             gTasks[taskId].data[1] = 2;
             PlaySE(SE_Z_PAGE);
         }
