@@ -502,8 +502,8 @@
             "script": "Route110_EventScript_ItemRareCandy",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
-            "x": 26,
-            "y": 47
+            "x": 25,
+            "y": 45
         },
         {
             "elevation": 3,
