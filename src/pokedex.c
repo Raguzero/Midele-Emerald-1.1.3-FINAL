@@ -1913,7 +1913,7 @@ bool8 sub_80BC514(u8 a)
             SetBgTilemapBuffer(2, AllocZeroed(0x800));
             SetBgTilemapBuffer(1, AllocZeroed(0x800));
             SetBgTilemapBuffer(0, AllocZeroed(0x800));
-            DecompressAndLoadBgGfxUsingHeap(3, gPokedexMenu_Gfx, 0x2000, 0, 0);
+            DecompressAndLoadBgGfxUsingHeap(3, gPokedexMenuList_Gfx, 0x2000, 0, 0);
             CopyToBgTilemapBuffer(1, gPokedexTilemap_Main, 0, 0);
             CopyToBgTilemapBuffer(3, gPokedexTilemap_MainUnderlay, 0, 0);
             if (a == 0)
@@ -5195,7 +5195,7 @@ void Task_LoadSearchMenu(u8 taskId)
                 InitWindows(sSearchMenu_WindowTemplate);
                 DeactivateAllTextPrinters();
                 PutWindowTilemap(0);
-                DecompressAndLoadBgGfxUsingHeap(3, gPokedexMenuList_Gfx, 0x2000, 0, 0);
+                DecompressAndLoadBgGfxUsingHeap(3, gPokedexSearchMenu_Gfx, 0x2000, 0, 0);
 
                 if (!IsNationalPokedexEnabled())
                     CopyToBgTilemapBuffer(3, gPokedexSearch2_Tilemap, 0, 0);
