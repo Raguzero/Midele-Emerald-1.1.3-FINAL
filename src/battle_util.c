@@ -3654,3 +3654,13 @@ u32 GetBattlerHoldEffect(u8 battlerId, bool32 checkNegating)
     else
         return ItemId_GetHoldEffect(gBattleMons[battlerId].item);
 }
+
+u8 GetBattleMoveSplit(u32 moveId)
+{
+    if (gBattleMoves[moveId].power == 0)
+        return 2; // otro
+    else if (IS_TYPE_PHYSICAL(gBattleMoves[moveId].type))
+        return 0; // físico
+    else
+        return 1; // especial
+}
