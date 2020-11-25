@@ -869,6 +869,16 @@ static u8 GetTrainerBattleTransition(void)
             return B_TRANSITION_GLACIA;
         if (gTrainerBattleOpponent_A == TRAINER_DRAKE || gTrainerBattleOpponent_A == TRAINER_DRAKE_2)
             return B_TRANSITION_DRAKE;
+        if (gTrainerBattleOpponent_A == TRAINER_LORELEI)
+            return B_TRANSITION_BIG_POKEBALL ;
+        if (gTrainerBattleOpponent_A == TRAINER_BRUNO)
+            return B_TRANSITION_BIG_POKEBALL ;
+        if (gTrainerBattleOpponent_A == TRAINER_AGATHA)
+            return B_TRANSITION_BIG_POKEBALL ;
+        if (gTrainerBattleOpponent_A == TRAINER_LANCE)
+            return B_TRANSITION_BIG_POKEBALL ;
+        if (gTrainerBattleOpponent_A == TRAINER_BLUE)
+            return B_TRANSITION_BIG_POKEBALL ;
         return B_TRANSITION_CHAMPION;
     }
 

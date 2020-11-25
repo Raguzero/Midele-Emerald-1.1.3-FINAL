@@ -1,12 +1,12 @@
 // RIVALES MAY, BRENDAN, WALLY Y STEVEN
 static const struct TrainerMonCustomMidele sParty_BrendanRoute103Mudkip[] = {
     {
-    .iv = 0,
+    .iv = 31,
     .lvl = 5,
     .species = SPECIES_SNOVER,
 	.nature = NATURE_QUIET,
-	.ability = 1,
-    .moves = {MOVE_POUND, MOVE_LEER, MOVE_POWDER_SNOW, MOVE_NONE}  
+	.ability = 0,
+    .moves = {MOVE_POUND, MOVE_LEER, MOVE_NONE, MOVE_NONE}  
     }
 };
 
@@ -26,7 +26,7 @@ static const struct TrainerMonCustomMidele sParty_BrendanRustboroMudkip[] = {
     .species = SPECIES_SNOVER,
 	.nature = NATURE_QUIET,
     .heldItem = ITEM_ORAN_BERRY,
-	.ability = 1,
+	.ability = 0,
     .moves = {MOVE_RAZOR_LEAF, MOVE_POUND, MOVE_ICY_WIND, MOVE_MIST}  
     }
 };
@@ -58,7 +58,7 @@ static const struct TrainerMonCustomMidele sParty_BrendanRoute110Mudkip[] = {
     .species = SPECIES_SNOVER,
 	.nature = NATURE_QUIET,
     .heldItem = ITEM_ORAN_BERRY,
-	.ability = 1,
+	.ability = 0,
 	.evs = {48, 0, 0, 0, 0, 0},
     .moves = {MOVE_LEECH_SEED, MOVE_GRASS_WHISTLE, MOVE_ICY_WIND, MOVE_RAZOR_LEAF}  
     }
@@ -92,7 +92,7 @@ static const struct TrainerMonCustomMidele sParty_BrendanRoute119Mudkip[] = {
     .species = SPECIES_ABOMASNOW,
 	.nature = NATURE_QUIET,
     .heldItem = ITEM_MIRACLE_SEED,
-	.ability = 1,
+	.ability = 0,
 	.evs = {0, 84, 0, 84, 0, 0},
     .moves = {MOVE_RAZOR_LEAF, MOVE_EARTHQUAKE, MOVE_ICE_PUNCH, MOVE_LEECH_SEED} 
     }
@@ -136,7 +136,7 @@ static const struct TrainerMonCustomMidele sParty_BrendanLilycoveMudkip[] = {
     .species = SPECIES_ABOMASNOW,
 	.nature = NATURE_QUIET,
     .heldItem = ITEM_MIRACLE_SEED,
-	.ability = 1,
+	.ability = 0,
 	.evs = {0, 112, 0, 112, 0, 0},
     .moves = {MOVE_RAZOR_LEAF, MOVE_EARTHQUAKE, MOVE_ICE_PUNCH, MOVE_LEECH_SEED} 
     }
@@ -144,11 +144,12 @@ static const struct TrainerMonCustomMidele sParty_BrendanLilycoveMudkip[] = {
 
 static const struct TrainerMonCustomMidele sParty_BrendanRoute103Treecko[] = {
     {
-    .iv = 0,
+    .iv = 31,
     .lvl = 5,
     .species = SPECIES_LITWICK,
 	.nature = NATURE_MODEST,
-    .moves = {MOVE_ASTONISH, MOVE_HAZE, MOVE_NIGHT_SHADE, MOVE_NONE}  
+	.ability = 0,
+    .moves = {MOVE_TACKLE, MOVE_HAZE, MOVE_ASTONISH, MOVE_NONE}  
     }
 };
 
@@ -166,6 +167,7 @@ static const struct TrainerMonCustomMidele sParty_BrendanRustboroTreecko[] = {
     .lvl = 15,
     .species = SPECIES_LITWICK,
 	.nature = NATURE_MODEST,
+	.ability = 0,
     .moves = {MOVE_CONFUSE_RAY, MOVE_HAZE, MOVE_NIGHT_SHADE, MOVE_EMBER}  
     }
 };
@@ -196,6 +198,7 @@ static const struct TrainerMonCustomMidele sParty_BrendanRoute110Treecko[] = {
     .species = SPECIES_LAMPENT,
 	.nature = NATURE_MODEST,
     .heldItem = ITEM_CHARCOAL,
+	.ability = 0,
 	.evs = {0, 0, 0, 0, 0, 48},
     .moves = {MOVE_EMBER, MOVE_CONFUSE_RAY, MOVE_NIGHT_SHADE, MOVE_SPITE}  
     }
@@ -226,6 +229,7 @@ static const struct TrainerMonCustomMidele sParty_BrendanRoute119Treecko[] = {
     .species = SPECIES_LAMPENT,
 	.nature = NATURE_MODEST,
     .heldItem = ITEM_CHARCOAL,
+	.ability = 0,
 	.evs = {0, 0, 0, 84, 0, 84},
     .moves = {MOVE_EMBER, MOVE_CONFUSE_RAY, MOVE_NIGHT_SHADE, MOVE_SHOCK_WAVE} 
     }
@@ -266,6 +270,7 @@ static const struct TrainerMonCustomMidele sParty_BrendanLilycoveTreecko[] = {
     .species = SPECIES_LAMPENT,
 	.nature = NATURE_MODEST,
     .heldItem = ITEM_CHARCOAL,
+	.ability = 0,
 	.evs = {0, 0, 0, 224, 0, 0},
     .moves = {MOVE_EMBER, MOVE_CONFUSE_RAY, MOVE_NIGHT_SHADE, MOVE_SHOCK_WAVE} 
     }
@@ -273,12 +278,12 @@ static const struct TrainerMonCustomMidele sParty_BrendanLilycoveTreecko[] = {
 
 static const struct TrainerMonCustomMidele sParty_BrendanRoute103Torchic[] = {
     {
-    .iv = 0,
+    .iv = 31,
     .lvl = 5,
     .species = SPECIES_TRAPINCH,
 	.nature = NATURE_ADAMANT,
-	.ability = 1,
-    .moves = {MOVE_GUST, MOVE_FOCUS_ENERGY, MOVE_MUD_SLAP, MOVE_NONE}    
+	.ability = 0,
+    .moves = {MOVE_GUST, MOVE_FOCUS_ENERGY, MOVE_NONE, MOVE_NONE}    
     }
 };
 
@@ -297,7 +302,7 @@ static const struct TrainerMonCustomMidele sParty_BrendanRustboroTorchic[] = {
     .species = SPECIES_TRAPINCH,
 	.nature = NATURE_ADAMANT,
     .heldItem = ITEM_SOFT_SAND,
-	.ability = 1,
+	.ability = 0,
     .moves = {MOVE_GUST, MOVE_FOCUS_ENERGY, MOVE_MUD_SLAP, MOVE_QUICK_ATTACK} 
     }
 };
@@ -405,12 +410,12 @@ static const struct TrainerMonCustomMidele sParty_BrendanLilycoveTorchic[] = {
 
 static const struct TrainerMonCustomMidele sParty_MayRoute103Mudkip[] = {
     {
-    .iv = 0,
+    .iv = 31,
     .lvl = 5,
     .species = SPECIES_SNOVER,
 	.nature = NATURE_QUIET,
-	.ability = 1,
-    .moves = {MOVE_POUND, MOVE_LEER, MOVE_POWDER_SNOW, MOVE_NONE}  
+	.ability = 0,
+    .moves = {MOVE_POUND, MOVE_LEER, MOVE_NONE, MOVE_NONE}  
     }
 };
 
@@ -429,7 +434,7 @@ static const struct TrainerMonCustomMidele sParty_MayRustboroMudkip[] = {
     .species = SPECIES_SNOVER,
 	.nature = NATURE_QUIET,
     .heldItem = ITEM_ORAN_BERRY,
-	.ability = 1,
+	.ability = 0,
     .moves = {MOVE_RAZOR_LEAF, MOVE_POUND, MOVE_ICY_WIND, MOVE_MIST}  
     }
 };
@@ -460,7 +465,7 @@ static const struct TrainerMonCustomMidele sParty_MayRoute110Mudkip[] = {
     .species = SPECIES_SNOVER,
 	.nature = NATURE_QUIET,
     .heldItem = ITEM_ORAN_BERRY,
-	.ability = 1,
+	.ability = 0,
 	.evs = {48, 0, 0, 0, 0, 0},
     .moves = {MOVE_LEECH_SEED, MOVE_GRASS_WHISTLE, MOVE_ICY_WIND, MOVE_RAZOR_LEAF}  
     }
@@ -491,7 +496,7 @@ static const struct TrainerMonCustomMidele sParty_MayRoute119Mudkip[] = {
     .species = SPECIES_ABOMASNOW,
 	.nature = NATURE_QUIET,
     .heldItem = ITEM_MIRACLE_SEED,
-	.ability = 1,
+	.ability = 0,
 	.evs = {0, 84, 0, 84, 0, 0},
     .moves = {MOVE_RAZOR_LEAF, MOVE_EARTHQUAKE, MOVE_ICE_PUNCH, MOVE_LEECH_SEED} 
     }
@@ -532,7 +537,7 @@ static const struct TrainerMonCustomMidele sParty_MayLilycoveMudkip[] = {
     .species = SPECIES_ABOMASNOW,
 	.nature = NATURE_QUIET,
     .heldItem = ITEM_MIRACLE_SEED,
-	.ability = 1,
+	.ability = 0,
 	.evs = {0, 112, 0, 112, 0, 0},
     .moves = {MOVE_RAZOR_LEAF, MOVE_EARTHQUAKE, MOVE_ICE_PUNCH, MOVE_LEECH_SEED} 
     }
@@ -540,11 +545,12 @@ static const struct TrainerMonCustomMidele sParty_MayLilycoveMudkip[] = {
 
 static const struct TrainerMonCustomMidele sParty_MayRoute103Treecko[] = {
     {
-    .iv = 0,
+    .iv = 31,
     .lvl = 5,
     .species = SPECIES_LITWICK,
 	.nature = NATURE_MODEST,
-    .moves = {MOVE_ASTONISH, MOVE_HAZE, MOVE_NIGHT_SHADE, MOVE_NONE}  
+	.ability = 0,
+    .moves = {MOVE_TACKLE, MOVE_HAZE, MOVE_ASTONISH, MOVE_NONE}  
     }
 };
 
@@ -562,6 +568,7 @@ static const struct TrainerMonCustomMidele sParty_MayRustboroTreecko[] = {
     .lvl = 15,
     .species = SPECIES_LITWICK,
 	.nature = NATURE_MODEST,
+	.ability = 0,
     .moves = {MOVE_CONFUSE_RAY, MOVE_HAZE, MOVE_NIGHT_SHADE, MOVE_EMBER}  
     }
 };
@@ -592,6 +599,7 @@ static const struct TrainerMonCustomMidele sParty_MayRoute110Treecko[] = {
     .species = SPECIES_LAMPENT,
 	.nature = NATURE_MODEST,
     .heldItem = ITEM_CHARCOAL,
+	.ability = 0,
 	.evs = {0, 0, 0, 0, 0, 48},
     .moves = {MOVE_EMBER, MOVE_CONFUSE_RAY, MOVE_NIGHT_SHADE, MOVE_SPITE}  
     }
@@ -622,6 +630,7 @@ static const struct TrainerMonCustomMidele sParty_MayRoute119Treecko[] = {
     .species = SPECIES_LAMPENT,
 	.nature = NATURE_MODEST,
     .heldItem = ITEM_CHARCOAL,
+	.ability = 0,
 	.evs = {0, 0, 0, 84, 0, 84},
     .moves = {MOVE_EMBER, MOVE_CONFUSE_RAY, MOVE_NIGHT_SHADE, MOVE_SHOCK_WAVE} 
     }
@@ -662,6 +671,7 @@ static const struct TrainerMonCustomMidele sParty_MayLilycoveTreecko[] = {
     .species = SPECIES_LAMPENT,
 	.nature = NATURE_MODEST,
     .heldItem = ITEM_CHARCOAL,
+	.ability = 0,
 	.evs = {0, 0, 0, 224, 0, 0},
     .moves = {MOVE_EMBER, MOVE_CONFUSE_RAY, MOVE_NIGHT_SHADE, MOVE_SHOCK_WAVE} 
     }
@@ -669,12 +679,12 @@ static const struct TrainerMonCustomMidele sParty_MayLilycoveTreecko[] = {
 
 static const struct TrainerMonCustomMidele sParty_MayRoute103Torchic[] = {
     {
-    .iv = 0,
+    .iv = 31,
     .lvl = 5,
     .species = SPECIES_TRAPINCH,
 	.nature = NATURE_ADAMANT,
-	.ability = 1,
-    .moves = {MOVE_GUST, MOVE_FOCUS_ENERGY, MOVE_MUD_SLAP, MOVE_NONE}    
+	.ability = 0,
+    .moves = {MOVE_GUST, MOVE_FOCUS_ENERGY, MOVE_NONE, MOVE_NONE}    
     }
 };
 
@@ -694,8 +704,8 @@ static const struct TrainerMonCustomMidele sParty_MayRustboroTorchic[] = {
     .species = SPECIES_TRAPINCH,
 	.nature = NATURE_ADAMANT,
     .heldItem = ITEM_SOFT_SAND,
-	.ability = 1,
-    .moves = {MOVE_GUST, MOVE_FOCUS_ENERGY, MOVE_MUD_SLAP, MOVE_QUICK_ATTACK}  
+	.ability = 0,
+    .moves = {MOVE_GUST, MOVE_BITE, MOVE_MUD_SLAP, MOVE_QUICK_ATTACK}  
     }
 };
 
@@ -857,10 +867,10 @@ static const struct TrainerMonCustomMidele sParty_BrendanProfessorBirchsLabMudki
     {
     .iv = 31,
     .lvl = 64,
-    .species = SPECIES_ABOMASNOW,
+    .species = SPECIES_MEGA_ABOMASNOW,
 	.nature = NATURE_QUIET,
     .heldItem = ITEM_LEFTOVERS,
-	.ability = 1,
+	.ability = 0,
 	.evs = {6, 252, 0, 252, 0, 0},
     .moves = {MOVE_GIGA_DRAIN, MOVE_EARTHQUAKE, MOVE_ICE_BEAM, MOVE_SHADOW_BALL} 
     }
@@ -920,6 +930,7 @@ static const struct TrainerMonCustomMidele sParty_BrendanProfessorBirchsLabTreec
     .species = SPECIES_CHANDELURE,
 	.nature = NATURE_MODEST,
     .heldItem = ITEM_CHOICE_SCARF,
+	.ability = 0,
 	.evs = {6, 0, 0, 252, 0, 252},
     .moves = {MOVE_FLAMETHROWER, MOVE_ENERGY_BALL, MOVE_DARK_PULSE, MOVE_NONE} 
     }
@@ -1036,10 +1047,10 @@ static const struct TrainerMonCustomMidele sParty_MayProfessorBirchsLabMudkip[] 
     {
     .iv = 31,
     .lvl = 64,
-    .species = SPECIES_ABOMASNOW,
+    .species = SPECIES_MEGA_ABOMASNOW,
 	.nature = NATURE_QUIET,
     .heldItem = ITEM_LEFTOVERS,
-	.ability = 1,
+	.ability = 0,
 	.evs = {6, 252, 0, 252, 0, 0},
     .moves = {MOVE_GIGA_DRAIN, MOVE_EARTHQUAKE, MOVE_ICE_BEAM, MOVE_SHADOW_BALL} 
     }
@@ -1101,6 +1112,7 @@ static const struct TrainerMonCustomMidele sParty_MayProfessorBirchsLabTreecko[]
     .species = SPECIES_CHANDELURE,
 	.nature = NATURE_MODEST,
     .heldItem = ITEM_CHOICE_SCARF,
+	.ability = 0,
 	.evs = {6, 0, 0, 252, 0, 252},
     .moves = {MOVE_FLAMETHROWER, MOVE_ENERGY_BALL, MOVE_DARK_PULSE, MOVE_NONE} 
     }
@@ -15280,6 +15292,7 @@ static const struct TrainerMonCustomMidele sParty_Georgia[] = {
     .species = SPECIES_SNOVER,
 	.nature = NATURE_TIMID,
 	.evs = {0, 0, 0, 40, 0, 40},
+	.ability = 1,
 	.heldItem = ITEM_SALAC_BERRY,
     .moves = {MOVE_WEATHER_BALL, MOVE_LEECH_SEED, MOVE_RAZOR_LEAF, MOVE_GRASS_WHISTLE}
     },
