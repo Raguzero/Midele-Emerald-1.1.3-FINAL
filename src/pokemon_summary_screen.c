@@ -2987,10 +2987,8 @@ static void CreatePageWindowTilemaps(u8 page)
             PutWindowTilemap(PSS_LABEL_WINDOW_BATTLE_MOVES_TITLE);
             if (sMonSummaryScreen->mode == PSS_MODE_SELECT_MOVE)
             {
-                if (sMonSummaryScreen->newMove != MOVE_NONE || sMonSummaryScreen->firstMoveIndex != MAX_MON_MOVES) {
+                if (sMonSummaryScreen->newMove != MOVE_NONE || sMonSummaryScreen->firstMoveIndex != MAX_MON_MOVES)
                     PutWindowTilemap(PSS_LABEL_WINDOW_MOVES_POWER_ACC);
-                    gSprites[sMonSummaryScreen->splitIconSpriteId].invisible = TRUE;
-                }
             }
             else
             {
@@ -3039,7 +3037,9 @@ static void ClearPageWindowTilemaps(u8 page)
             if (sMonSummaryScreen->mode == PSS_MODE_SELECT_MOVE)
             {
                 if (sMonSummaryScreen->newMove != MOVE_NONE || sMonSummaryScreen->firstMoveIndex != MAX_MON_MOVES)
-                    ClearWindowTilemap(PSS_LABEL_WINDOW_MOVES_POWER_ACC);
+                    ClearWindowTilemap(PSS_LABEL_WINDOW_MOVES_POWER_ACC);{
+					gSprites[sMonSummaryScreen->splitIconSpriteId].invisible = TRUE;
+				}
             }
             else
             {
