@@ -924,8 +924,6 @@ static const struct MenuAction MultichoiceList_CiberCafe_Batalla[] =
     {gText_Blue2},
     {gText_Red2},
     {gText_Leaf},
-    {gText_Brock},
-    {gText_Brock},
     {gText_Exit}
 };
 

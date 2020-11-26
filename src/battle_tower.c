@@ -2193,6 +2193,12 @@ void DoSpecialTrainerBattle(void)
         BattleTransition_StartOnField(sub_80B100C(6));
 		gTrainerBattleOpponent_A = TRAINER_RANDOM_PARTY_2;
 		break;
+		case SPECIAL_CIBERCAFE:
+        gBattleTypeFlags = BATTLE_TYPE_TRAINER;
+		CreateTask(Task_StartBattleAfterTransition, 1);
+        PlayMapChosenOrBattleBGM(0);
+        BattleTransition_StartOnField(sub_80B100C(13));
+		break;
 	// NUEVO RANDOM BATTLE
     }
 }
