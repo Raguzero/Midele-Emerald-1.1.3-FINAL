@@ -125,6 +125,8 @@ EverGrandeCity_PokemonLeague_1F_Movement_RightGuardOutOfWay: @ 82296E5
 	step_end
 	
 Ryu_StartRandomBattle::
+	applymovement VAR_LAST_TALKED, Common_Movement_FacePlayer
+	waitmovement 0
 	msgbox RANDOM_Batalla, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq NoBattle
@@ -178,6 +180,8 @@ BF_RandomBattleCleanupWIN::
 	special HealPlayerParty
 	msgbox Enhorabuena
 	clearflag FLAG_RYU_RANDOMBATTLE
+	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
+	waitmovement 0
 	release
 	end
 	
@@ -185,6 +189,8 @@ BF_RandomBattleCleanupLOSS::
 	special HealPlayerParty
 	msgbox BattleAgain
 	clearflag FLAG_RYU_RANDOMBATTLE
+	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
+	waitmovement 0
 	release
 	end
 	
@@ -192,12 +198,16 @@ BF_RandomBattleCleanupDRAW::
 	special HealPlayerParty
 	msgbox Empate
 	clearflag FLAG_RYU_RANDOMBATTLE
+	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
+	waitmovement 0
 	release
 	end
 	
 BF_NoBattle::
 	msgbox BF_NoBattleMsg
 	closemessage
+	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
+	waitmovement 0
 	release
 	end
 	
@@ -208,6 +218,8 @@ DoblesObligatorio2Pokes::
 	end	
 	
 Ryu_StartRandomBattleCC::
+	applymovement VAR_LAST_TALKED, Common_Movement_FacePlayer
+	waitmovement 0
 	msgbox RANDOMCC_Batalla, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq NoBattle
@@ -254,6 +266,8 @@ RANDOMCCDOBLES::
 NoBattle::
 	msgbox BF_NoBattleMsg
 	closemessage
+	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
+	waitmovement 0
 	release
 	end
 
@@ -261,6 +275,8 @@ BF_RandomBattleCleanupWINCC::
 	special LoadPlayerParty
 	msgbox Enhorabuena
 	clearflag FLAG_RYU_RANDOMBATTLECC
+	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
+	waitmovement 0
 	release
 	end
 	
@@ -268,6 +284,8 @@ BF_RandomBattleCleanupLOSSCC::
 	special LoadPlayerParty
 	msgbox BattleAgain
 	clearflag FLAG_RYU_RANDOMBATTLECC
+	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
+	waitmovement 0
 	release
 	end
 	
@@ -275,12 +293,8 @@ BF_RandomBattleCleanupDRAWCC::
 	special LoadPlayerParty
 	msgbox Empate
 	clearflag FLAG_RYU_RANDOMBATTLECC
-	release
-	end
-	
-BF_NoBattleCC::
-	msgbox BF_NoBattleMsg
-	closemessage
+	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
+	waitmovement 0
 	release
 	end
 
