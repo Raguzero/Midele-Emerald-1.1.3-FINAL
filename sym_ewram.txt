@@ -148,3 +148,4 @@
 	.include "src/day_night.o"
 	.include "src/map_preview.o"
     .include "src/dexnav.o"
+	.include "src/debug.o"
