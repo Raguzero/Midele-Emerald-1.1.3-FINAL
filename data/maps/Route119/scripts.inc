@@ -552,7 +552,7 @@ Route119_EventScript_RanFromZapdos::
 	end
 
 Route119_Text_MayIntro: @ 81F49FD
-	.string "MAY: {PLAYER}{KUN}!\n"
+	.string "{RIVAL}: {PLAYER}{KUN}!\n"
 	.string "Where were you? I was looking for you!\p"
 	.string "How much stronger have you gotten?\n"
 	.string "Let me check for you!\p"
@@ -566,12 +566,12 @@ Route119_Text_MayDefeat: @ 81F4A98
 	.string "struggling with your training.$"
 
 Route119_Text_MayGoodBye: @ 81F4AF3
-	.string "MAY: But I had absolutely nothing to\n"
+	.string "{RIVAL}: But I had absolutely nothing to\n"
 	.string "worry about! Keep it up!\p"
 	.string "Well, let's meet again somewhere!$"
 
 Route119_Text_BrendanIntro: @ 81F4C9A
-	.string "BRENDAN: {PLAYER}! So this is where\n"
+	.string "{RIVAL}: {PLAYER}! So this is where\n"
 	.string "you've been looking for POKéMON?\p"
 	.string "Let me see how good you got.\n"
 	.string "I'll test you!\p"
@@ -583,7 +583,7 @@ Route119_Text_BrendanDefeat: @ 81F4D24
 	.string "You've gotten pretty darn decent.$"
 
 Route119_Text_BrendanGoodBye: @ 81F4D4B
-	.string "BRENDAN: I'd say you're good enough\n"
+	.string "{RIVAL}: I'd say you're good enough\n"
 	.string "to search for POKéMON anywhere.\p"
 	.string "Anyway, I have to move along.$"
 

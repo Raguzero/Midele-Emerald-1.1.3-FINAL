@@ -549,3 +549,4 @@ gSpecials:: @ 81DBA64
 	def_special ChangeDeoxysForm
 	def_special CheckRegidragoPuzzle
 	def_special CountPartyAliveNonEggMons_perodeverdad
+	def_special NameRival

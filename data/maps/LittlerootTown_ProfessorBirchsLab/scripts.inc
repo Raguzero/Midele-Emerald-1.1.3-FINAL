@@ -832,13 +832,13 @@ LittlerootTown_ProfessorBirchsLab_Text_CountlessPokemonAwait: @ 81FAD6F
 	.string "and do fieldwork again!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_MayGotPokedexTooTakeThese: @ 81FADD7
-	.string "MAY: Oh, wow, {PLAYER}{KUN}!\n"
+	.string "{RIVAL}: Oh, wow, {PLAYER}{KUN}!\n"
 	.string "You got a POKéDEX, too!\p"
 	.string "That's great! Just like me!\n"
 	.string "I've got something for you, too!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_CatchCutePokemonWithPokeBalls: @ 81FAE40
-	.string "MAY: It's fun if you can get a lot of\n"
+	.string "{RIVAL}: It's fun if you can get a lot of\n"
 	.string "POKéMON!\p"
 	.string "I'm going to look all over the place\n"
 	.string "because I want different POKéMON.\p"
@@ -849,17 +849,17 @@ LittlerootTown_ProfessorBirchsLab_Text_OhYourBagsFull: @ 81FAEF3
 	.string "Oh? Your BAG's full.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_MayWhereShouldIGoNext: @ 81FAF08
-	.string "MAY: I wonder where I should go look\n"
+	.string "{RIVAL}: I wonder where I should go look\n"
 	.string "for POKéMON next?$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BrendanGotPokedexTooTakeThese: @ 81FAF3F
-	.string "BRENDAN: Huh…\n"
+	.string "{RIVAL}: Huh…\n"
 	.string "So you got a POKéDEX, too.\p"
 	.string "Well then, here.\n"
 	.string "I'll give you these.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_CatchCoolPokemonWithPokeBalls: @ 81FAF8E
-	.string "BRENDAN: You know it's more fun to\n"
+	.string "{RIVAL}: You know it's more fun to\n"
 	.string "have a whole bunch of POKéMON.\p"
 	.string "I'm going to explore all over the place\n"
 	.string "to find different POKéMON.\p"
@@ -870,7 +870,7 @@ LittlerootTown_ProfessorBirchsLab_Text_HeyYourBagsFull: @ 81FB05D
 	.string "Hey, your BAG's full.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BrendanWhereShouldIGoNext: @ 81FB073
-	.string "BRENDAN: Where should I look for\n"
+	.string "{RIVAL}: Where should I look for\n"
 	.string "POKéMON next…$"
 
 LittlerootTown_ProfessorBirchsLab_Text_SeriousLookingMachine: @ 81FB0A2
@@ -905,14 +905,14 @@ LittlerootTown_ProfessorBirchsLab_Text_OtherRegionsUpgradeToNational: @ 81FB16D
 	.string "Here, let me see your POKéDEX units.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_MayUpgradeSoCool: @ 81FB30F
-	.string "MAY: Eheheh!\p"
+	.string "{RIVAL}: Eheheh!\p"
 	.string "It's so cool that even my POKéDEX\n"
 	.string "is getting updated!\p"
 	.string "It's because you went out and caught\n"
 	.string "so many POKéMON, {PLAYER}{KUN}!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BrendanYouCanThankMe: @ 81FB38E
-	.string "BRENDAN: I went out all over HOENN\n"
+	.string "{RIVAL}: I went out all over HOENN\n"
 	.string "and checked out POKéMON.\p"
 	.string "You can thank me for getting\n"
 	.string "the NATIONAL Mode POKéDEX.\p"
@@ -935,7 +935,7 @@ LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting2: @ 81FB466
 	.string "that's waiting for you!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_MayTakeBreakFromFieldwork: @ 81FB528
-	.string "MAY: I think I'll take a short break\n"
+	.string "{RIVAL}: I think I'll take a short break\n"
 	.string "from fieldwork.\p"
 	.string "I think I'll help the PROF here for\n"
 	.string "a while.\p"
@@ -952,7 +952,7 @@ LittlerootTown_ProfessorBirchsLab_Text_MayTakeBreakFromFieldwork: @ 81FB528
 	.string "and mine! Do we battle?$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BrendanTakeBreakFromFieldwork: @ 81FB58A
-	.string "BRENDAN: For the time being,\n"
+	.string "{RIVAL}: For the time being,\n"
 	.string "I'm taking a break from fieldwork.\p"
 	.string "I'll be helping out the PROF here\n"
 	.string "for a while.\p"
@@ -1047,7 +1047,7 @@ LittlerootTown_ProfessorBirchsLab_Text_DontHaveAnyRoomForPokemon: @ 81FBB3A
 	.string "this POKéMON.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_MayWhatNextImStayingHere: @ 81FBB68
-	.string "MAY: {PLAYER}{KUN}, after this…\n"
+	.string "{RIVAL}: {PLAYER}{KUN}, after this…\n"
 	.string "What are you going to do?\p"
 	.string "Are you going to keep battling\n"
 	.string "and sharpening your skills?\p"
@@ -1056,12 +1056,12 @@ LittlerootTown_ProfessorBirchsLab_Text_MayWhatNextImStayingHere: @ 81FBB68
 	.string "I'm staying here to help the PROF.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BrendanPreferCollectingSlowly: @ 81FBC2D
-	.string "BRENDAN: Rather than collecting\n"
+	.string "{RIVAL}: Rather than collecting\n"
 	.string "POKéMON, I prefer slowly and \l"
 	.string "steadily raising the one I chose.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_MayHaveYouGoneToBattleFrontier: @ 81FBC8D
-	.string "MAY: Oh, hi, {PLAYER}{KUN}!\n"
+	.string "{RIVAL}: Oh, hi, {PLAYER}{KUN}!\n"
 	.string "Have you gone to that place,\l"
 	.string "the BATTLE FRONTIER?\p"
 	
@@ -1077,7 +1077,7 @@ LittlerootTown_ProfessorBirchsLab_Text_MayHaveYouGoneToBattleFrontier: @ 81FBC8D
 	.string "and mine! Do we battle?$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BrendanHaveYouGoneToBattleFrontier: @ 81FBCD2
-	.string "BRENDAN: Hey, {PLAYER}!\n"
+	.string "{RIVAL}: Hey, {PLAYER}!\n"
 	.string "Have you gone out to that place,\l"
 	.string "the BATTLE FRONTIER?\p"
 	

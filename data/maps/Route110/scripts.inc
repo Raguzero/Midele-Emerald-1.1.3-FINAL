@@ -784,7 +784,7 @@ Route110_Text_AquaActionsBringSmiles: @ 81EFC0D
 	.string "smiles to people's faces!$"
 
 Route110_Text_MayLetsBattle: @ 81EFC48
-	.string "MAY: Hi, {PLAYER}{KUN}, long time no see!\p"
+	.string "{RIVAL}: Hi, {PLAYER}{KUN}, long time no see!\p"
 	.string "While I was searching for other\n"
 	.string "POKéMON, my POKéMON grew stronger.\p"
 	.string "So…\n"
@@ -795,13 +795,13 @@ Route110_Text_MayDefeated: @ 81EFCCB
 	.string "You're better than I expected!$"
 
 Route110_Text_MayTakeThis: @ 81EFCF1
-	.string "MAY: {PLAYER}{KUN}, you've been busy\n"
+	.string "{RIVAL}: {PLAYER}{KUN}, you've been busy\n"
 	.string "training, too, haven't you?\p"
 	.string "I think you deserve a reward!\n"
 	.string "This is from me!$"
 
 Route110_Text_MayExplainItemfinder: @ 81EFD58
-	.string "MAY: That's an ITEMFINDER.\p"
+	.string "{RIVAL}: That's an ITEMFINDER.\p"
 	.string "Try it out. If there is an item that's\n"
 	.string "not visible, it emits a sound.\p"
 	.string "Okay, {PLAYER}{KUN}, let's meet again!\p"
@@ -810,7 +810,7 @@ Route110_Text_MayExplainItemfinder: @ 81EFD58
 	.string "harder for the next time.$"
 
 Route110_Text_BrendayLetsBattle: @ 81EFE3F
-	.string "BRENDAN: Hey, {PLAYER}.\n"
+	.string "{RIVAL}: Hey, {PLAYER}.\n"
 	.string "So this is where you were.\l"
 	.string "How's it going?\p"
 	.string "Have you been raising your POKéMON?\n"
@@ -821,13 +821,13 @@ Route110_Text_BrendanDefeated: @ 81EFEB4
 	.string "You're pretty good.$"
 
 Route110_Text_BrendanTakeThis: @ 81EFECD
-	.string "BRENDAN: {PLAYER}, you've trained\n"
+	.string "{RIVAL}: {PLAYER}, you've trained\n"
 	.string "without me noticing…\p"
 	.string "Good enough!\n"
 	.string "Here, take this.$"
 
 Route110_Text_BrendanExplainItemfinder: @ 81EFF1C
-	.string "BRENDAN: That's an ITEMFINDER.\p"
+	.string "{RIVAL}: That's an ITEMFINDER.\p"
 	.string "Use it to root around for items that\n"
 	.string "aren't visible.\p"
 	.string "If it senses something, it emits\n"

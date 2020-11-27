@@ -26,6 +26,7 @@ enum
     NAMING_SCREEN_CAUGHT_MON,
     NAMING_SCREEN_3,
     NAMING_SCREEN_WALDA,
+	NAMING_SCREEN_RIVAL,
 };
 
 struct NamingScreenTemplate

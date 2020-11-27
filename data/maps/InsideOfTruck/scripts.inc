@@ -24,6 +24,10 @@ InsideOfTruck_EventScript_SetIntroFlags:: @ 823BF04
 	end
 
 InsideOfTruck_EventScript_SetIntroFlagsMale:: @ 823BF20
+	msgbox NombreVecino_Text, MSGBOX_DEFAULT
+	special NameRival
+	waitstate
+	msgbox NombreVecino_Text2, MSGBOX_DEFAULT
 	setrespawn HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F
 	setvar VAR_LITTLEROOT_INTRO_STATE, 1
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_MOM
@@ -37,6 +41,10 @@ InsideOfTruck_EventScript_SetIntroFlagsMale:: @ 823BF20
 	end
 
 InsideOfTruck_EventScript_SetIntroFlagsFemale:: @ 823BF46
+	msgbox NombreVecino_Text, MSGBOX_DEFAULT
+	special NameRival
+	waitstate
+	msgbox NombreVecino_Text2, MSGBOX_DEFAULT
 	setrespawn HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE_2F
 	setvar VAR_LITTLEROOT_INTRO_STATE, 2
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_MOM
@@ -57,4 +65,11 @@ InsideOfTruck_Text_BoxPrintedWithMonLogo: @ 823BF75
 	.string "The box is printed with a POKéMON logo.\p"
 	.string "It's a POKéMON brand moving and\n"
 	.string "delivery service.$"
+	
+NombreVecino_Text:
+	.string "By the way, what was my\n"
+	.string "new neighbor's name?$"
+	
+NombreVecino_Text2:
+	.string "I remember, the name was {RIVAL}!$"
 

@@ -504,6 +504,7 @@ struct SaveBlock2
     /*0x624*/ u16 contestLinkResults[5][4]; // 4 positions for 5 categories.
     /*0x64C*/ struct BattleFrontier frontier;
 	u16 tmShopFlags[TMSHOP_COUNT];
+	/*0xF2C*/ u8 rivalName[PLAYER_NAME_LENGTH + 1];
 }; // sizeof=0xF2C
 
 extern struct SaveBlock2 *gSaveBlock2Ptr;

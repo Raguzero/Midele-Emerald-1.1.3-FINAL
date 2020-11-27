@@ -1118,18 +1118,18 @@ Route104_Text_TrainerTipsDoubleBattles: @ 81EDAEF
 	.string "Watch how POKéMON are lined up.$"
 
 Route104_Text_MayWeShouldRegister: @ 81EDBFF
-	.string "MAY: Oh, hi, {PLAYER}{KUN}!\p"
+	.string "{RIVAL}: Oh, hi, {PLAYER}{KUN}!\p"
 	.string "DEVON upgraded your POKéNAV with\n"
 	.string "the MATCH CALL system, huh?\p"
 	.string "We should register each other so we\n"
 	.string "can get in contact anytime.$"
 
 Route104_Text_RegisteredMay: @ 81EDC8F
-	.string "{PLAYER} registered MAY\n"
+	.string "{PLAYER} registered {RIVAL}\n"
 	.string "in the POKéNAV.$"
 
 Route104_Text_MayHowsYourPokedex: @ 81EDCB1
-	.string "MAY: Oh, by the way, {PLAYER}{KUN},\n"
+	.string "{RIVAL}: Oh, by the way, {PLAYER}{KUN},\n"
 	.string "how's your POKéDEX coming along?$"
 
 Route104_Text_MayMinesDecentLetsBattle: @ 81EDCED
@@ -1138,17 +1138,17 @@ Route104_Text_MayMinesDecentLetsBattle: @ 81EDCED
 	.string "How about a little battle?$"
 
 Route104_Text_MayHaventRaisedPokemon: @ 81EDD2A
-	.string "MAY: Oh, what's the matter?\p"
+	.string "{RIVAL}: Oh, what's the matter?\p"
 	.string "Haven't you caught or raised your\n"
 	.string "POKéMON very much?\p"
 	.string "That's not very good for a TRAINER!$"
 
 Route104_Text_MayLetsBattle: @ 81EDD9F
-	.string "MAY: So, what do you think?\n"
+	.string "{RIVAL}: So, what do you think?\n"
 	.string "How about a little battle here?$"
 
 Route104_Text_MayIntro: @ 81EDDDB
-	.string "MAY: You just became a TRAINER,\n"
+	.string "{RIVAL}: You just became a TRAINER,\n"
 	.string "{PLAYER}{KUN}. I'm not going to lose!$"
 
 Route104_Text_MayDefeat: @ 81EDE18
@@ -1156,7 +1156,7 @@ Route104_Text_MayDefeat: @ 81EDE18
 	.string "You're better than I expected!$"
 
 Route104_Text_MayPostBattle: @ 81EDE3E
-	.string "MAY: I can tell you've gotten pretty\n"
+	.string "{RIVAL}: I can tell you've gotten pretty\n"
 	.string "good with the way you handle POKéMON.\p"
 	.string "But instead of only making them\n"
 	.string "battle, you should be like MR. BRINEY.\p"
@@ -1164,18 +1164,18 @@ Route104_Text_MayPostBattle: @ 81EDE3E
 	.string "POKéMON, too.$"
 
 Route104_Text_BrendanWeShouldRegister: @ 81EDF04
-	.string "BRENDAN: Oh, hey, {PLAYER}!\p"
+	.string "{RIVAL}: Oh, hey, {PLAYER}!\p"
 	.string "Cool, you had DEVON install the MATCH\n"
 	.string "CALL system on your POKéNAV!\p"
 	.string "Let's register each other in our\n"
 	.string "POKéNAVS so we can keep in touch.$"
 
 Route104_Text_RegisteredBrendan: @ 81EDFA0
-	.string "{PLAYER} registered BRENDAN\n"
+	.string "{PLAYER} registered {RIVAL}\n"
 	.string "in the POKéNAV.$"
 
 Route104_Text_BrendanHowsYourPokedex: @ 81EDFC6
-	.string "BRENDAN: {PLAYER}, how's your POKéDEX?\n"
+	.string "{RIVAL}: {PLAYER}, how's your POKéDEX?\n"
 	.string "Have you filled in any pages yet?$"
 
 Route104_Text_BrendanDoingGreatLetsBattle: @ 81EE009
@@ -1184,15 +1184,15 @@ Route104_Text_BrendanDoingGreatLetsBattle: @ 81EE009
 	.string "a battle?$"
 
 Route104_Text_BrendanNoConfidence: @ 81EE04D
-	.string "BRENDAN: What's the matter? Don't have\n"
+	.string "{RIVAL}: What's the matter? Don't have\n"
 	.string "any confidence in your POKéMON?$"
 
 Route104_Text_BrendanLetsBattle: @ 81EE094
-	.string "BRENDAN: What's up?\n"
+	.string "{RIVAL}: What's up?\n"
 	.string "Want to have a battle with me?$"
 
 Route104_Text_BrendanIntro: @ 81EE0C7
-	.string "BRENDAN: I know you just became\n"
+	.string "{RIVAL}: I know you just became\n"
 	.string "a TRAINER, but I won't go easy!$"
 
 Route104_Text_BrendanDefeat: @ 81EE107
@@ -1200,7 +1200,7 @@ Route104_Text_BrendanDefeat: @ 81EE107
 	.string "You're pretty good.$"
 
 Route104_Text_BrendanPostBattle: @ 81EE120
-	.string "BRENDAN: You've gotten pretty decent\n"
+	.string "{RIVAL}: You've gotten pretty decent\n"
 	.string "at handling POKéMON.\p"
 	.string "But, you know, you shouldn't just be\n"
 	.string "making POKéMON battle.\p"

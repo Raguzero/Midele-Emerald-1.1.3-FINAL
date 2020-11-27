@@ -334,7 +334,7 @@ RivalsHouse_2F_Text_MayWhoAreYou: @ 81F959C
 	.string "… … … … … … … …\p"
 	.string "Oh, you're {PLAYER}{KUN}.\n"
 	.string "So your move was today.\p"
-	.string "Um… I'm MAY.\n"
+	.string "Um… I'm {RIVAL}.\n"
 	.string "Glad to meet you!\p"
 	.string "I…\n"
 	.string "I have this dream of becoming friends\l"
@@ -365,7 +365,7 @@ RivalsHouse_2F_Text_BrendanWhoAreYou: @ 81F97B4
 	.string "Dad, PROF. BIRCH, said that our new\n"
 	.string "next-door neighbor is a GYM LEADER's\l"
 	.string "kid, so I assumed you'd be a guy.\p"
-	.string "My name's BRENDAN.\n"
+	.string "My name's {RIVAL}.\n"
 	.string "So, hi, neighbor!\p"
 	.string "Huh? Hey, {PLAYER}, don't you have\n"
 	.string "a POKéMON?\p"
@@ -384,7 +384,7 @@ RivalsHouse_2F_Text_ItsRivalsPokeBall: @ 81F9991
 	.string "Better leave it right where it is.$"
 
 RivalsHouse_2F_Text_MayJustCheckingMyPokedex: @ 81F99C9
-	.string "MAY: {PLAYER}{KUN}!\p"
+	.string "{RIVAL}: {PLAYER}{KUN}!\p"
 	.string "I was just checking my POKéDEX.\p"
 	.string "There's still a lot of POKéMON that\n"
 	.string "I've seen but haven't caught.\p"
@@ -394,13 +394,13 @@ RivalsHouse_2F_Text_MayJustCheckingMyPokedex: @ 81F99C9
 	.string "some POKéMON next?$"
 
 RivalsHouse_2F_Text_MayWhereShouldIGoNext: @ 81F9A9E
-	.string "MAY: I wonder where I should go catch\n"
+	.string "{RIVAL}: I wonder where I should go catch\n"
 	.string "some POKéMON next?\p"
 	.string "Wouldn't it be funny if we ran into each\n"
 	.string "other, {PLAYER}{KUN}?$"
 
 RivalsHouse_2F_Text_BrendanJustCheckingMyPokedex: @ 81F9B0D
-	.string "BRENDAN: Hey, it's {PLAYER}.\p"
+	.string "{RIVAL}: Hey, it's {PLAYER}.\p"
 	.string "I was just checking out my POKéDEX.\p"
 	.string "There are still many POKéMON that\n"
 	.string "I need to catch, I know, but this\l"
@@ -409,7 +409,7 @@ RivalsHouse_2F_Text_BrendanJustCheckingMyPokedex: @ 81F9B0D
 	.string "the urge to hit the road again.$"
 
 RivalsHouse_2F_Text_BrendanWhereShouldIGoNext: @ 81F9BE7
-	.string "BRENDAN: I'm having a hard time deciding\n"
+	.string "{RIVAL}: I'm having a hard time deciding\n"
 	.string "where I should catch POKéMON next.\p"
 	.string "Hey, {PLAYER}, if I see you while I'm out\n"
 	.string "catching POKéMON, I can pitch you a\l"
