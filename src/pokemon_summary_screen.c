@@ -79,7 +79,13 @@
 #define PSS_LABEL_WINDOW_PORTRAIT_DEX_NUMBER 17
 #define PSS_LABEL_WINDOW_PORTRAIT_NICKNAME 18 // The upper name
 #define PSS_LABEL_WINDOW_PORTRAIT_SPECIES 19 // The lower name
-#define PSS_LABEL_WINDOW_END 20
+
+// Button control text (upper right) for the Pokemon Skills page
+#define PSS_LABEL_WINDOW_PROMPT_IVS 20
+#define PSS_LABEL_WINDOW_PROMPT_EVS 21
+#define PSS_LABEL_WINDOW_PROMPT_STATS 22
+
+#define PSS_LABEL_WINDOW_END 23
 
 // Dynamic fields for the Pokemon Info page
 #define PSS_DATA_WINDOW_INFO_ORIGINAL_TRAINER 0
@@ -155,7 +161,7 @@ static EWRAM_DATA struct PokemonSummaryScreenData
     u8 secondMoveIndex;
     bool8 unk40C8;
     u8 bgDisplayOrder; // Determines the order page backgrounds are loaded while scrolling between them
-    u8 filler40CA;
+    u8 currStatWindow;
     u8 windowIds[8];
     u8 spriteIds[28];
     bool8 unk40EF;
@@ -543,6 +549,33 @@ static const struct WindowTemplate sSummaryTemplate[] =
         .paletteNum = 6,
         .baseBlock = 413,
     },
+    [PSS_LABEL_WINDOW_PROMPT_IVS] = {
+        .bg = 0,
+        .tilemapLeft = 22,
+        .tilemapTop = 0,
+        .width = 8,
+        .height = 2,
+        .paletteNum = 7,
+        .baseBlock = 679,
+    },
+    [PSS_LABEL_WINDOW_PROMPT_EVS] = {
+        .bg = 0,
+        .tilemapLeft = 22,
+        .tilemapTop = 0,
+        .width = 8,
+        .height = 2,
+        .paletteNum = 7,
+        .baseBlock = 679 + 16,
+    },
+    [PSS_LABEL_WINDOW_PROMPT_STATS] = {
+        .bg = 0,
+        .tilemapLeft = 22,
+        .tilemapTop = 0,
+        .width = 8,
+        .height = 2,
+        .paletteNum = 7,
+        .baseBlock = 679 + 2*16,
+    },
     [PSS_LABEL_WINDOW_END] = DUMMY_WIN_TEMPLATE
 };
 static const struct WindowTemplate sPageInfoTemplate[] =
@@ -705,6 +738,10 @@ static const u8 sStatsLeftColumnLayoutIV[] = _("IVs/{SPECIAL_F7 0x00}\n{SPECIAL_
 static const u8 sStatsLeftColumnLayoutEV[] = _("EVs/{SPECIAL_F7 0x00}\n{SPECIAL_F7 0x01}\n{SPECIAL_F7 0x02}");
 static const u8 sStatsRightColumnLayout[] = _("{SPECIAL_F7 0x00}\n{SPECIAL_F7 0x01}\n{SPECIAL_F7 0x02}");
 static const u8 sMovesPPLayout[] = _("{PP}{SPECIAL_F7 0x00}/{SPECIAL_F7 0x01}");
+
+static const u8 sEVs[] = _("EVs");
+static const u8 sIVs[] = _("IVs");
+static const u8 sSTATS[] = _("STATS");
 
 #define TAG_MOVE_TYPES 30002
 #define TAG_SPLIT_ICONS 30004
@@ -1169,6 +1206,7 @@ void ShowPokemonSummaryScreen(u8 mode, void *mons, u8 monIndex, u8 maxMonIndex, 
     }
 
     sMonSummaryScreen->currPageIndex = sMonSummaryScreen->minPageIndex;
+    sMonSummaryScreen->currStatWindow = 2;
     sMonSummaryScreen->splitIconSpriteId = 0xFF;
     SummaryScreen_SetUnknownTaskId(-1);
 
@@ -1615,34 +1653,24 @@ static void HandleInput(u8 taskId)
                     sub_81C0E48(taskId);
                 }
             }
+            else
+            {
+                u8 nextStatWindow;
+                // show EVs/IVs/stats on button presses
+                sMonSummaryScreen->currStatWindow += 2; // stats -> EVs -> IVs -> stats
+                sMonSummaryScreen->currStatWindow %= 3;
+                ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_IVS + sMonSummaryScreen->currStatWindow);
+                nextStatWindow = (sMonSummaryScreen->currStatWindow+2)%3;
+                PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_IVS + nextStatWindow);
+                schedule_bg_copy_tilemap_to_vram(0);
+                BufferIvOrEvStats(sMonSummaryScreen->currStatWindow);
+            }
         }
         else if (gMain.newKeys & B_BUTTON)
         {
             StopPokemonAnimations();
             PlaySE(SE_SELECT);
             BeginCloseSummaryScreen(taskId);
-        }
-        // show IVs/EVs/stats on button presses
-        else if (gMain.newKeys & R_BUTTON)
-        {
-            if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS)
-            {
-                BufferIvOrEvStats(0);
-            }
-        }
-        else if (gMain.newKeys & L_BUTTON)
-        {
-            if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS)
-            {
-                BufferIvOrEvStats(1);
-            }
-        }
-        else if (gMain.newKeys & START_BUTTON)
-        {
-            if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS)
-            {
-                BufferIvOrEvStats(2);
-            }
         }
     }
 }
@@ -1693,6 +1721,10 @@ static void ChangeSummaryPokemon(u8 taskId, s8 delta)
                 sub_81C2074(0, 2);
             }
             sMonSummaryScreen->curMonIndex = v1;
+            if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS) {
+                ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_IVS + (sMonSummaryScreen->currStatWindow+2)%3);
+                sMonSummaryScreen->currStatWindow = 2;
+            }
             gTasks[taskId].data[0] = 0;
             gTasks[taskId].func = sub_81C0704;
         }
@@ -1848,6 +1880,8 @@ static void ChangePage(u8 taskId, s8 delta)
     PlaySE(SE_SELECT);
     ClearPageWindowTilemaps(sMonSummaryScreen->currPageIndex);
     sMonSummaryScreen->currPageIndex += delta;
+    if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS)
+        sMonSummaryScreen->currStatWindow = 2;
     data[0] = 0;
     if (delta == 1)
         SetTaskFuncWithFollowupFunc(taskId, PssScrollRight, gTasks[taskId].func);
@@ -2922,6 +2956,27 @@ static void PrintPageNamesAndStatsPageToWindows(void)
     PrintAOrBButtonIcon(PSS_LABEL_WINDOW_PROMPT_CANCEL, FALSE, iconXPos);
     SummaryScreen_PrintTextOnWindow(PSS_LABEL_WINDOW_PROMPT_CANCEL, gText_Cancel2, stringXPos, 1, 0, 0);
 
+    stringXPos = GetStringRightAlignXOffset(1, sEVs, 0x3E);
+    iconXPos = stringXPos - 16;
+    if (iconXPos < 0)
+        iconXPos = 0;
+    PrintAOrBButtonIcon(PSS_LABEL_WINDOW_PROMPT_EVS, FALSE, iconXPos);
+    SummaryScreen_PrintTextOnWindow(PSS_LABEL_WINDOW_PROMPT_EVS, sEVs, stringXPos, 1, 0, 0);
+
+    stringXPos = GetStringRightAlignXOffset(1, sIVs, 0x3E);
+    iconXPos = stringXPos - 16;
+    if (iconXPos < 0)
+        iconXPos = 0;
+    PrintAOrBButtonIcon(PSS_LABEL_WINDOW_PROMPT_IVS, FALSE, iconXPos);
+    SummaryScreen_PrintTextOnWindow(PSS_LABEL_WINDOW_PROMPT_IVS, sIVs, stringXPos, 1, 0, 0);
+
+    stringXPos = GetStringRightAlignXOffset(1, sSTATS, 0x3E);
+    iconXPos = stringXPos - 16;
+    if (iconXPos < 0)
+        iconXPos = 0;
+    PrintAOrBButtonIcon(PSS_LABEL_WINDOW_PROMPT_STATS, FALSE, iconXPos);
+    SummaryScreen_PrintTextOnWindow(PSS_LABEL_WINDOW_PROMPT_STATS, sSTATS, stringXPos, 1, 0, 0);
+
     stringXPos = GetStringRightAlignXOffset(1, gText_Info, 0x3E);
     iconXPos = stringXPos - 16;
     if (iconXPos < 0)
@@ -2979,6 +3034,7 @@ static void CreatePageWindowTilemaps(u8 page)
             break;
         case PSS_PAGE_SKILLS:
             PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_TITLE);
+            PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_EVS);
             PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_LEFT);
             PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_RIGHT);
             PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP);
@@ -3029,6 +3085,7 @@ static void ClearPageWindowTilemaps(u8 page)
             ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_INFO_TYPE);
             break;
         case PSS_PAGE_SKILLS:
+            ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_IVS + (sMonSummaryScreen->currStatWindow+2)%3);
             ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_LEFT);
             ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_RIGHT);
             ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP);
@@ -3398,6 +3455,8 @@ static void PrintSkillsPageText(void)
     BufferRightColumnStats();
     PrintRightColumnStats();
     PrintExpPointsNextLevel();
+    PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_EVS);
+    schedule_bg_copy_tilemap_to_vram(0);
 }
 
 static void Task_PrintSkillsPage(u8 taskId)
