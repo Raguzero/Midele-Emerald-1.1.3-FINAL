@@ -3093,10 +3093,10 @@ static void ClearPageWindowTilemaps(u8 page)
         case PSS_PAGE_BATTLE_MOVES:
             if (sMonSummaryScreen->mode == PSS_MODE_SELECT_MOVE)
             {
-                if (sMonSummaryScreen->newMove != MOVE_NONE || sMonSummaryScreen->firstMoveIndex != MAX_MON_MOVES)
-                    ClearWindowTilemap(PSS_LABEL_WINDOW_MOVES_POWER_ACC);{
-					gSprites[sMonSummaryScreen->splitIconSpriteId].invisible = TRUE;
-				}
+                if (sMonSummaryScreen->newMove != MOVE_NONE || sMonSummaryScreen->firstMoveIndex != MAX_MON_MOVES) {
+                    ClearWindowTilemap(PSS_LABEL_WINDOW_MOVES_POWER_ACC);
+                    gSprites[sMonSummaryScreen->splitIconSpriteId].invisible = TRUE;
+                }
             }
             else
             {
