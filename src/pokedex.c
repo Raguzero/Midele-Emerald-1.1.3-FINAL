@@ -6246,11 +6246,36 @@ static void DestroyMoveIcon(u8 taskId)
     FreeSpriteOamMatrix(&gSprites[gTasks[taskId].data[3]]); //Destroy item icon
     DestroySprite(&gSprites[gTasks[taskId].data[3]]);       //Destroy item icon
 }
+
+u16 GetPreSpecies(species) {
+    u16 first_in_chain = GetEggSpecies(species);
+    if (first_in_chain == species)
+        return species;
+
+    switch(first_in_chain) { // at this point, first_in_chain is NOT species
+        case SPECIES_AZURILL:
+            return SPECIES_MARILL;
+        case SPECIES_BUDEW:
+            return SPECIES_ROSELIA;
+        case SPECIES_HAPPINY:
+            return SPECIES_CHANSEY;
+        case SPECIES_WYNAUT:
+        case SPECIES_MUNCHLAX:
+        case SPECIES_BONSLY:
+        case SPECIES_CHINGLING:
+        case SPECIES_MIMEJR:
+        case SPECIES_MANTYKE:
+            return species;   // Wobbuffet, Snorlax, and so on
+        default:
+            return first_in_chain;
+    }
+}
+
 static bool8 CalculateMoves(void)
 {
     //Moves
     u16 species = NationalPokedexNumToSpecies(sPokedexListItem->dexNum);
-    u8 numEggMoves = GetEggMovesSpecies(species, sStatsMovesEgg);
+    u8 numEggMoves = GetEggMovesSpecies(GetPreSpecies(species), sStatsMovesEgg);
     u8 numLevelUpMoves = GetLevelUpMovesBySpecies(species, sStatsMovesLevelUp);
     u8 numTMHMMoves;
     u8 numTutorMoves = 0;
