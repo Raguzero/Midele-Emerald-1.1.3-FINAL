@@ -3914,7 +3914,10 @@ static void PrintMoveDetails(u16 move)
     {
         if (sMonSummaryScreen->currPageIndex == PSS_MODE_BOX)
         {
-            ShowSplitIcon(GetBattleMoveSplit(move));
+            u8 category = GetBattleMoveSplit(move);
+			if (move == MOVE_HIDDEN_POWER)
+			category = IS_TYPE_SPECIAL(sMideleHiddenPowerType);
+			ShowSplitIcon(category);
             PrintMovePowerAndAccuracy(move);
             SummaryScreen_PrintTextOnWindow(windowId, gMoveDescriptionPointers[move - 1], 6, 1, 0, 0);
         }
@@ -4143,8 +4146,12 @@ static void SetNewMoveTypeIcon(void)
     }
     else
     {
-        if (sMonSummaryScreen->currPageIndex == 2)
-            SetMoveTypeSpritePosAndType(gBattleMoves[sMonSummaryScreen->newMove].type, 85, 96, 7);
+        if (sMonSummaryScreen->currPageIndex == 2) {
+            if (sMonSummaryScreen->newMove == MOVE_HIDDEN_POWER)
+                SetMoveTypeSpritePosAndType(sMideleHiddenPowerType, 85, 96, 7);
+            else
+                SetMoveTypeSpritePosAndType(gBattleMoves[sMonSummaryScreen->newMove].type, 85, 96, 7);
+        }
         else
             SetMoveTypeSpritePosAndType(NUMBER_OF_MON_TYPES + gContestMoves[sMonSummaryScreen->newMove].contestCategory, 85, 96, 7);
     }
