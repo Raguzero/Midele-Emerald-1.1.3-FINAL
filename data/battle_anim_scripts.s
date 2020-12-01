@@ -11414,12 +11414,13 @@ General_ItemEffect:
 	playsewithpan SE_W036, SOUND_PAN_ATTACKER
 	createvisualtask sub_80D622C, 2, 16, 128, 0, 2
 	waitforvisualfinish
-	playsewithpan SE_W036, SOUND_PAN_ATTACKER
-	createvisualtask sub_80D622C, 2, 16, 128, 0, 2
-	waitforvisualfinish
-	playsewithpan SE_W234, SOUND_PAN_ATTACKER
-	call GrantingStarsEffect
-	waitforvisualfinish
+@   ----Speed up held item anim----
+@	playsewithpan SE_W036, SOUND_PAN_ATTACKER
+@	createvisualtask sub_80D622C, 2, 16, 128, 0, 2
+@	waitforvisualfinish
+@	playsewithpan SE_W234, SOUND_PAN_ATTACKER
+@	call GrantingStarsEffect
+@	waitforvisualfinish 
 	playsewithpan SE_REAPOKE, SOUND_PAN_ATTACKER
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 2, 3, 7, 0, RGB(17, 31, 25)
 	createsprite gThinRingExpandingSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 0, 0
