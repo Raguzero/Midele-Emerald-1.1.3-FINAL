@@ -8307,8 +8307,22 @@ void CreateShinyMonWithNature(struct Pokemon *mon, u16 species, u8 level, u8 nat
     do
     {
         personality = Random32();
-        personality = ((((Random() % 8) ^ (HIHALF(otid) ^ LOHALF(otid))) ^ LOHALF(personality)) << 16) | LOHALF(personality);
+        personality = ((((HIHALF(personality) & 0x007F) ^ (HIHALF(otid) ^ LOHALF(otid))) ^ LOHALF(personality)) << 16) | LOHALF(personality);
     } while (nature != GetNatureFromPersonality(personality));
+
+    CreateMon(mon, species, level, 32, 1, personality, OT_ID_PRESET, otid);
+}
+
+void CreateShinyMon(struct Pokemon *mon, u16 species, u8 level)
+{
+    u32 personality;
+    u32 otid = gSaveBlock2Ptr->playerTrainerId[0]
+              | (gSaveBlock2Ptr->playerTrainerId[1] << 8)
+              | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
+              | (gSaveBlock2Ptr->playerTrainerId[3] << 24);
+
+    personality = Random32();
+    personality = ((((HIHALF(personality) & 0x007F) ^ (HIHALF(otid) ^ LOHALF(otid))) ^ LOHALF(personality)) << 16) | LOHALF(personality);
 
     CreateMon(mon, species, level, 32, 1, personality, OT_ID_PRESET, otid);
 }

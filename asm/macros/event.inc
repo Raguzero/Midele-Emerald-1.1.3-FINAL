@@ -1696,6 +1696,23 @@
     
     .macro givemonmoves species:req, level:req, move1:req, move2:req, move3:req, move4:req
     customgivemon \species, \level, 0, 0, 25, 0xFF, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, \move1, \move2, \move3, \move4, 0
+    .endm
+
+@ New Custom Wild Battle
+	.macro setwildbattlecustom species:req, level:req, item:req, move1:req, move2:req, move3:req, move4:req, isShiny
+    .byte 0xe6
+    .2byte \species
+    .byte \level
+    .2byte \item
+	.2byte \move1
+    .2byte \move2
+    .2byte \move3
+    .2byte \move4
+    .ifb \isShiny
+        .byte 0
+    .else
+        .byte \isShiny
+    .endif
     .endm	
 
 @ Supplementary

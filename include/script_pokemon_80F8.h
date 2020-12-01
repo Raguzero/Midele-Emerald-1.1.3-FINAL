@@ -8,4 +8,5 @@ void CreateScriptedWildMon(u16, u8, u16);
 void ScriptSetMonMoveSlot(u8, u16, u8);
 u8 ScriptGiveCustomMon(u16 species, u8 level, u16 item, u8 ball, u8 nature, u8 abilityNum, u8 *evs, u8 *ivs, u16 *moves, bool8 isShiny);
 u8 GiveMonWithLevelAndAbilityNum(u16 species, u8 level, u16 item, u8 abilityNum);
+void CreateScriptedWildShinyMon(u16, u8, u16);
 #endif

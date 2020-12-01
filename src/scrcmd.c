@@ -2370,3 +2370,26 @@ bool8 ScrCmd_givecustommon(struct ScriptContext *ctx)
     gSpecialVar_Result = ScriptGiveCustomMon(species, level, item, ball, nature, abilityNum, evs, ivs, moves, isShiny);
     return FALSE;
 }
+
+bool8 ScrCmd_setwildbattlecustom(struct ScriptContext *ctx)
+{
+    u16 species = ScriptReadHalfword(ctx);
+    u8 level = ScriptReadByte(ctx);
+    u16 item = ScriptReadHalfword(ctx);
+	u16 m0 = ScriptReadHalfword(ctx);
+    u16 m1 = ScriptReadHalfword(ctx);
+    u16 m2 = ScriptReadHalfword(ctx);
+    u16 m3 = ScriptReadHalfword(ctx);
+	bool8 isShiny = ScriptReadByte(ctx);
+	struct Pokemon *pkmn = &gEnemyParty[0];
+    if (isShiny)
+    CreateScriptedWildShinyMon(species, level, item);
+  else
+    CreateScriptedWildMon(species, level, item);
+	SetMonMoveSlot(pkmn, m0, 0);
+    SetMonMoveSlot(pkmn, m1, 1);
+    SetMonMoveSlot(pkmn, m2, 2);
+    SetMonMoveSlot(pkmn, m3, 3);
+	
+    return FALSE;
+}

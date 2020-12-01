@@ -128,7 +128,7 @@ BattleFrontier_OutsideEast_EventScript_WaterSudowoodo:: @ 8242CFC
 	delay 40
 	waitmoncry
 	setvar VAR_LAST_TALKED, 14  @ Sudowoodo object event id
-	setwildbattle SPECIES_SUDOWOODO, 40, ITEM_NONE
+	setwildbattlecustom SPECIES_SUDOWOODO, 60, ITEM_LEFTOVERS, MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_BRICK_BREAK, MOVE_ROCK_POLISH, YES
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	dowildbattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE

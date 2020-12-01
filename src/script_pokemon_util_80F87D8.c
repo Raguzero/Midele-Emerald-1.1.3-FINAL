@@ -685,6 +685,29 @@ void CreateScriptedWildMon(u16 species, u8 level, u16 item)
     }
 }
 
+void CreateScriptedWildShinyMon(u16 species, u8 level, u16 item)
+{
+    u8 heldItem[2];
+
+    ZeroEnemyPartyMons();
+    // Scripted wild mons always get the nature from a synchronize mon leading the party
+    if (!GetMonData(&gPlayerParty[0], MON_DATA_SANITY_IS_EGG) && GetMonAbility(&gPlayerParty[0]) == ABILITY_SYNCHRONIZE)
+    {
+        u8 nature = GetNature(&gPlayerParty[0]);
+        CreateShinyMonWithNature(&gEnemyParty[0], species, level, nature);
+    }
+    else 
+    {
+        CreateShinyMon(&gEnemyParty[0], species, level);
+    }
+    if (item)
+    {
+        heldItem[0] = item;
+        heldItem[1] = item >> 8;
+        SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, heldItem);
+    }
+}
+
 void ScriptSetMonMoveSlot(u8 monIndex, u16 move, u8 slot)
 {
     if (monIndex > PARTY_SIZE)
