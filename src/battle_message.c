@@ -302,6 +302,8 @@ static const u8 sText_SlowStartEnds[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} put i
 static const u8 sText_PerishBody[] = _("Both Pokémon will faint\nin 3 turns!");
 static const s8 sText_PowerHerbActivation[] = _("{B_ATK_NAME_WITH_PREFIX} became fully charged\ndue to its POWER HERB!");
 static const u8 sText_PkmnTrappedByThunderCage[] = _("{B_DEF_NAME_WITH_PREFIX} was trapped\nby THUNDER CAGE!");
+static const u8 sText_drastically[] = _("drastically ");
+static const u8 sText_severely[] = _("severely ");
 // NUEVO HABILIDADES
 static const u8 sText_TotemAura[] = _("Totem {B_OPPONENT_MON1_NAME}'s aura flared to life!");
 static const u8 sText_PkmnsXIntensifiedSun[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\nintensified the sun's rays!");
@@ -925,6 +927,8 @@ const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 	[STRINGID_PERISHBODY - 12] = sText_PerishBody,
     [STRINGID_POWERHERB - 12] = sText_PowerHerbActivation,
     [STRINGID_TRAPPEDBYTHUNDERCAGE - 12] = sText_PkmnTrappedByThunderCage,
+	[STRINGID_DRASTICALLY - 12] = sText_drastically,
+	[STRINGID_SEVERELY - 12] = sText_severely,
 	// NUEVO HABILIDADES
 };
 
