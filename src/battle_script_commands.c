@@ -1106,7 +1106,7 @@ static bool8 AccuracyCalcHelper(u16 move)
 
     if ((WEATHER_HAS_EFFECT && (gBattleWeather & WEATHER_RAIN_ANY) && gBattleMoves[move].effect == EFFECT_THUNDER)
 		|| (((gBattleWeather & WEATHER_HAIL_ANY) && move == MOVE_BLIZZARD))
-     || (gBattleMoves[move].effect == EFFECT_ALWAYS_HIT || gBattleMoves[move].effect == EFFECT_VITAL_THROW))
+     || (gBattleMoves[move].effect == EFFECT_ALWAYS_HIT || gBattleMoves[move].effect == EFFECT_VITAL_THROW || gCurrentMove == MOVE_STRUGGLE))
     {
         JumpIfMoveFailed(7, move);
         return TRUE;
@@ -1214,7 +1214,7 @@ static void Cmd_attackstring(void)
     if (gBattleControllerExecFlags)
          return;
 	 
-		if (gBattleMons[gBattlerAttacker].ability == ABILITY_PROTEAN)
+		if (gBattleMons[gBattlerAttacker].ability == ABILITY_PROTEAN && gCurrentMove != MOVE_STRUGGLE)
 	{
 		u8 moveType = gBattleMoves[gCurrentMove].type;
 		if (gBattleStruct->dynamicMoveType & 0x3F)
