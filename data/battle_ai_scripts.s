@@ -1225,6 +1225,7 @@ AI_CV_SpeedDownFromChance: @ 82DCE6B
 	if_move MOVE_ICY_WIND, AI_CV_SpeedDown
 	if_move MOVE_ROCK_TOMB, AI_CV_SpeedDown
 	if_move MOVE_MUD_SHOT, AI_CV_SpeedDown
+	if_move MOVE_ELECTROWEB, AI_CV_SpeedDown
 	end
 
 AI_CV_SpeedDown: @ 82DCE81
@@ -2359,6 +2360,8 @@ AI_CV_MirrorCoat_SpecialTypeList:
     .byte -1
 
 AI_CV_ChargeUpMove:
+	get_hold_effect AI_USER
+	if_equal HOLD_EFFECT_POWER_HERB, AI_CV_ChargeUpMove_ScoreUp2
 	if_type_effectiveness AI_EFFECTIVENESS_x0_25, AI_CV_ChargeUpMove_ScoreDown2
 	if_type_effectiveness AI_EFFECTIVENESS_x0_5, AI_CV_ChargeUpMove_ScoreDown2
 	if_has_move_with_effect AI_TARGET, EFFECT_PROTECT, AI_CV_ChargeUpMove_ScoreDown2
@@ -2371,6 +2374,10 @@ AI_CV_ChargeUpMove_ScoreDown2:
 
 AI_CV_ChargeUpMove_End:
 	end
+
+AI_CV_ChargeUpMove_ScoreUp2:
+	score +2
+	goto AI_CV_ChargeUpMove_End
 
 AI_CV_SemiInvulnerable:
 	if_doesnt_have_move_with_effect AI_TARGET, EFFECT_PROTECT, AI_CV_SemiInvulnerable2
@@ -2997,6 +3004,9 @@ AI_PreferBatonPass_GoForBatonPass:
 	if_move MOVE_SWORDS_DANCE, AI_PreferBatonPass2
 	if_move MOVE_DRAGON_DANCE, AI_PreferBatonPass2
 	if_move MOVE_CALM_MIND, AI_PreferBatonPass2
+	if_move MOVE_NASTY_PLOT, AI_PreferBatonPass2
+	if_move MOVE_QUIVER_DANCE, AI_PreferBatonPass2
+	if_move MOVE_COIL, AI_PreferBatonPass2
 	if_effect EFFECT_PROTECT, AI_PreferBatonPass_End
 	if_move MOVE_BATON_PASS, AI_PreferBatonPass_EncourageIfHighStats
 	if_random_less_than 20, AI_Risky_End
@@ -3167,6 +3177,7 @@ AI_HEALPULSEALLY:
 
 AI_TrySwaggerOnAlly:
 	if_holds_item AI_TARGET, ITEM_PERSIM_BERRY, AI_TrySwaggerOnAlly2
+	if_holds_item AI_TARGET, ITEM_LUM_BERRY, AI_TrySwaggerOnAlly2
 	if_ability AI_USER_PARTNER, ABILITY_OWN_TEMPO, AI_TrySwaggerOnAlly2
 	goto Score_Minus30_
 

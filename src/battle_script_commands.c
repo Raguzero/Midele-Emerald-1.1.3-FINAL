@@ -1130,7 +1130,7 @@ static void Cmd_accuracycheck(void)
     }
     else
     {
-        u8 type, moveAcc, holdEffect, param;
+        u8 type, moveAcc, holdEffect, param, newEvasion;
         s8 buff;
         u16 calc;
 
@@ -1143,6 +1143,9 @@ static void Cmd_accuracycheck(void)
             return;
         if (AccuracyCalcHelper(move))
             return;
+		newEvasion = gBattleMons[gBattlerTarget].statStages[STAT_EVASION];
+        if (gBattleMons[gBattlerAttacker].ability == ABILITY_KEEN_EYE && newEvasion > 6)
+            newEvasion = 6;
 
         if (gBattleMons[gBattlerTarget].status2 & STATUS2_FORESIGHT)
         {
@@ -1152,7 +1155,7 @@ static void Cmd_accuracycheck(void)
         else
         {
             u8 acc = gBattleMons[gBattlerAttacker].statStages[STAT_ACC];
-            buff = acc + 6 - gBattleMons[gBattlerTarget].statStages[STAT_EVASION];
+            buff = acc + 6 - newEvasion;
         }
 
         if (buff < 0)
