@@ -98,6 +98,17 @@ LittlerootTown_DebugRoom_Script_ActivarTodo::
 	// setflag FLAG_TOTEM_NEWMAUVILLE    PARA PROBAR EL TOTEM DE NEWMAUVILLE Y HACER QUE NO APAREZCA SU OVERWORLD POR DEFECTO SI ACTIVAMOS ESTE SETFLAG, Y EVITAMOS TENER QUE EMPEZAR PARTIDA
     // Sootopolis tras derrotar el gym
     setvar VAR_SOOTOPOLIS_CITY_STATE, 6
+	giveitem ITEM_POTION, 2
+    giveitem ITEM_ORAN_BERRY, 3
+    giveitem ITEM_G_CALCIUM, 1
+    giveitem ITEM_G_CARBOS, 1
+    giveitem ITEM_G_PROTEIN, 1
+    giveitem ITEM_G_IRON, 1
+    giveitem ITEM_G_ZINC, 1
+    giveitem ITEM_G_HP_UP, 1
+    giveitem ITEM_GOLDEN_CANDY, 1
+    giveitem ITEM_SWEET_HEART, 1
+	giveitem ITEM_MASTER_BALL, 99
     end
 
 @ Magnemite desactiva eventos
