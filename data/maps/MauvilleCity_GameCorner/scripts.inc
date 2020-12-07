@@ -306,9 +306,9 @@ MauvilleCity_GameCorner_EventScript_BuyTM32:: @ 820FFDD
 	checkcoins VAR_TEMP_2
 	compare VAR_TEMP_2, TM32_COINS
 	goto_if_lt MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM
-	checkitemspace ITEM_TM32, 1
-	compare VAR_RESULT, FALSE
-	goto_if_eq MauvilleCity_GameCorner_EventScript_NoRoomForTM
+	checkitem ITEM_TM32, 1
+    compare VAR_RESULT, TRUE
+    goto_if_eq MauvilleCity_GameCorner_EventScript_YouAlreadyHaveThis
 	removecoins TM32_COINS
 	additem ITEM_TM32
 	updatecoinsbox 1, 1
@@ -336,9 +336,9 @@ MauvilleCity_GameCorner_EventScript_BuyTM35:: @ 8210051
 	checkcoins VAR_TEMP_2
 	compare VAR_TEMP_2, TM35_COINS
 	goto_if_lt MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM
-	checkitemspace ITEM_TM35, 1
-	compare VAR_RESULT, FALSE
-	goto_if_eq MauvilleCity_GameCorner_EventScript_NoRoomForTM
+	checkitem ITEM_TM35, 1
+    compare VAR_RESULT, TRUE
+    goto_if_eq MauvilleCity_GameCorner_EventScript_YouAlreadyHaveThis
 	removecoins TM35_COINS
 	additem ITEM_TM35
 	updatecoinsbox 1, 1
@@ -382,8 +382,8 @@ MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM:: @ 82100FF
 	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseTMPrize
 	end
 
-MauvilleCity_GameCorner_EventScript_NoRoomForTM:: @ 821010D
-	call Common_EventScript_BagIsFull
+MauvilleCity_GameCorner_EventScript_YouAlreadyHaveThis::
+    msgbox gText_YouAlreadyHaveThis, MSGBOX_DEFAULT
 	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseTMPrize
 	end
 
