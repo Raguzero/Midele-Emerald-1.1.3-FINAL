@@ -1850,16 +1850,16 @@ const u8 gText_DomeFossil[] = _("DOME FOSSIL");
 const u8 gText_OldAmber[] = _("OLD AMBER");
 
 // NUEVO POKES CASINO
-const u8 gText_Bulbasaur[] = _("FERROSEED{CLEAR_TO 0x48}1500 Coins");
-const u8 gText_Charmander[] = _("SANDYGAST{CLEAR_TO 0x48}1200 Coins");
-const u8 gText_Squirtle[] = _("SNOM{CLEAR_TO 0x48}1000 Coins");
-const u8 gText_Chikorita[] = _("PINECO{CLEAR_TO 0x48}500 Coins");
-const u8 gText_Cyndaquil[] = _("MEDITITE{CLEAR_TO 0x48}1300 Coins");
-const u8 gText_Totodile[] = _("SPHEAL{CLEAR_TO 0x48}800 Coins");
-const u8 gText_Treecko[] = _("CUBONE{CLEAR_TO 0x48}500 Coins");
-const u8 gText_Torchic[] = _("VENONAT{CLEAR_TO 0x48}500 Coins");
-const u8 gText_Mudkip[] = _("HAPPINY{CLEAR_TO 0x48}2500 Coins");
-const u8 gText_Turtwig[] = _("GRUBBIN{CLEAR_TO 0x48}800 Coins");
+const u8 gText_Bulbasaur[] = _("FERROSEED{CLEAR_TO 0x48}1500 COINS");
+const u8 gText_Charmander[] = _("SANDYGAST{CLEAR_TO 0x48}1200 COINS");
+const u8 gText_Squirtle[] = _("SNOM{CLEAR_TO 0x48}1000 COINS");
+const u8 gText_Chikorita[] = _("PINECO{CLEAR_TO 0x48}500 COINS");
+const u8 gText_Cyndaquil[] = _("MEDITITE{CLEAR_TO 0x48}1300 COINS");
+const u8 gText_Totodile[] = _("SPHEAL{CLEAR_TO 0x48}800 COINS");
+const u8 gText_Treecko[] = _("CUBONE{CLEAR_TO 0x48}500 COINS");
+const u8 gText_Torchic[] = _("VENONAT{CLEAR_TO 0x48}500 COINS");
+const u8 gText_Mudkip[] = _("HAPPINY{CLEAR_TO 0x48}2500 COINS");
+const u8 gText_Turtwig[] = _("GRUBBIN{CLEAR_TO 0x48}800 COINS");
 const u8 gText_Individual[] = _("INDIVIDUAL");
 const u8 gText_Dobles[] = _("DOBLES");
 
@@ -1889,14 +1889,14 @@ const u8 gText_SassyNature[] = _("SASSY");
 const u8 gText_CarefulNature[] = _("CAREFUL");
 const u8 gText_QuirkyNature[] = _("QUIRKY");
 
-const u8 gText_AlteringCaveGen1[] = _("Gen 1");
-const u8 gText_AlteringCaveGen2[] = _("Gen 2");
-const u8 gText_AlteringCaveGen3[] = _("Gen 3");
-const u8 gText_AlteringCaveGen4[] = _("Gen 4");
-const u8 gText_AlteringCaveGen5[] = _("Gen 5");
-const u8 gText_AlteringCaveGen6[] = _("Gen 6");
-const u8 gText_AlteringCaveGen7[] = _("Gen 7");
-const u8 gText_AlteringCaveGen8[] = _("Gen 8");
+const u8 gText_AlteringCaveGen1[] = _("GEN 1");
+const u8 gText_AlteringCaveGen2[] = _("GEN 2");
+const u8 gText_AlteringCaveGen3[] = _("GEN 3");
+const u8 gText_AlteringCaveGen4[] = _("GEN 4");
+const u8 gText_AlteringCaveGen5[] = _("GEN 5");
+const u8 gText_AlteringCaveGen6[] = _("GEN 6");
+const u8 gText_AlteringCaveGen7[] = _("GEN 7");
+const u8 gText_AlteringCaveGen8[] = _("GEN 8");
 
 const u8 gText_Deoxys[]    =     _("NORMAL");
 const u8 gText_Deoxys_Attack[] =  _("ATTACK");
@@ -1920,7 +1920,7 @@ const u8 gText_Red2[] =  _("RED");
 const u8 gText_Leaf[] =  _("LEAF");
 
 // NO COMPRA MTS REPES
-const u8 gText_YouAlreadyHaveThis[] = _("You already have this item.{PAUSE_UNTIL_PRESS}");
+const u8 gText_YouAlreadyHaveThis[] = _("You already have this item.");
 
 // NUEVOS MUÑECOS COMPRABLES POR PB
 const u8 gText_RegirockDoll256BP[] = _("REGIROCK DOLL{CLEAR_TO 0x58}18BP");
@@ -1929,18 +1929,18 @@ const u8 gText_RegisteelDoll256BP[] = _("REGISTEEL DOLL{CLEAR_TO 0x58}18BP");
 
 // Contador de pasos de huevo
 const u8 gText_EggHatch[] = _("/40");
-const u8 gText_EggHappiness[] = _("HAPPINESS");
+const u8 gText_EggHappiness[] = _("CYCLE STEPS:");
 
 // ASH QUANTITY
 const u8 gText_AshQty[] = _("ASH QTY:\n{STR_VAR_1}{PAUSE_UNTIL_PRESS}");
 
-const u8 gText_Sunday[] = _("Sunday");
-const u8 gText_Monday[] = _("Monday");
-const u8 gText_Tuesday[] = _("Tuesday");
-const u8 gText_Wednesday[] = _("Wednesday");
-const u8 gText_Thursday[] = _("Thursday");
-const u8 gText_Friday[] = _("Friday");
-const u8 gText_Saturday[] = _("Saturday");
+const u8 gText_Sunday[] = _("SUNDAY");
+const u8 gText_Monday[] = _("MONDAY");
+const u8 gText_Tuesday[] = _("TUESDAY");
+const u8 gText_Wednesday[] = _("WEDNESDAY");
+const u8 gText_Thursday[] = _("THURSDAY");
+const u8 gText_Friday[] = _("FRIDAY");
+const u8 gText_Saturday[] = _("SATURDAY");
 
 //HGSS_Ui PokedexPlus
 const u8 gText_Stats_EV[]          = _("EV: ");

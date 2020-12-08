@@ -1557,6 +1557,7 @@ static const struct TrainerMonCustomMidele sParty_Steven[] = {
     .species = SPECIES_METAGROSS,
     .heldItem = ITEM_LUM_BERRY,
 	.nature = NATURE_BRAVE,
+	.shiny = 1,
 	.evs = {0, 252, 0, 252, 0, 6},
     .moves = {MOVE_EARTHQUAKE, MOVE_PSYCHIC, MOVE_METEOR_MASH, MOVE_ICE_PUNCH}
     }

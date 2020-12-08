@@ -85,7 +85,7 @@ MossdeepCity_StevensHouse_EventScript_LeaveBeldum:: @ 822285B
 
 MossdeepCity_StevensHouse_EventScript_GiveBeldum:: @ 8222865
 	setvar VAR_TEMP_1, SPECIES_BELDUM
-	givemon SPECIES_BELDUM, 5, ITEM_NONE
+	givecustommon SPECIES_BELDUM, 5, ITEM_METAL_COAT, ITEM_LUXURY_BALL, 25, FALSE, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, MOVE_TAKE_DOWN, MOVE_HEADBUTT, MOVE_IRON_HEAD, MOVE_IRON_DEFENSE, TRUE
 	compare VAR_RESULT, 0
 	goto_if_eq MossdeepCity_StevensHouse_EventScript_SendBeldumParty
 	compare VAR_RESULT, 1
