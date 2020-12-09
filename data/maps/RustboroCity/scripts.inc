@@ -846,41 +846,25 @@ RustboroCity_EventScript_MayEncounter:: @ 81E100B
 	goto_if_set FLAG_DEFEATED_RIVAL_RUSTBORO, RustboroCity_EventScript_MayBrineyHint
 	goto_if_set FLAG_MET_RIVAL_RUSTBORO, RustboroCity_EventScript_MayAskToBattle
 	setflag FLAG_MET_RIVAL_RUSTBORO
-	msgbox RustboroCity_Text_MayHiLetsRegister, MSGBOX_DEFAULT
-	closemessage
-	delay 30
-	playfanfare MUS_ME_TORE_EYE
-	msgbox RustboroCity_Text_RegisteredMay, MSGBOX_DEFAULT
-	waitfanfare
-	closemessage
-	delay 30
-	setflag FLAG_ENABLE_RIVAL_MATCH_CALL
-	setvar VAR_RUSTBORO_CITY_STATE, 8
-	setvar VAR_ROUTE104_STATE, 2
-	setvar VAR_0x8008, 0
-	msgbox RustboroCity_Text_MayPassedBrineyWantToBattle, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq RustboroCity_EventScript_BattleMay
-	msgbox RustboroCity_Text_MayOhHaventRaisedPokemonEnough, MSGBOX_DEFAULT
-	call RustboroCity_EventScript_RestoreBgm
-	releaseall
-	end
-
-RustboroCity_EventScript_MayAskToBattle:: @ 81E1070
-	setvar VAR_0x8008, 1
-	msgbox RustboroCity_Text_MayWantToBattle, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq RustboroCity_EventScript_BattleMay
-	msgbox RustboroCity_Text_MayOhHaventRaisedPokemonEnough, MSGBOX_DEFAULT
-	releaseall
-	end
-
-RustboroCity_EventScript_BattleMay:: @ 81E1092
+	msgbox RustboroCity_Text_MayPassedBrineyWantToBattle, MSGBOX_DEFAULT
 	msgbox RustboroCity_Text_MayImNotGoingToLose, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
 	case 0, RustboroCity_EventScript_BattleMayTreecko
 	case 1, RustboroCity_EventScript_BattleMayTorchic
 	case 2, RustboroCity_EventScript_BattleMayMudkip
+	call RustboroCity_EventScript_RestoreBgm
+	releaseall
+	end
+
+RustboroCity_EventScript_MayAskToBattle:: @ 81E1070
+	msgbox RustboroCity_Text_MayPassedBrineyWantToBattle, MSGBOX_DEFAULT
+	msgbox RustboroCity_Text_MayImNotGoingToLose, MSGBOX_DEFAULT
+	switch VAR_STARTER_MON
+	case 0, RustboroCity_EventScript_BattleMayTreecko
+	case 1, RustboroCity_EventScript_BattleMayTorchic
+	case 2, RustboroCity_EventScript_BattleMayMudkip
+	call_if_eq RustboroCity_EventScript_RestoreBgm
+	releaseall
 	end
 
 RustboroCity_EventScript_MayBrineyHint:: @ 81E10C1
@@ -898,18 +882,51 @@ RustboroCity_EventScript_RestoreBgm:: @ 81E10D6
 RustboroCity_EventScript_BattleMayTreecko:: @ 81E10DB
 	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_TREECKO, RustboroCity_Text_MayDefeat
 	setflag FLAG_DEFEATED_RIVAL_RUSTBORO
+	msgbox RustboroCity_Text_MayHiLetsRegister, MSGBOX_DEFAULT
+	closemessage
+	delay 30
+	playfanfare MUS_ME_TORE_EYE
+	msgbox RustboroCity_Text_RegisteredMay, MSGBOX_DEFAULT
+	waitfanfare
+	closemessage
+	delay 30
+	setflag FLAG_ENABLE_RIVAL_MATCH_CALL
+	setvar VAR_RUSTBORO_CITY_STATE, 8
+	setvar VAR_ROUTE104_STATE, 2
 	goto RustboroCity_EventScript_MayBrineyHint
 	end
 
 RustboroCity_EventScript_BattleMayTorchic:: @ 81E10EE
 	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_TORCHIC, RustboroCity_Text_MayDefeat
 	setflag FLAG_DEFEATED_RIVAL_RUSTBORO
+	msgbox RustboroCity_Text_MayHiLetsRegister, MSGBOX_DEFAULT
+	closemessage
+	delay 30
+	playfanfare MUS_ME_TORE_EYE
+	msgbox RustboroCity_Text_RegisteredMay, MSGBOX_DEFAULT
+	waitfanfare
+	closemessage
+	delay 30
+	setflag FLAG_ENABLE_RIVAL_MATCH_CALL
+	setvar VAR_RUSTBORO_CITY_STATE, 8
+	setvar VAR_ROUTE104_STATE, 2
 	goto RustboroCity_EventScript_MayBrineyHint
 	end
 
 RustboroCity_EventScript_BattleMayMudkip:: @ 81E1101
 	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_MUDKIP, RustboroCity_Text_MayDefeat
 	setflag FLAG_DEFEATED_RIVAL_RUSTBORO
+	msgbox RustboroCity_Text_MayHiLetsRegister, MSGBOX_DEFAULT
+	closemessage
+	delay 30
+	playfanfare MUS_ME_TORE_EYE
+	msgbox RustboroCity_Text_RegisteredMay, MSGBOX_DEFAULT
+	waitfanfare
+	closemessage
+	delay 30
+	setflag FLAG_ENABLE_RIVAL_MATCH_CALL
+	setvar VAR_RUSTBORO_CITY_STATE, 8
+	setvar VAR_ROUTE104_STATE, 2
 	goto RustboroCity_EventScript_MayBrineyHint
 	end
 
@@ -1178,7 +1195,7 @@ RustboroCity_Text_PleaseComeWithMe: @ 81E1A21
 	.string "Please come with me!$"
 
 RustboroCity_Text_MayHiLetsRegister: @ 81E1A49
-	.string "{RIVAL}: Oh, hi, {PLAYER}{KUN}!\p"
+	.string "{RIVAL}: Oh, {PLAYER}{KUN}!\p"
 	.string "You had a MATCH CALL feature put\n"
 	.string "on your POKéNAV!\p"
 	.string "Let's register each other so we can\n"
@@ -1190,27 +1207,22 @@ RustboroCity_Text_RegisteredMay: @ 81E1ADB
 	.string "in the POKéNAV.$"
 
 RustboroCity_Text_MayPassedBrineyWantToBattle: @ 81E1AFA
-	.string "{RIVAL}: Oh, by the way, I passed\n"
+	.string "{RIVAL}: Oh, hi, {PLAYER}{KUN}!\p"
+	.string "How's your POKéDEX coming along,\n"
+	.string "{PLAYER}{KUN}? Mine's looking pretty decent!\p"
+	.string "Oh, by the way, I passed\n"
 	.string "MR. BRINEY in PETALBURG WOODS.\p"
 	.string "I guess he's on his way home to his\n"
 	.string "cottage by the sea.\p"
-	.string "How's your POKéDEX coming along,\n"
-	.string "{PLAYER}{KUN}? Mine's looking pretty decent!\p"
 	.string "So…\n"
 	.string "How about a little battle?$"
-
-RustboroCity_Text_MayOhHaventRaisedPokemonEnough: @ 81E1BD3
-	.string "{RIVAL}: Oh, what's the matter?\p"
-	.string "Haven't you caught or raised your\n"
-	.string "POKéMON very much?\p"
-	.string "That's not very good for a TRAINER!$"
 
 RustboroCity_Text_MayWantToBattle: @ 81E1C48
 	.string "{RIVAL}: So, what do you think?\n"
 	.string "How about a little battle here?$"
 
 RustboroCity_Text_MayImNotGoingToLose: @ 81E1C84
-	.string "{RIVAL}: You just became a TRAINER,\n"
+	.string "You just became a TRAINER,\n"
 	.string "{PLAYER}{KUN}. I'm not going to lose!$"
 
 RustboroCity_Text_MayDefeat: @ 81E1CC1
@@ -1225,7 +1237,7 @@ RustboroCity_Text_MayMrBrineyHint: @ 81E1CE7
 	.string "was once a revered seafarer.$"
 
 RustboroCity_Text_BrendanHiLetsRegister: @ 81E1D7D
-	.string "{RIVAL}: Oh, hey, {PLAYER}!\p"
+	.string "{RIVAL}: Oh, {PLAYER}!\p"
 	.string "You had a MATCH CALL feature put\n"
 	.string "on your POKéNAV! Cool!\p"
 	.string "Let's register each other so we can\n"
@@ -1237,26 +1249,23 @@ RustboroCity_Text_RegisteredBrendan: @ 81E1E11
 	.string "in the POKéNAV.$"
 
 RustboroCity_Text_BrendanPassedBrineyWantToBattle: @ 81E1E34
-	.string "{RIVAL}: By the way, {PLAYER}, I walked\n"
+	.string "{RIVAL}: Oh, hey, {PLAYER}!\p"
+	.string "How's your POKéDEX?\n"
+	.string "Have you filled in any pages yet?\p"
+	.string "Mine rules.\p"
+	.string "By the way, {PLAYER}, I walked\n"
 	.string "by MR. BRINEY in PETALBURG WOODS.\p"
 	.string "I bet he was on his way home to his\n"
 	.string "cottage by the sea.\p"
-	.string "{PLAYER}, how's your POKéDEX?\n"
-	.string "Have you filled in any pages yet?\p"
-	.string "Mine rules.\p"
 	.string "Want to have a battle to test how\n"
 	.string "far you've progressed?$"
-
-RustboroCity_Text_BrendanNoConfidenceInPokemon: @ 81E1F2F
-	.string "{RIVAL}: What's the matter? Don't have\n"
-	.string "any confidence in your POKéMON?$"
 
 RustboroCity_Text_BrendanWantToBattle: @ 81E1F76
 	.string "{RIVAL}: What's up?\n"
 	.string "Want to have a battle with me?$"
 
 RustboroCity_Text_BrendanIWontGoEasy: @ 81E1FA9
-	.string "{RIVAL}: I know you just became\n"
+	.string "I know you just became\n"
 	.string "a TRAINER, but I won't go easy!$"
 
 RustboroCity_Text_BrendanDefeat: @ 81E1FE9
