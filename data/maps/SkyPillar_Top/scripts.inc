@@ -48,6 +48,7 @@ SkyPillar_Top_EventScript_RayquazaFaceDown:: @ 823971D
 	end
 
 SkyPillar_Top_EventScript_Rayquaza:: @ 8239722
+	goto_if_unset FLAG_SYS_GAME_CLEAR, SkyPillar_Top_EventScript_RayquazaBeforeLeague
 	lockall
 	waitse
 	playmoncry SPECIES_RAYQUAZA, 2
@@ -185,6 +186,51 @@ SkyPillar_Top_Movement_CameraPanDown: @ 823985C
 	walk_slow_down
 	walk_slow_down
 	step_end
+	
+SkyPillar_Top_EventScript_RayquazaBeforeLeague::
+	lockall
+	fadeoutbgm 1
+	applymovement EVENT_OBJ_ID_PLAYER, Common_Movement_FaceUp
+	waitmovement 0
+	special SpawnCameraObject
+	applymovement EVENT_OBJ_ID_CAMERA, SkyPillar_Top_Movement_CameraPanUp
+	waitmovement 0
+	special RemoveCameraObject
+	applymovement 2, SkyPillar_Top_Movement_RayquazaStir
+	waitmovement 0
+	waitse
+	playmoncry SPECIES_RAYQUAZA, 2
+	setvar VAR_0x8004, 1  @ vertical pan
+	setvar VAR_0x8005, 1  @ horizontal pan
+	setvar VAR_0x8006, 8  @ num shakes
+	setvar VAR_0x8007, 3  @ shake delay
+	special ShakeCamera
+	waitstate
+	waitse
+	playmoncry SPECIES_RAYQUAZA, 2
+	setvar VAR_0x8004, 1  @ vertical pan
+	setvar VAR_0x8005, 2  @ horizontal pan
+	setvar VAR_0x8006, 8  @ num shakes
+	setvar VAR_0x8007, 5  @ shake delay
+	special ShakeCamera
+	waitstate
+	waitmoncry
+	applymovement 2, SkyPillar_Top_Movement_RayquazaFlyOff
+	waitmovement 0
+	removeobject 2
+	msgbox SkyPillar_Top_Text_RayquazaFlewOff2, MSGBOX_DEFAULT
+	closemessage
+	delay 20
+	fadeinbgm 1
+	special SpawnCameraObject
+	applymovement EVENT_OBJ_ID_CAMERA, SkyPillar_Top_Movement_CameraPanDown
+	waitmovement 0
+	special RemoveCameraObject
+	releaseall
+	end
 
 SkyPillar_Top_Text_RayquazaFlewOff: @ 8239860
 	.string "The awakened RAYQUAZA flew off…$"
+	
+SkyPillar_Top_Text_RayquazaFlewOff2: @ 8239860
+	.string "RAYQUAZA flew off…$"
