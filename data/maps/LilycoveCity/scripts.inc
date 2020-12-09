@@ -226,10 +226,60 @@ LilycoveCity_EventScript_AquaGrunt3:: @ 81E2DCC
 LilycoveCity_EventScript_AquaGrunt4:: @ 81E2DD5
 	msgbox LilycoveCity_Text_IfWorldBecomesOurs, MSGBOX_NPC
 	end
+	
+LilycoveCity_EventScript_RivalTrigger0:: @ 81E0DF3
+	lockall
+	applymovement 17, Common_Movement_WalkInPlaceFastestDown
+	waitmovement 0
+	playse SE_PIN
+	applymovement 17, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement 17, Common_Movement_Delay48
+	waitmovement 0
+	applymovement 17, LilycoveCity_Movement_RivalApproachPlayer0
+	waitmovement 0
+	applymovement EVENT_OBJ_ID_PLAYER, Common_Movement_WalkInPlaceFastestUp
+	waitmovement 0
+	goto LilycoveCity_EventScript_Rival
+	
+LilycoveCity_EventScript_RivalTrigger1:: @ 81E0DF3
+	lockall
+	applymovement 17, Common_Movement_WalkInPlaceFastestDown
+	waitmovement 0
+	playse SE_PIN
+	applymovement 17, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement 17, Common_Movement_Delay48
+	waitmovement 0
+	applymovement 17, LilycoveCity_Movement_RivalApproachPlayer1
+	waitmovement 0
+	applymovement EVENT_OBJ_ID_PLAYER, Common_Movement_WalkInPlaceFastestUp
+	waitmovement 0
+	goto LilycoveCity_EventScript_Rival
+	
+LilycoveCity_Movement_RivalApproachPlayer0: @ 81E120E
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down	
+	step_end
+	
+LilycoveCity_Movement_RivalApproachPlayer1: @ 81E120E
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	step_end
 
 LilycoveCity_EventScript_Rival:: @ 81E2DDE
 	lock
-	faceplayer
 	checkplayergender
 	compare VAR_RESULT, MALE
 	goto_if_eq LilycoveCity_EventScript_May
@@ -239,10 +289,7 @@ LilycoveCity_EventScript_Rival:: @ 81E2DDE
 
 LilycoveCity_EventScript_May:: @ 81E2DF8
 	playbgm MUS_GIRL_SUP, 1
-	call_if_set FLAG_DECLINED_RIVAL_BATTLE_LILYCOVE, LilycoveCity_EventScript_MayAskToBattleAgain
 	call_if_unset FLAG_DECLINED_RIVAL_BATTLE_LILYCOVE, LilycoveCity_EventScript_MayAskToBattle
-	compare VAR_RESULT, NO
-	goto_if_eq LilycoveCity_EventScript_DeclineMayBattle
 	msgbox LilycoveCity_Text_MayWontBeBeaten, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
 	case 0, LilycoveCity_EventScript_BattleMayTreecko
@@ -250,28 +297,13 @@ LilycoveCity_EventScript_May:: @ 81E2DF8
 	case 2, LilycoveCity_EventScript_BattleMayMudkip
 	end
 
-LilycoveCity_EventScript_MayAskToBattleAgain:: @ 81E2E48
-	msgbox LilycoveCity_Text_MayBattleMe, MSGBOX_YESNO
-	return
-
 LilycoveCity_EventScript_MayAskToBattle:: @ 81E2E51
-	msgbox LilycoveCity_Text_MayShoppingLetsBattle, MSGBOX_YESNO
+	msgbox LilycoveCity_Text_MayShoppingLetsBattle, MSGBOX_DEFAULT
 	return
-
-LilycoveCity_EventScript_DeclineMayBattle:: @ 81E2E5A
-	setflag FLAG_DECLINED_RIVAL_BATTLE_LILYCOVE
-	msgbox LilycoveCity_Text_MayNotRaisingPokemon, MSGBOX_DEFAULT
-	savebgm MUS_DUMMY
-	fadedefaultbgm
-	release
-	end
 
 LilycoveCity_EventScript_Brendan:: @ 81E2E6B
 	playbgm MUS_BOY_SUP, 1
-	call_if_set FLAG_DECLINED_RIVAL_BATTLE_LILYCOVE, LilycoveCity_EventScript_BrendanAskToBattleAgain
 	call_if_unset FLAG_DECLINED_RIVAL_BATTLE_LILYCOVE, LilycoveCity_EventScript_BrendanAskToBattle
-	compare VAR_RESULT, NO
-	goto_if_eq LilycoveCity_EventScript_DeclineBrendanBattle
 	msgbox LilycoveCity_Text_BrendanWontBeBeaten, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
 	case 0, LilycoveCity_EventScript_BattleBrendanTreecko
@@ -279,21 +311,9 @@ LilycoveCity_EventScript_Brendan:: @ 81E2E6B
 	case 2, LilycoveCity_EventScript_BattleBrendanMudkip
 	end
 
-LilycoveCity_EventScript_BrendanAskToBattleAgain:: @ 81E2EBB
-	msgbox LilycoveCity_Text_BrendanBattleMe, MSGBOX_YESNO
-	return
-
 LilycoveCity_EventScript_BrendanAskToBattle:: @ 81E2EC4
-	msgbox LilycoveCity_Text_BrendanShoppingLetsBattle, MSGBOX_YESNO
+	msgbox LilycoveCity_Text_BrendanShoppingLetsBattle, MSGBOX_DEFAULT
 	return
-
-LilycoveCity_EventScript_DeclineBrendanBattle:: @ 81E2ECD
-	setflag FLAG_DECLINED_RIVAL_BATTLE_LILYCOVE
-	msgbox LilycoveCity_Text_BrendanNoConfidence, MSGBOX_DEFAULT
-	savebgm MUS_DUMMY
-	fadedefaultbgm
-	release
-	end
 
 LilycoveCity_EventScript_BattleMayTreecko:: @ 81E2EDE
 	trainerbattle_no_intro TRAINER_MAY_LILYCOVE_TREECKO, LilycoveCity_Text_MayDefeat
@@ -327,77 +347,32 @@ LilycoveCity_EventScript_BattleBrendanMudkip:: @ 81E2F2E
 
 LilycoveCity_EventScript_DefeatedMay:: @ 81E2F3E
 	msgbox LilycoveCity_Text_MayGoingBackToLittleroot, MSGBOX_DEFAULT
-	setvar VAR_RESULT, FALSE
-	call_if_set FLAG_BADGE06_GET, LilycoveCity_EventScript_CheckFinalBadge
-	compare VAR_RESULT, FALSE
-	call_if_eq LilycoveCity_EventScript_MayCollectBadges
-	compare VAR_RESULT, TRUE
-	call_if_eq LilycoveCity_EventScript_MayPokemonLeague
 	clearflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_BEDROOM
 	clearflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_2F_PICHU_DOLL
 	goto LilycoveCity_EventScript_RivalFlyAway
 	end
 
-LilycoveCity_EventScript_CheckFinalBadge:: @ 81E2F76
-	goto_if_set FLAG_BADGE08_GET, LilycoveCity_EventScript_HasFinalBadge
-	return
-
-LilycoveCity_EventScript_HasFinalBadge:: @ 81E2F80
-	setvar VAR_RESULT, TRUE
-	return
-
-LilycoveCity_EventScript_MayCollectBadges:: @ 81E2F86
-	msgbox LilycoveCity_Text_MayYouGoingToCollectBadges, MSGBOX_DEFAULT
-	return
-
-LilycoveCity_EventScript_MayPokemonLeague:: @ 81E2F8F
-	goto_if_set FLAG_SYS_GAME_CLEAR, LilycoveCity_EventScript_MayBattleFrontier
-	msgbox LilycoveCity_Text_MayYouGoingToPokemonLeague, MSGBOX_DEFAULT
-	return
-
-LilycoveCity_EventScript_MayBattleFrontier:: @ 81E2FA1
-	msgbox LilycoveCity_Text_MayYouGoingToBattleFrontier, MSGBOX_DEFAULT
-	return
-
 LilycoveCity_EventScript_DefeatedBrendan:: @ 81E2FAA
 	msgbox LilycoveCity_Text_BrendanGoingBackToLittleroot, MSGBOX_DEFAULT
-	setvar VAR_RESULT, FALSE
-	call_if_set FLAG_BADGE06_GET, LilycoveCity_EventScript_CheckFinalBadge
-	compare VAR_RESULT, FALSE
-	call_if_eq LilycoveCity_EventScript_BrendanCollectBadges
-	compare VAR_RESULT, TRUE
-	call_if_eq LilycoveCity_EventScript_BrendanPokemonLeague
 	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_BEDROOM
 	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F_SWABLU_DOLL
 	goto LilycoveCity_EventScript_RivalFlyAway
 	end
 
-LilycoveCity_EventScript_BrendanCollectBadges:: @ 81E2FE2
-	msgbox LilycoveCity_Text_BrendanYouGoingToCollectBadges, MSGBOX_DEFAULT
-	return
-
-LilycoveCity_EventScript_BrendanPokemonLeague:: @ 81E2FEB
-	goto_if_set FLAG_SYS_GAME_CLEAR, LilycoveCity_EventScript_BrendanBattleFrontier
-	msgbox LilycoveCity_Text_BrendanYouGoingToPokemonLeague, MSGBOX_DEFAULT
-	return
-
-LilycoveCity_EventScript_BrendanBattleFrontier:: @ 81E2FFD
-	msgbox LilycoveCity_Text_BrendanYouGoingToBattleFrontier, MSGBOX_DEFAULT
-	return
-
 LilycoveCity_EventScript_RivalFlyAway:: @ 81E3006
 	closemessage
-	applymovement VAR_LAST_TALKED, Common_Movement_WalkInPlaceFastestDown
+	applymovement 17, Common_Movement_WalkInPlaceFastestDown
 	waitmovement 0
 	delay 50
 	setfieldeffectargument 0, 1
 	dofieldeffect FLDEFF_NPCFLY_OUT
 	delay 15
-	removeobject VAR_LAST_TALKED
+	removeobject 17
 	waitfieldeffect FLDEFF_NPCFLY_OUT
 	savebgm MUS_DUMMY
 	fadedefaultbgm
 	setflag FLAG_MET_RIVAL_LILYCOVE
+	setvar VAR_RIVAL_LILYCOVE_CITY, 1
 	release
 	end
 
@@ -433,18 +408,8 @@ LilycoveCity_Text_MayShoppingLetsBattle: @ 81E3061
 	.string "I'll battle with you, so you can show\n"
 	.string "me your POKéMON, {PLAYER}{KUN}.$"
 
-LilycoveCity_Text_MayNotRaisingPokemon: @ 81E318D
-	.string "{RIVAL}: Oh, why? {PLAYER}{KUN}, haven't you\n"
-	.string "been raising your POKéMON?\p"
-	.string "That's not a very good showing as a\n"
-	.string "TRAINER…$"
-
-LilycoveCity_Text_MayBattleMe: @ 81E31F5
-	.string "{RIVAL}: Come on, battle with me, so I can\n"
-	.string "check out your POKéMON!$"
-
 LilycoveCity_Text_MayWontBeBeaten: @ 81E3234
-	.string "{RIVAL}: The POKéMON I raised won't be\n"
+	.string "The POKéMON I raised won't be\n"
 	.string "beaten by your POKéMON, {PLAYER}{KUN}!$"
 
 LilycoveCity_Text_MayDefeat: @ 81E3275
@@ -461,35 +426,6 @@ LilycoveCity_Text_MayGoingBackToLittleroot: @ 81E32FB
 	.string "and my POKéDEX is coming along, so\l"
 	.string "I'm going home to show my dad.$"
 
-LilycoveCity_Text_MayYouGoingToCollectBadges: @ 81E3398
-	.string "{PLAYER}{KUN}, what are you going to do?\p"
-	.string "Collect all the GYM BADGES and take\n"
-	.string "the POKéMON LEAGUE challenge?\p"
-	.string "Well, while you're collecting BADGES,\n"
-	.string "{PLAYER}{KUN}, I'm going to work on my\l"
-	.string "POKéDEX. I'll complete it before you!\p"
-	.string "See you!$"
-
-LilycoveCity_Text_MayYouGoingToPokemonLeague: @ 81E346D
-	.string "{PLAYER}{KUN}, what are you going to do?\p"
-	.string "Are you taking the POKéMON LEAGUE\n"
-	.string "challenge?\p"
-	.string "Or, are you going to complete your\n"
-	.string "POKéDEX?\p"
-	.string "I might've lost to you in battling,\n"
-	.string "but I'll finish my POKéDEX before you!\p"
-	.string "See you!$"
-
-LilycoveCity_Text_MayYouGoingToBattleFrontier: @ 81E353A
-	.string "{PLAYER}{KUN}, what are you going to do?\p"
-	.string "Are you taking the BATTLE FRONTIER\n"
-	.string "challenge?\p"
-	.string "Or, are you going to complete your\n"
-	.string "POKéDEX?\p"
-	.string "I might've lost to you in battling,\n"
-	.string "but I'll finish my POKéDEX before you!\p"
-	.string "See you!$"
-
 LilycoveCity_Text_BrendanShoppingLetsBattle: @ 81E3608
 	.string "{RIVAL}: Oh, hey, it's {PLAYER}.\p"
 	.string "I'm running an errand for my dad.\n"
@@ -498,16 +434,8 @@ LilycoveCity_Text_BrendanShoppingLetsBattle: @ 81E3608
 	.string "Want to have a battle to see who's been\n"
 	.string "raising POKéMON better?$"
 
-LilycoveCity_Text_BrendanNoConfidence: @ 81E36BF
-	.string "{RIVAL}: Oh, what's the matter?\n"
-	.string "Don't have the confidence?$"
-
-LilycoveCity_Text_BrendanBattleMe: @ 81E36FA
-	.string "{RIVAL}: Want to battle to see who's\n"
-	.string "been raising POKéMON better?$"
-
 LilycoveCity_Text_BrendanWontBeBeaten: @ 81E373C
-	.string "{RIVAL}: Aww, but you know I'm not\n"
+	.string "Aww, but you know I'm not\n"
 	.string "going to lose to no {PLAYER}.$"
 
 LilycoveCity_Text_BrendanDefeat: @ 81E3777
@@ -522,36 +450,6 @@ LilycoveCity_Text_BrendanGoingBackToLittleroot: @ 81E37D7
 	.string "You know I'm helping out my dad on his\n"
 	.string "POKéDEX. It's coming together pretty\l"
 	.string "decently, so I should go show him.$"
-
-LilycoveCity_Text_BrendanYouGoingToCollectBadges: @ 81E3876
-	.string "{PLAYER}, what are you going to do?\p"
-	.string "Collect all the GYM BADGES and take\n"
-	.string "the POKéMON LEAGUE challenge?\p"
-	.string "Maybe I'll do that, too…\p"
-	.string "Well, anyway, hang in there!$"
-
-LilycoveCity_Text_BrendanYouGoingToPokemonLeague: @ 81E390C
-	.string "{PLAYER}, what are you going to do?\p"
-	.string "Since you're that strong, are you\n"
-	.string "taking the POKéMON LEAGUE challenge?\p"
-	.string "Heh, even me--if I trained my POKéMON\n"
-	.string "a bit more, I should be stronger than\l"
-	.string "you, {PLAYER}.\p"
-	.string "Well, anyway, hang in there!$"
-
-LilycoveCity_Text_BrendanYouGoingToBattleFrontier: @ 81E39E3
-	.string "{PLAYER}, what are you going to do?\p"
-	.string "Are you taking the BATTLE FRONTIER\n"
-	.string "challenge?\p"
-	.string "Or, are you going to complete your\n"
-	.string "POKéDEX?\p"
-	.string "Since you're that strong, you should\n"
-	.string "consider the BATTLE FRONTIER.\p"
-	.string "Heh, if I train my POKéMON a bit more,\n"
-	.string "I'll get stronger than you, {PLAYER}.\p"
-	.string "Maybe I should go to the BATTLE\n"
-	.string "FRONTIER.\p"
-	.string "Well, anyway, hang in there!$"
 
 LilycoveCity_Text_MovedLootIntoHideoutToday: @ 81E3B2C
 	.string "Fufufu…\p"
