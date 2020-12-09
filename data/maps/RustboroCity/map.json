@@ -227,7 +227,7 @@
             "var": "VAR_RUSTBORO_CITY_STATE",
             "var_value": "7",
             "x": 12,
-            "y": 53
+            "y": 54
         },
         {
             "elevation": 3,
@@ -236,7 +236,7 @@
             "var": "VAR_RUSTBORO_CITY_STATE",
             "var_value": "7",
             "x": 13,
-            "y": 53
+            "y": 54
         },
         {
             "elevation": 3,
@@ -245,7 +245,7 @@
             "var": "VAR_RUSTBORO_CITY_STATE",
             "var_value": "7",
             "x": 14,
-            "y": 53
+            "y": 54
         },
         {
             "elevation": 3,
@@ -254,7 +254,7 @@
             "var": "VAR_RUSTBORO_CITY_STATE",
             "var_value": "7",
             "x": 15,
-            "y": 53
+            "y": 54
         },
         {
             "elevation": 3,
@@ -263,7 +263,7 @@
             "var": "VAR_RUSTBORO_CITY_STATE",
             "var_value": "7",
             "x": 16,
-            "y": 53
+            "y": 54
         },
         {
             "elevation": 3,
@@ -272,7 +272,7 @@
             "var": "VAR_RUSTBORO_CITY_STATE",
             "var_value": "7",
             "x": 17,
-            "y": 53
+            "y": 54
         },
         {
             "elevation": 3,
@@ -281,7 +281,7 @@
             "var": "VAR_RUSTBORO_CITY_STATE",
             "var_value": "7",
             "x": 18,
-            "y": 53
+            "y": 54
         },
         {
             "elevation": 3,
@@ -290,7 +290,7 @@
             "var": "VAR_RUSTBORO_CITY_STATE",
             "var_value": "7",
             "x": 19,
-            "y": 53
+            "y": 54
         }
     ],
     "id": "MAP_RUSTBORO_CITY",

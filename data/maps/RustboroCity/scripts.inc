@@ -917,39 +917,25 @@ RustboroCity_EventScript_BrendanEncounter:: @ 81E1114
 	goto_if_set FLAG_DEFEATED_RIVAL_RUSTBORO, RustboroCity_EventScript_BrendanBrineyHint
 	goto_if_set FLAG_MET_RIVAL_RUSTBORO, RustboroCity_EventScript_BrendanAskToBattle
 	setflag FLAG_MET_RIVAL_RUSTBORO
-	msgbox RustboroCity_Text_BrendanHiLetsRegister, MSGBOX_DEFAULT
-	closemessage
-	delay 30
-	playfanfare MUS_ME_TORE_EYE
-	msgbox RustboroCity_Text_RegisteredBrendan, MSGBOX_DEFAULT
-	waitfanfare
-	closemessage
-	delay 30
-	setflag FLAG_ENABLE_RIVAL_MATCH_CALL
-	setvar VAR_RUSTBORO_CITY_STATE, 8
-	setvar VAR_ROUTE104_STATE, 2
-	msgbox RustboroCity_Text_BrendanPassedBrineyWantToBattle, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq RustboroCity_EventScript_BattleBrendan
-	msgbox RustboroCity_Text_BrendanNoConfidenceInPokemon, MSGBOX_DEFAULT
-	call RustboroCity_EventScript_RestoreBgm
-	releaseall
-	end
-
-RustboroCity_EventScript_BrendanAskToBattle:: @ 81E1174
-	msgbox RustboroCity_Text_BrendanWantToBattle, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq RustboroCity_EventScript_BattleBrendan
-	msgbox RustboroCity_Text_BrendanNoConfidenceInPokemon, MSGBOX_DEFAULT
-	releaseall
-	end
-
-RustboroCity_EventScript_BattleBrendan:: @ 81E1191
+	msgbox RustboroCity_Text_BrendanPassedBrineyWantToBattle, MSGBOX_DEFAULT
 	msgbox RustboroCity_Text_BrendanIWontGoEasy, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
 	case 0, RustboroCity_EventScript_BattleBrendanTreecko
 	case 1, RustboroCity_EventScript_BattleBrendanTorchic
 	case 2, RustboroCity_EventScript_BattleBrendanMudkip
+	call RustboroCity_EventScript_RestoreBgm
+	releaseall
+	end
+	
+RustboroCity_EventScript_BrendanAskToBattle:: @ 81E1174
+	msgbox RustboroCity_Text_BrendanPassedBrineyWantToBattle, MSGBOX_DEFAULT
+	msgbox RustboroCity_Text_BrendanIWontGoEasy, MSGBOX_DEFAULT
+	switch VAR_STARTER_MON
+	case 0, RustboroCity_EventScript_BattleBrendanTreecko
+	case 1, RustboroCity_EventScript_BattleBrendanTorchic
+	case 2, RustboroCity_EventScript_BattleBrendanMudkip
+	call RustboroCity_EventScript_RestoreBgm
+	releaseall
 	end
 
 RustboroCity_EventScript_BrendanBrineyHint:: @ 81E11C0
@@ -962,18 +948,51 @@ RustboroCity_EventScript_BrendanBrineyHint:: @ 81E11C0
 RustboroCity_EventScript_BattleBrendanTreecko:: @ 81E11D5
 	trainerbattle_no_intro TRAINER_BRENDAN_RUSTBORO_TREECKO, RustboroCity_Text_BrendanDefeat
 	setflag FLAG_DEFEATED_RIVAL_RUSTBORO
+	msgbox RustboroCity_Text_BrendanHiLetsRegister, MSGBOX_DEFAULT
+	closemessage
+	delay 30
+	playfanfare MUS_ME_TORE_EYE
+	msgbox RustboroCity_Text_RegisteredBrendan, MSGBOX_DEFAULT
+	waitfanfare
+	closemessage
+	delay 30
+	setflag FLAG_ENABLE_RIVAL_MATCH_CALL
+	setvar VAR_RUSTBORO_CITY_STATE, 8
+	setvar VAR_ROUTE104_STATE, 2	
 	goto RustboroCity_EventScript_BrendanBrineyHint
 	end
 
 RustboroCity_EventScript_BattleBrendanTorchic:: @ 81E11E8
 	trainerbattle_no_intro TRAINER_BRENDAN_RUSTBORO_TORCHIC, RustboroCity_Text_BrendanDefeat
 	setflag FLAG_DEFEATED_RIVAL_RUSTBORO
+	msgbox RustboroCity_Text_BrendanHiLetsRegister, MSGBOX_DEFAULT
+	closemessage
+	delay 30
+	playfanfare MUS_ME_TORE_EYE
+	msgbox RustboroCity_Text_RegisteredBrendan, MSGBOX_DEFAULT
+	waitfanfare
+	closemessage
+	delay 30
+	setflag FLAG_ENABLE_RIVAL_MATCH_CALL
+	setvar VAR_RUSTBORO_CITY_STATE, 8
+	setvar VAR_ROUTE104_STATE, 2	
 	goto RustboroCity_EventScript_BrendanBrineyHint
 	end
 
 RustboroCity_EventScript_BattleBrendanMudkip:: @ 81E11FB
 	trainerbattle_no_intro TRAINER_BRENDAN_RUSTBORO_MUDKIP, RustboroCity_Text_BrendanDefeat
 	setflag FLAG_DEFEATED_RIVAL_RUSTBORO
+	msgbox RustboroCity_Text_BrendanHiLetsRegister, MSGBOX_DEFAULT
+	closemessage
+	delay 30
+	playfanfare MUS_ME_TORE_EYE
+	msgbox RustboroCity_Text_RegisteredBrendan, MSGBOX_DEFAULT
+	waitfanfare
+	closemessage
+	delay 30
+	setflag FLAG_ENABLE_RIVAL_MATCH_CALL
+	setvar VAR_RUSTBORO_CITY_STATE, 8
+	setvar VAR_ROUTE104_STATE, 2	
 	goto RustboroCity_EventScript_BrendanBrineyHint
 	end
 
@@ -984,6 +1003,7 @@ RustboroCity_Movement_RivalApproachPlayer0: @ 81E120E
 	walk_left
 	walk_left
 	walk_down
+	walk_down	
 	step_end
 
 RustboroCity_Movement_RivalApproachPlayer1: @ 81E1215
@@ -992,6 +1012,7 @@ RustboroCity_Movement_RivalApproachPlayer1: @ 81E1215
 	walk_left
 	walk_left
 	walk_down
+	walk_down
 	step_end
 
 RustboroCity_Movement_RivalApproachPlayer2: @ 81E121B
@@ -999,15 +1020,18 @@ RustboroCity_Movement_RivalApproachPlayer2: @ 81E121B
 	walk_left
 	walk_left
 	walk_down
+	walk_down
 	step_end
 
 RustboroCity_Movement_RivalApproachPlayer3: @ 81E1220
 	walk_down
 	walk_left
 	walk_down
+	walk_down
 	step_end
 
 RustboroCity_Movement_RivalApproachPlayer4: @ 81E1224
+	walk_down
 	walk_down
 	walk_down
 	step_end
@@ -1016,12 +1040,14 @@ RustboroCity_Movement_RivalApproachPlayer5: @ 81E1227
 	walk_down
 	walk_right
 	walk_down
+	walk_down
 	step_end
 
 RustboroCity_Movement_RivalApproachPlayer6: @ 81E122B
 	walk_down
 	walk_right
 	walk_right
+	walk_down
 	walk_down
 	step_end
 
@@ -1030,6 +1056,7 @@ RustboroCity_Movement_RivalApproachPlayer7: @ 81E1230
 	walk_right
 	walk_right
 	walk_right
+	walk_down
 	walk_down
 	step_end
 
