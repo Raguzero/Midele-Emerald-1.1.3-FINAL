@@ -1056,8 +1056,10 @@ BattleScript_EffectParalyze::
 	ppreduce
 	jumpifability BS_TARGET, ABILITY_LIMBER, BattleScript_LimberProtected
 	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_ButItFailed
+	jumpifmove MOVE_GLARE, BattleScript_EffectParalyze_SaltarComprobacionTipos
 	typecalc
 	jumpifmovehadnoeffect BattleScript_ButItFailed
+BattleScript_EffectParalyze_SaltarComprobacionTipos::
 	jumpifstatus BS_TARGET, STATUS1_PARALYSIS, BattleScript_AlreadyParalyzed
 	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_ButItFailed
 	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
