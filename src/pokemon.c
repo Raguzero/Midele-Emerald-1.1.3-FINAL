@@ -8027,9 +8027,6 @@ bool8 HasTwoFramesAnimation(u16 species)
 			&& species != SPECIES_MEGA_HOUNDOOM
 			&& species != SPECIES_QUILLADIN
 			&& species != SPECIES_CHESNAUGHT
-			&& species != SPECIES_CHIMCHAR
-			&& species != SPECIES_MONFERNO
-			&& species != SPECIES_INFERNAPE
 			&& species != SPECIES_REGIELEKI
 			&& species != SPECIES_REGIDRAGO
 			&& species != SPECIES_WINTASS 

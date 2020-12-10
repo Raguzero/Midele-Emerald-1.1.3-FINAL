@@ -10255,7 +10255,6 @@ Move_SHADOW_SNEAK:
     createsprite gUnknown_08596D8C, ANIM_TARGET, 2, 0, 0
     createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 16, 1
     waitforvisualfinish
-    clearmonbg_23 ANIM_TARGET
     delay 1
     blendoff
     delay 1
