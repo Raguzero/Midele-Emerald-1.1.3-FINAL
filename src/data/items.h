@@ -666,9 +666,9 @@ const struct Item gItems[] =
     {
         .name = _("ABI. CAPSULE"),
         .itemId = ITEM_ABILITY_CAPSULE,
-        .price = 1,
-        .holdEffectParam = 0,
+        .price = 0,
         .description = sAbilityCapsuleDesc,
+        .importance = 1,
         .pocket = POCKET_ITEMS,
 		.type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_AbilityCapsule,

@@ -6502,7 +6502,7 @@ void Task_AbilityCapsule(u8 taskId)
         break;
     case 5:
         SetMonData(&gPlayerParty[tMonId], MON_DATA_ABILITY_NUM, &tAbilityNum);
-        RemoveBagItem(gSpecialVar_ItemId, 1);
+        //RemoveBagItem(gSpecialVar_ItemId, 1);
         gTasks[taskId].func = Task_ClosePartyMenu;
         break;
     }

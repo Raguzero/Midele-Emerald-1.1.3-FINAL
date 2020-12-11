@@ -100,8 +100,7 @@ LittlerootTown_DebugRoom_Script_ActivarTodo::
 	clearflag FLAG_HIDE_MOSSDEEP_CITY_STEVENS_HOUSE_BELDUM_POKEBALL
 	clearflag FLAG_RECEIVED_BELDUM
 	setvar VAR_STEVENS_HOUSE_STATE, 2
-	giveitem ITEM_POTION, 2
-    giveitem ITEM_ORAN_BERRY, 3
+    giveitem ITEM_PP_MAX, 99
     giveitem ITEM_G_CALCIUM, 1
     giveitem ITEM_G_CARBOS, 1
     giveitem ITEM_G_PROTEIN, 1
@@ -110,6 +109,7 @@ LittlerootTown_DebugRoom_Script_ActivarTodo::
     giveitem ITEM_G_HP_UP, 1
     giveitem ITEM_GOLDEN_CANDY, 1
     giveitem ITEM_SWEET_HEART, 1
+	giveitem ITEM_ABILITY_CAPSULE, 1
 	giveitem ITEM_MASTER_BALL, 99
     end
 
