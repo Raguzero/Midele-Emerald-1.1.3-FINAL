@@ -934,6 +934,14 @@ static const struct MenuAction MultichoiceList_RandomBattle[] =
     {gText_Exit}
 };
 
+static const struct MenuAction MultichoiceList_PKMNCentreMovetutor[] =
+{
+    {gText_RememberAMove},
+    {gText_ForgetAMove},
+    {gText_RateANickname},
+    {gText_Exit},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -1074,6 +1082,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_DEOXYS_CHANGE_FORM_SPEED]     =MULTICHOICE(MultichoiceList_Deoxys_Change_Form_Speed),
     [MULTI_CIBERCAFE_BATALLA]     =MULTICHOICE(MultichoiceList_CiberCafe_Batalla),
     [MULTI_RANDOMBATTLE]     =MULTICHOICE(MultichoiceList_RandomBattle),
+    [MULTI_PKMN_CENTER_MOVE_TUTOR]     = MULTICHOICE(MultichoiceList_PKMNCentreMovetutor),
 };
 
 const u8 *const gStdStrings[] =

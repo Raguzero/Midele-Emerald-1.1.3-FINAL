@@ -2003,3 +2003,8 @@ const u8 gText_Stats_eggGroup_DRAGON[]      = _("DRAGON");
 const u8 gText_Stats_eggGroup_UNDISCOVERED[]= _("---");
 const u8 gText_Dex_SEEN[]   = _("SEEN");
 const u8 gText_Dex_OWN[]    = _("OWN");
+
+// Pokemon center move tutor/name rater menu
+const u8 gText_RememberAMove[] = _("REMEMBER A MOVE");
+const u8 gText_ForgetAMove[] = _("FORGET A MOVE");
+const u8 gText_RateANickname[] = _("RATE A NICKNAME");

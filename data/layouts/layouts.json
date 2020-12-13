@@ -608,7 +608,7 @@
             "name": "PokemonCenter_1F_Layout",
             "primary_tileset": "gTileset_Building",
             "secondary_tileset": "gTileset_PokemonCenter",
-            "width": 14
+            "width": 17
         },
         {
             "blockdata_filepath": "data/layouts/PokemonCenter_2F/map.bin",
@@ -708,7 +708,7 @@
             "name": "LavaridgeTown_PokemonCenter_1F_Layout",
             "primary_tileset": "gTileset_Building",
             "secondary_tileset": "gTileset_PokemonCenter",
-            "width": 14
+            "width": 17
         },
         {
             "blockdata_filepath": "data/layouts/FallarborTown_LeftoverRSContestLobby/map.bin",
@@ -4658,7 +4658,7 @@
             "name": "Micolandia_PokemonCenter1F_Layout",
             "primary_tileset": "gTileset_Building",
             "secondary_tileset": "gTileset_PokemonCenter",
-            "width": 14
+            "width": 17
         },
         {
             "blockdata_filepath": "data/layouts/Micolandia_PokemonCenter2F/map.bin",

@@ -3132,4 +3132,9 @@ extern const u8 gText_Stats_eggGroup_UNDISCOVERED[];
 extern const u8 gText_Dex_SEEN[];
 extern const u8 gText_Dex_OWN[];
 
+// POKEMON CENTER GEN 8
+extern const u8 gText_RememberAMove[];
+extern const u8 gText_ForgetAMove[];
+extern const u8 gText_RateANickname[];
+
 #endif // GUARD_STRINGS_H

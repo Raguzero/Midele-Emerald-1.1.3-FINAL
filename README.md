@@ -36,4 +36,5 @@ Para instalar el repositorio, ver [INSTALL.md](INSTALL.md).
 - ghoulslash (Rival Nickname https://github.com/ghoulslash/pokeemerald/)
 - Jaizu (Wild Battle Custom script https://whackahack.com/foro/threads/comando-setwildbattle-con-movimientos-propios.64981/ )
 - LOuroboros (https://github.com/LOuroboros)
+- BuffelSaft (https://github.com/BuffelSaft/pokeemerald/commit/5aa97eba977cfcf2e1d3c18cc375c55244b3212b)
 
