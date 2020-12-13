@@ -2147,7 +2147,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_STRUGGLE] =
     {
-        .effect = EFFECT_RECOIL,
+        .effect = EFFECT_RECOIL_STRUGGLENEWGEN,
         .power = 50,
         .type = TYPE_NORMAL,
         .accuracy = 100,

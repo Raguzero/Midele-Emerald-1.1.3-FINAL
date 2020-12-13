@@ -282,7 +282,7 @@
 #define MOVE_EFFECT_SP_ATK_TWO_DOWN     0x3B
 #define MOVE_EFFECT_NOTHING_3C          0x3C
 #define MOVE_EFFECT_NOTHING_3D          0x3D
-#define MOVE_EFFECT_NOTHING_3E          0x3E
+#define MOVE_EFFECT_RECOIL_STRUGGLENEWGEN          0x3E
 #define MOVE_EFFECT_RECOIL_50           0x3F
 #define MOVE_EFFECT_AFFECTS_USER        0x40
 #define MOVE_EFFECT_CERTAIN             0x80
