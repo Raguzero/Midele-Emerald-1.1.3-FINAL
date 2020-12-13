@@ -1455,7 +1455,7 @@ const u16 gEggMoves[] = {
               MOVE_COUNTER,
               MOVE_CURSE),
 
-    egg_moves(CORSOLA,
+    egg_moves(GALAR_CORSOLA,
               MOVE_DESTINY_BOND,
               MOVE_HAZE,
               MOVE_CONFUSE_RAY,
