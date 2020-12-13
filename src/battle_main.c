@@ -267,6 +267,8 @@ EWRAM_DATA u8 gBossBattleFlags = 0; // Indica el tipo de boss battle (constants/
 EWRAM_DATA u8 gBossOrTotemId = 0;   // Indica el ID del boss o totem (src/data/boss_battles/)
 EWRAM_DATA u8 gShouldShowTotemAura = 0; // Indica si se debería mostrar o no el aura de un totem.
 
+EWRAM_DATA u8 gMaxPartyLevel = 1;
+
 // IWRAM common vars
 void (*gPreBattleCallback1)(void);
 void (*gBattleMainFunc)(void);
