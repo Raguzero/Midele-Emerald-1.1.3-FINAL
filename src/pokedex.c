@@ -141,7 +141,9 @@ struct PokedexView
     u16 unk636;
     u16 unk638;
     u16 unk63A[4];
-    u8 filler642[8];
+	u8 item1_icon;
+	u8 item2_icon;
+	u8 filler642[6];
     u8 unk64A;
     u8 unk64B;
     u8 unk64C_1:1;
@@ -1427,6 +1429,8 @@ static void ResetPokedexView(struct PokedexView *pokedexView)
     pokedexView->unk634 = 0;
     pokedexView->unk636 = 0;
     pokedexView->unk638 = 0;
+	pokedexView->item1_icon = 0;
+	pokedexView->item2_icon = 0;
     for (i = 0; i <= 3; i++)
         pokedexView->unk63A[i] = 0;
     pokedexView->unk64A = 0;
@@ -6247,6 +6251,26 @@ static void DestroyMoveIcon(u8 taskId)
     DestroySprite(&gSprites[gTasks[taskId].data[3]]);       //Destroy item icon
 }
 
+void DestroyWildHeldItemIcons(u8 taskid) {
+    // Destroy item icons, if they are loaded
+    if (sPokedexView->item1_icon)
+    {
+        FreeSpriteTilesByTag(ITEM_TAG+1);
+        FreeSpritePaletteByTag(ITEM_TAG+1);
+        FreeSpriteOamMatrix(&gSprites[sPokedexView->item1_icon]);
+        DestroySprite(&gSprites[sPokedexView->item1_icon]);
+        sPokedexView->item1_icon = 0; // Mark as not loaded
+    }
+    if (sPokedexView->item2_icon)
+    {
+        FreeSpriteTilesByTag(ITEM_TAG+2);
+        FreeSpritePaletteByTag(ITEM_TAG+2);
+        FreeSpriteOamMatrix(&gSprites[sPokedexView->item2_icon]);
+        DestroySprite(&gSprites[sPokedexView->item2_icon]);
+        sPokedexView->item2_icon = 0; // Mark as not loaded
+    }
+}
+
 u16 GetPreSpecies(species) {
     u16 first_in_chain = GetEggSpecies(species);
     if (first_in_chain == species)
@@ -6575,6 +6599,7 @@ static void PrintMonStatsToggle(u8 taskId)
     FillWindowPixelRect(0, PIXEL_FILL(0), base_x, base_y, 90, 100); //bottom stats
     FillWindowPixelRect(0, PIXEL_FILL(0), abilities_x, 99, 130, 58); //abilities
 
+	DestroyWildHeldItemIcons(taskId);
 
     //Base stats
     if (gTasks[taskId].data[5] == 0)
@@ -6822,7 +6847,7 @@ static void PrintMonStatsToggle(u8 taskId)
         PrintInfoScreenTextSmallWhite(gAbilityNames[ability0], abilities_x, abilities_y);
         PrintInfoScreenTextSmall(gAbilityDescriptionPointers[ability0], abilities_x, abilities_y + 14);
 
-        if (gBaseStats[species].abilities[1] != ABILITY_NONE)
+        if (gBaseStats[species].abilities[1] != ABILITY_NONE && gBaseStats[species].abilities[1] != gBaseStats[species].abilities[0])
         {
             PrintInfoScreenTextSmallWhite(gAbilityNames[gBaseStats[species].abilities[1]], abilities_x, abilities_y + 30);
             PrintInfoScreenTextSmall(gAbilityDescriptionPointers[gBaseStats[species].abilities[1]], abilities_x, abilities_y + 44);
@@ -6832,7 +6857,69 @@ static void PrintMonStatsToggle(u8 taskId)
         // PrintInfoScreenTextSmallWhite(gAbilityNames[ability0], abilities_x, abilities_y);
         // PrintInfoScreenTextSmall(gAbilityDescriptionPointers[ability0], abilities_x, abilities_y + 14);
     }
+	else
+    {
+        u8 item1 = gBaseStats[species].item1;
+        u8 item2 = gBaseStats[species].item2;
+        u8 ico1;
+        u8 ico2;
+        u8 n_items = (item1 != ITEM_NONE) + (item2 != ITEM_NONE);
+        u8 five_pc[] = _("Wild held item: 5%");
+        u8 fifty_pc[] = _("Wild held item: 50%");
+        u8 hundred_pc[] = _("Wild held item: 100%");
 
+        if (n_items)
+        {
+            if (item1 == item2) // Un solo item con 100% de salir
+            {
+                StringCopy(gStringVar1, hundred_pc);
+                CopyItemName(item1, gStringVar2);
+                PrintInfoScreenTextSmallWhite(gStringVar1, abilities_x, abilities_y);
+                PrintInfoScreenTextSmall(gStringVar2, abilities_x, abilities_y + 14);
+
+                ico1 = AddItemIconSprite(ITEM_TAG+1, ITEM_TAG+1, item1);
+                gSprites[ico1].pos2.x = abilities_x + 127;
+                gSprites[ico1].pos2.y = abilities_y + 19;
+            }
+            else if (item1 == ITEM_NONE) // Un solo item con 5% de salir
+            {
+                StringCopy(gStringVar1, five_pc);
+                CopyItemName(item2, gStringVar2);
+                PrintInfoScreenTextSmallWhite(gStringVar1, abilities_x, abilities_y);
+                PrintInfoScreenTextSmall(gStringVar2, abilities_x, abilities_y + 14);
+
+                ico1 = AddItemIconSprite(ITEM_TAG+1, ITEM_TAG+1, item2);
+                gSprites[ico1].pos2.x = abilities_x + 127;
+                gSprites[ico1].pos2.y = abilities_y + 19;
+            }
+            else // Hay un item con 50% de salir, y puede que otro
+ {
+                StringCopy(gStringVar1, fifty_pc);
+                CopyItemName(item1, gStringVar2);
+                PrintInfoScreenTextSmallWhite(gStringVar1, abilities_x, abilities_y);
+                PrintInfoScreenTextSmall(gStringVar2, abilities_x, abilities_y + 14);
+
+                ico1 = AddItemIconSprite(ITEM_TAG+1, ITEM_TAG+1, item1);
+                gSprites[ico1].pos2.x = abilities_x + 127;
+                gSprites[ico1].pos2.y = abilities_y + 19;
+                
+                if (item2 != ITEM_NONE) // dos items, falta dibujar el de 5%
+                {
+                    StringCopy(gStringVar1, five_pc);
+                    CopyItemName(item2, gStringVar2);
+                    PrintInfoScreenTextSmallWhite(gStringVar1, abilities_x, abilities_y + 30);
+                    PrintInfoScreenTextSmall(gStringVar2, abilities_x, abilities_y + 44);
+
+                    ico2 = AddItemIconSprite(ITEM_TAG+2, ITEM_TAG+2, item2);
+                    gSprites[ico2].pos2.x = abilities_x + 127;
+                    gSprites[ico2].pos2.y = abilities_y + 19 + 30;
+                }
+            }
+        }
+
+        sPokedexView->item1_icon = ico1;
+        sPokedexView->item2_icon = ico2;
+    }
 }
 static void Task_SwitchScreensFromStatsScreen(u8 taskId)
 {
@@ -6844,6 +6931,7 @@ static void Task_SwitchScreensFromStatsScreen(u8 taskId)
         DestroySprite(&gSprites[gTasks[taskId].data[3]]);       //Destroy item icon
         FreeMonIconPalettes();                                          //Destroy pokemon icon sprite
         FreeAndDestroyMonIconSprite(&gSprites[gTasks[taskId].data[4]]); //Destroy pokemon icon sprite
+		DestroyWildHeldItemIcons(taskId);
 
         FreeAndDestroyMonPicSprite(gTasks[taskId].tMonSpriteId);
         switch (sPokedexView->unk64E)
@@ -6870,6 +6958,7 @@ static void Task_ExitStatsScreen(u8 taskId)
         DestroySprite(&gSprites[gTasks[taskId].data[3]]);       //Destroy item icon
         FreeMonIconPalettes();                                          //Destroy pokemon icon sprite
         FreeAndDestroyMonIconSprite(&gSprites[gTasks[taskId].data[4]]); //Destroy pokemon icon sprite
+		DestroyWildHeldItemIcons(taskId);
 
         FreeAndDestroyMonPicSprite(gTasks[taskId].tMonSpriteId);
         FreeWindowAndBgBuffers_();
