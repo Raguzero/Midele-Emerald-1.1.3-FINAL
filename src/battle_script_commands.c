@@ -2947,7 +2947,7 @@ void SetMoveEffect(bool8 primary, u8 certain)
                 gBattlescriptCurrInstr = sMoveEffectBS_Ptrs[gBattleCommunication[MOVE_EFFECT_BYTE]];
                 break;
             case MOVE_EFFECT_RECOIL_STRUGGLENEWGEN: // STRUGGLE GEN V
-                gBattleMoveDamage = gHpDealt / 2;
+                gBattleMoveDamage = (gBattleMons[gBattlerAttacker].maxHP + 2) / 4;
                 if (gBattleMoveDamage == 0)
                     gBattleMoveDamage = 1;
 
