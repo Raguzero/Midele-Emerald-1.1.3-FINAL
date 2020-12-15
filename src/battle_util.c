@@ -1080,8 +1080,12 @@ u8 DoBattlerEndTurnEffects(void)
                 gBattleStruct->turnEffectsTracker++;
                 break;
             case ENDTURN_TAUNT:  // taunt
-                if (gDisableStructs[gActiveBattler].tauntTimer)
-                    gDisableStructs[gActiveBattler].tauntTimer--;
+                if (gDisableStructs[gActiveBattler].tauntTimer && --gDisableStructs[gActiveBattler].tauntTimer == 0)
+                {
+                    BattleScriptExecute(BattleScript_BufferEndTurn);
+                    PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_TAUNT);
+                    effect++;
+                }
                 gBattleStruct->turnEffectsTracker++;
                 break;
             case ENDTURN_YAWN:  // yawn
@@ -2278,6 +2282,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
             break;
 			case ABILITY_MUMMY:
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+			 && TARGET_TURN_DAMAGED
              && (gBattleMoves[move].flags & FLAG_MAKES_CONTACT))
             {
                 switch (gBattleMons[gBattlerAttacker].ability)

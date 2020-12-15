@@ -4853,6 +4853,11 @@ BattleScript_PerishBodyActivates::
 	printstring STRINGID_PERISHBODY
 	waitmessage 0x30
 	return
+	
+BattleScript_BufferEndTurn::
+	printstring STRINGID_BUFFERENDS
+	waitmessage 0x40
+	end2
 
 BattleScript_TotemAura::
 	playanimation BS_OPPONENT1, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
