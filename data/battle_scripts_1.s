@@ -2377,6 +2377,7 @@ BattleScript_EffectTaunt::
 	attackcanceler
 	attackstring
 	ppreduce
+	jumpifability BS_TARGET, ABILITY_OBLIVIOUS, BattleScript_ObliviousPreventsAttraction
 	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
 	settaunt BattleScript_ButItFailed
 	attackanimation

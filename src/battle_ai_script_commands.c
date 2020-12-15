@@ -153,6 +153,7 @@ static void Cmd_is_of_type(void);
 static void Cmd_if_target_is_ally(void);
 static void Cmd_if_flash_fired(void);
 static void Cmd_if_holds_item(void);
+static void Cmd_get_hazards_count(void);
 
 // ewram
 EWRAM_DATA const u8 *gAIScriptPtr = NULL;
@@ -262,6 +263,7 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_check_ability,                              // 0x60
     Cmd_if_flash_fired,                             // 0x61
     Cmd_if_holds_item,                              // 0x62
+    Cmd_get_hazards_count,                          // 0x63
 };
 
 static const u16 sDiscouragedPowerfulMoveEffects[] =
@@ -2250,4 +2252,19 @@ static bool8 AIStackPop(void)
     {
         return FALSE;
     }
+}
+
+static void Cmd_get_hazards_count(void)
+{
+    u8 battlerId = BattleAI_GetWantedBattler(gAIScriptPtr[1]);
+    u8 side = GetBattlerSide(battlerId);
+
+    switch (T1_READ_16(gAIScriptPtr + 2))
+    {
+    case EFFECT_SPIKES:
+        AI_THINKING_STRUCT->funcResult = gSideTimers[side].spikesAmount;
+        break;
+    }
+
+    gAIScriptPtr += 4;
 }

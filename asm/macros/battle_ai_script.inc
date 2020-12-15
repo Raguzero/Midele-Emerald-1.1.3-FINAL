@@ -551,6 +551,12 @@
 	.4byte \param2
 	.endm
 	
+	.macro get_hazards_count battler:req, effect:req
+	.byte 0x63
+	.byte \battler
+	.2byte \effect
+	.endm
+	
 @ useful script macros
 	.macro get_curr_move_type
 	get_type AI_TYPE_MOVE

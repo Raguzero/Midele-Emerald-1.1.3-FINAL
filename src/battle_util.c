@@ -2158,7 +2158,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 switch (gLastUsedAbility)
                 {
                 case ABILITY_VOLT_ABSORB:
-                    if (moveType == TYPE_ELECTRIC && gBattleMoves[move].power != 0)
+                    if (moveType == TYPE_ELECTRIC)
                     {
                         if (gProtectStructs[gBattlerAttacker].notFirstStrike)
                             gBattlescriptCurrInstr = BattleScript_MoveHPDrain;

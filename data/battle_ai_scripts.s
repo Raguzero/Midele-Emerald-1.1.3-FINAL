@@ -419,6 +419,7 @@ AI_CBM_Paralyze_SkipEffectiveness:
 AI_ThunderWave:
     if_equal ABILITY_MOTOR_DRIVE, Score_Minus10
     if_equal ABILITY_LIGHTNING_ROD, Score_Minus10
+    if_equal ABILITY_VOLT_ABSORB, Score_Minus10
     end
 
 AI_CBM_Substitute: @ 82DC568
@@ -456,7 +457,11 @@ AI_CBM_Curse: @ 82DC5BB
 	end
 
 AI_CBM_Spikes: @ 82DC5CC
-	if_side_affecting AI_TARGET, SIDE_STATUS_SPIKES, Score_Minus10
+	count_usable_party_mons AI_TARGET
+	if_equal 0, Score_Minus10
+	if_not_side_affecting AI_TARGET, SIDE_STATUS_SPIKES, AI_Ret
+	get_hazards_count AI_TARGET, EFFECT_SPIKES
+	if_equal 3, Score_Minus10
 	end
 
 AI_CBM_Foresight: @ 82DC5D7
