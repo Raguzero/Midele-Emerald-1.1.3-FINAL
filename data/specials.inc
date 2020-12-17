@@ -550,3 +550,5 @@ gSpecials:: @ 81DBA64
 	def_special CheckRegidragoPuzzle
 	def_special CountPartyAliveNonEggMons_perodeverdad
 	def_special NameRival
+	def_special SetSpeciesAndEggMove
+	def_special SetGiftEggMove

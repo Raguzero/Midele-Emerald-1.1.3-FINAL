@@ -4456,3 +4456,53 @@ bool8 ChangeDeoxysForm(void)
     }
     return FALSE;
 }
+
+// Used to generate a random egg with a special move
+// gSpecialVar_0x8004: Species to give
+// gSpecialVar_0x8005: Move to give the egg
+void SetSpeciesAndEggMove (void)
+{
+    u8 numEggSpecies, randSpecies, randEggMove;
+    u16 eggMoves[][5] = {
+        {SPECIES_BULBASAUR, MOVE_CURSE, MOVE_CHARM, MOVE_PETAL_DANCE},
+        {SPECIES_CHARMANDER, MOVE_BELLY_DRUM, MOVE_ANCIENT_POWER, MOVE_DRAGON_DANCE},
+        {SPECIES_SQUIRTLE, MOVE_FORESIGHT, MOVE_HAZE, MOVE_MIRROR_COAT},
+		{SPECIES_BAGON, MOVE_DRAGON_DANCE, MOVE_HYDRO_PUMP, MOVE_THRASH},
+        {SPECIES_MIMEJR, MOVE_TRICK, MOVE_PSYCHIC, MOVE_ASSIST},
+        {SPECIES_SNEASEL, MOVE_FAKE_OUT, MOVE_ICE_PUNCH, MOVE_BITE},
+        {SPECIES_CORPHISH, MOVE_DRAGON_DANCE, MOVE_ANCIENT_POWER, MOVE_BODY_SLAM},
+        {SPECIES_MARILL, MOVE_BELLY_DRUM, MOVE_RETURN, MOVE_PERISH_SONG},
+        {SPECIES_TOGEPI, MOVE_SOFT_BOILED, MOVE_METRONOME, MOVE_BATON_PASS},
+        {SPECIES_GRIMER, MOVE_ACID_ARMOR, MOVE_SLUDGE_BOMB, MOVE_TOXIC},
+        {SPECIES_RHYHORN, MOVE_CRUNCH, MOVE_SWORDS_DANCE, MOVE_EARTHQUAKE},
+        {SPECIES_GASTLY, MOVE_PERISH_SONG, MOVE_DISABLE, MOVE_LICK},
+        {SPECIES_PICHU, MOVE_SURF, MOVE_FLY, MOVE_EXTREME_SPEED},
+        {SPECIES_DELIBIRD, MOVE_SPIKES, MOVE_ENDURE, MOVE_ICE_PUNCH},
+        {SPECIES_PONYTA, MOVE_HYPNOSIS, MOVE_MORNING_SUN, MOVE_DOUBLE_KICK},
+        {SPECIES_SNOVER, MOVE_LEECH_SEED, MOVE_ICE_PUNCH, MOVE_GIGA_DRAIN},
+        {SPECIES_FERROSEED, MOVE_SPIKES, MOVE_LEECH_SEED, MOVE_PROTECT},
+        {SPECIES_TAILLOW, MOVE_BOOMBURST, MOVE_BOOMBURST, MOVE_BOOMBURST}
+    };
+
+    numEggSpecies = 18;
+    randSpecies = Random() % numEggSpecies;
+    randEggMove = (Random() % 3) + 1; // Random number between 1 and 3
+
+    gSpecialVar_0x8004 = eggMoves[randSpecies][0];
+    gSpecialVar_0x8005 = eggMoves[randSpecies][randEggMove];
+}
+
+// Gives a mon in the party a move
+// gSpecialVar_0x8005: Move to give
+// gSpecialVar_0x8006: Party slot
+void SetGiftEggMove (void)
+{
+    if (MonKnowsMove(&gPlayerParty[gSpecialVar_0x8006], MOVE_NONE))
+    {
+        GiveMoveToMon(&gPlayerParty[gSpecialVar_0x8006], gSpecialVar_0x8005);
+    }
+    else
+    {
+        SetMonMoveSlot(&gPlayerParty[gSpecialVar_0x8006], gSpecialVar_0x8005, 0);
+    }
+}

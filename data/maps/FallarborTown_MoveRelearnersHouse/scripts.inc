@@ -1,102 +1,91 @@
 FallarborTown_MoveRelearnersHouse_MapScripts:: @ 8201382
 	.byte 0
+	
+FallarborTown_MoveRelearnersHouse_EventScript_MoveRelearner::
+	lock
+	faceplayer
+	goto_if_set FLAG_DAILY_RECEIVED_EGG, FallarborTown_MoveRelearnersHouse_EventScript_ReceivedEgg
+	goto FallarborTown_MoveRelearnersHouse_EventScript_TryGiveEgg
 
-FallarborTown_MoveRelearnersHouse_EventScript_MoveRelearner:: @ 8201383
-	lockall
-	applymovement 1, Common_Movement_FacePlayer
-	waitmovement 0
-	goto_if_set FLAG_TEMP_1, FallarborTown_MoveRelearnersHouse_EventScript_AskTeachMove
-	msgbox FallarborTown_MoveRelearnersHouse_Text_ImTheMoveTutor, MSGBOX_DEFAULT
-	setflag FLAG_TEMP_1
-	goto FallarborTown_MoveRelearnersHouse_EventScript_AskTeachMove
-	end
-
-FallarborTown_MoveRelearnersHouse_EventScript_AskTeachMove:: @ 82013A8
-	//checkitem ITEM_HEART_SCALE, 1
-	compare VAR_RESULT, 0
-	//goto_if_eq FallarborTown_MoveRelearnersHouse_EventScript_ComeBackWithHeartScale
-	msgbox FallarborTown_MoveRelearnersHouse_Text_ThatsAHeartScaleWantMeToTeachMove, MSGBOX_YESNO
-	switch VAR_RESULT
-	case NO, FallarborTown_MoveRelearnersHouse_EventScript_ComeBackWithHeartScale
-	goto FallarborTown_MoveRelearnersHouse_EventScript_ChooseMon
-	end
-
-FallarborTown_MoveRelearnersHouse_EventScript_ChooseMon:: @ 82013D6
-	msgbox FallarborTown_MoveRelearnersHouse_Text_TutorWhichMon, MSGBOX_DEFAULT
-	special ChooseMonForMoveRelearner
-	waitstate
-	compare VAR_0x8004, 255
-	goto_if_eq FallarborTown_MoveRelearnersHouse_EventScript_ComeBackWithHeartScale
-	special IsSelectedMonEgg
+FallarborTown_MoveRelearnersHouse_EventScript_TryGiveEgg::
+	checkitem ITEM_HEART_SCALE, 5
 	compare VAR_RESULT, TRUE
-	goto_if_eq FallarborTown_MoveRelearnersHouse_EventScript_CantTeachEgg
-	compare VAR_0x8005, 0
-	goto_if_eq FallarborTown_MoveRelearnersHouse_EventScript_NoMoveToTeachMon
-	goto FallarborTown_MoveRelearnersHouse_EventScript_ChooseMove
+	call_if_eq FallarborTown_MoveRelearnersHouse_EventScript_ReceivedTogepi
+	goto FallarborTown_EventScript_No5HeartScale
 	end
 
-FallarborTown_MoveRelearnersHouse_EventScript_ChooseMove:: @ 820140C
-	msgbox FallarborTown_MoveRelearnersHouse_Text_TeachWhichMove, MSGBOX_DEFAULT
-	special TeachMoveRelearnerMove
-	waitstate
-	compare VAR_0x8004, 0
-	goto_if_eq FallarborTown_MoveRelearnersHouse_EventScript_ChooseMon
-	//msgbox FallarborTown_MoveRelearnersHouse_Text_HandedOverHeartScale, MSGBOX_DEFAULT
-	// removeitem ITEM_HEART_SCALE
-	goto FallarborTown_MoveRelearnersHouse_EventScript_ComeBackWithHeartScale
+FallarborTown_MoveRelearnersHouse_EventScript_ReceivedTogepi::
+	msgbox FallarborTown_MoveRelearnersHouse_Text_HaveEggWillYouTakeIt, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq FallarborTown_MoveRelearnersHouse_EventScript_DeclineEgg
+	specialvar VAR_0x8006, CalculatePlayerPartyCount
+	compare VAR_0x8006, PARTY_SIZE
+	goto_if_eq FallarborTown_MoveRelearnersHouse_EventScript_NoRoomForEgg
+	msgbox FallarborTown_MoveRelearnersHouse_Text_ThankYou, MSGBOX_DEFAULT
+	removeitem ITEM_HEART_SCALE, 5
+	setflag FLAG_DAILY_RECEIVED_EGG
+	playfanfare MUS_FANFA4
+	message FallarborTown_MoveRelearnersHouse_Text_ReceivedTheEgg
+	special SetSpeciesAndEggMove
+	waitfanfare
+	giveEgg VAR_0x8004
+	special SetGiftEggMove
+	release
 	end
 
-FallarborTown_MoveRelearnersHouse_EventScript_NoMoveToTeachMon:: @ 8201436
-	msgbox FallarborTown_MoveRelearnersHouse_Text_DontHaveMoveToTeachPokemon, MSGBOX_DEFAULT
-	goto FallarborTown_MoveRelearnersHouse_EventScript_ChooseMon
+FallarborTown_MoveRelearnersHouse_EventScript_ReceivedEgg::
+	msgbox FallarborTown_MoveRelearnersHouse_Text_SometimesEggFoundAtDayCare, MSGBOX_DEFAULT
+	release
 	end
 
-FallarborTown_MoveRelearnersHouse_EventScript_CantTeachEgg:: @ 8201444
-	msgbox FallarborTown_MoveRelearnersHouse_Text_CantTeachEgg, MSGBOX_DEFAULT
-	goto FallarborTown_MoveRelearnersHouse_EventScript_ChooseMon
+FallarborTown_MoveRelearnersHouse_EventScript_NoRoomForEgg::
+	msgbox FallarborTown_MoveRelearnersHouse_Text_NoRoomForThisEgg, MSGBOX_DEFAULT
+	release
 	end
 
-FallarborTown_MoveRelearnersHouse_EventScript_ComeBackWithHeartScale:: @ 8201452
-	msgbox FallarborTown_MoveRelearnersHouse_Text_ComeBackWithHeartScale, MSGBOX_DEFAULT
-	releaseall
+FallarborTown_MoveRelearnersHouse_EventScript_DeclineEgg::
+	msgbox FallarborTown_MoveRelearnersHouse_Text_AsYouWishThen, MSGBOX_DEFAULT
+	release
+	end
+	
+FallarborTown_EventScript_No5HeartScale:: @ 8270F57
+	msgbox FallarborTown_MoveRelearnersHouse_Text_YouHaventGotFiveHS, MSGBOX_DEFAULT
+	release
 	end
 
-FallarborTown_MoveRelearnersHouse_Text_ImTheMoveTutor: @ 820145C
-	.string "I'm the MOVE TUTOR.\p"
-	.string "I know all the moves that POKéMON\n"
-	.string "learn--every one of them--and I can\l"
-	.string "teach POKéMON those moves.\p"
-	.string "I can teach a move to a POKéMON\n"
-	.string "of yours if you'd like. $"
-	//.string "I'll do it for a HEART SCALE.\n"
-	//.string "I'm collecting those now.$"
+FallarborTown_MoveRelearnersHouse_Text_HaveEggWillYouTakeIt:
+	.string "Oh, hey! That…\n"
+	.string "That's a HEART SCALE!\l" 
+	.string "I'm looking for those!\p"
+	.string "Oh, man, you've got to trade\n"
+	.string "5 HEART SCALE with me!\l"
+	.string "I'll give you an EGG.\p"
+	.string "Would you be interested\n"
+	.string "in taking it?$"
 
-FallarborTown_MoveRelearnersHouse_Text_ThatsAHeartScaleWantMeToTeachMove: @ 8201541
-	//.string "Oh! That's it! That's an honest to\n"
-	//.string "goodness HEART SCALE!\p"
-	.string "Let me guess, you want me to teach\n"
-	.string "a move?$"
+FallarborTown_MoveRelearnersHouse_Text_ThankYou:
+	.string "Oh, thank you! Please take good care\n"
+	.string "of this EGG!$"
 
-FallarborTown_MoveRelearnersHouse_Text_TutorWhichMon: @ 82015A5
-	.string "Which POKéMON needs tutoring?$"
-
-FallarborTown_MoveRelearnersHouse_Text_TeachWhichMove: @ 82015C3
-	.string "Which move should I teach?$"
-
-FallarborTown_MoveRelearnersHouse_Text_DontHaveMoveToTeachPokemon: @ 82015DE
-	.string "Sorry…\p"
-	.string "It doesn't appear as if I have any move\n"
-	.string "I can teach that POKéMON.$"
-
-FallarborTown_MoveRelearnersHouse_Text_HandedOverHeartScale: @ 8201627
+FallarborTown_MoveRelearnersHouse_Text_ReceivedTheEgg:
 	.string "{PLAYER} handed over one HEART SCALE\n"
-	.string "in exchange.$"
+	.string "in exchange.\p"
 
-FallarborTown_MoveRelearnersHouse_Text_ComeBackWithHeartScale: @ 8201653
-	.string "If your POKéMON need to learn a move,\n"
-	.string "come back.$"
+	.string "{PLAYER} received the EGG.$"
 
-FallarborTown_MoveRelearnersHouse_Text_CantTeachEgg: @ 8201697
-	.string "Hunh? There isn't a single move that\n"
-	.string "I can teach an EGG.$"
+FallarborTown_MoveRelearnersHouse_Text_NoRoomForThisEgg:
+	.string "Oh? You've got a full party.\n"
+	.string "There's no room for this EGG...$"
 
+FallarborTown_MoveRelearnersHouse_Text_AsYouWishThen:
+	.string "Oh…\p"
+	.string "That's a shame. Let me know if you\n"
+	.string "change your mind.$"
+
+FallarborTown_MoveRelearnersHouse_Text_SometimesEggFoundAtDayCare:
+	.string "Come back tomorrow, I'll need\n"
+	.string "more HEART SCALE.\p"
+	.string "In return I'll give you another egg.$"
+	
+FallarborTown_MoveRelearnersHouse_Text_YouHaventGotFiveHS: @ 8271027
+	.string "You haven't got five HEART SCALE.$"
