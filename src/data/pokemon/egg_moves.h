@@ -379,6 +379,7 @@ const u16 gEggMoves[] = {
               MOVE_SUBSTITUTE,
 			  MOVE_COUNTER,
 			  MOVE_HELPING_HAND,
+			  MOVE_WISH,
 			  MOVE_ENDURE),
 
     egg_moves(TANGELA,
