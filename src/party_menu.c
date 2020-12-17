@@ -386,7 +386,7 @@ static void BlitBitmapToPartyWindow_LeftColumn(u8, u8, u8, u8, u8, u8);
 static void BlitBitmapToPartyWindow_RightColumn(u8, u8, u8, u8, u8, u8);
 static void CursorCb_Summary(u8);
 static void CursorCb_Switch(u8);
-static void CursorCb_Nickname(u8); // NUEVO PARA MOTE EN EQUIPO
+static void CursorCb_InfoDex(u8); // // NUEVO PARA INFODEX EN EQUIPO (ENTRAR A LA DEX DEL POKE EN CUESTION)
 static void CursorCb_Cancel1(u8);
 static void CursorCb_Item(u8);
 static void CursorCb_Give(u8);
@@ -2579,7 +2579,7 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
     {
         if (GetMonData(&mons[1], MON_DATA_SPECIES) != SPECIES_NONE)
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_SWITCH);
-        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_NICKNAME); // NUEVO PARA MOTE EN EQUIPO
+        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_INFODEX); // NUEVO PARA INFODEX EN EQUIPO (ENTRAR A LA DEX DEL POKE EN CUESTION)
 		if (ItemIsMail(GetMonData(&mons[slotId], MON_DATA_HELD_ITEM)))
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_MAIL);
         else
@@ -2726,16 +2726,16 @@ static void CursorCb_Summary(u8 taskId)
     Task_ClosePartyMenu(taskId);
 }
 
-// NUEVO PARA MOTE EN EQUIPO
+// NUEVO PARA INFODEX EN EQUIPO (ENTRAR A LA DEX DEL POKE EN CUESTION)
 void ChangePokemonNickname(void);
-static void CursorCb_Nickname(u8 taskId)
+static void CursorCb_InfoDex(u8 taskId)
 {
     PlaySE(SE_SELECT);
     gSpecialVar_0x8004 = gPartyMenu.slotId;
     sPartyMenuInternal->exitCallback = ChangePokemonNickname;
     Task_ClosePartyMenu(taskId);
 }
-// NUEVO PARA MOTE EN EQUIPO
+// NUEVO PARA INFODEX EN EQUIPO (ENTRAR A LA DEX DEL POKE EN CUESTION)
 
 static void CB2_ShowPokemonSummaryScreen(void)
 {

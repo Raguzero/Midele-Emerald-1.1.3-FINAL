@@ -497,7 +497,7 @@ extern const u8 gText_SpDef[];
 extern const u8 gText_Speed[];
 extern const u8 gText_Dash[];
 extern const u8 gText_Plus[];
-extern const u8 gText_Nickname[]; // NUEVO PARA MOTE EN EL EQUIPO
+extern const u8 gText_InfoDex[]; // NUEVO PARA INFODEX EN EQUIPO (ENTRAR A LA DEX DEL POKE EN CUESTION)
 
 //pokedex text
 extern const u8 gText_CryOf[];

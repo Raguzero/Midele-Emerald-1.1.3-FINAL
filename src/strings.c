@@ -529,7 +529,7 @@ const u8 gText_XNatureHatchedSomewhereAt[] = _("{SPECIAL_F7 0x00}{SPECIAL_F7 0x0
 const u8 gText_OddEggFoundByCouple[] = _("An odd POKéMON EGG found\nby the DAY CARE couple.");
 const u8 gText_PeculiarEggNicePlace[] = _("A peculiar POKéMON EGG\nobtained at the nice place.");
 const u8 gText_PeculiarEggTrade[] = _("A peculiar POKéMON EGG\nobtained in a trade.");
-const u8 gText_EggFromHotSprings[] = _("A POKéMON EGG obtained\nat the hot springs.");
+const u8 gText_EggFromHotSprings[] = _("A POKéMON EGG obtained\nsomewhere.");
 const u8 gText_EggFromTraveler[] = _("An odd POKéMON EGG\nobtained from a traveler.");
 const u8 gText_ApostropheSBase[] = _("'s BASE");
 const u8 gText_OkayToDeleteFromRegistry[] = _("Is it okay to delete {STR_VAR_1}\nfrom the REGISTRY?");
@@ -1823,7 +1823,7 @@ const u8 gText_Answer[] = _("ANSWER");
 const u8 gText_PokeBalls[] = _("POKé BALLS");
 const u8 gText_Berry[] = _("BERRY");
 const u8 gText_Berries[] = _("BERRIES");
-const u8 gText_Nickname[] = _("NICKNAME"); // NUEVO PARA MOTE EN EQUIPO
+const u8 gText_InfoDex[] = _("INFODEX"); // NUEVO PARA INFODEX EN EQUIPO (ENTRAR A LA DEX DEL POKE EN CUESTION)
 
 // NUEVO: nombres de tipos (para NPC Hidden Power)
 const u8 gText_FightingType[] = _("FIGHTING");
