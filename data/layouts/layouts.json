@@ -4719,6 +4719,16 @@
             "primary_tileset": "gTileset_General",
             "secondary_tileset": "gTileset_BattleFrontierOutsideEast",
             "width": 40
+        },
+        {
+            "blockdata_filepath": "data/layouts/MauvilleRuins/map.bin",
+            "border_filepath": "data/layouts/MauvilleRuins/border.bin",
+            "height": 33,
+            "id": "LAYOUT_MAUVILLE_RUINS",
+            "name": "MauvilleRuins_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_Cave",
+            "width": 17
         }
     ],
     "layouts_table_label": "gMapLayouts"

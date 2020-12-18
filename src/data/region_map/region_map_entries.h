@@ -202,6 +202,7 @@ static const u8 sMapName_IzabeIsland[] = _("IZABE ISLAND");
 static const u8 sMapName_Micolandia[] = _("MICOLANDIA");
 static const u8 sMapName_OldaleRuins[] = _("OLDALE RUINS");
 static const u8 sMapName_ForbiddenForest[] = _("FORBIDDEN FOREST");
+static const u8 sMapName_MauvilleRuins[] = _("MAUVILLE RUINS");
 
 const struct RegionMapLocation gRegionMapEntries[] = {
     [MAPSEC_ABANDONED_SHIP]            = {6, 14, 1, 1, sMapName_AbandonedShip},
@@ -263,7 +264,8 @@ const struct RegionMapLocation gRegionMapEntries[] = {
     [MAPSEC_MAGMA_HIDEOUT]             = {6, 3, 1, 1, sMapName_MagmaHideout},
     [MAPSEC_MARINE_CAVE]               = {0, 0, 1, 1, sMapName_MarineCave},
     [MAPSEC_MAUVILLE_CITY]             = {8, 6, 2, 1, sMapName_MauvilleCity},
-    [MAPSEC_MEMORIAL_PILLAR]           = {0, 0, 1, 1, sMapName_MemorialPillar},
+    [MAPSEC_MAUVILLE_RUINS]            = {8, 7, 3, 3, sMapName_MauvilleRuins},
+	[MAPSEC_MEMORIAL_PILLAR]           = {0, 0, 1, 1, sMapName_MemorialPillar},
     [MAPSEC_METEOR_FALLS]              = {0, 3, 1, 1, sMapName_MeteorFalls},
     [MAPSEC_METEOR_FALLS2]             = {1, 2, 1, 1, sMapName_MeteorFalls},
     [MAPSEC_MICOLANDIA]                = {18, 12, 1, 1, sMapName_Micolandia},

@@ -247,3 +247,15 @@ OldaleRuins_Braille_RegidragoPuzzle: @ 82A6B99
 	.braille "EL DRAGON\n"
 	.braille "QUE NO ES\n"
 	.braille "DRAGON.$"
+
+MauvilleRuins_Braille_RegielekiPuzzle: 
+	.byte 0
+	.byte 0
+	.byte 29
+	.byte 19
+	.byte 3
+	.byte 3
+	.braille "PRESENTA\n"
+	.braille "EL ELECTRICO\n"
+	.braille "QUE ILUMINA\n"
+	.braille "UN FARO.$"

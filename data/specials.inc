@@ -552,3 +552,4 @@ gSpecials:: @ 81DBA64
 	def_special NameRival
 	def_special SetSpeciesAndEggMove
 	def_special SetGiftEggMove
+	def_special CheckRegielekiPuzzle

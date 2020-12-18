@@ -680,10 +680,10 @@
 #define FLAG_CAUGHT_RAIKOU  0x27F // Previously unused Flag
 #define FLAG_DEFEATED_RAIKOU  0x280 // Previously unused Flag
 #define FLAG_HIDE_RAIKOU  0x281 // Previously unused Flag
-#define FLAG_UNUSED_0x282  0x282 // Unused Flag
-#define FLAG_UNUSED_0x283  0x283 // Unused Flag
-#define FLAG_UNUSED_0x284  0x284 // Unused Flag
-#define FLAG_UNUSED_0x285  0x285 // Unused Flag
+#define FLAG_CAUGHT_REGIELEKI  0x282 // Previously unused Flag
+#define FLAG_DEFEATED_REGIELEKI  0x283 // Previously unused Flag
+#define FLAG_HIDE_REGIELEKI  0x284 // Previously unused Flag
+#define FLAG_SYS_BRAILLE_REGIELEKI_COMPLETED  0x285 // Previously unused Flag
 #define FLAG_UNUSED_0x286  0x286 // Unused Flag
 #define FLAG_UNUSED_0x287  0x287 // Unused Flag
 #define FLAG_UNUSED_0x288  0x288 // Unused Flag
@@ -1407,7 +1407,7 @@
 #define FLAG_SYS_CRUISE_MODE                        (SYSTEM_FLAGS + 0x2D)
 
 #define FLAG_SYS_BRAILLE_SHOWN_FIVE_REGI           (SYSTEM_FLAGS + 0x2E) // Previously unused Flag
-#define FLAG_SYS_BRAILLE_REGIDRAGO_COMPLETED                           (SYSTEM_FLAGS + 0x2F) // Previously unused Flag
+#define FLAG_SYS_BRAILLE_REGIDRAGO_COMPLETED       (SYSTEM_FLAGS + 0x2F) // Previously unused Flag
 
 #define FLAG_SYS_TV_HOME                            (SYSTEM_FLAGS + 0x30)
 #define FLAG_SYS_TV_WATCH                           (SYSTEM_FLAGS + 0x31)
@@ -1513,7 +1513,7 @@
 
 #define FLAG_VISITED_MICOLANDIA                     (SYSTEM_FLAGS + 0x85) // Previously unused Flag
 #define FLAG_LANDMARK_FORBIDDEN_FOREST              (SYSTEM_FLAGS + 0x86) // Previously unused Flag
-#define FLAG_UNUSED_0x8E7                           (SYSTEM_FLAGS + 0x87) // Unused Flag
+#define FLAG_LANDMARK_MAUVILLE_RUINS                (SYSTEM_FLAGS + 0x87) // Previously inused Flag
 #define FLAG_UNUSED_0x8E8                           (SYSTEM_FLAGS + 0x88) // Unused Flag
 #define FLAG_UNUSED_0x8E9                           (SYSTEM_FLAGS + 0x89) // Unused Flag
 #define FLAG_UNUSED_0x8EA                           (SYSTEM_FLAGS + 0x8A) // Unused Flag

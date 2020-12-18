@@ -59,6 +59,7 @@ static const u8 LandmarkName_DesertUnderpass[] = _("DESERT UNDERPASS");
 static const u8 LandmarkName_TrainerHill[] = _("TRAINER HILL");
 static const u8 LandmarkName_OldaleRuins[] = _("OLDALE RUINS");
 static const u8 LandmarkName_ForbiddenForest[] = _("FORBIDDEN FOREST");
+static const u8 LandmarkName_MauvilleRuins[] = _("MAUVILLE RUINS");
 
 static const struct Landmark Landmark_FlowerShop = {LandmarkName_FlowerShop, FLAG_LANDMARK_FLOWER_SHOP};
 static const struct Landmark Landmark_PetalburgWoods = {LandmarkName_PetalburgWoods, -1};
@@ -103,6 +104,7 @@ static const struct Landmark Landmark_DesertUnderpass = {LandmarkName_DesertUnde
 static const struct Landmark Landmark_TrainerHill = {LandmarkName_TrainerHill, FLAG_LANDMARK_TRAINER_HILL};
 static const struct Landmark Landmark_OldaleRuins = {LandmarkName_OldaleRuins, FLAG_LANDMARK_OLDALE_RUINS};
 static const struct Landmark Landmark_ForbiddenForest = {LandmarkName_ForbiddenForest, FLAG_LANDMARK_FORBIDDEN_FOREST};
+static const struct Landmark Landmark_MauvilleRuins = {LandmarkName_MauvilleRuins, FLAG_LANDMARK_MAUVILLE_RUINS};
 
 static const struct Landmark *const Landmarks_Route103_1[]  =
 {

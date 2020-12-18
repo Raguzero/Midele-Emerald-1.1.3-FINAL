@@ -542,3 +542,20 @@ bool8 CheckRegidragoPuzzle(void)
     
     return hasCharizard;
 }
+
+bool8 CheckRegielekiPuzzle(void)
+{
+    u8 i;
+    bool8 hasAmpharos = FALSE;
+    
+    CalculatePlayerPartyCount();
+    for (i = 0; i < gPlayerPartyCount; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2, 0) == SPECIES_AMPHAROS) {
+            hasAmpharos = TRUE;
+            break;
+        }
+    }
+    
+    return hasAmpharos;
+}

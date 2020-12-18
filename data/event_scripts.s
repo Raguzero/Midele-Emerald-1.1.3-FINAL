@@ -1129,3 +1129,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/OldaleRuins/scripts.inc"
 
 	.include "data/maps/ForbiddenForest/scripts.inc"
+
+	.include "data/maps/MauvilleRuins/scripts.inc"
