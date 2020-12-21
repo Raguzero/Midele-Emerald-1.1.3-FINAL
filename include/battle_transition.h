@@ -67,6 +67,7 @@ enum // TRANSITION_MUGSHOT
 #define B_TRANSITION_39                     39
 #define B_TRANSITION_40                     40
 #define B_TRANSITION_41                     41
-#define B_TRANSITION_COUNT                  42
+#define B_TRANSITION_MONITO                            42
+#define B_TRANSITION_COUNT                  43
 
 #endif // GUARD_BATTLE_TRANSITION_H

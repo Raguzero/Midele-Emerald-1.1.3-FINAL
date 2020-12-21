@@ -260,6 +260,9 @@ static bool8 sub_81483AC(struct Sprite *sprite);
 static bool8 sub_81483F8(struct Sprite *sprite);
 static bool8 sub_814842C(struct Sprite *sprite);
 static bool8 sub_8148458(struct Sprite *sprite);
+static void Phase2Task_MonitoTransition(u8 taskId);
+static bool8 Phase2_MonitoTransition_Func1(struct Task *task);
+static bool8 Phase2_MonitoTransition_Func2(struct Task *task);
 
 // iwram bss vars
 static s16 sUnusedRectangularSpiralVar;
@@ -311,6 +314,9 @@ static const u32 gUnknown_085C86F4[] = INCBIN_U32("graphics/battle_transitions/f
 static const u32 gUnknown_085C87F4[] = INCBIN_U32("graphics/battle_transitions/frontier_square_3.4bpp.lz");
 static const u32 gUnknown_085C88A4[] = INCBIN_U32("graphics/battle_transitions/frontier_square_4.4bpp.lz");
 static const u32 gUnknown_085C8928[] = INCBIN_U32("graphics/battle_transitions/frontier_squares.bin");
+static const u32 sMonitoTransition_Palette[] = INCBIN_U32("graphics/battle_transitions/monito.gbapal");
+static const u32 sMonitoTransition_Tileset[] = INCBIN_U32("graphics/battle_transitions/monito.4bpp.lz");
+static const u32 sMonitoTransition_Tilemap[] = INCBIN_U32("graphics/battle_transitions/monito.bin.lz");
 
 static const TaskFunc sPhase1_Tasks[B_TRANSITION_COUNT] =
 {
@@ -361,6 +367,7 @@ static const TaskFunc sPhase2_Tasks[B_TRANSITION_COUNT] =
     Phase2Task_39,                          // 39
     Phase2Task_40,                          // 40
     Phase2Task_41,                          // 41
+	Phase2Task_MonitoTransition,           // 42
 };
 
 static const TransitionStateFunc sMainTransitionPhases[] =
@@ -405,6 +412,17 @@ static const TransitionStateFunc sPhase2_Magma_Funcs[] =
 {
     Phase2_Magma_Func1,
     Phase2_Magma_Func2,
+    Phase2_BigPokeball_Func3,
+    Phase2_BigPokeball_Func4,
+    Phase2_BigPokeball_Func5,
+    Phase2_FramesCountdown,
+    Phase2_BigPokeball_Func6
+};
+
+static const TransitionStateFunc sPhase2_MonitoTransition_Funcs[] =
+{
+    Phase2_MonitoTransition_Func1,
+    Phase2_MonitoTransition_Func2,
     Phase2_BigPokeball_Func3,
     Phase2_BigPokeball_Func4,
     Phase2_BigPokeball_Func5,
@@ -1301,6 +1319,21 @@ static bool8 Phase2_Magma_Func1(struct Task *task)
     return FALSE;
 }
 
+static bool8 Phase2_MonitoTransition_Func1(struct Task *task)
+{
+    u16 *dst1, *dst2;
+
+    task->tFrames = 60;
+    sub_814669C(task);
+    sub_8149F58(&dst1, &dst2);
+    CpuFill16(0, dst1, 0x800);
+    LZ77UnCompVram(sMonitoTransition_Tileset, dst2);
+    LoadPalette(sMonitoTransition_Palette, 0xF0, 0x20);
+
+    task->tState++;
+    return FALSE;
+}
+
 static bool8 Phase2_Regi_Func1(struct Task *task)
 {
     u16 *dst1, *dst2;
@@ -1368,6 +1401,18 @@ static bool8 Phase2_Magma_Func2(struct Task *task)
 
     sub_8149F58(&dst1, &dst2);
     LZ77UnCompVram(sTeamMagma_Tilemap, dst1);
+    sub_8149F98(gScanlineEffectRegBuffers[0], 0, task->tData4, 132, task->tData5, 160);
+
+    task->tState++;
+    return FALSE;
+}
+
+static bool8 Phase2_MonitoTransition_Func2(struct Task *task)
+{
+    u16 *dst1, *dst2;
+
+    sub_8149F58(&dst1, &dst2);
+    LZ77UnCompVram(sMonitoTransition_Tilemap, dst1);
     sub_8149F98(gScanlineEffectRegBuffers[0], 0, task->tData4, 132, task->tData5, 160);
 
     task->tState++;
@@ -3234,6 +3279,11 @@ static void VBlankCB_Phase2_Rayquaza(void)
         dmaSrc = gScanlineEffectRegBuffers[0];
 
     DmaSet(0, dmaSrc, &REG_BG0VOFS, 0xA2400001);
+}
+
+static void Phase2Task_MonitoTransition(u8 taskId)
+{
+   while (sPhase2_MonitoTransition_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
 }
 
 static void Phase2Task_WhiteFade(u8 taskId)
