@@ -1485,6 +1485,11 @@ static void Cmd_typecalc(void)
             gBattleMoveDamage = gBattleMoveDamage * 15;
             gBattleMoveDamage = gBattleMoveDamage / 20;
 		}
+		
+	// Tinted Lens
+	if ((gMoveResultFlags & MOVE_RESULT_NOT_VERY_EFFECTIVE) && gBattleMons[gBattlerAttacker].ability == ABILITY_TINTED_LENS)
+        gBattleMoveDamage = gBattleMoveDamage *= 2;
+
     gBattlescriptCurrInstr++;
 }
 
@@ -1675,6 +1680,10 @@ u8 TypeCalc(u16 move, u8 attacker, u8 defender)
         gBattleMoveDamage = gBattleMoveDamage * 15;
         gBattleMoveDamage = gBattleMoveDamage / 20;
 	}
+	
+	// Tinted Lens
+	if ((gMoveResultFlags & MOVE_RESULT_NOT_VERY_EFFECTIVE) && gBattleMons[gBattlerAttacker].ability == ABILITY_TINTED_LENS)
+        gBattleMoveDamage = gBattleMoveDamage *= 2;
 	
     return flags;
 }
