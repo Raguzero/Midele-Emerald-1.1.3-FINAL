@@ -110,6 +110,7 @@ static const u8 sTransistorDescription[] = _("Powers up ELECTRIC moves.");
 static const u8 sDragonMawDescription[] = _("Powers up DRAGON moves.");
 static const u8 sSolidRockDescription[] = _("Holds better SUPER EF. hits.");
 static const u8 sSandSpitDescription[] = _("Creates a sandstorm if hit.");
+static const u8 sSheerForceDescription[] = _("Trades effects for power.");
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 {
@@ -225,6 +226,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_DRAGON_MAW] = _("DRAGON'S MAW"),
     [ABILITY_SOLID_ROCK] = _("SOLID ROCK"),
     [ABILITY_SAND_SPIT] = _("SAND SPIT"),
+    [ABILITY_SHEER_FORCE] = _("SHEER FORCE"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -341,4 +343,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_DRAGON_MAW] = sDragonMawDescription,
     [ABILITY_SOLID_ROCK] = sSolidRockDescription,
     [ABILITY_SAND_SPIT] = sSandSpitDescription,
+    [ABILITY_SHEER_FORCE] = sSheerForceDescription,
 };

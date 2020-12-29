@@ -244,6 +244,7 @@
 #define FLAG_SNATCH_AFFECTED        0x8
 #define FLAG_MIRROR_MOVE_AFFECTED   0x10
 #define FLAG_KINGSROCK_AFFECTED     0x20
+#define FLAG_SHEER_FORCE_BOOST      0x40
 
 // Growth rates
 #define GROWTH_MEDIUM_FAST  0

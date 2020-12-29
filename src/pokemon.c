@@ -4131,6 +4131,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 	 	// BUFF FORECAST
     if (attacker->ability == ABILITY_TOUGH_CLAWS && ((gBattleMoves[move].flags & FLAG_MAKES_CONTACT)))
     gBattleMovePower = (130 * gBattleMovePower) / 100;
+	if (attacker->ability == ABILITY_SHEER_FORCE && ((gBattleMoves[move].flags & FLAG_SHEER_FORCE_BOOST)))
+    gBattleMovePower = (130 * gBattleMovePower) / 100;
 	if (attacker->ability == ABILITY_HUSTLE)
         attack = (150 * attack) / 100;
     if ((attacker->ability == ABILITY_PLUS || attacker->ability == ABILITY_MINUS) && (ABILITY_ON_FIELD2(ABILITY_MINUS) || ABILITY_ON_FIELD2(ABILITY_PLUS)))

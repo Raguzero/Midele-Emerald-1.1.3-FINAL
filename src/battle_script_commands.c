@@ -2361,6 +2361,11 @@ void SetMoveEffect(bool8 primary, u8 certain)
     if (gSideStatuses[GET_BATTLER_SIDE(gEffectBattler)] & SIDE_STATUS_SAFEGUARD && !(gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
         && !primary && gBattleCommunication[MOVE_EFFECT_BYTE] <= 7)
         INCREMENT_RESET_RETURN
+		
+	if (gBattleMons[gBattlerAttacker].ability == ABILITY_SHEER_FORCE
+        && gBattleMoves[gCurrentMove].flags & FLAG_SHEER_FORCE_BOOST
+        && affectsUser != MOVE_EFFECT_AFFECTS_USER)
+        INCREMENT_RESET_RETURN
 
     if (gBattleMons[gEffectBattler].hp == 0
         && gBattleCommunication[MOVE_EFFECT_BYTE] != MOVE_EFFECT_PAYDAY
