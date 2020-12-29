@@ -244,6 +244,7 @@ extern const u8 BattleScript_SlowStarted[];
 extern const u8 BattleScript_SlowStartEnds[];
 extern const u8 BattleScript_PerishBodyActivates[];
 extern const u8 BattleScript_BufferEndTurn[];
+extern const u8 BattleScript_SandSpitActivates[];
 // NUEVO HABILIDADES
 
 #endif // GUARD_BATTLE_SCRIPTS_H
