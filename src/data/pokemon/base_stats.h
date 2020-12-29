@@ -10162,7 +10162,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_FIELD,
-        .abilities = {ABILITY_MAGMA_ARMOR, ABILITY_MAGMA_ARMOR},
+        .abilities = {ABILITY_MAGMA_ARMOR, ABILITY_SOLID_ROCK},
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
@@ -13050,7 +13050,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_MEDIUM_FAST,
 		.eggGroup1 = EGG_GROUP_FIELD,
 		.eggGroup2 = EGG_GROUP_FIELD,
-        .abilities = {ABILITY_MAGMA_ARMOR, ABILITY_MAGMA_ARMOR},
+        .abilities = {ABILITY_MAGMA_ARMOR, ABILITY_SOLID_ROCK},
 		.bodyColor = BODY_COLOR_RED,
 	},
 	[SPECIES_MEGA_MAWILE] =
@@ -13614,7 +13614,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_SLOW,
 		.eggGroup1 = EGG_GROUP_MONSTER,
 		.eggGroup2 = EGG_GROUP_FIELD,
-        .abilities = {ABILITY_LIGHTNING_ROD, ABILITY_LIGHTNING_ROD},
+        .abilities = {ABILITY_LIGHTNING_ROD, ABILITY_SOLID_ROCK},
 		.bodyColor = BODY_COLOR_GRAY,
 	},
 

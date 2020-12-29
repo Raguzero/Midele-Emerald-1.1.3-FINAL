@@ -1479,6 +1479,12 @@ static void Cmd_typecalc(void)
     if (gMoveResultFlags & MOVE_RESULT_DOESNT_AFFECT_FOE)
         gProtectStructs[gBattlerAttacker].targetNotAffected = 1;
 
+	// Solid Rock
+	if (gMoveResultFlags & MOVE_RESULT_SUPER_EFFECTIVE && (gBattleMons[gBattlerTarget].ability == ABILITY_SOLID_ROCK))
+		{
+            gBattleMoveDamage = gBattleMoveDamage * 15;
+            gBattleMoveDamage = gBattleMoveDamage / 20;
+		}
     gBattlescriptCurrInstr++;
 }
 
@@ -1662,6 +1668,14 @@ u8 TypeCalc(u16 move, u8 attacker, u8 defender)
     {
         flags |= MOVE_RESULT_MISSED;
     }
+	
+		// Solid Rock
+	if (gMoveResultFlags & MOVE_RESULT_SUPER_EFFECTIVE && (gBattleMons[gBattlerTarget].ability == ABILITY_SOLID_ROCK))
+	{
+        gBattleMoveDamage = gBattleMoveDamage * 15;
+        gBattleMoveDamage = gBattleMoveDamage / 20;
+	}
+	
     return flags;
 }
 
