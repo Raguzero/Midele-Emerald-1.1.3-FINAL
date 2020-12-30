@@ -2369,20 +2369,20 @@ const u8 gObstagoonPokedexText[] = _(
 
 const u8 gCursolaPokedexText[] = _(
     "Be cautious of the ectoplasmic body\n"
-	"surrounding its soul. You'll become stiff\n"
-	"as stone if you touch it. What appears to be\n"
-	"an iron helmet is.");
+	"surrounding its soul. You'll become\n"
+	"stiff as stone if you touch it.\n"
+	"What appears to be an iron helmet is.");
 
 const u8 gSirfetchPokedexText[] = _(
     "Only Farfetchd that have survived many\n"
-	"battles can attain this evolution. When this\n"
-	"Pokemon's leek withers, it will retire from\n"
-	"combat.");
+	"battles can attain this evolution.\n"
+	"When this Pokemon's leek withers, it\n"
+	"will retire from combat.");
 
 const u8 gMrrimePokedexText[] = _(
-    "It's highly skilled at tap-dancing. It waves\n"
-	"its cane of ice in time with its graceful\n"
-	"movements.");
+    "It's highly skilled at tap-dancing.\n"
+	"It waves its cane of ice in time\n"
+	"with its graceful movements.");
 
 const u8 gWeavilePokedexText[] = _(
     "They travel in groups of four or five,\n"
@@ -2571,10 +2571,10 @@ const u8 gGrookeyPokedexText[] = _(
     "it gets more and more pumped.");
 
 const u8 gThwackeyPokedexText[] = _(
-    "When it's drumming out rapid beats in battle, \n"
-    "it gets so caught up in the rhythm\n"
-    "that it won't even notice that\n"
-    "it's already knocked out its opponent.");
+    "When it's drumming out rapid beats, it \n"
+    "gets so caught up in the rhythm that\n"
+    "it won't even notice that it's\n"
+    "already knocked out its opponent.");
 
 const u8 gRillaboomPokedexText[] = _(
     "The one with the best drumming techniques \n"
@@ -3045,9 +3045,9 @@ const u8 gToxelPokedexText[] = _(
 	
 const u8 gToxtricityPokedexText[] = _(
     "When this Pokémon sounds as if it's\n" 
-	"strumming a guitar, it's actually clawing\n" 
-	"at the protrusions on its chest to generate\n" 
-	"electricity.");
+	"strumming a guitar, it's actually\n" 
+	"clawing at the protrusions on its \n"
+	"chest to generate electricity.");
 
 const u8 gApplinPokedexText[] = _(
     "It spends its entire life inside an apple.\n" 
@@ -3066,10 +3066,10 @@ const u8 gAppletunPokedexText[] = _(
 	"luring in the bug Pokémon it preys on.");
 	
 const u8 gDuraludonPokedexText[] = _(
-    "The special metal that composes its body is\n"
-	"very light, so this Pokémon has considerable\n" 
-	"agility. It lives in caves because it\n" 
-	"dislikes the rain.");
+    "The special metal that composes its body\n"
+	"is very light, so this Pokémon has\n" 
+	"considerable agility. It lives in\n" 
+	"caves because it dislikes the rain.");
 	
 const u8 gCottoneePokedexText[] = _(
     "When it finds others of its kind, they all\n"
@@ -3124,9 +3124,10 @@ const u8 gGKinglerPokedexText[] = _(
 	"have their bodies quickly melted away.");
 	
 const u8 gGButterfreePokedexText[] = _(
-    "Once it has opponents trapped in a tornado\n" 
-	"that could blow away a 10-ton truck, it\n" 
-	"finishes them off with its poisonous scales.");
+    "Once it has opponents trapped in a\n"
+	"tornado that could blow away a\n"
+	"10-ton truck, it finishes them\n"
+	"off with its poisonous scales.");
 
 const u8 gPanchamPokedexText[] = _(
     "There's no point to the leaf in its mouth,\n"
@@ -3331,13 +3332,14 @@ const u8 gRegielekiPokedexText[] = _(
 	"Pokémon's latent power.");
 
 const u8 gRegidragoPokedexText[] = _(
-    "Its body is composed of crystallized dragon\n" 
-	"energy. REGIDRAGO is said to have the\n" 
-	"powers of every dragon Pokémon.");
+    "Its body is composed of crystallized\n" 
+	"dragon energy. REGIDRAGO is said to\n" 
+	"have the powers of every\n" 
+	"dragon Pokémon.");
 	
 const u8 gWintassPokedexText[] = _(
     "Emerged from the snow from a past winter.\n" 
-	"Its body is covered of branches, stones and\n" 
-	"snowmans that people made before WINTASS\n" 
-	"came to life.");
+	"Its body is covered of branches, stones\n" 
+	"and snowmans that people made before\n" 
+	"WINTASS came to life.");
 
