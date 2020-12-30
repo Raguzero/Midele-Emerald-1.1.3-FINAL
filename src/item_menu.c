@@ -1472,7 +1472,7 @@ void SetUpBagMenuActionItems(u8 unused)
                 gBagMenu->unk820 = &sInBattleNullUsageMenuActions;
                 gBagMenu->unk828 = 1;
             }
-            else if (ItemId_GetBattleUsage(gSpecialVar_ItemId))
+            else if (ItemId_GetBattleUsage(gSpecialVar_ItemId) == 1)
             {
                 gBagMenu->unk820 = sInBattleItemMenuActions;
                 gBagMenu->unk828 = NELEMS(sInBattleItemMenuActions);

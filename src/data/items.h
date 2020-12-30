@@ -182,6 +182,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+	    .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -194,6 +196,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -206,6 +210,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -218,6 +224,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -230,6 +238,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -242,6 +252,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -255,6 +267,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -268,6 +282,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -281,6 +297,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -294,6 +312,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -306,6 +326,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -318,6 +340,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -330,6 +354,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+	    .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -343,6 +369,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+	    .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -356,6 +384,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+	    .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -369,6 +399,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+	    .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -382,6 +414,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+	    .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -394,6 +428,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+	    .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -406,6 +442,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+	    .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -418,6 +456,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+	    .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -430,6 +470,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+	    .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -443,6 +485,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_PPRecovery,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_PPRecovery,
         .secondaryId = 0,
     },
 
@@ -456,6 +500,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_PPRecovery,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_PPRecovery,
         .secondaryId = 0,
     },
 
@@ -469,6 +515,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_PPRecovery,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_PPRecovery,
         .secondaryId = 0,
     },
 
@@ -482,6 +530,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_PPRecovery,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_PPRecovery,
         .secondaryId = 0,
     },
 
@@ -494,6 +544,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -507,6 +559,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -520,6 +574,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -533,6 +589,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -573,6 +631,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -939,6 +999,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_StatIncrease,
         .secondaryId = 0,
     },
 
@@ -951,6 +1013,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_StatIncrease,
         .secondaryId = 0,
     },
 
@@ -963,6 +1027,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_StatIncrease,
         .secondaryId = 0,
     },
 
@@ -975,6 +1041,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_StatIncrease,
         .secondaryId = 0,
     },
 
@@ -987,6 +1055,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_StatIncrease,
         .secondaryId = 0,
     },
 
@@ -999,6 +1069,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_StatIncrease,
         .secondaryId = 0,
     },
 
@@ -1011,6 +1083,8 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_StatIncrease,
         .secondaryId = 0,
     },
 
@@ -1681,6 +1755,8 @@ const struct Item gItems[] =
         .pocket = POCKET_BERRIES,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -1694,6 +1770,8 @@ const struct Item gItems[] =
         .pocket = POCKET_BERRIES,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -1707,6 +1785,8 @@ const struct Item gItems[] =
         .pocket = POCKET_BERRIES,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -1720,6 +1800,8 @@ const struct Item gItems[] =
         .pocket = POCKET_BERRIES,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -1733,6 +1815,8 @@ const struct Item gItems[] =
         .pocket = POCKET_BERRIES,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -1747,6 +1831,8 @@ const struct Item gItems[] =
         .pocket = POCKET_BERRIES,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_PPRecovery,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_PPRecovery,
         .secondaryId = 0,
     },
 
@@ -1761,6 +1847,8 @@ const struct Item gItems[] =
         .pocket = POCKET_BERRIES,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -1774,6 +1862,8 @@ const struct Item gItems[] =
         .pocket = POCKET_BERRIES,
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -1787,6 +1877,8 @@ const struct Item gItems[] =
         .pocket = POCKET_BERRIES,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -1801,6 +1893,8 @@ const struct Item gItems[] =
         .pocket = POCKET_BERRIES,
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
     },
 
@@ -2221,6 +2315,8 @@ const struct Item gItems[] =
         .pocket = POCKET_BERRIES,
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_EnigmaBerry,
+        .battleUsage = 2,
+        .battleUseFunc = ItemUseInBattle_EnigmaBerry,
         .secondaryId = 0,
     },
 
