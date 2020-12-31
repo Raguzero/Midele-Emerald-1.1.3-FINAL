@@ -112,6 +112,7 @@ static const u8 sSolidRockDescription[] = _("Holds better SUPER EF. hits.");
 static const u8 sSandSpitDescription[] = _("Creates a sandstorm if hit.");
 static const u8 sSheerForceDescription[] = _("Trades effects for power.");
 static const u8 sTintedLensDescription[] = _("Ups “not very effective“.");
+static const u8 sCorrosionDescription[] = _("Poisons any type.");
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 {
@@ -229,6 +230,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_SAND_SPIT] = _("SAND SPIT"),
     [ABILITY_SHEER_FORCE] = _("SHEER FORCE"),
     [ABILITY_TINTED_LENS] = _("TINTED LENS"),
+    [ABILITY_CORROSION] = _("CORROSION"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -347,4 +349,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_SAND_SPIT] = sSandSpitDescription,
     [ABILITY_SHEER_FORCE] = sSheerForceDescription,
     [ABILITY_TINTED_LENS] = sTintedLensDescription,
+	[ABILITY_CORROSION] = sCorrosionDescription,
 };

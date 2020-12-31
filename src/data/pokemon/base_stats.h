@@ -15635,7 +15635,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_MEDIUM_FAST,
 		.eggGroup1 = EGG_GROUP_MONSTER,
 		.eggGroup2 = EGG_GROUP_DRAGON,
-		.abilities = {ABILITY_OBLIVIOUS, ABILITY_NONE},
+		.abilities = {ABILITY_CORROSION, ABILITY_OBLIVIOUS},
 		.bodyColor = BODY_COLOR_BLACK,
 	},
 
@@ -15660,7 +15660,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_MEDIUM_FAST,
 		.eggGroup1 = EGG_GROUP_MONSTER,
 		.eggGroup2 = EGG_GROUP_DRAGON,
-		.abilities = {ABILITY_OBLIVIOUS, ABILITY_NONE},
+		.abilities = {ABILITY_CORROSION, ABILITY_OBLIVIOUS},
 		.bodyColor = BODY_COLOR_BLACK,
 	},
 	[SPECIES_SANDYGAST] =
