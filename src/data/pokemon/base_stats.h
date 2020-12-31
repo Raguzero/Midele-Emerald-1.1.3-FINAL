@@ -17004,7 +17004,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_MEDIUM_FAST,
 		.eggGroup1 = EGG_GROUP_UNDISCOVERED,
 		.eggGroup2 = EGG_GROUP_UNDISCOVERED,
-        .abilities = {ABILITY_FLOWER_VEIL, ABILITY_NONE},
+        .abilities = {ABILITY_OVERGROW, ABILITY_NATURAL_CURE},
 		.bodyColor = BODY_COLOR_WHITE,
 	},
 	[SPECIES_SNIVY] =
