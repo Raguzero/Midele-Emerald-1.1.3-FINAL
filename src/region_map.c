@@ -140,6 +140,8 @@ static const u16 sRegionMap_SpecialPlaceLocations[][2] =
     {MAPSEC_ALTERING_CAVE_2,           MAPSEC_ROUTE_103},
     {MAPSEC_ARTISAN_CAVE,              MAPSEC_ROUTE_103},
     {MAPSEC_ABANDONED_SHIP,            MAPSEC_ROUTE_108},
+    {MAPSEC_OLDALE_RUINS,            MAPSEC_ROUTE_103},
+    {MAPSEC_MAUVILLE_RUINS,            MAPSEC_ROUTE_110},
     {MAPSEC_NONE,                      MAPSEC_NONE}
 };
 
