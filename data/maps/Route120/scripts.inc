@@ -382,7 +382,55 @@ Route120_EventScript_Callie:: @ 81F5981
 	trainerbattle_single TRAINER_CALLIE, Route120_Text_CallieIntro, Route120_Text_CallieDefeat
 	msgbox Route120_Text_CalliePostBattle, MSGBOX_AUTOCLOSE
 	end
+	
+Route120_EventScript_BlockTrigger:: @ 81E0DF3
+	lockall
+	applymovement 45, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement EVENT_OBJ_ID_PLAYER, Common_Movement_WalkInPlaceFastestUp
+	waitmovement 0
+	goto Route120_EventScript_BlockSin6Medalla
+	
+Route120_EventScript_BlockSin6Medalla::
+	faceplayer
+	msgbox Route120_Text_BlockSin6Medalla, MSGBOX_DEFAULT
+	closemessage
+	applymovement EVENT_OBJ_ID_PLAYER, Route120_Movement_PlayerATRAS
+	waitmovement 0
+	goto Route120_EventScript_ATRAS
+	end
+	
+Route120_EventScript_BlockSin6MedallaNPC::
+	faceplayer
+	msgbox Route120_Text_BlockSin6Medalla, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
 
+Route120_Movement_PlayerATRAS: @ 81F9E78
+	walk_up
+	step_end
+	end
+	
+Route120_EventScript_ATRAS::
+	releaseall
+	end
+	
+Route120_Text_BlockSin6Medalla: @ 81F5ADE
+	.string "Como fan del gran MASUDA,\n"
+	.string "cerrar rutas es lo mejor que podemos\l" 
+	.string "hacer, ¿quién quiere ver a nuestros\l" 
+	.string "jóvenes perdidos en caminos\l" 
+	.string "inexplorados?\p" 
+	
+	.string "Debemos garantizar su bienestar y\n" 
+	.string "seguridad, y guiarles por el camino\l" 
+	.string "más óptimo.\p"
+	
+	.string "Así que no te dejaré pasar hasta\n"
+	.string "que consigas la Medalla de la\l"
+	.string "zona anterior.$"
+	
 Route120_Text_StevenGreeting: @ 81F5998
 	.string "STEVEN: Hm? {PLAYER}{KUN}, hi.\n"
 	.string "It's been a while.\p"
