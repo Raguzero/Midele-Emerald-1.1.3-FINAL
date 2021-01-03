@@ -4094,12 +4094,18 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         spDefense *= 1.5, defense *= 1.5;
     if (defenderHoldEffect == HOLD_EFFECT_HEART_SCALE && defender->species == SPECIES_LUVDISC)
         defense *= 2, spDefense *= 2;
+    if (attackerHoldEffect == HOLD_EFFECT_HEART_SCALE && attacker->species == SPECIES_LUVDISC)
+        spAttack *= 2;	
     if (attackerHoldEffect == HOLD_EFFECT_LUCKY_PUNCH && (attacker->species == SPECIES_LEDYBA || attacker->species == SPECIES_LEDIAN))
         spAttack *= 2, attack *= 2;
     if (attackerHoldEffect == HOLD_EFFECT_TINY_MUSHROOM && (attacker->species == SPECIES_PARAS || attacker->species == SPECIES_PARASECT))
-        spAttack *= 2, attack *= 2;
+        spAttack *= 1.5, attack *= 1.5;
     if (defenderHoldEffect == HOLD_EFFECT_BIG_MUSHROOM && (defender->species == SPECIES_PARAS || defender->species == SPECIES_PARASECT))
         defense *= 2, spDefense *= 2;
+    if (attackerHoldEffect == HOLD_EFFECT_CAN_ALWAYS_RUN && (attacker->species == SPECIES_BEAUTIFLY || attacker->species == SPECIES_DUSTOX))
+        spAttack *= 1.5;
+    if (defenderHoldEffect == HOLD_EFFECT_CAN_ALWAYS_RUN && (defender->species == SPECIES_BEAUTIFLY || defender->species == SPECIES_DUSTOX))
+        spDefense *= 1.5;
     if (attackerHoldEffect == HOLD_EFFECT_POKE_DOLL && attacker->species == SPECIES_DELCATTY)
         spAttack *= 1.5;
     if (defenderHoldEffect == HOLD_EFFECT_FLUFFY_TAIL && defender->species == SPECIES_FURRET)

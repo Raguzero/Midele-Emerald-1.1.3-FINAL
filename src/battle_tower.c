@@ -159,7 +159,8 @@ const u16 gBattleFrontierHeldItems[] =
     ITEM_RED_FLUTE,
     ITEM_NUGGET,
     ITEM_POKE_DOLL,
-    ITEM_FLUFFY_TAIL
+    ITEM_FLUFFY_TAIL,
+    ITEM_SMOKE_BALL
 };
 
 #include "data/battle_frontier/battle_frontier_trainer_mons.h"

@@ -500,8 +500,8 @@ static const u8 sNuggetDesc[] = _(
 
 static const u8 sHeartScaleDesc[] = _(
     "A hold item that\n"
-    "doubles DEF & SDEF\n"
-    "of LUVDISC.");
+    "doubles DEF, SDEF\n"
+    "& SATK of LUVDISC.");
 
 // Mail
 static const u8 sOrangeMailDesc[] = _(
@@ -857,9 +857,9 @@ static const u8 sDeepSeaScaleDesc[] = _(
     "of CLAMPERL.");
 
 static const u8 sSmokeBallDesc[] = _(
-    "A hold item that\n"
-    "assures fleeing\n"
-    "from wild POKéMON.");
+    "Hold item: allow flee\n"
+    "& raises SATK, SDEF\n"
+    "DUSTOX & BEAUTIFLY");
 
 static const u8 sEverstoneDesc[] = _(
     "A hold item that\n"
