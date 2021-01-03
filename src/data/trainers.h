@@ -12118,10 +12118,10 @@ const struct Trainer gTrainers[] = {
     [TRAINER_IZABE_MAYOR] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_EXPERT,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR,
         .trainerPic = TRAINER_PIC_EXPERT_M,
-        .trainerName = _("COMPLETAR2"),
+        .trainerName = _("GARM"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
@@ -12289,7 +12289,7 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_MayProfessorBirchsLabTorchic),
         .party = {.ItemCustomMidele = sParty_MayProfessorBirchsLabTorchic},
     },
-	
+
     [TRAINER_BROCK] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
@@ -12303,7 +12303,7 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_Brock),
         .party = {.ItemCustomMidele = sParty_Brock},
     },
-	
+
     [TRAINER_MISTY] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
@@ -12317,7 +12317,7 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_Misty),
         .party = {.ItemCustomMidele = sParty_Misty},
     },
-	
+
     [TRAINER_ERIKA] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
@@ -12331,7 +12331,7 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_Erika),
         .party = {.ItemCustomMidele = sParty_Erika},
     },
-	
+
     [TRAINER_LTSURGE] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
@@ -12345,7 +12345,7 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_LtSurge),
         .party = {.ItemCustomMidele = sParty_LtSurge},
     },
-	
+
     [TRAINER_SABRINA] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
@@ -12359,7 +12359,7 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_Sabrina),
         .party = {.ItemCustomMidele = sParty_Sabrina},
     },
-	
+
     [TRAINER_KOGA] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
@@ -12373,7 +12373,7 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_Koga),
         .party = {.ItemCustomMidele = sParty_Koga},
     },
-	
+
     [TRAINER_BLAINE] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
@@ -12387,7 +12387,7 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_Blaine),
         .party = {.ItemCustomMidele = sParty_Blaine},
     },
-	
+
     [TRAINER_GIOVANNI] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
@@ -12401,7 +12401,7 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_Giovanni),
         .party = {.ItemCustomMidele = sParty_Giovanni},
     },
-	
+
     [TRAINER_LORELEI] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
@@ -12415,7 +12415,7 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_Lorelei),
         .party = {.ItemCustomMidele = sParty_Lorelei},
     },
-	
+
     [TRAINER_BRUNO] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
@@ -12429,7 +12429,7 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_Bruno),
         .party = {.ItemCustomMidele = sParty_Bruno},
     },
-	
+
     [TRAINER_AGATHA] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
@@ -12443,7 +12443,7 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_Agatha),
         .party = {.ItemCustomMidele = sParty_Agatha},
     },
-	
+
     [TRAINER_LANCE] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
@@ -12457,7 +12457,7 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_Lance),
         .party = {.ItemCustomMidele = sParty_Lance},
     },
-	
+
     [TRAINER_BLUE] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
@@ -12471,7 +12471,7 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_Blue),
         .party = {.ItemCustomMidele = sParty_Blue},
     },
-	
+
     [TRAINER_RED2] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,

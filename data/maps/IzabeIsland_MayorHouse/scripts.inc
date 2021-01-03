@@ -41,14 +41,23 @@ IzabeIsland_MayorHouse_EventScript_Mayor_AskForBattle::
 	lockall
 	faceplayer
 	msgbox IzabeIsland_MayorHouse_Text_Mayor_ExplainSituation, MSGBOX_NPC
+  closemessage
+  faceplayer
+  msgbox IzabeIsland_MayorHouse_Text_Mayor_AreYouPrepared, MSGBOX_YESNO
+  compare VAR_RESULT, NO
+  goto_if_eq IzabeIsland_MayorHouse_Event_Mayor_YouAreNotPrepared
 	trainerbattle_no_intro TRAINER_IZABE_MAYOR, IzabeIsland_MayorHouse_Text_Mayor_BattleDefeated
-	
 	msgbox IzabeIsland_MayorHouse_Text_Mayor_AskForCooperation, MSGBOX_NPC
 	setvar VAR_IZABE_ISLAND_STATE, 1
 	applymovement 6, IzabeIsland_Movement_MoveGuardLeft
 	waitmovement 0
 	releaseall
 	end
+
+IzabeIsland_MayorHouse_Event_Mayor_YouAreNotPrepared:
+  msgbox IzabeIsland_MayorHouse_Text_Mayor_YouAreNotPrepared, MSGBOX_NPC
+  releaseall
+  end
 
 IzabeIsland_Movement_MoveGuardLeft::
 	walk_left
@@ -112,19 +121,42 @@ IzabeIsland_MayorHouse_Text_Guard_ThanksForHelp::
 	.string "merodeando por la zona.$"
 
 IzabeIsland_MayorHouse_Text_Mayor_ExplainSituation::
-	.string "Hello, explain situation$"
+	.string "Oh, no eres de por aquí...\n"
+  .string "¿Ah, has venido a ayudar?\p"
+  .string "Soy GARM, el alcade de IZABE.\n"
+  .string "Antes de nada me gustaría ponerte a\l"
+  .string "prueba.$"
 
-IzabeIsland_MayorHouse_Text_Mayor_BattleIntro::
-	.string "Battle begin$"
+IzabeIsland_MayorHouse_Text_Mayor_AreYouPrepared::
+  .string "¿Estás listo?$"
+
+IzabeIsland_MayorHouse_Text_Mayor_YouAreNotPrepared::
+  .string "Pues oc. Noob.$"
 
 IzabeIsland_MayorHouse_Text_Mayor_BattleDefeated::
-	.string "Battle end$"
+	.string "Pues oc.$"
 
 IzabeIsland_MayorHouse_Text_Mayor_AskForCooperation::
-	.string "Go there, please.$"
+	.string "Verás, resulta que alguien se ha perdido\n"
+  .string "en las afueras del pueblo. Lo cual\l"
+  .string "no sería un problema... si no fuera\l"
+  .string "porque dicen que esa persona fue vista\l"
+  .string "merodeando cerca de la cueva del oeste.\p"
+  .string "Esa cueva es bastante inhóspita y\n"
+  .string "últimamente ha habido rumores de\l"
+  .string "extraños avistamientos...\p"
+  .string "Por eso me gustaría que un entrenador\n"
+  .string "como tú fuese a investigar el asunto.\p"
+  .string "El guardia de la salida te dejará pasar.\n"
+  .string "Te deseo suerte.$"
 
 IzabeIsland_MayorHouse_Text_Mayor_TakeYourReward::
-	.string "This is your reward for helping us.$"
+	.string "Gracias por ayudar a LAVENDER. Te daría\n"
+  .string "algo, pero con la recompensa de\l"
+  .string "LAVENDER debería ser suficiente.\p"
+  .string "¿Cómo? ¿Que aún así quieres algo?\p"
+  .string "Pues oc.$"
+
 
 IzabeIsland_MayorHouse_Text_OldWoman::
 	.string "Ay... este nieto mío siempre está con la\n"

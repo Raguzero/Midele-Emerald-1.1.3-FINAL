@@ -171,7 +171,7 @@ IzabeIsland_OutskirtsCave_EventScript_Lavender::
 	giveitem ITEM_HM02
 	setflag FLAG_RECEIVED_HM02
 	setvar VAR_IZABE_ISLAND_STATE, 2
-	
+
 	applymovement 2, IzabeIsland_OutskirtsCave_Movement_LavenderSpin
 	waitmovement 0
 	playse SE_W153
@@ -204,7 +204,7 @@ IzabeIsland_OutskirtsCave_Movement_LavenderJumpAway:
 	step_end
 
 IzabeIsland_OutskirtsCave_Text_Lavender_ExplainSituation::
-	.string "¿Eh? ¿Quién eres? ¿Que GOOSES te dijo \n"
+	.string "¿Eh? ¿Quién eres? ¿Que GARM te dijo \n"
 	.string "que fueras a buscarme porque pensaba\l"
 	.string "que me había perdido? En fin...\p"
 	.string "Solo había venido aquí a investigar,\n"
@@ -226,7 +226,7 @@ IzabeIsland_OutskirtsCave_Text_Lavender_TryGiveItem::
 	.string "Sin embargo, parece que MICOLO ha vuelto\n"
 	.string "a la región. Deberías tener cuidado...\p"
 	.string "Cambiando de tema, gracias por ayudar a\n"
-	.string "GOOSES, te daré algo por las molestias.\p"
+	.string "GARM, te daré algo por las molestias.\p"
 	.string "¡Hasta la vista!$"
 
 IzabeIsland_OutskirtsCave_Text_DoorOpen::
