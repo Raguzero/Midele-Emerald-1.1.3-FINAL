@@ -1612,10 +1612,10 @@ u8 TypeCalc(u16 move, u8 attacker, u8 defender)
     if (move == MOVE_STRUGGLE)
         return 0;
     
-    if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
-        monAttacker = &gPlayerParty[gBattlerPartyIndexes[gBattlerAttacker]];
+    if (GetBattlerSide(attacker) == B_SIDE_PLAYER)
+        monAttacker = &gPlayerParty[gBattlerPartyIndexes[attacker]];
     else
-        monAttacker = &gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker]];
+        monAttacker = &gEnemyParty[gBattlerPartyIndexes[attacker]];
 
     if (move == MOVE_HIDDEN_POWER)
     {
@@ -1646,7 +1646,7 @@ u8 TypeCalc(u16 move, u8 attacker, u8 defender)
         {
             if (TYPE_EFFECT_ATK_TYPE(i) == TYPE_FORESIGHT)
             {
-                if (gBattleMons[defender].status2 & STATUS2_FORESIGHT || gBattleMons[gBattlerAttacker].ability == ABILITY_SCRAPPY)
+                if (gBattleMons[defender].status2 & STATUS2_FORESIGHT || gBattleMons[attacker].ability == ABILITY_SCRAPPY)
                     break;
                 i += 3;
                 continue;
