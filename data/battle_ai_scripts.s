@@ -818,7 +818,6 @@ AI_CheckViability:
 	if_effect EFFECT_CALM_MIND, AI_CV_SpDefUp
 	if_effect EFFECT_DRAGON_DANCE, AI_CV_DragonDance
 	if_effect EFFECT_SANDSTORM, AI_CV_Sandstorm
-	if_effect EFFECT_HIDDEN_POWER, AI_CV_HiddenPower
 	end
 
 AI_CV_Sleep: @ 82DCA92
@@ -902,14 +901,6 @@ AI_CV_MirrorMove2: @ 82DCB58
 	score -1
 
 AI_CV_MirrorMove_End: @ 82DCB6B
-	end
-
-AI_CV_HiddenPower::
-	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
-	if_type_effectiveness AI_EFFECTIVENESS_x0_25, Score_Minus1
-	if_type_effectiveness AI_EFFECTIVENESS_x0_5, Score_Minus1
-	if_type_effectiveness AI_EFFECTIVENESS_x2, Score_Plus1
-	if_type_effectiveness AI_EFFECTIVENESS_x4, Score_Plus2
 	end
 
 AI_CV_MirrorMove_EncouragedMovesToMirror: @ 82DCB6C
