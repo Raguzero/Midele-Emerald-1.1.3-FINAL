@@ -4740,6 +4740,26 @@
           "primary_tileset": "gTileset_Building",
           "secondary_tileset": "gTileset_Lab",
           "width": 8
+        },
+        {
+            "blockdata_filepath": "data/layouts/MicoloHideoutB1/map.bin",
+            "border_filepath": "data/layouts/MicoloHideoutB1/border.bin",
+            "height": 21,
+            "id": "LAYOUT_MICOLO_HIDEOUT_B1",
+            "name": "MicoloHideoutB1_Layout",
+            "primary_tileset": "gTileset_Building",
+            "secondary_tileset": "gTileset_MauvilleGameCorner",
+            "width": 20
+        },
+        {
+          "blockdata_filepath": "data/layouts/MicoloHideout1F/map.bin",
+          "border_filepath": "data/layouts/MicoloHideout1F/border.bin",
+          "height": 9,
+          "id": "LAYOUT_MICOLO_HIDEOUT1F",
+          "name": "MicoloHideout1F_Layout",
+          "primary_tileset": "gTileset_Building",
+          "secondary_tileset": "gTileset_Lab",
+          "width": 10
         }
     ],
     "layouts_table_label": "gMapLayouts"

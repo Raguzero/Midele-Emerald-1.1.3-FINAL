@@ -556,7 +556,9 @@
         "Micolandia_House2",
         "OldaleRuins",
         "ForbiddenForest",
-        "MauvilleRuins"
+        "MauvilleRuins",
+        "MicoloHideout1F",
+        "MicoloHideoutB1"
     ],
     "gMapGroup4": [
         "LavaridgeTown_HerbShop",
