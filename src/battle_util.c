@@ -938,7 +938,7 @@ u8 DoBattlerEndTurnEffects(void)
                         gBattleTextBuff1[3] = *(gBattleStruct->wrappedMove + gActiveBattler * 2 + 1);
                         gBattleTextBuff1[4] = EOS;
                         gBattlescriptCurrInstr = BattleScript_WrapTurnDmg;
-                        gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 16;
+                        gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 8;
                         if (gBattleMoveDamage == 0)
                             gBattleMoveDamage = 1;
                     }

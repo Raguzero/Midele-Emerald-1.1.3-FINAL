@@ -2596,7 +2596,7 @@ void SetMoveEffect(bool8 primary, u8 certain)
             BattleScriptPush(gBattlescriptCurrInstr + 1);
 
             if (sStatusFlagsForMoveEffects[gBattleCommunication[MOVE_EFFECT_BYTE]] == STATUS1_SLEEP)
-                gBattleMons[gEffectBattler].status1 |= ((Random() & 3) + 2);
+                gBattleMons[gEffectBattler].status1 |= ((Random() % 3) + 1);
             else
                 gBattleMons[gEffectBattler].status1 |= sStatusFlagsForMoveEffects[gBattleCommunication[MOVE_EFFECT_BYTE]];
 
@@ -2734,7 +2734,7 @@ void SetMoveEffect(bool8 primary, u8 certain)
                 }
                 else
                 {
-                    gBattleMons[gEffectBattler].status2 |= ((Random() & 3) + 3) << 0xD;
+                    gBattleMons[gEffectBattler].status2 |= ((Random() & 1) + 5) << 0xD;
 
                     *(gBattleStruct->wrappedMove + gEffectBattler * 2 + 0) = gCurrentMove;
                     *(gBattleStruct->wrappedMove + gEffectBattler * 2 + 1) = gCurrentMove >> 8;
@@ -5134,6 +5134,8 @@ static void Cmd_switchinanim(void)
     gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
 
     if (GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT
+				 && FlagGet(FLAG_RYU_RANDOMBATTLE) != 1
+			 && FlagGet(FLAG_RYU_RANDOMBATTLECC) != 1
         && !(gBattleTypeFlags & (BATTLE_TYPE_LINK
                                  | BATTLE_TYPE_EREADER_TRAINER
                                  | BATTLE_TYPE_x2000000

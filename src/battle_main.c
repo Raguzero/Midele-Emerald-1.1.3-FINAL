@@ -3545,6 +3545,8 @@ static void BattleIntroDrawTrainersOrMonsSprites(void)
                 MarkBattlerForControllerExec(gActiveBattler);
             }
             if (GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT
+			&& FlagGet(FLAG_RYU_RANDOMBATTLE) != 1
+            && FlagGet(FLAG_RYU_RANDOMBATTLECC) != 1
              && !(gBattleTypeFlags & (BATTLE_TYPE_EREADER_TRAINER
                                       | BATTLE_TYPE_FRONTIER
                                       | BATTLE_TYPE_LINK
@@ -3558,7 +3560,7 @@ static void BattleIntroDrawTrainersOrMonsSprites(void)
         {
             if (GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT)
             {
-                if (!(gBattleTypeFlags & (BATTLE_TYPE_EREADER_TRAINER
+                if (FlagGet(FLAG_RYU_RANDOMBATTLE) != 1 && FlagGet(FLAG_RYU_RANDOMBATTLECC) != 1 && !(gBattleTypeFlags & (BATTLE_TYPE_EREADER_TRAINER
                                       | BATTLE_TYPE_FRONTIER
                                       | BATTLE_TYPE_LINK
                                       | BATTLE_TYPE_x2000000
@@ -3869,6 +3871,8 @@ static void BattleIntroRecordMonsToDex(void)
         for (gActiveBattler = 0; gActiveBattler < gBattlersCount; gActiveBattler++)
         {
             if (GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT
+			&& FlagGet(FLAG_RYU_RANDOMBATTLE) != 1
+            && FlagGet(FLAG_RYU_RANDOMBATTLECC) != 1
              && !(gBattleTypeFlags & (BATTLE_TYPE_EREADER_TRAINER
                                       | BATTLE_TYPE_FRONTIER
                                       | BATTLE_TYPE_LINK
