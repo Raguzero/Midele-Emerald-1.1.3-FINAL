@@ -410,7 +410,7 @@ static void RemoveExtraStartMenuWindows(void)
         ClearStdWindowAndFrameToTransparent(sBattlePyramidFloorWindowId, FALSE);
         RemoveWindow(sBattlePyramidFloorWindowId);
     }
-    else
+    else if (FlagGet(FLAG_SET_WALL_CLOCK ) == TRUE)
     { //Borra de la pantalla la venta auxiliar de la hora
         ClearStdWindowAndFrameToTransparent(sSafariBallsWindowId, FALSE);
         RemoveWindow(sSafariBallsWindowId);	
@@ -1420,7 +1420,9 @@ bool8 IsInList(u8 *list, u8 *size, u8 entry) {
 
 static void ShowStartMenuExtraWindow(void) // Función que carga una ventana auxiliar en el menú de pausa.
 {	
-    u8 hours, minutes;
+   if (FlagGet(FLAG_SET_WALL_CLOCK ) == TRUE)
+   {
+	u8 hours, minutes;
     RtcCalcLocalTime();
     hours = gLocalTime.hours;
     minutes = gLocalTime.minutes;
@@ -1430,4 +1432,5 @@ static void ShowStartMenuExtraWindow(void) // Función que carga una ventana aux
 	FormatDecimalTimeWOSeconds(gStringVar4, hours, minutes);                                     
     AddTextPrinterParameterized(sSafariBallsWindowId, 1, gStringVar4, 0, 1, 0xFF, NULL); 
     CopyWindowToVram(sSafariBallsWindowId, 2);
+   }
 }
