@@ -86,9 +86,40 @@ MeteorFalls_1F_1R_EventScript_MagmaStealsMeteoriteScene:: @ 822BD5F
 	setflag FLAG_HIDE_ROUTE_112_TEAM_MAGMA
 	setflag FLAG_MET_ARCHIE_METEOR_FALLS
 	setflag FLAG_HIDE_FALLARBOR_TOWN_BATTLE_TENT_SCOTT
+	// MICOLO EVENT
+	clearflag FLAG_HIDE_MICOLO_METEORFALL
+	addobject 11
+	playse SE_PIN
+	applymovement 11, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement 11, MeteorFalls_1F_1R_Movement_Micolo	
+	waitmovement 0
+	applymovement EVENT_OBJ_ID_PLAYER, Common_Movement_FaceRight
+	waitmovement 0
+	msgbox MeteorFalls_1F_1R_Text_Micolo, MSGBOX_DEFAULT
+	closemessage
+	fadescreen 1
+	delay 30
+	removeobject 11
+	delay 30
+	fadescreen 0
+	setflag FLAG_HIDE_MICOLO_METEORFALL
+	// MICOLO EVENT
 	setvar VAR_METEOR_FALLS_STATE, 1
 	releaseall
 	end
+
+MeteorFalls_1F_1R_Movement_Micolo:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
 
 MeteorFalls_1F_1R_Movement_MagmaGruntApproachPlayer: @ 822BEC0
 	walk_right
@@ -307,3 +338,50 @@ MeteorFalls_1F_1R_Text_WhatsTeamMagmaDoingAtMtChimney: @ 822C47D
 	.string "PROF. COZMO: But that TEAM MAGMA…\p"
 	.string "What are they going to do with that\n"
 	.string "METEORITE at MT. CHIMNEY?$"
+	
+MeteorFalls_1F_1R_Text_Micolo: 
+	.string "???: MICOLOOOOOOL\p"
+
+	.string "???: ¡Esos del TEAM MAGMA y\n"
+	.string "y TEAM AGUA son unos pringaos\l"
+	.string "de categoría!\p"
+
+	.string "???: El TEAM MAGMA quiere invocar\n"
+	.string "al Pokémon legendario GROUDON\l"
+	.string "para secar los mares y hacer\l"
+	.string "que la humanidad tenga\l"
+	.string "mayor tierra donde vivir.\p"
+	
+	.string "???: Mientras que el TEAM AQUA quiere\n"
+	.string "invocar al Pokémon legendario KYOGRE\l"
+	.string "para que haya mas cantidad de mar\l"
+	.string "donde puedan vivir los Pokémon.\p"
+
+	.string "???: Sus planes no tienen ninguna\n"
+	.string "lógica. ¡Piensalo!\p"	
+
+	.string "???: Si secan los mares, los\n"
+	.string "humanos nos quedamos sin agua\l"
+	.string "para poder sobrevivir.\p"
+	
+	.string "???: Mientras que si aumentan el\n"
+	.string "nivel de mar...\p"
+	
+	.string "???: ¡NOS AHOGAMOS TODOS!\p"
+	
+	.string "???: ¡Que tontos del culo!\n"
+	.string "LOOOOOOOOOOOOOOOOOOL\p"
+	
+	.string "???: Pero no te preocupes,\n"
+	.string "todos sus planes saldrán mal\l"
+	.string "porque tu les pararás los pies.\p"
+	
+	.string "...\p"
+	
+	.string "???: ¿Qué cómo lo sé?\n"
+	.string "Pues porque yo soy el gran MICOLO.\p"
+
+	.string "MICOLO: LOOOOOOOOOOOOOOOOOOOOL\p"
+	
+	.string "MICOLO: Estoy seguro de que nos\n"
+	.string "volveremos a ver. ¡Adios!$"

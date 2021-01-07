@@ -119,7 +119,7 @@ void ClearAllContestWinnerPics(void)
         gSaveBlock1Ptr->contestWinners[i] = sContestWinnerPicDummy;
 }
 
-// NUEVO TEST
+/*/ NUEVO TEST
 static void TestingNewGame(void)
 {
     u16 i;
@@ -134,7 +134,7 @@ static void TestingNewGame2(void)
     for (i = 0; i < POKEMON_SLOTS_NUMBER; i++)
         GetSetPokedexFlag(i, FLAG_SET_CAUGHT);
 }
-// NUEVO TEST
+// NUEVO TEST */
 
 static void ClearFrontierRecord(void)
 {
@@ -227,8 +227,9 @@ void NewGameInitData(void)
     ResetTrainerHillResults();
     ResetContestLinkResults();
     FlagSet(FLAG_FORCE_MIRAGE_TOWER_VISIBLE);
-	  TestingNewGame(); // NUEVO TEST
-	  	  TestingNewGame2(); // NUEVO TEST
+    FlagSet(FLAG_HIDE_MICOLO_METEORFALL);
+	/*  TestingNewGame(); // NUEVO TEST
+	  	  TestingNewGame2(); // NUEVO TEST */
 }
 
 static void ResetMiniGamesResults(void)

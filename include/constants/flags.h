@@ -684,7 +684,7 @@
 #define FLAG_DEFEATED_REGIELEKI  0x283 // Previously unused Flag
 #define FLAG_HIDE_REGIELEKI  0x284 // Previously unused Flag
 #define FLAG_SYS_BRAILLE_REGIELEKI_COMPLETED  0x285 // Previously unused Flag
-#define FLAG_UNUSED_0x286  0x286 // Unused Flag
+#define FLAG_HIDE_MICOLO_METEORFALL  0x286 // Previously unused Flag
 #define FLAG_UNUSED_0x287  0x287 // Unused Flag
 #define FLAG_UNUSED_0x288  0x288 // Unused Flag
 #define FLAG_UNUSED_0x289  0x289 // Unused Flag
