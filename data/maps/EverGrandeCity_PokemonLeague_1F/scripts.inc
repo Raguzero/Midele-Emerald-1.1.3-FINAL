@@ -178,13 +178,11 @@ StartingRandomBattleMsg:
 
 BF_RandomBattleCleanupWIN::
 	special HealPlayerParty
-	msgbox Enhorabuena
 	clearflag FLAG_RYU_RANDOMBATTLE
-	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
-	waitmovement 0
-	release
+	msgbox Enhorabuena
+	goto Script_RandomPrizes
 	end
-	
+
 BF_RandomBattleCleanupLOSS::
 	special HealPlayerParty
 	msgbox BattleAgain
@@ -273,11 +271,9 @@ NoBattle::
 
 BF_RandomBattleCleanupWINCC::
 	special LoadPlayerParty
-	msgbox Enhorabuena
 	clearflag FLAG_RYU_RANDOMBATTLECC
-	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
-	waitmovement 0
-	release
+	msgbox Enhorabuena
+	goto Script_RandomPrizes
 	end
 	
 BF_RandomBattleCleanupLOSSCC::
@@ -293,6 +289,75 @@ BF_RandomBattleCleanupDRAWCC::
 	special LoadPlayerParty
 	msgbox Empate
 	clearflag FLAG_RYU_RANDOMBATTLECC
+	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	release
+	end
+	
+Script_RandomPrizes::
+	lock
+	faceplayer
+	random 8
+	switch VAR_RESULT
+	case 0, Script_RandomPrize1
+	case 1, Script_RandomPrize2
+	case 2, Script_RandomPrize3
+	case 3, Script_RandomPrize4
+	case 4, Script_RandomPrize5
+	case 5, Script_RandomPrize6
+	case 6, Script_RandomPrize7
+	case 7, Script_RandomPrize8
+	end
+
+Script_RandomPrize1::
+	giveitem ITEM_HP_UP, 4
+	closemessage
+	goto Fin_RandomPrize
+	end
+
+Script_RandomPrize2::
+	giveitem ITEM_PROTEIN, 4
+	closemessage
+	goto Fin_RandomPrize
+	end
+
+Script_RandomPrize3::
+	giveitem ITEM_IRON, 4
+	closemessage
+	goto Fin_RandomPrize
+	end
+	
+Script_RandomPrize4::
+	giveitem ITEM_CALCIUM, 4
+	closemessage
+	goto Fin_RandomPrize
+	end
+
+Script_RandomPrize5::
+	giveitem ITEM_ZINC, 4
+	closemessage
+	goto Fin_RandomPrize
+	end
+
+Script_RandomPrize6::
+	giveitem ITEM_CARBOS, 4
+	closemessage
+	goto Fin_RandomPrize
+	end
+
+Script_RandomPrize7::
+	giveitem ITEM_PP_UP, 4
+	closemessage
+	goto Fin_RandomPrize
+	end
+
+Script_RandomPrize8::
+	giveitem ITEM_MOOMOO_MILK, 2
+	closemessage
+	goto Fin_RandomPrize
+	end
+	
+Fin_RandomPrize::
 	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
 	release
@@ -336,7 +401,9 @@ BattleAgain:
 	.string "si quieres otra batalla!$"
 	
 Enhorabuena:
-	.string "Ganaste, te llevas este premio$"
+	.string "Ganaste, pero ha sido por muy poco.\p"
+
+	.string "Te mereces este premio.$"
 	
 Empate:
 	.string "Hemos empatado ¿Repetimos?$"

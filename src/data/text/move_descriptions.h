@@ -79,7 +79,7 @@ static const u8 sFlyDescription[] = _(
 
 static const u8 sBindDescription[] = _(
     "Binds and squeezes the foe\n"
-    "for 2 to 5 turns.");
+    "for 4 to 5 turns.");
 
 static const u8 sSlamDescription[] = _(
     "Slams the foe with a long\n"
@@ -139,7 +139,7 @@ static const u8 sBodySlamDescription[] = _(
 
 static const u8 sWrapDescription[] = _(
     "Wraps and squeezes the foe\n"
-    "2 to 5 times with vines, etc.");
+    "4 to 5 times with vines, etc.");
 
 static const u8 sTakeDownDescription[] = _(
     "A reckless charge attack\n"
@@ -331,7 +331,7 @@ static const u8 sDragonRageDescription[] = _(
 
 static const u8 sFireSpinDescription[] = _(
     "Traps the foe in a ring of\n"
-    "fire for 2 to 5 turns.");
+    "fire for 4 to 5 turns.");
 
 static const u8 sThunderShockDescription[] = _(
     "An electrical attack that\n"
@@ -511,7 +511,7 @@ static const u8 sWaterfallDescription[] = _(
 
 static const u8 sClampDescription[] = _(
     "Traps and squeezes the\n"
-    "foe for 2 to 5 turns.");
+    "foe for 4 to 5 turns.");
 
 static const u8 sSwiftDescription[] = _(
     "Sprays star-shaped rays\n"
@@ -914,8 +914,8 @@ static const u8 sPursuitDescription[] = _(
     "on a foe switching out.");
 
 static const u8 sRapidSpinDescription[] = _(
-    "Spins the body at high\n"
-    "speed to strike the foe.");
+    "Spins the body to boost\n"
+    "SPEED to remove trap moves.");
 
 static const u8 sSweetScentDescription[] = _(
     "Allures the foe to sharply\n"
@@ -999,7 +999,7 @@ static const u8 sRockSmashDescription[] = _(
 
 static const u8 sWhirlpoolDescription[] = _(
     "Traps and hurts the foe in\n"
-    "a whirlpool for 2 to 5 turns.");
+    "a whirlpool for 4 to 5 turns.");
 
 static const u8 sBeatUpDescription[] = _(
     "Summons party POKéMON to\n"
@@ -1015,7 +1015,7 @@ static const u8 sUproarDescription[] = _(
 
 static const u8 sStockpileDescription[] = _(
     "Charges up power for up to\n"
-    "3 turns.");
+    "3 turns (Raises DEF & SDEF).");
 
 static const u8 sSpitUpDescription[] = _(
     "Releases stockpiled power\n"
@@ -1070,12 +1070,12 @@ static const u8 sNaturePowerDescription[] = _(
     "depending on the location.");
 
 static const u8 sChargeDescription[] = _(
-    "Charges power to boost the\n"
-    "electric move used next.");
+    "Charges power to boost SDEF\n"
+    "and electric move used next.");
 
 static const u8 sTauntDescription[] = _(
     "Taunts the foe into only\n"
-    "using attack moves.");
+    "using attack moves (3 turns).");
 
 static const u8 sHelpingHandDescription[] = _(
     "Boosts the power of the\n"
@@ -1311,7 +1311,7 @@ static const u8 sSkyUppercutDescription[] = _(
 
 static const u8 sSandTombDescription[] = _(
     "Traps and hurts the foe in\n"
-    "quicksand for 2 to 5 turns.");
+    "quicksand for 4 to 5 turns.");
 
 static const u8 sSheerColdDescription[] = _(
     "A chilling attack that\n"
@@ -1503,7 +1503,7 @@ static const u8 sGUNK_SHOTDescription[] = _(
 	
 static const u8 sTHUNDER_CAGEDescription[] = _(
 	"Trap the foe in a cage of\n" 
-	"sparks for 2-5 turns.");
+	"sparks for 4-5 turns.");
 	
 static const u8 sDRAGON_ENERGYDescription[] = _(
     "Inflicts more damage if the\n"
