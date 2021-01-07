@@ -4102,6 +4102,10 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         spAttack *= 1.5, attack *= 1.5;
     if (defenderHoldEffect == HOLD_EFFECT_BIG_MUSHROOM && (defender->species == SPECIES_PARAS || defender->species == SPECIES_PARASECT))
         defense *= 2, spDefense *= 2;
+    if (defenderHoldEffect == HOLD_EFFECT_HAPPINESS_UP && (defender->species == SPECIES_WIGGLYTUFF))
+        defense *= 1.5, spDefense *= 1.5;
+    if (defenderHoldEffect == HOLD_EFFECT_REPEL && (defender->species == SPECIES_CHIMECHO))
+        defense *= 1.5, spDefense *= 1.5;
     if (attackerHoldEffect == HOLD_EFFECT_CAN_ALWAYS_RUN && (attacker->species == SPECIES_BEAUTIFLY || attacker->species == SPECIES_DUSTOX))
         spAttack *= 1.5;
     if (defenderHoldEffect == HOLD_EFFECT_CAN_ALWAYS_RUN && (defender->species == SPECIES_BEAUTIFLY || defender->species == SPECIES_DUSTOX))

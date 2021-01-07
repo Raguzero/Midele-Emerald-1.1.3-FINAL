@@ -1147,6 +1147,8 @@ const u16 gEggMoves[] = {
 
     egg_moves(SNORUNT,
               MOVE_BLOCK,
+			  MOVE_DISABLE,
+			  MOVE_SPITE,
               MOVE_SPIKES),
 
     egg_moves(AZURILL,
