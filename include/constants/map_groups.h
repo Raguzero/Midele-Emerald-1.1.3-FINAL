@@ -627,6 +627,7 @@
 #define MAP_MICOLO_HIDEOUT_B1                    (31 | (34 << 8))
 #define MAP_MICOLO_HIDEOUT2B                     (32 | (34 << 8))
 #define MAP_MICOLO_HIDEOUT_B3                    (33 | (34 << 8))
+#define MAP_MICOLO_HIDEOUT_B4                    (34 | (34 << 8))
 
 #define MAP_GROUPS_COUNT 35
 
