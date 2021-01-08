@@ -4506,3 +4506,16 @@ void SetGiftEggMove (void)
         SetMonMoveSlot(&gPlayerParty[gSpecialVar_0x8006], gSpecialVar_0x8005, 0);
     }
 }
+
+u16 CheckJirachiMewinTeam(void)
+{
+    u8 i;
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+         if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_MEW && SPECIES_JIRACHI)
+         {
+             return TRUE;
+         }
+    }
+    return FALSE;
+}

@@ -2,11 +2,21 @@ Route110_MapScripts:: @ 81EF269
 	map_script MAP_SCRIPT_ON_RESUME, Route110_OnResume
 	map_script MAP_SCRIPT_ON_TRANSITION, Route110_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route110_OnFrame
+	map_script MAP_SCRIPT_ON_LOAD, Route110_OnLoad
 	.byte 0
 
 Route110_OnResume: @ 81EF279
 	special UpdateCyclingRoadState
 	end
+	
+Route110_OnLoad:
+	call_if_unset FLAG_REGI_DOORS_OPENED, Route110_EventScript_CloseMauvilleRuins
+	end
+
+Route110_EventScript_CloseMauvilleRuins::
+	setmetatile 26, 48, METATILE_General_RockWall_RockBase, 1
+	setmetatile 26, 49, METATILE_General_RockWall_SandBase, 1
+	return
 
 Route110_OnTransition: @ 81EF27D
 	call Common_EventScript_SetupRivalGfxId

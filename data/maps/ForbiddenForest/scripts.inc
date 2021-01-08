@@ -1,6 +1,7 @@
 ForbiddenForest_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, ForbiddenForest_OnResume
 	map_script MAP_SCRIPT_ON_TRANSITION, ForbiddenForest_OnTransition
+	map_script MAP_SCRIPT_ON_LOAD, ForbiddenForest_OnLoad
 	.byte 0
 	
 ForbiddenForest_OnResume: 
@@ -12,9 +13,43 @@ ForbiddenForest_OnTransition:
 	call_if_unset FLAG_CAUGHT_CELEBI, ForbiddenForest_EventScript_TryShowCelebi
 	end
 	
-ForbiddenForest_EventScript_Celebi_Sign::
-	msgbox ForbiddenForest_Text_Celebi, MSGBOX_SIGN
+ForbiddenForest_OnLoad:
+	call_if_unset FLAG_FORBIDDEN_FOREST_CELEBI_ENTRANCE, ForbiddenForest_Script_Close
 	end
+	
+ForbiddenForest_EventScript_Celebi_Sign::
+	lockall
+	msgbox ForbiddenForest_Text_Celebi, MSGBOX_SIGN
+	specialvar VAR_RESULT, CheckJirachiMewinTeam
+	compare VAR_RESULT, TRUE
+	goto_if_eq ForbiddenForest_EventScript_Celebi_Sign2
+	end
+
+ForbiddenForest_EventScript_Celebi_Sign2::
+	setmetatile 19, 12, METATILE_General_Grass, 0
+	setmetatile 19, 13, METATILE_General_Grass, 0
+	setmetatile 19, 14, METATILE_General_Grass, 0
+	setmetatile 19, 15, METATILE_General_Grass, 0
+	setmetatile 20, 12, METATILE_General_Grass, 0
+	setmetatile 20, 13, METATILE_General_Grass, 0
+	setmetatile 20, 14, METATILE_General_Grass, 0
+	setmetatile 20, 15, METATILE_General_Grass, 0
+	special DrawWholeMapView
+	setflag FLAG_FORBIDDEN_FOREST_CELEBI_ENTRANCE
+	msgbox ForbiddenForest_Text_Celebi2, MSGBOX_SIGN
+	releaseall
+	end
+	
+ForbiddenForest_Script_Close::
+	setmetatile 19, 12, METATILE_General_Grass_TreeUp, 1
+	setmetatile 19, 13, 0x016, 1
+	setmetatile 19, 14, METATILE_General_Grass_TreeUp, 1
+	setmetatile 19, 15, 0x016, 1
+	setmetatile 20, 12, METATILE_General_Grass_TreeUp, 1
+	setmetatile 20, 13, 0x016, 1
+	setmetatile 20, 14, METATILE_General_Grass_TreeUp, 1
+	setmetatile 20, 15, 0x016, 1
+	return
 
 ForbiddenForest_EventScript_TryRemoveCelebi::
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -44,7 +79,7 @@ ForbiddenForest_EventScript_Celebi::
 	waitmoncry
 	setwildbattle SPECIES_CELEBI, 60, ITEM_LUM_BERRY
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	special StartRegiBattle
+	special BattleSetup_StartLegendaryBattle
 	waitstate
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -81,6 +116,9 @@ ForbiddenForest_Text_Celebi:
 	.string "El ca..no sol. s. .br.r.\n"
 	.string "c.n l.s mi.tic.s M.W y\p"
 	.string "JI...HI\n$"
+	
+ForbiddenForest_Text_Celebi2:
+	.string "El camino se ha abierto.$"
 
 ForbiddenForest_Text_BarnyIntro: 
 	.string "I'm a FISHERMAN, but also a TRAINER.\n"
