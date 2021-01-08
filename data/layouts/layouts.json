@@ -4780,6 +4780,16 @@
             "primary_tileset": "gTileset_General",
             "secondary_tileset": "gTileset_Lavaridge",
             "width": 23
+        },
+        {
+            "blockdata_filepath": "data/layouts/MicoloLeagueLobby/map.bin",
+            "border_filepath": "data/layouts/MicoloLeagueLobby/border.bin",
+            "height": 12,
+            "id": "LAYOUT_MICOLO_LEAGUE_LOBBY",
+            "name": "MicoloLeagueLobby_Layout",
+            "primary_tileset": "gTileset_Building",
+            "secondary_tileset": "gTileset_PokemonCenter",
+            "width": 32
         }
     ],
     "layouts_table_label": "gMapLayouts"

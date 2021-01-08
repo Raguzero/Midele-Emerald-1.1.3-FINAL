@@ -1141,3 +1141,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/MicoloHideoutB3/scripts.inc"
 
 	.include "data/maps/MicoloHideoutB4/scripts.inc"
+
+	.include "data/maps/MicoloLeagueLobby/scripts.inc"
