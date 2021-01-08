@@ -4752,14 +4752,24 @@
             "width": 20
         },
         {
-          "blockdata_filepath": "data/layouts/MicoloHideout1F/map.bin",
-          "border_filepath": "data/layouts/MicoloHideout1F/border.bin",
-          "height": 9,
-          "id": "LAYOUT_MICOLO_HIDEOUT1F",
-          "name": "MicoloHideout1F_Layout",
-          "primary_tileset": "gTileset_Building",
-          "secondary_tileset": "gTileset_Lab",
-          "width": 10
+          "blockdata_filepath": "data/layouts/MicoloHideout2B/map.bin",
+          "border_filepath": "data/layouts/MicoloHideout2B/border.bin",
+          "height": 20,
+          "id": "LAYOUT_MICOLO_HIDEOUT2B",
+          "name": "MicoloHideout2B_Layout",
+          "primary_tileset": "gTileset_General",
+          "secondary_tileset": "gTileset_Facility",
+          "width": 21
+        },
+        {
+            "blockdata_filepath": "data/layouts/MicoloHideoutB3/map.bin",
+            "border_filepath": "data/layouts/MicoloHideoutB3/border.bin",
+            "height": 20,
+            "id": "LAYOUT_MICOLO_HIDEOUT_B3",
+            "name": "MicoloHideoutB3_Layout",
+            "primary_tileset": "gTileset_Building",
+            "secondary_tileset": "gTileset_Facility",
+            "width": 20
         }
     ],
     "layouts_table_label": "gMapLayouts"

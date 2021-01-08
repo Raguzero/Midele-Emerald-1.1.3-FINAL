@@ -558,7 +558,9 @@
         "ForbiddenForest",
         "MauvilleRuins",
         "MicoloHideout1F",
-        "MicoloHideoutB1"
+        "MicoloHideoutB1",
+        "MicoloHideout2B",
+        "MicoloHideoutB3"
     ],
     "gMapGroup4": [
         "LavaridgeTown_HerbShop",
