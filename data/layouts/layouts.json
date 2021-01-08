@@ -4774,7 +4774,7 @@
         {
             "blockdata_filepath": "data/layouts/MicoloHideoutB4/map.bin",
             "border_filepath": "data/layouts/MicoloHideoutB4/border.bin",
-            "height": 35,
+            "height": 37,
             "id": "LAYOUT_MICOLO_HIDEOUT_B4",
             "name": "MicoloHideoutB4_Layout",
             "primary_tileset": "gTileset_General",
