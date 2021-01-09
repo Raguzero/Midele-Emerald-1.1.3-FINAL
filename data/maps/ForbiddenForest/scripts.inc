@@ -103,9 +103,9 @@ ForbiddenForest_EventScript_RanFromCelebi::
 	goto Common_EventScript_LegendaryFlewAway
 	end
 	
-ForbiddenForest_EventScript_Barny::  @ ESTO ES COPYPASTE DE OTRO ENTRENADOR, YA SE CAMBIARÁ
-	trainerbattle_single TRAINER_BARNY, ForbiddenForest_Text_BarnyIntro, ForbiddenForest_Text_BarnyDefeat
-	msgbox ForbiddenForest_Text_BarnyPostBattle, MSGBOX_AUTOCLOSE
+ForbiddenForest_EventScript_Ezecuter::  
+	trainerbattle_single TRAINER_FORBIDDENFOREST_EZECUTER, ForbiddenForest_Text_EzecuterIntro, ForbiddenForest_Text_EzecuterDefeat
+	msgbox ForbiddenForest_Text_EzecuterPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
 ForbiddenForest_Text_Celebi:
@@ -120,16 +120,12 @@ ForbiddenForest_Text_Celebi:
 ForbiddenForest_Text_Celebi2:
 	.string "El camino se ha abierto.$"
 
-ForbiddenForest_Text_BarnyIntro: 
-	.string "I'm a FISHERMAN, but also a TRAINER.\n"
-	.string "I'm raising the POKéMON I caught.$"
+ForbiddenForest_Text_EzecuterIntro: 
+	.string "Dicen que por aquí se esconde.\n"
+	.string "un Pokémon legendario.$"
 
-ForbiddenForest_Text_BarnyDefeat: 
-	.string "I thought I was doing okay in my\n"
-	.string "training…$"
+ForbiddenForest_Text_EzecuterDefeat: 
+	.string "¡¡¡Eres bochornoso!!!$"
 
-ForbiddenForest_Text_BarnyPostBattle: 
-	.string "I couldn't win by training POKéMON\n"
-	.string "while I fished…\p"
-	.string "Was I doing things in half measures?$"
-
+ForbiddenForest_Text_EzecuterPostBattle: 
+	.string "Eres totalmente bochornoso.$"
