@@ -462,10 +462,39 @@ Route103_EventScript_Avader::
 	waitmovement 0
 	msgbox Route103_Text_Avader_BeforeBattle, MSGBOX_NPC
 	trainerbattle_no_intro TRAINER_AVADER_OLDALE, Route103_Text_Avader_Defeated
+	msgbox Route103_Text_Avader_Text_TakeUnown, MSGBOX_DEFAULT
+	setvar VAR_TEMP_1, SPECIES_UNOWN
+	givemon SPECIES_UNOWN, 5, ITEM_NONE, FALSE
+	compare VAR_RESULT, 0
+	goto_if_eq Route103_EventScript_Avader_ReceiveUnownParty
+	compare VAR_RESULT, 1
+	goto_if_eq Route103_EventScript_Avader_ReceiveUnownPC
+	goto Route103_Avader_EventScript_NoRoomForPokemon
+	end
 
+Route103_EventScript_Avader_ReceiveUnownParty::
+	call Route103_EventScript_Avader_ReceivedUnownFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq Route103_EventScript_Avader_AfterBattle
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto Route103_EventScript_Avader_AfterBattle
+	end
+
+Route103_EventScript_Avader_ReceiveUnownPC::
+	call Route103_EventScript_Avader_ReceivedUnownFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq Route103_EventScript_Avader_SendUnownToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto Route103_EventScript_Avader_SendUnownToPC
+	end
+
+Route103_EventScript_Avader_SendUnownToPC::
+	call Common_EventScript_TransferredToPC
 	msgbox Route103_Text_Avader_AfterBattle, MSGBOX_DEFAULT
 	setflag FLAG_DEFEATED_OLDALE_AVADER
-
 	applymovement 22, Route103_Movement_AvaderSpin
 	waitmovement 0
 	playse SE_W100
@@ -473,6 +502,31 @@ Route103_EventScript_Avader::
 	waitmovement 0
 	removeobject 22
 	releaseall
+	end
+
+Route103_EventScript_Avader_ReceivedUnownFanfare::
+	playfanfare MUS_FANFA4
+	message Route103_Text_Avader_PlayerReceivedUnown
+	waitmessage
+	waitfanfare
+	bufferspeciesname 0, SPECIES_UNOWN
+	return
+
+Route103_EventScript_Avader_AfterBattle::
+	msgbox Route103_Text_Avader_AfterBattle, MSGBOX_DEFAULT
+	setflag FLAG_DEFEATED_OLDALE_AVADER
+	applymovement 22, Route103_Movement_AvaderSpin
+	waitmovement 0
+	playse SE_W100
+	applymovement 22, Route103_Movement_AvaderJumpaway
+	waitmovement 0
+	removeobject 22
+	releaseall
+	end
+	
+Route103_Avader_EventScript_NoRoomForPokemon::
+	msgbox Route103_Text_Avader_NoRoomForPokemon, MSGBOX_DEFAULT
+	goto Route103_EventScript_Avader_AfterBattle
 	end
 
 Route103_Movement_AvaderSpin:
@@ -641,4 +695,26 @@ Route103_Text_Avader_AfterBattle:
 	.string "Y no te acordarás de esta conversación\n"
 	.string "para entonces.\p"
 	.string "Muajaja, volveremos a vernos.\p"
-	.string "¡Mew, teletransporte!$"
+	.string "¡MEW, teletransporte!$"
+	
+Route103_Text_Avader_Text_TakeUnown: 
+	.string "Por haber alcanzado la gran proeza\n"
+	.string "de vencer a mi peor equipo, te mereces\l"
+	.string "quedarte con esta basu...\p"
+
+	.string "Quiero decir... ehm...\p"
+
+	.string "¡CON ESTE POKÉMON TAN PODEROSO!$"
+
+Route103_Text_Avader_NoRoomForPokemon: 
+	.string "¡No tienes sitio para este\n"
+	.string "poderoso POKÉMON ni en la cajas!\p"
+	
+	.string "Pues nada, tendré que tirarlo a\n"
+	.string "la basura.\p"
+	
+	.string "En fin.$"
+
+Route103_Text_Avader_PlayerReceivedUnown: 
+	.string "{PLAYER} received UNOWN!$"
+
