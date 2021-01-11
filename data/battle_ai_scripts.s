@@ -558,9 +558,10 @@ AI_CBM_WillOWisp: @ 82DC6B4
 	if_equal ABILITY_FLASH_FIRE, Score_Minus10
 	if_equal ABILITY_WATER_VEIL, Score_Minus10
 	if_status AI_TARGET, STATUS1_ANY, Score_Minus10
-	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
-	if_type_effectiveness AI_EFFECTIVENESS_x0_5, Score_Minus10
-	if_type_effectiveness AI_EFFECTIVENESS_x0_25, Score_Minus10
+	get_target_type1
+    if_equal TYPE_FIRE, Score_Minus10
+    get_target_type2
+    if_equal TYPE_FIRE, Score_Minus10
 	if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
 	end
 
@@ -640,6 +641,20 @@ AI_CBM_Coil:
 	if_stat_level_not_equal AI_USER, STAT_DEF, 12, AI_Ret
 	if_stat_level_equal AI_USER, STAT_ACC, 12, Score_Minus10
 	end
+	
+AI_ChoiceLocked:
+	if_holds_item AI_USER, ITEM_CHOICE_BAND, AI_ChoiceDamage
+	if_holds_item AI_USER, ITEM_CHOICE_SPECS, AI_ChoiceDamage
+	if_holds_item AI_USER, ITEM_CHOICE_SCARF, AI_ChoiceDamage
+	end
+
+@ If move doesn't do meaningful damage, switch out
+AI_ChoiceDamage:
+	get_considered_move_power
+	if_equal 0, Score_Minus10
+	get_curr_dmg_hp_percent
+	if_less_than 60, Score_Minus10
+	end
 
 Score_Minus1:
 	score -1
@@ -695,6 +710,7 @@ Score_Plus10:
 
 AI_CheckViability:
 	if_target_is_ally AI_Ret
+	call AI_ChoiceLocked
 	if_effect EFFECT_SLEEP, AI_CV_Sleep
 	if_effect EFFECT_ABSORB, AI_CV_Absorb
 	if_effect EFFECT_EXPLOSION, AI_CV_SelfKO
@@ -2475,6 +2491,7 @@ AI_CV_FocusPunch:
 	if_status AI_TARGET, STATUS1_SLEEP, AI_CV_FocusPunch_ScoreUp1
 	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_FocusPunch3
 	if_status2 AI_TARGET, STATUS2_CONFUSION, AI_CV_FocusPunch3
+	score -2
 	is_first_turn_for AI_USER
 	if_not_equal 0, AI_CV_FocusPunch_End
 	if_random_less_than 100, AI_CV_FocusPunch_End

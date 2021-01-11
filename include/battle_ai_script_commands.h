@@ -5,6 +5,7 @@
 // 0 - 3 are move idx
 #define AI_CHOICE_FLEE 4
 #define AI_CHOICE_WATCH 5
+#define AI_CHOICE_SWITCH 7
 
 void BattleAI_HandleItemUseBeforeAISetup(u8 defaultScoreMoves);
 void BattleAI_SetupAIData(u8 defaultScoreMoves);

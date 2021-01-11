@@ -557,6 +557,10 @@
 	.2byte \effect
 	.endm
 	
+	.macro get_curr_dmg_hp_percent
+	.byte 0x64
+	.endm
+	
 @ useful script macros
 	.macro get_curr_move_type
 	get_type AI_TYPE_MOVE

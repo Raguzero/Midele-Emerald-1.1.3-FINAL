@@ -15,6 +15,13 @@
 #include "constants/battle_move_effects.h"
 #include "constants/moves.h"
 #include "constants/species.h"
+#include "sound.h"
+
+#define __DEBUG_AI__ 1
+#if __DEBUG_AI__
+    #include "string_util.h"
+    #include "menu.h"
+#endif
 
 #define AI_ACTION_DONE          0x0001
 #define AI_ACTION_FLEE          0x0002
@@ -154,6 +161,7 @@ static void Cmd_if_target_is_ally(void);
 static void Cmd_if_flash_fired(void);
 static void Cmd_if_holds_item(void);
 static void Cmd_get_hazards_count(void);
+static void Cmd_get_curr_dmg_hp_percent(void);
 
 // ewram
 EWRAM_DATA const u8 *gAIScriptPtr = NULL;
@@ -264,6 +272,7 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_if_flash_fired,                             // 0x61
     Cmd_if_holds_item,                              // 0x62
     Cmd_get_hazards_count,                          // 0x63
+    Cmd_get_curr_dmg_hp_percent,                    // 0x64
 };
 
 static const u16 sDiscouragedPowerfulMoveEffects[] =
@@ -403,17 +412,18 @@ static u8 ChooseMoveOrAction_Singles(void)
     u8 consideredMoveArray[MAX_MON_MOVES];
     u8 numOfBestMoves;
     s32 i;
+	u32 flags = AI_THINKING_STRUCT->aiFlags;
 
     RecordLastUsedMoveByTarget();
 
-    while (AI_THINKING_STRUCT->aiFlags != 0)
+    while (flags != 0)
     {
-        if (AI_THINKING_STRUCT->aiFlags & 1)
+        if (flags & 1)
         {
             AI_THINKING_STRUCT->aiState = AIState_SettingUp;
             BattleAI_DoAIProcessing();
         }
-        AI_THINKING_STRUCT->aiFlags >>= 1;
+        flags >>= 1;
         AI_THINKING_STRUCT->aiLogicId++;
         AI_THINKING_STRUCT->movesetIndex = 0;
     }
@@ -423,6 +433,36 @@ static u8 ChooseMoveOrAction_Singles(void)
         return AI_CHOICE_FLEE;
     if (AI_THINKING_STRUCT->aiAction & AI_ACTION_WATCH)
         return AI_CHOICE_WATCH;
+	
+#if __DEBUG_AI__
+    {
+        int k;
+        for (k = 0; k < 4; k++) {
+            u8 numerico[6+4] = {EXT_CTRL_CODE_BEGIN, EXT_CTRL_CODE_COLOR, TEXT_COLOR_GREEN, EXT_CTRL_CODE_BEGIN, EXT_CTRL_CODE_SHADOW, TEXT_COLOR_LIGHT_GREEN};
+            ConvertIntToDecimalStringN(numerico+6, AI_THINKING_STRUCT->score[k], STR_CONV_MODE_RIGHT_ALIGN, 3);
+            AddTextPrinterParameterized(1, 0, numerico, 49 + 16*k, 18, 0, NULL);
+        }
+    }
+#endif
+// Consider switching if all moves are worthless to use.
+    if (AI_THINKING_STRUCT->aiFlags & (AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_PREFER_BATON_PASS)
+        && gBattleMons[sBattler_AI].hp >= gBattleMons[sBattler_AI].maxHP / 2
+        && !(gBattleTypeFlags & BATTLE_TYPE_PALACE))
+    {
+        s32 cap = AI_THINKING_STRUCT->aiFlags & (AI_SCRIPT_CHECK_VIABILITY) ? 95 : 93;
+		for (i = 0; i < MAX_MON_MOVES; i++)
+        {
+            if (AI_THINKING_STRUCT->score[i] > cap)
+                break;
+        }
+
+        gActiveBattler = sBattler_AI;
+        if (i == MAX_MON_MOVES && GetMostSuitableMonToSwitchInto() != PARTY_SIZE)
+        {
+            AI_THINKING_STRUCT->switchMon = TRUE;
+            return AI_CHOICE_SWITCH;
+        }
+    }
 
     numOfBestMoves = 1;
     currentMoveArray[0] = AI_THINKING_STRUCT->score[0];
@@ -507,6 +547,14 @@ static u8 ChooseMoveOrAction_Doubles(void)
             }
             else
             {
+#if __DEBUG_AI__
+                    int k;
+                    if (i != (sBattler_AI ^ BIT_FLANK)) for (k = 0; k < 4; k++) {
+                        u8 numerico[6+4] = {EXT_CTRL_CODE_BEGIN, EXT_CTRL_CODE_COLOR, TEXT_COLOR_GREEN, EXT_CTRL_CODE_BEGIN, EXT_CTRL_CODE_SHADOW, TEXT_COLOR_LIGHT_GREEN};
+                        ConvertIntToDecimalStringN(numerico+6, AI_THINKING_STRUCT->score[k], STR_CONV_MODE_RIGHT_ALIGN, 3);
+                        AddTextPrinterParameterized(1, 0, numerico, 48 + 16*k + i/2, 4 + 7*i, 0, NULL);
+                    }
+#endif
                 mostViableMovesScores[0] = AI_THINKING_STRUCT->score[0];
                 mostViableMovesIndices[0] = 0;
                 mostViableMovesNo = 1;
@@ -2267,4 +2315,21 @@ static void Cmd_get_hazards_count(void)
     }
 
     gAIScriptPtr += 4;
+}
+
+static void Cmd_get_curr_dmg_hp_percent(void)
+{
+	gDynamicBasePower = 0;
+    gBattleStruct->dynamicMoveType = 0;
+    gBattleScripting.dmgMultiplier = 1;
+    gMoveResultFlags = 0;
+    gCritMultiplier = 1;
+    gCurrentMove = AI_THINKING_STRUCT->moveConsidered;
+    AI_CalcDmg(sBattler_AI, gBattlerTarget);
+    TypeCalc(gCurrentMove, sBattler_AI, gBattlerTarget);
+
+    gBattleMoveDamage = gBattleMoveDamage * AI_THINKING_STRUCT->simulatedRNG[AI_THINKING_STRUCT->movesetIndex] / 100;
+    
+	gBattleResources->ai->funcResult = (gBattleMoveDamage * 100) / gBattleMons[gBattlerTarget].maxHP;
+	gAIScriptPtr++;
 }
