@@ -167,18 +167,18 @@ NewMauville_Inside_EventScript_RedButton:: @ 8237725
     msgbox NewMauville_Inside_Text_Totemderrotado
 	applymovement EVENT_OBJ_ID_PLAYER, NewMauvilleCity_Inside_Movement2
 	waitmovement 0
-    @ Combate contra totem.	
+    @ Combate contra totem.
 	msgbox NewMauville_Inside_Text_SteppedOnSwitchGeneratorStopped, MSGBOX_DEFAULT
 	call NewMauville_Inside_EventScript_SetGeneratorOffMetatiles
 	setvar VAR_NEW_MAUVILLE_STATE, 2
 	releaseall
 	end
-	
+
 NewMauvilleCity_Inside_Movement::
 	walk_down
 	face_up
 	step_end
-	
+
 NewMauvilleCity_Inside_Movement2::
 	walk_up
 	step_end
@@ -308,8 +308,8 @@ NewMauville_Inside_Text_SteppedOnSwitchGeneratorStopped: @ 8237932
 	.string "stopped…$"
 
 NewMauville_Inside_Text_Totemaparece:
-	.string "TOXTRICITY, the Totem Pokémon of\n" 
+	.string "TOXTRICITY, the Totem Pokémon of\n"
 	.string "NewMauville, has appeared!$"
-	
+
 NewMauville_Inside_Text_Totemderrotado:
 	.string "TOXTRICITY disappeared...$"

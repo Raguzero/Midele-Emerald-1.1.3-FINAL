@@ -23,7 +23,7 @@ const struct TotemMon gTotemMons[] =
         .statBoosts = {6, 6, 8, 6, 6, 8, 6, 6},
         .evs = {252, 100, 56, 100, 56, 56},
     },
-	[TOTEM_COFAGRIGUS] = 
+	[TOTEM_COFAGRIGUS] =
     {
         .species = SPECIES_COFAGRIGUS,
         .minLevel = 30,
@@ -34,7 +34,7 @@ const struct TotemMon gTotemMons[] =
         .statBoosts = {6, 8, 8, 6, 8, 8, 6, 6},
         .evs = {252, 100, 56, 100, 56, 56},
     },
-	[TOTEM_CENTISKORCH] = 
+	[TOTEM_CENTISKORCH] =
     {
         .species = SPECIES_CENTISKORCH,
         .minLevel = 23,

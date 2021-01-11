@@ -48,7 +48,7 @@ LittlerootTown_DebugRoom_Script_ActivarTodo::
     setflag FLAG_BADGE07_GET
     setflag FLAG_BADGE08_GET
     setflag FLAG_REGI_DOORS_OPENED
-    
+
 	setflag FLAG_SYS_NATIONAL_DEX
 	special EnableNationalPokedex
 	clearflag FLAG_HIDE_LILCOVE_MOTEL_GAME_DESIGNERS
