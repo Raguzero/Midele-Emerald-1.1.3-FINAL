@@ -2466,6 +2466,7 @@ AI_CV_Hail:
 	if_equal ABILITY_ICE_BODY, AI_CV_Hail2
 	if_equal ABILITY_SNOW_CLOAK, AI_CV_Hail2
 	if_equal ABILITY_SLUSH_RUSH, AI_CV_Hail2
+	if_equal ABILITY_OVERCOAT, AI_CV_Hail2
 	goto AI_CV_Hail_End
 
 AI_CV_Hail2:
@@ -2857,6 +2858,7 @@ AI_CV_Sandstorm:
     get_ability AI_USER
 	if_equal ABILITY_SAND_VEIL, AI_CV_Sandstorm2
 	if_equal ABILITY_SAND_RUSH, AI_CV_Sandstorm2
+	if_equal ABILITY_OVERCOAT, AI_CV_Sandstorm2
 	goto AI_CV_Sandstorm_End
 
 AI_CV_Sandstorm2:

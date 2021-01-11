@@ -8199,6 +8199,7 @@ static void Cmd_weatherdamage(void)
                 && gBattleMons[gBattlerAttacker].type2 != TYPE_GROUND
                 && gBattleMons[gBattlerAttacker].ability != ABILITY_SAND_VEIL
                 && gBattleMons[gBattlerAttacker].ability != ABILITY_SAND_RUSH
+				&& gBattleMons[gBattlerAttacker].ability != ABILITY_OVERCOAT
 				&& !(gStatuses3[gBattlerAttacker] & STATUS3_UNDERGROUND)
                 && !(gStatuses3[gBattlerAttacker] & STATUS3_UNDERWATER))
             {
@@ -8216,6 +8217,7 @@ static void Cmd_weatherdamage(void)
             if (!IS_BATTLER_OF_TYPE(gBattlerAttacker, TYPE_ICE)
 			    && gBattleMons[gBattlerAttacker].ability != ABILITY_SNOW_CLOAK
 				&& gBattleMons[gBattlerAttacker].ability != ABILITY_ICE_BODY
+				&& gBattleMons[gBattlerAttacker].ability != ABILITY_OVERCOAT
                 && !(gStatuses3[gBattlerAttacker] & STATUS3_UNDERGROUND)
                 && !(gStatuses3[gBattlerAttacker] & STATUS3_UNDERWATER))
             {
