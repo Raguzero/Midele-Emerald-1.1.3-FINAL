@@ -11,7 +11,7 @@
     "id": "MAP_MICOLO_LEAGUE_LOBBY",
     "layout": "LAYOUT_MICOLO_LEAGUE_LOBBY",
     "map_type": "MAP_TYPE_INDOOR",
-    "music": "MUS_DAN02",
+    "music": "MUS_RAINBOW",
     "name": "MicoloLeagueLobby",
     "object_events": [
         {
@@ -147,8 +147,22 @@
     ],
     "region_map_section": "MAPSEC_MICOLANDIA",
     "requires_flash": false,
-    "show_map_name": true,
+    "show_map_name": false,
     "warp_events": [
+        {
+            "dest_map": "MAP_MICOLO_HIDEOUT_LAVA_ROOM",
+            "dest_warp_id": 1,
+            "elevation": 0,
+            "x": 9,
+            "y": 11
+        },
+        {
+            "dest_map": "MAP_MICOLO_HIDEOUT_LAVA_ROOM",
+            "dest_warp_id": 1,
+            "elevation": 0,
+            "x": 10,
+            "y": 11
+        }
     ],
-    "weather": "WEATHER_SUNNY"
+    "weather": "WEATHER_NONE"
 }
