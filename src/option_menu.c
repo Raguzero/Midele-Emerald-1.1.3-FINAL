@@ -623,8 +623,8 @@ static void Autorun_DrawChoices(u8 selection)
   styles[1] = 0;
   styles[selection] = 1;
 
-  DrawOptionMenuChoice(gText_BattleSceneOn, 104, YPOS_AUTORUN, styles[0]);
-  DrawOptionMenuChoice(gText_BattleSceneOff, GetStringRightAlignXOffset(1, gText_BattleSceneOff, 198), YPOS_AUTORUN, styles[1]);
+  DrawOptionMenuChoice(gText_AutorunNormal, 104, YPOS_AUTORUN, styles[0]);
+  DrawOptionMenuChoice(gText_AutorunAuto, GetStringRightAlignXOffset(1, gText_AutorunAuto, 198), YPOS_AUTORUN, styles[1]);
 }
 
 static void DrawTextOption(void)
