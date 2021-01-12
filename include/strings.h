@@ -295,6 +295,7 @@ extern const u8 gText_BattleScene[];
 extern const u8 gText_BattleStyle[];
 extern const u8 gText_Sound[];
 extern const u8 gText_Frame[];
+extern const u8 gText_Autorun[];
 extern const u8 gText_OptionMenuCancel[];
 extern const u8 gText_ButtonMode[];
 
@@ -3041,14 +3042,14 @@ extern const u8 gText_Deoxys_Defense[];
 extern const u8 gText_Deoxys_Speed[];
 
 extern const u8 gText_Brock[];
-extern const u8 gText_Misty[]; 
+extern const u8 gText_Misty[];
 extern const u8 gText_LtSurge[];
-extern const u8 gText_Erika[]; 
+extern const u8 gText_Erika[];
 extern const u8 gText_Sabrina[];
 extern const u8 gText_Koga[];
 extern const u8 gText_Blaine[];
 extern const u8 gText_Giovanni[];
-extern const u8 gText_Lorelei[]; 
+extern const u8 gText_Lorelei[];
 extern const u8 gText_Bruno[];
 extern const u8 gText_Agatha[];
 extern const u8 gText_Lance[];
