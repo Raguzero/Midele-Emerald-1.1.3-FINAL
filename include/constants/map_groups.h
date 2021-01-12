@@ -623,7 +623,7 @@
 #define MAP_OLDALE_RUINS                         (27 | (34 << 8))
 #define MAP_FORBIDDEN_FOREST                     (28 | (34 << 8))
 #define MAP_MAUVILLE_RUINS                       (29 | (34 << 8))
-#define MAP_MICOLO_HIDEOUT1F                     (30 | (34 << 8))
+#define MAP_MICOLO_HIDEOUT_SECURITY_ROOM         (30 | (34 << 8))
 #define MAP_MICOLO_HIDEOUT_GAME_CORNER           (31 | (34 << 8))
 #define MAP_MICOLO_HIDEOUT2B                     (32 | (34 << 8))
 #define MAP_MICOLO_HIDEOUT_B3                    (33 | (34 << 8))
