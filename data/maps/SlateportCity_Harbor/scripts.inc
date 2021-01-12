@@ -396,19 +396,19 @@ SlateportCity_Harbor_EventScript_TradedScanner:: @ 820CE11
 	msgbox SlateportCity_Harbor_Text_ThisWillHelpResearch, MSGBOX_DEFAULT
 	release
 	end
-	
-@ TODO: Que sea un combate contra un NPC especial 
+
+
 SlateportCity_Harbor_EventScript_IzabeSailor::
 	trainerbattle_single TRAINER_IZABE_SAILOR, SlateportCity_Harbor_Text_IzabeSailorIntro, SlateportCity_Harbor_Text_IzabeSailorDefeated
 	msgbox SlateportCity_Harbor_Text_IzabeSailorRideBoat, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq SlateportCity_Harbor_EventScript_IzabeSailorBye
-	
+
 	msgbox SlateportCity_Harbor_Text_IzabeSailorGoSail, MSGBOX_NPC
 	warp MAP_IZABE_ISLAND_HARBOR, 255, 8, 4
 	waitstate
 	end
-	
+
 SlateportCity_Harbor_EventScript_IzabeSailorBye::
 	msgbox SlateportCity_Harbor_Text_IzabeSailorBye, MSGBOX_NPC
 	end
@@ -571,12 +571,12 @@ SlateportCity_Harbor_Text_HandedScannerToStern: @ 820D94A
 SlateportCity_Harbor_Text_ThisWillHelpResearch: @ 820D970
 	.string "CAPT. STERN: Thanks, {PLAYER}{KUN}!\n"
 	.string "This will help our research a lot!$"
-	
+
 SlateportCity_Harbor_Text_IzabeSailorIntro:
 	.string "¡ARR! ¡Muerte al DENUVO!\n"
 	.string "¿Quieres algo? ¡Antes tendrás que\p"
 	.string "derrotarme, piratilla del micropago!$"
-	
+
 SlateportCity_Harbor_Text_IzabeSailorDefeated:
 	.string "Pirateo a las empresas para dárselo\n"
 	.string "a los pobres.$"
@@ -585,11 +585,11 @@ SlateportCity_Harbor_Text_IzabeSailorRideBoat:
 	.string "¿Quieres ir a IZABE ISLAND? Te llevaré en\n"
 	.string "mi galeón, el TERROR DEL DLC...\l"
 	.string "¿Qué dices?$"
-	
+
 SlateportCity_Harbor_Text_IzabeSailorBye:
 	.string "Vuélvete con tus FREE TO PLAY, DLC de\n"
 	.string "poca monta. ¡ARR!$"
-	
+
 SlateportCity_Harbor_Text_IzabeSailorGoSail:
 	.string "Todos a bordo del TERROR DEL DLC.\n"
 	.string "¡Hora de hundir algunos DENUVO!$"
