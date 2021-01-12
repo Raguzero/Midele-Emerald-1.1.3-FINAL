@@ -4,15 +4,23 @@
     "allow_running": true,
     "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
     "bg_events": [
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_GameCorner_Sign_TrashBin",
+            "type": "sign",
+            "x": 5,
+            "y": 2
+        }
     ],
     "connections": null,
     "coord_events": [
     ],
-    "id": "MAP_MICOLO_HIDEOUT_B1",
-    "layout": "LAYOUT_MICOLO_HIDEOUT_B1",
+    "id": "MAP_MICOLO_HIDEOUT_GAME_CORNER",
+    "layout": "LAYOUT_MICOLO_HIDEOUT_GAME_CORNER",
     "map_type": "MAP_TYPE_INDOOR",
     "music": "MUS_RG_SLOT",
-    "name": "MicoloHideoutB1",
+    "name": "MicoloHideout_GameCorner",
     "object_events": [
         {
             "elevation": 3,
@@ -186,18 +194,18 @@
     ],
     "region_map_section": "MAPSEC_MICOLANDIA",
     "requires_flash": false,
-    "show_map_name": true,
+    "show_map_name": false,
     "warp_events": [
         {
-            "dest_map": "MAP_MICOLO_HIDEOUT1F",
-            "dest_warp_id": 2,
+            "dest_map": "MAP_LITTLEROOT_TOWN_DEBUG_ROOM",
+            "dest_warp_id": 3,
             "elevation": 0,
             "x": 9,
             "y": 20
         },
         {
-            "dest_map": "MAP_MICOLO_HIDEOUT1F",
-            "dest_warp_id": 1,
+            "dest_map": "MAP_LITTLEROOT_TOWN_DEBUG_ROOM",
+            "dest_warp_id": 3,
             "elevation": 0,
             "x": 10,
             "y": 20

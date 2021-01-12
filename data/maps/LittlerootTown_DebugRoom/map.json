@@ -212,7 +212,7 @@
         {
             "elevation": 3,
             "flag": "0",
-            "graphics_id": "EVENT_OBJ_GFX_WINGULL",
+            "graphics_id": "EVENT_OBJ_GFX_MEWTWO",
             "movement_range_x": 0,
             "movement_range_y": 0,
             "movement_type": "MOVEMENT_TYPE_NONE",
@@ -353,7 +353,7 @@
             "y": 1
         },
         {
-            "dest_map": "MAP_MICOLO_HIDEOUT2B",
+            "dest_map": "MAP_MICOLO_HIDEOUT_GAME_CORNER",
             "dest_warp_id": 0,
             "elevation": 0,
             "x": 14,
