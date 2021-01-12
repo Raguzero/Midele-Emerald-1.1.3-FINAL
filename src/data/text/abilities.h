@@ -113,6 +113,7 @@ static const u8 sSheerForceDescription[] = _("Trades effects for power.");
 static const u8 sTintedLensDescription[] = _("Ups “not very effective“.");
 static const u8 sCorrosionDescription[] = _("Poisons any type.");
 static const u8 sOvercoatDescription[] = _("Blocks weather damage.");
+static const u8 sGooeyDescription[] = _("Lowers SPEED on contact.");
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 {
@@ -231,6 +232,9 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_TINTED_LENS] = _("TINTED LENS"),
     [ABILITY_CORROSION] = _("CORROSION"),
     [ABILITY_OVERCOAT] = _("OVERCOAT"),
+    [ABILITY_GOOEY] = _("GOOEY"),
+    [ABILITY_TANGLING_HAIR] = _("TANGLE HAIR"),
+    [ABILITY_IRON_BARBS] = _("IRON BARBS"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -350,4 +354,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_TINTED_LENS] = sTintedLensDescription,
 	[ABILITY_CORROSION] = sCorrosionDescription,
 	[ABILITY_OVERCOAT] = sOvercoatDescription,
+	[ABILITY_GOOEY] = sGooeyDescription,
+	[ABILITY_TANGLING_HAIR] = sGooeyDescription,
+    [ABILITY_IRON_BARBS] = sRoughSkinDescription,
 };

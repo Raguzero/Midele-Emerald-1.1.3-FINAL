@@ -12645,7 +12645,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_FIELD,
-        .abilities = {ABILITY_SAND_VEIL, ABILITY_NONE},
+        .abilities = {ABILITY_SAND_VEIL, ABILITY_TANGLING_HAIR},
         .bodyColor = BODY_COLOR_BROWN,
     },
 
@@ -12671,7 +12671,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_FIELD,
-        .abilities = {ABILITY_SAND_VEIL, ABILITY_NONE},
+        .abilities = {ABILITY_SAND_VEIL, ABILITY_TANGLING_HAIR},
         .bodyColor = BODY_COLOR_BROWN,
     },
 
@@ -15732,7 +15732,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_MEDIUM_FAST,
 		.eggGroup1 = EGG_GROUP_GRASS,
 		.eggGroup2 = EGG_GROUP_MINERAL,
-		.abilities = {ABILITY_ROUGH_SKIN, ABILITY_NONE}, // --> IRON BARBS
+		.abilities = {ABILITY_IRON_BARBS, ABILITY_NONE},
 		.bodyColor = BODY_COLOR_GRAY,
 	},
 
@@ -15756,7 +15756,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_MEDIUM_FAST,
 		.eggGroup1 = EGG_GROUP_GRASS,
 		.eggGroup2 = EGG_GROUP_MINERAL,
-		.abilities = {ABILITY_ROUGH_SKIN, ABILITY_NONE}, // --> IRON BARBS
+		.abilities = {ABILITY_IRON_BARBS, ABILITY_NONE},
 		.bodyColor = BODY_COLOR_GRAY,
 	},
 	[SPECIES_SANDILE] =
