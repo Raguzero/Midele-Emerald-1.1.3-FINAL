@@ -4751,11 +4751,11 @@
             "width": 20
         },
         {
-            "blockdata_filepath": "data/layouts/MicoloHideout2B/map.bin",
-            "border_filepath": "data/layouts/MicoloHideout2B/border.bin",
+            "blockdata_filepath": "data/layouts/MicoloHideout_MeetingRoom/map.bin",
+            "border_filepath": "data/layouts/MicoloHideout_MeetingRoom/border.bin",
             "height": 20,
-            "id": "LAYOUT_MICOLO_HIDEOUT2B",
-            "name": "MicoloHideout2B_Layout",
+            "id": "LAYOUT_MICOLO_HIDEOUT_MEETING_ROOM",
+            "name": "MicoloHideout_MeetingRoom_Layout",
             "primary_tileset": "gTileset_General",
             "secondary_tileset": "gTileset_Facility",
             "width": 21

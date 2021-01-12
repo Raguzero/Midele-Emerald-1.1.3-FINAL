@@ -40,14 +40,14 @@
             "y": 1
         },
         {
-            "dest_map": "MAP_MICOLO_HIDEOUT2B",
+            "dest_map": "MAP_MICOLO_HIDEOUT_MEETING_ROOM",
             "dest_warp_id": 0,
             "elevation": 0,
             "x": 5,
             "y": 9
         },
         {
-            "dest_map": "MAP_MICOLO_HIDEOUT2B",
+            "dest_map": "MAP_MICOLO_HIDEOUT_MEETING_ROOM",
             "dest_warp_id": 0,
             "elevation": 0,
             "x": 4,
