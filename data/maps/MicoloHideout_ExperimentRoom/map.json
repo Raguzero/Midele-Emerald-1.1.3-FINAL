@@ -1,18 +1,32 @@
 {
     "allow_bike": false,
     "allow_escape_rope": false,
-    "allow_running": false,
+    "allow_running": true,
     "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
     "bg_events": [
     ],
     "connections": null,
     "coord_events": [
+        {
+            "elevation": 0,
+            "type": "weather",
+            "weather": "COORD_EVENT_WEATHER_SUNNY",
+            "x": 10,
+            "y": 24
+        },
+        {
+            "elevation": 0,
+            "type": "weather",
+            "weather": "COORD_EVENT_WEATHER_FOG_HORIZONTAL",
+            "x": 9,
+            "y": 24
+        }
     ],
-    "id": "MAP_MICOLO_HIDEOUT_B3",
-    "layout": "LAYOUT_MICOLO_HIDEOUT_B3",
+    "id": "MAP_MICOLO_HIDEOUT_EXPERIMENT_ROOM",
+    "layout": "LAYOUT_MICOLO_HIDEOUT_EXPERIMENT_ROOM",
     "map_type": "MAP_TYPE_INDOOR",
     "music": "MUS_RG_DEOEYE",
-    "name": "MicoloHideoutB3",
+    "name": "MicoloHideout_ExperimentRoom",
     "object_events": [
         {
             "elevation": 3,
@@ -111,12 +125,12 @@
             "graphics_id": "EVENT_OBJ_GFX_SCIENTIST_1",
             "movement_range_x": 0,
             "movement_range_y": 0,
-            "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
             "script": "NULL",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
-            "x": 19,
-            "y": 25
+            "x": 17,
+            "y": 28
         },
         {
             "elevation": 3,
@@ -141,7 +155,7 @@
             "script": "NULL",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
-            "x": 4,
+            "x": 5,
             "y": 28
         },
         {
@@ -156,43 +170,24 @@
             "trainer_type": "0",
             "x": 13,
             "y": 28
-        },
-        {
-            "elevation": 3,
-            "flag": "0",
-            "graphics_id": "EVENT_OBJ_GFX_HOT_SPRINGS_OLD_WOMAN",
-            "movement_range_x": 0,
-            "movement_range_y": 0,
-            "movement_type": "MOVEMENT_TYPE_NONE",
-            "script": "NULL",
-            "trainer_sight_or_berry_tree_id": "0",
-            "trainer_type": "0",
-            "x": 5,
-            "y": 28
-        },
-        {
-            "elevation": 3,
-            "flag": "0",
-            "graphics_id": "EVENT_OBJ_GFX_HOT_SPRINGS_OLD_WOMAN",
-            "movement_range_x": 0,
-            "movement_range_y": 0,
-            "movement_type": "MOVEMENT_TYPE_NONE",
-            "script": "NULL",
-            "trainer_sight_or_berry_tree_id": "0",
-            "trainer_type": "0",
-            "x": 3,
-            "y": 28
         }
     ],
     "region_map_section": "MAPSEC_MICOLANDIA",
     "requires_flash": false,
-    "show_map_name": true,
+    "show_map_name": false,
     "warp_events": [
         {
-            "dest_map": "MAP_MICOLO_HIDEOUT_B3",
-            "dest_warp_id": 0,
+            "dest_map": "MAP_MICOLO_HIDEOUT_MEETING_ROOM",
+            "dest_warp_id": 1,
             "elevation": 0,
             "x": 6,
+            "y": 1
+        },
+        {
+            "dest_map": "MAP_MICOLO_HIDEOUT_B4",
+            "dest_warp_id": 0,
+            "elevation": 0,
+            "x": 14,
             "y": 1
         }
     ],

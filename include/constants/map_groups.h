@@ -626,7 +626,7 @@
 #define MAP_MICOLO_HIDEOUT_SECURITY_ROOM         (30 | (34 << 8))
 #define MAP_MICOLO_HIDEOUT_GAME_CORNER           (31 | (34 << 8))
 #define MAP_MICOLO_HIDEOUT_MEETING_ROOM          (32 | (34 << 8))
-#define MAP_MICOLO_HIDEOUT_B3                    (33 | (34 << 8))
+#define MAP_MICOLO_HIDEOUT_EXPERIMENT_ROOM       (33 | (34 << 8))
 #define MAP_MICOLO_HIDEOUT_B4                    (34 | (34 << 8))
 #define MAP_MICOLO_LEAGUE_LOBBY                  (35 | (34 << 8))
 
