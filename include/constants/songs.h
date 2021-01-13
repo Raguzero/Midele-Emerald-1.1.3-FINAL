@@ -540,6 +540,10 @@
 #define FF6BOSS 612
 #define JENOVA 613
 #define SEQ_BA_POKE 614
+#define BATTLE_TOWER_SWSH 615
+#define BUTTERFLYWADAKOUJI 616
+#define BATTLECYRUS 617
+#define XYWILDBATTLE 618
 
 #define MUS_ROUTE_118 0x7FFF  // map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 

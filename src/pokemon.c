@@ -7457,6 +7457,8 @@ u16 GetBattleBGM(void)
 	species == NATIONAL_DEX_DURANT ||
 	species == NATIONAL_DEX_COTTONEE ||
 	species == NATIONAL_DEX_WHIMSICOTT ||
+	species == NATIONAL_DEX_FRILLISH ||
+	species == NATIONAL_DEX_JELLICENT ||
 	species == NATIONAL_DEX_SNIVY ||
 	species == NATIONAL_DEX_SERVINE ||
 	species == NATIONAL_DEX_SERPERIOR) return WILDBW2_FINAL;
@@ -7501,8 +7503,31 @@ u16 GetBattleBGM(void)
 	species == NATIONAL_DEX_CHIMCHAR ||
 	species == NATIONAL_DEX_MONFERNO ||
 	species == NATIONAL_DEX_INFERNAPE ||
+	species == NATIONAL_DEX_BUDEW ||
+	species == NATIONAL_DEX_CHINGLING ||
+	species == NATIONAL_DEX_BONSLY ||
+	species == NATIONAL_DEX_MIMEJR ||
+	species == NATIONAL_DEX_HAPPINY ||
+	species == NATIONAL_DEX_MUNCHLAX ||
+	species == NATIONAL_DEX_MANTYKE ||
 	species == NATIONAL_DEX_CROAGUNK ||
 	species == NATIONAL_DEX_TOXICROAK) return SEQ_BA_POKE;
+	if (species == NATIONAL_DEX_SYLVEON ||
+	species == NATIONAL_DEX_TYRUNT ||
+	species == NATIONAL_DEX_TYRANTRUM ||
+	species == NATIONAL_DEX_AMAURA ||
+	species == NATIONAL_DEX_AURORUS ||
+	species == NATIONAL_DEX_HAWLUCHA ||
+	species == NATIONAL_DEX_PANCHAM ||
+	species == NATIONAL_DEX_PANGORO ||
+	species == NATIONAL_DEX_SKRELP ||
+	species == NATIONAL_DEX_DRAGALGE ||
+	species == NATIONAL_DEX_PUMPKABOO ||
+	species == NATIONAL_DEX_GOURGEIST ||
+	species == NATIONAL_DEX_CHESPIN ||
+	species == NATIONAL_DEX_QUILLADIN ||
+	species == NATIONAL_DEX_CHESNAUGHT ||
+	species ==  NATIONAL_DEX_FLOETTE) return XYWILDBATTLE;
     return MUS_BATTLE27;
   }
 }

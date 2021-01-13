@@ -616,6 +616,10 @@ gSongTable:: @ 86B49F0
 	song ff6boss, 0, 0
 	song Jenova, 0, 0
 	song seq_ba_poke, 0, 0 // DP WILD
+	song battletowerswsh, 0, 0 // BATTLE TOWER SWORDS SHIELD
+	song butterflywadakouji, 0, 0
+	song battlecyrus, 0, 0
+	song xywildbattle, 0, 0
 
 	.align 2
 dummy_song_header: @ 86B5D00

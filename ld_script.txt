@@ -1228,6 +1228,10 @@ SECTIONS {
         sound/songs/ff6boss.o(.rodata);
         sound/songs/jenova.o(.rodata);
 	    sound/songs/midi/seq_ba_poke.o(.rodata);
+		sound/songs/midi/battletowerswsh.o(.rodata);
+		sound/songs/midi/butterflywadakouji.o(.rodata);
+		sound/songs/midi/battlecyrus.o(.rodata);
+		sound/songs/midi/xywildbattle.o(.rodata);
     } =0
 
     lib_rodata :
