@@ -1234,6 +1234,7 @@ SECTIONS {
 		sound/songs/midi/butterflywadakouji.o(.rodata);
 		sound/songs/midi/battlecyrus.o(.rodata);
 		sound/songs/midi/xywildbattle.o(.rodata);
+		sound/songs/zinniatheme.o(.rodata);
     } =0
 
     lib_rodata :

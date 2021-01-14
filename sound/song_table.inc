@@ -620,6 +620,7 @@ gSongTable:: @ 86B49F0
 	song butterflywadakouji, 0, 0
 	song battlecyrus, 0, 0
 	song xywildbattle, 0, 0
+	song Zinnia_Theme, 0, 0
 
 	.align 2
 dummy_song_header: @ 86B5D00

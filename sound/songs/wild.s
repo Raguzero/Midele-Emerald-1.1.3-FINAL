@@ -1,6 +1,6 @@
 	.include "MPlayDef.s"
 
-	.equ	Wild_grp, voicegroup000
+	.equ	Wild_grp, voicegroup115
 	.equ	Wild_pri, 0
 	.equ	Wild_rev, 0
 	.equ	Wild_mvl, 87
