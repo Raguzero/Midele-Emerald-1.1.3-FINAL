@@ -201,6 +201,17 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sMoneanChamberMapPreviewTilemap,
         .palptr = sMoneanChamberMapPreviewPalette
     },
+    [MPS_ISLAND_CAVE] =
+    {
+        .mapsec = MAPSEC_ISLAND_CAVE,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_ISLAND_CAVE, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sMoneanChamberMapPreviewTiles,
+        .tilemapptr = sMoneanChamberMapPreviewTilemap,
+        .palptr = sMoneanChamberMapPreviewPalette
+    },
     //etc...
 
     /* Firered map preview entries for reference
