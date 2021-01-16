@@ -157,6 +157,17 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sPowerPlantMapPreviewTilemap,
         .palptr = sPowerPlantMapPreviewPalette
     },
+    [MPS_FIERY_PATH] =
+    {
+        .mapsec = MAPSEC_FIERY_PATH,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_FIERY_CAVE, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sMtEmberMapPreviewTiles,
+        .tilemapptr = sMtEmberMapPreviewTilemap,
+        .palptr = sMtEmberMapPreviewPalette
+    },
     //etc...
 
     /* Firered map preview entries for reference

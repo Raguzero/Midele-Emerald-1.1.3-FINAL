@@ -8,6 +8,7 @@ enum MapPreviewScreenId
     MPS_RUSTURF_TUNNEL,
     MPS_GRANITE_CAVE,
     MPS_NEW_MAUVILLE,
+    MPS_FIERY_PATH,
     // to do: other map previews
     MPS_COUNT
 };
