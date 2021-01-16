@@ -289,6 +289,17 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sDottedHoleMapPreviewTilemap,
         .palptr = sDottedHoleMapPreviewPalette
     },
+    [MPS_SKY_PILLAR] =
+    {
+        .mapsec = MAPSEC_SKY_PILLAR,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_SKY_PILLAR, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sMoneanChamberMapPreviewTiles,
+        .tilemapptr = sMoneanChamberMapPreviewTilemap,
+        .palptr = sMoneanChamberMapPreviewPalette
+    },
     //etc...
 
     /* Firered map preview entries for reference
