@@ -11,6 +11,7 @@ enum MapPreviewScreenId
     MPS_FIERY_PATH,
     MPS_SCORCHED_SLAB,
     MPS_MT_PYRE,
+    MPS_DESERT_RUINS,
     // to do: other map previews
     MPS_COUNT
 };
