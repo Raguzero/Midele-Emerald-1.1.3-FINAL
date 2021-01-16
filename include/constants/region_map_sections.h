@@ -219,7 +219,9 @@
 #define MAPSEC_OLDALE_RUINS                 0xD7
 #define MAPSEC_FORBIDDEN_FOREST             0xD8
 #define MAPSEC_MAUVILLE_RUINS             	0xD9
-#define MAPSEC_NONE                         0xDA
+#define MAPSEC_IZABE_CAVE                   0xDA
+#define MAPSEC_MICOLO_HIDEOUT               0xDB
+#define MAPSEC_NONE                         0xDC
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE

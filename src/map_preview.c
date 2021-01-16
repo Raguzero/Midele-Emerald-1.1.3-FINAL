@@ -20,7 +20,7 @@
 
 // Defines
 //  In FRLG, each area had a world map flag set upon visiting.
-//  The map preview duration was longer for the first visit, and shorter thereafter. 
+//  The map preview duration was longer for the first visit, and shorter thereafter.
 //  To make the duration time dependent, set FLAG_BASED_MAP_PREVIEW_TIME to TRUE
 #define FLAG_BASED_MAP_PREVIEW_TIME     FALSE
 
@@ -102,7 +102,7 @@ static const u8 sAlteringCaveMapPreviewTilemap[] = INCBIN_U8("graphics/map_previ
 
 static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
 {
-    [MPS_PETALBURG_WOODS] = 
+    [MPS_PETALBURG_WOODS] =
     {
         .mapsec = MAPSEC_PETALBURG_WOODS,
         .type = MPS_TYPE_FOREST,
@@ -113,7 +113,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sViridianForestMapPreviewTilemap,
         .palptr = sViridianForestMapPreviewPalette
     },
-    [MPS_METEOR_FALLS] = 
+    [MPS_METEOR_FALLS] =
     {
         .mapsec = MAPSEC_METEOR_FALLS,
         .type = MPS_TYPE_CAVE,
@@ -124,10 +124,252 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sMtMoonMapPreviewTilemap,
         .palptr = sMtMoonMapPreviewPalette
     },
+    [MPS_RUSTURF_TUNNEL] =
+    {
+        .mapsec = MAPSEC_RUSTURF_TUNNEL,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_RUSTURF_TUNNEL, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sRockTunnelMapPreviewTiles,
+        .tilemapptr = sRockTunnelMapPreviewTilemap,
+        .palptr = sRockTunnelMapPreviewPalette
+    },
+    [MPS_GRANITE_CAVE] =
+    {
+        .mapsec = MAPSEC_GRANITE_CAVE,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_GRANITE_CAVE, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sLostCaveMapPreviewTiles,
+        .tilemapptr = sLostCaveMapPreviewTilemap,
+        .palptr = sLostCaveMapPreviewPalette
+    },
+    [MPS_NEW_MAUVILLE] =
+    {
+        .mapsec = MAPSEC_NEW_MAUVILLE,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_NEW_MAUVILLE, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sPowerPlantMapPreviewTiles,
+        .tilemapptr = sPowerPlantMapPreviewTilemap,
+        .palptr = sPowerPlantMapPreviewPalette
+    },
+    [MPS_FIERY_PATH] =
+    {
+        .mapsec = MAPSEC_FIERY_PATH,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_FIERY_CAVE, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sMtEmberMapPreviewTiles,
+        .tilemapptr = sMtEmberMapPreviewTilemap,
+        .palptr = sMtEmberMapPreviewPalette
+    },
+    [MPS_SCORCHED_SLAB] =
+    {
+        .mapsec = MAPSEC_SCORCHED_SLAB,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_SCORCHED_SLAB, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sLostCaveMapPreviewTiles,
+        .tilemapptr = sLostCaveMapPreviewTilemap,
+        .palptr = sLostCaveMapPreviewPalette
+    },
+    [MPS_MT_PYRE] =
+    {
+        .mapsec = MAPSEC_MT_PYRE,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_MT_PYRE, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sSeafoamIslandsMapPreviewTiles,
+        .tilemapptr = sSeafoamIslandsMapPreviewTilemap,
+        .palptr = sSeafoamIslandsMapPreviewPalette
+    },
+    [MPS_DESERT_RUINS] =
+    {
+        .mapsec = MAPSEC_DESERT_RUINS,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_DESERT_RUINS, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sMoneanChamberMapPreviewTiles,
+        .tilemapptr = sMoneanChamberMapPreviewTilemap,
+        .palptr = sMoneanChamberMapPreviewPalette
+    },
+    [MPS_ISLAND_CAVE] =
+    {
+        .mapsec = MAPSEC_ISLAND_CAVE,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_ISLAND_CAVE, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sMoneanChamberMapPreviewTiles,
+        .tilemapptr = sMoneanChamberMapPreviewTilemap,
+        .palptr = sMoneanChamberMapPreviewPalette
+    },
+    [MPS_ANCIENT_TOMB] =
+    {
+        .mapsec = MAPSEC_ANCIENT_TOMB,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_ANCIENT_TOMB, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sMoneanChamberMapPreviewTiles,
+        .tilemapptr = sMoneanChamberMapPreviewTilemap,
+        .palptr = sMoneanChamberMapPreviewPalette
+    },
+    [MPS_OLDALE_RUINS] =
+    {
+        .mapsec = MAPSEC_OLDALE_RUINS,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_OLDALE_RUINS, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sMoneanChamberMapPreviewTiles,
+        .tilemapptr = sMoneanChamberMapPreviewTilemap,
+        .palptr = sMoneanChamberMapPreviewPalette
+    },
+    [MPS_MAUVILLE_RUINS] =
+    {
+        .mapsec = MAPSEC_MAUVILLE_RUINS,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_MAUVILLE_RUINS, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sMoneanChamberMapPreviewTiles,
+        .tilemapptr = sMoneanChamberMapPreviewTilemap,
+        .palptr = sMoneanChamberMapPreviewPalette
+    },
+    [MPS_AQUA_HIDEOUT] =
+    {
+        .mapsec = MAPSEC_AQUA_HIDEOUT,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_AQUA_HIDEOUT, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sRocketHideoutMapPreviewTiles,
+        .tilemapptr = sRocketHideoutMapPreviewTilemap,
+        .palptr = sRocketHideoutMapPreviewPalette
+    },
+    [MPS_MAGMA_HIDEOUT] =
+    {
+        .mapsec = MAPSEC_MAGMA_HIDEOUT,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_MAGMA_HIDEOUT, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sMtEmberMapPreviewTiles,
+        .tilemapptr = sMtEmberMapPreviewTilemap,
+        .palptr = sMtEmberMapPreviewPalette
+    },
+    [MPS_SHOAL_CAVE] =
+    {
+        .mapsec = MAPSEC_SHOAL_CAVE,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_SHOAL_CAVE, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sAlteringCaveMapPreviewTiles,
+        .tilemapptr = sAlteringCaveMapPreviewTilemap,
+        .palptr = sAlteringCaveMapPreviewPalette
+    },
+    [MPS_CAVE_OF_ORIGIN] =
+    {
+        .mapsec = MAPSEC_CAVE_OF_ORIGIN,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_CAVE_OF_ORIGIN, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sDottedHoleMapPreviewTiles,
+        .tilemapptr = sDottedHoleMapPreviewTilemap,
+        .palptr = sDottedHoleMapPreviewPalette
+    },
+    [MPS_SKY_PILLAR] =
+    {
+        .mapsec = MAPSEC_SKY_PILLAR,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_SKY_PILLAR, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sMoneanChamberMapPreviewTiles,
+        .tilemapptr = sMoneanChamberMapPreviewTilemap,
+        .palptr = sMoneanChamberMapPreviewPalette
+    },
+    [MPS_VICTORY_ROAD] =
+    {
+        .mapsec = MAPSEC_VICTORY_ROAD,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_VICTORY_ROAD, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sKantoVictoryRoadMapPreviewTiles,
+        .tilemapptr = sKantoVictoryRoadMapPreviewTilemap,
+        .palptr = sKantoVictoryRoadMapPreviewPalette
+    },
+    [MPS_ALTERING_CAVE] =
+    {
+        .mapsec = MAPSEC_ALTERING_CAVE_2,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_ALTERING_CAVE, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sAlteringCaveMapPreviewTiles,
+        .tilemapptr = sAlteringCaveMapPreviewTilemap,
+        .palptr = sAlteringCaveMapPreviewPalette
+    },
+    [MPS_ARTISAN_CAVE] =
+    {
+        .mapsec = MAPSEC_ARTISAN_CAVE,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_ARTISAN_CAVE, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sLostCaveMapPreviewTiles,
+        .tilemapptr = sLostCaveMapPreviewTilemap,
+        .palptr = sLostCaveMapPreviewPalette
+    },
+    [MPS_FORBIDDEN_FOREST] =
+    {
+        .mapsec = MAPSEC_FORBIDDEN_FOREST,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_FORBIDDEN_FOREST, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sBerryForestMapPreviewTiles,
+        .tilemapptr = sBerryForestMapPreviewTilemap,
+        .palptr = sBerryForestMapPreviewPalette
+    },
+    [MPS_IZABE_CAVE] =
+    {
+        .mapsec = MAPSEC_IZABE_CAVE,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_IZABE_CAVE, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sIcefallCaveMapPreviewTiles,
+        .tilemapptr = sIcefallCaveMapPreviewTilemap,
+        .palptr = sIcefallCaveMapPreviewPalette
+    },
+    [MPS_MICOLO_HIDEOUT] =
+    {
+        .mapsec = MAPSEC_MICOLO_HIDEOUT,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_MICOLO_HIDEOUT, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sRocketHideoutMapPreviewTiles,
+        .tilemapptr = sRocketHideoutMapPreviewTilemap,
+        .palptr = sRocketHideoutMapPreviewPalette
+    },
     //etc...
-    
+
     /* Firered map preview entries for reference
-    [MPS_VIRIDIAN_FOREST] = 
+    [MPS_VIRIDIAN_FOREST] =
     {
         .mapsec = MAPSEC_VIRIDIAN_FOREST,
         .type = MPS_TYPE_FOREST,
@@ -136,7 +378,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sViridianForestMapPreviewTilemap,
         .palptr = sViridianForestMapPreviewPalette
     },
-    [MPS_MT_MOON] = 
+    [MPS_MT_MOON] =
     {
         .mapsec = MAPSEC_MT_MOON,
         .type = MPS_TYPE_CAVE,
@@ -145,7 +387,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sMtMoonMapPreviewTilemap,
         .palptr = sMtMoonMapPreviewPalette
     },
-    [MPS_DIGLETTS_CAVE] = 
+    [MPS_DIGLETTS_CAVE] =
     {
         .mapsec = MAPSEC_DIGLETTS_CAVE,
         .type = MPS_TYPE_CAVE,
@@ -154,7 +396,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sDiglettsCaveMapPreviewTilemap,
         .palptr = sDiglettsCaveMapPreviewPalette
     },
-    [MPS_ROCK_TUNNEL] = 
+    [MPS_ROCK_TUNNEL] =
     {
         .mapsec = MAPSEC_ROCK_TUNNEL,
         .type = MPS_TYPE_CAVE,
@@ -163,7 +405,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sRockTunnelMapPreviewTilemap,
         .palptr = sRockTunnelMapPreviewPalette
     },
-    [MPS_POKEMON_TOWER] = 
+    [MPS_POKEMON_TOWER] =
     {
         .mapsec = MAPSEC_POKEMON_TOWER,
         .type = MPS_TYPE_CAVE,
@@ -172,7 +414,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sPokemonTowerMapPreviewTilemap,
         .palptr = sPokemonTowerMapPreviewPalette
     },
-    [MPS_SAFARI_ZONE] = 
+    [MPS_SAFARI_ZONE] =
     {
         .mapsec = MAPSEC_KANTO_SAFARI_ZONE,
         .type = MPS_TYPE_FOREST,
@@ -181,7 +423,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sKantoSafariZoneMapPreviewTilemap,
         .palptr = sKantoSafariZoneMapPreviewPalette
     },
-    [MPS_SEAFOAM_ISLANDS] = 
+    [MPS_SEAFOAM_ISLANDS] =
     {
         .mapsec = MAPSEC_SEAFOAM_ISLANDS,
         .type = MPS_TYPE_CAVE,
@@ -190,7 +432,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sSeafoamIslandsMapPreviewTilemap,
         .palptr = sSeafoamIslandsMapPreviewPalette
     },
-    [MPS_POKEMON_MANSION] = 
+    [MPS_POKEMON_MANSION] =
     {
         .mapsec = MAPSEC_POKEMON_MANSION,
         .type = MPS_TYPE_FOREST,
@@ -199,7 +441,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sPokemonMansionMapPreviewTilemap,
         .palptr = sPokemonMansionMapPreviewPalette
     },
-    [MPS_ROCKET_HIDEOUT] = 
+    [MPS_ROCKET_HIDEOUT] =
     {
         .mapsec = MAPSEC_ROCKET_HIDEOUT,
         .type = MPS_TYPE_FOREST,
@@ -208,7 +450,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sRocketHideoutMapPreviewTilemap,
         .palptr = sRocketHideoutMapPreviewPalette
     },
-    [MPS_SILPH_CO] = 
+    [MPS_SILPH_CO] =
     {
         .mapsec = MAPSEC_SILPH_CO,
         .type = MPS_TYPE_CAVE,
@@ -217,7 +459,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sSilphCoMapPreviewTilemap,
         .palptr = sSilphCoMapPreviewPalette
     },
-    [MPS_VICTORY_ROAD] = 
+    [MPS_VICTORY_ROAD] =
     {
         .mapsec = MAPSEC_KANTO_VICTORY_ROAD,
         .type = MPS_TYPE_CAVE,
@@ -226,7 +468,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sKantoVictoryRoadMapPreviewTilemap,
         .palptr = sKantoVictoryRoadMapPreviewPalette
     },
-    [MPS_CERULEAN_CAVE] = 
+    [MPS_CERULEAN_CAVE] =
     {
         .mapsec = MAPSEC_CERULEAN_CAVE,
         .type = MPS_TYPE_CAVE,
@@ -235,7 +477,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sCeruleanCaveMapPreviewTilemap,
         .palptr = sCeruleanCaveMapPreviewPalette
     },
-    [MPS_POWER_PLANT] = 
+    [MPS_POWER_PLANT] =
     {
         .mapsec = MAPSEC_POWER_PLANT,
         .type = MPS_TYPE_FOREST,
@@ -244,7 +486,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sPowerPlantMapPreviewTilemap,
         .palptr = sPowerPlantMapPreviewPalette
     },
-    [MPS_MT_EMBER] = 
+    [MPS_MT_EMBER] =
     {
         .mapsec = MAPSEC_MT_EMBER,
         .type = MPS_TYPE_CAVE,
@@ -253,7 +495,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sMtEmberMapPreviewTilemap,
         .palptr = sMtEmberMapPreviewPalette
     },
-    [MPS_ROCKET_WAREHOUSE] = 
+    [MPS_ROCKET_WAREHOUSE] =
     {
         .mapsec = MAPSEC_ROCKET_WAREHOUSE,
         .type = MPS_TYPE_FOREST,
@@ -262,7 +504,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sRocketWarehouseMapPreviewTilemap,
         .palptr = sRocketWarehouseMapPreviewPalette
     },
-    [MPS_MONEAN_CHAMBER] = 
+    [MPS_MONEAN_CHAMBER] =
     {
         .mapsec = MAPSEC_MONEAN_CHAMBER,
         .type = MPS_TYPE_CAVE,
@@ -271,7 +513,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sMoneanChamberMapPreviewTilemap,
         .palptr = sMoneanChamberMapPreviewPalette
     },
-    [MPS_DOTTED_HOLE] = 
+    [MPS_DOTTED_HOLE] =
     {
         .mapsec = MAPSEC_DOTTED_HOLE,
         .type = MPS_TYPE_CAVE,
@@ -280,7 +522,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sDottedHoleMapPreviewTilemap,
         .palptr = sDottedHoleMapPreviewPalette
     },
-    [MPS_BERRY_FOREST] = 
+    [MPS_BERRY_FOREST] =
     {
         .mapsec = MAPSEC_BERRY_FOREST,
         .type = MPS_TYPE_FOREST,
@@ -289,7 +531,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sBerryForestMapPreviewTilemap,
         .palptr = sBerryForestMapPreviewPalette
     },
-    [MPS_ICEFALL_CAVE] = 
+    [MPS_ICEFALL_CAVE] =
     {
         .mapsec = MAPSEC_ICEFALL_CAVE,
         .type = MPS_TYPE_CAVE,
@@ -298,7 +540,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sIcefallCaveMapPreviewTilemap,
         .palptr = sIcefallCaveMapPreviewPalette
     },
-    [MPS_LOST_CAVE] = 
+    [MPS_LOST_CAVE] =
     {
         .mapsec = MAPSEC_LOST_CAVE,
         .type = MPS_TYPE_CAVE,
@@ -307,7 +549,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sLostCaveMapPreviewTilemap,
         .palptr = sLostCaveMapPreviewPalette
     },
-    [MPS_ALTERING_CAVE] = 
+    [MPS_ALTERING_CAVE] =
     {
         .mapsec = MAPSEC_ALTERING_CAVE,
         .type = MPS_TYPE_CAVE,
@@ -316,7 +558,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sAlteringCaveMapPreviewTilemap,
         .palptr = sAlteringCaveMapPreviewPalette
     },
-    [MPS_PATTERN_BUSH] = 
+    [MPS_PATTERN_BUSH] =
     {
         .mapsec = MAPSEC_PATTERN_BUSH,
         .type = MPS_TYPE_FOREST,
@@ -325,7 +567,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sViridianForestMapPreviewTilemap,
         .palptr = sViridianForestMapPreviewPalette
     },
-    [MPS_LIPTOO_CHAMBER] = 
+    [MPS_LIPTOO_CHAMBER] =
     {
         .mapsec = MAPSEC_LIPTOO_CHAMBER,
         .type = MPS_TYPE_CAVE,
@@ -334,7 +576,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sMoneanChamberMapPreviewTilemap,
         .palptr = sMoneanChamberMapPreviewPalette
     },
-    [MPS_WEEPTH_CHAMBER] = 
+    [MPS_WEEPTH_CHAMBER] =
     {
         .mapsec = MAPSEC_WEEPTH_CHAMBER,
         .type = MPS_TYPE_CAVE,
@@ -343,7 +585,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sMoneanChamberMapPreviewTilemap,
         .palptr = sMoneanChamberMapPreviewPalette
     },
-    [MPS_TDILFORD_CHAMBER] = 
+    [MPS_TDILFORD_CHAMBER] =
     {
         .mapsec = MAPSEC_DILFORD_CHAMBER,
         .type = MPS_TYPE_CAVE,
@@ -352,7 +594,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sMoneanChamberMapPreviewTilemap,
         .palptr = sMoneanChamberMapPreviewPalette
     },
-    [MPS_SCUFIB_CHAMBER] = 
+    [MPS_SCUFIB_CHAMBER] =
     {
         .mapsec = MAPSEC_SCUFIB_CHAMBER,
         .type = MPS_TYPE_CAVE,
@@ -361,7 +603,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sMoneanChamberMapPreviewTilemap,
         .palptr = sMoneanChamberMapPreviewPalette
     },
-    [MPS_RIXY_CHAMBER] = 
+    [MPS_RIXY_CHAMBER] =
     {
         .mapsec = MAPSEC_RIXY_CHAMBER,
         .type = MPS_TYPE_CAVE,
@@ -370,7 +612,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sMoneanChamberMapPreviewTilemap,
         .palptr = sMoneanChamberMapPreviewPalette
     },
-    [MPS_VIAPOIS_CHAMBER] = 
+    [MPS_VIAPOIS_CHAMBER] =
     {
         .mapsec = MAPSEC_VIAPOIS_CHAMBER,
         .type = MPS_TYPE_CAVE,
@@ -382,7 +624,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
     */
 };
 
-static const struct WindowTemplate sMapNameWindow = 
+static const struct WindowTemplate sMapNameWindow =
 {
     .bg = 0,
     .tilemapLeft = 0,
@@ -393,7 +635,7 @@ static const struct WindowTemplate sMapNameWindow =
     .baseBlock = 0x1C2
 };
 
-static const struct BgTemplate sMapPreviewBgTemplate[1] = 
+static const struct BgTemplate sMapPreviewBgTemplate[1] =
 {
     {.mapBaseIndex = 31}
 };
@@ -651,7 +893,7 @@ static u16 MapPreview_GetDuration(u8 mapsec)
     {
         return 0;
     }
-    
+
     #if FLAG_BASED_MAP_PREVIEW_TIME
         flagId = sMapPreviewScreenData[idx].flagId;
         if (sMapPreviewScreenData[idx].type == MPS_TYPE_CAVE)
@@ -667,7 +909,7 @@ static u16 MapPreview_GetDuration(u8 mapsec)
         }
         else
         {
-            
+
             if (sHasVisitedMapBefore)
             {
                 return 120;
@@ -764,4 +1006,3 @@ void RunMapPreviewScreen(u8 mapSecId)
     u8 taskId = CreateTask(Task_MapPreviewScreen_0, 0);
     gTasks[taskId].data[3] = mapSecId;
 }
-
