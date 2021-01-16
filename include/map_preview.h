@@ -13,6 +13,7 @@ enum MapPreviewScreenId
     MPS_MT_PYRE,
     MPS_DESERT_RUINS,
     MPS_ISLAND_CAVE,
+    MPS_ANCIENT_TOMB,
     // to do: other map previews
     MPS_COUNT
 };
