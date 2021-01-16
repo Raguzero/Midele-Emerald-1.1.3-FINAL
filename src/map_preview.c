@@ -322,6 +322,17 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sAlteringCaveMapPreviewTilemap,
         .palptr = sAlteringCaveMapPreviewPalette
     },
+    [MPS_ARTISAN_CAVE] =
+    {
+        .mapsec = MAPSEC_ARTISAN_CAVE,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_ARTISAN_CAVE, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sLostCaveMapPreviewTiles,
+        .tilemapptr = sLostCaveMapPreviewTilemap,
+        .palptr = sLostCaveMapPreviewPalette
+    },
     //etc...
 
     /* Firered map preview entries for reference
