@@ -15,6 +15,7 @@ enum MapPreviewScreenId
     MPS_ISLAND_CAVE,
     MPS_ANCIENT_TOMB,
     MPS_OLDALE_RUINS,
+    MPS_MAUVILLE_RUINS,
     // to do: other map previews
     MPS_COUNT
 };
