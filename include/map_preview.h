@@ -17,6 +17,8 @@ enum MapPreviewScreenId
     MPS_OLDALE_RUINS,
     MPS_MAUVILLE_RUINS,
     MPS_AQUA_HIDEOUT,
+    MPS_MAGMA_HIDEOUT,
+    MPS_SHOAL_CAVE,
     // to do: other map previews
     MPS_COUNT
 };

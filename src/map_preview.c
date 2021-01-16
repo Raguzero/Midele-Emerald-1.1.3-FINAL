@@ -256,6 +256,28 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sRocketHideoutMapPreviewTilemap,
         .palptr = sRocketHideoutMapPreviewPalette
     },
+    [MPS_MAGMA_HIDEOUT] =
+    {
+        .mapsec = MAPSEC_MAGMA_HIDEOUT,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_MAGMA_HIDEOUT, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sMtEmberMapPreviewTiles,
+        .tilemapptr = sMtEmberMapPreviewTilemap,
+        .palptr = sMtEmberMapPreviewPalette
+    },
+    [MPS_SHOAL_CAVE] =
+    {
+        .mapsec = MAPSEC_SHOAL_CAVE,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_SHOAL_CAVE, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sAlteringCaveMapPreviewTiles,
+        .tilemapptr = sAlteringCaveMapPreviewTilemap,
+        .palptr = sAlteringCaveMapPreviewPalette
+    },
     //etc...
 
     /* Firered map preview entries for reference
