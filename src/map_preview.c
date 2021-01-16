@@ -168,6 +168,17 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sMtEmberMapPreviewTilemap,
         .palptr = sMtEmberMapPreviewPalette
     },
+    [MPS_SCORCHED_SLAB] =
+    {
+        .mapsec = MAPSEC_SCORCHED_SLAB,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_SCORCHED_SLAB, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sLostCaveMapPreviewTiles,
+        .tilemapptr = sLostCaveMapPreviewTilemap,
+        .palptr = sLostCaveMapPreviewPalette
+    },
     //etc...
 
     /* Firered map preview entries for reference

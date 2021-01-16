@@ -9,6 +9,7 @@ enum MapPreviewScreenId
     MPS_GRANITE_CAVE,
     MPS_NEW_MAUVILLE,
     MPS_FIERY_PATH,
+    MPS_SCORCHED_SLAB,
     // to do: other map previews
     MPS_COUNT
 };
