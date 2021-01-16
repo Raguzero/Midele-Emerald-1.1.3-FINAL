@@ -21,6 +21,7 @@ enum MapPreviewScreenId
     MPS_SHOAL_CAVE,
     MPS_CAVE_OF_ORIGIN,
     MPS_SKY_PILLAR,
+    MPS_VICTORY_ROAD,
     // to do: other map previews
     MPS_COUNT
 };

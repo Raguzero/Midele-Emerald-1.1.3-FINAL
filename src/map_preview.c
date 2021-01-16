@@ -300,6 +300,17 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sMoneanChamberMapPreviewTilemap,
         .palptr = sMoneanChamberMapPreviewPalette
     },
+    [MPS_VICTORY_ROAD] =
+    {
+        .mapsec = MAPSEC_VICTORY_ROAD,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_VICTORY_ROAD, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sKantoVictoryRoadMapPreviewTiles,
+        .tilemapptr = sKantoVictoryRoadMapPreviewTilemap,
+        .palptr = sKantoVictoryRoadMapPreviewPalette
+    },
     //etc...
 
     /* Firered map preview entries for reference
