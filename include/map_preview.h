@@ -19,6 +19,7 @@ enum MapPreviewScreenId
     MPS_AQUA_HIDEOUT,
     MPS_MAGMA_HIDEOUT,
     MPS_SHOAL_CAVE,
+    MPS_CAVE_OF_ORIGIN,
     // to do: other map previews
     MPS_COUNT
 };

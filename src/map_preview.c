@@ -278,6 +278,17 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sAlteringCaveMapPreviewTilemap,
         .palptr = sAlteringCaveMapPreviewPalette
     },
+    [MPS_CAVE_OF_ORIGIN] =
+    {
+        .mapsec = MAPSEC_CAVE_OF_ORIGIN,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_CAVE_OF_ORIGIN, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sDottedHoleMapPreviewTiles,
+        .tilemapptr = sDottedHoleMapPreviewTilemap,
+        .palptr = sDottedHoleMapPreviewPalette
+    },
     //etc...
 
     /* Firered map preview entries for reference
