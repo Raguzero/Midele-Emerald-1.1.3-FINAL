@@ -7,6 +7,7 @@ enum MapPreviewScreenId
     MPS_METEOR_FALLS,
     MPS_RUSTURF_TUNNEL,
     MPS_GRANITE_CAVE,
+    MPS_NEW_MAUVILLE,
     // to do: other map previews
     MPS_COUNT
 };

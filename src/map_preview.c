@@ -140,11 +140,22 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .mapsec = MAPSEC_GRANITE_CAVE,
         .type = MPS_TYPE_CAVE,
         #if FLAG_BASED_MAP_PREVIEW_TIME
-        .flagId = FLAG_VISITED_RUSTURF_TUNNEL, //flag needs to be added to constants/flags.h
+        .flagId = FLAG_VISITED_GRANITE_CAVE, //flag needs to be added to constants/flags.h
         #endif
         .tilesptr = sLostCaveMapPreviewTiles,
         .tilemapptr = sLostCaveMapPreviewTilemap,
         .palptr = sLostCaveMapPreviewPalette
+    },
+    [MPS_NEW_MAUVILLE] =
+    {
+        .mapsec = MAPSEC_NEW_MAUVILLE,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_NEW_MAUVILLE, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sPowerPlantMapPreviewTiles,
+        .tilemapptr = sPowerPlantMapPreviewTilemap,
+        .palptr = sPowerPlantMapPreviewPalette
     },
     //etc...
 
