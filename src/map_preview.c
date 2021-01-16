@@ -245,6 +245,17 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sMoneanChamberMapPreviewTilemap,
         .palptr = sMoneanChamberMapPreviewPalette
     },
+    [MPS_AQUA_HIDEOUT] =
+    {
+        .mapsec = MAPSEC_AQUA_HIDEOUT,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_AQUA_HIDEOUT, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sRocketHideoutMapPreviewTiles,
+        .tilemapptr = sRocketHideoutMapPreviewTilemap,
+        .palptr = sRocketHideoutMapPreviewPalette
+    },
     //etc...
 
     /* Firered map preview entries for reference
