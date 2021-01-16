@@ -179,6 +179,17 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sLostCaveMapPreviewTilemap,
         .palptr = sLostCaveMapPreviewPalette
     },
+    [MPS_MT_PYRE] =
+    {
+        .mapsec = MAPSEC_MT_PYRE,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_MT_PYRE, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sSeafoamIslandsMapPreviewTiles,
+        .tilemapptr = sSeafoamIslandsMapPreviewTilemap,
+        .palptr = sSeafoamIslandsMapPreviewPalette
+    },
     //etc...
 
     /* Firered map preview entries for reference

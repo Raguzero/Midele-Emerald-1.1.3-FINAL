@@ -10,6 +10,7 @@ enum MapPreviewScreenId
     MPS_NEW_MAUVILLE,
     MPS_FIERY_PATH,
     MPS_SCORCHED_SLAB,
+    MPS_MT_PYRE,
     // to do: other map previews
     MPS_COUNT
 };
