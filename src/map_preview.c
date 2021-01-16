@@ -311,6 +311,17 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sKantoVictoryRoadMapPreviewTilemap,
         .palptr = sKantoVictoryRoadMapPreviewPalette
     },
+    [MPS_ALTERING_CAVE] =
+    {
+        .mapsec = MAPSEC_ALTERING_CAVE_2,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_ALTERING_CAVE, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sAlteringCaveMapPreviewTiles,
+        .tilemapptr = sAlteringCaveMapPreviewTilemap,
+        .palptr = sAlteringCaveMapPreviewPalette
+    },
     //etc...
 
     /* Firered map preview entries for reference

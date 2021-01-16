@@ -22,6 +22,7 @@ enum MapPreviewScreenId
     MPS_CAVE_OF_ORIGIN,
     MPS_SKY_PILLAR,
     MPS_VICTORY_ROAD,
+    MPS_ALTERING_CAVE,
     // to do: other map previews
     MPS_COUNT
 };
