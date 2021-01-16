@@ -1,6 +1,6 @@
 	.include "MPlayDef.s"
 
-	.equ	Zinnia_Theme_grp, voicegroup115
+	.equ	Zinnia_Theme_grp, voicegroup155
 	.equ	Zinnia_Theme_pri, 0
 	.equ	Zinnia_Theme_rev, 0
 	.equ	Zinnia_Theme_mvl, 85

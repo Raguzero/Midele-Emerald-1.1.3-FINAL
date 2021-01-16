@@ -1850,7 +1850,12 @@ const u16 gEggMoves[] = {
 	egg_moves(WINTASS,
 		MOVE_AMNESIA,
 		MOVE_SUPERPOWER,
-		MOVE_ICE_BALL),			
+		MOVE_ICE_BALL),
+
+    egg_moves(WOOLOO,
+              MOVE_STOMP,
+              MOVE_SWAGGER,
+              MOVE_COUNTER),		
 		
     EGG_MOVES_TERMINATOR
 };

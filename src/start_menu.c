@@ -410,7 +410,11 @@ static void RemoveExtraStartMenuWindows(void)
         ClearStdWindowAndFrameToTransparent(sBattlePyramidFloorWindowId, FALSE);
         RemoveWindow(sBattlePyramidFloorWindowId);
     }
-    else if (FlagGet(FLAG_SET_WALL_CLOCK ) == TRUE)
+    else if (FlagGet(FLAG_SET_WALL_CLOCK ) == TRUE
+		&& !InBattlePike()
+		&& !InMultiPartnerRoom()
+		&& !InUnionRoom()
+		&& !IsUpdateLinkStateCBActive())
     { //Borra de la pantalla la venta auxiliar de la hora
         ClearStdWindowAndFrameToTransparent(sSafariBallsWindowId, FALSE);
         RemoveWindow(sSafariBallsWindowId);	
