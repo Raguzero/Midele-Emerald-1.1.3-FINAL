@@ -1515,7 +1515,7 @@
 #define FLAG_LANDMARK_FORBIDDEN_FOREST              (SYSTEM_FLAGS + 0x86) // Previously unused Flag
 #define FLAG_LANDMARK_MAUVILLE_RUINS                (SYSTEM_FLAGS + 0x87) // Previously inused Flag
 #define FLAG_LANDMARK_IZABE_CAVE                    (SYSTEM_FLAGS + 0x88) // Unused Flag
-#define FLAG_UNUSED_0x8E9                           (SYSTEM_FLAGS + 0x89) // Unused Flag
+#define FLAG_LANDMARK_MICOLO_HIDEOUT                (SYSTEM_FLAGS + 0x89) // Unused Flag
 #define FLAG_UNUSED_0x8EA                           (SYSTEM_FLAGS + 0x8A) // Unused Flag
 #define FLAG_UNUSED_0x8EB                           (SYSTEM_FLAGS + 0x8B) // Unused Flag
 #define FLAG_UNUSED_0x8EC                           (SYSTEM_FLAGS + 0x8C) // Unused Flag

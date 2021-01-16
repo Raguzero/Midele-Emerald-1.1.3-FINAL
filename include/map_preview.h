@@ -26,6 +26,7 @@ enum MapPreviewScreenId
     MPS_ARTISAN_CAVE,
     MPS_FORBIDDEN_FOREST,
     MPS_IZABE_CAVE,
+    MPS_MICOLO_HIDEOUT,
     // to do: other map previews
     MPS_COUNT
 };

@@ -61,6 +61,7 @@ static const u8 LandmarkName_OldaleRuins[] = _("OLDALE RUINS");
 static const u8 LandmarkName_ForbiddenForest[] = _("FORBIDDEN FOREST");
 static const u8 LandmarkName_MauvilleRuins[] = _("MAUVILLE RUINS");
 static const u8 LandmarkName_IzabeCave[] = _("IZABE CAVE");
+static const u8 LandmarkName_MicoloHideout[] = _("MICOLO HIDEOUT");
 
 static const struct Landmark Landmark_FlowerShop = {LandmarkName_FlowerShop, FLAG_LANDMARK_FLOWER_SHOP};
 static const struct Landmark Landmark_PetalburgWoods = {LandmarkName_PetalburgWoods, -1};
@@ -107,6 +108,7 @@ static const struct Landmark Landmark_OldaleRuins = {LandmarkName_OldaleRuins, F
 static const struct Landmark Landmark_ForbiddenForest = {LandmarkName_ForbiddenForest, FLAG_LANDMARK_FORBIDDEN_FOREST};
 static const struct Landmark Landmark_MauvilleRuins = {LandmarkName_MauvilleRuins, FLAG_LANDMARK_MAUVILLE_RUINS};
 static const struct Landmark Landmark_IzabeCave = {LandmarkName_IzabeCave, FLAG_LANDMARK_IZABE_CAVE};
+static const struct Landmark Landmark_MicoloHideout = {LandmarkName_MicoloHideout, FLAG_LANDMARK_MICOLO_HIDEOUT};
 
 static const struct Landmark *const Landmarks_Route103_1[]  =
 {
@@ -360,6 +362,7 @@ static const struct Landmark *const Landmarks_Micolandia_0[]  =
 static const struct Landmark *const Landmarks_IzabeIsland_0[]  =
 {
     &Landmark_IzabeCave,
+    &Landmark_MicoloHideout,
     NULL,
 };
 
