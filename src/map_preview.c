@@ -344,6 +344,17 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sBerryForestMapPreviewTilemap,
         .palptr = sBerryForestMapPreviewPalette
     },
+    [MPS_IZABE_CAVE] =
+    {
+        .mapsec = MAPSEC_IZABE_CAVE,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_IZABE_CAVE, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sIcefallCaveMapPreviewTiles,
+        .tilemapptr = sIcefallCaveMapPreviewTilemap,
+        .palptr = sIcefallCaveMapPreviewPalette
+    },
     //etc...
 
     /* Firered map preview entries for reference

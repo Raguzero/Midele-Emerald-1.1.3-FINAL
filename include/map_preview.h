@@ -25,6 +25,7 @@ enum MapPreviewScreenId
     MPS_ALTERING_CAVE,
     MPS_ARTISAN_CAVE,
     MPS_FORBIDDEN_FOREST,
+    MPS_IZABE_CAVE,
     // to do: other map previews
     MPS_COUNT
 };

@@ -1,2 +1,7 @@
 IzabeIsland_OutskirtsCave_Entrance_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, IzabeIsland_OutskirtsCave_Entrance_OnTransition
 	.byte 0
+
+IzabeIsland_OutskirtsCave_Entrance_OnTransition:
+  setflag FLAG_LANDMARK_IZABE_CAVE
+  end

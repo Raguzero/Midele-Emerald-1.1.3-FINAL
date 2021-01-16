@@ -15,7 +15,7 @@
     "name": "IzabeIsland_OutskirtsCave_Entrance",
     "object_events": [
     ],
-    "region_map_section": "MAPSEC_IZABE_ISLAND",
+    "region_map_section": "MAPSEC_IZABE_CAVE",
     "requires_flash": false,
     "show_map_name": false,
     "warp_events": [
