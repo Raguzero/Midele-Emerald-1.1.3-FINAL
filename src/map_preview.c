@@ -333,6 +333,17 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sLostCaveMapPreviewTilemap,
         .palptr = sLostCaveMapPreviewPalette
     },
+    [MPS_FORBIDDEN_FOREST] =
+    {
+        .mapsec = MAPSEC_FORBIDDEN_FOREST,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_FORBIDDEN_FOREST, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sBerryForestMapPreviewTiles,
+        .tilemapptr = sBerryForestMapPreviewTilemap,
+        .palptr = sBerryForestMapPreviewPalette
+    },
     //etc...
 
     /* Firered map preview entries for reference

@@ -24,6 +24,7 @@ enum MapPreviewScreenId
     MPS_VICTORY_ROAD,
     MPS_ALTERING_CAVE,
     MPS_ARTISAN_CAVE,
+    MPS_FORBIDDEN_FOREST,
     // to do: other map previews
     MPS_COUNT
 };
