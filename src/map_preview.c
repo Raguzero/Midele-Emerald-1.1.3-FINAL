@@ -135,6 +135,17 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] =
         .tilemapptr = sRockTunnelMapPreviewTilemap,
         .palptr = sRockTunnelMapPreviewPalette
     },
+    [MPS_GRANITE_CAVE] =
+    {
+        .mapsec = MAPSEC_GRANITE_CAVE,
+        .type = MPS_TYPE_CAVE,
+        #if FLAG_BASED_MAP_PREVIEW_TIME
+        .flagId = FLAG_VISITED_RUSTURF_TUNNEL, //flag needs to be added to constants/flags.h
+        #endif
+        .tilesptr = sLostCaveMapPreviewTiles,
+        .tilemapptr = sLostCaveMapPreviewTilemap,
+        .palptr = sLostCaveMapPreviewPalette
+    },
     //etc...
 
     /* Firered map preview entries for reference
