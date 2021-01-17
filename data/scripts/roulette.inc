@@ -22,11 +22,20 @@ Roulette_EventScript_Table2:: @ 82A5ADF
 	goto Roulette_EventScript_Play
 	end
 
+Roulette_EventScript_Table3:: @ 82A5ADF
+	checkitem ITEM_COIN_CASE, 1
+	compare VAR_RESULT, FALSE
+	goto_if_eq MauvilleCity_GameCorner_EventScript_NoCoinCase
+	setvar VAR_0x8004, 1
+	addvar VAR_0x8004, 128
+	goto Roulette_EventScript_Play
+	end
+
 Roulette_EventScript_Play:: @ 82A5B0D
 	special PlayRoulette
 	waitstate
 	end
-	
+
 Roulette_Text_PlayMinimumWagerIsX:: @ 82A5B12
 	.string "The minimum wager at this table\n"
 	.string "is {STR_VAR_1}. Do you want to play?$"

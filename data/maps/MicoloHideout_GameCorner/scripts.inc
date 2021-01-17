@@ -232,6 +232,16 @@ MicoloHideout_GameCorner_EventScript_CancelDollSelect:: @ 820FE92
 	release
 	end
 
+MicoloHideout_GameCorner_EventScript_SlotMachine:: @ 8210436
+	lockall
+	checkitem ITEM_COIN_CASE, 1
+	compare VAR_RESULT, FALSE
+	goto_if_eq MauvilleCity_GameCorner_EventScript_NoCoinCase
+	setvar VAR_0x8004, 7
+	specialvar VAR_RESULT, GetSlotMachineId
+	playslotmachine VAR_RESULT
+	releaseall
+	end
 
 
 MicoloHideout_GameCorner_Text_ThisIsMicoloHideoutGameCorner: @ 8210460
