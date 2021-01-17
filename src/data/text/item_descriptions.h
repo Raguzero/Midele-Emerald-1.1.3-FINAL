@@ -812,9 +812,9 @@ static const u8 sSootheBellDesc[] = _(
     "Raises friendship.");
 
 static const u8 sMentalHerbDesc[] = _(
-    "A hold item that\n"
-    "snaps POKéMON out\n"
-    "of infatuation.");
+	"Hold item: Removes\n"
+    "move-binding\n"
+    "effects.");
 
 static const u8 sChoiceBandDesc[] = _(
     "Boosts ATTACK, but\n"
