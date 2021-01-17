@@ -282,6 +282,13 @@ static const struct MenuAction MultichoiceList_GameCornerCoins[] =
     {gText_Exit},
 };
 
+static const struct MenuAction MultichoiceList_GameCornerCoinsMidele[] =
+{
+    {gText_50CoinsAndPriceMidele},
+    {gText_500CoinsAndPriceMidele},
+    {gText_Exit},
+};
+
 static const struct MenuAction MultichoiceList_HowsFishing[] =
 {
     {gText_Excellent2},
@@ -862,6 +869,14 @@ static const struct MenuAction MultichoiceList_GameCornerPkmn2[] =
     {gText_Exit},
 };
 
+static const struct MenuAction MultichoiceList_GameCornerPkmn3[] =
+{
+    {gText_DarkPika},
+    {gText_Micomon},
+    {gText_Catermano},
+    {gText_Exit},
+};
+
 static const struct MenuAction MultichoiceList_AlteringCaveChanger[] =
 {
     {gText_AlteringCaveGen1},
@@ -1005,6 +1020,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_UNUSED_ASH_VENDOR]          = MULTICHOICE(MultichoiceList_UnusedAshVendor),
     [MULTI_GAME_CORNER_DOLLS]          = MULTICHOICE(MultichoiceList_GameCornerDolls),
     [MULTI_GAME_CORNER_COINS]          = MULTICHOICE(MultichoiceList_GameCornerCoins),
+    [MULTI_GAME_CORNER_COINS_MIDELE]          = MULTICHOICE(MultichoiceList_GameCornerCoinsMidele),
     [MULTI_HOWS_FISHING]               = MULTICHOICE(MultichoiceList_HowsFishing),
     [MULTI_UNUSED_51]                  = MULTICHOICE(MultichoiceList_Exit),
     [MULTI_SSTIDAL_SLATEPORT_WITH_BF]  = MULTICHOICE(MultichoiceList_SSTidalSlateportWithBF),
@@ -1072,6 +1088,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_MIDELE_HIDDEN_POWER_TYPES]                = MULTICHOICE(MultichoiceList_MideleHiddenPowerTypes),
     [MULTI_GAME_CORNER_PKMN]                = MULTICHOICE(MultichoiceList_GameCornerPkmn),
     [MULTI_GAME_CORNER_PKMN2]                = MULTICHOICE(MultichoiceList_GameCornerPkmn2),
+    [MULTI_GAME_CORNER_PKMN3]                = MULTICHOICE(MultichoiceList_GameCornerPkmn3),
     [MULTI_MIDELE_NATURES_1]           =MULTICHOICE(MultichoiceList_MideleNatures1),
     [MULTI_MIDELE_NATURES_2]           =MULTICHOICE(MultichoiceList_MideleNatures2),
     [MULTI_MIDELE_EV_STATS]           =MULTICHOICE(MultichoiceList_MideleEVStats),

@@ -1185,6 +1185,8 @@ extern const u8 gText_TM24AndPrice[];
 extern const u8 gText_TM13AndPrice[];
 extern const u8 gText_50CoinsAndPrice[];
 extern const u8 gText_500CoinsAndPrice[];
+extern const u8 gText_50CoinsAndPriceMidele[];
+extern const u8 gText_500CoinsAndPriceMidele[];
 extern const u8 gText_Excellent2[];
 extern const u8 gText_NotSoGood[];
 extern const u8 gText_LilycoveCity[];
@@ -3002,6 +3004,9 @@ extern const u8 gText_Treecko[];
 extern const u8 gText_Torchic[];
 extern const u8 gText_Mudkip[];
 extern const u8 gText_Turtwig[];
+extern const u8 gText_DarkPika[];
+extern const u8 gText_Micomon[];
+extern const u8 gText_Catermano[];
 
 extern const u8 gText_HardyNature[];
 extern const u8 gText_LonelyNature[];
