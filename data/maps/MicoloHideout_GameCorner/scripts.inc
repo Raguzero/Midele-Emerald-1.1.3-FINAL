@@ -243,6 +243,153 @@ MicoloHideout_GameCorner_EventScript_SlotMachine:: @ 8210436
 	releaseall
 	end
 
+MicoloHideout_EventScript_VendingMachine::
+	lockall
+	message MicoloHideout_Text_WhichDrinkWouldYouLike
+	waitmessage
+	showmoneybox 0, 0, 0
+	goto MicoloHideout_EventScript_ChooseDrink
+	end
+
+MicoloHideout_EventScript_ChooseDrink::
+	multichoice 16, 0, MULTI_VENDING_MACHINE_MIDELE, 0
+	copyvar VAR_TEMP_1, VAR_RESULT
+	switch VAR_TEMP_1
+  case 0, MicoloHideout_EventScript_SacredAsh
+  case 1, MicoloHideout_EventScript_PPMax
+  case 2, MicoloHideout_EventScript_Leftovers
+  case 3, MicoloHideout_EventScript_FocusSash
+	msgbox MicoloHideout_Text_DecidedAgainstBuyingDrink, MSGBOX_DEFAULT
+	goto MicoloHideout_EventScript_ExitVendingMachine
+	end
+
+MicoloHideout_EventScript_SacredAsh::
+	setvar VAR_TEMP_0, ITEM_SACRED_ASH
+	goto MicoloHideout_EventScript_TryBuyDrink
+	end
+
+MicoloHideout_EventScript_Leftovers::
+	setvar VAR_TEMP_0, ITEM_LEFTOVERS
+	goto MicoloHideout_EventScript_TryBuyDrink
+	end
+
+MicoloHideout_EventScript_PPMax::
+	setvar VAR_TEMP_0, ITEM_PP_MAX
+	goto MicoloHideout_EventScript_TryBuyDrink
+	end
+
+MicoloHideout_EventScript_FocusSash::
+	setvar VAR_TEMP_0, ITEM_FOCUS_SASH
+	goto MicoloHideout_EventScript_TryBuyDrink
+	end
+
+MicoloHideout_EventScript_CheckMoneyLeftovers::
+	checkmoney 15000, 0
+	return
+
+MicoloHideout_EventScript_CheckMoneyFocusSash::
+	checkmoney 20000, 0
+	return
+
+MicoloHideout_EventScript_CheckMoneySacredAsh::
+	checkmoney 9000, 0
+	return
+
+MicoloHideout_EventScript_CheckMoneyPPMax::
+	checkmoney 12000, 0
+	return
+
+MicoloHideout_EventScript_RemoveMoneyLeftovers::
+	removemoney 15000, 0
+	return
+
+MicoloHideout_EventScript_RemoveMoneyFocusSash::
+	removemoney 20000, 0
+	return
+
+MicoloHideout_EventScript_RemoveMoneySacredAsh::
+	removemoney 9000, 0
+	return
+
+MicoloHideout_EventScript_RemoveMoneyPPMax::
+	removemoney 12000, 0
+	return
+
+
+MicoloHideout_EventScript_TryBuyDrink::
+	compare VAR_TEMP_1, 0
+	call_if_eq MicoloHideout_EventScript_CheckMoneyLeftovers
+	compare VAR_TEMP_1, 1
+	call_if_eq MicoloHideout_EventScript_CheckMoneyFocusSash
+	compare VAR_TEMP_1, 2
+	call_if_eq MicoloHideout_EventScript_CheckMoneySacredAsh
+	compare VAR_RESULT, FALSE
+	goto_if_eq MicoloHideout_EventScript_NotEnoughMoneyForDrink
+	checkitemspace VAR_TEMP_0, 1
+	compare VAR_RESULT, FALSE
+	goto_if_eq MicoloHideout_EventScript_NoRoomForDrink
+	compare VAR_TEMP_1, 0
+	call_if_eq MicoloHideout_EventScript_RemoveMoneyLeftovers
+	compare VAR_TEMP_1, 1
+	call_if_eq MicoloHideout_EventScript_RemoveMoneyFocusSash
+	compare VAR_TEMP_1, 2
+	call_if_eq MicoloHideout_EventScript_RemoveMoneySacredAsh
+	updatemoneybox 0, 0
+	bufferitemname 0, VAR_TEMP_0
+	playse SE_JIHANKI
+	msgbox MicoloHideout_Text_CanOfDrinkDroppedDown, MSGBOX_DEFAULT
+	additem VAR_TEMP_0
+	bufferitemname 1, VAR_TEMP_0
+	bufferstdstring 2, STDSTRING_ITEMS
+	msgbox gText_PutItemInPocket, MSGBOX_DEFAULT
+	random 8  @ 1/8 (12.5%) chance of an additional drink dropping
+	compare VAR_RESULT, 0
+	goto_if_ne MicoloHideout_EventScript_ChooseNewDrink
+	checkitemspace VAR_TEMP_0, 1
+	compare VAR_RESULT, FALSE
+	goto_if_eq MicoloHideout_EventScript_NoRoomForDrink
+	playse SE_JIHANKI
+	msgbox MicoloHideout_Text_ExtraCanOfDrinkDroppedDown, MSGBOX_DEFAULT
+	additem VAR_TEMP_0
+	bufferitemname 1, VAR_TEMP_0
+	bufferstdstring 2, STDSTRING_ITEMS
+	msgbox gText_PutItemInPocket, MSGBOX_DEFAULT
+	random 3  @ 1/3 * the prev 1/8 chance of a third additional drink dropping, ~ 4% chance
+	compare VAR_RESULT, 0
+	goto_if_ne MicoloHideout_EventScript_ChooseNewDrink
+	checkitemspace VAR_TEMP_0, 1
+	compare VAR_RESULT, 0
+	goto_if_eq MicoloHideout_EventScript_NoRoomForDrink
+	playse SE_JIHANKI
+	msgbox MicoloHideout_Text_ExtraCanOfDrinkDroppedDown, MSGBOX_DEFAULT
+	additem VAR_TEMP_0
+	bufferitemname 1, VAR_TEMP_0
+	bufferstdstring 2, STDSTRING_ITEMS
+	msgbox gText_PutItemInPocket, MSGBOX_DEFAULT
+	goto MicoloHideout_EventScript_ChooseNewDrink
+	end
+
+MicoloHideout_EventScript_ChooseNewDrink::
+	message MicoloHideout_Text_WhichDrinkWouldYouLike
+	waitmessage
+	goto MicoloHideout_EventScript_ChooseDrink
+	end
+
+MicoloHideout_EventScript_NotEnoughMoneyForDrink::
+	msgbox MicoloHideout_Text_NotEnoughMoney, MSGBOX_DEFAULT
+	goto MicoloHideout_EventScript_ExitVendingMachine
+	end
+
+MicoloHideout_EventScript_NoRoomForDrink::
+	msgbox gText_TheBagIsFull, MSGBOX_DEFAULT
+	goto MicoloHideout_EventScript_ExitVendingMachine
+	end
+
+MicoloHideout_EventScript_ExitVendingMachine::
+	hidemoneybox
+	releaseall
+	end
+
 
 MicoloHideout_GameCorner_Text_ThisIsMicoloHideoutGameCorner: @ 8210460
 	.string "Bienvenido al CASINO de MICOLANDIA.$"
@@ -298,3 +445,22 @@ MicoloHideout_GameCorner_Text_ExchangeCoinsForPrizes: @ 82105D7
 	.string "Bienvenido.\p"
 	.string "Aquí puedes intercambiar tus FICHAS\n"
 	.string "por premios midélicos.$"
+
+MicoloHideout_Text_WhichDrinkWouldYouLike: @ 822056D
+	.string "It's a VENDING MACHINE.\n"
+	.string "Which item would you like?$"
+
+MicoloHideout_Text_CanOfDrinkDroppedDown: @ 82205A1
+	.string "Clang!\p"
+	.string "A can of {STR_VAR_1} dropped down.$"
+
+MicoloHideout_Text_ExtraCanOfDrinkDroppedDown: @ 82205C2
+	.string "Clang!\p"
+	.string "Score! An extra can of {STR_VAR_1}\n"
+	.string "dropped down!$"
+
+MicoloHideout_Text_NotEnoughMoney: @ 82205F1
+	.string "Not enough money…$"
+
+MicoloHideout_Text_DecidedAgainstBuyingDrink: @ 8220603
+	.string "Decided against buying a drink.$"

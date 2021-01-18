@@ -216,6 +216,15 @@ static const struct MenuAction MultichoiceList_VendingMachine[] =
     {gText_Exit},
 };
 
+static const struct MenuAction MultichoiceList_VendingMachineMidele[] =
+{
+    {gText_SacredAshAndPrice},
+    {gText_PPMaxAndPrice},
+    {gText_LeftoversAndPrice},
+    {gText_FocusSashAndPrice},
+    {gText_Exit},
+};
+
 static const struct MenuAction MultichoiceList_MachBikeInfo[] =
 {
     {gText_HowToRide},
@@ -1013,6 +1022,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_UNUSED_40]                  = MULTICHOICE(MultichoiceList_Exit),
     [MULTI_UNUSED_41]                  = MULTICHOICE(MultichoiceList_Exit),
     [MULTI_VENDING_MACHINE]            = MULTICHOICE(MultichoiceList_VendingMachine),
+    [MULTI_VENDING_MACHINE_MIDELE]     = MULTICHOICE(MultichoiceList_VendingMachineMidele),
     [MULTI_MACH_BIKE_INFO]             = MULTICHOICE(MultichoiceList_MachBikeInfo),
     [MULTI_ACRO_BIKE_INFO]             = MULTICHOICE(MultichoiceList_AcroBikeInfo),
     [MULTI_SATISFACTION]               = MULTICHOICE(MultichoiceList_Satisfaction),
