@@ -15,6 +15,7 @@
 #include "boss_battles.h"
 #include "bg.h"
 #include "data.h"
+#include "dexnav.h"
 #include "decompress.h"
 #include "dma3.h"
 #include "event_data.h"
@@ -5398,6 +5399,16 @@ static void FreeResetData_ReturnToOvOrDoEvolutions(void)
 {
     if (!gPaletteFade.active)
     {
+		if (gDexnavBattle && (gBattleOutcome == B_OUTCOME_WON || gBattleOutcome == B_OUTCOME_CAUGHT))
+        {
+            if (gSaveBlock1Ptr->dexNavChain < DEXNAV_CHAIN_MAX)
+                gSaveBlock1Ptr->dexNavChain++;
+        }
+        else
+		{
+             gSaveBlock1Ptr->dexNavChain = 0;
+		}
+        gDexnavBattle = FALSE;
         ResetSpriteData();
         if (gLeveledUpInBattle == 0 || gBattleOutcome != B_OUTCOME_WON)
         {

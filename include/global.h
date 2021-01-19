@@ -7,6 +7,7 @@
 #include "gba/gba.h"
 #include "constants/global.h"
 #include "constants/flags.h"
+#include "constants/species.h"
 
 // free saveblock 1 defines
 //#define FREE_EXTRA_SEEN_FLAGS           //free up extra pokedex seen flags. Frees up 104 bytes
@@ -1028,6 +1029,8 @@ struct SaveBlock1
     /*0x3D8A*/ u16 registeredItemR;
     // sizeof: 0x3D8C
                u8 trainerFlags[NEW_TRAINER_FLAGS_COUNT];
+			   u8 dexNavSearchLevels[SPECIES_EGG]; // SEGUN EL SCRIPT ES u8 dexNavSearchLevels[NUM_SPECIES]; PERO DA ERROR, Y SPECIES_EGG es lo debe ir aqui
+			   u8 dexNavChain;
 };
 
 extern struct SaveBlock1* gSaveBlock1Ptr;

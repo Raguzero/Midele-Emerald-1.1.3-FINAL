@@ -2016,3 +2016,5 @@ const u8 gText_Dex_OWN[]    = _("OWN");
 const u8 gText_RememberAMove[] = _("REMEMBER A MOVE");
 const u8 gText_ForgetAMove[] = _("FORGET A MOVE");
 const u8 gText_RateANickname[] = _("RATE A NICKNAME");
+
+const u8 gText_MenuDexNav[] = _("DEXNAV");

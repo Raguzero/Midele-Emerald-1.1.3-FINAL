@@ -146,4 +146,5 @@
 	.include "src/trainer_hill.o"
 	.include "src/rayquaza_scene.o"
 	.include "src/day_night.o"
-  .include "src/map_preview.o"
+	.include "src/map_preview.o"
+    .include "src/dexnav.o"

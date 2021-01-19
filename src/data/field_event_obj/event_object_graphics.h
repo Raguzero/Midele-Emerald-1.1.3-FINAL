@@ -376,3 +376,6 @@ const u32 gEventObjectPic_Mewtwo[] = INCBIN_U32("graphics/event_objects/pics/pok
 const u16 gEventObjectPalette41[] = INCBIN_U16("graphics/event_objects/palettes/field_object_palette_41.gbapal");
 const u32 gEventObjectPic_Celebi[] = INCBIN_U32("graphics/event_objects/pics/pokemon/celebi.4bpp");
 const u16 gEventObjectPalette42[] = INCBIN_U16("graphics/event_objects/palettes/field_object_palette_42.gbapal");
+
+const u32 gFieldEffectObjectPic_CaveDust[] = INCBIN_U32("graphics/event_objects/pics/effects/cave_dust.4bpp");
+const u16 gFieldEffectObjectPalette_CaveDust[] = INCBIN_U16("graphics/event_objects/palettes/cave_dust.gbapal");
