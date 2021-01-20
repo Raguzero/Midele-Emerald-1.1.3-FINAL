@@ -8011,7 +8011,6 @@ bool8 HasTwoFramesAnimation(u16 species)
             && species != SPECIES_SPINDA
             && species != SPECIES_UNOWN
             && species != SPECIES_GALAR_YAMASK
-            && species != SPECIES_GROOKEY
             && species != SPECIES_THWACKEY
 		    && species != SPECIES_GRUBBIN
 		    && species != SPECIES_CHARJABUG
@@ -8023,8 +8022,6 @@ bool8 HasTwoFramesAnimation(u16 species)
 		    && species != SPECIES_BRIONNE
 			&& species != SPECIES_PRIMARINA
 			&& species != SPECIES_DRAGAPULT
-            && species != SPECIES_WOOLOO
-			&& species != SPECIES_SOBBLE
 			&& species != SPECIES_DRIZZILE
 			&& species != SPECIES_INTELEON
 			&& species != SPECIES_DHELMISE
@@ -8037,12 +8034,9 @@ bool8 HasTwoFramesAnimation(u16 species)
 			&& species != SPECIES_PALOSSAND
 			&& species != SPECIES_SIZZLIPEDE
 			&& species != SPECIES_CENTISKORCH
-			&& species != SPECIES_ROOKIDEE
-			&& species != SPECIES_CORVISQUIRE
 			&& species != SPECIES_CORVIKNIGHT
 			&& species != SPECIES_HAWLUCHA
 			&& species != SPECIES_DURANT
-			&& species != SPECIES_SNOM
             && species != SPECIES_FROSMOTH
 			&& species != SPECIES_G_KINGLER
 			&& species != SPECIES_G_BUTTERFREE
@@ -8059,13 +8053,10 @@ bool8 HasTwoFramesAnimation(u16 species)
 			&& species != SPECIES_LYCANROC_NIGHT
 			&& species != SPECIES_LYCANROC_DUSK
 			&& species != SPECIES_FLOETTE
-			&& species != SPECIES_MILCERY
             && species != SPECIES_ALCREMIE
             && species != SPECIES_TOXTRICITY_LK
             && species != SPECIES_APPLIN
-            && species != SPECIES_RUNERIGUS
 			&& species != SPECIES_DURALUDON
-            && species != SPECIES_TOXEL
             && species != SPECIES_TOXTRICITY
             && species != SPECIES_RILLABOOM
 		    && species != SPECIES_FLAPPLE
