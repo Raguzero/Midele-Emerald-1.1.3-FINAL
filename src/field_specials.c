@@ -68,6 +68,7 @@
 #include "constants/weather.h"
 #include "constants/metatile_labels.h"
 #include "palette.h"
+#include "pokedex.h"
 
 EWRAM_DATA bool8 gBikeCyclingChallenge = FALSE;
 EWRAM_DATA u8 gBikeCollisions = 0;
@@ -4518,4 +4519,24 @@ u16 CheckJirachiMewinTeam(void)
          }
     }
     return FALSE;
+}
+
+u16 PokedexRatingPrize(void)
+{
+    u16 count = GetNationalPokedexCount(FLAG_GET_CAUGHT);
+  if (VarGet(VAR_DEXPRIZE) == 0 && count >= 20) {
+        return ITEM_EVERSTONE; 
+    } else if (VarGet(VAR_DEXPRIZE) == 1 && count >= 40) {
+        return ITEM_SCOPE_LENS;
+    } else if (VarGet(VAR_DEXPRIZE) == 2 && count >= 60) {
+        return ITEM_AMULET_COIN;
+    } else if (VarGet(VAR_DEXPRIZE) == 3 && count >= 80) {
+        return ITEM_LANSAT_BERRY;
+    } else if (VarGet(VAR_DEXPRIZE) == 4 && count >= 100) {
+        return ITEM_STARF_BERRY;
+    } else if (VarGet(VAR_DEXPRIZE) == 5 && count >= 151) {
+        return ITEM_MASTER_BALL;
+    } else {
+        return ITEM_NONE;
+    }
 }

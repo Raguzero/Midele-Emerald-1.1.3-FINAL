@@ -554,3 +554,4 @@ gSpecials:: @ 81DBA64
 	def_special SetGiftEggMove
 	def_special CheckRegielekiPuzzle
 	def_special CheckJirachiMewinTeam
+	def_special PokedexRatingPrize
