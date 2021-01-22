@@ -1265,13 +1265,13 @@ $(MID_SUBDIR)/se_z_search.s: %.s: %.mid
 
 $(MID_SUBDIR)/seq_ba_poke.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G000 -v100 -P5
-	
+
 $(MID_SUBDIR)/battletowerswsh.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -v100 -P5
-	
+	$(MID) $< $@ -E -R$(STD_REVERB) -G999 -V102
+
 $(MID_SUBDIR)/butterflywadakouji.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G116 -v100 -P5
-	
+
 $(MID_SUBDIR)/battlecyrus.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -v100 -P5
 	
