@@ -545,6 +545,8 @@
 #define BATTLECYRUS 617
 #define XYWILDBATTLE 618
 #define ZINNIATHEME 619
+#define MUS_UNIVERSALVG_TEST 620
+#define THEMEOFENCOUNTER 621
 
 #define MUS_ROUTE_118 0x7FFF  // map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 

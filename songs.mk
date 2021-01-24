@@ -1277,3 +1277,10 @@ $(MID_SUBDIR)/battlecyrus.s: %.s: %.mid
 	
 $(MID_SUBDIR)/xywildbattle.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -v100 -P5
+	
+$(MID_SUBDIR)/mus_universalvg_test.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100 -P5
+	
+$(MID_SUBDIR)/themeofencounter.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100 -P5	
+	
