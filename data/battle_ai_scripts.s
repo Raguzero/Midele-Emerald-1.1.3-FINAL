@@ -641,12 +641,6 @@ AI_CBM_Coil:
 	if_stat_level_not_equal AI_USER, STAT_DEF, 12, AI_Ret
 	if_stat_level_equal AI_USER, STAT_ACC, 12, Score_Minus10
 	end
-	
-AI_ChoiceLocked:
-	if_holds_item AI_USER, ITEM_CHOICE_BAND, AI_ChoiceDamage
-	if_holds_item AI_USER, ITEM_CHOICE_SPECS, AI_ChoiceDamage
-	if_holds_item AI_USER, ITEM_CHOICE_SCARF, AI_ChoiceDamage
-	end
 
 @ If move doesn't do meaningful damage, switch out
 AI_ChoiceDamage:
@@ -710,7 +704,9 @@ Score_Plus10:
 
 AI_CheckViability:
 	if_target_is_ally AI_Ret
-	call AI_ChoiceLocked
+    if_holds_item AI_USER, ITEM_CHOICE_BAND, AI_ChoiceDamage
+    if_holds_item AI_USER, ITEM_CHOICE_SPECS, AI_ChoiceDamage
+    if_holds_item AI_USER, ITEM_CHOICE_SCARF, AI_ChoiceDamage
 	if_effect EFFECT_SLEEP, AI_CV_Sleep
 	if_effect EFFECT_ABSORB, AI_CV_Absorb
 	if_effect EFFECT_EXPLOSION, AI_CV_SelfKO
