@@ -157,6 +157,19 @@
             "trainer_type": "1",
             "x": 19,
             "y": 4
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_VISITED_SLATEPORT_CITY",
+            "graphics_id": "EVENT_OBJ_GFX_BOY_3",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_UP",
+            "script": "Route102_EventScript_IsmaPKM",
+            "trainer_sight_or_berry_tree_id": "4",
+            "trainer_type": "1",
+            "x": 13,
+            "y": 6
         }
     ],
     "region_map_section": "MAPSEC_ROUTE_102",

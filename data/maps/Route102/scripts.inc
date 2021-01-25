@@ -75,6 +75,11 @@ Route102_EventScript_Allen:: @ 81EC1E1
 	msgbox Route102_Text_AllenPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route102_EventScript_IsmaPKM:: @ 81EC1E1
+	trainerbattle_single TRAINER_ISMAPKM_1, Route102_Text_IsmaPKMIntro, Route102_Text_IsmaPKMDefeated
+	msgbox Route102_Text_IsmaPKMPostBattle, MSGBOX_AUTOCLOSE
+	end
+
 Route102_Text_WatchMeCatchPokemon: @ 81EC1F8
 	.string "WALLY: {PLAYER}…\n"
 	.string "POKéMON hide in tall grass like this,\l"
@@ -109,3 +114,14 @@ Route102_Text_RouteSignOldale: @ 81EC35B
 Route102_Text_RouteSignPetalburg: @ 81EC373
 	.string "ROUTE 102\n"
 	.string "{LEFT_ARROW} PETALBURG CITY$"
+
+Route102_Text_IsmaPKMIntro:
+  .string "Hora de poner a mi GUILMON a prueba.\p"
+  .string "¡Vamos, GUILMON! ¡Poder digital!$"
+Route102_Text_IsmaPKMDefeated:
+  .string "Nivel de mal rollo: 50%...$"
+Route102_Text_IsmaPKMPostBattle:
+  .string "El GUILMON que me ha dado ese tal\n"
+  .string "A.VADER es bastante débil.\p"
+  .string "Pero lo entrenaré hasta que sea el\n"
+  .string "mejor GUILMON.$"
