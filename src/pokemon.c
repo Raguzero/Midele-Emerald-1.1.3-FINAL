@@ -7393,6 +7393,7 @@ u16 GetBattleBGM(void)
     MUSICOTE("BLUE", MUS_RG_VS_LAST)
     MUSICOTE("LEAF", MUS_RG_VS_LAST)
     MUSICOTE("RED", MUS_RG_VS_LAST)
+    MUSICOTE("ISMAPKM", THEMEOFENCOUNTER)
 	//MUSICOTE("MANEC", FF6BOSS) se ponen mas de la misma forma
 	
         if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
@@ -8362,4 +8363,3 @@ void CreateShinyMon(struct Pokemon *mon, u16 species, u8 level)
 
     CreateMon(mon, species, level, 32, 1, personality, OT_ID_PRESET, otid);
 }
-

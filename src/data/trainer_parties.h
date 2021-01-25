@@ -19272,3 +19272,16 @@ static const struct TrainerMonCustomMidele sParty_ForbiddenForest_Ezecuter[] = {
     .moves = {MOVE_FLAMETHROWER, MOVE_EARTHQUAKE, MOVE_CRUNCH, MOVE_FLY},
     }
 };
+
+static const struct TrainerMonCustomMidele sParty_IsmaPkm1[] = {
+    {
+    .iv = 31,
+    .lvl = 7,
+    .species = SPECIES_CHARMANDER,
+    .heldItem = ITEM_CHARCOAL,
+    .ability = 0,
+    .nature = NATURE_MODEST,
+    .hpType = TYPE_DRAGON,
+    .moves = {MOVE_EMBER, MOVE_HIDDEN_POWER, MOVE_ROCK_SMASH, MOVE_CUT},
+    }
+};
