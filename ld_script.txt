@@ -1239,6 +1239,11 @@ SECTIONS {
 		sound/songs/zinniatheme.o(.rodata);
 		sound/songs/midi/mus_universalvg_test.o(.rodata);
 		sound/songs/midi/themeofencounter.o(.rodata);
+		sound/songs/midi/cynthiabattle.o(.rodata);
+		sound/songs/midi/dialgapalkiabattle.o(.rodata);
+		sound/songs/midi/undertalemegalovania.o(.rodata);
+		sound/songs/thatpersonsnameis.o(.rodata);
+		sound/songs/midi/deltarunechaosking.o(.rodata);
     } =0
 
     lib_rodata :

@@ -1270,7 +1270,7 @@ $(MID_SUBDIR)/battletowerswsh.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G999 -V102
 
 $(MID_SUBDIR)/butterflywadakouji.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G116 -v100 -P5
+	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100 -P5
 
 $(MID_SUBDIR)/battlecyrus.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -v100 -P5
@@ -1282,5 +1282,16 @@ $(MID_SUBDIR)/mus_universalvg_test.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100 -P5
 	
 $(MID_SUBDIR)/themeofencounter.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100 -P5
+
+$(MID_SUBDIR)/cynthiabattle.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100 -P5	
+
+$(MID_SUBDIR)/dialgapalkiabattle.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100 -P5	
+
+$(MID_SUBDIR)/undertalemegalovania.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100 -P5
 	
+$(MID_SUBDIR)/deltarunechaosking.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100 -P5

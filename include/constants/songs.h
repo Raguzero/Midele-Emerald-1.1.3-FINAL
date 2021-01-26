@@ -547,6 +547,11 @@
 #define ZINNIATHEME 619
 #define MUS_UNIVERSALVG_TEST 620
 #define THEMEOFENCOUNTER 621
+#define CYNTHIABATTLE 622
+#define DIALGAPALKIABATTLE 623
+#define UNDERTALEMEGALOVANIA 624
+#define THATPERSONSNAMEIS 625
+#define DELTARUNECHAOSKING 626
 
 #define MUS_ROUTE_118 0x7FFF  // map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 
