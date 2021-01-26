@@ -896,7 +896,7 @@
 #define TRAINER_RED2                                 892
 #define TRAINER_LEAF2                               893
 #define TRAINER_AVADER_OLDALE                       894
-#define TRAINER_COVID_DOCTOR_1                      895
+#define TRAINER_COVID_DOCTOR_UNUSED                      895
 #define TRAINER_RANDOM_PARTY_2                     896
 #define TRAINER_FORBIDDENFOREST_EZECUTER                     897
 #define TRAINER_ISMAPKM_1                     898

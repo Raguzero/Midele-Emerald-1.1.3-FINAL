@@ -1014,11 +1014,7 @@ Route104_EventScript_Darian:: @ 81ED5D5
 	msgbox Route104_Text_DarianPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-Route104_EventScript_Covid_Doctor_1:: @ 81ED5D5
-	trainerbattle_single TRAINER_COVID_DOCTOR_1, Route104_Text_CovidDoctor1Intro, Route104_Text_CovidDoctor1Defeat
-	msgbox Route104_Text_CovidDoctor1Postbattle, MSGBOX_AUTOCLOSE
-	end
-	
+
 Route104_EventScript_Josito::
 	trainerbattle_single TRAINER_JOSITO, Josito_AntesBatalla, Josito_MensajeDerrota
 	msgbox Josito_DespuesDeBatalla, MSGBOX_AUTOCLOSE
@@ -1035,22 +1031,6 @@ Josito_MensajeDerrota:
 Josito_DespuesDeBatalla:
 	.string "En realidad Psyduck no explota,\n"
 	.string "de hecho su habilidad impide explotar.$"
-
-Route104_Text_CovidDoctor1Intro:
-	.string "Veo que tiene usted bastante calor...\n"
-	.string "Déjeme un momento...\p"
-	.string "Oh, sí, es usted alguien bastante\n"
-	.string "positivo...\p"
-	.string "Positivo...\p"
-	.string "¡EN CORONAVIRUS!$"
-Route104_Text_CovidDoctor1Defeat:
-	.string "¿Qué? ¿Era un falso positivo?$"
-Route104_Text_CovidDoctor1Postbattle:
-	.string "Tenga cuidado, un virus peligroso está\n"
-	.string "suelto...\p"
-	.string "Las malas lenguas dicen que ha sido creado\n"
-	.string "por alguien... meras teorías conspiratorias.$"
-
 Route104_Text_BrineyLivesInSeasideCottage: @ 81ED5EC
 	.string "That seaside cottage is where\n"
 	.string "MR. BRINEY lives.\p"

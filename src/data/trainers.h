@@ -11974,7 +11974,7 @@ const struct Trainer gTrainers[] = {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
         .trainerClass = TRAINER_CLASS_DEBUG,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR,
-        .trainerPic = TRAINER_PIC_DOCTOR,
+        .trainerPic = TRAINER_PIC_LEAF,
         .trainerName = _("MIDELE"),
         .items = {},
         .doubleBattle = TRUE,
@@ -12511,19 +12511,6 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
         .partySize = ARRAY_COUNT(sParty_Oldale_Avader),
         .party = {.ItemCustomMidele = sParty_Oldale_Avader},
-    },
-    [TRAINER_COVID_DOCTOR_1] =
-    {
-        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_DOCTOR,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTERVIEWER,
-        .trainerPic = TRAINER_PIC_DOCTOR,
-        .trainerName = _("FLEMING"),
-        .items = {},
-        .doubleBattle = FALSE,
-        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
-        .partySize = ARRAY_COUNT(sParty_Covid_Doctor_1),
-        .party = {.ItemCustomMidele = sParty_Covid_Doctor_1},
     },
     [TRAINER_RANDOM_PARTY_2] =
     {
