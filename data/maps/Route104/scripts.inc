@@ -1018,6 +1018,23 @@ Route104_EventScript_Covid_Doctor_1:: @ 81ED5D5
 	trainerbattle_single TRAINER_COVID_DOCTOR_1, Route104_Text_CovidDoctor1Intro, Route104_Text_CovidDoctor1Defeat
 	msgbox Route104_Text_CovidDoctor1Postbattle, MSGBOX_AUTOCLOSE
 	end
+	
+Route104_EventScript_Josito::
+	trainerbattle_single TRAINER_JOSITO, Josito_AntesBatalla, Josito_MensajeDerrota
+	msgbox Josito_DespuesDeBatalla, MSGBOX_AUTOCLOSE
+	end
+	
+Josito_AntesBatalla: 
+	.string "Empiezo por J,\n"
+	.string "termino por Osito."
+	.string "¿Quién soy?$"
+
+Josito_MensajeDerrota: 
+	.string "GGs, que vayan bien las próximas$"
+ 
+Josito_DespuesDeBatalla:
+	.string "En realidad Psyduck no explota,\n"
+	.string "de hecho su habilidad impide explotar.$"
 
 Route104_Text_CovidDoctor1Intro:
 	.string "Veo que tiene usted bastante calor...\n"
