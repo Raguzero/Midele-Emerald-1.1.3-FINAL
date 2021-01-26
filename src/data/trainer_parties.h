@@ -19361,7 +19361,6 @@ static const struct TrainerMonCustomMidele sParty_DobleC[] = {
 };
 
 static const struct TrainerMonCustomMidele sParty_Josito[] = {
-	// PARA METERLO DE NPC TRAINER EN PRIMERAS RUTAS
     {
     .iv = 31,  
     .lvl = 6,
@@ -19370,13 +19369,12 @@ static const struct TrainerMonCustomMidele sParty_Josito[] = {
 	.nature = NATURE_ADAMANT,
 	.evs = {252, 252, 0, 0, 0, 6},  
 	.ability = 0,
-	.shiny = 1,  
-	.friendship = 255,
-    .moves = {MOVE_RETURN, MOVE_LICK, MOVE_NONE, MOVE_NONE}
+	.shiny = 1, 
+    .moves = {MOVE_FURY_SWIPES, MOVE_LICK, MOVE_NONE, MOVE_NONE}
     },
     {
     .iv = 31,  
-    .lvl = 6,
+    .lvl = 5,
     .species = SPECIES_PSYDUCK,
 	.heldItem = ITEM_MYSTIC_WATER,
 	.nature = NATURE_MODEST,
@@ -19384,7 +19382,7 @@ static const struct TrainerMonCustomMidele sParty_Josito[] = {
 	.hpType = TYPE_FIRE, 
 	.ability = 1,
 	.shiny = 0,
-    .moves = {MOVE_SURF, MOVE_HIDDEN_POWER, MOVE_NONE, MOVE_NONE}
+    .moves = {MOVE_WATER_PULSE, MOVE_HIDDEN_POWER, MOVE_NONE, MOVE_NONE}
     }
 };
 
@@ -19450,5 +19448,19 @@ static const struct TrainerMonCustomMidele sParty_Goldie[] = {
     .ability = 0,
     .shiny = 1,
     .moves = {MOVE_HEAT_WAVE, MOVE_FIRE_BLAST, MOVE_SOLAR_BEAM, MOVE_DRAGON_CLAW}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_Ghaddar[] = {
+    {
+    .iv = 31,  
+    .lvl = 20,
+	.syncLevel = TRUE,
+    .species = SPECIES_NIDOKING,
+	.heldItem = ITEM_TWISTED_SPOON, 
+	.nature = NATURE_QUIET,
+	.evs = {0, 48, 0, 48, 0, 0},  
+	.ability = 1,
+    .moves = {MOVE_BUBBLE_BEAM, MOVE_ROCK_TOMB, MOVE_ICY_WIND, MOVE_CONFUSION}
     }
 };

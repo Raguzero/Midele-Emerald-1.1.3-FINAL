@@ -1050,6 +1050,84 @@ MauvilleCity_GameCorner_EventScript_NoCoinsForMon:
 	goto MauvilleCity_GameCorner_EventScript_MonPrizes
 	end	
 	
+MauvilleCity_GameCorner_EventScript_Ghaddar::
+	lock
+	faceplayer
+	msgbox MauvilleCity_GameCorner_Text_Ghaddar, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq MauvilleCity_GameCorner_EventScript_Ghaddar_Combate
+	compare VAR_RESULT, NO
+    call_if_eq MauvilleCity_GameCorner_EventScript_Ghaddar_ENCONTRA
+	release
+	end
+	
+MauvilleCity_GameCorner_EventScript_Ghaddar_Combate::
+	trainerbattle_single TRAINER_GHADDAR, MauvilleCity_GameCorner_Text_GhaddarIntro, MauvilleCity_GameCorner_Text_GhaddarDefeat
+	msgbox MauvilleCity_GameCorner_Text_Ghaddar_ENCONTRA, MSGBOX_AUTOCLOSE
+	release
+	end
+	
+MauvilleCity_GameCorner_EventScript_Ghaddar_ENCONTRA::
+	msgbox MauvilleCity_GameCorner_Text_Ghaddar_ENCONTRA, MSGBOX_NPC
+	release
+	end
+	
+MauvilleCity_GameCorner_Text_Ghaddar:
+	.string "¡HACHA al GACHA!\n"
+	.string "¡Este lugar es una vergüenza!\p"
+
+	.string "¿Qué no entiendes por qué?\n"
+	.string "Deja que te lo explique.\p"
+
+	.string "El GACHA es un conjunto de\n"
+	.string "técnicas para abusar del\l" 
+	.string "comportamiento humano y hacer\l" 
+	.string "que la gente se deje toda la pasta\l" 
+	.string "en cosas superfluas cayendo directos\l"
+	.string "a una adicción.\p"
+
+	.string "Estas compañias sacan de forma\n"
+	.string "gratuita estos juegos llenos\l"
+	.string "de gachas para así captar a sus\l"
+	.string "nuevas victimas.\p"
+	
+	.string "¡Pero todos vosotros no haceis\n"
+	.string "mas que normalizar el gacha hablando\l"
+	.string "de ello y haciendo que mas gente\l"
+	.string "caiga en el pozo inmundo de\l"
+	.string "los GACHAS!\p"
+	
+	.string "Y bien, ¿en qué bando estás?\p"
+	
+	.string "¿Estas a FAVOR de los GACHAS?$"
+	
+MauvilleCity_GameCorner_Text_Ghaddar_ENCONTRA:
+	.string "¡HACHA al GACHA!\p"
+
+	.string "¡El primero paso será desinstalar\n"
+	.string "todos los Fire Emblem Heroes y los\l"
+	.string "Genshin Impact de los móviles!$"
+	
+MauvilleCity_GameCorner_Text_GhaddarIntro:
+	.string "Así que eres otra victima de la\n"
+	.string "manipulación de cerebros que hacen\l"
+	.string "las compañias con los GACHAS...\p"
+
+	.string "Si a pesar de mis argumentos, decides\n"
+	.string "jugar en este sitio...\p"
+	
+	.string "No me quedará más remedio...\p"
+	
+	.string "¡QUE OBLIGARTE A ENTENDERLO POR\n"
+	.string "LA FUERZA!$"
+	
+MauvilleCity_GameCorner_Text_GhaddarDefeat:
+	.string "Se dice GHADDAR, no GADAR,\n"
+	.string "ni GADDAR...\p"
+	
+	.string "¡Aprended de una vez a escribir\n"
+	.string "bien mi nombre! :/$"
+
 MauvilleCity_GameCorner_Text_ThisIsMauvilleGameCorner: @ 8210460
 	.string "This is MAUVILLE GAME CORNER.$"
 
