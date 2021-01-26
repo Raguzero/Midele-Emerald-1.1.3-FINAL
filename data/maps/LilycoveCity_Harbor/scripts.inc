@@ -531,6 +531,10 @@ LilycoveCity_Harbor_EventScript_BoardFerryWithBrineyAndSailorEast:: @ 821E6BA
 	waitmovement 0
 	return
 
+LilycoveCity_Harbor_EventScript_GiratinaMaster::
+  msgbox LilycoveCity_Harbor_Text_GiratinaMaster, MSGBOX_NPC
+  end
+
 LilycoveCity_Harbor_Movement_BrineyBoardFerry: @ 821E6D3
 	walk_in_place_fastest_up
 	delay_8
@@ -620,3 +624,28 @@ LilycoveCity_Harbor_Text_SailorFerryAvailable: @ 821E976
 	.string "The folks at the SHIPYARD in SLATEPORT\n"
 	.string "must've worked extra hard.\p"
 	.string "Well, it's my turn to get busy now!$"
+
+LilycoveCity_Harbor_Text_GiratinaMaster:
+  .string "se cierra el puerto. :lock: :lock:\n"
+  .string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
+  .string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
+  .string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
+  .string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
+  .string ":lock: :lock: :lock: :lock: :lock: :lock:\p"
+  .string "soy mod, y cierro el puerto porque\n"
+  .string "no se puede pasar. :lock:\p"
+  .string "¿que quieres pasar?\n"
+  .string "no se puede, soy moooooooood\l"
+  .string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
+  .string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
+  .string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
+  .string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
+  .string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
+  .string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
+  .string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
+  .string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
+  .string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
+  .string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
+  .string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
+  .string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
+  .string ":lock: :lock: :lock: :lock: :lock: :lock:$"
