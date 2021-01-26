@@ -95,6 +95,81 @@ Fiery_Path_EventScript_RanFromMoltres::
 	setvar VAR_0x8004, SPECIES_MOLTRES
 	goto Common_EventScript_LegendaryFlewAway
 	end
+	
+Fiery_Path_EventScript_Pacochef::  
+	trainerbattle_single TRAINER_FIERYPATH_PACOCHEF, Fiery_Path_Text_PacochefIntro, Fiery_Path_Text_PacochefDefeat
+	msgbox Fiery_Path_Text_PacochefPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Fiery_Path_Text_PacochefIntro: 
+	.string "FRASES.\n"
+	.string "FRASES.$"
+
+Fiery_Path_Text_PacochefDefeat: 
+	.string "FRASE$"
+
+Fiery_Path_Text_PacochefPostBattle: 
+	.string "FRASES.$"
+	
+Fiery_Path_EventScript_Chinpo::  
+	trainerbattle_single TRAINER_FIERYPATH_CHINPO, Fiery_Path_Text_ChinpoIntro, Fiery_Path_Text_ChinpoDefeat
+	msgbox Fiery_Path_Text_ChinpoPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Fiery_Path_Text_ChinpoIntro: 
+	.string "FRASES.\n"
+	.string "FRASES.$"
+
+Fiery_Path_Text_ChinpoDefeat: 
+	.string "FRASE$"
+
+Fiery_Path_Text_ChinpoPostBattle: 
+	.string "FRASES.$"
+	
+Fiery_Path_EventScript_Kaderete::  
+	trainerbattle_single TRAINER_FIERYPATH_KADERETE, Fiery_Path_Text_KadereteIntro, Fiery_Path_Text_KadereteDefeat
+	msgbox Fiery_Path_Text_KaderetePostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Fiery_Path_Text_KadereteIntro: 
+	.string "FRASES.\n"
+	.string "FRASES.$"
+
+Fiery_Path_Text_KadereteDefeat: 
+	.string "FRASE$"
+
+Fiery_Path_Text_KaderetePostBattle: 
+	.string "FRASES.$"
+	
+Fiery_Path_EventScript_Krub::  
+	trainerbattle_single TRAINER_FIERYPATH_KRUB, Fiery_Path_Text_KrubIntro, Fiery_Path_Text_KrubDefeat
+	msgbox Fiery_Path_Text_KrubPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Fiery_Path_Text_KrubIntro: 
+	.string "FRASES.\n"
+	.string "FRASES.$"
+
+Fiery_Path_Text_KrubDefeat: 
+	.string "FRASE$"
+
+Fiery_Path_Text_KrubPostBattle: 
+	.string "FRASES.$"
+	
+Fiery_Path_EventScript_DobleC::  
+	trainerbattle_single TRAINER_FIERYPATH_DOBLEC, Fiery_Path_Text_DobleCIntro, Fiery_Path_Text_DobleCDefeat
+	msgbox Fiery_Path_Text_DobleCPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Fiery_Path_Text_DobleCIntro: 
+	.string "FRASES.\n"
+	.string "FRASES.$"
+
+Fiery_Path_Text_DobleCDefeat: 
+	.string "FRASE$"
+
+Fiery_Path_Text_DobleCPostBattle: 
+	.string "FRASES.$"
 
 Fiery_Path_Text_Totemaparece:
 	.string "CENTISKORCH, the Totem Pokémon of\n" 

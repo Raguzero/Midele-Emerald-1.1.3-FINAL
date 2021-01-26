@@ -124,6 +124,7 @@
 #define TRAINER_PIC_LANCE              105
 #define TRAINER_PIC_BLUE             106
 #define TRAINER_PIC_DOCTOR           107
+#define TRAINER_PIC_GOLDIE          108
 
 #define TRAINER_BACK_PIC_BRENDAN                0
 #define TRAINER_BACK_PIC_MAY                    1

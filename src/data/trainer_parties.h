@@ -19285,3 +19285,170 @@ static const struct TrainerMonCustomMidele sParty_IsmaPkm1[] = {
     .moves = {MOVE_EMBER, MOVE_HIDDEN_POWER, MOVE_ROCK_SMASH, MOVE_CUT},
     }
 };
+
+static const struct TrainerMonCustomMidele sParty_Pacochef[] = {
+   // PACOCHEF SIN TERMINAR EQUIPO
+   {
+    .iv = 31,
+    .lvl = 7,
+    .species = SPECIES_MACHOP,
+    .heldItem = ITEM_CHARCOAL,
+    .ability = 0,
+    .nature = NATURE_MODEST,
+    .hpType = TYPE_DRAGON,
+    .moves = {MOVE_EMBER, MOVE_HIDDEN_POWER, MOVE_ROCK_SMASH, MOVE_CUT},
+    },
+    {
+    .iv = 31,
+    .lvl = 7,
+    .species = SPECIES_UMBREON,
+    .heldItem = ITEM_CHARCOAL,
+    .ability = 0,
+    .nature = NATURE_MODEST,
+    .hpType = TYPE_DRAGON,
+    .moves = {MOVE_EMBER, MOVE_HIDDEN_POWER, MOVE_ROCK_SMASH, MOVE_CUT},
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_Krub[] = {
+    {
+    .iv = 31,
+    .lvl = 25,
+    .species = SPECIES_FARFETCHD,
+    .heldItem = ITEM_STICK,
+	.evs = {0, 84, 0, 0, 0, 84},
+    .ability = 1,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_SWORDS_DANCE, MOVE_AIR_CUTTER, MOVE_QUICK_ATTACK, MOVE_SLASH},
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_Kaderete[] = {
+    {
+    .iv = 31,
+    .lvl = 25,
+    .species = SPECIES_HAUNTER,
+    .heldItem = ITEM_LEFTOVERS,
+	.evs = {84, 0, 0, 0, 0, 84},
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_MEAN_LOOK, MOVE_PERISH_SONG, MOVE_PROTECT, MOVE_SUBSTITUTE},
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_Chinpo[] = {
+    {
+    .iv = 31,
+    .lvl = 25,
+    .species = SPECIES_BULBASAUR,
+    .heldItem = ITEM_MIRACLE_SEED,
+	.evs = {252, 0, 0, 0, 0, 0},
+    .nature = NATURE_MODEST,
+    .hpType = TYPE_WATER,
+    .moves = {MOVE_SLEEP_POWDER, MOVE_HIDDEN_POWER, MOVE_GIGA_DRAIN, MOVE_SLUDGE},
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_DobleC[] = {
+    {
+    .iv = 31,
+    .lvl = 25,
+    .species = SPECIES_CHARMANDER,
+    .heldItem = ITEM_CHARCOAL,
+	.evs = {252, 0, 0, 0, 0, 0},
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_FLAMETHROWER, MOVE_BITE, MOVE_DRAGON_BREATH, MOVE_THUNDER_PUNCH},
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_Josito[] = {
+	// PARA METERLO DE NPC TRAINER EN PRIMERAS RUTAS
+    {
+    .iv = 31,  
+    .lvl = 6,
+    .species = SPECIES_TEDDIURSA,
+	.heldItem = ITEM_SILK_SCARF, 
+	.nature = NATURE_ADAMANT,
+	.evs = {252, 252, 0, 0, 0, 6},  
+	.ability = 0,
+	.shiny = 1,  
+	.friendship = 255,
+    .moves = {MOVE_RETURN, MOVE_LICK, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 31,  
+    .lvl = 6,
+    .species = SPECIES_PSYDUCK,
+	.heldItem = ITEM_MYSTIC_WATER,
+	.nature = NATURE_MODEST,
+	.evs = {252, 0, 0, 252, 0, 6}, 
+	.hpType = TYPE_FIRE, 
+	.ability = 1,
+	.shiny = 0,
+    .moves = {MOVE_SURF, MOVE_HIDDEN_POWER, MOVE_NONE, MOVE_NONE}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_Goldie[] = {
+	// PARA METERLO DE NPC TRAINER EN UNA RUTA FINAL
+    {
+    .iv = 31,
+    .lvl = 70, 
+    .species = SPECIES_ESPEON,
+    .heldItem = ITEM_TWISTED_SPOON,
+    .nature = NATURE_TIMID,
+    .evs = {6, 0, 0, 252, 0, 252}, 
+    .ability = 0,
+    .moves = {MOVE_PSYCHIC, MOVE_HELPING_HAND, MOVE_DAZZLING_GLEAM, MOVE_PROTECT}
+    },
+    {
+    .iv = 31,
+    .lvl = 70, 
+    .species = SPECIES_SUDOWOODO,
+    .heldItem = ITEM_CHOICE_BAND,
+    .nature = NATURE_ADAMANT,
+    .evs = {252, 252, 0, 0, 0, 6},
+    .ability = 1,
+    .moves = {MOVE_HEAD_SMASH, MOVE_ROCK_SLIDE, MOVE_EARTHQUAKE, MOVE_NONE}
+    },
+   /* {
+    .iv = 31,
+    .lvl = 70, 
+    .species = SPECIES_GALAR_STUNFISK,
+    .heldItem = ITEM_LEFTOVERS, 
+    .nature = NATURE_ADAMANT, 
+    .evs = {252, 252, 0, 0, 0, 6},
+    .ability = 0,
+    .moves = {MOVE_EARTHQUAKE, MOVE_BOUNCE, MOVE_SLUDGE_BOMB, MOVE_STONE_EDGE}
+    }, */
+    {
+    .iv = 31,
+    .lvl = 70, 
+    .species = SPECIES_CORVIKNIGHT,
+    .heldItem = ITEM_CHESTO_BERRY, 
+    .nature = NATURE_IMPISH, 
+    .evs = {0, 252, 6, 0, 252, 0},
+    .ability = 0,
+    .moves = {MOVE_BULK_UP, MOVE_REST, MOVE_BRAVE_BIRD, MOVE_STEEL_WING}
+    },
+    {
+    .iv = 31,
+    .lvl = 70, 
+    .species = SPECIES_HYDREIGON,
+    .heldItem = ITEM_CHOICE_SPECS, 
+    .nature = NATURE_TIMID, 
+    .evs = {6, 0, 0, 252, 0, 252},
+    .ability = 0,
+    .moves = {MOVE_DARK_PULSE, MOVE_FIRE_BLAST, MOVE_SURF, MOVE_OUTRAGE}
+    },
+    {
+    .iv = 31,
+    .lvl = 70, 
+    .species = SPECIES_CHARIZARD,
+    .heldItem = ITEM_POWER_HERB, 
+    .nature = NATURE_MODEST, 
+    .evs = {6, 0, 0, 252, 0, 252},
+    .ability = 0,
+    .shiny = 1,
+    .moves = {MOVE_HEAT_WAVE, MOVE_FIRE_BLAST, MOVE_SOLAR_BEAM, MOVE_DRAGON_CLAW}
+    }
+};
