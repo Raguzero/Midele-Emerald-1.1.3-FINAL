@@ -12667,4 +12667,17 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_Hypeantonio),
         .party = {.ItemCustomMidele = sParty_Hypeantonio},
     },
+    [TRAINER_VLADILAND] =
+    {
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
+        .trainerClass = TRAINER_CLASS_POKEFAN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_POKEFAN_M,
+        .trainerName = _("VLADILAND"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
+        .partySize = ARRAY_COUNT(sParty_Vladiland),
+        .party = {.ItemCustomMidele = sParty_Vladiland},
+    },
 };

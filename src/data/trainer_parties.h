@@ -19444,7 +19444,7 @@ static const struct TrainerMonCustomMidele sParty_Ghaddar[] = {
     .species = SPECIES_NIDOKING,
 	.heldItem = ITEM_TWISTED_SPOON, 
 	.nature = NATURE_QUIET,
-	.evs = {0, 48, 0, 48, 0, 0},  
+	.evs = {0, 40, 0, 40, 0, 0},  
 	.ability = 1,
     .moves = {MOVE_BUBBLE_BEAM, MOVE_ROCK_TOMB, MOVE_ICY_WIND, MOVE_CONFUSION}
 	}
@@ -19478,4 +19478,76 @@ static const struct TrainerMonCustomMidele sParty_Hypeantonio[] = {
     .moves = {MOVE_MUD_SLAP, MOVE_MINIMIZE, MOVE_REST, MOVE_SLEEP_TALK},
     .shiny = 1
     }
+};
+
+static const struct TrainerMonCustomMidele sParty_Vladiland[] = {
+    {
+    .iv = 31,  
+    .lvl = 20,
+	.syncLevel = TRUE,
+    .species = SPECIES_IGGLYBUFF,
+	.heldItem = ITEM_CHARCOAL, 
+	.nature = NATURE_MODEST,
+	.friendship = 0,
+	.evs = {0, 0, 0, 80, 0, 0},  
+    .moves = {MOVE_SING, MOVE_PSYCHIC, MOVE_FRUSTRATION, MOVE_FIRE_BLAST}
+	},
+    {
+    .iv = 31,  
+    .lvl = 20,
+	.syncLevel = TRUE,
+    .species = SPECIES_PICHU,
+	.heldItem = ITEM_FOCUS_SASH, 
+	.nature = NATURE_TIMID,
+	.evs = {0, 0, 0, 40, 0, 40},  
+	.ability = 1,
+	.hpType = TYPE_GRASS,
+	.friendship = 0,
+    .moves = {MOVE_NASTY_PLOT, MOVE_ELECTROWEB, MOVE_HIDDEN_POWER, MOVE_NONE}
+	},
+    {
+    .iv = 31,  
+    .lvl = 20,
+	.syncLevel = TRUE,
+    .species = SPECIES_CLEFFA,
+	.heldItem = ITEM_FOCUS_SASH, 
+	.nature = NATURE_BOLD,
+	.evs = {40, 0, 40, 0, 0, 0},  
+	.friendship = 0,
+    .moves = {MOVE_MAGICAL_LEAF, MOVE_ENCORE, MOVE_SING, MOVE_SWEET_KISS}
+	},
+    {
+    .iv = 31,  
+    .lvl = 20,
+	.syncLevel = TRUE,
+    .species = SPECIES_MIMEJR,
+	.heldItem = ITEM_FOCUS_SASH, 
+	.nature = NATURE_TIMID,
+	.evs = {0, 0, 0, 0, 0, 80},
+	.friendship = 0,
+    .moves = {MOVE_TEETER_DANCE, MOVE_PSYBEAM, MOVE_REFLECT, MOVE_LIGHT_SCREEN}
+	},
+    {
+    .iv = 31,  
+    .lvl = 20,
+	.syncLevel = TRUE,
+    .species = SPECIES_HYPNO,
+	.heldItem = ITEM_SILK_SCARF, 
+	.nature = NATURE_BRAVE,
+	.evs = {0, 80, 0, 0, 0, 0},
+	.friendship = 255,
+    .moves = {MOVE_HYPNOSIS, MOVE_RETURN, MOVE_DREAM_EATER, MOVE_NIGHTMARE}
+	},
+    {
+    .iv = 31,  
+    .lvl = 20,
+	.syncLevel = TRUE,
+    .species = SPECIES_DITTO,
+	.heldItem = ITEM_EVERSTONE, 
+	.nature = NATURE_HARDY,
+	.evs = {0, 0, 0, 0, 0, 0},  
+	.ability = 1,
+	.shiny = 1,
+    .moves = {MOVE_TRANSFORM, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+	}
 };

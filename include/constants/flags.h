@@ -660,8 +660,8 @@
 #define FLAG_HIDDEN_ITEM_IZABE_ISLAND_OUTSKIRTS_SPELL_TAG    0x26B // Previously unused Flag
 #define FLAG_HIDE_REGIGIGAS                                  0x26C // Previously unused Flag
 #define FLAG_DEFEATED_IZABE_GIANT_2                          0x26D // Previously unused Flag
-#define FLAG_RECEIVED_DITTO                                  0x26E // Previously unused Flag
-#define FLAG_DAYCARE_TRADE_COMPLETED                         0x26F // Previously unused Flag
+#define FLAG_DAYCARE_DITTO_RECEIVED                                  0x26E // Previously unused Flag
+#define FLAG_UNUSED_0x26F  									 0x26F // Unused Flag
 #define FLAG_CAUGHT_REGIDRAGO  0x270 // Previously unused Flag
 #define FLAG_DEFEATED_REGIDRAGO  0x271 // Previously unused Flag
 #define FLAG_HIDE_REGIDRAGO  0x272 // Previously unused Flag
