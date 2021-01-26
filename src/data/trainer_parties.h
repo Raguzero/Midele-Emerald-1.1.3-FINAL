@@ -19437,3 +19437,34 @@ static const struct TrainerMonCustomMidele sParty_Goldie[] = {
     .moves = {MOVE_HEAT_WAVE, MOVE_FIRE_BLAST, MOVE_SOLAR_BEAM, MOVE_DRAGON_CLAW}
     }
 };
+
+static const struct TrainerMonCustomMidele sParty_Hypeantonio[] = {
+    // ZYGARDE 1%
+    {
+    .iv = 31,
+    .lvl = 6,
+    .species = SPECIES_CATERPIE,
+    .heldItem = ITEM_ORAN_BERRY,
+    .nature = NATURE_CAREFUL,
+    .moves = {MOVE_TACKLE, MOVE_STRING_SHOT, MOVE_NONE, MOVE_NONE},
+    },
+    // ZYGARDE 10%
+    {
+    .iv = 31,
+    .lvl = 7,
+    .species = SPECIES_HOUNDOUR,
+    .heldItem = ITEM_LUM_BERRY,
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_EMBER, MOVE_TOXIC, MOVE_PROTECT, MOVE_TAUNT},
+    },
+    // ZYGARDE 50%
+    {
+    .iv = 31,
+    .lvl = 7,
+    .species = SPECIES_SILICOBRA,
+    .heldItem = ITEM_LUM_BERRY,
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_MUD_SLAP, MOVE_MINIMIZE, MOVE_REST, MOVE_SLEEP_TALK},
+    .shiny = 1
+    }
+};

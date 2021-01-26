@@ -248,6 +248,19 @@
             "trainer_type": "0",
             "x": 33,
             "y": 5
+        },
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_CAMPER",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+            "script": "PetalburgWoods_EventScript_Hypeantonio",
+            "trainer_sight_or_berry_tree_id": "5",
+            "trainer_type": "1",
+            "x": 17,
+            "y": 7
         }
     ],
     "region_map_section": "MAPSEC_PETALBURG_WOODS",
