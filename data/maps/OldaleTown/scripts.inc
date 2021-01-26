@@ -7,6 +7,7 @@ OldaleTown_OnTransition: @ 81E8EA8
 	setflag FLAG_VISITED_OLDALE_TOWN
 	call_if_unset FLAG_ADVENTURE_STARTED, OldaleTown_EventScript_BlockWestEntrance
 	call_if_unset FLAG_DEFEATED_OLDALE_AVADER, OldaleTown_EventScript_BlockWestEntrance
+	call_if_unset FLAG_ADVENTURE_STARTED, OldaleTown_EventScript_BlockWestEntrance
 	call_if_unset FLAG_RECEIVED_POTION_OLDALE, OldaleTown_EventScript_MoveMartEmployee
 	call_if_set FLAG_ADVENTURE_STARTED, OldaleTown_EventScript_SetOldaleState
 	end
@@ -17,6 +18,7 @@ OldaleTown_EventScript_SetOldaleState:: @ 81E8ECC
 	return
 
 OldaleTown_EventScript_BlockWestEntrance:: @ 81E8ED2
+  setvar VAR_TEMP_0, 1
 	setobjectxyperm 3, 1, 11
 	setobjectmovementtype 3, MOVEMENT_TYPE_FACE_LEFT
 	return
@@ -194,7 +196,7 @@ OldaleTown_EventScript_VaderMew:: @ 81E901F
 	faceplayer
 	playmoncry SPECIES_MEW, 2
 	waitmoncry
-	goto_if_set FLAG_ADVENTURE_STARTED, OldaleTown_EventScript_NotBlockingPath
+	goto_if_set FLAG_DEFEATED_OLDALE_AVADER, OldaleTown_EventScript_NotBlockingPath
 	msgbox OldaleTown_Text_MewHoldingNote, MSGBOX_DEFAULT
 	closemessage
 	applymovement 3, Common_Movement_FaceOriginalDirection

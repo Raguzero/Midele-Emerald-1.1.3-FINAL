@@ -896,7 +896,7 @@
 #define TRAINER_RED2                                 892
 #define TRAINER_LEAF2                               893
 #define TRAINER_AVADER_OLDALE                       894
-#define TRAINER_COVID_DOCTOR_1                      895
+#define TRAINER_COVID_DOCTOR_UNUSED                      895
 #define TRAINER_RANDOM_PARTY_2                     896
 #define TRAINER_FORBIDDENFOREST_EZECUTER                     897
 #define TRAINER_ISMAPKM_1                     898
@@ -908,6 +908,7 @@
 #define TRAINER_GOLDIE                     			 904
 #define TRAINER_JOSITO                     905
 #define TRAINER_GHADDAR                     906
+#define TRAINER_HYPEANTONIO                     907
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled

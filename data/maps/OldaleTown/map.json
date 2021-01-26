@@ -65,15 +65,6 @@
     "coord_events": [
         {
             "elevation": 3,
-            "script": "OldaleTown_EventScript_BlockedPath",
-            "type": "trigger",
-            "var": "VAR_OLDALE_TOWN_STATE",
-            "var_value": "0",
-            "x": 0,
-            "y": 10
-        },
-        {
-            "elevation": 3,
             "script": "OldaleTown_EventScript_RivalTrigger1",
             "type": "trigger",
             "var": "VAR_OLDALE_RIVAL_STATE",
@@ -98,6 +89,15 @@
             "var_value": "1",
             "x": 10,
             "y": 19
+        },
+        {
+            "elevation": 3,
+            "script": "OldaleTown_EventScript_BlockedPath",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "1",
+            "x": 0,
+            "y": 10
         }
     ],
     "id": "MAP_OLDALE_TOWN",
@@ -134,7 +134,7 @@
         },
         {
             "elevation": 3,
-            "flag": "0",
+            "flag": "FLAG_VISITED_SLATEPORT_CITY",
             "graphics_id": "EVENT_OBJ_GFX_MEW",
             "movement_range_x": 0,
             "movement_range_y": 0,

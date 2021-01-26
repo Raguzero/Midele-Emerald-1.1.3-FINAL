@@ -19225,21 +19225,6 @@ static const struct TrainerMonCustomMidele sParty_Oldale_Avader[] = {
     }
 };
 
-static const struct TrainerMonCustomMidele sParty_Covid_Doctor_1[] = {
-    {
-    .iv = 31,
-    .lvl = 100,
-    .species = SPECIES_DEOXYS,
-	.heldItem = ITEM_NONE,
-    .ability = 0,
-    .shiny = 0,
-    .friendship = 0,
-    .nature = NATURE_TIMID,
-	.evs = {0, 0, 0, 0, 0, 0},
-    .moves = {MOVE_MEMENTO, MOVE_NONE, MOVE_NONE, MOVE_NONE}
-    }
-};
-
 static const struct TrainerMonCustomMidele sParty_ForbiddenForest_Ezecuter[] = {
     {
     .iv = 31,
@@ -19462,5 +19447,35 @@ static const struct TrainerMonCustomMidele sParty_Ghaddar[] = {
 	.evs = {0, 48, 0, 48, 0, 0},  
 	.ability = 1,
     .moves = {MOVE_BUBBLE_BEAM, MOVE_ROCK_TOMB, MOVE_ICY_WIND, MOVE_CONFUSION}
+	}
+};
+static const struct TrainerMonCustomMidele sParty_Hypeantonio[] = {
+    // ZYGARDE 1%
+    {
+    .iv = 31,
+    .lvl = 6,
+    .species = SPECIES_CATERPIE,
+    .heldItem = ITEM_ORAN_BERRY,
+    .nature = NATURE_CAREFUL,
+    .moves = {MOVE_TACKLE, MOVE_STRING_SHOT, MOVE_NONE, MOVE_NONE},
+    },
+    // ZYGARDE 10%
+    {
+    .iv = 31,
+    .lvl = 7,
+    .species = SPECIES_HOUNDOUR,
+    .heldItem = ITEM_LUM_BERRY,
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_EMBER, MOVE_TOXIC, MOVE_PROTECT, MOVE_TAUNT},
+    },
+    // ZYGARDE 50%
+    {
+    .iv = 31,
+    .lvl = 7,
+    .species = SPECIES_SILICOBRA,
+    .heldItem = ITEM_LUM_BERRY,
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_MUD_SLAP, MOVE_MINIMIZE, MOVE_REST, MOVE_SLEEP_TALK},
+    .shiny = 1
     }
 };

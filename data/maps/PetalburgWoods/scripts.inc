@@ -319,6 +319,11 @@ PetalburgWoods_EventScript_JamesRematch:: @ 822E31B
 	msgbox PetalburgWoods_Text_IveBeenTrainingHard, MSGBOX_AUTOCLOSE
 	end
 
+PetalburgWoods_EventScript_Hypeantonio:: @ 822E26D
+	trainerbattle_single TRAINER_HYPEANTONIO, PetalburgWoods_Text_HypeantonioIntro, PetalburgWoods_Text_HypeantonioDefeat
+	msgbox PetalburgWoods_Text_HypeantonioAfterBattle, MSGBOX_AUTOCLOSE
+	end
+
 PetalburgWoods_Text_NotAOneToBeFound: @ 822E332
 	.string "Hmmm…\n"
 	.string "Not a one to be found…$"
@@ -475,3 +480,40 @@ PetalburgWoods_Text_TrainerTipsPP: @ 822ED07
 	.string "If a POKéMON runs out of PP, it must be\n"
 	.string "taken to a POKéMON CENTER.$"
 
+PetalburgWoods_Text_HypeantonioIntro:
+  .string "Hola, amigo. ¿Eres de HOENN?\p"
+  .string "He llegado a esta región en busca\n"
+  .string "del legendario ZYGARDE.\p"
+  .string "Según mis teorías el POKéMON\n"
+  .string "legendario de esta región representa\l"
+  .string "al espermatozoide, mientras que los\l"
+  .string "meteoritos espaciales representan al\l"
+  .string "óvulo.\p"
+  .string "Cuando el legendario RAYQUAZA se\n"
+  .string "estrelle contra estos meteoritos\l"
+  .string "espaciales nacerá un cigoto.\p"
+  .string "Según los escritos de KALOS SUR este\n"
+  .string "cigoto representa a la forma de vida\l"
+  .string "definitiva, ZYGARDE.\p"
+  .string "Veo que te has quedado sin palabras,\n"
+  .string "¿no crees mis teorías?\p"
+  .string "En mi tierra natal, PxP, tampoco me\n"
+  .string "creyeron.\p"
+  .string "Es por eso que he viajado hasta aquí\n"
+  .string "para demostarles su error.\p"
+  .string "Una vez lo haga, MELKOR y todo PxP \n"
+  .string "se postrarán ante mis teorías.\p"
+  .string "¿Sigues sin creerme? Lo siento por ti,\n"
+  .string "te haré probar el poder de mis\l"
+  .string "ZYGARDE FORMA 1%.$"
+
+PetalburgWoods_Text_HypeantonioDefeat:
+  .string "Esta derrota solo confirma mis teorías.$"
+
+PetalburgWoods_Text_HypeantonioAfterBattle:
+  .string "Mis ZYGARDE han perdido porque no están\n"
+  .string "completos.\p"
+  .string "Eso confirma mi teoría de que aún no\n"
+  .string "están al 100% de su capacidad.\p"
+  .string "Por cierto, dicen que MELKOR ha sido\n"
+  .string "visto en HOENN...$"
