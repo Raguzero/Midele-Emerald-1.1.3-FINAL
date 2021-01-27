@@ -1481,10 +1481,6 @@ void CB2_Pokedex(void)
             if (!IsNationalPokedexEnabled())
                 sPokedexView->dexMode = DEX_MODE_HOENN;
             sPokedexView->dexOrder = gSaveBlock2Ptr->pokedex.order;
-            if (gInfodexAccessedFromPartyMenuSpecies != SPECIES_EGG) {
-              gUnknown_02039B50 = gInfodexAccessedFromPartyMenuSpecies;
-              gInfodexAccessedFromPartyMenuSpecies = SPECIES_EGG;
-            }
             sPokedexView->selectedPokemon = gUnknown_02039B50;
             sPokedexView->unk62C = gUnknown_02039B52;
             sPokedexView->selectedScreen = 0;
