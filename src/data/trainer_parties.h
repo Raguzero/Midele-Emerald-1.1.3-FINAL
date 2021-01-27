@@ -19122,6 +19122,7 @@ static const struct TrainerMonCustomMidele sParty_Red2[] = {
 	.nature = NATURE_ADAMANT,
 	.evs = {6, 252, 0, 0, 252, 0},
 	.ability = 1,
+	.friendship = 255,
 	.syncLevel = TRUE,
     .moves = {MOVE_REST, MOVE_CURSE, MOVE_RETURN, MOVE_SLEEP_TALK}
     }

@@ -1151,7 +1151,7 @@ MauvilleCity_GameCorner_Text_Ghaddar:
 MauvilleCity_GameCorner_Text_Ghaddar_ENCONTRA:
 	.string "¡HACHA al GACHA!\p"
 
-	.string "¡El primero paso será desinstalar\n"
+	.string "¡El primer paso será desinstalar\n"
 	.string "todos los Fire Emblem Heroes y los\l"
 	.string "Genshin Impact de los móviles!$"
 	
@@ -1176,7 +1176,14 @@ MauvilleCity_GameCorner_Text_GhaddarDefeat:
 	.string "bien mi nombre! :/$"
 
 MauvilleCity_GameCorner_Text_Ghaddar_FALTAEMPATIA:
-	.string "TEXTO falta empatia$"
+	.string "Bah, te falta empatia.\p"
+	
+	.string "Sabes que yo tengo razón.\p"
+	
+	.string "¡Sabes muy bien que la tengo!\p"
+	
+	.string "¡Estás cometiendo un grave error\n"
+	.string "poniendote del lado de los GACHAS!$"
 
 MauvilleCity_GameCorner_Text_ThisIsMauvilleGameCorner: @ 8210460
 	.string "This is MAUVILLE GAME CORNER.$"
