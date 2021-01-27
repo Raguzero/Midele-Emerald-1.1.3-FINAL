@@ -43,6 +43,7 @@
 #include "palette.h"
 #include "party_menu.h"
 #include "player_pc.h"
+#include "pokedex.h"
 #include "pokemon.h"
 #include "pokemon_icon.h"
 #include "pokemon_jump.h"
@@ -156,6 +157,7 @@ EWRAM_DATA u8 gSelectedOrderFromParty[4] = {0};
 static EWRAM_DATA u16 sPartyMenuItemId = 0;
 static EWRAM_DATA u16 sUnused_0203CEFE = 0;
 EWRAM_DATA u8 gBattlePartyCurrentOrder[PARTY_SIZE / 2] = {0}; // bits 0-3 are the current pos of Slot 1, 4-7 are Slot 2, and so on
+EWRAM_DATA u16 gInfodexAccessedFromPartyMenuSpecies = SPECIES_EGG; // Infodex mon is SPECIES -1, so SPECIES_NONE would result in underflow. Using SPECIES_EGG instead.
 
 // IWRAM common
 void (*gItemUseCB)(u8, TaskFunc);
@@ -2730,9 +2732,11 @@ static void CursorCb_Summary(u8 taskId)
 void ChangePokemonNickname(void);
 static void CursorCb_InfoDex(u8 taskId)
 {
+    IncrementGameStat(GAME_STAT_CHECKED_POKEDEX);
+    gInfodexAccessedFromPartyMenuSpecies = GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_SPECIES) - 1;
     PlaySE(SE_SELECT);
     gSpecialVar_0x8004 = gPartyMenu.slotId;
-    sPartyMenuInternal->exitCallback = ChangePokemonNickname;
+    sPartyMenuInternal->exitCallback = CB2_Pokedex;
     Task_ClosePartyMenu(taskId);
 }
 // NUEVO PARA INFODEX EN EQUIPO (ENTRAR A LA DEX DEL POKE EN CUESTION)
