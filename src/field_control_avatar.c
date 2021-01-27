@@ -203,8 +203,6 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         return TRUE;
     else if (input->pressedLButton && UseRegisteredKeyItemOnField(1))
         return TRUE;
-    //else if (input->pressedRButton && UseRegisteredKeyItemOnField(2))
-     //   return TRUE;
      else if (input->tookStep && TryFindHiddenPokemon()) // if en vez de else if era
         return TRUE;
 	else if (input->pressedRButton && TryStartDexnavSearch()) // if en vez de else if era

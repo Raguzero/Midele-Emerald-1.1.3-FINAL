@@ -1026,8 +1026,7 @@ struct SaveBlock1
     #endif
     /*0x3D70*/ struct WaldaPhrase waldaPhrase;
     /*0x3D88*/ u16 registeredItemL;
-    /*0x3D8A*/ u16 registeredItemR;
-    // sizeof: 0x3D8C
+    // sizeof: 0x3D8C  ???
                u8 trainerFlags[NEW_TRAINER_FLAGS_COUNT];
 			   u8 dexNavSearchLevels[SPECIES_EGG]; // SEGUN EL SCRIPT ES u8 dexNavSearchLevels[NUM_SPECIES]; PERO DA ERROR, Y SPECIES_EGG es lo debe ir aqui
 			   u8 dexNavChain;

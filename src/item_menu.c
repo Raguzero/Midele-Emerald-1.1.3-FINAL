@@ -72,7 +72,6 @@ enum MenuActions
     MENU_ACTION_CONFIRM_2,
     MENU_ACTION_SELECT_BUTTON,
     MENU_ACTION_L_BUTTON,
-    MENU_ACTION_R_BUTTON,
     MENU_ACTION_BY_NAME,
     MENU_ACTION_BY_TYPE,
     MENU_ACTION_BY_AMOUNT,
@@ -180,7 +179,6 @@ void BagMenu_CancelSell(u8 taskId);
 // new
 static void ItemMenu_RegisterSelect(u8 taskId);
 static void ItemMenu_RegisterL(u8 taskId);
-static void ItemMenu_RegisterR(u8 taskId);
 static void ItemMenu_Deselect(u8 taskId);
 
 //bag sort
@@ -256,7 +254,6 @@ static const struct ListMenuTemplate sItemListMenu =
 
 static const u8 sMenuText_Select[] = _("Select");
 static const u8 sMenuText_L[] = _("L Button");
-static const u8 sMenuText_R[] = _("R Button");
 static const u8 sMenuText_ByName[] = _("Name");
 static const u8 sMenuText_ByType[] = _("Type");
 static const u8 sMenuText_ByAmount[] = _("Amount");
@@ -279,7 +276,6 @@ const struct MenuAction sItemMenuActions[] = {
     [MENU_ACTION_CONFIRM_2]     = {gMenuText_Confirm, unknown_ItemMenu_Confirm2},
     [MENU_ACTION_SELECT_BUTTON] = {sMenuText_Select, ItemMenu_RegisterSelect},
     [MENU_ACTION_L_BUTTON]      = {sMenuText_L, ItemMenu_RegisterL},
-    [MENU_ACTION_R_BUTTON]      = {sMenuText_R, ItemMenu_RegisterR},
     [MENU_ACTION_BY_NAME] = {sMenuText_ByName, ItemMenu_SortByName},
     [MENU_ACTION_BY_TYPE] = {sMenuText_ByType, ItemMenu_SortByType},
     [MENU_ACTION_BY_AMOUNT] = {sMenuText_ByAmount, ItemMenu_SortByAmount},
@@ -299,7 +295,7 @@ static const u8 gUnknown_08614047[] = {MENU_ACTION_CONFIRM, MENU_ACTION_CHECK_TA
 static const u8 gUnknown_0861404B[] = {MENU_ACTION_SHOW, MENU_ACTION_CANCEL};
 static const u8 gUnknown_0861404D[] = {MENU_ACTION_GIVE_2, MENU_ACTION_CANCEL};
 static const u8 sInBattleBerryActions[] = {MENU_ACTION_CONFIRM_2, MENU_ACTION_CANCEL};
-static const u8 sRegisterMenuActions[] = {MENU_ACTION_SELECT_BUTTON, MENU_ACTION_L_BUTTON, MENU_ACTION_COUNT, MENU_ACTION_R_BUTTON};
+static const u8 sRegisterMenuActions[] = {MENU_ACTION_SELECT_BUTTON, MENU_ACTION_L_BUTTON, MENU_ACTION_COUNT};
 
 const TaskFunc sBagMenuTasks[] = {
     unknown_item_menu_type,
@@ -324,7 +320,6 @@ const struct ScrollArrowsTemplate gBagScrollArrowsTemplate = {SCROLL_ARROW_LEFT,
 
 static const u8 sSelectButtonGfx[] = INCBIN_U8("graphics/interface/select_button.4bpp");
 static const u8 sLButtonGfx[] = INCBIN_U8("graphics/interface/L_button.4bpp");
-static const u8 sRButtonGfx[] = INCBIN_U8("graphics/interface/R_button.4bpp");
 
 static const u8 sFontColorTable[][3] = {
 // bgColor, textColor, shadowColor
@@ -940,8 +935,6 @@ void PrintItemQuantityPlusGFX(u8 rboxId, s32 item_index_in_pocket, u8 a, u8 list
             if (gSaveBlock1Ptr->registeredItemL && gSaveBlock1Ptr->registeredItemL == itemId)
                 BlitBitmapToWindow(rboxId, sLButtonGfx, 0x60, a - 1, 0x18, 16);
 
-            if (gSaveBlock1Ptr->registeredItemR && gSaveBlock1Ptr->registeredItemR == itemId)
-                BlitBitmapToWindow(rboxId, sRButtonGfx, 0x60, a - 1, 0x18, 16);
         }
     }
 }
@@ -1581,8 +1574,6 @@ void SetUpBagMenuActionItems(u8 unused)
                         if (gSaveBlock1Ptr->registeredItemSelect == gSpecialVar_ItemId)
                             gBagMenu->unk825 = MENU_ACTION_DESELECT;
                         else if (gSaveBlock1Ptr->registeredItemL == gSpecialVar_ItemId)
-                            gBagMenu->unk825 = MENU_ACTION_DESELECT;
-                        else if (gSaveBlock1Ptr->registeredItemR == gSpecialVar_ItemId)
                             gBagMenu->unk825 = MENU_ACTION_DESELECT;
 
                         break;
@@ -2508,8 +2499,6 @@ static void ResetRegisteredItem(u16 item)
         gSaveBlock1Ptr->registeredItemSelect = ITEM_NONE;
     else if (gSaveBlock1Ptr->registeredItemL == item)
         gSaveBlock1Ptr->registeredItemL = ITEM_NONE;
-    else if (gSaveBlock1Ptr->registeredItemR == item)
-        gSaveBlock1Ptr->registeredItemR = ITEM_NONE;
 }
 
 static void ItemMenu_FinishRegister(u8 taskId)
@@ -2560,16 +2549,6 @@ static void ItemMenu_RegisterL(u8 taskId)
         gSaveBlock1Ptr->registeredItemL = ITEM_NONE;
     else
         gSaveBlock1Ptr->registeredItemL = gSpecialVar_ItemId;
-
-    gTasks[taskId].func = ItemMenu_FinishRegister;
-}
-
-static void ItemMenu_RegisterR(u8 taskId)
-{
-    if (gSaveBlock1Ptr->registeredItemR == gSpecialVar_ItemId)
-        gSaveBlock1Ptr->registeredItemR = ITEM_NONE;
-    else
-        gSaveBlock1Ptr->registeredItemR = gSpecialVar_ItemId;
 
     gTasks[taskId].func = ItemMenu_FinishRegister;
 }
@@ -3141,9 +3120,6 @@ bool8 UseRegisteredKeyItemOnField(u8 button)
     case 1:
         registeredItem = gSaveBlock1Ptr->registeredItemL;
         break;
-    case 2:
-        registeredItem = gSaveBlock1Ptr->registeredItemR;
-        break;
     default:
         return FALSE;
     }
@@ -3170,9 +3146,6 @@ bool8 UseRegisteredKeyItemOnField(u8 button)
                 break;
             case 1:
                 gSaveBlock1Ptr->registeredItemL = ITEM_NONE;
-                break;
-            case 2:
-                gSaveBlock1Ptr->registeredItemR = ITEM_NONE;
                 break;
             }
         }

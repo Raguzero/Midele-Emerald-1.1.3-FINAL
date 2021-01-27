@@ -680,7 +680,6 @@ static const u16 sUnused_08615B94[] =
 enum
 {
     MENU_SUMMARY,
-	MENU_INFODEX, // NUEVO PARA INFODEX EN EQUIPO (ENTRAR A LA DEX DEL POKE EN CUESTION)
     MENU_SWITCH,
     MENU_CANCEL1,
     MENU_ITEM,
@@ -730,7 +729,6 @@ struct
 } static const sCursorOptions[] =
 {
     [MENU_SUMMARY] = {gText_Summary5, CursorCb_Summary},
-	[MENU_INFODEX] = {gText_InfoDex, CursorCb_InfoDex}, // NUEVO PARA INFODEX EN EQUIPO (ENTRAR A LA DEX DEL POKE EN CUESTION)
     [MENU_SWITCH] = {gText_Switch2, CursorCb_Switch},
     [MENU_CANCEL1] = {gText_Cancel2, CursorCb_Cancel1},
     [MENU_ITEM] = {gText_Item, CursorCb_Item},

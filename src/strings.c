@@ -1832,7 +1832,6 @@ const u8 gText_Answer[] = _("ANSWER");
 const u8 gText_PokeBalls[] = _("POKé BALLS");
 const u8 gText_Berry[] = _("BERRY");
 const u8 gText_Berries[] = _("BERRIES");
-const u8 gText_InfoDex[] = _("INFODEX"); // NUEVO PARA INFODEX EN EQUIPO (ENTRAR A LA DEX DEL POKE EN CUESTION)
 
 // NUEVO: nombres de tipos (para NPC Hidden Power)
 const u8 gText_FightingType[] = _("FIGHTING");
