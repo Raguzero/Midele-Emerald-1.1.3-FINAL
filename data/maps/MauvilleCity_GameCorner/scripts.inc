@@ -1,4 +1,5 @@
 MauvilleCity_GameCorner_MapScripts:: @ 820FBB8
+	map_script MAP_SCRIPT_ON_TRANSITION, MauvilleCity_GameCorner_OnTransition
 	.byte 0
 
     @ Game Corner prices
@@ -11,6 +12,14 @@ MauvilleCity_GameCorner_MapScripts:: @ 820FBB8
 
 	.set COINS_PRICE_50,  1000
 	.set COINS_PRICE_500, 10000
+
+MauvilleCity_GameCorner_OnTransition::
+	call_if_defeated TRAINER_GHADDAR, MauvilleCity_GameCorner_OnTransition_RemoveGhaddarEvent
+	return
+
+MauvilleCity_GameCorner_OnTransition_RemoveGhaddarEvent:
+	setvar VAR_TEMP_0, 1
+	return
 
 MauvilleCity_GameCorner_EventScript_CoinsClerk:: @ 820FBB9
 	lock
@@ -1049,7 +1058,15 @@ MauvilleCity_GameCorner_EventScript_NoCoinsForMon:
 	msgbox MauvilleCity_GameCorner_Text_NotEnoughCoins, 4
 	goto MauvilleCity_GameCorner_EventScript_MonPrizes
 	end	
-	
+
+MauvilleCity_GameCorner_EventScript_Ghaddar_Hablar::
+	lock
+	faceplayer
+	goto_if_defeated TRAINER_GHADDAR, MauvilleCity_GameCorner_EventScript_Ghaddar_FALTAEMPATIA
+	goto MauvilleCity_GameCorner_EventScript_Ghaddar_ENCONTRA
+	release
+	end 
+
 MauvilleCity_GameCorner_EventScript_Ghaddar::
 	lock
 	faceplayer
@@ -1062,15 +1079,45 @@ MauvilleCity_GameCorner_EventScript_Ghaddar::
 	end
 	
 MauvilleCity_GameCorner_EventScript_Ghaddar_Combate::
+	setvar VAR_TEMP_0, 1
 	trainerbattle_single TRAINER_GHADDAR, MauvilleCity_GameCorner_Text_GhaddarIntro, MauvilleCity_GameCorner_Text_GhaddarDefeat
-	msgbox MauvilleCity_GameCorner_Text_Ghaddar_ENCONTRA, MSGBOX_AUTOCLOSE
 	release
 	end
 	
 MauvilleCity_GameCorner_EventScript_Ghaddar_ENCONTRA::
 	msgbox MauvilleCity_GameCorner_Text_Ghaddar_ENCONTRA, MSGBOX_NPC
+	setvar VAR_TEMP_0, 1
 	release
 	end
+
+MauvilleCity_GameCorner_EventScript_Ghaddar_FALTAEMPATIA:
+	msgbox MauvilleCity_GameCorner_Text_Ghaddar_FALTAEMPATIA, MSGBOX_NPC
+	release
+	end
+
+MauvilleCity_GameCorner_EventScript_Ghaddar_Trigger1::
+	applymovement 15, Common_Movement_ExclamationMark
+	waitmovement 0
+	playse SE_PIN 
+	applymovement 15, MauvilleCity_GameCorner_Movement_GhaddarFaceDown
+	waitmovement 0
+	goto MauvilleCity_GameCorner_EventScript_Ghaddar
+	end
+
+MauvilleCity_GameCorner_EventScript_Ghaddar_Trigger2::
+	applymovement 15, Common_Movement_ExclamationMark
+	waitmovement 0
+	playse SE_PIN 
+	applymovement 15, MauvilleCity_GameCorner_Movement_GhaddarMoveRightEntrance
+	waitmovement 0
+	goto MauvilleCity_GameCorner_EventScript_Ghaddar
+	end
+
+MauvilleCity_GameCorner_Movement_GhaddarMoveRightEntrance::
+	walk_fast_right
+MauvilleCity_GameCorner_Movement_GhaddarFaceDown:
+	face_down
+	step_end
 	
 MauvilleCity_GameCorner_Text_Ghaddar:
 	.string "¡HACHA al GACHA!\n"
@@ -1127,6 +1174,9 @@ MauvilleCity_GameCorner_Text_GhaddarDefeat:
 	
 	.string "¡Aprended de una vez a escribir\n"
 	.string "bien mi nombre! :/$"
+
+MauvilleCity_GameCorner_Text_Ghaddar_FALTAEMPATIA:
+	.string "TEXTO falta empatia$"
 
 MauvilleCity_GameCorner_Text_ThisIsMauvilleGameCorner: @ 8210460
 	.string "This is MAUVILLE GAME CORNER.$"
@@ -1283,5 +1333,3 @@ MauvilleCity_GameCorner_Text_GetMon::
 
 MauvilleCity_GameCorner_Text_NoRoom::
     .string "Your party is full.$"
-
-
