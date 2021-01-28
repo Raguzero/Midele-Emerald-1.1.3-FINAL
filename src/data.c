@@ -5,6 +5,7 @@
 #include "graphics.h"
 #include "constants/items.h"
 #include "constants/moves.h"
+#include "constants/songs.h"
 #include "constants/species.h"
 #include "constants/trainers.h"
 #include "constants/battle_ai.h"

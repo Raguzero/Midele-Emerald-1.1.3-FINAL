@@ -7372,29 +7372,12 @@ u16 GetBattleBGM(void)
         return MUS_BATTLE20;
     else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {
-        u8 trainerClass; 
-#define MUSICOTE(a, b) { const u8 nombre[] = _(a); if (!StringCompare(gTrainers[gTrainerBattleOpponent_A].trainerName, nombre)) return b; }
-    MUSICOTE("MIDELE", FF6BOSS)
-    MUSICOTE("LAVENDER", MUS_VS_FRONT)
-    MUSICOTE("A.VADER", MUS_VS_FRONT)
-    MUSICOTE("BROCK", MUS_RG_VS_GYM)
-    MUSICOTE("MISTY", MUS_RG_VS_GYM)
-    MUSICOTE("LT.SURGE", MUS_RG_VS_GYM)
-    MUSICOTE("ERIKA", MUS_RG_VS_GYM)
-    MUSICOTE("KOGA", MUS_RG_VS_GYM)
-    MUSICOTE("SABRINA", MUS_RG_VS_GYM)
-    MUSICOTE("BLAINE", MUS_RG_VS_GYM)
-    MUSICOTE("GIOVANNI", MUS_RG_VS_GYM)
-    MUSICOTE("LORELEI", MUS_RG_VS_GYM)
-    MUSICOTE("AGATHA", MUS_RG_VS_GYM)
-    MUSICOTE("BRUNO", MUS_RG_VS_GYM)
-    MUSICOTE("LANCE", MUS_RG_VS_GYM)
-    MUSICOTE("BLUE", MUS_RG_VS_LAST)
-    MUSICOTE("LEAF", MUS_RG_VS_LAST)
-    MUSICOTE("RED", MUS_RG_VS_LAST)
-    MUSICOTE("ISMAPKM", THEMEOFENCOUNTER)
-    MUSICOTE("HYPEANTONIO", THEMEOFENCOUNTER)
-	//MUSICOTE("MANEC", FF6BOSS) se ponen mas de la misma forma
+        u8 trainerClass;
+        u16 trainerBattleMusic;
+        trainerBattleMusic = gTrainers[gTrainerBattleOpponent_A].battleMusic;
+        if (trainerBattleMusic != 0) {
+          return trainerBattleMusic;
+        }
 	
         if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
             trainerClass = GetFrontierOpponentClass(gTrainerBattleOpponent_A);
