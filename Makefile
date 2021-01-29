@@ -1,5 +1,6 @@
 TOOLCHAIN := $(DEVKITARM)
 COMPARE ?= 0
+RELEASE ?= 0
 
 ifeq ($(CC),)
 HOSTCC := gcc
@@ -61,16 +62,22 @@ ASFLAGS := -mcpu=arm7tdmi --defsym MODERN=$(MODERN)
 
 GCC_VER = $(shell $(CC) -dumpversion)
 
+ifeq ($(RELEASE),0)
+RELEASE_VER :=
+else
+RELEASE_VER := _$(shell git describe)
+endif
+
 ifeq ($(MODERN),0)
 CC1             := tools/agbcc/bin/agbcc$(EXE)
 override CFLAGS += -mthumb-interwork -Wimplicit -Wparentheses -Werror -O2 -fhex-asm
-ROM := pokeemerald.gba
+ROM := mideleemerald$(RELEASE_VER).gba
 OBJ_DIR := build/emerald
 LIBPATH := -L ../../tools/agbcc/lib
 else
 CC1              = $(shell $(CC) --print-prog-name=cc1) -quiet
 override CFLAGS += -mthumb -mthumb-interwork -O2 -mabi=apcs-gnu -mtune=arm7tdmi -march=armv4t -fno-toplevel-reorder -fno-aggressive-loop-optimizations -Wno-pointer-to-int-cast
-ROM := pokeemerald_modern.gba
+ROM := mideleemerald_modern$(RELEASE_VER).gba
 OBJ_DIR := build/modern
 LIBPATH := -L $(TOOLCHAIN)/lib/gcc/arm-none-eabi/$(GCC_VER)/thumb -L $(TOOLCHAIN)/arm-none-eabi/lib/thumb
 endif
@@ -326,6 +333,8 @@ $(ROM): $(ELF)
 	$(FIX) $@ -p --silent
 
 modern: ; @$(MAKE) MODERN=1
+
+release: ; @$(MAKE) RELEASE=1
 
 berry_fix/berry_fix.gba: berry_fix
 
