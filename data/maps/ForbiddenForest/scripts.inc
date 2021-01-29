@@ -108,6 +108,21 @@ ForbiddenForest_EventScript_Ezecuter::
 	msgbox ForbiddenForest_Text_EzecuterPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
+ForbiddenForest_EventScript_Kefky::
+	trainerbattle_single TRAINER_KEFKY, Kefky_AntesBatalla, Kefky_MensajeDerrota
+	msgbox Kefky_DespuesDeBatalla, MSGBOX_AUTOCLOSE
+	end
+	
+Kefky_AntesBatalla: 
+	.string "Yo solo uso un Pokémon si es mono.$"
+
+Kefky_MensajeDerrota: 
+	.string "¿A que eran monos?$"
+ 
+Kefky_DespuesDeBatalla:
+	.string "Me he vestido de mujer por perder\n"
+	.string "una apuesta, pero soy un tío.$"
+	
 ForbiddenForest_Text_Celebi:
 	.string "El cartel se ha deteriorado\n"
 	.string "por el paso del tiempo y solo\l"

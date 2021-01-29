@@ -19552,3 +19552,76 @@ static const struct TrainerMonCustomMidele sParty_Vladiland[] = {
     .moves = {MOVE_TRANSFORM, MOVE_NONE, MOVE_NONE, MOVE_NONE}
 	}
 };
+
+static const struct TrainerMonCustomMidele sParty_Javisito[] = {
+    {
+    .iv = 31,  
+    .lvl = 23,
+    .species = SPECIES_FLOETTE,
+	.heldItem = ITEM_MIRACLE_SEED, 
+	.nature = NATURE_MODEST,
+	.evs = {0, 0, 0, 80, 0, 0},  
+    .moves = {MOVE_RAZOR_LEAF, MOVE_FAIRY_WIND, MOVE_MAGICAL_LEAF, MOVE_SAFEGUARD}
+	}
+};
+
+static const struct TrainerMonCustomMidele sParty_Kefky[] = {
+    {
+    .iv = 31,  
+    .lvl = 73,
+    .species = SPECIES_RILLABOOM,
+	.heldItem = ITEM_LEFTOVERS, 
+	.nature = NATURE_ADAMANT,
+	.evs = {6, 252, 0, 0, 0, 252},  
+    .moves = {MOVE_SWORDS_DANCE, MOVE_SUPERPOWER, MOVE_EARTHQUAKE, MOVE_GIGA_DRAIN}
+	},
+    {
+    .iv = 31,  
+    .lvl = 72,
+    .species = SPECIES_SLAKING,
+	.heldItem = ITEM_CHOICE_BAND, 
+	.nature = NATURE_ADAMANT,
+	.shiny = TRUE,
+	.evs = {6, 252, 0, 0, 0, 252},  
+    .moves = {MOVE_DOUBLE_EDGE, MOVE_EARTHQUAKE, MOVE_SHADOW_BALL, MOVE_DYNAMIC_PUNCH}
+	},
+    {
+    .iv = 31,  
+    .lvl = 73,
+    .species = SPECIES_PRIMEAPE,
+	.heldItem = ITEM_CHOICE_SCARF, 
+	.nature = NATURE_JOLLY,
+	.evs = {6, 252, 0, 0, 0, 252},  
+    .moves = {MOVE_CROSS_CHOP, MOVE_GUNK_SHOT, MOVE_EARTHQUAKE, MOVE_AERIAL_ACE}
+	},
+    {
+    .iv = 31,  
+    .lvl = 72,
+    .species = SPECIES_INFERNAPE,
+	.heldItem = ITEM_BLACK_BELT, 
+	.nature = NATURE_NAIVE,
+	.evs = {0, 252, 0, 6, 0, 252},  
+    .moves = {MOVE_FIRE_BLAST, MOVE_BRICK_BREAK, MOVE_GUNK_SHOT, MOVE_ROCK_SLIDE}
+	},
+    {
+    .iv = 31,  
+    .lvl = 72,
+    .species = SPECIES_AMBIPOM,
+	.heldItem = ITEM_SILK_SCARF, 
+	.nature = NATURE_JOLLY,
+	.ability = 0,
+	.friendship = 255,
+	.evs = {6, 252, 0, 0, 0, 252},  
+    .moves = {MOVE_FAKE_OUT, MOVE_RETURN, MOVE_IRON_TAIL, MOVE_LOW_KICK}
+	},
+    {
+    .iv = 31,  
+    .lvl = 73,
+    .species = SPECIES_G_BUTTERFREE,
+	.heldItem = ITEM_FOCUS_SASH, 
+	.nature = NATURE_TIMID,
+	.ability = 0,
+	.evs = {6, 0, 0, 252, 0, 252},  
+    .moves = {MOVE_QUIVER_DANCE, MOVE_SLEEP_POWDER, MOVE_PSYCHIC, MOVE_GIGA_DRAIN}
+	}
+};

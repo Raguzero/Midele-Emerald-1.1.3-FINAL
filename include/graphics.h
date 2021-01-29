@@ -4053,6 +4053,7 @@ extern const u32 gTrainerFrontPic_Lance[];
 extern const u32 gTrainerFrontPic_Blue[];
 extern const u32 gTrainerFrontPic_Doctor[];
 extern const u32 gTrainerFrontPic_Goldie[];
+extern const u32 gTrainerFrontPic_Kefky[];
 
 extern const u32 gTrainerPalette_Hiker[];
 extern const u32 gTrainerPalette_AquaGruntM[];
@@ -4163,6 +4164,7 @@ extern const u32 gTrainerPalette_Lance[];
 extern const u32 gTrainerPalette_Blue[];
 extern const u32 gTrainerPalette_Doctor[];
 extern const u32 gTrainerPalette_Goldie[];
+extern const u32 gTrainerPalette_Kefky[];
 
 extern const u8 gTrainerBackPic_Brendan[];
 extern const u8 gTrainerBackPic_May[];

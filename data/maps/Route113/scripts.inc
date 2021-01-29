@@ -136,6 +136,26 @@ Route113_EventScript_Wyatt:: @ 81F2344
 	trainerbattle_single TRAINER_WYATT, Route113_Text_WyattIntro, Route113_Text_WyattDefeat
 	msgbox Route113_Text_WyattPostBattle, MSGBOX_AUTOCLOSE
 	end
+	
+Route113_EventScript_Javisito::
+	trainerbattle_single TRAINER_JAVISITO, Javisito_AntesBatalla, Javisito_MensajeDerrota
+	msgbox Javisito_DespuesDeBatalla, MSGBOX_AUTOCLOSE
+	end
+	
+Javisito_AntesBatalla: 
+	.string "Estoy buscando a MELKOR,\n"
+	.string "¿lo has visto? :ph43r:$"
+
+Javisito_MensajeDerrota: 
+	.string "Otro ERROR 500.$"
+ 
+Javisito_DespuesDeBatalla:
+	.string "Todo el STAFF estamos buscando\n"
+	.string "a MELKOR para que deje de hacer\l"
+	.string "el tonto con el POKÉMON GO y se\l"
+	.string "ponga a administrar PxP.\p"
+	
+	.string ":ph43r:$"
 
 Route113_Text_AshCanBeFashionedIntoGlass: @ 81F235B
 	.string "Wahahaha! Today's technology is a\n"

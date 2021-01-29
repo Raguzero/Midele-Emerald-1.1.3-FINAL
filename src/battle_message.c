@@ -543,8 +543,12 @@ static const u8 sText_TwoInGameTrainersDefeated[];
 static const u8 sText_Trainer2LoseText[];
 
 // Frases en mitad de combate
-static const u8 sText_RedHPOldaleVader[] = _("Your blade... it didn't cut deep enough.$");
-static const u8 sText_RedHPJosito[] = ("¡Cuidado con la explosión!$");
+static const u8 sText_RedHPOldaleVader[] = _("Your blade... it didn't cut deep enough.\p");
+static const u8 sText_RedHPJosito[] = _("¡Cuidado con la explosión!\p");
+static const u8 sText_KefkyPierdePrimerPoke[] = _("Tienes suerte de que me haya\n dejado a Simisage en casa...\p");
+static const u8 sText_KefkyEnviaUltimoPoke[] = _("¿Te has preguntado de dónde\n viene mi aroma?\p");
+static const u8 sText_RedHPKefky[] = _("Si quieres, después de esto\n podemos ir a mi casa.\p");
+
 
 const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -3158,6 +3162,7 @@ static const struct TrainerSlide sTrainerSlides[] =
 {
     {TRAINER_AVADER_OLDALE, NULL, sText_RedHPOldaleVader, NULL},
     {TRAINER_JOSITO, NULL, sText_RedHPJosito, NULL},
+    {TRAINER_KEFKY, sText_KefkyPierdePrimerPoke, sText_RedHPKefky, sText_KefkyEnviaUltimoPoke},
 };
 
 static u32 GetEnemyMonCount(bool32 onlyAlive)

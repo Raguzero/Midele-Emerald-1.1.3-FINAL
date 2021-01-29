@@ -1014,7 +1014,6 @@ Route104_EventScript_Darian:: @ 81ED5D5
 	msgbox Route104_Text_DarianPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-
 Route104_EventScript_Josito::
 	trainerbattle_single TRAINER_JOSITO, Josito_AntesBatalla, Josito_MensajeDerrota
 	msgbox Josito_DespuesDeBatalla, MSGBOX_AUTOCLOSE
@@ -1031,6 +1030,7 @@ Josito_MensajeDerrota:
 Josito_DespuesDeBatalla:
 	.string "En realidad Psyduck no explota,\n"
 	.string "de hecho su habilidad impide explotar.$"
+
 Route104_Text_BrineyLivesInSeasideCottage: @ 81ED5EC
 	.string "That seaside cottage is where\n"
 	.string "MR. BRINEY lives.\p"
