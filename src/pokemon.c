@@ -2594,7 +2594,7 @@ static const u8 sMonFrontAnimIdsTable[] =
     [SPECIES_INFERNAPE - 1] = 0x25,
     [SPECIES_REGIELEKI - 1] = 0x01,
     [SPECIES_REGIDRAGO - 1] = 0x44,
-    [SPECIES_WINTASS - 1] = 0x44,
+    [SPECIES_WINTASS - 1] = 0x0f,
 };
 
 static const u8 sMonAnimationDelayTable[NUM_SPECIES - 1] =
@@ -8051,8 +8051,7 @@ bool8 HasTwoFramesAnimation(u16 species)
 			&& species != SPECIES_QUILLADIN
 			&& species != SPECIES_CHESNAUGHT
 			&& species != SPECIES_REGIELEKI
-			&& species != SPECIES_REGIDRAGO
-			&& species != SPECIES_WINTASS 
+			&& species != SPECIES_REGIDRAGO 
             && species != SPECIES_BOSS);
 }
 

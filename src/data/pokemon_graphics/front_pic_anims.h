@@ -6045,10 +6045,9 @@ static const union AnimCmd sAnim_REGIDRAGO_1[] =
 
 static const union AnimCmd sAnim_WINTASS_1[] =
 {
+    ANIMCMD_FRAME(1, 10),
     ANIMCMD_FRAME(0, 20),
-    ANIMCMD_FRAME(1, 15),
-    ANIMCMD_FRAME(0, 10),
-    ANIMCMD_FRAME(1, 18),
+    ANIMCMD_FRAME(1, 10),
     ANIMCMD_FRAME(0, 10),
     ANIMCMD_END,
 };
