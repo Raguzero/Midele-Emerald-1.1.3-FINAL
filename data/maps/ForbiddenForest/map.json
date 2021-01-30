@@ -61,9 +61,9 @@
             "movement_range_x": 0,
             "movement_range_y": 0,
             "movement_type": "MOVEMENT_TYPE_FACE_UP",
-            "script": "NULL",
-            "trainer_sight_or_berry_tree_id": "3",
-            "trainer_type": "0",
+            "script": "ForbiddenForest_EventScript_ElPrincipe",
+            "trainer_sight_or_berry_tree_id": "4",
+            "trainer_type": "1",
             "x": 25,
             "y": 139
         },

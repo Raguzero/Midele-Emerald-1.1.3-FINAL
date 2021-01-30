@@ -912,10 +912,11 @@
 #define TRAINER_VLADILAND                     908
 #define TRAINER_JAVISITO                    909
 #define TRAINER_KEFKY                    910
+#define TRAINER_ELPRINCIPE                    911
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or [changing how trainer flags are handled] --> HECHO ESTO
-#define TRAINERS_COUNT                      911 // NUEVO: aumentar para añadir nuevos entrenadores
-#define MAX_TRAINERS_COUNT                  912
+#define TRAINERS_COUNT                      912 // NUEVO: aumentar para añadir nuevos entrenadores
+#define MAX_TRAINERS_COUNT                  913
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

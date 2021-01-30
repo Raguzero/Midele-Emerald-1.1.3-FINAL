@@ -121,10 +121,14 @@ Fiery_Path_Text_ChinpoIntro:
 	.string "FRASES.$"
 
 Fiery_Path_Text_ChinpoDefeat: 
-	.string "FRASE$"
+	.string "¿BULBASAUR? ¿Qué te ha pasado?$"
 
 Fiery_Path_Text_ChinpoPostBattle: 
-	.string "FRASES.$"
+	.string "Parece que me he pasado dandole\n"
+    .string "las anfetavitaminas a mi BULBASAUR...\p"
+    
+    .string "¡Se le salen hasta los ojos de\n"
+    .string "sus órbitas!$"
 	
 Fiery_Path_EventScript_Kaderete::  
 	trainerbattle_single TRAINER_FIERYPATH_KADERETE, Fiery_Path_Text_KadereteIntro, Fiery_Path_Text_KadereteDefeat
@@ -132,14 +136,21 @@ Fiery_Path_EventScript_Kaderete::
 	end
 
 Fiery_Path_Text_KadereteIntro: 
-	.string "FRASES.\n"
-	.string "FRASES.$"
+	.string "Te estás metiendo en la boca del\n"
+	.string "lobo, pero ya es demasiado tarde\l"
+	.string "para que te eches atrás.\p"
+	
+	.string "¡Somos la Mafia PxP, y no vamos a\n"
+	.string "permitir que nadie arruine nuestros\l"
+	.string "planes!$"
 
 Fiery_Path_Text_KadereteDefeat: 
-	.string "FRASE$"
+	.string "No funcionó bien la estrategia.$"
 
 Fiery_Path_Text_KaderetePostBattle: 
-	.string "FRASES.$"
+	.string "Te lo vuelvo a decir, aquí no se te ha\n"
+	.string "perdido nada, así que mejor vuelve a\l"
+	.string "casa con tu mamá.$"
 	
 Fiery_Path_EventScript_Krub::  
 	trainerbattle_single TRAINER_FIERYPATH_KRUB, Fiery_Path_Text_KrubIntro, Fiery_Path_Text_KrubDefeat
@@ -161,15 +172,34 @@ Fiery_Path_EventScript_DobleC::
 	msgbox Fiery_Path_Text_DobleCPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-Fiery_Path_Text_DobleCIntro: 
-	.string "FRASES.\n"
-	.string "FRASES.$"
+Fiery_Path_Text_DobleCIntro:
+	.string "¿Otro NOOB pasa por aquí?\n"
+	.string "¡JAJAJAJAJAJAJA!\p"
+	
+	.string "Mi nombre es DOBLE C.\p"
+
+	.string "¡Y me encanta ayudar a promover\n"
+	.string "el CAOS en esta región.\p"
+	
+	.string "¡Me hace sentir vivo!\p"
+	
+	.string "Y sobre todo, lo voy a gozar\n"
+	.string "por ver la cara que van a poner\l" 
+	.string "los NOOBS como tu cuando descubran\l"
+	.string "lo que hemos planeado.\p"
+	
+	.string "¡JAJAJAJAJAJAJA!\p"
+	
+	.string "¡Siente el poder de la Mafia PxP!$"
 
 Fiery_Path_Text_DobleCDefeat: 
-	.string "FRASE$"
+	.string "Debería haber traido al equipo\n"
+	.string "bueno, en vez de al que me enciende\l"
+	.string "los porros.$"
 
 Fiery_Path_Text_DobleCPostBattle: 
-	.string "FRASES.$"
+	.string "¡Cuando descubras la sorpresa te vas\n"
+	.string "a caer de culo, pedazo de NOOB!$"
 
 Fiery_Path_Text_Totemaparece:
 	.string "CENTISKORCH, the Totem Pokémon of\n" 

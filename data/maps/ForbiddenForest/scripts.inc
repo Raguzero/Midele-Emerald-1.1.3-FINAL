@@ -112,16 +112,11 @@ ForbiddenForest_EventScript_Kefky::
 	trainerbattle_single TRAINER_KEFKY, Kefky_AntesBatalla, Kefky_MensajeDerrota
 	msgbox Kefky_DespuesDeBatalla, MSGBOX_AUTOCLOSE
 	end
-	
-Kefky_AntesBatalla: 
-	.string "Yo solo uso un Pokémon si es mono.$"
 
-Kefky_MensajeDerrota: 
-	.string "¿A que eran monos?$"
- 
-Kefky_DespuesDeBatalla:
-	.string "Me he vestido de mujer por perder\n"
-	.string "una apuesta, pero soy un tío.$"
+ForbiddenForest_EventScript_ElPrincipe::
+	trainerbattle_double TRAINER_ELPRINCIPE, ElPrincipe_AntesBatalla, ElPrincipe_MensajeDerrota, ElPrincipe_Text_MasdeunPokemon
+	msgbox ElPrincipe_DespuesDeBatalla, MSGBOX_AUTOCLOSE
+	end
 	
 ForbiddenForest_Text_Celebi:
 	.string "El cartel se ha deteriorado\n"
@@ -144,3 +139,95 @@ ForbiddenForest_Text_EzecuterDefeat:
 
 ForbiddenForest_Text_EzecuterPostBattle: 
 	.string "Eres totalmente bochornoso.$"
+	
+Kefky_AntesBatalla: 
+	.string "Yo solo uso un Pokémon si es mono.$"
+
+Kefky_MensajeDerrota: 
+	.string "¿A que eran monos?$"
+ 
+Kefky_DespuesDeBatalla:
+	.string "Me he vestido de mujer por perder\n"
+	.string "una apuesta, pero soy un tío.$"
+
+ElPrincipe_AntesBatalla: 
+	.string "¡Por fin he ideado la estrategia\n"
+	.string "definitiva que me llevará a lo\l"
+	.string "más alto del firmamento!\p"
+	
+	.string "Ten en cuenta que esto será una\n"
+	.string "BATALLA DOBLE.\p"
+
+	.string "Te mostraré la estrategia de mi\n"
+	.string "fenomenal equipo.\p"
+	
+	.string "La genuina estrategia de la...\n"
+	.string "FLOR DEL FIRMAMENTO.$"
+
+ElPrincipe_MensajeDerrota: 
+	.string "¡IMPOSIBLE!\p"
+	
+	.string "La estrategia de la FLOR DEL\n"
+	.string "FIRMAMENTO... con los 4 climas\l"
+	.string "ha sido desarmada...\p"
+
+	.string "No puedes saber que tipo de\n"
+	.string "WEATHER BALL usa mi ROSERADE\l"
+	.string "contra ti...\p"
+
+	.string "Debería haberte puesto contra\n"
+	.string "las cuerdas solo por eso...\p"
+
+	.string "¡No lo entiendo!$"
+ 
+ElPrincipe_DespuesDeBatalla:
+	.string "Mirad, os quiero explicar cómo\n" 
+	.string "funciona este equipo ya que no lo\l" 
+	.string "voy a usar...\p"
+	
+	.string "Da igual a quien saque primero\n" 
+	.string "la clave es sacar primero siempre\l"
+	.string "a ROSERADE.\p"
+	
+	.string "Si saco a TYRANITAR con ROSERADE,\n" 
+	.string "hago WEATHER BALL de tipo-roca sin\l" 
+	.string "esperar a que TYRANITAR haga\l" 
+	.string "SANDSTORM.\p" 
+	
+	.string "Si saco a JOLTEON, que es más rápido\n" 
+	.string "que ROSERADE, hace RAIN DANCE y\l" 
+	.string "ROSERADE WEATHER BALL del tipo-agua.\p"
+
+	.string "Si uso SUNNY DAY, entonces mi\n" 
+	.string "ROSERADE usará WEATHER BALL del\l"
+	.string "tipo-fuego.\p" 	
+	
+	.string "Y por último lo puedo sacar también\n"
+	.string "con ABOMASNOW, que no hace falta que\l" 
+	.string "haga nada para que se ponga a granizar\l" 
+	.string "y ROSERADE hace WEATHER BALL del\l"
+	.string "tipo-hielo.\p"
+	
+	.string "...\p"
+	
+	.string "¿Qué 4 climas en un equipo de BATALLA\n"
+	.string "DOBLES es una estupidez?\p"
+	
+	.string "...\p"
+	
+	.string "¿Y qué no puedo depender solo de mi\n"
+	.string "ROSERADE para que toda la estrategia\l" 
+	.string "funcione de forma óptima?\p"
+	
+	.string "¿Estás intentando decir que mi equipo es\n"
+	.string "es malisimo y que lo rehaga de 0?\p"
+	
+	.string "¡No te mofes de mí, lo que pasa es que\n"
+	.string "no tienes imaginación!$"
+	
+ElPrincipe_Text_MasdeunPokemon: // BATALLA DOBLE
+	.string "Así que solo llevas un Pokémon?\n"
+	.string "No puedo luchar contigo, entonces.\p"
+
+	.string "Mi estrategia de la FLOR DEL FIRMAMENTO.\n"
+	.string "solo brilla en BATALLA DOBLE$"

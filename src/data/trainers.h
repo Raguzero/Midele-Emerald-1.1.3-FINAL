@@ -12726,4 +12726,17 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_Kefky),
         .party = {.ItemCustomMidele = sParty_Kefky},
     },
+    [TRAINER_ELPRINCIPE] =
+    {
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
+        .trainerClass = TRAINER_CLASS_PKMN_RANGER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .trainerPic = TRAINER_PIC_POKEMON_RANGER_M,
+        .trainerName = _("EL PRINCIPE"),
+        .items = {},
+        .doubleBattle = TRUE,
+        .aiFlags = AI_SCRIPT_DOUBLE_BATTLE,
+        .partySize = ARRAY_COUNT(sParty_ElPrincipe),
+        .party = {.ItemCustomMidele = sParty_ElPrincipe},
+    },
 };
