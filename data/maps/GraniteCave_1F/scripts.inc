@@ -16,6 +16,43 @@ GraniteCave_1F_EventScript_ReceivedFlash:: @ 822DA8A
 	msgbox GraniteCave_1F_Text_ExplainFlash, MSGBOX_DEFAULT
 	release
 	end
+	
+GraniteCave_EventScript_JZombie::  
+	trainerbattle_single TRAINER_GRANITECAVE_JZOMBIE, GraniteCave_Text_JZombieIntro, GraniteCave_Text_JZombieDefeat
+	msgbox GraniteCave_Text_JZombiePostBattle, MSGBOX_AUTOCLOSE
+	end
+
+GraniteCave_Text_JZombieIntro: 
+	.string "¡KALOS SUR es real y existe!\p"
+
+	.string "Está claro que GF nos lo está\n"
+	.string "ocultando en el mapa, usando nubes.\p"
+
+	.string "¡Nos toma por idiotas!$"
+
+GraniteCave_Text_JZombieDefeat: 
+	.string "Buen polvo...$"
+
+GraniteCave_Text_JZombiePostBattle: 
+	.string "Mira chaval o chavala, me da igual\n"
+	.string "lo que tengas entre tus piernas.\p"
+	
+	.string "¡KALOS SUR existe, y algún día te lo\n"
+	.string "demostraré! ¡NADIE SE RIE DE MÍ!\p"
+	
+	.string "No te voy a permitir que desbarates\n"
+	.string "mis teorias ni que las insultes.\p"
+
+	.string "Ya descubriré donde vives, ya...\p"
+	
+	.string "En cuanto sepa donde vives...\n"
+	.string "iré a por ti.\p"
+	
+	.string "Te vas a llevar tan tremenda paliza\n"
+	.string "que haré que tus familiares te visiten\l"
+	.string "en tu entierro.\p"
+	
+	.string "¡TE VAS A CAGAR!$"
 
 GraniteCave_1F_Text_GetsDarkAheadHereYouGo: @ 822DA94
 	.string "Hey, you.\n"

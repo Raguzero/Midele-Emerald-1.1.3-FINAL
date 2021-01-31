@@ -548,6 +548,9 @@ static const u8 sText_RedHPJosito[] = _("¡Cuidado con la explosión!\p");
 static const u8 sText_KefkyPierdePrimerPoke[] = _("Tienes suerte de que me haya\n dejado a Simisage en casa...\p");
 static const u8 sText_KefkyEnviaUltimoPoke[] = _("¿Te has preguntado de dónde\n viene mi aroma?\p");
 static const u8 sText_RedHPKefky[] = _("Si quieres, después de esto\n podemos ir a mi casa.\p");
+static const u8 sText_JZombiePierdePrimerPoke[] = _("Aaahhh... aaaahhh... uff...\p");
+static const u8 sText_JZombieEnviaUltimoPoke[] = _("Batallando, haciendo cosas con mi\n pareja, posteando en un foro de\l POKÉMON cosas de +18...\p");
+static const u8 sText_RedHPJZombie[] = _("Esto pasa... aaaah... por\n estar luchando al mismo tiempo\l que me hacen una\l ma... aaa.. maaa... aah...\p");
 
 
 const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
@@ -3163,6 +3166,8 @@ static const struct TrainerSlide sTrainerSlides[] =
     {TRAINER_AVADER_OLDALE, NULL, sText_RedHPOldaleVader, NULL},
     {TRAINER_JOSITO, NULL, sText_RedHPJosito, NULL},
     {TRAINER_KEFKY, sText_KefkyPierdePrimerPoke, sText_RedHPKefky, sText_KefkyEnviaUltimoPoke},
+    {TRAINER_GRANITECAVE_JZOMBIE, sText_JZombiePierdePrimerPoke, sText_RedHPJZombie, sText_JZombieEnviaUltimoPoke},
+    {TRAINER_JZOMBIE2, sText_JZombiePierdePrimerPoke, sText_RedHPJZombie, sText_JZombieEnviaUltimoPoke},
 };
 
 static u32 GetEnemyMonCount(bool32 onlyAlive)

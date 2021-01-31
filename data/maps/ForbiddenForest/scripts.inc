@@ -118,6 +118,11 @@ ForbiddenForest_EventScript_ElPrincipe::
 	msgbox ElPrincipe_DespuesDeBatalla, MSGBOX_AUTOCLOSE
 	end
 	
+ForbiddenForest_EventScript_CharizardFan::
+	trainerbattle_single TRAINER_CHARIZARD_FAN, CharizardFan_AntesBatalla, CharizardFan_MensajeDerrota
+	msgbox CharizardFan_DespuesDeBatalla, MSGBOX_AUTOCLOSE
+	end
+	
 ForbiddenForest_Text_Celebi:
 	.string "El cartel se ha deteriorado\n"
 	.string "por el paso del tiempo y solo\l"
@@ -231,3 +236,30 @@ ElPrincipe_Text_MasdeunPokemon: // BATALLA DOBLE
 
 	.string "Mi estrategia de la FLOR DEL FIRMAMENTO.\n"
 	.string "solo brilla en BATALLA DOBLE$"
+	
+CharizardFan_AntesBatalla: 
+	.string "MEGA CHARIZARD X, MEGA CHARIZARD Y,\n"
+	.string "y GIGA CHARIZARD son los mejores.\p"
+	
+	.string "¡VIVA GAMEFREAK!\p"
+
+	.string "¡VIVA CHARIZARD!$"
+
+CharizardFan_MensajeDerrota: 
+	.string "¿CÓMOOOOOOOOOOOOOOOOO?\p"
+	
+	.string "Le pediré a GF otra forma de CHARIZARD.$"
+ 
+CharizardFan_DespuesDeBatalla:
+	.string "¿Qué por qué solo quiero cosas nuevas\n"
+	.string "para CHARIZARD?\p"
+
+	.string "Porque CHARIZARD es el mejor POKÉMON\n" 
+	.string "de la saga.\p"
+	
+	.string "Le pediré a GF una MEGA CHARIZARD Z.\p"
+	
+	.string "¿O mejor otra Gigamax?\p"
+	
+	.string "¿O tal vez una Forma Regional de tipo\n"
+	.string "Dragon/Fuego?$"

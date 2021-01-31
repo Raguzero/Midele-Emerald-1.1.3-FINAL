@@ -442,6 +442,10 @@ static const union AnimCmd *const sAnims_Merum[] ={
     sAnim_GeneralFrame0,
 };
 
+static const union AnimCmd *const sAnims_Entropia[] ={
+    sAnim_GeneralFrame0,
+};
+
 const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
 {
     [TRAINER_PIC_HIKER] = sAnims_Hiker,
@@ -555,4 +559,5 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_GOLDIE] = sAnims_Goldie,
     [TRAINER_PIC_KEFKY] = sAnims_Kefky,
     [TRAINER_PIC_MERUM] = sAnims_Merum,
+    [TRAINER_PIC_ENTROPIA] = sAnims_Entropia,
 };
