@@ -39,19 +39,6 @@
             "trainer_type": "0",
             "x": 12,
             "y": 21
-        },
-        {
-            "elevation": 3,
-            "flag": "FLAG_SYS_GAME_CLEAR",
-            "graphics_id": "EVENT_OBJ_GFX_HIKER",
-            "movement_range_x": 0,
-            "movement_range_y": 0,
-            "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-            "script": "ShoalCave_Hiker",
-            "trainer_sight_or_berry_tree_id": "0",
-            "trainer_type": "0",
-            "x": 10,
-            "y": 2
         }
     ],
     "region_map_section": "MAPSEC_SHOAL_CAVE",
