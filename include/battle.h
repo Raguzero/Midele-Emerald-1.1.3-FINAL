@@ -128,6 +128,7 @@ struct ProtectStruct
     u32 flinchImmobility:1;
     u32 notFirstStrike:1;
     u32 palaceUnableToUseMove:1;
+	u32 quickclaw:1;    // also quick claw
     u32 physicalDmg;
     u32 specialDmg;
     u8 physicalBattlerId;
@@ -448,6 +449,7 @@ struct BattleStruct
     bool8 trainerSlideLowHpMsgDone;
     u8 friskedBattler; // Frisk needs to identify 2 battlers in double battles.
     bool8 friskedAbility; // If identifies two mons, show the ability pop-up only once.
+	u8 quickClawBattlerId;
 };
 
 #define GET_MOVE_TYPE(move, typeArg)                        \

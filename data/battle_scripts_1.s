@@ -4878,6 +4878,15 @@ BattleScript_SandSpitActivates::
 	call BattleScript_WeatherFormChanges
 	return
 	
+BattleScript_QuickClawActivation::
+	printstring STRINGID_EMPTYSTRING3
+	waitmessage 0x1
+	playanimation BS_ATTACKER, B_ANIM_FOCUS_PUNCH_SETUP, NULL
+	waitanimation
+	printstring STRINGID_CANACTFASTERTHANKSTO
+	waitmessage 0x40
+	end2
+
 BattleScript_BufferEndTurn::
 	printstring STRINGID_BUFFERENDS
 	waitmessage 0x40

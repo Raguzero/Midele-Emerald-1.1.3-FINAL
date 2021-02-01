@@ -127,6 +127,7 @@ static void SetActionsAndBattlersTurnOrder(void);
 static void sub_803CDF8(void);
 static bool8 AllAtActionConfirmed(void);
 static void CheckFocusPunch_ClearVarsBeforeTurnStarts(void);
+static void CheckQuickClawActivation(void);
 static void FreeResetData_ReturnToOvOrDoEvolutions(void);
 static void ReturnFromBattleToOverworld(void);
 static void TryEvolvePokemon(void);
@@ -4871,7 +4872,10 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
         speedBattler1 /= 4;
 
     if (holdEffect == HOLD_EFFECT_QUICK_CLAW && gRandomTurnNumber < (0xFFFF * holdEffectParam) / 100)
-        speedBattler1 = UINT_MAX;
+	{
+		speedBattler1 = UINT_MAX;
+		gProtectStructs[battler1].quickclaw = TRUE;
+	}
 
     // check second battlerId's speed
 
@@ -4931,7 +4935,10 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
         speedBattler2 /= 4;
 
     if (holdEffect == HOLD_EFFECT_QUICK_CLAW && gRandomTurnNumber < (0xFFFF * holdEffectParam) / 100)
-        speedBattler2 = UINT_MAX;
+	{
+		speedBattler2 = UINT_MAX;
+		gProtectStructs[battler2].quickclaw = TRUE;
+	}
 
     if (ignoreChosenMoves)
     {
@@ -4967,7 +4974,7 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
         // both priorities are the same
         if (gBattleMoves[moveBattler1].priority == gBattleMoves[moveBattler2].priority)
         {
-            if (speedBattler1 == speedBattler2 && Random() & 1)
+			 if (speedBattler1 == speedBattler2 && Random() & 1)
                 strikesFirst = 2; // same speeds, same priorities
             else if (speedBattler1 < speedBattler2)
                 strikesFirst = 1; // battler2 has more speed
@@ -5161,6 +5168,39 @@ static void CheckFocusPunch_ClearVarsBeforeTurnStarts(void)
             }
         }
     }
+	
+	gBattleMainFunc = CheckQuickClawActivation;
+    gBattleStruct->quickClawBattlerId = 0;
+}
+
+static void CheckQuickClawActivation(void)
+{
+    u32 i;
+
+    if (!(gHitMarker & HITMARKER_RUN))
+    {
+        while (gBattleStruct->quickClawBattlerId < gBattlersCount)
+        {
+            gActiveBattler = gBattlerAttacker = gBattleStruct->quickClawBattlerId;
+            gBattleStruct->quickClawBattlerId++;
+			 if (gChosenActionByBattler[gActiveBattler] == B_ACTION_USE_MOVE
+              && gChosenMoveByBattler[gActiveBattler] != MOVE_FOCUS_PUNCH   // quick claw message doesn't need to activate here
+			  && gProtectStructs[gActiveBattler].quickclaw
+			  && !(gBattleMons[gActiveBattler].status1 & STATUS1_SLEEP)
+              && !(gDisableStructs[gBattlerAttacker].truantCounter)
+              && !(gProtectStructs[gActiveBattler].noValidMoves))
+			  {
+			gProtectStructs[gActiveBattler].quickclaw = FALSE;
+            gLastUsedItem = gBattleMons[gActiveBattler].item;
+            {
+			RecordItemEffectBattle(gActiveBattler, GetBattlerHoldEffect(gActiveBattler, FALSE));
+            BattleScriptExecute(BattleScript_QuickClawActivation);
+			}
+                }
+                return;
+            }
+	}
+    // setup stuff before turns/actions
 
     TryClearRageStatuses();
     gCurrentTurnActionNumber = 0;

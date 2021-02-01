@@ -247,6 +247,7 @@ extern const u8 BattleScript_BufferEndTurn[];
 extern const u8 BattleScript_SandSpitActivates[];
 extern const u8 BattleScript_MentalHerbCureRet[];
 extern const u8 BattleScript_MentalHerbCureEnd2[];
+extern const u8 BattleScript_QuickClawActivation[];
 // NUEVO HABILIDADES
 
 #endif // GUARD_BATTLE_SCRIPTS_H
