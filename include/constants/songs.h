@@ -552,6 +552,7 @@
 #define UNDERTALEMEGALOVANIA 624
 #define THATPERSONSNAMEIS 625
 #define DELTARUNECHAOSKING 626
+#define THEREINCARNATION 627
 
 #define MUS_ROUTE_118 0x7FFF  // map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 

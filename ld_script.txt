@@ -1244,6 +1244,7 @@ SECTIONS {
 		sound/songs/midi/undertalemegalovania.o(.rodata);
 		sound/songs/thatpersonsnameis.o(.rodata);
 		sound/songs/midi/deltarunechaosking.o(.rodata);
+		sound/songs/thereincarnation.o(.rodata);
     } =0
 
     lib_rodata :
