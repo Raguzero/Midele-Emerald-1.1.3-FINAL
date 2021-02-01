@@ -4881,7 +4881,7 @@ BattleScript_SandSpitActivates::
 BattleScript_QuickClawActivation::
 	printstring STRINGID_EMPTYSTRING3
 	waitmessage 0x1
-	playanimation BS_ATTACKER, B_ANIM_FOCUS_PUNCH_SETUP, NULL
+	playanimation BS_ATTACKER, B_ANIM_ITEM_EFFECT, NULL
 	waitanimation
 	printstring STRINGID_CANACTFASTERTHANKSTO
 	waitmessage 0x40
