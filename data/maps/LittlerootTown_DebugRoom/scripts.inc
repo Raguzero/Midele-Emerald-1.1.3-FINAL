@@ -228,6 +228,7 @@ LittlerootTown_DebugRoom_Script_CombateGanado::
 
     .align 2
 DebugShop::
+    .2byte ITEM_PINK_PETAL
     .2byte ITEM_POWER_HERB
     .2byte ITEM_FOCUS_SASH
     .2byte ITEM_CHOICE_SCARF

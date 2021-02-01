@@ -1065,6 +1065,11 @@ static const u8 sPowerHerbDesc[] = _(
     "that fully charges\n"
     "a two-turn move.");
 
+static const u8 sPinkPetalDesc[] = _(
+    "A hold item that\n"
+    "raises the power of\n"
+    "FAIRY-type moves.");
+
 // Key items
 static const u8 sMachBikeDesc[] = _(
     "A folding bicycle\n"

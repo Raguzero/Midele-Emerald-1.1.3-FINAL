@@ -3048,12 +3048,14 @@ const struct Item gItems[] =
         .secondaryId = 0,
     },
 
-    [ITEM_0E6] =
+    [ITEM_PINK_PETAL] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
-        .price = 0,
-        .description = sDummyDesc,
+        .name = _("PINK PETAL"),
+        .itemId = ITEM_PINK_PETAL,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_FAIRY_POWER,
+        .holdEffectParam = 20,
+        .description = sPinkPetalDesc,
         .pocket = POCKET_ITEMS,
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
