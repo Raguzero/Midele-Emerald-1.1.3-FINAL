@@ -12,7 +12,23 @@ LittlerootTown_BrendansHouse_2F_OnTransition: @ 81F83EE
 	call_if_eq PlayersHouse_2F_EventScript_BlockStairsUntilClockIsSet
 	call SecretBase_EventScript_SetDecorationFlags
 	setvar VAR_SECRET_BASE_INITIALIZED, 0
+	call_if_set FLAG_IS_CHAMPION, LittlerootTown_BrendansHouse_2F_EventScript_TryPositionJZombie1
 	end
+
+LittlerootTown_BrendansHouse_2F_EventScript_TryPositionJZombie1:
+	checkplayergender
+	compare VAR_RESULT, MALE
+	call_if_eq LittlerootTown_BrendansHouse_2F_EventScript_TryPositionJZombie2
+	return
+
+LittlerootTown_BrendansHouse_2F_EventScript_TryPositionJZombie2:
+	checktrainerflag TRAINER_JZOMBIE2
+	call_if_ne LittlerootTown_BrendansHouse_2F_EventScript_PositionJZombie
+	return
+
+LittlerootTown_BrendansHouse_2F_EventScript_PositionJZombie:
+	setvar VAR_TEMP_0, 1
+	return
 
 LittlerootTown_BrendansHouse_2F_EventScript_CheckShouldUpdateBrendanPos:: @ 81F841A
 	goto_if_set FLAG_MET_RIVAL_LILYCOVE, LittlerootTown_BrendansHouse_2F_EventScript_TryUpdateBrendanPos
@@ -136,6 +152,46 @@ LittlerootTown_BrendansHouse_2F_EventScript_MeetBrendanEast:: @ 81F8594
 	applymovement 1, LittlerootTown_BrendansHouse_2F_Movement_BrendanWalkToPCEast
 	waitmovement 0
 	return
+
+LittlerootTown_BrendansHouse_2F_EventScript_JZombieAppears::
+	lockall
+	playse SE_KAIDAN
+	delay 10
+	addobject 17
+	applymovement 17, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement EVENT_OBJ_ID_PLAYER, LittlerootTown_PlayersHouse_2F_Movement_MovePlayerDown
+	applymovement 17, LittlerootTown_PlayersHouse_2F_Movement_PushPlayerDown
+	waitmovement 0
+	playbgm THEMEOFENCOUNTER, 0
+	msgbox LittlerootTown_PlayersHouse_2F_Text_JZombieIntro, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_JZOMBIE2, LittlerootTown_PlayersHouse_2F_Text_JZombieDefeat
+	msgbox LittlerootTown_PlayersHouse_2F_Text_JZombieAfterBattle, MSGBOX_DEFAULT
+	closemessage
+	applymovement 17, LittlerootTown_PlayersHouse_2F_Movement_LeaveRoom
+	waitmovement 0
+	removeobject 17
+	playse SE_KAIDAN
+	delay 10
+	
+	setflag FLAG_HIDE_JZOMBIE_PLAYERS_HOUSE
+	setvar VAR_TEMP_0, 0
+	end
+
+LittlerootTown_PlayersHouse_2F_Movement_MovePlayerDown::
+	face_up
+	walk_down
+	face_up
+	step_end
+
+LittlerootTown_PlayersHouse_2F_Movement_PushPlayerDown::
+	walk_down
+	face_down
+	step_end
+
+LittlerootTown_PlayersHouse_2F_Movement_LeaveRoom::
+	walk_up
+	step_end
 
 LittlerootTown_BrendansHouse_2F_Movement_BrendanEnters: @ 81F85BC
 	walk_down
@@ -314,3 +370,12 @@ PlayersHouse_2F_Text_ItsAGameCube: @ 81F884F
 	.string "It's a Nintendo GameCube.\p"
 	.string "A Game Boy Advance is connected to\n"
 	.string "serve as the Controller.$"
+
+LittlerootTown_PlayersHouse_2F_Text_JZombieIntro::
+	.string "TEXTO TE VOY A PARTIR LAS PIERNAS$"
+
+LittlerootTown_PlayersHouse_2F_Text_JZombieDefeat::
+	.string "texto perdí$"
+
+LittlerootTown_PlayersHouse_2F_Text_JZombieAfterBattle::
+	.string "texto me piro payaso$"

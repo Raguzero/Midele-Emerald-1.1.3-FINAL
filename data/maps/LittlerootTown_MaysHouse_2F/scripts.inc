@@ -12,7 +12,24 @@ LittlerootTown_MaysHouse_2F_OnTransition: @ 81F92A1
 	call_if_eq PlayersHouse_2F_EventScript_BlockStairsUntilClockIsSet
 	call SecretBase_EventScript_SetDecorationFlags
 	setvar VAR_SECRET_BASE_INITIALIZED, 0
+	call_if_set FLAG_IS_CHAMPION, LittlerootTown_MaysHouse_2F_EventScript_TryPositionJZombie1
 	end
+
+LittlerootTown_MaysHouse_2F_EventScript_TryPositionJZombie1:
+	checkplayergender
+	compare VAR_RESULT, FEMALE
+	call_if_eq LittlerootTown_MaysHouse_2F_EventScript_TryPositionJZombie2
+	return
+
+LittlerootTown_MaysHouse_2F_EventScript_TryPositionJZombie2:
+	checktrainerflag TRAINER_JZOMBIE2
+	call_if_ne LittlerootTown_MaysHouse_2F_EventScript_PositionJZombie
+	return
+
+LittlerootTown_MaysHouse_2F_EventScript_PositionJZombie:
+	setvar VAR_TEMP_0, 1
+	return
+
 
 LittlerootTown_MaysHouse_2F_EventScript_CheckShouldUpdateMayPos:: @ 81F92CD
 	goto_if_set FLAG_MET_RIVAL_LILYCOVE, LittlerootTown_MaysHouse_2F_EventScript_TryUpdateMayPos
@@ -136,6 +153,31 @@ LittlerootTown_MaysHouse_2F_EventScript_MeetMayEast:: @ 81F9440
 	applymovement 1, LittlerootTown_MaysHouse_2F_Movement_MayWalkToPCEast
 	waitmovement 0
 	return
+
+LittlerootTown_MaysHouse_2F_EventScript_JZombieAppears::
+	lockall
+	playse SE_KAIDAN
+	delay 10
+	addobject 17
+	applymovement 17, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement EVENT_OBJ_ID_PLAYER, LittlerootTown_PlayersHouse_2F_Movement_MovePlayerDown
+	applymovement 17, LittlerootTown_PlayersHouse_2F_Movement_PushPlayerDown
+	waitmovement 0
+	playbgm THEMEOFENCOUNTER, 0
+	msgbox LittlerootTown_PlayersHouse_2F_Text_JZombieIntro, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_JZOMBIE2, LittlerootTown_PlayersHouse_2F_Text_JZombieDefeat
+	msgbox LittlerootTown_PlayersHouse_2F_Text_JZombieAfterBattle, MSGBOX_DEFAULT
+	closemessage
+	applymovement 17, LittlerootTown_PlayersHouse_2F_Movement_LeaveRoom
+	waitmovement 0
+	removeobject 17
+	playse SE_KAIDAN
+	delay 10
+
+	setflag FLAG_HIDE_JZOMBIE_PLAYERS_HOUSE
+	setvar VAR_TEMP_0, 0
+	end
 
 LittlerootTown_MaysHouse_2F_Movement_MayEnters: @ 81F946F
 	walk_down
