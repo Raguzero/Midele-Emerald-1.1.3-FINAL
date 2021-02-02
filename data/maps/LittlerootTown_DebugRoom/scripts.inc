@@ -39,6 +39,7 @@ LittlerootTown_DebugRoom_Script_ActivarTodo::
     setflag FLAG_DEFEATED_FORTREE_GYM
     setflag FLAG_DEFEATED_MOSSDEEP_GYM
     setflag FLAG_DEFEATED_SOOTOPOLIS_GYM
+    setflag FLAG_IS_CHAMPION
     setflag FLAG_BADGE01_GET
     setflag FLAG_BADGE02_GET
     setflag FLAG_BADGE03_GET
