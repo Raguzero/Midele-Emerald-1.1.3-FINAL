@@ -372,10 +372,41 @@ PlayersHouse_2F_Text_ItsAGameCube: @ 81F884F
 	.string "serve as the Controller.$"
 
 LittlerootTown_PlayersHouse_2F_Text_JZombieIntro::
-	.string "TEXTO TE VOY A PARTIR LAS PIERNAS$"
+	.string "Hola, ¿me recuerdas?\p"
+	
+	.string "Soy JZOMBIE, al que venciste en\n"
+	.string "GRANITE CAVE hace tiempo y del que\l"
+	.string "te reiste de todas sus teorias de\l"
+	.string "la existencia de KALOS SUR.\p"
+	
+	.string "Te dije que cuando descubriese donde\n"
+	.string "vives, iría a por ti. ¡Y AQUÍ ESTOY!\p"
+	
+	.string "Y también te dije que te vas a llevar\n"
+	.string "tal paliza que haré que tus familiares\l"
+	.string "te visiten en tu entierro.\p"
+
+	.string "ESTA VEZ NO PODRÁS ESCAPAR DE MÍ!\p"
+
+	.string "¡COMIENZA A REZAR!$"
 
 LittlerootTown_PlayersHouse_2F_Text_JZombieDefeat::
-	.string "texto perdí$"
+	.string "Otro buen polvo...$"
 
 LittlerootTown_PlayersHouse_2F_Text_JZombieAfterBattle::
-	.string "texto me piro payaso$"
+	.string "¡¡¡GGRGRGRGRGRGRGR!!!\p"
+
+	.string "Está bien, tu ganas.\p"
+	
+	.string "A estas alturas de la película no creo\n"
+	.string "que haya KALOS SUR.\p"
+	
+	.string "¡Y la culpa es de GF!\p"
+	
+	.string "Ya sé, ¡tengo una idea mejor!\p"
+	
+	.string "¡ENCONTRARÉ LAS OFICINAS DE GF!\p"
+	
+	.string "¡SE VA A CAGAR MELASUDA Y TODA\n"
+	.string "ESA GENTE!$"
+	
