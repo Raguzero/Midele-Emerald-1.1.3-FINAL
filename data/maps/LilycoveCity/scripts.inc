@@ -189,10 +189,6 @@ LilycoveCity_EventScript_DepartmentStoreSign:: @ 81E2D6B
 	msgbox LilycoveCity_Text_DepartmentStoreSign, MSGBOX_SIGN
 	end
 
-LilycoveCity_EventScript_MoveDeletersHouseSign:: @ 81E2D74
-	msgbox LilycoveCity_Text_MoveDeletersHouseSign, MSGBOX_SIGN
-	end
-
 LilycoveCity_EventScript_WailmerTrainerGrunt:: @ 81E2D7D
 	lockall
 	goto_if_set FLAG_MET_WAILMER_TRAINER, LilycoveCity_EventScript_MetWailmerTrainer
@@ -385,6 +381,10 @@ LilycoveCity_EventScript_SchoolKidM:: @ 81E302D
 	compare VAR_RESULT, NO
 	call_if_eq LilycoveCity_EventScript_DontKnowAboutBerryBlender
 	release
+	end
+	
+LilycoveCity_EventScript_MelkorHouseSign::
+	msgbox LilycoveCity_Text_MelkorHouseSign, MSGBOX_SIGN
 	end
 
 LilycoveCity_EventScript_KnowAboutBerryBlender:: @ 81E304F
@@ -620,10 +620,6 @@ LilycoveCity_Text_DepartmentStoreSign: @ 81E46BE
 	.string "“A great place to find that something\n"
 	.string "you need!”$"
 
-LilycoveCity_Text_MoveDeletersHouseSign: @ 81E473D
-	.string "MOVE DELETER'S HOUSE\p"
-	.string "“Unwanted POKéMON moves deleted.”$"
-
 LilycoveCity_Text_DoYouKnowAboutBerryBlender: @ 81E4774
 	.string "Do you know about the machine\n"
 	.string "BERRY BLENDER?$"
@@ -664,4 +660,7 @@ LilycoveCity_Text_HoneymoonVowToSeeRarePokemon: @ 81E49F4
 	.string "So we were delighted to see a rare\n"
 	.string "POKéMON as soon as we arrived.\p"
 	.string "I mean, we are totally happy!$"
+	
+LilycoveCity_Text_MelkorHouseSign:
+	.string "CASA DE MELKOR$"
 

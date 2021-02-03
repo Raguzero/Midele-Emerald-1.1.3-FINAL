@@ -77,14 +77,6 @@
             "y": 14
         },
         {
-            "elevation": 0,
-            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-            "script": "LilycoveCity_EventScript_MoveDeletersHouseSign",
-            "type": "sign",
-            "x": 34,
-            "y": 6
-        },
-        {
             "elevation": 3,
             "flag": "FLAG_HIDDEN_ITEM_LILYCOVE_CITY_HEART_SCALE",
             "item": "ITEM_HEART_SCALE",
@@ -107,6 +99,14 @@
             "type": "hidden_item",
             "x": 64,
             "y": 31
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "LilycoveCity_EventScript_MelkorHouseSign",
+            "type": "sign",
+            "x": 47,
+            "y": 33
         }
     ],
     "connections": [
