@@ -162,7 +162,8 @@ const u16 gBattleFrontierHeldItems[] =
     ITEM_FLUFFY_TAIL,
     ITEM_SMOKE_BALL,
     ITEM_CLEANSE_TAG,
-    ITEM_SOOTHE_BELL
+    ITEM_SOOTHE_BELL,
+    ITEM_PINK_PETAL
 };
 
 #include "data/battle_frontier/battle_frontier_trainer_mons.h"
