@@ -646,8 +646,10 @@ AI_CBM_Coil:
 AI_ChoiceDamage:
 	get_considered_move_power
 	if_equal 0, Score_Minus10
+	if_can_faint AI_ChoiceDamage_End
 	get_curr_dmg_hp_percent
 	if_less_than 60, Score_Minus10
+AI_ChoiceDamage_End:
 	end
 
 Score_Minus1:
@@ -704,9 +706,9 @@ Score_Plus10:
 
 AI_CheckViability:
 	if_target_is_ally AI_Ret
-    if_holds_item AI_USER, ITEM_CHOICE_BAND, AI_ChoiceDamage
-    if_holds_item AI_USER, ITEM_CHOICE_SPECS, AI_ChoiceDamage
-    if_holds_item AI_USER, ITEM_CHOICE_SCARF, AI_ChoiceDamage
+	if_holds_item AI_USER, ITEM_CHOICE_BAND, AI_ChoiceDamage
+	if_holds_item AI_USER, ITEM_CHOICE_SPECS, AI_ChoiceDamage
+	if_holds_item AI_USER, ITEM_CHOICE_SCARF, AI_ChoiceDamage
 	if_effect EFFECT_SLEEP, AI_CV_Sleep
 	if_effect EFFECT_ABSORB, AI_CV_Absorb
 	if_effect EFFECT_EXPLOSION, AI_CV_SelfKO
@@ -915,6 +917,7 @@ AI_CV_MirrorMove2: @ 82DCB58
 AI_CV_MirrorMove_End: @ 82DCB6B
 	end
 
+.align 2
 AI_CV_MirrorMove_EncouragedMovesToMirror: @ 82DCB6C
     .2byte MOVE_SLEEP_POWDER
     .2byte MOVE_LOVELY_KISS
