@@ -19868,3 +19868,28 @@ static const struct TrainerMonCustomMidele sParty_Entropia[] = {
     .moves = {MOVE_HYPNOSIS, MOVE_LICK, MOVE_SPITE, MOVE_SMOG}
 	}
 };
+
+static const struct TrainerMonCustomMidele sParty_Trevejo[] = {
+  {
+    .iv = 31,
+    .lvl = 25,
+    .species = SPECIES_GOLEM,
+    .shiny = 1,
+    .ability = 1,
+    .heldItem = ITEM_SALAC_BERRY,
+    .nature = NATURE_NAUGHTY,
+    .evs = {0, 80, 0, 0, 0, 0},
+    .moves = {MOVE_MAGNITUDE, MOVE_FIRE_BLAST, MOVE_METRONOME, MOVE_SELF_DESTRUCT}
+  },
+  {
+    .iv = 31,
+    .lvl = 25,
+    .species = SPECIES_ALOLAN_GOLEM,
+    .shiny = 1,
+    .ability = 1,
+    .heldItem = ITEM_SALAC_BERRY,
+    .nature = NATURE_RASH,
+    .evs = {0, 0, 0, 80, 0, 0},
+    .moves = {MOVE_THUNDERBOLT, MOVE_DEFENSE_CURL, MOVE_COUNTER, MOVE_ROLLOUT}
+	},
+};

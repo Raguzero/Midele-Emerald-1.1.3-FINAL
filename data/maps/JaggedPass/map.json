@@ -200,6 +200,19 @@
             "trainer_type": "1",
             "x": 18,
             "y": 25
+        },
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_LITTLE_BOY_3",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+            "script": "JaggedPass_EventScript_Trevejo",
+            "trainer_sight_or_berry_tree_id": "5",
+            "trainer_type": "1",
+            "x": 12,
+            "y": 39
         }
     ],
     "region_map_section": "MAPSEC_JAGGED_PASS",

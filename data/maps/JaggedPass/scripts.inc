@@ -153,6 +153,11 @@ JaggedPass_EventScript_Autumn:: @ 8230871
 	msgbox JaggedPass_Text_AutumnPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+JaggedPass_EventScript_Trevejo:: @ 823085A
+	trainerbattle_single TRAINER_TREVEJO, JaggedPass_Text_TrevejoIntro, JaggedPass_Text_TrevejoDefeat
+	msgbox JaggedPass_Text_TrevejoPostBattle, MSGBOX_AUTOCLOSE
+	end
+
 JaggedPass_Text_EricIntro: @ 8230888
 	.string "MT. CHIMNEY's JAGGED PASS…\p"
 	.string "Now this is what I've always wanted\n"
@@ -270,3 +275,34 @@ JaggedPass_Text_AutumnPostBattle: @ 8230EE3
 	.string "What is that odd rock protrusion\n"
 	.string "a little up the hill from here?$"
 
+JaggedPass_Text_TrevejoIntro:
+	.string "el MEGAGOLEM existe, nintendo me lo\n"
+	.string "confirmó.\p"
+	.string "no me crees? tengo pruebas, mira.\p"
+	.string "YO: hola\n"
+	.string "NINTENDO: ola\p"
+	.string "YO: MEGAGOLEM existe?\n"
+	.string "NINTENDO: si\p"
+	.string "YO: en serio?\n"
+	.string "NINTENDO: si\p"
+	.string "YO: ok\n"
+	.string "NINTENDO: adios\p"
+	.string "dices que es falso? ok, te daré\n"
+	.string "la prueba definitiva de la existencia\l"
+	.string "de MEGAGOLEM.$"
+
+JaggedPass_Text_TrevejoDefeat:
+	.string "MEGAGOLEM ha perdido?\n"
+	.string "me han timado.$"
+
+JaggedPass_Text_TrevejoPostBattle:
+	.string "esto no es un megagolem, es solo un\n"
+	.string "GOLEM shiny.\p"
+	.string "ese tal MICOLO me ha timado, le voy\n"
+	.string "a denunciar a mi primo que trabaja en\p"
+	.string "nintendo.\p"
+	.string "YO: quiero denunciar a micolo\n"
+	.string "NINTENDO: ok\p"
+	.string "YO: en serio?\n"
+	.string "NINTENDO: si.\p"
+	.string "YO: ok.$"
