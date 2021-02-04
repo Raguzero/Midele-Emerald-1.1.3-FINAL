@@ -2880,7 +2880,7 @@ static bool32 GetMentalHerbEffect(u8 battlerId)
     // check encore
     if (gDisableStructs[gBattlerTarget].encoreTimer != 0)
     {
-        gDisableStructs[gActiveBattler].encoredMove = 0;
+        gDisableStructs[gBattlerTarget].encoredMove = 0;
         gDisableStructs[gBattlerTarget].encoreTimerStartValue = gDisableStructs[gBattlerTarget].encoreTimer = 0;
         gBattleCommunication[MULTISTRING_CHOOSER] = MULTI_CUREENCORE;   //STRINGID_PKMNENCOREENDED
         ret = TRUE;
