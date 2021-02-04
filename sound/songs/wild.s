@@ -3,7 +3,7 @@
 	.equ	Wild_grp, voicegroup115
 	.equ	Wild_pri, 0
 	.equ	Wild_rev, 0
-	.equ	Wild_mvl, 87
+	.equ	Wild_mvl, 75
 	.equ	Wild_key, 0
 	.equ	Wild_tbs, 1
 	.equ	Wild_exg, 0
