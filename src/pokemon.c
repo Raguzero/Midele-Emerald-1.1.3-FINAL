@@ -7506,6 +7506,29 @@ u16 GetBattleBGM(void)
 	species == NATIONAL_DEX_MANTYKE ||
 	species == NATIONAL_DEX_CROAGUNK ||
 	species == NATIONAL_DEX_TOXICROAK) return SEQ_BA_POKE;
+	if (species == NATIONAL_DEX_JANGMO_O ||
+	species == NATIONAL_DEX_HAKAMO_O ||
+	species == NATIONAL_DEX_KOMMO_O ||
+	species == NATIONAL_DEX_GRUBBIN ||
+	species == NATIONAL_DEX_CHARJABUG ||
+	species == NATIONAL_DEX_VIKAVOLT ||
+	species == NATIONAL_DEX_ROWLET ||
+	species == NATIONAL_DEX_DARTRIX ||
+	species == NATIONAL_DEX_DECIDUEYE ||
+	species == NATIONAL_DEX_POPPLIO ||
+	species == NATIONAL_DEX_BRIONNE ||
+	species == NATIONAL_DEX_PRIMARINA ||
+	species == NATIONAL_DEX_DHELMISE ||
+	species == NATIONAL_DEX_SALANDIT ||
+	species == NATIONAL_DEX_SALAZZLE ||
+	species == NATIONAL_DEX_SANDYGAST ||
+	species == NATIONAL_DEX_PALOSSAND ||
+	species == NATIONAL_DEX_STUFFUL ||
+	species == NATIONAL_DEX_BEWEAR ||
+	species == NATIONAL_DEX_ROCKRUFF ||
+	species == NATIONAL_DEX_LYCANROC_DAY ||
+	species == NATIONAL_DEX_LYCANROC_DUSK ||
+	species == NATIONAL_DEX_LYCANROC_NIGHT) return SMWILDBATTLE;
 	if (species == NATIONAL_DEX_SYLVEON ||
 	species == NATIONAL_DEX_TYRUNT ||
 	species == NATIONAL_DEX_TYRANTRUM ||
