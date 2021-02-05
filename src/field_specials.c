@@ -4,6 +4,7 @@
 #include "battle_tower.h"
 #include "cable_club.h"
 #include "data.h"
+#include "daycare.h"
 #include "decoration.h"
 #include "diploma.h"
 #include "event_data.h"
@@ -43,6 +44,7 @@
 #include "task.h"
 #include "text.h"
 #include "tv.h"
+#include "util.h"
 #include "wallclock.h"
 #include "window.h"
 #include "constants/battle_frontier.h"
@@ -86,6 +88,8 @@ static EWRAM_DATA u8 sBattlePointsWindowId = 0;
 static EWRAM_DATA u8 sFrontierExchangeCorner_ItemIconWindowId = 0;
 static EWRAM_DATA u8 sPCBoxToSendMon = 0;
 static EWRAM_DATA u32 sBattleTowerMultiBattleTypeFlags = 0;
+
+static u16* const sEggMovesSpecialVars[] = {&gSpecialVar_0x8005, &gSpecialVar_0x8007, &gSpecialVar_0x8008, &gSpecialVar_0x8009};
 
 struct ListMenuTemplate gScrollableMultichoice_ListMenuTemplate;
 
@@ -4460,37 +4464,41 @@ bool8 ChangeDeoxysForm(void)
 
 // Used to generate a random egg with a special move
 // gSpecialVar_0x8004: Species to give
-// gSpecialVar_0x8005: Move to give the egg
+// gSpecialVar_0x8005: Move 1 to give the egg
+// gSpecialVar_0x8007: Move 2 to give the egg
+// gSpecialVar_0x8008: Move 3 to give the egg
+// gSpecialVar_0x8009: Move 4 to give the egg
 void SetSpeciesAndEggMove (void)
 {
-    u8 numEggSpecies, randSpecies, randEggMove;
-    u16 eggMoves[][5] = {
-        {SPECIES_BULBASAUR, MOVE_CURSE, MOVE_CHARM, MOVE_PETAL_DANCE},
-        {SPECIES_CHARMANDER, MOVE_BELLY_DRUM, MOVE_ANCIENT_POWER, MOVE_DRAGON_DANCE},
-        {SPECIES_SQUIRTLE, MOVE_FORESIGHT, MOVE_HAZE, MOVE_MIRROR_COAT},
-		{SPECIES_BAGON, MOVE_DRAGON_DANCE, MOVE_HYDRO_PUMP, MOVE_THRASH},
-        {SPECIES_MIMEJR, MOVE_TRICK, MOVE_PSYCHIC, MOVE_ASSIST},
-        {SPECIES_SNEASEL, MOVE_FAKE_OUT, MOVE_ICE_PUNCH, MOVE_BITE},
-        {SPECIES_CORPHISH, MOVE_DRAGON_DANCE, MOVE_ANCIENT_POWER, MOVE_BODY_SLAM},
-        {SPECIES_MARILL, MOVE_BELLY_DRUM, MOVE_RETURN, MOVE_PERISH_SONG},
-        {SPECIES_TOGEPI, MOVE_SOFT_BOILED, MOVE_METRONOME, MOVE_BATON_PASS},
-        {SPECIES_GRIMER, MOVE_ACID_ARMOR, MOVE_SLUDGE_BOMB, MOVE_TOXIC},
-        {SPECIES_RHYHORN, MOVE_CRUNCH, MOVE_SWORDS_DANCE, MOVE_EARTHQUAKE},
-        {SPECIES_GASTLY, MOVE_PERISH_SONG, MOVE_DISABLE, MOVE_LICK},
-        {SPECIES_PICHU, MOVE_SURF, MOVE_FLY, MOVE_EXTREME_SPEED},
-        {SPECIES_DELIBIRD, MOVE_SPIKES, MOVE_ENDURE, MOVE_ICE_PUNCH},
-        {SPECIES_PONYTA, MOVE_HYPNOSIS, MOVE_MORNING_SUN, MOVE_DOUBLE_KICK},
-        {SPECIES_SNOVER, MOVE_LEECH_SEED, MOVE_ICE_PUNCH, MOVE_GIGA_DRAIN},
-        {SPECIES_FERROSEED, MOVE_SPIKES, MOVE_LEECH_SEED, MOVE_PROTECT},
-        {SPECIES_TAILLOW, MOVE_BOOMBURST, MOVE_BOOMBURST, MOVE_BOOMBURST}
-    };
+    u8 numEggMoves, randEggMove, numLearnedEggMoves;
+    u8 i, numSetEggMoves;
+    u16 randSpecies;
+    u16 eggMovesBuffer[EGG_MOVES_ARRAY_COUNT];
+    ArrayFill16(eggMovesBuffer, EGG_MOVES_ARRAY_COUNT, MOVE_NONE);
 
-    numEggSpecies = 18;
-    randSpecies = Random() % numEggSpecies;
-    randEggMove = (Random() % 3) + 1; // Random number between 1 and 3
+    randSpecies = gEggMovesSpecies[Random() % NUM_EGG_MOVES_SPECIES];
+    numEggMoves = GetEggMovesSpecies(randSpecies, eggMovesBuffer);
+    
+    Shuffle(eggMovesBuffer, numEggMoves);
+    numLearnedEggMoves = numEggMoves >= ARRAY_COUNT(sEggMovesSpecialVars) ? ARRAY_COUNT(sEggMovesSpecialVars) : numEggMoves;
+    
+    numSetEggMoves = 0;
+    i = 0;
+    while (numSetEggMoves < numLearnedEggMoves) {
+      if (eggMovesBuffer[i] != MOVE_NONE) {
+        *(sEggMovesSpecialVars[numSetEggMoves]) = eggMovesBuffer[i];
+        numSetEggMoves++;
+      }
+      i++;
+    }
+    
+    i = numLearnedEggMoves;
+    while (i < ARRAY_COUNT(sEggMovesSpecialVars)) {
+      *(sEggMovesSpecialVars[numSetEggMoves]) = MOVE_NONE;
+      i++;
+    }
 
-    gSpecialVar_0x8004 = eggMoves[randSpecies][0];
-    gSpecialVar_0x8005 = eggMoves[randSpecies][randEggMove];
+    gSpecialVar_0x8004 = randSpecies;
 }
 
 // Gives a mon in the party a move
@@ -4498,13 +4506,20 @@ void SetSpeciesAndEggMove (void)
 // gSpecialVar_0x8006: Party slot
 void SetGiftEggMove (void)
 {
-    if (MonKnowsMove(&gPlayerParty[gSpecialVar_0x8006], MOVE_NONE))
-    {
-        GiveMoveToMon(&gPlayerParty[gSpecialVar_0x8006], gSpecialVar_0x8005);
-    }
-    else
-    {
-        SetMonMoveSlot(&gPlayerParty[gSpecialVar_0x8006], gSpecialVar_0x8005, 0);
+    u8 i, currMoveSlot;
+    u16 currentSpecialVar;
+    currMoveSlot = 0;
+    for (i = 0; i < ARRAY_COUNT(sEggMovesSpecialVars); i++) {
+      currentSpecialVar = *(sEggMovesSpecialVars[i]);
+      if (MonKnowsMove(&gPlayerParty[gSpecialVar_0x8006], MOVE_NONE))
+      {
+          GiveMoveToMon(&gPlayerParty[gSpecialVar_0x8006], currentSpecialVar);
+      }
+      else
+      {
+          SetMonMoveSlot(&gPlayerParty[gSpecialVar_0x8006], currentSpecialVar, currMoveSlot);
+          currMoveSlot++;
+      }
     }
 }
 

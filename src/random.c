@@ -42,3 +42,15 @@ u16 RandRange(u16 min, u16 max)
 
     return (Random() % (max - min)) + min;
 }
+
+// Shuffles array of a given length using Fisher-Yates shuffling algorithm
+void Shuffle(u16 array[], u16 length) {
+  u16 i, j, aux;
+  for (i = length - 1; i > 0 ; i--)
+  {
+    j = Random() % (i + 1);
+    aux = array[i];
+    array[i] = array[j];
+    array[j] = aux;
+  }
+}

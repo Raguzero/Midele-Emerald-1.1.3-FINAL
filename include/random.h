@@ -16,4 +16,7 @@ u16 RandRange(u16 min, u16 max);
 void SeedRng(u16 seed);
 void SeedRng2(u16 seed);
 
+// Fisher-Yates shuffle
+void Shuffle(u16 array[], u16 length);
+
 #endif // GUARD_RANDOM_H
