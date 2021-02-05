@@ -1607,8 +1607,7 @@ const u16 gEggMoves[] = {
               MOVE_SUPERSONIC,
               MOVE_WATER_SPORT,
               MOVE_MUD_SPORT,
-			MOVE_HEAL_PULSE,
-			MOVE_MUD_SPORT),
+			MOVE_HEAL_PULSE),
 
     egg_moves(CORPHISH,
               MOVE_MUD_SPORT,
