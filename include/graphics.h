@@ -6120,6 +6120,8 @@ extern const u32 gBattleAnimSpriteGfx_StoneEdge[];
 extern const u32 gBattleAnimSpritePal_StoneEdge[];
 
 // Pokedex HGSS
+extern const u32 gPokedexEvo_Gfx[];
+extern const u8 gPokedexEvolutionScreen_Tilemap[];
 extern const u32 gPokedexMenuRest_Gfx[];
 extern const u32 gPokedexMenuList_Gfx[];
 extern const u8 gPokedexStatsScreen_Tilemap[];

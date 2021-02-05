@@ -2015,6 +2015,27 @@ const u8 gText_Stats_eggGroup_UNDISCOVERED[]= _("---");
 const u8 gText_Dex_SEEN[]   = _("SEEN");
 const u8 gText_Dex_OWN[]    = _("OWN");
 
+const u8 gText_EVO_Name[]                           = _("{STR_VAR_3}:");
+const u8 gText_EVO_FRIENDSHIP[]                     = _("  Lvl up with friendship >= 220");
+const u8 gText_EVO_FRIENDSHIP_DAY[]                 = _(" Lvl up at day with friendship >= 220");
+const u8 gText_EVO_FRIENDSHIP_NIGHT[]               = _("Lvl up at night with friendship >= 220");
+const u8 gText_EVO_LEVEL[]                          = _("  Lvl up to {STR_VAR_2}");
+const u8 gText_EVO_TRADE[]                          = _("via trading");
+const u8 gText_EVO_TRADE_ITEM[]                     = _("via trading while holding {STR_VAR_2}");
+const u8 gText_EVO_ITEM[]                           = _(" {STR_VAR_2} is used on Pokémon");
+const u8 gText_EVO_LEVEL_ATK_GT_DEF[]               = _("  Lvl up to {STR_VAR_2} with attack > defense");
+const u8 gText_EVO_LEVEL_ATK_EQ_DEF[]               = _("  Lvl up to {STR_VAR_2} with attack = defense");
+const u8 gText_EVO_LEVEL_ATK_LT_DEF[]               = _("  Lvl up to {STR_VAR_2} with attack < defense");
+const u8 gText_EVO_LEVEL_SILCOON[]                  = _("Lvl up to {STR_VAR_2} (depends personality)");
+const u8 gText_EVO_LEVEL_CASCOON[]                  = _("Lvl up to {STR_VAR_2} (depends personality)");
+const u8 gText_EVO_LEVEL_NINJASK[]                  = _("Lvl up to {STR_VAR_2}");
+const u8 gText_EVO_LEVEL_SHEDINJA[]                 = _("Lvl up to {STR_VAR_2}, party<6, 1x POKéBALL");
+const u8 gText_EVO_BEAUTY[]                         = _("Lvl up with beauty >= {STR_VAR_2}");
+const u8 gText_EVO_LEVEL_FEMALE[]                   = _("Lvl up to {STR_VAR_2}, is female");
+const u8 gText_EVO_ITEM_MALE[]                      = _("{STR_VAR_2} used on male");
+const u8 gText_EVO_ITEM_FEMALE[]                    = _("{STR_VAR_2} used on female");
+const u8 gText_EVO_NONE[]                           = _("There is no evolution for {STR_VAR_1}.");
+
 // Pokemon center move tutor/name rater menu
 const u8 gText_RememberAMove[] = _("REMEMBER A MOVE");
 const u8 gText_ForgetAMove[] = _("FORGET A MOVE");

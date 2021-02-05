@@ -1272,6 +1272,7 @@ const u16 gPokedexCaughtScreenFade_Pal[] = INCBIN_U16("graphics/pokedex/fade.gba
 const u16 gPokedexHoennBg_Pal[] = INCBIN_U16("graphics/pokedex/hoenn_bg.gbapal");
 const u16 gPokedexNationalBg_Pal[] = INCBIN_U16("graphics/pokedex/national_bg.gbapal");
 const u32 gPokedexMenuRest_Gfx[] = INCBIN_U32("graphics/pokedex/menu_rest.4bpp.lz");
+const u32 gPokedexEvo_Gfx[] = INCBIN_U32("graphics/pokedex/evo_tileset.4bpp.lz");
 const u32 gPokedexMenuList_Gfx[] = INCBIN_U32("graphics/pokedex/menu_list.4bpp.lz");
 const u32 gPokedexMenu_Gfx[] = INCBIN_U32("graphics/pokedex/menu.4bpp.lz");
 const u32 gPokedexMenu2_Gfx[] = INCBIN_U32("graphics/pokedex/interface.4bpp.lz");
@@ -1288,6 +1289,7 @@ const u32 gPokedexTilemap_ScreenSelectBar1[] = INCBIN_U32("graphics/pokedex/scre
 const u32 gPokedexTilemap_ScreenSelectBar2[] = INCBIN_U32("graphics/pokedex/screen_select_bar_submenu.bin.lz");
 const u32 gPokedexTilemap_DescriptionScreen[] = INCBIN_U32("graphics/pokedex/info_screen.bin.lz");
 const u32 gPokedexStatsScreen_Tilemap[] = INCBIN_U32("graphics/pokedex/stats_screen.bin.lz");
+const u32 gPokedexEvolutionScreen_Tilemap[] = INCBIN_U32("graphics/pokedex/evo_tileset.bin.lz");
 const u32 gPokedexTilemap_CryScreen[] = INCBIN_U32("graphics/pokedex/cry_screen.bin.lz");
 
 const u16 gPokedexSearchMenu_Pal[] = INCBIN_U16("graphics/pokedex/search_menu.gbapal");
