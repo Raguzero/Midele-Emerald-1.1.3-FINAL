@@ -276,10 +276,3 @@ void BlendPalette(u16 palOffset, u16 numEntries, u8 coeff, u16 blendColor)
                                 | ((b + (((data2->b - b) * coeff) >> 4)) << 10);
     }
 }
-
-void ArrayFill16(u16 array[], u16 length, u16 filler) {
-  u16 i;
-  for (i = 0; i < length; i++) {
-    array[i] = filler;
-  }
-}

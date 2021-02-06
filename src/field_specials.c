@@ -44,7 +44,6 @@
 #include "task.h"
 #include "text.h"
 #include "tv.h"
-#include "util.h"
 #include "wallclock.h"
 #include "window.h"
 #include "constants/battle_frontier.h"
@@ -4464,17 +4463,13 @@ bool8 ChangeDeoxysForm(void)
 
 // Used to generate a random egg with a special move
 // gSpecialVar_0x8004: Species to give
-// gSpecialVar_0x8005: Move 1 to give the egg
-// gSpecialVar_0x8007: Move 2 to give the egg
-// gSpecialVar_0x8008: Move 3 to give the egg
-// gSpecialVar_0x8009: Move 4 to give the egg
+// sEggMovesSpecialVars: Moves to give to the egg
 void SetSpeciesAndEggMove (void)
 {
     u8 numEggMoves, randEggMove, numLearnedEggMoves;
     u8 i, numSetEggMoves;
     u16 randSpecies;
     u16 eggMovesBuffer[EGG_MOVES_ARRAY_COUNT];
-    ArrayFill16(eggMovesBuffer, EGG_MOVES_ARRAY_COUNT, MOVE_NONE);
 
     randSpecies = gEggMovesSpecies[Random() % NUM_EGG_MOVES_SPECIES];
     numEggMoves = GetEggMovesSpecies(randSpecies, eggMovesBuffer);
@@ -4485,10 +4480,8 @@ void SetSpeciesAndEggMove (void)
     numSetEggMoves = 0;
     i = 0;
     while (numSetEggMoves < numLearnedEggMoves) {
-      if (eggMovesBuffer[i] != MOVE_NONE) {
-        *(sEggMovesSpecialVars[numSetEggMoves]) = eggMovesBuffer[i];
-        numSetEggMoves++;
-      }
+      *(sEggMovesSpecialVars[numSetEggMoves]) = eggMovesBuffer[i];
+      numSetEggMoves++;
       i++;
     }
     
@@ -4502,7 +4495,7 @@ void SetSpeciesAndEggMove (void)
 }
 
 // Gives a mon in the party a move
-// gSpecialVar_0x8005: Move to give
+// sEggMovesSpecialVars: Moves to give
 // gSpecialVar_0x8006: Party slot
 void SetGiftEggMove (void)
 {
@@ -4511,6 +4504,10 @@ void SetGiftEggMove (void)
     currMoveSlot = 0;
     for (i = 0; i < ARRAY_COUNT(sEggMovesSpecialVars); i++) {
       currentSpecialVar = *(sEggMovesSpecialVars[i]);
+      if (currentSpecialVar == MOVE_NONE)
+      {
+        break;
+      }
       if (MonKnowsMove(&gPlayerParty[gSpecialVar_0x8006], MOVE_NONE))
       {
           GiveMoveToMon(&gPlayerParty[gSpecialVar_0x8006], currentSpecialVar);
