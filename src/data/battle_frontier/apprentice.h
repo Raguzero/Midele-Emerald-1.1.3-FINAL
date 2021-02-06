@@ -950,6 +950,8 @@ static const bool8 sValidApprenticeMoves[MOVES_COUNT] =
 	[MOVE_THUNDER_CAGE] = TRUE,
 	[MOVE_DRAGON_ENERGY] = TRUE,
 	[MOVE_ELECTROWEB] = TRUE,
+	[MOVE_GRAV_APPLE] = TRUE,
+	[MOVE_APPLE_ACID] = TRUE,
 };
 
 // The possible questions to ask after the initial 3 WHICH MON questions. Retrieved from here and shuffled

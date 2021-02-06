@@ -422,6 +422,8 @@ static const s8 sMindRatings[] =
     [MOVE_THUNDER_CAGE] = 1,
     [MOVE_DRAGON_ENERGY] = 1,
     [MOVE_ELECTROWEB] = 1,
+    [MOVE_GRAV_APPLE] = 1,
+    [MOVE_APPLE_ACID] = 1,
 };
 
 #define TAG_JUDGEMENT_ICON 1000

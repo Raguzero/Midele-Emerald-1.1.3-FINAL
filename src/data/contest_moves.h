@@ -3014,6 +3014,9 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
         .comboStarterId = 0,
         .comboMoves = {0}
     },
+
+    // [MOVE_GRAV_APPLE] = {0}, No tiene stats de concurso en ningún juego, será Cool 4* por defecto
+	// [MOVE_APPLE_ACID] = {0}, No tiene stats de concurso en ningún juego, será Cool 4* por defecto
 };
 
 const struct ContestEffect gContestEffects[] =
