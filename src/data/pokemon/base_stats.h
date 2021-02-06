@@ -12645,7 +12645,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_FIELD,
-        .abilities = {ABILITY_SAND_VEIL, ABILITY_TANGLING_HAIR},
+        .abilities = {ABILITY_SAND_FORCE, ABILITY_TANGLING_HAIR},
         .bodyColor = BODY_COLOR_BROWN,
     },
 
@@ -12671,7 +12671,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_FIELD,
-        .abilities = {ABILITY_SAND_VEIL, ABILITY_TANGLING_HAIR},
+        .abilities = {ABILITY_SAND_FORCE, ABILITY_TANGLING_HAIR},
         .bodyColor = BODY_COLOR_BROWN,
     },
 
@@ -16248,7 +16248,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_MEDIUM_SLOW,
 		.eggGroup1 = EGG_GROUP_HUMAN_LIKE,
 		.eggGroup2 = EGG_GROUP_HUMAN_LIKE,
-        .abilities = {ABILITY_PUNK_ROCK, ABILITY_TECHNICIAN},
+        .abilities = {ABILITY_PUNK_ROCK, ABILITY_PLUS},
 		.bodyColor = BODY_COLOR_PURPLE,
 	},
 	
@@ -16271,7 +16271,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_MEDIUM_SLOW,
 		.eggGroup1 = EGG_GROUP_HUMAN_LIKE,
 		.eggGroup2 = EGG_GROUP_HUMAN_LIKE,
-        .abilities = {ABILITY_PUNK_ROCK, ABILITY_TECHNICIAN},
+        .abilities = {ABILITY_PUNK_ROCK, ABILITY_MINUS},
 		.bodyColor = BODY_COLOR_PURPLE,
 	},
 	
@@ -16432,7 +16432,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_SLOW,
 		.eggGroup1 = EGG_GROUP_FIELD,
 		.eggGroup2 = EGG_GROUP_FIELD,
-        .abilities = {ABILITY_SAND_STREAM, ABILITY_NONE}, 
+        .abilities = {ABILITY_SAND_STREAM, ABILITY_SAND_FORCE}, 
 		.bodyColor = BODY_COLOR_BROWN,
 	},
 
@@ -16455,7 +16455,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_SLOW,
 		.eggGroup1 = EGG_GROUP_FIELD,
 		.eggGroup2 = EGG_GROUP_FIELD,
-        .abilities = {ABILITY_SAND_STREAM, ABILITY_NONE}, 
+        .abilities = {ABILITY_SAND_STREAM, ABILITY_SAND_FORCE}, 
 		.bodyColor = BODY_COLOR_BROWN,
 	},
 	

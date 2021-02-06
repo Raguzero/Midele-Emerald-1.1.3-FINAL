@@ -23,7 +23,7 @@ static const u8 sSuctionCupsDescription[] = _("Avoids ROAR & WHIRLWIND.");
 static const u8 sIntimidateDescription[] = _("Lowers the foe's ATTACK.");
 static const u8 sShadowTagDescription[] = _("Prevents the foe's escape.");
 static const u8 sRoughSkinDescription[] = _("Hurts to touch.");
-static const u8 sWonderGuardDescription[] = _("“Super effective” hits.");
+static const u8 sWonderGuardDescription[] = _("Immune to “SuperEffective”.");
 static const u8 sLevitateDescription[] = _("Not hit by GROUND attacks.");
 static const u8 sEffectSporeDescription[] = _("Leaves spores on contact.");
 static const u8 sSynchronizeDescription[] = _("Passes on status problems.");
@@ -114,6 +114,7 @@ static const u8 sTintedLensDescription[] = _("Ups “not very effective“.");
 static const u8 sCorrosionDescription[] = _("Poisons any type.");
 static const u8 sOvercoatDescription[] = _("Blocks weather damage.");
 static const u8 sGooeyDescription[] = _("Lowers SPEED on contact.");
+static const u8 sSandForceDescription[] = _("Ups Sand Types in sandstm.");
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 {
@@ -235,6 +236,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_GOOEY] = _("GOOEY"),
     [ABILITY_TANGLING_HAIR] = _("TANGLE HAIR"),
     [ABILITY_IRON_BARBS] = _("IRON BARBS"),
+    [ABILITY_SAND_FORCE] = _("SAND FORCE"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -357,4 +359,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
 	[ABILITY_GOOEY] = sGooeyDescription,
 	[ABILITY_TANGLING_HAIR] = sGooeyDescription,
     [ABILITY_IRON_BARBS] = sRoughSkinDescription,
+    [ABILITY_SAND_FORCE] = sSandForceDescription,
 };

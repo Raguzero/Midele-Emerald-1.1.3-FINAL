@@ -8200,6 +8200,7 @@ static void Cmd_weatherdamage(void)
                 && gBattleMons[gBattlerAttacker].ability != ABILITY_SAND_VEIL
                 && gBattleMons[gBattlerAttacker].ability != ABILITY_SAND_RUSH
 				&& gBattleMons[gBattlerAttacker].ability != ABILITY_OVERCOAT
+				&& gBattleMons[gBattlerAttacker].ability != ABILITY_SAND_FORCE
 				&& !(gStatuses3[gBattlerAttacker] & STATUS3_UNDERGROUND)
                 && !(gStatuses3[gBattlerAttacker] & STATUS3_UNDERWATER))
             {
