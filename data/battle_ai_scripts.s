@@ -2858,6 +2858,7 @@ AI_CV_Sandstorm:
 	if_equal ABILITY_SAND_VEIL, AI_CV_Sandstorm2
 	if_equal ABILITY_SAND_RUSH, AI_CV_Sandstorm2
 	if_equal ABILITY_OVERCOAT, AI_CV_Sandstorm2
+	if_equal ABILITY_SAND_FORCE, AI_CV_Sandstorm2
 	goto AI_CV_Sandstorm_End
 
 AI_CV_Sandstorm2:
