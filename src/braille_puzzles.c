@@ -492,11 +492,9 @@ bool8 CheckFiveRegi(void)
     bool8 hasRegirock = FALSE;
     bool8 hasRegisteel = FALSE;
     bool8 hasRegice = FALSE;
-    bool8 hasRegidrago = FALSE;
-    bool8 hasRegieleki = FALSE;
     
     CalculatePlayerPartyCount();
-    if (gPlayerPartyCount < 5)
+    if (gPlayerPartyCount < 3)
     {
         return FALSE;
     }
@@ -514,16 +512,10 @@ bool8 CheckFiveRegi(void)
             case SPECIES_REGICE:
                 hasRegice = TRUE;
                 break;
-            case SPECIES_REGIDRAGO:
-                hasRegidrago = TRUE;
-                break;
-            case SPECIES_REGIELEKI:
-                hasRegieleki = TRUE;
-                break;
         }
     }
     
-    return hasRegice && hasRegirock && hasRegisteel && hasRegidrago && hasRegieleki;
+    return hasRegice && hasRegirock && hasRegisteel;
 }
 
 bool8 CheckRegidragoPuzzle(void)

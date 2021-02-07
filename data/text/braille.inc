@@ -232,9 +232,7 @@ IzabeIsland_OutskirtsCave_Braille_FiveRegi: @ 82A6B99
 	.braille "PRESENTA\n"
 	.braille "ROCA,\n"
 	.braille "ACERO,\n"
-	.braille "HIELO,\n"
-	.braille "ELECTRICO\n"
-	.braille  "Y DRAGON.$"
+	.braille "Y HIELO.$"
 
 OldaleRuins_Braille_RegidragoPuzzle: @ 82A6B99
 	.byte 0
