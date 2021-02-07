@@ -1,19 +1,19 @@
 MauvilleRuins_MapScripts::
-	map_script MAP_SCRIPT_ON_RESUME, MauvilleRuins_OnResume
+	//map_script MAP_SCRIPT_ON_RESUME, MauvilleRuins_OnResume
 	map_script MAP_SCRIPT_ON_LOAD, MauvilleRuins_OnLoad
 	map_script MAP_SCRIPT_ON_TRANSITION, MauvilleRuins_OnTransition
 	.byte 0
 
-MauvilleRuins_OnResume:
-	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, MauvilleRuins_EventScript_TryRemoveRegieleki
-	end
+//MauvilleRuins_OnResume:
+//	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, MauvilleRuins_EventScript_TryRemoveRegieleki
+//	end
 
-MauvilleRuins_EventScript_TryRemoveRegieleki:: 
-	specialvar VAR_RESULT, GetBattleOutcome
-	compare VAR_RESULT, B_OUTCOME_CAUGHT
-	goto_if_ne Common_EventScript_NopReturn
-	removeobject VAR_LAST_TALKED
-	return
+//MauvilleRuins_EventScript_TryRemoveRegieleki:: 
+//	specialvar VAR_RESULT, GetBattleOutcome
+//	compare VAR_RESULT, B_OUTCOME_CAUGHT
+//	goto_if_ne Common_EventScript_NopReturn
+//	removeobject VAR_LAST_TALKED
+//	return
 
 MauvilleRuins_OnLoad:
 	call_if_unset FLAG_SYS_BRAILLE_REGIELEKI_COMPLETED, MauvilleRuins_EventScript_HideRegiEntrance
@@ -30,13 +30,18 @@ MauvilleRuins_EventScript_HideRegiEntrance::
 
 MauvilleRuins_OnTransition: 
 	setflag FLAG_LANDMARK_MAUVILLE_RUINS
-	call_if_unset FLAG_CAUGHT_REGIELEKI, MauvilleRuins_EventScript_TryShowRegieleki
+	call_if_unset FLAG_VADER_MAUVILLE_RUINS_ANTESDEABRIR, MauvilleRuins_Vader_BlockDoor
+//	call_if_unset FLAG_CAUGHT_REGIELEKI, MauvilleRuins_EventScript_TryShowRegieleki
 	end
-
-MauvilleRuins_EventScript_TryShowRegieleki:: 
-	goto_if_set FLAG_DEFEATED_REGIELEKI, Common_EventScript_NopReturn
-	clearflag FLAG_HIDE_REGIELEKI
+	
+MauvilleRuins_Vader_BlockDoor::
+	setobjectxyperm 5, 8, 0
 	return
+
+//MauvilleRuins_EventScript_TryShowRegieleki:: 
+//	goto_if_set FLAG_DEFEATED_REGIELEKI, Common_EventScript_NopReturn
+//	clearflag FLAG_HIDE_REGIELEKI
+//	return
 
 MauvilleRuins_EventScript_OpenRegiEntrance:: 
 	setmetatile 7, 19, METATILE_Cave_SealedChamberEntrance_TopLeft, 1
@@ -89,37 +94,222 @@ MauvilleRuins_EventScript_CloseBrailleMsg::
 	closebraillemessage
 	releaseall
 	end
-
-MauvilleRuins_EventScript_Regieleki::
+	
+MauvilleRuins_EventScript_Regieleki_Robado::
 	lock
 	faceplayer
 	waitse
 	playmoncry SPECIES_REGIELEKI, 2
 	delay 40
 	waitmoncry
-	setwildbattle SPECIES_REGIELEKI, 40, ITEM_NONE
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	special StartRegiBattle
-	waitstate
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	specialvar VAR_RESULT, GetBattleOutcome
-	compare VAR_RESULT, B_OUTCOME_WON
-	goto_if_eq MauvilleRuins_EventScript_DefeatedRegieleki
-	compare VAR_RESULT, B_OUTCOME_RAN
-	goto_if_eq MauvilleRuins_EventScript_RanFromRegieleki
-	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
-	goto_if_eq MauvilleRuins_EventScript_RanFromRegieleki
-	setflag FLAG_CAUGHT_REGIELEKI
+	addobject 3
+	applymovement 3, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement 3, MauvilleRuins_Avader2_Movement
+	waitmovement 0
+	applymovement EVENT_OBJ_ID_PLAYER, MauvilleRuins_Movement_Player2
+	waitmovement 0
+	msgbox MauvilleRuins_Text_Vader2, MSGBOX_NPC
+	// ANIMACION DE POKEBALL
+	waitse
+	playse SE_REGI
+	removeobject 1
+	delay 40
+	clearflag FLAG_VADER_MAUVILLE_RUINS_ANTESDEABRIR
+	addobject 4
+	delay 80
+	removeobject 4
+	msgbox MauvilleRuins_Text_Vader3, MSGBOX_NPC
+	applymovement 3, MauvilleRuins_Avader3_Movement
+	waitmovement 0
+	removeobject 3
+	setflag FLAG_VADER_MAUVILLE_RUINS_ROBO
+	setflag FLAG_VADER_MAUVILLE_RUINS_ANTESDEABRIR
 	release
 	end
 
-MauvilleRuins_EventScript_DefeatedRegieleki::
-	setflag FLAG_DEFEATED_REGIELEKI
-	goto Common_EventScript_RemoveStaticPokemon
+//MauvilleRuins_EventScript_Regieleki::
+//	lock
+//	faceplayer
+//	waitse
+//	playmoncry SPECIES_REGIELEKI, 2
+//	delay 40
+//	waitmoncry
+//	setwildbattle SPECIES_REGIELEKI, 40, ITEM_NONE
+//	setflag FLAG_SYS_CTRL_OBJ_DELETE
+//	special StartRegiBattle
+//	waitstate
+//	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+//	specialvar VAR_RESULT, GetBattleOutcome
+//	compare VAR_RESULT, B_OUTCOME_WON
+//	goto_if_eq MauvilleRuins_EventScript_DefeatedRegieleki
+//	compare VAR_RESULT, B_OUTCOME_RAN
+//	goto_if_eq MauvilleRuins_EventScript_RanFromRegieleki
+//	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
+//	goto_if_eq MauvilleRuins_EventScript_RanFromRegieleki
+//	setflag FLAG_CAUGHT_REGIELEKI
+//	release
+//	end
+
+//MauvilleRuins_EventScript_DefeatedRegieleki::
+//	setflag FLAG_DEFEATED_REGIELEKI
+//	goto Common_EventScript_RemoveStaticPokemon
+//	end
+
+//MauvilleRuins_EventScript_RanFromRegieleki:: 
+//	setvar VAR_0x8004, SPECIES_REGIELEKI
+//	goto Common_EventScript_LegendaryFlewAway
+//	end
+	
+MauvilleRuins_EventScript_Vader::
+	lockall
+	faceplayer
+	goto_if_set FLAG_VADER_MAUVILLE_RUINS_ANTESDEABRIR, MauvilleRuins_EventScript_Vader2
+	msgbox MauvilleRuins_Text_Vader, MSGBOX_NPC
+	switch VAR_FACING
+	case DIR_EAST, MauvilleRuins_EventScript_East
+	applymovement 2, MauvilleRuins_Avader_Movement
+	waitmovement 0
+	setflag FLAG_VADER_MAUVILLE_RUINS_ANTESDEABRIR
+	releaseall
 	end
 
-MauvilleRuins_EventScript_RanFromRegieleki:: 
-	setvar VAR_0x8004, SPECIES_REGIELEKI
-	goto Common_EventScript_LegendaryFlewAway
+MauvilleRuins_EventScript_East::
+	applymovement EVENT_OBJ_ID_PLAYER, MauvilleRuins_Movement_Player
+	waitmovement 0
+	applymovement 2, MauvilleRuins_Avader_Movement
+	waitmovement 0
+	setflag FLAG_VADER_MAUVILLE_RUINS_ANTESDEABRIR
+	releaseall
 	end
+	
+MauvilleRuins_EventScript_Vader2::
+	lock
+	faceplayer
+	msgbox MauvilleRuins_Text_Vader, MSGBOX_NPC
+	release
+	end
+	
+MauvilleRuins_Movement_Player:
+	walk_down
+	walk_in_place_fastest_up
+	step_end
+	
+MauvilleRuins_Movement_Player2:
+	walk_in_place_fastest_down
+	step_end
 
+MauvilleRuins_Avader_Movement:
+	walk_left
+	walk_in_place_fastest_right
+	step_end
+	
+MauvilleRuins_Avader2_Movement:
+	walk_up
+	walk_up
+	walk_up
+	step_end
+	
+MauvilleRuins_Avader3_Movement:
+	walk_down
+	walk_down
+	step_end
+	
+MauvilleRuins_Text_Vader:
+	.string "A.VADER: Vaya, ¡Pero si es {PLAYER}!\p"
+	
+	.string "Si mis calculos son correctos...\p"
+	
+	.string "Esta es la cueva donde me tiré a\n"
+	.string "tu MADRE, quiero decir... donde\l"
+	.string "reside el poderoso POKÉMON eléctrico\l"
+	.string "con el nombre de REGIELEKI.\p"
+	
+	.string "Llevo mucho tiempo investigando a\n"
+	.string "a estos seres llamados REGIS.\p"
+	
+	.string "Toda mi investigación era consistente\n"
+	.string "en cuanto a que REGICE, REGIROCK y\l"
+	.string "REGISTEEL deberían despertar al\l"
+	.string "témido REGIGIGAS...\p" 
+	
+	.string "Pero...\p"
+	
+	.string "¿De dónde han salido REGIDRAGO y\n"
+	.string "REGIELEKI? ¿Por qué existen?\p"
+	
+	.string "¡Por más que investigo no tiene sentido\n"
+	.string "que existan estos últimos!\p"
+	
+	.string "¡Es como si los hubiesen inventado solo\n"
+	.string "para intentar vendernos el DLC de\l"
+	.string "POKÉMON ESPADA y POKEMON ESCUDO!\p"
+	
+	.string "Ni siquiera tienen la habilidad CLEAR BODY\n"
+	.string "de REGICE, REGIROCK y REGISTEEL.\p"
+	
+	.string "Tampoco se parecen sus Movepool a los\n"
+	.string "suyos, al no poder aprender CURSE,\l" 
+	.string "ni SUPER POWER.\p"
+	
+	.string "¡Maldito MASUDA!, ¿Por qué te cargaste el\n"
+	.string "LORE de HOENN y SINNOH?\p"
+	
+	.string "...\p"
+
+	.string "EJEM...\p"
+	
+	.string "Dejemos de lado todo este brote autista\n"
+	.string "y vayamos a lo importante de\l"
+	.string "este asunto.\p"
+	
+	.string "¿Quieres abrir esta puerta para atrapar a\n"
+	.string "REGIELEKI?\p"
+	
+	.string "Pues para abrir esta puerta tendrás que\n"
+	.string "leer el código braille, así que para ello\l"
+	.string "prueba a arrancarte los ojos, así serás\l"
+	.string "ciego y no te quedará más remedio que\l" 
+	.string "aprender BRAILLE.\p"
+	
+	.string "¡JAJAJAJAJAJAJA!\p"
+	
+	.string "Bueno, te ayudaré esta vez.\p"
+	
+	.string "El CÓDIGO BRAILLE dice:\p"
+	.string "PRESENTA AL ELECTRICO\n"
+	.string "QUE ILUMINA UN FARO.\p"
+	
+	.string "En mi viaje por JHOTO, me suena haber\n"
+	.string "oido algo sobre cierto POKÉMON que\l"
+	.string "iluminaba un faro. ¿Cual sería?\p"
+	
+	.string "¡Eso ya tendrás que descubrirlo usando\n"
+	.string "tu cerebro de mosquito!\p"
+	
+	.string "Hablame de nuevo si quieres escuchar de\n"
+	.string "nuevo toda mi autistada, y el como abrir\l"
+	.string "esta puerta.$"
+
+MauvilleRuins_Text_Vader2:
+	.string "AVADER: Gracias por hacerme el\n"
+	.string "trabajo sucio.\p"
+
+	.string "Ahora voy a llevarme lo que\n"
+	.string "me pertenece.\p"
+	
+	.string "“AVADER usa una MASTER BALL”$"
+
+MauvilleRuins_Text_Vader3:
+	.string "¿Que habría sido más divertido?\p"
+	
+	.string "¿Abrir la puerta sellada yo mismo?\p"
+
+	.string "O... ¿Dejar que un NOOB como tu lo\n"
+	.string "hiciera por mi para después trolearle\l"
+	.string "robandole a REGIELEKI delante de sus\l"
+	.string "narices?\p"
+	
+	.string "¡Está claro que lo segundo! ¡JAJAJAJA!\p"
+	
+	.string "¡Adios PRINGAO, nos vemos en MICOLANDIA!$"

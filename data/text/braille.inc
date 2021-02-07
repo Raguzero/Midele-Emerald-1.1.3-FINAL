@@ -256,7 +256,6 @@ MauvilleRuins_Braille_RegielekiPuzzle:
 	.byte 3
 	.byte 3
 	.braille "PRESENTA\n"
-	.braille "AL TIGRE DE\n"
-	.braille "LOS TRUENOS Y\n"
-	.braille "AL PAJARO DE\n"
-	.braille "LOS RAYOS.$"
+	.braille "EL ELECTRICO\n"
+	.braille "QUE ILUMINA\n"
+	.braille "UN FARO.$"

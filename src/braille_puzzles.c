@@ -546,11 +546,10 @@ bool8 CheckRegidragoPuzzle(void)
 bool8 CheckRegielekiPuzzle(void)
 {
     u8 i;
-    bool8 hasRaikou = FALSE;
-	bool8 hasZapdos = FALSE;
+    bool8 hasAmpharos = FALSE;
 	
     CalculatePlayerPartyCount();
-    if (gPlayerPartyCount < 2)
+    if (gPlayerPartyCount < 1)
     {
         return FALSE;
     }
@@ -559,14 +558,11 @@ bool8 CheckRegielekiPuzzle(void)
     {
         switch (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2, 0))
         {
-            case SPECIES_ZAPDOS:
-                hasZapdos = TRUE;
-                break;
-            case SPECIES_RAIKOU:
-                hasRaikou = TRUE;
+            case SPECIES_AMPHAROS:
+                hasAmpharos = TRUE;
                 break;
         }
     }
     
-    return hasZapdos && hasRaikou;
+    return hasAmpharos;
 }
