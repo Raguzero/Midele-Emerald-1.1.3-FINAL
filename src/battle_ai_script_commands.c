@@ -462,8 +462,11 @@ static u8 ChooseMoveOrAction_Singles(void)
 // Consider switching if all moves are worthless to use.
     if (AI_THINKING_STRUCT->aiFlags & (AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_PREFER_BATON_PASS)
         && gBattleMons[sBattler_AI].hp >= gBattleMons[sBattler_AI].maxHP / 2
-	    && !(gBattleMons[gActiveBattler].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
-        && !(gStatuses3[gActiveBattler] & STATUS3_ROOTED)
+		&& !(ABILITY_ON_OPPOSING_FIELD(sBattler_AI, ABILITY_SHADOW_TAG) && (gBattleMons[sBattler_AI].type1 != TYPE_GHOST && gBattleMons[sBattler_AI].type2 != TYPE_GHOST && gBattleMons[sBattler_AI].ability != ABILITY_SHADOW_TAG))
+		&& !(ABILITY_ON_OPPOSING_FIELD(sBattler_AI, ABILITY_ARENA_TRAP) && (gBattleMons[sBattler_AI].type1 != TYPE_FLYING && gBattleMons[sBattler_AI].type2 != TYPE_FLYING && gBattleMons[sBattler_AI].type1 != TYPE_GHOST && gBattleMons[sBattler_AI].type2 != TYPE_GHOST && gBattleMons[sBattler_AI].ability != ABILITY_LEVITATE))
+		&& !(ABILITY_ON_FIELD2(ABILITY_MAGNET_PULL) && (gBattleMons[sBattler_AI].type1 == TYPE_STEEL || gBattleMons[sBattler_AI].type2 == TYPE_STEEL))
+		&& !(gBattleMons[sBattler_AI].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
+        && !(gStatuses3[sBattler_AI] & STATUS3_ROOTED)
         && !(gBattleTypeFlags & (BATTLE_TYPE_ARENA | BATTLE_TYPE_PALACE)))
     {
         s32 cap = AI_THINKING_STRUCT->aiFlags & (AI_SCRIPT_CHECK_VIABILITY) ? 95 : 93;
@@ -486,8 +489,11 @@ static u8 ChooseMoveOrAction_Singles(void)
         if (gBattleMons[sBattler_AI].ability == ABILITY_TRUANT
             && IsTruantMonVulnerable(sBattler_AI, gBattlerTarget)
             && gDisableStructs[sBattler_AI].truantCounter
-			&& !(gBattleMons[gActiveBattler].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
-			&& !(gStatuses3[gActiveBattler] & STATUS3_ROOTED)
+			&& !(ABILITY_ON_OPPOSING_FIELD(sBattler_AI, ABILITY_SHADOW_TAG) && (gBattleMons[sBattler_AI].type1 != TYPE_GHOST && gBattleMons[sBattler_AI].type2 != TYPE_GHOST && gBattleMons[sBattler_AI].ability != ABILITY_SHADOW_TAG))
+			&& !(ABILITY_ON_OPPOSING_FIELD(sBattler_AI, ABILITY_ARENA_TRAP) && (gBattleMons[sBattler_AI].type1 != TYPE_FLYING && gBattleMons[sBattler_AI].type2 != TYPE_FLYING && gBattleMons[sBattler_AI].type1 != TYPE_GHOST && gBattleMons[sBattler_AI].type2 != TYPE_GHOST && gBattleMons[sBattler_AI].ability != ABILITY_LEVITATE))
+			&& !(ABILITY_ON_FIELD2(ABILITY_MAGNET_PULL) && (gBattleMons[sBattler_AI].type1 == TYPE_STEEL || gBattleMons[sBattler_AI].type2 == TYPE_STEEL))
+			&& !(gBattleMons[sBattler_AI].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
+			&& !(gStatuses3[sBattler_AI] & STATUS3_ROOTED)
             && gBattleMons[sBattler_AI].hp >= gBattleMons[sBattler_AI].maxHP / 2
 			&& !(gBattleTypeFlags & (BATTLE_TYPE_ARENA | BATTLE_TYPE_PALACE)))
             if (GetMostSuitableMonToSwitchInto() != PARTY_SIZE)

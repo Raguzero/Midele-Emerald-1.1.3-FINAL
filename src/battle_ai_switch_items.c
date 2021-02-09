@@ -456,9 +456,15 @@ static bool8 ShouldSwitch(void)
     if (gStatuses3[gActiveBattler] & STATUS3_ROOTED)
         return FALSE;
     if (ABILITY_ON_OPPOSING_FIELD(gActiveBattler, ABILITY_SHADOW_TAG))
-        return FALSE;
-    if (ABILITY_ON_OPPOSING_FIELD(gActiveBattler, ABILITY_ARENA_TRAP)) // Misses the flying type and Levitate check.
-        return FALSE;
+    {
+        if ((gBattleMons[gActiveBattler].type1 != TYPE_GHOST) && (gBattleMons[gActiveBattler].type2 != TYPE_GHOST) && (gBattleMons[gActiveBattler].ability != ABILITY_SHADOW_TAG))
+            return FALSE;
+    }
+    if (ABILITY_ON_OPPOSING_FIELD(gActiveBattler, ABILITY_ARENA_TRAP))
+    {
+        if ((gBattleMons[gActiveBattler].type1 != TYPE_FLYING) && (gBattleMons[gActiveBattler].type2 != TYPE_FLYING) && (gBattleMons[gActiveBattler].type1 != TYPE_GHOST) && (gBattleMons[gActiveBattler].type2 != TYPE_GHOST) && (gBattleMons[gActiveBattler].ability != ABILITY_LEVITATE))
+			return FALSE;
+    }
     if (ABILITY_ON_FIELD2(ABILITY_MAGNET_PULL))
     {
         if (gBattleMons[gActiveBattler].type1 == TYPE_STEEL)
