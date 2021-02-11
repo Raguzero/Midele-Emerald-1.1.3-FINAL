@@ -555,6 +555,7 @@
 #define THEREINCARNATION 627
 #define LIYUEBATTLETHEMEIMAIN 628
 #define BONETROUSLEUNDERTALE 629
+#define WALLYBATTLETHEME 630
 
 #define MUS_ROUTE_118 0x7FFF  // map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 

@@ -1301,3 +1301,7 @@ $(MID_SUBDIR)/liyuebattlethemeimain.s: %.s: %.mid
 	
 $(MID_SUBDIR)/bonetrousleundertale.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100
+
+$(MID_SUBDIR)/wallybattletheme.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -v100
+

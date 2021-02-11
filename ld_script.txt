@@ -1247,6 +1247,7 @@ SECTIONS {
 		sound/songs/thereincarnation.o(.rodata);
 		sound/songs/midi/liyuebattlethemeimain.o(.rodata);
 		sound/songs/midi/bonetrousleundertale.o(.rodata);
+		sound/songs/midi/wallybattletheme.o(.rodata);
     } =0
 
     lib_rodata :

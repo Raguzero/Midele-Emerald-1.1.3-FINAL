@@ -631,6 +631,7 @@ gSongTable:: @ 86B49F0
 	song thereincarnation, 0, 0
 	song liyuebattlethemeimain, 0, 0
 	song bonetrousleundertale, 0, 0
+	song wallybattletheme, 0, 0
 
 	.align 2
 dummy_song_header: @ 86B5D00
