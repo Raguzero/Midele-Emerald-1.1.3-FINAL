@@ -758,10 +758,10 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_MAGNEMITE] = {
         .species = SPECIES_MAGNEMITE,
-        .moves = {MOVE_SHOCK_WAVE, MOVE_SUPERSONIC, MOVE_METAL_SOUND, MOVE_REFLECT},
-        .itemTableId = BATTLE_FRONTIER_ITEM_RAWST_BERRY,
+        .moves = {MOVE_THUNDER, MOVE_AGILITY, MOVE_EXPLOSION, MOVE_REFLECT},
+        .itemTableId = BATTLE_FRONTIER_ITEM_PETAYA_BERRY,
         .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
-        .nature = NATURE_GENTLE
+        .nature = NATURE_RASH
     },
     [FRONTIER_MON_SEEL] = {
         .species = SPECIES_SEEL,
@@ -948,9 +948,9 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     [FRONTIER_MON_PIDGEOTTO] = {
         .species = SPECIES_PIDGEOTTO,
         .moves = {MOVE_AERIAL_ACE, MOVE_QUICK_ATTACK, MOVE_FEATHER_DANCE, MOVE_SAND_ATTACK},
-        .itemTableId = BATTLE_FRONTIER_ITEM_WHITE_HERB,
+        .itemTableId = BATTLE_FRONTIER_ITEM_FOCUS_BAND,
         .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_HP,
-        .nature = NATURE_QUIRKY
+        .nature = NATURE_ADAMANT
     },
     [FRONTIER_MON_GROWLITHE] = {
         .species = SPECIES_GROWLITHE,
@@ -1223,7 +1223,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .moves = {MOVE_PETAL_DANCE, MOVE_GROWTH, MOVE_SLEEP_POWDER, MOVE_SLUDGE_BOMB},
         .itemTableId = BATTLE_FRONTIER_ITEM_PERSIM_BERRY,
         .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_HP,
-        .nature = NATURE_GENTLE
+        .nature = NATURE_QUIRKY
     },
 	[FRONTIER_MON_CHARMELEON_1] = {
         .species = SPECIES_CHARMELEON,
@@ -1710,8 +1710,8 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_MAGNETON_1] = {
         .species = SPECIES_MAGNETON,
-        .moves = {MOVE_THUNDERBOLT, MOVE_EXPLOSION, MOVE_THUNDER_WAVE, MOVE_SUPERSONIC},
-        .itemTableId = BATTLE_FRONTIER_ITEM_CHERI_BERRY,
+        .moves = {MOVE_THUNDERBOLT, MOVE_EXPLOSION, MOVE_THUNDER_WAVE, MOVE_LIGHT_SCREEN},
+        .itemTableId = BATTLE_FRONTIER_ITEM_PETAYA_BERRY,
         .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
         .nature = NATURE_TIMID
     },
@@ -1752,7 +1752,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_PIDGEOT_1] = {
         .species = SPECIES_PIDGEOT,
-        .moves = {MOVE_AERIAL_ACE, MOVE_FEATHER_DANCE, MOVE_MUD_SLAP, MOVE_FAINT_ATTACK},
+        .moves = {MOVE_AERIAL_ACE, MOVE_FEATHER_DANCE, MOVE_MUD_SLAP, MOVE_HEAT_WAVE},
         .itemTableId = BATTLE_FRONTIER_ITEM_SHARP_BEAK,
         .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_HP,
         .nature = NATURE_HARDY
@@ -1962,7 +1962,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_CHARMELEON_2] = {
         .species = SPECIES_CHARMELEON,
-        .moves = {MOVE_FLAMETHROWER, MOVE_SLASH, MOVE_ANCIENT_POWER, MOVE_DRAGON_RAGE},
+        .moves = {MOVE_FLAMETHROWER, MOVE_SLASH, MOVE_ANCIENT_POWER, MOVE_DRAGON_CLAW},
         .itemTableId = BATTLE_FRONTIER_ITEM_SCOPE_LENS,
         .evSpread = F_EV_SPREAD_SPEED | F_EV_SPREAD_ATTACK,
         .nature = NATURE_HARDY
@@ -3715,7 +3715,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .moves = {MOVE_TOXIC, MOVE_GIGA_DRAIN, MOVE_KNOCK_OFF, MOVE_SURF},
         .itemTableId = BATTLE_FRONTIER_ITEM_LEFTOVERS,
         .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_DEFENSE | F_EV_SPREAD_HP,
-        .nature = NATURE_HARDY
+        .nature = NATURE_CALM
     },
     [FRONTIER_MON_AERODACTYL_2] = {
         .species = SPECIES_AERODACTYL,
@@ -6195,33 +6195,12 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_HP,
         .nature = NATURE_ADAMANT
     },
-    [FRONTIER_MON_ROOKIDEE_1] = {
-        .species = SPECIES_ROOKIDEE,
-        .moves = {MOVE_DRILL_PECK, MOVE_REVERSAL, MOVE_SWAGGER, MOVE_BRAVE_BIRD},
-        .itemTableId = BATTLE_FRONTIER_ITEM_FOCUS_SASH,
-        .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_SPEED,
-        .nature = NATURE_ADAMANT
-    },
     [FRONTIER_MON_GROOKEY_1] = {
         .species = SPECIES_GROOKEY,
         .moves = {MOVE_FAKE_OUT, MOVE_ENERGY_BALL, MOVE_KNOCK_OFF, MOVE_ENDEAVOR},
         .itemTableId = BATTLE_FRONTIER_ITEM_FOCUS_SASH,
         .evSpread = F_EV_SPREAD_SPEED | F_EV_SPREAD_SP_ATTACK,
         .nature = NATURE_HASTY
-    },
-    [FRONTIER_MON_SOBBLE_1] = {
-        .species = SPECIES_SOBBLE,
-        .moves = {MOVE_ICE_BEAM, MOVE_SURF, MOVE_DOUBLE_TEAM, MOVE_BATON_PASS},
-        .itemTableId = BATTLE_FRONTIER_ITEM_FOCUS_BAND,
-        .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
-        .nature = NATURE_TIMID
-    },
-    [FRONTIER_MON_APPLIN_1] = {
-        .species = SPECIES_APPLIN,
-        .moves = {MOVE_DEFENSE_CURL, MOVE_ROLLOUT, MOVE_ATTRACT, MOVE_RECYCLE},
-        .itemTableId = BATTLE_FRONTIER_ITEM_SITRUS_BERRY,
-        .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_HP,
-        .nature = NATURE_ADAMANT
     },
     [FRONTIER_MON_SILICOBRA_1] = {
         .species = SPECIES_SILICOBRA,
@@ -6725,7 +6704,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .moves = {MOVE_EXPLOSION, MOVE_EARTHQUAKE, MOVE_THUNDER, MOVE_ROCK_SLIDE},
         .itemTableId = BATTLE_FRONTIER_ITEM_QUICK_CLAW,
         .evSpread = F_EV_SPREAD_HP | F_EV_SPREAD_ATTACK,
-        .nature = NATURE_ADAMANT
+        .nature = NATURE_BRAVE
     },
 	[FRONTIER_MON_RAPIDASH_5] = {
         .species = SPECIES_RAPIDASH,
@@ -8363,14 +8342,14 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .moves = {MOVE_SIGNAL_BEAM, MOVE_REVERSAL, MOVE_ENDURE, MOVE_SWORDS_DANCE},
         .itemTableId = BATTLE_FRONTIER_ITEM_LIECHI_BERRY,
         .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_SPEED,
-        .nature = NATURE_NAUGHTY
+        .nature = NATURE_ADAMANT
     },
     [FRONTIER_MON_YANMEGA_2] = {
         .species = SPECIES_YANMEGA,
         .moves = {MOVE_LEECH_LIFE, MOVE_SHADOW_BALL, MOVE_ANCIENT_POWER, MOVE_SWORDS_DANCE},
         .itemTableId = BATTLE_FRONTIER_ITEM_LIECHI_BERRY,
         .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_SPEED,
-        .nature = NATURE_NAUGHTY
+        .nature = NATURE_ADAMANT
     },
     [FRONTIER_MON_YANMEGA_3] = {
         .species = SPECIES_YANMEGA,
@@ -11556,7 +11535,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .nature = NATURE_CAREFUL
     },
     [FRONTIER_MON_WOOLOO_8] = {
-        .species = SPECIES_WURMPLE,
+        .species = SPECIES_WOOLOO,
         .moves = {MOVE_RETURN, MOVE_EARTHQUAKE, MOVE_SWORDS_DANCE, MOVE_MILK_DRINK},
         .itemTableId = BATTLE_FRONTIER_ITEM_LUM_BERRY,
         .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_SPEED,
@@ -12516,7 +12495,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .evSpread = F_EV_SPREAD_HP | F_EV_SPREAD_DEFENSE,
         .nature = NATURE_BOLD
     },
-    [FRONTIER_MON_SOBBLE] = {
+    [FRONTIER_MON_SOBBLE_1] = {
         .species = SPECIES_SOBBLE,
         .moves = {MOVE_ICE_BEAM, MOVE_SURF, MOVE_REFLECT, MOVE_LIGHT_SCREEN},
         .itemTableId = BATTLE_FRONTIER_ITEM_FOCUS_SASH,
@@ -13186,5 +13165,354 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .itemTableId = BATTLE_FRONTIER_ITEM_LEFTOVERS,
         .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
         .nature = NATURE_MODEST
+    },
+    [FRONTIER_MON_LILLIPUP] = {
+        .species = SPECIES_LILLIPUP,
+        .moves = {MOVE_THUNDER_WAVE, MOVE_ROAR, MOVE_RETURN, MOVE_SHADOW_BALL},
+        .itemTableId = BATTLE_FRONTIER_ITEM_FOCUS_SASH,
+        .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_SPEED,
+        .nature = NATURE_ADAMANT
+    },
+
+    [FRONTIER_MON_HERDIER] = {
+        .species = SPECIES_HERDIER,
+        .moves = {MOVE_THUNDER_WAVE, MOVE_CHARM, MOVE_MUD_SLAP, MOVE_COVET},
+        .itemTableId = BATTLE_FRONTIER_ITEM_SITRUS_BERRY,
+        .evSpread = F_EV_SPREAD_HP | F_EV_SPREAD_SP_DEFENSE,
+        .nature = NATURE_CAREFUL
+    },
+
+    [FRONTIER_MON_STOUTLAND_1] = {
+        .species = SPECIES_STOUTLAND,
+        .moves = {MOVE_RETURN, MOVE_SHADOW_BALL, MOVE_SUPERPOWER, MOVE_IRON_HEAD},
+        .itemTableId = BATTLE_FRONTIER_ITEM_CHOICE_BAND,
+        .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_SPEED,
+        .nature = NATURE_ADAMANT
+    },
+
+    [FRONTIER_MON_STOUTLAND_2] = {
+        .species = SPECIES_STOUTLAND,
+        .moves = {MOVE_RETURN, MOVE_SHADOW_BALL, MOVE_SUPERPOWER, MOVE_HOWL},
+        .itemTableId = BATTLE_FRONTIER_ITEM_LEFTOVERS,
+        .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_SPEED,
+        .nature = NATURE_ADAMANT
+    },
+    [FRONTIER_MON_SIZZLIPEDE] = {
+        .species = SPECIES_SIZZLIPEDE,
+        .moves = {MOVE_OVERHEAT, MOVE_KNOCK_OFF, MOVE_LEECH_LIFE, MOVE_SMOKESCREEN},
+        .itemTableId = BATTLE_FRONTIER_ITEM_QUICK_CLAW,
+        .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_ATTACK,
+        .nature = NATURE_RASH
+    },
+
+    [FRONTIER_MON_CENTISKORCH_1] = {
+        .species = SPECIES_CENTISKORCH,
+        .moves = {MOVE_FLAMETHROWER, MOVE_KNOCK_OFF, MOVE_WILL_O_WISP, MOVE_REST},
+        .itemTableId = BATTLE_FRONTIER_ITEM_LEFTOVERS,
+        .evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_HP,
+        .nature = NATURE_CALM
+    },
+
+    [FRONTIER_MON_CENTISKORCH_2] = {
+        .species = SPECIES_CENTISKORCH,
+        .moves = {MOVE_COIL, MOVE_LEECH_LIFE, MOVE_SLEEP_TALK, MOVE_REST},
+        .itemTableId = BATTLE_FRONTIER_ITEM_LEFTOVERS,
+        .evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_HP,
+        .nature = NATURE_CAREFUL
+    },
+
+    [FRONTIER_MON_CENTISKORCH_3] = {
+        .species = SPECIES_CENTISKORCH,
+        .moves = {MOVE_SUNNY_DAY, MOVE_FIRE_BLAST, MOVE_SOLAR_BEAM, MOVE_KNOCK_OFF},
+        .itemTableId = BATTLE_FRONTIER_ITEM_QUICK_CLAW,
+        .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_HP,
+        .nature = NATURE_MODEST
+    },
+    [FRONTIER_MON_ROOKIDEE_1] = {
+        .species = SPECIES_ROOKIDEE,
+        .moves = {MOVE_DRILL_PECK, MOVE_TAUNT, MOVE_REVERSAL, MOVE_SAND_ATTACK},
+        .itemTableId = BATTLE_FRONTIER_ITEM_FOCUS_SASH,
+        .evSpread = F_EV_SPREAD_SPEED | F_EV_SPREAD_ATTACK,
+        .nature = NATURE_JOLLY
+    },
+
+    [FRONTIER_MON_CORVISQUIRE] = {
+        .species = SPECIES_ROOKIDEE,
+        .moves = {MOVE_BRAVE_BIRD, MOVE_TAUNT, MOVE_SPITE, MOVE_SAND_ATTACK},
+        .itemTableId = BATTLE_FRONTIER_ITEM_SHARP_BEAK,
+        .evSpread = F_EV_SPREAD_SPEED | F_EV_SPREAD_ATTACK,
+        .nature = NATURE_JOLLY
+    },
+
+    [FRONTIER_MON_CORVIKNIGHT_1] = {
+        .species = SPECIES_CORVIKNIGHT,
+        .moves = {MOVE_PROTECT, MOVE_SUBSTITUTE, MOVE_BULK_UP, MOVE_FLY},
+        .itemTableId = BATTLE_FRONTIER_ITEM_LEFTOVERS,
+        .evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_HP,
+        .nature = NATURE_CAREFUL
+    },
+
+    [FRONTIER_MON_CORVIKNIGHT_2] = {
+        .species = SPECIES_CORVIKNIGHT,
+        .moves = {MOVE_PROTECT, MOVE_SUBSTITUTE, MOVE_BULK_UP, MOVE_IRON_HEAD},
+        .itemTableId = BATTLE_FRONTIER_ITEM_LEFTOVERS,
+        .evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_HP,
+        .nature = NATURE_CAREFUL
+    },
+
+    [FRONTIER_MON_CORVIKNIGHT_3] = {
+        .species = SPECIES_CORVIKNIGHT,
+        .moves = {MOVE_PROTECT, MOVE_SUBSTITUTE, MOVE_FLY, MOVE_IRON_HEAD},
+        .itemTableId = BATTLE_FRONTIER_ITEM_LEFTOVERS,
+        .evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_HP,
+        .nature = NATURE_CAREFUL
+    },
+
+    [FRONTIER_MON_CORVIKNIGHT_4] = {
+        .species = SPECIES_CORVIKNIGHT,
+        .moves = {MOVE_PROTECT, MOVE_SUBSTITUTE, MOVE_FLY, MOVE_SPITE},
+        .itemTableId = BATTLE_FRONTIER_ITEM_LEFTOVERS,
+        .evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_HP,
+        .nature = NATURE_CAREFUL
+    },
+
+    [FRONTIER_MON_CORVIKNIGHT_5] = {
+        .species = SPECIES_CORVIKNIGHT,
+        .moves = {MOVE_REST, MOVE_SLEEP_TALK, MOVE_IRON_HEAD, MOVE_BULK_UP},
+        .itemTableId = BATTLE_FRONTIER_ITEM_LEFTOVERS,
+        .evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_HP,
+        .nature = NATURE_CAREFUL
+    },
+
+    [FRONTIER_MON_CORVIKNIGHT_6] = {
+        .species = SPECIES_CORVIKNIGHT,
+        .moves = {MOVE_REST, MOVE_SLEEP_TALK, MOVE_BRAVE_BIRD, MOVE_BULK_UP},
+        .itemTableId = BATTLE_FRONTIER_ITEM_LEFTOVERS,
+        .evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_HP,
+        .nature = NATURE_CAREFUL
+    },
+
+    [FRONTIER_MON_CORVIKNIGHT_7] = {
+        .species = SPECIES_CORVIKNIGHT,
+        .moves = {MOVE_REST, MOVE_SLEEP_TALK, MOVE_BRAVE_BIRD, MOVE_IRON_HEAD},
+        .itemTableId = BATTLE_FRONTIER_ITEM_LEFTOVERS,
+        .evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_HP,
+        .nature = NATURE_CAREFUL
+    },
+
+    [FRONTIER_MON_CORVIKNIGHT_8] = {
+        .species = SPECIES_CORVIKNIGHT,
+        .moves = {MOVE_BULK_UP, MOVE_PROTECT, MOVE_FLY, MOVE_IRON_HEAD},
+        .itemTableId = BATTLE_FRONTIER_ITEM_LEFTOVERS,
+        .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_HP,
+        .nature = NATURE_ADAMANT
+    },
+
+    [FRONTIER_MON_CORVIKNIGHT_9] = {
+        .species = SPECIES_CORVIKNIGHT,
+        .moves = {MOVE_REFLECT, MOVE_LIGHT_SCREEN, MOVE_BRAVE_BIRD, MOVE_IRON_HEAD},
+        .itemTableId = BATTLE_FRONTIER_ITEM_SHARP_BEAK,
+        .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_SPEED,
+        .nature = NATURE_ADAMANT
+    },
+
+    [FRONTIER_MON_HAWLUCHA_1] = {
+        .species = SPECIES_HAWLUCHA,
+        .moves = {MOVE_HI_JUMP_KICK, MOVE_STONE_EDGE, MOVE_BRAVE_BIRD, MOVE_IRON_HEAD},
+        .itemTableId = BATTLE_FRONTIER_ITEM_CHOICE_BAND,
+        .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_SPEED,
+        .nature = NATURE_ADAMANT
+    },
+
+    [FRONTIER_MON_HAWLUCHA_2] = {
+        .species = SPECIES_HAWLUCHA,
+        .moves = {MOVE_HI_JUMP_KICK, MOVE_STONE_EDGE, MOVE_BRAVE_BIRD, MOVE_SWORDS_DANCE},
+        .itemTableId = BATTLE_FRONTIER_ITEM_BLACK_BELT,
+        .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_SPEED,
+        .nature = NATURE_JOLLY
+    },
+
+    [FRONTIER_MON_HAWLUCHA_3] = {
+        .species = SPECIES_HAWLUCHA,
+        .moves = {MOVE_HI_JUMP_KICK, MOVE_PROTECT, MOVE_BRAVE_BIRD, MOVE_BULK_UP},
+        .itemTableId = BATTLE_FRONTIER_ITEM_LEFTOVERS,
+        .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_SPEED,
+        .nature = NATURE_JOLLY
+    },
+
+    [FRONTIER_MON_HAWLUCHA_4] = {
+        .species = SPECIES_HAWLUCHA,
+        .moves = {MOVE_HI_JUMP_KICK, MOVE_BATON_PASS, MOVE_BRAVE_BIRD, MOVE_SWORDS_DANCE},
+        .itemTableId = BATTLE_FRONTIER_ITEM_LUM_BERRY,
+        .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_SPEED,
+        .nature = NATURE_JOLLY
+    },
+
+    [FRONTIER_MON_DURANT_1] = {
+        .species = SPECIES_DURANT,
+        .moves = {MOVE_X_SCISSOR, MOVE_STONE_EDGE, MOVE_SUPERPOWER, MOVE_IRON_HEAD},
+        .itemTableId = BATTLE_FRONTIER_ITEM_CHOICE_BAND,
+        .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_SPEED,
+        .nature = NATURE_ADAMANT
+    },
+
+    [FRONTIER_MON_DURANT_2] = {
+        .species = SPECIES_DURANT,
+        .moves = {MOVE_X_SCISSOR, MOVE_AGILITY, MOVE_SUBSTITUTE, MOVE_IRON_HEAD},
+        .itemTableId = BATTLE_FRONTIER_ITEM_LIECHI_BERRY,
+        .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_SPEED,
+        .nature = NATURE_ADAMANT
+    },
+
+    [FRONTIER_MON_DURANT_3] = {
+        .species = SPECIES_DURANT,
+        .moves = {MOVE_X_SCISSOR, MOVE_AGILITY, MOVE_BATON_PASS, MOVE_IRON_HEAD},
+        .itemTableId = BATTLE_FRONTIER_ITEM_METAL_COAT,
+        .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_SPEED,
+        .nature = NATURE_ADAMANT
+    },
+
+    [FRONTIER_MON_DURANT_4] = {
+        .species = SPECIES_DURANT,
+        .moves = {MOVE_X_SCISSOR, MOVE_ENDEAVOR, MOVE_SUBSTITUTE, MOVE_IRON_HEAD},
+        .itemTableId = BATTLE_FRONTIER_ITEM_SALAC_BERRY,
+        .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_SPEED,
+        .nature = NATURE_ADAMANT
+    },
+
+    [FRONTIER_MON_DURANT_5] = {
+        .species = SPECIES_DURANT,
+        .moves = {MOVE_X_SCISSOR, MOVE_GUILLOTINE, MOVE_SUPERPOWER, MOVE_IRON_HEAD},
+        .itemTableId = BATTLE_FRONTIER_ITEM_SILVER_POWDER,
+        .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_SPEED,
+        .nature = NATURE_JOLLY
+    },
+
+    [FRONTIER_MON_DURANT_6] = {
+        .species = SPECIES_DURANT,
+        .moves = {MOVE_X_SCISSOR, MOVE_THUNDER_WAVE, MOVE_SUBSTITUTE, MOVE_IRON_HEAD},
+        .itemTableId = BATTLE_FRONTIER_ITEM_LEFTOVERS,
+        .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_SPEED,
+        .nature = NATURE_JOLLY
+    },
+
+    [FRONTIER_MON_DURANT_7] = {
+        .species = SPECIES_DURANT,
+        .moves = {MOVE_X_SCISSOR, MOVE_IRON_DEFENSE, MOVE_BATON_PASS, MOVE_IRON_HEAD},
+        .itemTableId = BATTLE_FRONTIER_ITEM_LUM_BERRY,
+        .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_SPEED,
+        .nature = NATURE_JOLLY
+    },
+
+    [FRONTIER_MON_SNOM] = {
+        .species = SPECIES_SNOM,
+        .moves = {MOVE_ICICLE_SPEAR, MOVE_PROTECT, MOVE_ICY_WIND, MOVE_MIRROR_COAT},
+        .itemTableId = BATTLE_FRONTIER_ITEM_FOCUS_SASH,
+        .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_HP,
+        .nature = NATURE_RASH
+    },
+
+    [FRONTIER_MON_FROSMOTH_1] = {
+        .species = SPECIES_FROSMOTH,
+        .moves = {MOVE_ICICLE_SPEAR, MOVE_ICE_BEAM, MOVE_GIGA_DRAIN, MOVE_DAZZLING_GLEAM},
+        .itemTableId = BATTLE_FRONTIER_ITEM_CHOICE_SPECS,
+        .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
+        .nature = NATURE_MODEST
+    },
+
+    [FRONTIER_MON_FROSMOTH_2] = {
+        .species = SPECIES_FROSMOTH,
+        .moves = {MOVE_QUIVER_DANCE, MOVE_ICE_BEAM, MOVE_GIGA_DRAIN, MOVE_DAZZLING_GLEAM},
+        .itemTableId = BATTLE_FRONTIER_ITEM_NEVER_MELT_ICE,
+        .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
+        .nature = NATURE_TIMID
+    },
+	
+    [FRONTIER_MON_FROSMOTH_3] = {
+        .species = SPECIES_FROSMOTH,
+        .moves = {MOVE_REST, MOVE_SLEEP_TALK, MOVE_ICE_BEAM, MOVE_TOXIC},
+        .itemTableId = BATTLE_FRONTIER_ITEM_LEFTOVERS,
+        .evSpread = F_EV_SPREAD_HP | F_EV_SPREAD_SP_DEFENSE,
+        .nature = NATURE_CALM
+    },
+
+    [FRONTIER_MON_TOXEL] = {
+        .species = SPECIES_TOXEL,
+        .moves = {MOVE_THUNDER_SHOCK, MOVE_ACID, MOVE_ENDEAVOR, MOVE_FLAIL},
+        .itemTableId = BATTLE_FRONTIER_ITEM_FOCUS_SASH,
+        .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_SPEED,
+        .nature = NATURE_HASTY
+    },
+
+    [FRONTIER_MON_TOXTRICITY_1] = {
+        .species = SPECIES_TOXTRICITY,
+        .moves = {MOVE_DRAGON_DANCE, MOVE_GUNK_SHOT, MOVE_BOOMBURST, MOVE_OVERDRIVE},
+        .itemTableId = BATTLE_FRONTIER_ITEM_MAGNET,
+        .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
+        .nature = NATURE_HASTY
+    },
+
+    [FRONTIER_MON_TOXTRICITY_2] = {
+        .species = SPECIES_TOXTRICITY,
+        .moves = {MOVE_FIRE_PUNCH, MOVE_PROTECT, MOVE_ENDEAVOR, MOVE_OVERDRIVE},
+        .itemTableId = BATTLE_FRONTIER_ITEM_FOCUS_SASH,
+        .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
+        .nature = NATURE_HASTY
+    },
+
+    [FRONTIER_MON_TOXTRICITY_LK_1] = {
+        .species = SPECIES_TOXTRICITY_LK,
+        .moves = {MOVE_SLUDGE_BOMB, MOVE_GUNK_SHOT, MOVE_BOOMBURST, MOVE_OVERDRIVE},
+        .itemTableId = BATTLE_FRONTIER_ITEM_CHOICE_BAND,
+        .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_SPEED,
+        .nature = NATURE_LONELY
+    },
+
+    [FRONTIER_MON_TOXTRICITY_LK_2] = {
+        .species = SPECIES_TOXTRICITY_LK,
+        .moves = {MOVE_PROTECT, MOVE_FIRE_PUNCH, MOVE_ENCORE, MOVE_OVERDRIVE},
+        .itemTableId = BATTLE_FRONTIER_ITEM_LEFTOVERS,
+        .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
+        .nature = NATURE_TIMID
+    },
+
+    [FRONTIER_MON_APPLIN_1] = {
+        .species = SPECIES_APPLIN,
+        .moves = {MOVE_ROLLOUT, MOVE_DEFENSE_CURL, MOVE_ASTONISH, MOVE_RECYCLE},
+        .itemTableId = BATTLE_FRONTIER_ITEM_SITRUS_BERRY,
+        .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_HP,
+        .nature = NATURE_ADAMANT
+    },
+
+    [FRONTIER_MON_FLAPPLE_1] = {
+        .species = SPECIES_FLAPPLE,
+        .moves = {MOVE_DRAGON_DANCE, MOVE_RETURN, MOVE_FLY, MOVE_GRAV_APPLE},
+        .itemTableId = BATTLE_FRONTIER_ITEM_POWER_HERB,
+        .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_SPEED,
+        .nature = NATURE_ADAMANT
+    },
+
+    [FRONTIER_MON_FLAPPLE_2] = {
+        .species = SPECIES_FLAPPLE,
+        .moves = {MOVE_SUBSTITUTE, MOVE_LEECH_SEED, MOVE_RECYCLE, MOVE_DRAGON_BREATH},
+        .itemTableId = BATTLE_FRONTIER_ITEM_SITRUS_BERRY,
+        .evSpread = F_EV_SPREAD_HP | F_EV_SPREAD_DEFENSE,
+        .nature = NATURE_BOLD
+    },
+
+    [FRONTIER_MON_APPLETUN_1] = {
+        .species = SPECIES_APPLETUN,
+        .moves = {MOVE_EARTHQUAKE, MOVE_LEECH_SEED, MOVE_RECOVER, MOVE_APPLE_ACID},
+        .itemTableId = BATTLE_FRONTIER_ITEM_LEFTOVERS,
+        .evSpread = F_EV_SPREAD_HP | F_EV_SPREAD_DEFENSE,
+        .nature = NATURE_SASSY
+    },
+
+    [FRONTIER_MON_APPLETUN_2] = {
+        .species = SPECIES_APPLETUN,
+        .moves = {MOVE_EARTHQUAKE, MOVE_CURSE, MOVE_RECOVER, MOVE_BODY_SLAM},
+        .itemTableId = BATTLE_FRONTIER_ITEM_LEFTOVERS,
+        .evSpread = F_EV_SPREAD_HP | F_EV_SPREAD_SP_DEFENSE,
+        .nature = NATURE_CAREFUL
     },
 };
