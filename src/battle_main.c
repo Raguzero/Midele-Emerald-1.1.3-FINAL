@@ -2120,7 +2120,14 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             SetMonMoveAvoidReturn(&gEnemyParty[i], pokeenemy -> moves[j], j);
             SetMonMoveAvoidReturn(&gPlayerParty[i], pokeplayer -> moves[j], j);
         }
-
+		// PARA PROBAR SI PETA, QUITAR CUANDO SE AÑADAN YA TODOS LOS SETS 
+		{
+  int i;
+  for (i = 0; i < NUM_FRONTIER_MONS; i++)
+    if (gBattleFrontierMons[i].species == 0)
+      while(1);
+	}
+		// PARA PROBAR SI PETA, QUITAR CUANDO SE AÑADAN YA TODOS LOS SETS 
         SetMonData(&gEnemyParty[i], MON_DATA_FRIENDSHIP, 0);
         SetMonData(&gEnemyParty[i], MON_DATA_HELD_ITEM, &gBattleFrontierHeldItems[pokeenemy -> itemTableId]);
         SetMonData(&gPlayerParty[i], MON_DATA_FRIENDSHIP, 0);
