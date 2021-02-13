@@ -217,6 +217,8 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_QUIVER_DANCE, AI_CBM_QuiverDance
 	if_effect EFFECT_LOCK_ON, AI_CBM_LockOn
 	if_effect EFFECT_COIL, AI_CBM_Coil
+	if_effect EFFECT_TAUNT, AI_CBM_Taunt
+	if_effect EFFECT_HEAL_BELL, AI_CBM_HealBell
 	if_effect EFFECT_HEAL_PULSE, Score_Minus5
 	if_effect EFFECT_MIDELE_POWER Score_Plus10
 	end
@@ -470,6 +472,10 @@ AI_CBM_Foresight: @ 82DC5D7
 
 AI_CBM_PerishSong: @ 82DC5E2
 	if_status3 AI_TARGET, STATUS3_PERISH_SONG, Score_Minus10
+	count_usable_party_mons AI_TARGET
+	if_equal 0, Score_Plus2
+	count_usable_party_mons AI_USER
+	if_equal 0, Score_Minus10
 	end
 
 AI_CBM_Sandstorm: @ 82DC5ED
@@ -634,6 +640,17 @@ AI_CBM_LockOn:
 	if_status3 AI_TARGET, STATUS3_ALWAYS_HITS, Score_Minus10
 	if_ability AI_TARGET, ABILITY_NO_GUARD, Score_Minus10
 	if_ability AI_USER, ABILITY_NO_GUARD, Score_Minus10
+	end
+	
+AI_CBM_HealBell:
+	if_status AI_USER, STATUS1_ANY, AI_CBM_HealBell_End
+	if_status_in_party AI_USER, STATUS1_ANY, AI_CBM_HealBell_End
+	score -5
+AI_CBM_HealBell_End:
+	end
+	
+AI_CBM_Taunt:
+	if_target_taunted Score_Minus10
 	end
 	
 AI_CBM_Coil:
@@ -1713,20 +1730,27 @@ AI_CV_VitalThrow_End:
 	end
 
 AI_CV_Substitute:
+	if_not_status2 AI_TARGET, STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION, AI_CV_Substitute1
+	if_status3 AI_TARGET, STATUS3_PERISH_SONG, AI_CV_SubstitutePlus3Continue
+	if_status AI_TARGET, STATUS1_BURN | STATUS1_PSN_ANY, AI_CV_SubstitutePlus1Continue
+	goto AI_CV_Substitute1
+AI_CV_SubstitutePlus1Continue:
+	score +1
+	goto AI_CV_Substitute1
+AI_CV_SubstitutePlus3Continue:
+	score +3
+AI_CV_Substitute1:
 	if_hp_more_than AI_USER, 90, AI_CV_Substitute4
 	if_hp_more_than AI_USER, 70, AI_CV_Substitute3
 	if_hp_more_than AI_USER, 50, AI_CV_Substitute2
 	if_random_less_than 100, AI_CV_Substitute2
 	score -1
-
 AI_CV_Substitute2:
 	if_random_less_than 100, AI_CV_Substitute3
 	score -1
-
 AI_CV_Substitute3:
 	if_random_less_than 100, AI_CV_Substitute4
 	score -1
-
 AI_CV_Substitute4:
 	if_target_faster AI_CV_Substitute_End
 	get_last_used_bank_move AI_TARGET
@@ -1739,22 +1763,17 @@ AI_CV_Substitute4:
 	if_equal EFFECT_CONFUSE, AI_CV_Substitute6
 	if_equal EFFECT_LEECH_SEED, AI_CV_Substitute7
 	goto AI_CV_Substitute_End
-
 AI_CV_Substitute5:
 	if_not_status AI_TARGET, STATUS1_ANY, AI_CV_Substitute8
 	goto AI_CV_Substitute_End
-
 AI_CV_Substitute6:
 	if_not_status2 AI_TARGET, STATUS2_CONFUSION, AI_CV_Substitute8
 	goto AI_CV_Substitute_End
-
 AI_CV_Substitute7:
 	if_status3 AI_TARGET, STATUS3_LEECHSEED, AI_CV_Substitute_End
-
 AI_CV_Substitute8:
 	if_random_less_than 100, AI_CV_Substitute_End
 	score +1
-
 AI_CV_Substitute_End:
 	end
 
@@ -2020,12 +2039,15 @@ AI_CV_Flail_End:
 	end
 
 AI_CV_HealBell:
-	if_status AI_TARGET, STATUS1_ANY, AI_CV_HealBell_End
-	if_status_in_party AI_TARGET, STATUS1_ANY, AI_CV_HealBell_End
-	score -5
-
-AI_CV_HealBell_End:
+	if_move MOVE_HEAL_BELL AI_CV_HealBell2
+AI_CV_HealBellEnd:
 	end
+@ Don't use Heal Bell to heal a partner that has Soundproof
+AI_CV_HealBell2:
+	if_status AI_USER, STATUS1_ANY, AI_CV_HealBellEnd
+	if_not_status AI_USER_PARTNER, STATUS1_ANY, AI_CV_HealBellEnd
+	if_ability AI_USER_PARTNER, ABILITY_SOUNDPROOF, Score_Minus3
+	goto AI_CV_HealBellEnd
 
 AI_CV_Thief:
 	get_hold_effect AI_TARGET
@@ -2126,11 +2148,11 @@ AI_CV_Protect_End:
 	end
 
 AI_CV_Foresight:
-	get_user_type1
+	get_target_type1
 	if_equal TYPE_GHOST, AI_CV_Foresight2
-	get_user_type2
+	get_target_type2
 	if_equal TYPE_GHOST, AI_CV_Foresight2
-	if_stat_level_more_than AI_USER, STAT_EVASION, 8, AI_CV_Foresight3
+	if_stat_level_more_than AI_TARGET, STAT_EVASION, 8, AI_CV_Foresight3
 	score -2
 	goto AI_CV_Foresight_End
 
@@ -2443,7 +2465,13 @@ AI_CV_SandstormResistantTypes:
     .byte -1
 
 AI_CV_FakeOut:
+	if_ability AI_TARGET, ABILITY_INNER_FOCUS, AI_CV_FakeOut_End
+	if_double_battle AI_CV_FakeOut_Double
+	score +5
+	end
+AI_CV_FakeOut_Double:
 	score +2
+AI_CV_FakeOut_End:
 	end
 
 AI_CV_SpitUp:
