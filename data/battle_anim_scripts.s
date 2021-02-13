@@ -394,6 +394,8 @@ gBattleAnims_Moves::
 	.4byte Move_THUNDER_CAGE
 	.4byte Move_DRAGON_ENERGY
 	.4byte Move_ELECTROWEB
+	.4byte Move_GRAV_APPLE
+	.4byte Move_APPLE_ACID
 	.4byte Move_COUNT @ cannot be reached, because last move is Psycho Boost
 
 	.align 2
@@ -9996,6 +9998,12 @@ Move_DAZZLING_GLEAM: @ animation de FLASH por ahora
 	playsewithpan SE_W043, SOUND_PAN_ATTACKER
 	createvisualtask sub_8117494, 2
 	waitforvisualfinish
+	playsewithpan SE_W043, SOUND_PAN_ATTACKER
+	createvisualtask sub_8117494, 2
+	waitforvisualfinish
+	playsewithpan SE_W043, SOUND_PAN_ATTACKER
+	createvisualtask sub_8117494, 2
+	waitforvisualfinish
 	end
 	
 Move_BRAVE_BIRD:
@@ -10338,7 +10346,54 @@ Move_OVERDRIVE:
 	end
 	
 Move_LIGHT_OF_RUIN:
+	loadspritegfx ANIM_TAG_ORBS
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 4, 0, 16, RGB_BLACK
+	waitforvisualfinish
+	delay 10
+	playsewithpan SE_W063, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_ATTACKER, 1, 0, 4, 1
+	waitforvisualfinish
+	delay 30
+	createsoundtask sub_8158C58, SE_W063B, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 1, 15, 0, 5
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_ATTACKER, 0, 4, 50, 1
+	createvisualtask sub_8115D94, 2, ANIM_TAG_ORBS, 1, 12, 31, 16, 0, 0
+	call LightOfRuin1
+	call LightOfRuin1
+	call LightOfRuin1
+	call LightOfRuin1
+	call LightOfRuin1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 50, 1
+	createvisualtask sub_8116620, 10, 4, 2, 0, 11, RGB(25, 25, 25)
+	call LightOfRuin1
+	call LightOfRuin1
+	call LightOfRuin1
+	call LightOfRuin1
+	call LightOfRuin1
+	call LightOfRuin1
+	call LightOfRuin1
+	call LightOfRuin1
+	call LightOfRuin1
+	call LightOfRuin1
+	call LightOfRuin1
+	call LightOfRuin1
+	call LightOfRuin1
+	call LightOfRuin1
+	call LightOfRuin1
+	call LightOfRuin1
+	call LightOfRuin1
+	call LightOfRuin1
+	call LightOfRuin1
+	call LightOfRuin1
+	call LightOfRuin1
+	createvisualtask sub_8116620, 10, 4, 2, 11, 0, RGB(25, 25, 25)
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 4, 16, 0, RGB_BLACK
 	end
+LightOfRuin1:
+	createsprite gHyperBeamOrbSpriteTemplate, ANIM_TARGET, 2
+	createsprite gHyperBeamOrbSpriteTemplate, ANIM_TARGET, 2
+	delay 1
+	return
 	
 Move_HEAD_SMASH:
 	loadspritegfx ANIM_TAG_IMPACT
@@ -10883,6 +10938,42 @@ Move_ELECTROWEB:
 	call ElectricityEffect
 Move_ELECTROWEB_Wait:
 	waitforvisualfinish
+	end
+	
+Move_GRAV_APPLE:
+	loadspritegfx ANIM_TAG_ENERGY_BALL
+	monbg ANIM_TARGET
+	setalpha 12, 8
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 1, 0, 8, RGB_BLACK
+	waitforvisualfinish
+	delay 15
+	createsoundtask sub_8158C58, SE_W054, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 5, 5, 0, 5
+	createsprite gEnergyBallSpriteTemplate, ANIM_TARGET, 2, 12, 4, 8
+	waitforvisualfinish
+	playsewithpan SE_W028, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 8, 1
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 1, 8, 0, RGB_BLACK
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
+	end
+	
+Move_APPLE_ACID:
+	loadspritegfx ANIM_TAG_ENERGY_BALL
+	monbg ANIM_TARGET
+	setalpha 12, 8
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 1, 0, 8, RGB_BLACK
+	waitforvisualfinish
+	delay 15
+	createsoundtask sub_8158C58, SE_W054, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 5, 5, 0, 5
+	createsprite gEnergyBallSpriteTemplate, ANIM_TARGET, 2, 12, 4, 8
+	waitforvisualfinish
+	playsewithpan SE_W028, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 8, 1
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 1, 8, 0, RGB_BLACK
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
 	end
 
 Move_COUNT:
