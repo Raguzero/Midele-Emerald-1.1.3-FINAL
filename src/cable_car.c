@@ -225,6 +225,16 @@ const struct SpriteTemplate gSpriteTemplate_85CDBCC = {
     .callback = nullsub_58,
 };
 
+static const u16 hikerGraphicsIds[] = {
+    EVENT_OBJ_GFX_QUINTY_PLUMP,
+    EVENT_OBJ_GFX_CYCLING_TRIATHLETE_F,
+    EVENT_OBJ_GFX_VIGOROTH_CARRYING_BOX,
+    EVENT_OBJ_GFX_POOCHYENA,
+    EVENT_OBJ_GFX_MEW,
+    EVENT_OBJ_GFX_RED,
+    EVENT_OBJ_GFX_LEAF,
+};
+
 static void CableCarTask1(u8 taskId)
 {
     if (!gPaletteFade.active)
@@ -772,12 +782,7 @@ static void LoadCableCarSprites(void)
         EVENT_OBJ_GFX_RIVAL_MAY_NORMAL
     };
     u16 rval = Random();
-    u16 hikerGraphicsIds[4] = {
-        EVENT_OBJ_GFX_HIKER,
-        EVENT_OBJ_GFX_CAMPER,
-        EVENT_OBJ_GFX_PICNICKER,
-        EVENT_OBJ_GFX_ZIGZAGOON_1
-    };
+    
     s16 hikerCoords[2][2] = {
         {   0,  80 },
         { 240, 146 }
@@ -850,44 +855,43 @@ static void LoadCableCarSprites(void)
         gSprites[spriteId].pos2.x = 8;
         gSprites[spriteId].pos2.y = 8;
     }
-    if ((rval % 64) == 0)
+
+    // Hiker sprites - easter egg
+    spriteId = AddPseudoEventObject(hikerGraphicsIds[rval % (ARRAY_COUNT(hikerGraphicsIds))], callbacks[gSpecialVar_0x8004], hikerCoords[gSpecialVar_0x8004][0], hikerCoords[gSpecialVar_0x8004][1], 0x6a);
+    if (spriteId != MAX_SPRITES)
     {
-        spriteId = AddPseudoEventObject(hikerGraphicsIds[rval % 3], callbacks[gSpecialVar_0x8004], hikerCoords[gSpecialVar_0x8004][0], hikerCoords[gSpecialVar_0x8004][1], 0x6a);
-        if (spriteId != MAX_SPRITES)
+        gSprites[spriteId].oam.priority = 2;
+        gSprites[spriteId].pos2.x = -gSprites[spriteId].centerToCornerVecX;
+        gSprites[spriteId].pos2.y = -gSprites[spriteId].centerToCornerVecY;
+        if (gSpecialVar_0x8004 == 0)
         {
-            gSprites[spriteId].oam.priority = 2;
-            gSprites[spriteId].pos2.x = -gSprites[spriteId].centerToCornerVecX;
-            gSprites[spriteId].pos2.y = -gSprites[spriteId].centerToCornerVecY;
-            if (gSpecialVar_0x8004 == 0)
+            if (rval % 2)
             {
-                if (rval % 2)
-                {
-                    StartSpriteAnim(&gSprites[spriteId], 6);
-                    gSprites[spriteId].data[1] = 1;
-                    gSprites[spriteId].pos1.y += 2;
-                }
-                else
-                {
-                    StartSpriteAnim(&gSprites[spriteId], 7);
-                    gSprites[spriteId].data[1] = 0;
-                }
+                StartSpriteAnim(&gSprites[spriteId], 6);
+                gSprites[spriteId].data[1] = 1;
+                gSprites[spriteId].pos1.y += 2;
             }
             else
             {
-                if (rval % 2)
-                {
-                    StartSpriteAnim(&gSprites[spriteId], 7);
-                    gSprites[spriteId].data[1] = 1;
-                    gSprites[spriteId].pos1.y += 2;
-                }
-                else
-                {
-                    StartSpriteAnim(&gSprites[spriteId], 6);
-                    gSprites[spriteId].data[1] = 0;
-                }
+                StartSpriteAnim(&gSprites[spriteId], 7);
+                gSprites[spriteId].data[1] = 0;
             }
-            gSprites[spriteId].data[2] = hikerMovementDelayTable[rval % 4];
         }
+        else
+        {
+            if (rval % 2)
+            {
+                StartSpriteAnim(&gSprites[spriteId], 7);
+                gSprites[spriteId].data[1] = 1;
+                gSprites[spriteId].pos1.y += 2;
+            }
+            else
+            {
+                StartSpriteAnim(&gSprites[spriteId], 6);
+                gSprites[spriteId].data[1] = 0;
+            }
+        }
+        gSprites[spriteId].data[2] = hikerMovementDelayTable[rval % 4];
     }
 }
 
