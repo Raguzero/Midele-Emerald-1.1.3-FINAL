@@ -54,14 +54,13 @@ AI_CheckBadMove:
 
 AI_CBM_CheckIfNegatesType: @ 82DBF92
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
-	get_ability AI_TARGET
-	if_equal ABILITY_VOLT_ABSORB, CheckIfVoltAbsorbCancelsElectric
-	if_equal ABILITY_MOTOR_DRIVE, CheckIfVoltAbsorbCancelsElectric
-	if_equal ABILITY_WATER_ABSORB, CheckIfWaterAbsorbCancelsWater
-	if_equal ABILITY_DRY_SKIN, CheckIfWaterAbsorbCancelsWater
-	if_equal ABILITY_FLASH_FIRE, CheckIfFlashFireCancelsFire
-	if_equal ABILITY_WONDER_GUARD, CheckIfWonderGuardCancelsMove
-	if_equal ABILITY_LEVITATE, CheckIfLevitateCancelsGroundMove
+	if_ability_might_be AI_TARGET, ABILITY_VOLT_ABSORB, CheckIfVoltAbsorbCancelsElectric
+	if_ability_might_be AI_TARGET, ABILITY_MOTOR_DRIVE, CheckIfVoltAbsorbCancelsElectric
+	if_ability_might_be AI_TARGET, ABILITY_WATER_ABSORB, CheckIfWaterAbsorbCancelsWater
+	if_ability_might_be AI_TARGET, ABILITY_DRY_SKIN, CheckIfWaterAbsorbCancelsWater
+	if_ability_might_be AI_TARGET, ABILITY_FLASH_FIRE, CheckIfFlashFireCancelsFire
+	if_ability_might_be AI_TARGET, ABILITY_WONDER_GUARD, CheckIfWonderGuardCancelsMove
+	if_ability_might_be AI_TARGET, ABILITY_LEVITATE, CheckIfLevitateCancelsGroundMove
 	goto AI_CheckBadMove_CheckSoundproof_
 
 CheckIfVoltAbsorbCancelsElectric: @ 82DBFBD
@@ -224,17 +223,15 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	end
 
 AI_CBM_Sleep: @ 82DC2D4
-	get_ability AI_TARGET
-	if_equal ABILITY_INSOMNIA, Score_Minus10
-	if_equal ABILITY_VITAL_SPIRIT, Score_Minus10
+    if_ability_might_be AI_TARGET, ABILITY_INSOMNIA, Score_Minus10
+    if_ability_might_be AI_TARGET, ABILITY_VITAL_SPIRIT, Score_Minus10
 	if_status AI_TARGET, STATUS1_ANY, Score_Minus10
 	if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
 	end
 
 AI_CBM_Explosion: @ 82DC2F7
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
-	get_ability AI_TARGET
-	if_equal ABILITY_DAMP, Score_Minus10
+    if_ability_might_be AI_TARGET, ABILITY_DAMP, Score_Minus10
 	count_usable_party_mons AI_USER
 	if_not_equal 0, AI_CBM_Explosion_End
 	count_usable_party_mons AI_TARGET
@@ -287,8 +284,7 @@ AI_CBM_EvasionUp: @ 82DC37E
 
 AI_CBM_AttackDown: @ 82DC387
 	if_stat_level_equal AI_TARGET, STAT_ATK, 0, Score_Minus10
-	get_ability AI_TARGET
-	if_equal ABILITY_HYPER_CUTTER, Score_Minus10
+    if_ability_might_be AI_TARGET, ABILITY_HYPER_CUTTER, Score_Minus10
 	goto CheckIfAbilityBlocksStatChange
 
 AI_CBM_DefenseDown: @ 82DC39C
@@ -297,7 +293,7 @@ AI_CBM_DefenseDown: @ 82DC39C
 
 AI_CBM_SpeedDown: @ 82DC3A9
 	if_stat_level_equal AI_TARGET, STAT_SPEED, 0, Score_Minus10
-	if_ability AI_TARGET, ABILITY_SPEED_BOOST, Score_Minus10
+	if_ability_might_be AI_TARGET, ABILITY_SPEED_BOOST, Score_Minus10
 	goto CheckIfAbilityBlocksStatChange
 
 AI_CBM_SpAtkDown: @ 82DC3BF
@@ -310,17 +306,15 @@ AI_CBM_SpDefDown: @ 82DC3CC
 
 AI_CBM_AccDown: @ 82DC3D9
 	if_stat_level_equal AI_TARGET, STAT_ACC, 0, Score_Minus10
-	get_ability AI_TARGET
-	if_equal ABILITY_KEEN_EYE, Score_Minus10
+    if_ability_might_be AI_TARGET, ABILITY_KEEN_EYE, Score_Minus10
 	goto CheckIfAbilityBlocksStatChange
 
 AI_CBM_EvasionDown: @ 82DC3EE
 	if_stat_level_equal AI_TARGET, STAT_EVASION, 0, Score_Minus10
 
 CheckIfAbilityBlocksStatChange: @ 82DC3F6
-	get_ability AI_TARGET
-	if_equal ABILITY_CLEAR_BODY, Score_Minus10
-	if_equal ABILITY_WHITE_SMOKE, Score_Minus10
+    if_ability_might_be AI_TARGET, ABILITY_CLEAR_BODY, Score_Minus10
+    if_ability_might_be AI_TARGET, ABILITY_WHITE_SMOKE, Score_Minus10
 	end
 
 AI_CBM_Haze: @ 82DC405
@@ -346,8 +340,7 @@ AI_CBM_Haze_End: @ 82DC47A
 AI_CBM_Roar: @ 82DC47B
 	count_usable_party_mons AI_TARGET
 	if_equal 0, Score_Minus10
-	get_ability AI_TARGET
-	if_equal ABILITY_SUCTION_CUPS, Score_Minus10
+    if_ability_might_be AI_TARGET, ABILITY_SUCTION_CUPS, Score_Minus10
 	end
 
 AI_CBM_Toxic: @ 82DC48C
@@ -357,8 +350,7 @@ AI_CBM_Toxic: @ 82DC48C
 	get_target_type2
 	if_equal TYPE_STEEL, Score_Minus10
 	if_equal TYPE_POISON, Score_Minus10
-	get_ability AI_TARGET
-	if_equal ABILITY_IMMUNITY, Score_Minus10
+    if_ability_might_be AI_TARGET, ABILITY_IMMUNITY, Score_Minus10
 	if_status AI_TARGET, STATUS1_ANY, Score_Minus10
 	if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
 	end
@@ -369,14 +361,12 @@ AI_CBM_LightScreen: @ 82DC4C5
 
 AI_CBM_OneHitKO: @ 82DC4D0
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
-	get_ability AI_TARGET
-	if_equal ABILITY_STURDY, Score_Minus10
+    if_ability_might_be AI_TARGET, ABILITY_STURDY, Score_Minus10
 	if_level_cond 1, Score_Minus10
 	end
 
 AI_CBM_Magnitude: @ 82DC4E5
-	get_ability AI_TARGET
-	if_equal ABILITY_LEVITATE, Score_Minus10
+    if_ability_might_be AI_TARGET, ABILITY_LEVITATE, Score_Minus10
 
 AI_CBM_HighRiskForDamage: @ 82DC4ED
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
@@ -398,8 +388,7 @@ AI_CBM_FocusEnergy: @ 82DC512
 
 AI_CBM_Confuse: @ 82DC51D
 	if_status2 AI_TARGET, STATUS2_CONFUSION, Score_Minus5
-	get_ability AI_TARGET
-	if_equal ABILITY_OWN_TEMPO, Score_Minus10
+	if_ability_might_be AI_TARGET, ABILITY_OWN_TEMPO, Score_Minus10
 	if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
 	end
 
@@ -411,17 +400,16 @@ AI_CBM_Paralyze: @ 82DC545
 	if_move MOVE_GLARE, AI_CBM_Paralyze_SkipEffectiveness
     if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
 AI_CBM_Paralyze_SkipEffectiveness:
-    get_ability AI_TARGET
-    if_equal ABILITY_LIMBER, Score_Minus10
+	if_ability_might_be AI_TARGET, ABILITY_LIMBER, Score_Minus10
     if_status AI_TARGET, STATUS1_ANY, Score_Minus10
     if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
     if_move MOVE_THUNDER_WAVE, AI_ThunderWave
     end
     
 AI_ThunderWave:
-    if_equal ABILITY_MOTOR_DRIVE, Score_Minus10
-    if_equal ABILITY_LIGHTNING_ROD, Score_Minus10
-    if_equal ABILITY_VOLT_ABSORB, Score_Minus10
+	if_ability_might_be AI_TARGET, ABILITY_MOTOR_DRIVE, Score_Minus10
+	if_ability_might_be AI_TARGET, ABILITY_LIGHTNING_ROD, Score_Minus10
+	if_ability_might_be AI_TARGET, ABILITY_VOLT_ABSORB, Score_Minus10
     end
 
 AI_CBM_Substitute: @ 82DC568
@@ -485,8 +473,7 @@ AI_CBM_Sandstorm: @ 82DC5ED
 
 AI_CBM_Attract: @ 82DC5F5
 	if_status2 AI_TARGET, STATUS2_INFATUATION, Score_Minus10
-	get_ability AI_TARGET
-	if_equal ABILITY_OBLIVIOUS, Score_Minus10
+	if_ability_might_be AI_TARGET, ABILITY_OBLIVIOUS, Score_Minus10
 	get_gender AI_USER
 	if_equal 0, AI_CBM_Attract_CheckIfTargetIsFemale
 	if_equal 254, AI_CBM_Attract_CheckIfTargetIsMale
@@ -560,9 +547,8 @@ AI_CBM_Torment: @ 82DC6A9
 	end
 
 AI_CBM_WillOWisp: @ 82DC6B4
-	get_ability AI_TARGET
-	if_equal ABILITY_FLASH_FIRE, Score_Minus10
-	if_equal ABILITY_WATER_VEIL, Score_Minus10
+    if_ability_might_be AI_TARGET, ABILITY_FLASH_FIRE, Score_Minus10
+    if_ability_might_be AI_TARGET, ABILITY_WATER_VEIL, Score_Minus10
 	if_status AI_TARGET, STATUS1_ANY, Score_Minus10
 	get_target_type1
     if_equal TYPE_FIRE, Score_Minus10
@@ -576,8 +562,7 @@ AI_CBM_HelpingHand: @ 82DC6E3
 	end
 
 AI_CBM_TrickAndKnockOff: @ 82DC6EB
-	get_ability AI_TARGET
-	if_equal ABILITY_STICKY_HOLD, Score_Minus10
+	if_ability_might_be AI_TARGET, ABILITY_STICKY_HOLD, Score_Minus10
 	end
 
 AI_CBM_Ingrain: @ 82DC6F4
@@ -638,7 +623,7 @@ AI_CBM_QuiverDance:
 	
 AI_CBM_LockOn:
 	if_status3 AI_TARGET, STATUS3_ALWAYS_HITS, Score_Minus10
-	if_ability AI_TARGET, ABILITY_NO_GUARD, Score_Minus10
+	if_ability_might_be AI_TARGET, ABILITY_NO_GUARD, Score_Minus10
 	if_ability AI_USER, ABILITY_NO_GUARD, Score_Minus10
 	end
 	
@@ -2465,7 +2450,7 @@ AI_CV_SandstormResistantTypes:
     .byte -1
 
 AI_CV_FakeOut:
-	if_ability AI_TARGET, ABILITY_INNER_FOCUS, AI_CV_FakeOut_End
+	if_ability_might_be AI_TARGET, ABILITY_INNER_FOCUS, AI_CV_FakeOut_End
 	if_double_battle AI_CV_FakeOut_Double
 	score +5
 	end
@@ -3132,6 +3117,8 @@ AI_DoubleBattleSkillSwap:
 	get_ability AI_TARGET
 	if_equal ABILITY_SHADOW_TAG, Score_Plus2
 	if_equal ABILITY_PURE_POWER, Score_Plus2
+	if_ability AI_TARGET, ABILITY_HUGE_POWER, Score_Plus2
+	if_ability AI_TARGET, ABILITY_FUR_COAT, Score_Plus2
 	end
 
 AI_DoubleBattleElectricMove:

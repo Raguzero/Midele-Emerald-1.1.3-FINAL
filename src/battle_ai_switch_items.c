@@ -539,6 +539,8 @@ static bool8 ShouldSwitch(void)
         return TRUE;
     if (ShouldSwitchIfNaturalCure())
         return TRUE;
+	if (gBattleMons[gActiveBattler].species == SPECIES_REGIGIGAS)
+		return FALSE;
     if (HasSuperEffectiveMoveAgainstOpponents(FALSE))
         return FALSE;
     if (AreStatsRaised())

@@ -592,6 +592,11 @@
 	if_equal 0, \ptr
 	.endm
 	
+	.macro if_ability_might_be battler:req, ability:req, ptr:req
+	check_ability \battler, \ability
+	if_not_equal 0, \ptr
+	.endm
+	
 	.macro if_type battler:req, type:req, ptr:req
 	is_of_type \battler, \type
 	if_equal 1, \ptr

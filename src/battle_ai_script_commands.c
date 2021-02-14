@@ -1507,7 +1507,7 @@ static void Cmd_check_ability(void)
         }
         else if (gBaseStats[gBattleMons[battlerId].species].abilities[0] != ABILITY_NONE)
         {
-            if (gBaseStats[gBattleMons[battlerId].species].abilities[1] != ABILITY_NONE)
+            if (gBaseStats[gBattleMons[battlerId].species].abilities[1] != ABILITY_NONE && gBaseStats[gBattleMons[battlerId].species].abilities[1] != gBaseStats[gBattleMons[battlerId].species].abilities[0])
             {
                 u8 abilityDummyVariable = ability; // Needed to match.
                 if (gBaseStats[gBattleMons[battlerId].species].abilities[0] != abilityDummyVariable
