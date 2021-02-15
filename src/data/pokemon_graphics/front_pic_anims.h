@@ -6052,6 +6052,109 @@ static const union AnimCmd sAnim_WINTASS_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_GOOMY_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_SLIGGOO_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_GOODRA_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_STUNFISK_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_GALAR_STUNFISK_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_SOLOSIS_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_DUOSION_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_REUNICLUS_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_VULLABY_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_MANDIBUZZ_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_DRILBUR_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_EXCADRILL_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_DARK_PIKACHU_1[] =
+{
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 20),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 20),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_ARMOR_MEWTWO_1[] =
+{
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 20),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_EGG_1[] =
 {
     ANIMCMD_FRAME(0, 6),
@@ -9288,6 +9391,76 @@ static const union AnimCmd *const sAnims_WINTASS[] ={
     sAnim_WINTASS_1,
 };
 
+static const union AnimCmd *const sAnims_GOOMY[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GOOMY_1,
+};
+
+static const union AnimCmd *const sAnims_SLIGGOO[] ={
+    sAnim_GeneralFrame0,
+    sAnim_SLIGGOO_1,
+};
+
+static const union AnimCmd *const sAnims_GOODRA[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GOODRA_1,
+};
+
+static const union AnimCmd *const sAnims_STUNFISK[] ={
+    sAnim_GeneralFrame0,
+    sAnim_STUNFISK_1,
+};
+
+static const union AnimCmd *const sAnims_GALAR_STUNFISK[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GALAR_STUNFISK_1,
+};
+
+static const union AnimCmd *const sAnims_SOLOSIS[] ={
+    sAnim_GeneralFrame0,
+    sAnim_SOLOSIS_1,
+};
+
+static const union AnimCmd *const sAnims_DUOSION[] ={
+    sAnim_GeneralFrame0,
+    sAnim_DUOSION_1,
+};
+
+static const union AnimCmd *const sAnims_REUNICLUS[] ={
+    sAnim_GeneralFrame0,
+    sAnim_REUNICLUS_1,
+};
+
+static const union AnimCmd *const sAnims_VULLABY[] ={
+    sAnim_GeneralFrame0,
+    sAnim_VULLABY_1,
+};
+
+static const union AnimCmd *const sAnims_MANDIBUZZ[] ={
+    sAnim_GeneralFrame0,
+    sAnim_MANDIBUZZ_1,
+};
+
+static const union AnimCmd *const sAnims_DRILBUR[] ={
+    sAnim_GeneralFrame0,
+    sAnim_DRILBUR_1,
+};
+
+static const union AnimCmd *const sAnims_EXCADRILL[] ={
+    sAnim_GeneralFrame0,
+    sAnim_EXCADRILL_1,
+};
+
+static const union AnimCmd *const sAnims_DARK_PIKACHU[] ={
+    sAnim_GeneralFrame0,
+    sAnim_DARK_PIKACHU_1,
+};
+
+static const union AnimCmd *const sAnims_ARMOR_MEWTWO[] ={
+    sAnim_GeneralFrame0,
+    sAnim_ARMOR_MEWTWO_1,
+};
+
 static const union AnimCmd *const sAnims_EGG[] ={
     sAnim_GeneralFrame0,
     sAnim_EGG_1,
@@ -10052,6 +10225,20 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(REGIELEKI),
     ANIM_CMD(REGIDRAGO),
     ANIM_CMD(WINTASS),
+    ANIM_CMD(GOOMY),
+    ANIM_CMD(SLIGGOO),
+    ANIM_CMD(GOODRA),
+    ANIM_CMD(STUNFISK),
+    ANIM_CMD(GALAR_STUNFISK),
+    ANIM_CMD(SOLOSIS),
+    ANIM_CMD(DUOSION),
+    ANIM_CMD(REUNICLUS),
+    ANIM_CMD(VULLABY),
+    ANIM_CMD(MANDIBUZZ),
+    ANIM_CMD(DRILBUR),
+    ANIM_CMD(EXCADRILL),
+    ANIM_CMD(DARK_PIKACHU),
+    ANIM_CMD(ARMOR_MEWTWO),
 // NUEVO PARA FORMAS ALOLA
     ANIM_CMD_FULL(BOSS, sAnims_WOOLOO),
     ANIM_CMD(EGG),

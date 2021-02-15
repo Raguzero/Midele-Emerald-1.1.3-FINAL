@@ -3088,6 +3088,76 @@ const struct MonCoords gMonFrontPicCoords[] =
         .size = 0x88,
         .y_offset = 0x02,
     },
+    [SPECIES_GOOMY] =
+    {
+        .size = 0x45,
+        .y_offset = 0x0D,
+    },
+    [SPECIES_SLIGGOO] =
+    {
+        .size = 0x45,
+        .y_offset = 0x06,
+    },
+    [SPECIES_GOODRA] =
+    {
+        .size = 0x45,
+        .y_offset = 0x00,
+    },
+    [SPECIES_STUNFISK] =
+    {
+        .size = 0x45,
+        .y_offset = 0xe,
+    },
+    [SPECIES_GALAR_STUNFISK] =
+    {
+        .size = 0x45,
+        .y_offset = 0xe,
+    },
+    [SPECIES_SOLOSIS] =
+    {
+        .size = 0x45,
+        .y_offset = 0x11,
+    },
+    [SPECIES_DUOSION] =
+    {
+        .size = 0x45,
+        .y_offset = 0xc,
+    },
+    [SPECIES_REUNICLUS] =
+    {
+        .size = 0x45,
+        .y_offset = 0xb,
+    },
+    [SPECIES_VULLABY] =
+    {
+        .size = 0x45,
+        .y_offset = 0x5,
+    },
+    [SPECIES_MANDIBUZZ] =
+    {
+        .size = 0x45,
+        .y_offset = 0x1,
+    },
+    [SPECIES_DRILBUR] =
+    {
+        .size = 0x45,
+        .y_offset = 0xa,
+    },
+    [SPECIES_EXCADRILL] =
+    {
+        .size = 0x45,
+        .y_offset = 0x5,
+    },
+    [SPECIES_ARMOR_MEWTWO] =
+    {
+        .size = 0x88,
+        .y_offset = 0x00,
+    },
+    [SPECIES_DARK_PIKACHU] =
+    {
+        .size = 0x67,
+        .y_offset = 0x09,
+    },
     [SPECIES_BOSS] =
     {
         .size = 0x88,

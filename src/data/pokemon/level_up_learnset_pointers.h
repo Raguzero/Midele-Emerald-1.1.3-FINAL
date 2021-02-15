@@ -412,8 +412,7 @@ const u16 *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_JIRACHI] = sJirachiLevelUpLearnset,
     [SPECIES_DEOXYS] = sDeoxysLevelUpLearnset,
     [SPECIES_CHIMECHO] = sChimechoLevelUpLearnset,
-// NUEVO PARA FORMAS ALOLA
-// Alolan Forms
+// NUEVO POKEMON
     [SPECIES_ALOLAN_RATTATA] = sAlolanRattataLevelUpLearnset,
     [SPECIES_ALOLAN_RATICATE] = sAlolanRaticateLevelUpLearnset,
     [SPECIES_ALOLAN_RAICHU] = sAlolanRaichuLevelUpLearnset,
@@ -620,6 +619,19 @@ const u16 *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_REGIELEKI] = sRegielekiLevelUpLearnset,
     [SPECIES_REGIDRAGO] = sRegidragoLevelUpLearnset,
     [SPECIES_WINTASS] = sWintassLevelUpLearnset,
+    [SPECIES_GOOMY] = sGoomyLevelUpLearnset,
+    [SPECIES_SLIGGOO] = sSliggooLevelUpLearnset,
+    [SPECIES_GOODRA] = sGoodraLevelUpLearnset,
+    [SPECIES_STUNFISK] = sStunfiskLevelUpLearnset,
+    [SPECIES_GALAR_STUNFISK] = sStunfiskGalarianLevelUpLearnset,
+    [SPECIES_SOLOSIS] = sSolosisLevelUpLearnset,
+    [SPECIES_DUOSION] = sDuosionLevelUpLearnset,
+    [SPECIES_REUNICLUS] = sReuniclusLevelUpLearnset,
+    [SPECIES_VULLABY] = sVullabyLevelUpLearnset,
+    [SPECIES_MANDIBUZZ] = sMandibuzzLevelUpLearnset,
+    [SPECIES_DRILBUR] = sDrilburLevelUpLearnset,
+    [SPECIES_EXCADRILL] = sExcadrillLevelUpLearnset,
+    [SPECIES_ARMOR_MEWTWO] = sArmorMewtwoLevelUpLearnset,
+    [SPECIES_DARK_PIKACHU] = sDarkPikachuLevelUpLearnset,
     [SPECIES_BOSS] = sBulbasaurLevelUpLearnset,
-// NUEVO PARA FORMAS ALOLA
 };

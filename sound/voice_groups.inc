@@ -14600,7 +14600,17 @@ gCryTable:: @ 869DCF4
 	cry Cry_Regieleki
 	cry Cry_Regidrago
 	cry Cry_Wintass
-
+	cry Cry_Goomy
+	cry Cry_Sliggoo
+	cry Cry_Goodra
+	cry Cry_Stunfisk
+	cry Cry_Solosis
+	cry Cry_Duosion
+	cry Cry_Reuniclus
+	cry Cry_Vullaby
+	cry Cry_Mandibuzz
+	cry Cry_Drilbur
+	cry Cry_Excadrill
 
 	.align 2
 gCryTable2:: @ 869EF24
@@ -15165,6 +15175,17 @@ gCryTable2:: @ 869EF24
 	cry2 Cry_Regieleki
 	cry2 Cry_Regidrago
 	cry2 Cry_Wintass
+	cry2 Cry_Goomy
+	cry2 Cry_Sliggoo
+	cry2 Cry_Goodra
+	cry2 Cry_Stunfisk
+	cry2 Cry_Solosis
+	cry2 Cry_Duosion
+	cry2 Cry_Reuniclus
+	cry2 Cry_Vullaby
+	cry2 Cry_Mandibuzz
+	cry2 Cry_Drilbur
+	cry2 Cry_Excadrill
 
 	.align 2
 voicegroup129:: @ 86A0154

@@ -6638,4 +6638,148 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 301,
         .trainerOffset = 2,
     },
+	
+	[NATIONAL_DEX_GOOMY] =
+	{
+		.categoryName = _("SOFT TISSUE"),
+		.height = 3,
+		.weight = 28,
+		.description = gGoomyPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_SLIGGOO] =
+	{
+		.categoryName = _("SOFT TISSUE"),
+		.height = 8,
+		.weight = 175,
+		.description = gSliggooPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_GOODRA] =
+	{
+		.categoryName = _("DRAGON"),
+		.height = 20,
+		.weight = 1505,
+		.description = gGoodraPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	
+	[NATIONAL_DEX_STUNFISK] =
+	{
+		.categoryName = _("TRAP"),
+		.height = 7,
+		.weight = 110,
+		.description = gStunfiskPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_SOLOSIS] =
+	{
+		.categoryName = _("CELL"),
+		.height = 3,
+		.weight = 10,
+		.description = gSolosisPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_DUOSION] =
+	{
+		.categoryName = _("MITOSIS"),
+		.height = 6,
+		.weight = 80,
+		.description = gDuosionPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_REUNICLUS] =
+	{
+		.categoryName = _("MULTIPLYING"),
+		.height = 10,
+		.weight = 201,
+		.description = gReuniclusPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	
+	[NATIONAL_DEX_VULLABY] =
+	{
+		.categoryName = _("DIAPERED"),
+		.height = 5,
+		.weight = 90,
+		.description = gVullabyPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_MANDIBUZZ] =
+	{
+		.categoryName = _("BONEVULTURE"),
+		.height = 12,
+		.weight = 395,
+		.description = gMandibuzzPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	
+	[NATIONAL_DEX_DRILBUR] =
+	{
+		.categoryName = _("MOLE"),
+		.height = 3,
+		.weight = 85,
+		.description = gDrilburPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+	[NATIONAL_DEX_EXCADRILL] =
+	{
+		.categoryName = _("SUBTERRENE"),
+		.height = 7,
+		.weight = 404,
+		.description = gExcadrillPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	
+    [NATIONAL_DEX_DARK_PIKACHU] =
+    {
+        .categoryName = _("MIDELEMOUSE"),
+        .height = 4,
+        .weight = 60,
+        .description = gDarkPikachuPokedexText,
+        .pokemonScale = 479,
+        .pokemonOffset = 19,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
 };

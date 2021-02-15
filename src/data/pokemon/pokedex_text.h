@@ -3342,4 +3342,76 @@ const u8 gWintassPokedexText[] = _(
 	"Its body is covered of branches, stones\n" 
 	"and snowmans that people made before\n" 
 	"WINTASS came to life.");
+	
+const u8 gGoomyPokedexText[] = _(
+    "Its source of protection is its slimy,\n"
+    "germ-laden mucous membrane. Anyone\n"
+    "who touches it will need some thorough\n"
+    "hand-washing.");
+
+const u8 gSliggooPokedexText[] = _(
+    "This Pokémon's mucous can dissolve\n"
+    "anything. Toothless, it sprays mucous\n"
+    "on its prey. Once they're nicely dissolved,\n"
+    "it slurps them up.");
+
+const u8 gGoodraPokedexText[] = _(
+    "It gets picked on because it's meek.\n"
+    "But then, whoever teased it gets to feel\n"
+    "the full force of its horns and a good\n"
+    "swatting from its thick tail.");
+	
+const u8 gStunfiskPokedexText[] = _(
+    "It conceals itself in the mud of the\n"
+    "seashore. Then it waits. When prey touch\n"
+    "it, it delivers a jolt of electricity.\n"
+    "It smiles when transmitting electricity.");
+	
+const u8 gSolosisPokedexText[] = _(
+    "Because their bodies are enveloped\n"
+    "in a special liquid, they are fine in any\n"
+    "environment, no matter how severe. They\n"
+    "can use telepathy to talk with others.");
+
+const u8 gDuosionPokedexText[] = _(
+    "When their brains, now divided in two,\n"
+    "are thinking the same thoughts,\n"
+    "these Pokémon exhibit their maximized\n"
+    "psychic power.");
+
+const u8 gReuniclusPokedexText[] = _(
+    "They use psychic power to control their\n"
+    "arms, which are made of a special liquid.\n"
+    "When Reuniclus shake hands, a network\n"
+    "forms between their brains.");
+	
+const u8 gVullabyPokedexText[] = _(
+    "It can't fly yet and must wait until its\n"
+    "wings have developed more. They guard\n"
+    "their posteriors with bones that were\n"
+    "gathered by Mandibuzz.");
+
+const u8 gMandibuzzPokedexText[] = _(
+    "They adorn themselves beautifully with\n"
+    "bones. This is supposedly an effort to\n"
+    "attract males, but no male Mandibuzz\n"
+    "have ever been found.");
+	
+const u8 gDrilburPokedexText[] = _(
+    "It can dig through the ground at a\n"
+    "speed of 30 mph by spinning its body.\n"
+    "It could give a car running aboveground\n"
+    "a good race.");
+
+const u8 gExcadrillPokedexText[] = _(
+    "More than 300 feet below the surface,\n"
+    "they build mazelike nests. Their activity\n"
+    "can be destructive to subway tunnels,\n"
+    "but it can also help with construction.");
+	
+const u8 gDarkPikachuPokedexText[] = _(
+    "MICOLOOOOOOOOOOOOOOL\n"
+    "MICOLOOOOOOOOOOOOOOL\n"
+    "MICOLOOOOOOOOOOOOOOL\n"
+    "MICOLOOOOOOOOOOOOOOL.");
 

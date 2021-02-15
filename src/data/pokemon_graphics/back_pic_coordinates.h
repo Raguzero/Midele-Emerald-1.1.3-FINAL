@@ -3092,6 +3092,71 @@ const struct MonCoords gMonBackPicCoords[] =
         .size = 0x85,
         .y_offset = 0x0e,
     },
+    [SPECIES_GOOMY] =
+    {
+        .size = 0x67,
+        .y_offset = 0x9
+    },
+    [SPECIES_SLIGGOO] =
+    {
+        .size = 0x68,
+        .y_offset = 0x0
+    },
+    [SPECIES_GOODRA] =
+    {
+        .size = 0x88,
+        .y_offset = 0x0
+    },
+    [SPECIES_STUNFISK] =
+    {
+        .size = 0x83,
+        .y_offset = 0x16
+    },
+    [SPECIES_SOLOSIS] =
+    {
+        .size = 0x64,
+        .y_offset = 0x13
+    },
+    [SPECIES_DUOSION] =
+    {
+        .size = 0x76,
+        .y_offset = 0xd
+    },
+    [SPECIES_REUNICLUS] =
+    {
+        .size = 0x86,
+        .y_offset = 0xd
+    },
+    [SPECIES_VULLABY] =
+    {
+        .size = 0x86,
+        .y_offset = 0xe
+    },
+    [SPECIES_MANDIBUZZ] =
+    {
+        .size = 0x86,
+        .y_offset = 0xa
+    },
+    [SPECIES_DRILBUR] =
+    {
+        .size = 0x85,
+        .y_offset = 0xd
+    },
+    [SPECIES_EXCADRILL] =
+    {
+        .size = 0x88,
+        .y_offset = 0xb
+    },
+    [SPECIES_ARMOR_MEWTWO] =
+    {
+        .size = 0x78,
+        .y_offset = 0x01,
+    },
+    [SPECIES_DARK_PIKACHU] =
+    {
+        .size = 0x77,
+        .y_offset = 0x07,
+    },
 // NUEVO POKES
     [SPECIES_BOSS] =
     {

@@ -2744,6 +2744,61 @@ Cry_Wintass::
 	.incbin "sound/direct_sound_samples/cry_wintass.bin"
 
 	.align 2
+	
+Cry_Goomy::
+	.incbin "sound/direct_sound_samples/cry_not_goomy.bin"
+
+	.align 2
+	
+Cry_Sliggoo::
+	.incbin "sound/direct_sound_samples/cry_not_sliggoo.bin"
+
+	.align 2
+	
+Cry_Goodra::
+	.incbin "sound/direct_sound_samples/cry_not_goodra.bin"
+
+	.align 2
+	
+Cry_Stunfisk::
+	.incbin "sound/direct_sound_samples/cry_not_stunfisk.bin"
+
+	.align 2
+	
+Cry_Solosis::
+	.incbin "sound/direct_sound_samples/cry_not_solosis.bin"
+
+	.align 2
+	
+Cry_Duosion::
+	.incbin "sound/direct_sound_samples/cry_not_duosion.bin"
+
+	.align 2
+	
+Cry_Reuniclus::
+	.incbin "sound/direct_sound_samples/cry_not_reuniclus.bin"
+
+	.align 2
+	
+Cry_Vullaby::
+	.incbin "sound/direct_sound_samples/cry_not_vullaby.bin"
+
+	.align 2
+	
+Cry_Mandibuzz::
+	.incbin "sound/direct_sound_samples/cry_not_mandibuzz.bin"
+
+	.align 2
+	
+Cry_Drilbur::
+	.incbin "sound/direct_sound_samples/cry_not_drilbur.bin"
+
+	.align 2
+	
+Cry_Excadrill::
+	.incbin "sound/direct_sound_samples/cry_not_excadrill.bin"
+
+	.align 2
 
 DirectSoundWaveData_register_noise::
 	.incbin "sound/direct_sound_samples/register_noise.bin"
