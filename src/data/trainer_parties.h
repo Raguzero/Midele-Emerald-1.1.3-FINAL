@@ -3324,13 +3324,13 @@ static const struct TrainerMonCustomMidele sParty_ShellyWeatherInstitute[] = {
 
 
 // OCEANIC MUSEUM
-static const struct TrainerMonCustomMidele sParty_GruntMuseum1[] = {
+static const struct TrainerMonCustomMidele sParty_Micolo1[] = {
     {
     .iv = 31,
     .lvl = 16,
-    .species = SPECIES_CARVANHA,
-	.evs = {0, 0, 0, 0, 0, 48},
-    .moves = {MOVE_BITE, MOVE_FOCUS_ENERGY, MOVE_NONE, MOVE_NONE}
+    .species = SPECIES_DARK_PIKACHU,
+    .evs = {0, 0, 0, 0, 0, 48},
+    .moves = {MOVE_GLARE, MOVE_THUNDER_SHOCK, MOVE_NIGHT_SHADE, MOVE_DOUBLE_KICK}
     }
 };
 

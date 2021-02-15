@@ -279,18 +279,19 @@ const struct Trainer gTrainers[] = {
         .party = {.ItemCustomMidele = sParty_GruntWeatherInst3},
     },
 
-    [TRAINER_GRUNT_MUSEUM_1] =
+    [TRAINER_MICOLO_1] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_TEAM_AQUA,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_AQUA,
-        .trainerPic = TRAINER_PIC_AQUA_GRUNT_M,
-        .trainerName = _("GRUNT"),
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
+        .battleMusic = THEMEOFENCOUNTER, // MIDELE: poner evangelion
+        .trainerPic = TRAINER_PIC_YOUNGSTER, // MIDELE: cambiar imagen de Micolo
+        .trainerName = _("MICOLO"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
-        .partySize = ARRAY_COUNT(sParty_GruntMuseum1),
-        .party = {.ItemCustomMidele = sParty_GruntMuseum1},
+        .partySize = ARRAY_COUNT(sParty_Micolo1),
+        .party = {.ItemCustomMidele = sParty_Micolo1},
     },
 
     [TRAINER_GRUNT_MUSEUM_2] =

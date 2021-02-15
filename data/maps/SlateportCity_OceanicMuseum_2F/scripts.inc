@@ -26,32 +26,54 @@ SlateportCity_OceanicMuseum_2F_EventScript_CaptStern:: @ 820BB00
 	msgbox SlateportCity_OceanicMuseum_2F_Text_SternWhoAreYou, MSGBOX_DEFAULT
 	msgbox SlateportCity_OceanicMuseum_2F_Text_WereTeamAqua, MSGBOX_DEFAULT
 	closemessage
-	applymovement 4, SlateportCity_OceanicMuseum_2F_Movement_GruntApproachToBattle
+	
+	@ Micolo
+	addobject 8
+	applymovement 8, SlateportCity_OceanicMuseum_2F_Movement_SecondGruntEnter
+	waitmovement 0
+	applymovement 8, SlateportCity_OceanicMuseum_2F_Movement_MicoloApproach
+	waitmovement 0
+	applymovement 3, Common_Movement_FaceLeft
+	waitmovement 0
+	applymovement 3, Common_Movement_QuestionMark
+	waitmovement 0
+	playse SE_PIN
+	applymovement 4, Common_Movement_FaceLeft
+	waitmovement 0
+	applymovement 4, Common_Movement_QuestionMark
+	waitmovement 0
+	playbgm THATPERSONSNAMEIS, 1 @ Micolo music
+	msgbox SlateportCity_OceanicMuseum_2F_Text_MicoloAppears, MSGBOX_DEFAULT
+	playse SE_W153
+	waitse
+	msgbox SlateportCity_OceanicMuseum_2F_Text_MicoloDefeatsGrunts, MSGBOX_DEFAULT
+	applymovement 3, SlateportCity_OceanicMuseum_2F_Movement_FirstGruntLeave
+	applymovement 4, SlateportCity_OceanicMuseum_2F_Movement_SecondGruntLeave
+	waitmovement 0
+	removeobject 3
+	removeobject 4
+	playse SE_KAIDAN
+	waitse
+	msgbox SlateportCity_OceanicMuseum_2F_Text_MicoloWantsToBattle, MSGBOX_DEFAULT
+	applymovement 8, SlateportCity_OceanicMuseum_2F_Movement_MicoloApproachToBattle
 	waitmovement 0
 	compare VAR_FACING, DIR_SOUTH
-	call_if_eq SlateportCity_OceanicMuseum_2F_EventScript_PlayerApproachGruntSouth
+	call_if_eq SlateportCity_OceanicMuseum_2F_EventScript_PlayerApproachMicoloSouth
 	compare VAR_FACING, DIR_WEST
-	call_if_eq SlateportCity_OceanicMuseum_2F_EventScript_PlayerApproachGruntWest
-	trainerbattle_no_intro TRAINER_GRUNT_MUSEUM_1, SlateportCity_OceanicMuseum_2F_Text_Grunt1Defeat
-	msgbox SlateportCity_OceanicMuseum_2F_Text_BossGoingToBeFurious, MSGBOX_DEFAULT
+	call_if_eq SlateportCity_OceanicMuseum_2F_EventScript_PlayerApproachMicoloWest
+	trainerbattle_no_intro TRAINER_MICOLO_1, SlateportCity_OceanicMuseum_2F_Text_MicoloDefeat
+	msgbox SlateportCity_OceanicMuseum_2F_Text_MicoloLeaves, MSGBOX_DEFAULT
 	closemessage
-	applymovement 4, SlateportCity_OceanicMuseum_2F_Movement_GruntDefeated
+	applymovement 8, SlateportCity_OceanicMuseum_2F_Movement_MicoloLeaves
 	waitmovement 0
-	applymovement 3, SlateportCity_OceanicMuseum_2F_Movement_GruntApproachToBattle
-	waitmovement 0
-	msgbox SlateportCity_OceanicMuseum_2F_Text_LetMeTakeCareOfThis, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_GRUNT_MUSEUM_2, SlateportCity_OceanicMuseum_2F_Text_Grunt2Defeat
-	applymovement 3, SlateportCity_OceanicMuseum_2F_Movement_GruntDefeated
-	waitmovement 0
-	applymovement 3, Common_Movement_WalkInPlaceFastestDown
-	applymovement 4, Common_Movement_WalkInPlaceFastestUp
-	waitmovement 0
-	msgbox SlateportCity_OceanicMuseum_2F_Text_MeddlingKid, MSGBOX_DEFAULT
-	closemessage
+	removeobject 8
+	playse SE_KAIDAN
+	waitse
+	playbgm MUS_AQA_0, 1
+	
 	delay 35
 	addobject 2
 	applymovement 2, SlateportCity_OceanicMuseum_2F_Movement_ArchieEnter
-	applymovement 4, SlateportCity_OceanicMuseum_2F_Movement_GruntMoveForArchie
 	waitmovement 0
 	msgbox SlateportCity_OceanicMuseum_2F_Text_CameToSeeWhatsTakingSoLong, MSGBOX_DEFAULT
 	closemessage
@@ -63,8 +85,6 @@ SlateportCity_OceanicMuseum_2F_EventScript_CaptStern:: @ 820BB00
 	fadedefaultbgm
 	fadescreen FADE_TO_BLACK
 	removeobject 2
-	removeobject 3
-	removeobject 4
 	fadescreen FADE_FROM_BLACK
 	delay 30
 	setflag FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_AQUA_GRUNTS
@@ -105,12 +125,12 @@ SlateportCity_OceanicMuseum_2F_EventScript_SternFaceGrunts:: @ 820BC9D
 	waitmovement 0
 	return
 
-SlateportCity_OceanicMuseum_2F_EventScript_PlayerApproachGruntSouth:: @ 820BCA8
+SlateportCity_OceanicMuseum_2F_EventScript_PlayerApproachMicoloSouth:: @ 820BCA8
 	applymovement EVENT_OBJ_ID_PLAYER, SlateportCity_OceanicMuseum_2F_Movement_PlayerApproachGruntSouth
 	waitmovement 0
 	return
 
-SlateportCity_OceanicMuseum_2F_EventScript_PlayerApproachGruntWest:: @ 820BCB3
+SlateportCity_OceanicMuseum_2F_EventScript_PlayerApproachMicoloWest:: @ 820BCB3
 	applymovement EVENT_OBJ_ID_PLAYER, SlateportCity_OceanicMuseum_2F_Movement_PlayerApproachGruntWest
 	waitmovement 0
 	return
@@ -161,7 +181,8 @@ SlateportCity_OceanicMuseum_2F_Movement_ArchieEnter: @ 820BCD8
 	walk_right
 	step_end
 
-SlateportCity_OceanicMuseum_2F_Movement_GruntApproachToBattle: @ 820BCE2
+SlateportCity_OceanicMuseum_2F_Movement_MicoloApproachToBattle: @ 820BCE2
+	walk_right
 	walk_right
 	step_end
 
@@ -213,6 +234,55 @@ SlateportCity_OceanicMuseum_2F_Movement_GruntMoveForArchie: @ 820BCFE
 	delay_8
 	walk_fast_down
 	walk_in_place_fastest_up
+	step_end
+
+SlateportCity_OceanicMuseum_2F_Movement_MicoloApproach: @ 820BCE8
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+SlateportCity_OceanicMuseum_2F_Movement_FirstGruntLeave: @ 820BCE4
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_in_place_fastest_up
+	walk_left
+	walk_up
+	step_end
+
+SlateportCity_OceanicMuseum_2F_Movement_SecondGruntLeave: @ 820BCF3
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+SlateportCity_OceanicMuseum_2F_Movement_MicoloLeaves:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
 	step_end
 
 SlateportCity_OceanicMuseum_2F_EventScript_WaterQualitySample1:: @ 820BD0A
@@ -439,3 +509,54 @@ SlateportCity_OceanicMuseum_2F_Text_SSAnneReplica: @ 820C93A
 	.string "“A replica of the luxury liner that\n"
 	.string "circles the globe.”$"
 
+SlateportCity_OceanicMuseum_2F_Text_MicoloAppears:
+	.string "MICOLO: Hola reina n.n\p"
+	.string "DARKRAI: estos noobs quieren las\n"
+	.string "PIEZAS DEVON.\p"
+	.string "MEWTWO: pero las piezas ya no hacen\n"
+	.string "falta para nuestros planes.\p"
+	.string "MOLTRES: entonces que hacemos?\p"
+	.string "ARTICUNO: callate pollo frito\p"
+	.string "MICOLO: seguis buscando las\n"
+	.string "PIEZAS DEVON?\p"
+	.string "ya os las quitaron una vez, no hace.\n"
+	.string "falta tanta insistencia xDDDDDDD\p"
+	.string "si quereis las piezas os tendre que\n"
+	.string "poner a prueba xDDDDDD$"
+
+SlateportCity_OceanicMuseum_2F_Text_MicoloDefeatsGrunts:
+	.string "MICOLO: un 6-0...\p"
+	.string "que noobs LOOOOOOOOOOOOOOOO\n"
+	.string "OOOOOOOOOOOOOOOOOOOOOOOOOOO\l"
+	.string "OOOOOOOOOOOOOOOOOOOOOOOOOOOL\p"
+	.string "mejor que os marcheis antes de que\n"
+	.string "vuestro JEFE os despida xDDDDDDD$"
+
+SlateportCity_OceanicMuseum_2F_Text_MicoloWantsToBattle:
+	.string "MICOLO: nos vemos otra vez,\n"
+	.string "{PLAYER} n.n\p"
+	.string "sé que tú podrías haber derrotado a\n"
+	.string "esos reclutas, no te preocupes n.n\p"
+	.string "No te preocupes, yo no he venido aquí\n"
+	.string "a por las PIEZAS DEVON, ya no me son\l"
+	.string "necesarias xDDDDDDDDDD\p"
+	.string "que por qué estoy aquí entonces?\p"
+	.string "solo quería ver cómo de poderoso\n"
+	.string "te has vuelto n.n\p"
+	.string "prepara tus POKéMON, amigo,\n"
+	.string "y que gane el mejor n.n$"
+
+SlateportCity_OceanicMuseum_2F_Text_MicoloDefeat:
+	.string "Eres muy poderoso n.n$"
+
+SlateportCity_OceanicMuseum_2F_Text_MicoloLeaves:
+	.string "Tienes potencial n.n\p"
+	.string "Quizás algún día podrías llegar a\n"
+	.string "MICOLANDIA... n.n\p"
+	.string "Eso es todo, amigo n.n\p"
+	.string "¿qué? esperabas que te regalase algo?\p"
+	.string "no soy una ONG con patas xDDDDDDDDDDD\n"
+	.string "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDD\p"
+	.string "Adiós, seguro que nos volvemos a ver n.n\p"
+	.string "Recuerda, monociclo porque mono es uno y la\n"
+	.string "vida es un ciclo n.n$"
