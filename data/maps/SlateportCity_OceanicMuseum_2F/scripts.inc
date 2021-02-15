@@ -126,22 +126,22 @@ SlateportCity_OceanicMuseum_2F_EventScript_SternFaceGrunts:: @ 820BC9D
 	return
 
 SlateportCity_OceanicMuseum_2F_EventScript_PlayerApproachMicoloSouth:: @ 820BCA8
-	applymovement EVENT_OBJ_ID_PLAYER, SlateportCity_OceanicMuseum_2F_Movement_PlayerApproachGruntSouth
+	applymovement EVENT_OBJ_ID_PLAYER, SlateportCity_OceanicMuseum_2F_Movement_PlayerApproachMicoloSouth
 	waitmovement 0
 	return
 
 SlateportCity_OceanicMuseum_2F_EventScript_PlayerApproachMicoloWest:: @ 820BCB3
-	applymovement EVENT_OBJ_ID_PLAYER, SlateportCity_OceanicMuseum_2F_Movement_PlayerApproachGruntWest
+	applymovement EVENT_OBJ_ID_PLAYER, SlateportCity_OceanicMuseum_2F_Movement_PlayerApproachMicoloWest
 	waitmovement 0
 	return
 
-SlateportCity_OceanicMuseum_2F_Movement_PlayerApproachGruntSouth: @ 820BCBE
+SlateportCity_OceanicMuseum_2F_Movement_PlayerApproachMicoloSouth: @ 820BCBE
 	walk_left
 	walk_down
 	walk_in_place_fastest_left
 	step_end
 
-SlateportCity_OceanicMuseum_2F_Movement_PlayerApproachGruntWest: @ 820BCC2
+SlateportCity_OceanicMuseum_2F_Movement_PlayerApproachMicoloWest: @ 820BCC2
 	walk_up
 	walk_left
 	walk_left
@@ -201,12 +201,6 @@ SlateportCity_OceanicMuseum_2F_Movement_FirstGruntApproach: @ 820BCE8
 	walk_right
 	step_end
 
-SlateportCity_OceanicMuseum_2F_Movement_GruntDefeated: @ 820BCEF
-	lock_facing_direction
-	walk_left
-	unlock_facing_direction
-	step_end
-
 SlateportCity_OceanicMuseum_2F_Movement_SecondGruntEnter: @ 820BCF3
 	walk_down
 	step_end
@@ -220,20 +214,6 @@ SlateportCity_OceanicMuseum_2F_Movement_SecondGruntApproach: @ 820BCF5
 	walk_right
 	walk_right
 	walk_right
-	step_end
-
-SlateportCity_OceanicMuseum_2F_Movement_GruntMoveForArchie: @ 820BCFE
-	delay_16
-	delay_16
-	delay_16
-	delay_16
-	delay_16
-	delay_16
-	delay_16
-	delay_16
-	delay_8
-	walk_fast_down
-	walk_in_place_fastest_up
 	step_end
 
 SlateportCity_OceanicMuseum_2F_Movement_MicoloApproach: @ 820BCE8
@@ -363,28 +343,6 @@ SlateportCity_OceanicMuseum_2F_Text_WereTeamAqua: @ 820BE93
 	.string "We're TEAM AQUA!\p"
 	.string "Our BOSS wants those parts!\n"
 	.string "Shut your yap and fork them over!$"
-
-SlateportCity_OceanicMuseum_2F_Text_Grunt1Defeat: @ 820BEE2
-	.string "Awaaaah!\n"
-	.string "A kid beat me!$"
-
-SlateportCity_OceanicMuseum_2F_Text_BossGoingToBeFurious: @ 820BEFA
-	.string "Oh, man, what a disaster…\n"
-	.string "The BOSS is going to be furious…$"
-
-SlateportCity_OceanicMuseum_2F_Text_LetMeTakeCareOfThis: @ 820BF35
-	.string "Humph, sniveling wimp!\n"
-	.string "Let me take care of this!$"
-
-SlateportCity_OceanicMuseum_2F_Text_Grunt2Defeat: @ 820BF66
-	.string "What?!\n"
-	.string "I lost, too!$"
-
-SlateportCity_OceanicMuseum_2F_Text_MeddlingKid: @ 820BF7A
-	.string "Now what? If we don't get the parts,\n"
-	.string "we're in for it!\p"
-	.string "Arrgh, I didn't count on being meddled\n"
-	.string "with by some meddling kid!$"
 
 SlateportCity_OceanicMuseum_2F_Text_CameToSeeWhatsTakingSoLong: @ 820BFF2
 	.string "I came to see what was taking so\n"
