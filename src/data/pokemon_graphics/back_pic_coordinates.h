@@ -3112,6 +3112,11 @@ const struct MonCoords gMonBackPicCoords[] =
         .size = 0x83,
         .y_offset = 0x16
     },
+	[SPECIES_GALAR_STUNFISK] =
+    {
+        .size = 0x83,
+        .y_offset = 23,
+    },
     [SPECIES_SOLOSIS] =
     {
         .size = 0x64,
