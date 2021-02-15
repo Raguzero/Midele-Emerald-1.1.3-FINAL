@@ -396,6 +396,8 @@ gBattleAnims_Moves::
 	.4byte Move_ELECTROWEB
 	.4byte Move_GRAV_APPLE
 	.4byte Move_APPLE_ACID
+	.4byte Move_ACCELEROCK
+	.4byte Move_DARK_THUNDER
 	.4byte Move_COUNT @ cannot be reached, because last move is Psycho Boost
 
 	.align 2
@@ -10974,6 +10976,85 @@ Move_APPLE_ACID:
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
 	blendoff
+	end
+	
+Move_ACCELEROCK:
+	loadspritegfx ANIM_TAG_ROCKS
+	createsprite gBattleAnimSpriteTemplate_85972D8, ANIM_TARGET, 2, 6, 1, 15, 1
+	createsprite gUnknown_08596B04, ANIM_TARGET, 2, 0, 1, 0, 0
+	playsewithpan SE_W088, SOUND_PAN_TARGET
+	delay 6
+	createsprite gUnknown_08596B04, ANIM_TARGET, 2, 19, 1, 10, 0
+	playsewithpan SE_W088, SOUND_PAN_TARGET
+	delay 6
+	createsprite gUnknown_08596B04, ANIM_TARGET, 2, -23, 2, -10, 0
+	playsewithpan SE_W088, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 5, 20, 1
+	delay 6
+	createsprite gUnknown_08596B04, ANIM_TARGET, 2, -15, 1, -10, 0
+	playsewithpan SE_W088, SOUND_PAN_TARGET
+	delay 6
+	createsprite gUnknown_08596B04, ANIM_TARGET, 2, 23, 2, 10, 0
+	playsewithpan SE_W088, SOUND_PAN_TARGET
+	waitforvisualfinish
+	end
+	
+Move_DARK_THUNDER:
+	loadspritegfx ANIM_TAG_LIGHTNING
+	fadetobg BG_THUNDER
+	waitbgfadeout
+	createvisualtask sub_8117660, 5, -256, 0, 1, -1
+	waitbgfadein
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 2, 0, 16, RGB_BLACK
+	delay 16
+	createvisualtask sub_8115F10, 2, 257, 257, 257
+	playsewithpan SE_W086, SOUND_PAN_TARGET
+	delay 1
+	createsprite gUnknown_085956C0, ANIM_TARGET, 2, 16, -36
+	delay 1
+	createsprite gUnknown_085956C0, ANIM_TARGET, 2, 16, -20
+	delay 1
+	createsprite gUnknown_085956C0, ANIM_TARGET, 2, 16, 12
+	delay 20
+	createsprite gUnknown_085956C0, ANIM_TARGET, 6, -16, -32
+	playsewithpan SE_W086, SOUND_PAN_TARGET
+	delay 1
+	createsprite gUnknown_085956C0, ANIM_TARGET, 6, -16, -16
+	delay 1
+	createsprite gUnknown_085956C0, ANIM_TARGET, 6, -16, 16
+	playsewithpan SE_W086, SOUND_PAN_TARGET
+	delay 5
+	createvisualtask sub_8115F10, 2, 257, 257, 257
+	delay 1
+	createsprite gUnknown_085956C0, ANIM_TARGET, 2, 24, -32
+	delay 1
+	createsprite gUnknown_085956C0, ANIM_TARGET, 2, 24, -16
+	delay 1
+	createsprite gUnknown_085956C0, ANIM_TARGET, 2, 24, 16
+	delay 30
+	createvisualtask sub_8115F10, 2, 257, 257, 257
+	delay 5
+	createvisualtask sub_8115F10, 2, 257, 257, 257
+	delay 1
+	createsprite gUnknown_085956C0, ANIM_TARGET, 2, 0, -32
+	playsewithpan SE_W161B, SOUND_PAN_TARGET
+	delay 1
+	createsprite gUnknown_085956C0, ANIM_TARGET, 2, 0, -16
+	delay 1
+	createsprite gUnknown_085956C0, ANIM_TARGET, 2, 0, 16
+	delay 10
+	createvisualtask sub_8115F10, 2, 257, 257, 257
+	delay 1
+	createvisualtask sub_810A094, 2, 30, 3, 1, 0
+	delay 2
+	createvisualtask sub_8115F10, 2, 257, 257, 257
+	delay 1
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_TARGET, 2, 1, 2, 16, 0, RGB_BLACK
+	waitforvisualfinish
+	restorebg
+	waitbgfadeout
+	setarg 7, -1
+	waitbgfadein
 	end
 
 Move_COUNT:

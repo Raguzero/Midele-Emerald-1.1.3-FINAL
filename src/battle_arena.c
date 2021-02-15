@@ -424,6 +424,8 @@ static const s8 sMindRatings[] =
     [MOVE_ELECTROWEB] = 1,
     [MOVE_GRAV_APPLE] = 1,
     [MOVE_APPLE_ACID] = 1,
+    [MOVE_ACCELEROCK] = 1,
+    [MOVE_DARK_THUNDER] = 1,
 };
 
 #define TAG_JUDGEMENT_ICON 1000

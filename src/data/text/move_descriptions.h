@@ -1520,6 +1520,13 @@ static const u8 sGRAV_APPLEDescription[] = _(
 static const u8 sAPPLE_ACIDDescription[] = _(
     "Attacks with tart apple acid\n"
     "to lower the foe's SP. DEF.");
+	
+static const u8 sACCELEROCKDescription[] = _(
+	"Hits with a high-speed\n"
+	"rock that always goes first.");
+	
+static const u8 sDARKTHUNDERDescription[] = _(
+	"Micolo's ultimate attack.");
 
 // MOVE_NONE is ignored in this table. Make sure to always subtract 1 before getting the right pointer.
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
@@ -1905,5 +1912,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_ELECTROWEB - 1] = sELECTROWEBDescription,
     [MOVE_GRAV_APPLE - 1] = sGRAV_APPLEDescription,
     [MOVE_APPLE_ACID - 1] = sAPPLE_ACIDDescription,
+    [MOVE_ACCELEROCK - 1] = sACCELEROCKDescription,
+    [MOVE_DARK_THUNDER - 1] = sDARKTHUNDERDescription,
 	// NUEVO MOVE TIPO HADA
 };
