@@ -7284,8 +7284,8 @@ static void PrintEvolutionTargetSpeciesAndMethod(u8 taskId, u16 species)
     {
         if(gEvolutionTable[species][i].method != 0)
             times += 1;
-        gTasks[taskId].data[3] = times;
     }
+	 gTasks[taskId].data[3] = times;
 
     //If there are no evolutions print text
     if (times == 0)
