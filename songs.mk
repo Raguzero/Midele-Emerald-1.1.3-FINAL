@@ -1273,8 +1273,8 @@ $(MID_SUBDIR)/butterflywadakouji.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100 -P5
 
 $(MID_SUBDIR)/battlecyrus.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -v100 -P5
-	
+	$(MID) $< $@ -E -R$(STD_REVERB) -G998 -V070
+
 $(MID_SUBDIR)/xywildbattle.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -v100 -P5
 	

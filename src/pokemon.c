@@ -7518,6 +7518,14 @@ u16 GetBattleBGM(void)
 	species == NATIONAL_DEX_WHIMSICOTT ||
 	species == NATIONAL_DEX_FRILLISH ||
 	species == NATIONAL_DEX_JELLICENT ||
+	species == NATIONAL_DEX_STUNFISK ||
+	species == NATIONAL_DEX_SOLOSIS ||
+	species == NATIONAL_DEX_DUOSION ||
+	species == NATIONAL_DEX_REUNICLUS ||
+	species == NATIONAL_DEX_VULLABY ||
+	species == NATIONAL_DEX_MANDIBUZZ ||
+	species == NATIONAL_DEX_DRILBUR ||
+	species == NATIONAL_DEX_EXCADRILL ||
 	species == NATIONAL_DEX_SNIVY ||
 	species == NATIONAL_DEX_SERVINE ||
 	species == NATIONAL_DEX_SERPERIOR) return WILDBW2_FINAL;
@@ -7609,6 +7617,9 @@ u16 GetBattleBGM(void)
 	species == NATIONAL_DEX_CHESPIN ||
 	species == NATIONAL_DEX_QUILLADIN ||
 	species == NATIONAL_DEX_CHESNAUGHT ||
+	species == NATIONAL_DEX_GOOMY ||
+	species == NATIONAL_DEX_SLIGGOO ||
+	species == NATIONAL_DEX_GOODRA ||
 	species ==  NATIONAL_DEX_FLOETTE) return XYWILDBATTLE;
     return MUS_BATTLE27;
   }
