@@ -4860,7 +4860,7 @@ static void Task_PartyMenuReplaceMove(u8 taskId)
         mon = &gPlayerParty[gPartyMenu.slotId];
         RemoveMonPPBonus(mon, GetMoveSlotToReplace());
         move = gPartyMenu.data1;
-        SetMonMoveSlot(mon, move, GetMoveSlotToReplace());
+        SetMonMoveSlotWithoutResettingPP(mon, move, GetMoveSlotToReplace());
         Task_LearnedMove(taskId);
     }
 }
