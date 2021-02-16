@@ -2381,7 +2381,7 @@ BattleScript_EffectTaunt::
 	attackcanceler
 	attackstring
 	ppreduce
-	jumpifability BS_TARGET, ABILITY_OBLIVIOUS, BattleScript_ObliviousPreventsAttraction
+	jumpifability BS_TARGET, ABILITY_OBLIVIOUS, BattleScript_ObliviousPreventsTaunt
 	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
 	settaunt BattleScript_ButItFailed
 	attackanimation
@@ -4223,6 +4223,12 @@ BattleScript_PSNPrevention::
 BattleScript_ObliviousPreventsAttraction::
 	pause 0x20
 	printstring STRINGID_PKMNPREVENTSROMANCEWITH
+	waitmessage 0x40
+	goto BattleScript_MoveEnd
+
+BattleScript_ObliviousPreventsTaunt::
+	pause 0x20
+	printstring STRINGID_PKMNPREVENTSTAUNTWITH
 	waitmessage 0x40
 	goto BattleScript_MoveEnd
 

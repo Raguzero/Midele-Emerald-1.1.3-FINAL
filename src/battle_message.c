@@ -309,6 +309,7 @@ static const u8 sText_ASandstormKickedUp[] = _("A sandstorm kicked up!");
 static const u8 sText_AttackerGotOverInfatuation[] =_("{B_ATK_NAME_WITH_PREFIX} got over\nits infatuation!");
 static const u8 sText_TormentedNoMore[] = _("{B_ATK_NAME_WITH_PREFIX} is\ntormented no more!");
 static const u8 sText_CanActFaster[] = _("{B_ATK_NAME_WITH_PREFIX} can act\nfaster, thanks to {B_LAST_ITEM}!");
+static const u8 sText_PkmnPreventsTauntWith[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY}\nprevents TAUNT!");
 // NUEVO HABILIDADES
 static const u8 sText_TotemAura[] = _("Totem {B_OPPONENT_MON1_NAME}'s aura flared to life!");
 static const u8 sText_PkmnsXIntensifiedSun[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\nintensified the sun's rays!");
@@ -951,6 +952,7 @@ const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_TORMENTEDNOMORE - 12] = sText_TormentedNoMore,
     [STRINGID_ATKGOTOVERINFATUATION - 12] = sText_AttackerGotOverInfatuation,
 	[STRINGID_CANACTFASTERTHANKSTO - 12] = sText_CanActFaster,
+	[STRINGID_PKMNPREVENTSTAUNTWITH - 12] = sText_PkmnPreventsTauntWith,
 	// NUEVO HABILIDADES
 };
 
