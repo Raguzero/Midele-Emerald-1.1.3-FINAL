@@ -311,57 +311,87 @@ Script_RandomPrizes::
 
 Script_RandomPrize1::
 	giveitem ITEM_HP_UP, 4
+	compare VAR_RESULT, FALSE
+	call_if_eq Script_RandomPrize1_BagFull
 	closemessage
 	goto Fin_RandomPrize
 	end
 
 Script_RandomPrize2::
 	giveitem ITEM_PROTEIN, 4
+	compare VAR_RESULT, FALSE
+	call_if_eq Script_RandomPrize1_BagFull
 	closemessage
 	goto Fin_RandomPrize
 	end
 
 Script_RandomPrize3::
 	giveitem ITEM_IRON, 4
+	compare VAR_RESULT, FALSE
+	call_if_eq Script_RandomPrize1_BagFull
 	closemessage
 	goto Fin_RandomPrize
 	end
 	
 Script_RandomPrize4::
 	giveitem ITEM_CALCIUM, 4
+	compare VAR_RESULT, FALSE
+	call_if_eq Script_RandomPrize1_BagFull
 	closemessage
 	goto Fin_RandomPrize
 	end
 
 Script_RandomPrize5::
 	giveitem ITEM_ZINC, 4
+	compare VAR_RESULT, FALSE
+	call_if_eq Script_RandomPrize1_BagFull
 	closemessage
 	goto Fin_RandomPrize
 	end
 
 Script_RandomPrize6::
 	giveitem ITEM_CARBOS, 4
+	compare VAR_RESULT, FALSE
+	call_if_eq Script_RandomPrize1_BagFull
 	closemessage
 	goto Fin_RandomPrize
 	end
 
 Script_RandomPrize7::
 	giveitem ITEM_PP_UP, 4
+	compare VAR_RESULT, FALSE
+	call_if_eq Script_RandomPrize1_BagFull
 	closemessage
 	goto Fin_RandomPrize
 	end
 
 Script_RandomPrize8::
 	giveitem ITEM_MOOMOO_MILK, 2
+	compare VAR_RESULT, FALSE
+	call_if_eq Script_RandomPrize1_BagFull
 	closemessage
 	goto Fin_RandomPrize
 	end
+	
+Script_RandomPrize1_BagFull::
+	call Common_EventScript_BagIsFull
+	msgbox Script_RandomPrize1_Text_NoRoomForThis, MSGBOX_DEFAULT
+	return
 	
 Fin_RandomPrize::
 	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
 	release
 	end
+	
+Script_RandomPrize1_Text_NoRoomForThis:
+	.string "¿Así que no tienes espacio para esto?\n"
+	.string "¿Pero cuantos objetos distintos llevas?\p"
+
+	.string "Bien, guardaré tu premio, pero tendrás\n"
+	.string "que vencerme de nuevo.\p"
+	
+	.string "¡Recuerda dejar espacio en tu mochila!$"
 
 RANDOMCC_Batalla:
 	.string "¡Bienvenido al simulador de\n"

@@ -8,6 +8,8 @@ MirageTower_4F_EventScript_RootFossil:: @ 823AD48
 	compare VAR_RESULT, NO
 	goto_if_eq MirageTower_4F_EventScript_LeaveRootFossil
 	giveitem ITEM_ROOT_FOSSIL
+	compare VAR_RESULT, FALSE
+	call_if_eq MirageTower_4F_EventScript_BagFull
 	closemessage
 	setflag FLAG_HIDE_MIRAGE_TOWER_ROOT_FOSSIL
 	removeobject 1
@@ -28,12 +30,19 @@ MirageTower_4F_EventScript_ClawFossil:: @ 823AD89
 	compare VAR_RESULT, NO
 	goto_if_eq MirageTower_4F_EventScript_LeaveClawFossil
 	giveitem ITEM_CLAW_FOSSIL
+	compare VAR_RESULT, FALSE
+	call_if_eq MirageTower_4F_EventScript_BagFull
 	closemessage
 	setflag FLAG_HIDE_MIRAGE_TOWER_CLAW_FOSSIL
 	removeobject 2
 	delay 30
 	setflag FLAG_CHOSE_CLAW_FOSSIL
 	goto MirageTower_4F_EventScript_CollapseMirageTower
+	end
+	
+MirageTower_4F_EventScript_BagFull::
+	call Common_EventScript_BagIsFull
+	closemessage
 	end
 
 MirageTower_4F_EventScript_LeaveClawFossil:: @ 823ADC0
