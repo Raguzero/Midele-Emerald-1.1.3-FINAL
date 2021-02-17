@@ -2788,12 +2788,12 @@ static void CreateInterfaceSprites(u8 a)
     //gSprites[spriteId].data[0] = 0x1F;
     //gSprites[spriteId].data[1] = 0x80;
 
-    if (a == 0)
-    {
-        u32 _a;
+  //  if (a == 0)
+  //  {
+   //     u32 _a;
 
-        if (!IsNationalPokedexEnabled())
-        {
+   //     if (!IsNationalPokedexEnabled())
+  //      {
 // Seen text
          //   CreateSprite(&sSeenOwnTextSpriteTemplate, 32, 40, 1);
 // Own text
@@ -2840,15 +2840,54 @@ static void CreateInterfaceSprites(u8 a)
             r5 = (sPokedexView->ownCount % 100) % 10;
             StartSpriteAnim(&gSprites[spriteId], r5); */
 		// Hoenn text
-            CreateSprite(&gUnknown_0855D20C, LIST_RIGHT_SIDE_TEXT_X, 40 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET - 6, 1);
+        //    CreateSprite(&gUnknown_0855D20C, LIST_RIGHT_SIDE_TEXT_X, 40 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET - 6, 1);
             // Hoenn seen
-            CreateSprite(&sSeenOwnTextSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X, 45 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET + 6, 1);
+         //   CreateSprite(&sSeenOwnTextSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X, 45 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET + 6, 1);
             // Hoenn own
-            spriteId = CreateSprite(&sSeenOwnTextSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X, 55 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET + 7, 1);
-         StartSpriteAnim(&gSprites[spriteId], 1);
-		}
+      //      spriteId = CreateSprite(&sSeenOwnTextSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X, 55 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET + 7, 1);
+      //   StartSpriteAnim(&gSprites[spriteId], 1);
+		//}
+		    if (!IsNationalPokedexEnabled() && a == 0)
+    {
+        // Hoenn text
+        CreateSprite(&gUnknown_0855D20C, LIST_RIGHT_SIDE_TEXT_X, 40 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET - 6, 1);
+        // Hoenn seen
+        CreateSprite(&sSeenOwnTextSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X, 45 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET + 6, 1);
+        // Hoenn own
+        spriteId = CreateSprite(&sSeenOwnTextSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X, 55 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET + 7, 1);
+        StartSpriteAnim(&gSprites[spriteId], 1);
+
+        // Hoenn seen value - 100s
+        _a = FALSE;
+        spriteId = CreateSprite(&gUnknown_0855D23C, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET, 45 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
+        r5 = sPokedexView->seenCount / 100;
+        StartSpriteAnim(&gSprites[spriteId], r5);
+        if (r5 != 0)
+            _a = TRUE;
         else
-        {
+            gSprites[spriteId].invisible = TRUE;
+		 // Hoenn seen value - 10s
+        spriteId = CreateSprite(&gUnknown_0855D23C, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET + 8, 45 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
+        r5 = (sPokedexView->seenCount % 100) / 10;
+        if (r5 != 0 || _a)
+		 StartSpriteAnim(&gSprites[spriteId], r5);
+        else
+            gSprites[spriteId].invisible = TRUE;
+
+        // Hoenn seen value - 1s
+        spriteId = CreateSprite(&gUnknown_0855D23C, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET + 16, 45 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
+        r5 = (sPokedexView->seenCount % 100) % 10;
+        StartSpriteAnim(&gSprites[spriteId], r5);
+		
+		// Hoenn owned value - 100s
+        _a = FALSE;
+        spriteId = CreateSprite(&gUnknown_0855D23C, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET, 55 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
+        r5 = sPokedexView->ownCount / 100;
+        StartSpriteAnim(&gSprites[spriteId], r5);
+        if (r5 != 0)
+            _a = TRUE;
+        else
+     /*   {
             u16 seenOwnedCount;
 
             // Hoenn text
@@ -2906,18 +2945,61 @@ static void CreateInterfaceSprites(u8 a)
             r5 = (seenOwnedCount % 100) / 10;
             if (r5 != 0 || _a != 0)
                 StartSpriteAnim(&gSprites[spriteId], r5);
-            else
+            else*/
                 gSprites[spriteId].invisible = TRUE;
 
                         // Hoenn owned value - 1s
-            spriteId = CreateSprite(&gUnknown_0855D23C, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET + 16, 55 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
-            r5 = (seenOwnedCount % 100) % 10;
+         //   spriteId = CreateSprite(&gUnknown_0855D23C, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET + 16, 55 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
+          //  r5 = (seenOwnedCount % 100) % 10;
+		  // Hoenn owned value - 10s
+			spriteId = CreateSprite(&gUnknown_0855D23C, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET + 8, 55 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
+			r5 = (sPokedexView->ownCount % 100) / 10;
+		if (r5 != 0 || _a)
             StartSpriteAnim(&gSprites[spriteId], r5);
+		else
+            gSprites[spriteId].invisible = TRUE;
+
+        // Hoenn owned value - 1s
+        spriteId = CreateSprite(&gUnknown_0855D23C, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET + 16, 55 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
+        r5 = (sPokedexView->ownCount % 100) % 10;
+        StartSpriteAnim(&gSprites[spriteId], r5);
+    }
+    else if (a == 0)
+    {
+        u16 seenOwnedCount;
+
+        // Hoenn text
+        CreateSprite(&gUnknown_0855D20C, LIST_RIGHT_SIDE_TEXT_X, 40 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET - 6, 1);
+        // Hoenn seen
+        CreateSprite(&sSeenOwnTextSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X, 45 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET + 6, 1);
+        // Hoenn own
+        spriteId = CreateSprite(&sSeenOwnTextSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X, 55 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET + 7, 1);
+        StartSpriteAnim(&gSprites[spriteId], 1);
+
+        // National text
+        spriteId = CreateSprite(&gUnknown_0855D20C, LIST_RIGHT_SIDE_TEXT_X, 73 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET - 6, 1);
+        StartSpriteAnim(&gSprites[spriteId], 1);
+        // National seen
+        CreateSprite(&sSeenOwnTextSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X, 78 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET + 6, 1);
+        // National own
+        spriteId = CreateSprite(&sSeenOwnTextSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X, 88 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET + 6, 1);
+        StartSpriteAnim(&gSprites[spriteId], 1);
+
+        // Hoenn seen value - 100s
+        seenOwnedCount = GetHoennPokedexCount(FLAG_GET_SEEN);
+        _a = FALSE;
+        spriteId = CreateSprite(&gUnknown_0855D23C, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET, 45 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
+        r5 = seenOwnedCount / 100;
+        StartSpriteAnim(&gSprites[spriteId], r5);
+        if (r5 != 0)
+            _a = TRUE;
+        else
+            gSprites[spriteId].invisible = TRUE;
 
             //r6 = GetHoennPokedexCount(FLAG_GET_CAUGHT);
 			//****************************
             // National seen value - 100s
-            _a = 0;
+        /*    _a = 0;
 
             spriteId = CreateSprite(&gUnknown_0855D23C, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET, 78 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
             r5 = sPokedexView->seenCount / 100;
@@ -2937,15 +3019,41 @@ static void CreateInterfaceSprites(u8 a)
 
                         // National seen value - 1s
             spriteId = CreateSprite(&gUnknown_0855D23C, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET + 16, 78 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
-            r5 = (sPokedexView->seenCount % 100) % 10;
+            r5 = (sPokedexView->seenCount % 100) % 10;^*/
+			// Hoenn seen value - 10s
+			spriteId = CreateSprite(&gUnknown_0855D23C, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET + 8, 45 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
+			r5 = (seenOwnedCount % 100) / 10;
+        if (r5 != 0 || _a)
             StartSpriteAnim(&gSprites[spriteId], r5);
+		 else
+            gSprites[spriteId].invisible = TRUE;
 
-            _a = 0;
+        // Hoenn seen value - 1s
+        spriteId = CreateSprite(&gUnknown_0855D23C, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET + 16, 45 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
+        r5 = (seenOwnedCount % 100) % 10;
+        StartSpriteAnim(&gSprites[spriteId], r5);
 
-            spriteId = CreateSprite(&gUnknown_0855D23C, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET, 88 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
-            r5 = sPokedexView->ownCount / 100;
-            StartSpriteAnim(&gSprites[spriteId], r5);
-            if (r5 != 0)
+        seenOwnedCount = GetHoennPokedexCount(FLAG_GET_CAUGHT);
+        // Hoenn owned value - 100s
+        _a = FALSE;
+        spriteId = CreateSprite(&gUnknown_0855D23C, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET, 55 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
+        r5 = seenOwnedCount / 100;
+        StartSpriteAnim(&gSprites[spriteId], r5);
+        if (r5 != 0)
+            _a = TRUE;
+        else
+            gSprites[spriteId].invisible = TRUE;
+
+       //     _a = 0;
+
+       //     spriteId = CreateSprite(&gUnknown_0855D23C, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET, 88 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
+        //    r5 = sPokedexView->ownCount / 100;
+		// Hoenn owned value - 10s
+        spriteId = CreateSprite(&gUnknown_0855D23C, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET + 8, 55 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
+        r5 = (seenOwnedCount % 100) / 10;
+        if (r5 != 0 || _a)
+		  StartSpriteAnim(&gSprites[spriteId], r5);
+      /*      if (r5 != 0)
                 _a = 1;
             else
                 gSprites[spriteId].invisible = TRUE;
@@ -2953,18 +3061,72 @@ static void CreateInterfaceSprites(u8 a)
              spriteId = CreateSprite(&gUnknown_0855D23C, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET + 8, 88 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
             r5 = (sPokedexView->ownCount % 100) / 10;
             if (r5 != 0 || _a != 0)
-                StartSpriteAnim(&gSprites[spriteId], r5);
+                StartSpriteAnim(&gSprites[spriteId], r5);*/
             else
                 gSprites[spriteId].invisible = TRUE;
+			
+			  // Hoenn owned value - 1s
+        spriteId = CreateSprite(&gUnknown_0855D23C, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET + 16, 55 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
+        r5 = (seenOwnedCount % 100) % 10;
+        StartSpriteAnim(&gSprites[spriteId], r5);
 
-            spriteId = CreateSprite(&gUnknown_0855D23C, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET + 16, 88 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
-            r5 = (sPokedexView->ownCount % 100) % 10;
+        //****************************
+        // National seen value - 100s
+        _a = FALSE;
+        spriteId = CreateSprite(&gUnknown_0855D23C, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET, 78 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
+        r5 = sPokedexView->seenCount / 100;
+        StartSpriteAnim(&gSprites[spriteId], r5);
+        if (r5 != 0)
+            _a = TRUE;
+        else
+            gSprites[spriteId].invisible = TRUE;
+
+         //   spriteId = CreateSprite(&gUnknown_0855D23C, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET + 16, 88 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
+          //  r5 = (sPokedexView->ownCount % 100) % 10;
+		   // National seen value - 10s
+        spriteId = CreateSprite(&gUnknown_0855D23C, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET + 8, 78 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
+        r5 = (sPokedexView->seenCount % 100) / 10;
+        if (r5 != 0 || _a)
             StartSpriteAnim(&gSprites[spriteId], r5);
-        }
+		        else
+            gSprites[spriteId].invisible = TRUE;
+
+        // National seen value - 1s
+        spriteId = CreateSprite(&gUnknown_0855D23C, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET + 16, 78 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
+        r5 = (sPokedexView->seenCount % 100) % 10;
+        StartSpriteAnim(&gSprites[spriteId], r5);
+
+        // National owned value - 100s
+        _a = FALSE;
+        spriteId = CreateSprite(&gUnknown_0855D23C, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET, 88 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
+        r5 = sPokedexView->ownCount / 100;
+        StartSpriteAnim(&gSprites[spriteId], r5);
+        if (r5 != 0)
+            _a = TRUE;
+        else
+            gSprites[spriteId].invisible = TRUE;
+		
+		 // National owned value  - 10s
+        spriteId = CreateSprite(&gUnknown_0855D23C, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET + 8, 88 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
+        r5 = (sPokedexView->ownCount % 100) / 10;
+        if (r5 != 0 || _a)
+            StartSpriteAnim(&gSprites[spriteId], r5);
+		else
+            gSprites[spriteId].invisible = TRUE;
+		
+		 // National owned value - 1s
+        spriteId = CreateSprite(&gUnknown_0855D23C, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET + 16, 88 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
+        r5 = (sPokedexView->ownCount % 100) % 10;
+        StartSpriteAnim(&gSprites[spriteId], r5);
+    }
+	
+	 if (a == 0)
+    {
+       // }
         spriteId = CreateSprite(&gUnknown_0855D254, 136, 96, 1);
         gSprites[spriteId].invisible = TRUE;
     }
-    else
+    else // PAGE_SEARCH_RESULTS
     {
         spriteId = CreateSprite(&gUnknown_0855D254, 136, 80, 1);
         gSprites[spriteId].invisible = TRUE;
