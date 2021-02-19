@@ -344,12 +344,14 @@ AI_CBM_Roar: @ 82DC47B
 	end
 
 AI_CBM_Toxic: @ 82DC48C
+	if_ability AI_USER, ABILITY_CORROSION, AI_CBM_Toxic_SkipTypeCheck
 	get_target_type1
 	if_equal TYPE_STEEL, Score_Minus10
 	if_equal TYPE_POISON, Score_Minus10
 	get_target_type2
 	if_equal TYPE_STEEL, Score_Minus10
 	if_equal TYPE_POISON, Score_Minus10
+AI_CBM_Toxic_SkipTypeCheck:
     if_ability_might_be AI_TARGET, ABILITY_IMMUNITY, Score_Minus10
 	if_status AI_TARGET, STATUS1_ANY, Score_Minus10
 	if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
@@ -635,6 +637,7 @@ AI_CBM_HealBell_End:
 	end
 	
 AI_CBM_Taunt:
+	if_ability_might_be AI_TARGET, ABILITY_OBLIVIOUS, Score_Minus10
 	if_target_taunted Score_Minus10
 	end
 	
@@ -3448,7 +3451,7 @@ AI_HPAware_DiscouragedEffectsWhenTargetLowHP: @ 82DE2B1
     .byte EFFECT_TOXIC
     .byte EFFECT_LIGHT_SCREEN
     .byte EFFECT_OHKO
-    .byte EFFECT_SUPER_FANG //Maybe supposed to be EFFECT_RAZOR_WIND
+    .byte EFFECT_RAZOR_WIND
     .byte EFFECT_SUPER_FANG
     .byte EFFECT_MIST
     .byte EFFECT_FOCUS_ENERGY
