@@ -881,7 +881,7 @@ static const struct MenuAction MultichoiceList_GameCornerPkmn2[] =
 static const struct MenuAction MultichoiceList_GameCornerPkmn3[] =
 {
     {gText_DarkPika},
-    {gText_Micomon},
+    {gText_Wintass},
     {gText_Catermano},
     {gText_Exit},
 };

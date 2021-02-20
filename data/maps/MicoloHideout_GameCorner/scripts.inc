@@ -113,7 +113,7 @@ MicoloHideout_GameCorner_EventScript_MonPrizesList:
   multichoice 12, 0, MULTI_GAME_CORNER_PKMN3, 0
   switch VAR_RESULT
 	case 0, MicoloHideout_GameCorner_EventScript_DARK_PIKA_Confirm
-	case 1, MicoloHideout_GameCorner_EventScript_MICOMON_Confirm
+	case 1, MicoloHideout_GameCorner_EventScript_WINTASS_Confirm
 	case 2, MicoloHideout_GameCorner_EventScript_CATERMANO_Confirm
 	goto MicoloHideout_GameCorner_EventScript_CancelDollSelect
 	end
@@ -123,9 +123,9 @@ MicoloHideout_GameCorner_EventScript_DARK_PIKA_Confirm:
   bufferspeciesname 0, SPECIES_PIKACHU
 	goto MicoloHideout_GameCorner_EventScript_MonConfirm
 
-MicoloHideout_GameCorner_EventScript_MICOMON_Confirm:
+MicoloHideout_GameCorner_EventScript_WINTASS_Confirm:
 	setvar VAR_TEMP_1, 2
-  bufferspeciesname 0, SPECIES_DITTO
+  bufferspeciesname 0, SPECIES_WINTASS
 	goto MicoloHideout_GameCorner_EventScript_MonConfirm
 
 MicoloHideout_GameCorner_EventScript_CATERMANO_Confirm:
@@ -139,7 +139,7 @@ MicoloHideout_GameCorner_EventScript_MonConfirm:
 	goto_if_eq MicoloHideout_GameCorner_EventScript_CancelDollSelect
 	switch VAR_TEMP_1
 	case 1, MicoloHideout_GameCorner_EventScript_DARK_PIKA
-	case 2, MicoloHideout_GameCorner_EventScript_MICOMON
+	case 2, MicoloHideout_GameCorner_EventScript_WINTASS
 	case 3, MicoloHideout_GameCorner_EventScript_CATERMANO
 	end
 
@@ -156,18 +156,18 @@ MicoloHideout_GameCorner_EventScript_DARK_PIKA:
 	playse SE_REGI
   waitse
 	playfanfare MUS_FANFA4
-	bufferspeciesname 0, SPECIES_PIKACHU
+	bufferspeciesname 0, SPECIES_DARK_PIKACHU
 	message MicoloHideout_GameCorner_Text_GetMon
 	waitfanfare
 	waitmessage
-	givemon SPECIES_PIKACHU, 90, ITEM_NONE
-	bufferspeciesname 1, SPECIES_PIKACHU
+	givemon SPECIES_DARK_PIKACHU, 90, ITEM_NONE
+	bufferspeciesname 1, SPECIES_DARK_PIKACHU
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	call_if_eq Common_EventScript_NameReceivedPartyMon
   goto MicoloHideout_GameCorner_EventScript_MonPrizesFirst
 
-MicoloHideout_GameCorner_EventScript_MICOMON:
+MicoloHideout_GameCorner_EventScript_WINTASS:
 	checkcoins VAR_TEMP_2
 	compare VAR_TEMP_2, 9000
 	goto_if_lt MicoloHideout_GameCorner_EventScript_NoCoinsForMon
@@ -180,12 +180,12 @@ MicoloHideout_GameCorner_EventScript_MICOMON:
 	playse SE_REGI
   waitse
 	playfanfare MUS_FANFA4
-	bufferspeciesname 0, SPECIES_DITTO
+	bufferspeciesname 0, SPECIES_WINTASS
 	message MicoloHideout_GameCorner_Text_GetMon
 	waitfanfare
 	waitmessage
-	givemon SPECIES_DITTO, 90, ITEM_NONE
-	bufferspeciesname 1, SPECIES_DITTO
+	givemon SPECIES_WINTASS, 90, ITEM_NONE
+	bufferspeciesname 1, SPECIES_WINTASS
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	call_if_eq Common_EventScript_NameReceivedPartyMon
@@ -208,7 +208,7 @@ MicoloHideout_GameCorner_EventScript_CATERMANO:
 	message MicoloHideout_GameCorner_Text_GetMon
 	waitfanfare
 	waitmessage
-	givemon SPECIES_CATERPIE, 90, ITEM_NONE
+	givecustommon SPECIES_CATERPIE, 100, ITEM_NONE, ITEM_MASTER_BALL, NATURE_NAIVE, 0, 252, 252, 252, 252, 252, 252, 31, 31, 31, 31, 31, 31, MOVE_HORN_DRILL, MOVE_FISSURE, MOVE_MEGAHORN, MOVE_MIDELE_POWER, TRUE
 	bufferspeciesname 1, SPECIES_CATERPIE
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	compare VAR_RESULT, YES

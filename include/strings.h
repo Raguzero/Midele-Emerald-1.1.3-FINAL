@@ -3009,7 +3009,7 @@ extern const u8 gText_Torchic[];
 extern const u8 gText_Mudkip[];
 extern const u8 gText_Turtwig[];
 extern const u8 gText_DarkPika[];
-extern const u8 gText_Micomon[];
+extern const u8 gText_Wintass[];
 extern const u8 gText_Catermano[];
 
 extern const u8 gText_HardyNature[];
