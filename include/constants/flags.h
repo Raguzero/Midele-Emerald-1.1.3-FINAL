@@ -687,9 +687,9 @@
 #define FLAG_HIDE_MICOLO_METEORFALL  0x286 // Previously unused Flag
 #define FLAG_FORBIDDEN_FOREST_CELEBI_ENTRANCE  0x287 // Previously unused Flag
 #define FLAG_RECEIVED_LILYCOVE_ITEM_PINK_PETAL  0x288 // Previously unused Flag
-#define FLAG_UNUSED_0x289  0x289 // Unused Flag
-#define FLAG_UNUSED_0x28A  0x28A // Unused Flag
-#define FLAG_UNUSED_0x28B  0x28B // Unused Flag
+#define FLAG_CAUGHT_MEWTWO  0x289 // Previously unused Flag
+#define FLAG_DEFEATED_MEWTWO  0x28A // Previously unused Flag
+#define FLAG_HIDE_MEWTWO  0x28B // Previously unused Flag
 #define FLAG_UNUSED_0x28C  0x28C // Unused Flag
 #define FLAG_UNUSED_0x28D  0x28D // Unused Flag
 #define FLAG_UNUSED_0x28E  0x28E // Unused Flag

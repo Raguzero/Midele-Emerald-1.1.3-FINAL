@@ -1,2 +1,57 @@
 MicoloHideout_ExperimentRoom_MapScripts::
+	map_script MAP_SCRIPT_ON_RESUME, MicoloHideout_ExperimentRoom_OnResume
+	map_script MAP_SCRIPT_ON_TRANSITION, MicoloHideout_ExperimentRoom_OnTransition
 	.byte 0
+	
+MicoloHideout_ExperimentRoom_OnResume:
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, MicoloHideout_ExperimentRoom_EventScript_TryRemoveMewtwo
+	end
+
+MicoloHideout_ExperimentRoom_EventScript_TryRemoveMewtwo::
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_CAUGHT
+	goto_if_ne Common_EventScript_NopReturn
+	removeobject VAR_LAST_TALKED
+	return
+
+MicoloHideout_ExperimentRoom_OnTransition:
+	call_if_unset FLAG_CAUGHT_MEWTWO, MicoloHideout_ExperimentRoom_EventScript_TryShowMewtwo
+	end
+
+MicoloHideout_ExperimentRoom_EventScript_TryShowMewtwo::
+	goto_if_set FLAG_DEFEATED_MEWTWO, Common_EventScript_NopReturn
+	clearflag FLAG_HIDE_MEWTWO
+	return
+	
+MicoloHideout_ExperimentRoom_EventScript_Mewtwo::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_MEWTWO, 2
+	delay 40
+	waitmoncry
+	setwildbattle SPECIES_MEWTWO, 70, ITEM_NONE
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special StartLegendDogsBattle
+	waitstate
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq MicoloHideout_ExperimentRoom_EventScript_DefeatedMewtwo
+	compare VAR_RESULT, B_OUTCOME_RAN
+	goto_if_eq MicoloHideout_ExperimentRoom_EventScript_RanFromMewtwo
+	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
+	goto_if_eq MicoloHideout_ExperimentRoom_EventScript_RanFromMewtwo
+	setflag FLAG_CAUGHT_MEWTWO
+	release
+	end
+
+MicoloHideout_ExperimentRoom_EventScript_DefeatedMewtwo::
+	setflag FLAG_DEFEATED_MEWTWO
+	goto Common_EventScript_RemoveStaticPokemon
+	end
+
+MicoloHideout_ExperimentRoom_EventScript_RanFromMewtwo::
+	setvar VAR_0x8004, SPECIES_MEWTWO
+	goto Common_EventScript_LegendaryFlewAway
+	end

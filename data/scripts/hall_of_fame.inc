@@ -50,6 +50,7 @@ EverGrandeCity_HallOfFame_EventScript_ResetDefeatedEventLegendaries:: @ 8271829
 	clearflag FLAG_DEFEATED_MOLTRES
 	clearflag FLAG_DEFEATED_ZAPDOS
 	clearflag FLAG_DEFEATED_RAIKOU
+	clearflag FLAG_DEFEATED_MEWTWO
 	return
 
 EverGrandeCity_HallOfFame_EventScript_SetDesertUnderpassCommentReady:: @ 8271839

@@ -180,6 +180,7 @@ LittlerootTown_DebugRoom_Script_DesactivarMedallas::
 	clearflag FLAG_DEFEATED_ZAPDOS
 	clearflag FLAG_DEFEATED_RAIKOU
 	clearflag FLAG_DEFEATED_REGIELEKI
+	clearflag FLAG_DEFEATED_MEWTWO
     setvar VAR_SOOTOPOLIS_CITY_STATE, 0
     end
 
