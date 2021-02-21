@@ -283,6 +283,22 @@ PC_BatallaFinDRAW::
 	release
 	end
 	
+Micolandia_Cibercafe_Dueno_Script::
+	msgbox Micolandia_Cibercafe_Dueno_Text, MSGBOX_NPC
+	release
+	end
+	
+Micolandia_Cibercafe_Dueno_Text:
+	.string "Bienvenido al CIBERCAFE BATALLA.\p"
+	
+	.string "Elige un PC para combatir con\n"
+	.string "entrenadores de otras regiones.\p"
+	
+	.string "Puedes ganar dinero, experiencia y\n"
+	.string "premios en estas batallas.\p"
+	
+	.string "¡Buena suerte!$"
+	
 PC_Enhorabuena:
 	.string "Ganaste, te llevas este premio.$"
 

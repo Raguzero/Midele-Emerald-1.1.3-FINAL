@@ -398,9 +398,7 @@ LittlerootTown_EventScript_GoSaveBirchTrigger:: @ 81E811F
 	end
 
 LittlerootTown_EventScript_TownSign:: @ 81E8151
-	setflag FLAG_SYS_DEXNAV_GET
-	setflag FLAG_SYS_DETECTOR_MODE
-	//msgbox LittlerootTown_Text_TownSign, MSGBOX_SIGN
+	msgbox LittlerootTown_Text_TownSign, MSGBOX_SIGN
 	end
 
 LittlerootTown_EventScript_BirchsLabSign:: @ 81E815A

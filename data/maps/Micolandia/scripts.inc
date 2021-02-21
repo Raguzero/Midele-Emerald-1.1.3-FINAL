@@ -38,6 +38,42 @@ Micolandia_EventScript_CibercafeSign::
 	msgbox Micolandia_CibercafeSign, MSGBOX_SIGN
 	end
 	
+Micolandia_Kirlia_Script::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_KIRLIA, 0
+	waitmoncry
+	release
+	end
+	
+Micolandia_Dueno_de_Kirlia_Script::
+	lock
+	faceplayer
+	msgbox Micolandia_Dueno_de_Kirlia_Text, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Micolandia_Dueno_de_Kirlia_Teleport
+	release
+	end
+Micolandia_Dueno_de_Kirlia_Teleport::
+	checkplayergender
+	compare VAR_RESULT, MALE
+	call_if_eq Micolandia_EventScript_PlayersHouseMale
+	compare VAR_RESULT, FEMALE
+	call_if_eq Micolandia_EventScript_BirchsHouseFemale
+	release
+	end
+
+Micolandia_EventScript_PlayersHouseMale::
+	warp MAP_LITTLEROOT_TOWN, 1, 0, 0
+	waitstate
+	end
+
+Micolandia_EventScript_BirchsHouseFemale::
+	warp MAP_LITTLEROOT_TOWN, 0, 0, 0
+	waitstate
+	end
+
 Micolandia_VentaTickets::
 	lock
 	faceplayer
@@ -84,14 +120,14 @@ MicolandiaYaCompradoTickets::
 	msgbox Micolandia_SiVendido_Text
 	release
 	end
-	
+
 Micolandia_Text_Marihuana:
 	.string "¿Ves esas plantas de ahí?\p"
 	.string "Cualquiera diría que hay\n" 
 	.string "Pokémon salvajes.\p"
 
 	.string "Pero si fumas de eso serás tú quien\n"
-	.string	"acabará bien salvaje jeje$"
+	.string	"acabará bien salvaje. ¡jeje!$"
 
 Micolandia_Text_BienvenidaSign:
 	.string "¡Bienvenido a MICOLANDIA!\n"
@@ -105,30 +141,30 @@ Micolandia_Text_BienvenidaSign:
 	.string "extraordinario Liga Pokemon Midelar!$"
 	
 Micolandia_Text_LigaSign:
-	.string "Liga Pokemon Midelar$"
+	.string "LIGA POKÉMON MIDELAR$"
 	
-Micolandia_GymNoroesteSign: @ 81DCAAA
+Micolandia_GymNoroesteSign:
 	.string "POKEMON GYM Nº1\n"
 	.string "LEADER: SANTYGRASS\l"
-	.string "“Mensaje descriptivo del lider”$"
+	.string "“TEMÁTICA: HIERBA QUEMADA”$"
 
-Micolandia_GymNoresteSign: @ 81DCAAA
+Micolandia_GymNoresteSign:
 	.string "POKEMON GYM Nº2\n"
 	.string "LEADER: DARKI\l"
-	.string "“Mensaje descriptivo del lider”$"
+	.string "“TEMÁTICA: BUENROLLO y MALROLLO”$"
 
-Micolandia_GymSuroesteSign: @ 81DCAAA
+Micolandia_GymSuroesteSign:
 	.string "POKEMON GYM Nº3\n"
-	.string "LEADER: ????1\l"
-	.string "“Mensaje descriptivo del lider”$"
+	.string "LEADER: SAPPH\l"
+	.string "“TEMÁTICA: ????”$"
 
-Micolandia_GymSuresteSign: @ 81DCAAA
+Micolandia_GymSuresteSign:
 	.string "POKEMON GYM Nº4\n"
-	.string "LEADER: ????1\l"
-	.string "“Mensaje descriptivo del lider”$"
+	.string "LEADER: GOOSES\l"
+	.string "“TEMÁTICA: INVIERNO”$"
 	
 Micolandia_CibercafeSign:
-	.string "CiberCafé Batalla$"
+	.string "CIBERCAFE BATALLA$"
 
 Micolandia_VentaTickets_Text:
 	.string "¡¡¡Eh, pringao!!\n"
@@ -156,3 +192,13 @@ Micolandia_Text_NotEnoughMoney:
 	
 Micolandia_SiVendido_Text:
 	.string "¡¡Esto es un trato dabuten!!$"
+	
+Micolandia_Dueno_de_Kirlia_Text:
+	.string "La única forma de salir de aquí\n"
+	.string "es volando.\p"
+
+	.string "Pero mi KIRLIA puede usar la\n"
+	.string "técnica del TELEPORT para enviarte\l"
+	.string "a tu casa. ¡Es gratis!\p"
+	
+	.string "¿Quieres que te lleve a tu casa?$"

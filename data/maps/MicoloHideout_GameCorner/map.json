@@ -581,15 +581,15 @@
     "show_map_name": false,
     "warp_events": [
         {
-            "dest_map": "MAP_LITTLEROOT_TOWN_DEBUG_ROOM",
-            "dest_warp_id": 3,
+            "dest_map": "MAP_MICOLANDIA",
+            "dest_warp_id": 6,
             "elevation": 0,
             "x": 9,
             "y": 20
         },
         {
-            "dest_map": "MAP_LITTLEROOT_TOWN_DEBUG_ROOM",
-            "dest_warp_id": 3,
+            "dest_map": "MAP_MICOLANDIA",
+            "dest_warp_id": 6,
             "elevation": 0,
             "x": 10,
             "y": 20

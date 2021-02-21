@@ -101,6 +101,8 @@ LittlerootTown_DebugRoom_Script_ActivarTodo::
 	clearflag FLAG_HIDE_MOSSDEEP_CITY_STEVENS_HOUSE_BELDUM_POKEBALL
 	clearflag FLAG_RECEIVED_BELDUM
 	setvar VAR_STEVENS_HOUSE_STATE, 2
+	setflag FLAG_SYS_DEXNAV_GET
+	setflag FLAG_SYS_DETECTOR_MODE
     giveitem ITEM_PP_MAX, 99
     giveitem ITEM_G_CALCIUM, 1
     giveitem ITEM_G_CARBOS, 1
