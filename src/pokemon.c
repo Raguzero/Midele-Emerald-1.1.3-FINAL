@@ -5699,7 +5699,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
     s32 friendship;
     s32 cmdIndex;
     bool8 retVal = TRUE;
-    const u8 *itemEffect;
+    u8 *itemEffect;
     u8 var_3C = 6;
     u32 var_38;
     s8 var_34 = 0;
@@ -5712,6 +5712,10 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
     u32 r5;
     s16 r2;
     u16 evCount;
+    u8 dummyItemEffect_SitrusBerry[7] = {
+        [4] = ITEM4_HEAL_HP,
+        [6] = 30,
+    };
 
     heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, NULL);
     if (heldItem == ITEM_ENIGMA_BERRY)
@@ -5767,9 +5771,14 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
             itemEffect = 0;
             #endif
     }
+    else if (item == ITEM_SITRUS_BERRY)
+    {
+      itemEffect = dummyItemEffect_SitrusBerry;
+      itemEffect[6] = (GetMonData(mon, MON_DATA_MAX_HP, NULL) * 25) / 100;
+    }
     else
     {
-        itemEffect = gItemEffectTable[item - ITEM_POTION];
+        itemEffect = (u8*) gItemEffectTable[item - ITEM_POTION];
     }
     for (cmdIndex = 0; cmdIndex < 7; cmdIndex++)
     {
