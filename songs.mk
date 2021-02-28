@@ -1293,8 +1293,8 @@ $(MID_SUBDIR)/dialgapalkiabattle.s: %.s: %.mid
 $(MID_SUBDIR)/undertalemegalovania.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100 -P5
 	
-$(MID_SUBDIR)/deltarunechaosking.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100 -P5
+$(MID_SUBDIR)/cruelangelsthesis.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100
 
 $(MID_SUBDIR)/liyuebattlethemeimain.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100 -P5

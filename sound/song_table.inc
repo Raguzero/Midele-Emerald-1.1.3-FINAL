@@ -627,11 +627,13 @@ gSongTable:: @ 86B49F0
 	song dialgapalkiabattle, 0, 0
 	song undertalemegalovania, 0, 0
 	song that_persons_name_is, 0, 0
-	song deltarunechaosking, 0, 0
+	song cruelangelsthesis, 0, 0
 	song thereincarnation, 0, 0
 	song liyuebattlethemeimain, 0, 0
 	song bonetrousleundertale, 0, 0
 	song wallybattletheme, 0, 0
+	song Xenoblade_Chronicles_2_Roaming_the_Wastes, 0, 0
+	song song12, 0, 0 // star wars battle hero
 
 	.align 2
 dummy_song_header: @ 86B5D00
