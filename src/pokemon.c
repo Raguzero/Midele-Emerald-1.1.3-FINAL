@@ -2952,23 +2952,33 @@ static const struct SpriteTemplate gUnknown_08329F28 =
 };
 
 // NUEVO PARA LEVEL CAP BADGE
-static const u16 sBadgeFlags[8] =
+static const u16 sLevelCapFlags[] =
 {
     FLAG_BADGE01_GET, FLAG_BADGE02_GET, FLAG_BADGE03_GET, FLAG_BADGE04_GET,
     FLAG_BADGE05_GET, FLAG_BADGE06_GET, FLAG_BADGE07_GET, FLAG_BADGE08_GET,
+    FLAG_IS_CHAMPION,  // Campeón
+    FLAG_IS_CHAMPION,  // Gym 1
+    FLAG_IS_CHAMPION,  // Gym 2
+    FLAG_IS_CHAMPION,  // Gym 3
+    FLAG_IS_CHAMPION   // Gym 4
 };
 
-static const u8 gCapLevels[9] =
+static const u8 sCapLevels[] =
 {
-    15, // 0 medallas
-    20, // 1 medalla
-    30, // 2 medallas
-    40, // 3 medallas
-    40, // 4 medallas
-    45, // 5 medallas
-    50, // 6 medallas
-    55, // 7 medallas
-    100 // 8 medallas
+    15,  // 0 medallas
+    20,  // 1 medalla
+    30,  // 2 medallas
+    40,  // 3 medallas
+    40,  // 4 medallas
+    45,  // 5 medallas
+    50,  // 6 medallas
+    55,  // 7 medallas
+    65,  // 8 medallas
+    65,  // Campeón
+    75,  // Gym 1
+    85,  // Gym 2
+    95,  // Gym 3
+    100, // Gym 4
 };
 // NUEVO PARA LEVEL CAP BADGE
 
@@ -8355,18 +8365,17 @@ u8 *sub_806F4F8(u8 id, u8 arg1)
 // NUEVO PARA LEVEL CAP BADGE
 u8 GetLevelCap()
 {
+    u8 i, capLevelIndex;
 
-    s32 i, count;
-
-    for (count = 0, i = 0; i < ARRAY_COUNT(sBadgeFlags); i++)
+    for (capLevelIndex = 0, i = 0; i < ARRAY_COUNT(sLevelCapFlags); i++)
     {
-        if (FlagGet(sBadgeFlags[i]) == TRUE)
+        if (FlagGet(sLevelCapFlags[i]))
         {
-            count++;
+            capLevelIndex++;
         }
     }
 
-    return gCapLevels[count];
+    return sCapLevels[capLevelIndex];
 }
 // NUEVO PARA LEVEL CAP BADGE
 
