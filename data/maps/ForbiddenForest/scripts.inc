@@ -123,6 +123,16 @@ ForbiddenForest_EventScript_CharizardFan::
 	msgbox CharizardFan_DespuesDeBatalla, MSGBOX_AUTOCLOSE
 	end
 	
+ForbiddenForest_EventScript_Puffu::
+	trainerbattle_single TRAINER_PUFFU, ForbiddenForest_Text_PuffuIntro, ForbiddenForest_Text_PuffuDefeat
+	msgbox ForbiddenForest_Text_PuffuPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+ForbiddenForest_EventScript_Merciboku::
+	trainerbattle_single TRAINER_MERCIBOKU, ForbiddenForest_Text_MercibokuIntro, ForbiddenForest_Text_MercibokuDefeat
+	msgbox ForbiddenForest_Text_MercibokuPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
 ForbiddenForest_Text_Celebi:
 	.string "El cartel se ha deteriorado\n"
 	.string "por el paso del tiempo y solo\l"
@@ -144,6 +154,40 @@ ForbiddenForest_Text_EzecuterDefeat:
 
 ForbiddenForest_Text_EzecuterPostBattle: 
 	.string "Eres totalmente bochornoso.$"
+	
+ForbiddenForest_Text_PuffuIntro: 
+	.string "Hola, ¿Eres fan de los Puffus?$"
+
+ForbiddenForest_Text_PuffuDefeat: 
+	.string "¿Por qué has hecho daño a los\n"
+	.string "Puffus? T.T$"
+
+ForbiddenForest_Text_PuffuPostBattle:
+	.string "No le hagas caso a DARKIZARD.\p"
+
+	.string "¡Añade un Puffu en tu vida!\p"
+	
+	.string "¡Si es que son tan monos! :puffu:$"
+	
+ForbiddenForest_Text_MercibokuIntro: 
+	.string "la primera vez y mucho menos\n" 
+	.string "sera la ultima que me masturbo\l" 
+	.string "con mi lopunny o con mi gardevoir.\p"
+	
+	.string "A veces me entran las ganas de una\n" 
+	.string "gordita y me hecho a chansey =P\l" 
+	.string "(mi garcha es muy caprichosa jeje)\p"
+	
+	.string "y aunque me paso horas con mi\n" 
+	.string "machamp hombre en el poke-recreo\l" 
+	.string "no me considero para nada gay.$"
+
+ForbiddenForest_Text_MercibokuDefeat: 
+	.string "Ay... mi pobre garcha...$" 
+
+ForbiddenForest_Text_MercibokuPostBattle:
+	.string "De verdad no te gustaría probar\n"
+	.string "una gordita? =P$"
 	
 Kefky_AntesBatalla: 
 	.string "Yo solo uso un Pokémon si es mono.$"
