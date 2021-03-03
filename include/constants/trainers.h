@@ -128,6 +128,7 @@
 #define TRAINER_PIC_KEFKY          109
 #define TRAINER_PIC_MERUM          110
 #define TRAINER_PIC_ENTROPIA          111
+#define TRAINER_PIC_SCIENTISH_FRLG          112
 
 #define TRAINER_BACK_PIC_BRENDAN                0
 #define TRAINER_BACK_PIC_MAY                    1
