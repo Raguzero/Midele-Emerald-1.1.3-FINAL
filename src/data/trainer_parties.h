@@ -19991,16 +19991,62 @@ static const struct TrainerMonCustomMidele sParty_Javisito2[] = {
 
 static const struct TrainerMonCustomMidele sParty_Merum[] = {
 		// PARA METERLE DE NPC TRAINER EN RUTAS FINALES
-		// FALTA EQUIPO
     {
     .iv = 31,  
-    .lvl = 15,
-    .species = SPECIES_GASTLY,
-	.heldItem = ITEM_POISON_BARB, 
-	.nature = NATURE_NAUGHTY,
-	.evs = {0, 0, 0, 24, 0, 0},  
-    .moves = {MOVE_HYPNOSIS, MOVE_LICK, MOVE_SPITE, MOVE_SMOG}
-	}
+    .lvl = 77,
+    .species = SPECIES_WINTASS,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_JOLLY,
+	.evs = {6, 252, 0, 0, 0, 252}, 
+	.ability = 1,
+    .moves = {MOVE_MACH_PUNCH, MOVE_MUD_SHOT, MOVE_ROCK_BLAST, MOVE_SPIKES}
+    },
+    {
+    .iv = 31, 
+    .lvl = 71, 
+    .species = SPECIES_DHELMISE,
+	.heldItem = ITEM_SITRUS_BERRY, 
+	.nature = NATURE_ADAMANT, 
+	.evs = {252, 252, 0, 0, 0, 6},
+    .moves = {MOVE_IRON_HEAD, MOVE_SHADOW_BALL, MOVE_SWORDS_DANCE, MOVE_EARTHQUAKE}
+    },
+    {
+    .iv = 31,
+    .lvl = 71, 
+    .species = SPECIES_EELEKTROSS,
+	.heldItem = ITEM_LUM_BERRY,
+	.nature = NATURE_MODEST, 
+	.evs = {252, 0, 0, 252, 0, 6},  
+    .moves = {MOVE_FLAMETHROWER, MOVE_GIGA_DRAIN, MOVE_THUNDER_WAVE, MOVE_THUNDERBOLT}
+    },
+    {
+    .iv = 31,
+    .lvl = 71, 
+    .species = SPECIES_REUNICLUS,
+	.heldItem = ITEM_LEFTOVERS, 
+	.nature = NATURE_BOLD,
+	.evs = {6, 0, 252, 252, 0, 0},
+    .moves = {MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_ICE_PUNCH, MOVE_RECOVER}
+    },
+    {
+    .iv = 31,
+    .lvl = 77,
+    .species = SPECIES_DRAGALGE,
+	.heldItem = ITEM_CHOICE_SPECS,
+	.nature = NATURE_MODEST,
+	.evs = {252, 0, 0, 252, 0, 6},
+	.ability = 1,
+    .moves = {MOVE_SURF, MOVE_ICE_BEAM, MOVE_OUTRAGE, MOVE_THUNDERBOLT}
+    },
+    {
+    .iv = 31, 
+    .lvl = 77, 
+    .species = SPECIES_PROBOPASS,
+	.heldItem = ITEM_METAL_COAT,
+	.nature = NATURE_BRAVE, 
+	.evs = {252, 128, 0, 128, 0, 6}, 
+    .moves = {MOVE_THUNDER_WAVE, MOVE_ICE_PUNCH, MOVE_THUNDERBOLT, MOVE_IRON_HEAD}
+    }
 };
 
 static const struct TrainerMonCustomMidele sParty_Entropia[] = {
@@ -20160,9 +20206,73 @@ static const struct TrainerMonCustomMidele sParty_Dunk[] = {
     .lvl = 47,
     .species = SPECIES_MEGA_ALTARIA,
 	.ability = 0,
+	.shiny = 1,
     .heldItem = ITEM_LEFTOVERS,
     .nature = NATURE_MODEST,
     .evs = {0, 0, 0, 144, 0, 144},
     .moves = {MOVE_MOONBLAST, MOVE_DRAGON_CLAW, MOVE_FLAMETHROWER, MOVE_ATTRACT}
   },
+};
+static const struct TrainerMonCustomMidele sParty_Eeveeto[] = {
+    {
+    .iv = 31,  
+    .lvl = 100,
+    .species = SPECIES_JYNX,
+	.heldItem = ITEM_FOCUS_SASH, 
+	.nature = NATURE_HASTY,
+	.evs = {0, 6, 0, 252, 0, 252},
+	.ability = 1,
+    .moves = {MOVE_FAKE_OUT, MOVE_BLIZZARD, MOVE_PSYCHIC, MOVE_LOVELY_KISS}
+    },
+    {
+    .iv = 31,
+    .lvl = 100,
+    .species = SPECIES_AURORUS,
+	.heldItem = ITEM_FOCUS_SASH,
+	.nature = NATURE_MODEST,
+	.evs = {6, 0, 0, 252, 0, 252},
+	.ability = 0,
+    .moves = {MOVE_BLIZZARD, MOVE_THUNDERBOLT, MOVE_THUNDER_WAVE, MOVE_ENCORE}
+    },
+    {
+    .iv = 31,
+    .lvl = 100,
+    .species = SPECIES_WALREIN,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_BOLD,
+	.evs = {232, 0, 252, 0, 24, 0},
+	.ability = 1,
+	.shiny = 1,
+    .moves = {MOVE_PROTECT, MOVE_SUBSTITUTE, MOVE_SURF, MOVE_SUPER_FANG}
+    },
+    {
+    .iv = 31,
+    .lvl = 100,
+    .species = SPECIES_MEGA_ABOMASNOW,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_CALM,
+	.evs = {252, 0, 0, 6, 252, 0},
+	.ability = 1,
+    .moves = {MOVE_PROTECT, MOVE_LEECH_SEED, MOVE_BLIZZARD, MOVE_ENERGY_BALL}
+    },
+    {
+    .iv = 31,
+    .lvl = 100,
+    .species = SPECIES_ALOLAN_NINETALES,
+	.heldItem = ITEM_FOCUS_SASH,
+	.nature = NATURE_TIMID,
+	.evs = {6, 0, 0, 252, 0, 252},
+	.ability = 1,
+    .moves = {MOVE_BLIZZARD, MOVE_MOONBLAST, MOVE_ENCORE, MOVE_HYPNOSIS}
+    },
+    {
+    .iv = 31,
+    .lvl = 100,
+    .species = SPECIES_ALOLAN_SANDSLASH,
+	.heldItem = ITEM_FOCUS_SASH,
+	.nature = NATURE_ADAMANT,
+	.evs = {6, 252, 0, 0, 0, 252},
+	.ability = 1,
+    .moves = {MOVE_SWORDS_DANCE, MOVE_IRON_HEAD, MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE}
+    }
 };

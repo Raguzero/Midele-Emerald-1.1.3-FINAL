@@ -12881,4 +12881,18 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_Dunk),
         .party = {.ItemCustomMidele = sParty_Dunk},
     },
+    [TRAINER_EEVEETO] =
+    {
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
+        .battleMusic = THEMEOFENCOUNTER,
+        .trainerPic = TRAINER_PIC_POKEMON_BREEDER_M,
+        .trainerName = _("EEVEETO"),
+        .items = {},
+        .doubleBattle = TRUE,
+        .aiFlags = AI_SCRIPT_DOUBLE_BATTLE,
+        .partySize = ARRAY_COUNT(sParty_Eeveeto),
+        .party = {.ItemCustomMidele = sParty_Eeveeto},
+    },
 };
