@@ -208,10 +208,10 @@ BattleScript_ActionWallyThrow:
 	
 BattleScript_TrainerSlideMsgRet::
 	handletrainerslidemsg BS_SCRIPTING, 0
-	trainerslidein 1
+	trainerslidein2 BS_SCRIPTING
 	handletrainerslidemsg BS_SCRIPTING, 1
 	waitstate
-	trainerslideout 1
+	trainerslideout2 BS_SCRIPTING
 	handletrainerslidemsg BS_SCRIPTING, 2
 	waitstate
 	return

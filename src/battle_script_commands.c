@@ -328,6 +328,8 @@ static void Cmd_finishaction(void);
 static void Cmd_finishturn(void);
 static void Cmd_trainerslideout(void);
 static void Cmd_jumpifholdeffect(void);
+static void Cmd_trainerslidein2(void);
+static void Cmd_trainerslideout2(void);
 extern u8 gMaxPartyLevel;
 
 static const u16 sBadgeFlags[8] =
@@ -588,7 +590,9 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_finishaction,                            //0xF6
     Cmd_finishturn,                              //0xF7
     Cmd_trainerslideout,                          //0xF8
-	Cmd_jumpifholdeffect                         //0xF9
+	Cmd_jumpifholdeffect,                         //0xF9
+	Cmd_trainerslidein2,                         //0xFA
+	Cmd_trainerslideout2                        //0xFB
 };
 
 struct StatFractions
@@ -7005,6 +7009,7 @@ static void Cmd_various(void)
         if (gBattlescriptCurrInstr[3] == 0)
         {
             gBattleScripting.savedDmg = gBattlerSpriteIds[gActiveBattler];
+			HideBattlerShadowSprite(gActiveBattler);
         }
         else if (gBattlescriptCurrInstr[3] == 1)
         {
@@ -7016,7 +7021,8 @@ static void Cmd_various(void)
             gBattlerSpriteIds[gActiveBattler] = gBattleScripting.savedDmg;
             if (gBattleMons[gActiveBattler].hp != 0)
             {
-                BattleLoadOpponentMonSpriteGfx(&gEnemyParty[gBattlerPartyIndexes[gActiveBattler]], gActiveBattler);
+				SetBattlerShadowSpriteCallback(gActiveBattler, gBattleMons[gActiveBattler].species);
+                BattleLoadSubstituteOrMonSpriteGfx(gActiveBattler, !gBattleSpritesDataPtr->battlerData[gActiveBattler].behindSubstitute);
             }
         }
         gBattlescriptCurrInstr += 4;
@@ -10891,4 +10897,22 @@ static void Cmd_jumpifholdeffect(void)
         gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 3);
     else
         gBattlescriptCurrInstr += 7;
+}
+
+static void Cmd_trainerslidein2(void)
+{
+    gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
+    BtlController_EmitTrainerSlide(0);
+    MarkBattlerForControllerExec(gActiveBattler);
+
+    gBattlescriptCurrInstr += 2;
+}
+
+static void Cmd_trainerslideout2(void)
+{
+    gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
+    BtlController_EmitTrainerSlideBack(0);
+    MarkBattlerForControllerExec(gActiveBattler);
+
+    gBattlescriptCurrInstr += 2;
 }
