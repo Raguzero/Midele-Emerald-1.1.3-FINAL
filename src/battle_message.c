@@ -28,6 +28,7 @@
 #include "constants/trainers.h"
 #include "constants/trainer_hill.h"
 #include "constants/species.h"
+#include "random.h"
 
 struct BattleWindowText
 {
@@ -557,6 +558,13 @@ static const u8 sText_EeveetoPierdePrimerPoke[] = _("Todo va según el plan, est
 static const u8 sText_EeveetoEnviaUltimoPoke[] = _("Mi equipo está débil, pero el tuyo tiene\n hipotermia a estas alturas.\p");
 static const u8 sText_RedHPJEeveeto[] = _("Estás a esto de ganar, pero el frio\n te lo va a impedir.\p");
 
+static const u8 frase0[] = _("Esh el vecino\nel que elige al alcalde\py esh el alcalde\nel que quiere\lque shean\llosh vecinosh\lel alcalde.\p");
+static const u8 frase1[] = _("Eshpaña esh una gran nación\ny losh eshpañolesh\lmuy eshpañolesh\ly mucho eshpañolesh.\p");
+static const u8 frase2[] = _("Un vasho esh un vasho\ny un plato esh un plato.\p");
+static const u8 frase3[] = _("ETA esh una gran nación.\p");
+static const u8 frase4[] = _("VIVA EL VINO\p");
+static const u8 frase5[] = _("La cerámica de Talavera\nno esh cosha menor.\pDicho de otra manera,\nesh cosha mayor.\p");
+const u8 * const arena[6] = {frase0, frase1, frase2, frase3, frase4, frase5};
 
 const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -3208,7 +3216,10 @@ bool32 ShouldDoTrainerSlide(u32 battlerId, u32 trainerId, u32 which)
 
     if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER) || GetBattlerSide(battlerId) != B_SIDE_OPPONENT)
         return FALSE;
-
+	if (trainerId == TRAINER_DEBUG && which == TRAINER_SLIDE_LAST_LOW_HP) {
+        gBattleStruct->trainerSlideMsg = arena[Random() % 6];
+        return TRUE;
+    }
     for (i = 0; i < ARRAY_COUNT(sTrainerSlides); i++)
     {
         if (trainerId == sTrainerSlides[i].trainerId)
