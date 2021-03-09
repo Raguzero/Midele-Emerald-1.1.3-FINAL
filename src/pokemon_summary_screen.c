@@ -3403,6 +3403,7 @@ static void PrintEggState(void)
     u32 friendshipAmount;
     int x;
     struct PokeSummary *sum = &sMonSummaryScreen->summary;
+    u8 eggCycles = gBaseStats[sum->species].eggCycles;
 
     if (sMonSummaryScreen->summary.sanity == TRUE)
     {
@@ -3410,21 +3411,42 @@ static void PrintEggState(void)
     }
     else
     {
-        friendshipAmount = 40 - (sum->friendship);
+        friendshipAmount = eggCycles - (sum->friendship);
         if (friendshipAmount < 10)
         {
             ConvertIntToDecimalStringN(gStringVar1, friendshipAmount, 1, 1);	
+            	
+        }
+        else if (friendshipAmount < 100)
+        {
+            ConvertIntToDecimalStringN(gStringVar1, friendshipAmount, 1, 2);
+            
+        } 
+        else
+        {
+          ConvertIntToDecimalStringN(gStringVar1, friendshipAmount, 1, 3);
+          
+        }
+
+        if (eggCycles < 10)
+        {
+          ConvertIntToDecimalStringN(gStringVar2, eggCycles, 1, 1);
+        }
+        else if (eggCycles < 100)
+        {
+          ConvertIntToDecimalStringN(gStringVar2, eggCycles, 1, 2);	
         }
         else
         {
-            ConvertIntToDecimalStringN(gStringVar1, friendshipAmount, 1, 2);
-        }
+          ConvertIntToDecimalStringN(gStringVar2, eggCycles, 1, 3);	
+        } 
+        StringExpandPlaceholders(gStringVar3, gText_EggHatch);
     }
 
     SummaryScreen_PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), gText_EggHappiness, 0, 1, 0, 1);
     SummaryScreen_PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), gStringVar1, 0, 17, 0, 3);
     x = GetStringWidth(1, gStringVar1, 0);
-    SummaryScreen_PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, 2), gText_EggHatch, x, 17, 0, 0);
+    SummaryScreen_PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, 2), gStringVar3, x, 17, 0, 0);
 }
 
 static void PrintEggMemo(void)
