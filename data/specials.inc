@@ -555,3 +555,4 @@ gSpecials:: @ 81DBA64
 	def_special CheckRegielekiPuzzle
 	def_special CheckJirachiMewinTeam
 	def_special PokedexRatingPrize
+	def_special IsSelectedMonLegendary

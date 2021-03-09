@@ -412,6 +412,7 @@ static bool8 SetUpFieldMove_Dive(void);
 // static const data
 #include "data/pokemon/tutor_learnsets.h"
 #include "data/party_menu.h"
+#include "data/pokemon/legendaries.h"
 
 // code
 static void InitPartyMenu(u8 menuType, u8 layout, u8 partyAction, bool8 keepCursorPos, u8 messageId, TaskFunc task, MainCallback callback)
@@ -6702,4 +6703,27 @@ void CursorCb_MoveItem(u8 taskId)
         schedule_bg_copy_tilemap_to_vram(2);
         gTasks[taskId].func = Task_UpdateHeldItemSprite;
     }
+}
+
+/*
+ * Comprueba si el mon de la posición gSpecialVar_0x8004 del equipo es legendario o no según sLegendaryMons.
+ * gSpecialVar_Result: TRUE si es legendario, FALSE si no lo es.
+ * gSpecialVar_0x8005: si es legendario, guarda la especie del mon.
+ */
+void IsSelectedMonLegendary(void)
+{
+    u8 i;
+    bool8 isLegendary;
+    u16 species;
+    
+    isLegendary = FALSE;
+    species = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES2);
+    for (i = 0; i < ARRAY_COUNT(sLegendaryMons); i++) {
+      if (sLegendaryMons[i] == species) {
+        isLegendary = TRUE;
+        gSpecialVar_0x8005 = species;
+        break;
+      }
+    }
+    gSpecialVar_Result = isLegendary;
 }
