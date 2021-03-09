@@ -20276,3 +20276,68 @@ static const struct TrainerMonCustomMidele sParty_Eeveeto[] = {
     .moves = {MOVE_SWORDS_DANCE, MOVE_IRON_HEAD, MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE}
     }
 };
+static const struct TrainerMonCustomMidele sParty_Utalawea[] = {
+// PARA METERLE DE NPC TRAINER EN RUTAS FINALES
+    {
+    .iv = 31,  
+    .lvl = 78, 
+    .species = SPECIES_PARASECT,
+	.heldItem = ITEM_BIG_MUSHROOM, 
+	.nature = NATURE_CAREFUL, 
+	.evs = {252, 0, 110, 0, 148, 0},  
+	.ability = 1,
+    .moves = {MOVE_SPORE, MOVE_LEECH_LIFE, MOVE_LEECH_SEED, MOVE_DOUBLE_TEAM}
+    },
+    {
+    .iv = 31,  
+    .lvl = 75, 
+    .species = SPECIES_DUSKNOIR,
+	.heldItem = ITEM_LEFTOVERS, 
+	.nature = NATURE_BOLD,
+	.evs = {252, 0, 252, 0, 6, 0}, 
+	.ability = 0,
+	.shiny = 1,
+    .moves = {MOVE_SPITE, MOVE_DOUBLE_TEAM, MOVE_REST, MOVE_SLEEP_TALK}
+    },
+    {
+    .iv = 31,  
+    .lvl = 75, 
+    .species = SPECIES_METAGROSS,
+	.heldItem = ITEM_LEFTOVERS, 
+	.nature = NATURE_QUIET, 
+	.evs = {252, 0, 0, 252, 0, 6}, 
+	.hpType = TYPE_FIRE,  
+	.ability = 0,
+    .moves = {MOVE_PSYCHIC, MOVE_HIDDEN_POWER, MOVE_METEOR_MASH, MOVE_EXPLOSION}
+    },
+    {
+    .iv = 31,  
+    .lvl = 76, 
+    .species = SPECIES_MEGA_HOUNDOOM,
+	.heldItem = ITEM_CHOICE_SPECS, 
+	.nature = NATURE_TIMID, 
+	.evs = {6, 0, 0, 252, 0, 252},  
+	.ability = 0,
+    .moves = {MOVE_FLAMETHROWER, MOVE_DARK_PULSE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 31,  
+    .lvl = 75, 
+    .species = SPECIES_KROOKODILE,
+	.heldItem = ITEM_LEFTOVERS, 
+	.nature = NATURE_ADAMANT, 
+	.evs = {252, 252, 0, 0, 6, 0},  
+	.ability = 0,
+    .moves = {MOVE_EARTHQUAKE, MOVE_SLUDGE_BOMB, MOVE_STONE_EDGE, MOVE_SLEEP_TALK}
+    },
+    {
+    .iv = 31,  
+    .lvl = 75, 
+    .species = SPECIES_PRIMARINA,
+	.heldItem = ITEM_LEFTOVERS, 
+	.nature = NATURE_MODEST,
+	.evs = {252, 0, 6, 252, 0, 0},  
+	.ability = 0,
+    .moves = {MOVE_HYDRO_PUMP, MOVE_MOONBLAST, MOVE_ICE_BEAM, MOVE_ENERGY_BALL}
+    }
+};

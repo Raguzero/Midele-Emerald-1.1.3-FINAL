@@ -12886,7 +12886,7 @@ const struct Trainer gTrainers[] = {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
-        .battleMusic = THEMEOFENCOUNTER,
+        .battleMusic = DIALGAPALKIABATTLE,
         .trainerPic = TRAINER_PIC_POKEMON_BREEDER_M,
         .trainerName = _("EEVEETO"),
         .items = {},
@@ -12894,5 +12894,19 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_DOUBLE_BATTLE,
         .partySize = ARRAY_COUNT(sParty_Eeveeto),
         .party = {.ItemCustomMidele = sParty_Eeveeto},
+    },
+    [TRAINER_UTALAWEA] =
+    {
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
+        .battleMusic = JOHTOTRAIN,
+        .trainerPic = TRAINER_PIC_BUG_CATCHER,
+        .trainerName = _("UTALAWEA"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
+        .partySize = ARRAY_COUNT(sParty_Utalawea),
+        .party = {.ItemCustomMidele = sParty_Utalawea},
     },
 };
