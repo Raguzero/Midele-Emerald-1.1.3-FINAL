@@ -1250,6 +1250,8 @@ SECTIONS {
 		sound/songs/midi/wallybattletheme.o(.rodata);
 		sound/songs/xenoblade2roamingwastes.o(.rodata);
 		sound/songs/battleheroesstarwars.o(.rodata);
+		sound/songs/Johtotrain.o(.rodata);
+		sound/songs/mirorbcolo.o(.rodata);
     } =0
 
     lib_rodata :
