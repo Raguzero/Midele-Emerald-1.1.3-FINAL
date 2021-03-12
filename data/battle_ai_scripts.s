@@ -55,6 +55,7 @@ AI_CheckBadMove:
 AI_CBM_CheckIfNegatesType: @ 82DBF92
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
 	if_ability_might_be AI_TARGET, ABILITY_VOLT_ABSORB, CheckIfVoltAbsorbCancelsElectric
+	if_ability_might_be AI_TARGET, ABILITY_LIGHTNING_ROD, CheckIfVoltAbsorbCancelsElectric
 	if_ability_might_be AI_TARGET, ABILITY_MOTOR_DRIVE, CheckIfVoltAbsorbCancelsElectric
 	if_ability_might_be AI_TARGET, ABILITY_WATER_ABSORB, CheckIfWaterAbsorbCancelsWater
 	if_ability_might_be AI_TARGET, ABILITY_DRY_SKIN, CheckIfWaterAbsorbCancelsWater
@@ -2090,12 +2091,9 @@ AI_CV_Curse_End:
 AI_CV_Protect:
 	get_protect_count AI_USER
 	if_more_than 1, AI_CV_Protect_ScoreDown5
-	if_status AI_USER, STATUS1_TOXIC_POISON, AI_CV_Protect3
-	if_status2 AI_USER, STATUS2_CURSED, AI_CV_Protect3
-	if_status3 AI_USER, STATUS3_PERISH_SONG, AI_CV_Protect3
-	if_status2 AI_USER, STATUS2_INFATUATION, AI_CV_Protect3
-	if_status3 AI_USER, STATUS3_LEECHSEED, AI_CV_Protect3
-	if_status3 AI_USER, STATUS3_YAWN, AI_CV_Protect3
+	if_status  AI_USER, STATUS1_PSN_ANY | STATUS1_BURN, AI_CV_ProtectUserStatused
+	if_status2 AI_USER, STATUS2_CURSED | STATUS2_INFATUATION, AI_CV_ProtectUserStatused
+	if_status3 AI_USER, STATUS3_PERISH_SONG | STATUS3_LEECHSEED | STATUS3_YAWN, AI_CV_ProtectUserStatused
 	if_has_move_with_effect AI_TARGET, EFFECT_RESTORE_HP, AI_CV_Protect3
 	if_has_move_with_effect AI_TARGET, EFFECT_DEFENSE_CURL, AI_CV_Protect3
 	if_status AI_TARGET, STATUS1_TOXIC_POISON, AI_CV_Protect_ScoreUp2
@@ -2123,6 +2121,12 @@ AI_CV_Protect4:
 	if_random_less_than 128, AI_CV_Protect_End
 	score -1
 	goto AI_CV_Protect_End
+	
+AI_CV_ProtectUserStatused:
+	score -1
+	if_double_battle AI_CV_Protect4
+	score -1
+	goto AI_CV_Protect4
 	
 AI_CV_Protect3:
 	get_last_used_bank_move AI_TARGET

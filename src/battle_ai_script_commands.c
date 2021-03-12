@@ -1438,7 +1438,7 @@ static void Cmd_get_ability(void)
     else
         battlerId = gBattlerTarget;
 
-    if (gActiveBattler != battlerId)
+	if ((gActiveBattler | BIT_FLANK) != (battlerId | BIT_FLANK))
     {
         if (BATTLE_HISTORY->abilities[battlerId] != 0)
         {
