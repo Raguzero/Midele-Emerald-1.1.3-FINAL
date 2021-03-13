@@ -29,6 +29,33 @@ EverGrandeCity_PokemonCenter_1F_EventScript_Woman:: @ 8229A67
 EverGrandeCity_PokemonCenter_1F_EventScript_ExpertM:: @ 8229A70
 	msgbox EverGrandeCity_PokemonCenter_1F_Text_BelieveInYourPokemon, MSGBOX_NPC
 	end
+	
+EverGrandeCity_PokemonCenter_1F_EventScript_Clerk::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart EverGrandeCity_PokemonCenter_1F_Pokemart
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+EverGrandeCity_PokemonCenter_1F_Pokemart:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_REVIVE
+	.2byte ITEM_MAX_REPEL
+	.2byte ITEM_METAL_COAT
+	.2byte ITEM_KINGS_ROCK
+	.2byte ITEM_DRAGON_SCALE
+	.2byte ITEM_UP_GRADE
+	.2byte ITEM_DEEP_SEA_TOOTH
+	.2byte ITEM_DEEP_SEA_SCALE
+	.2byte ITEM_NONE
+	release
+	end
 
 EverGrandeCity_PokemonCenter_1F_EventScript_Scott:: @ 8229A79
 	lock

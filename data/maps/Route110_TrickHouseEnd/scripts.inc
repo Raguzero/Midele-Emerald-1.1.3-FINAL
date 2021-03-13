@@ -60,7 +60,7 @@ Route110_TrickHouseEnd_EventScript_CompletedPuzzle1:: @ 826AD84
 	msgbox Route110_TrickHouseEnd_Text_AllNightToPlantTrees, MSGBOX_DEFAULT
 	msgbox Route110_TrickHouseEnd_Text_YouHaveEarnedThisReward, MSGBOX_DEFAULT
 	setvar VAR_TRICK_HOUSE_PRIZE_PICKUP, 0
-	giveitem ITEM_RARE_CANDY
+	giveitem ITEM_RARE_CANDY, 2
 	compare VAR_RESULT, FALSE
 	call_if_eq Route110_TrickHouseEnd_EventScript_BagFull
 	msgbox Route110_TrickHouseEnd_Text_MakeNewTricksToStumpYou, MSGBOX_DEFAULT
@@ -73,7 +73,7 @@ Route110_TrickHouseEnd_EventScript_CompletedPuzzle2:: @ 826ADC0
 	msgbox Route110_TrickHouseEnd_Text_AllNightToMakeMaze, MSGBOX_DEFAULT
 	msgbox Route110_TrickHouseEnd_Text_YouHaveEarnedThisReward, MSGBOX_DEFAULT
 	setvar VAR_TRICK_HOUSE_PRIZE_PICKUP, 0
-	giveitem ITEM_TIMER_BALL
+	giveitem ITEM_TIMER_BALL, 5
 	compare VAR_RESULT, FALSE
 	call_if_eq Route110_TrickHouseEnd_EventScript_BagFull
 	msgbox Route110_TrickHouseEnd_Text_MakeNewTricksToStumpYou, MSGBOX_DEFAULT

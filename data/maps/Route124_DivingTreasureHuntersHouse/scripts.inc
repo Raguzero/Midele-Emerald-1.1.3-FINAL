@@ -259,7 +259,7 @@ Route124_DivingTreasureHuntersHouse_EventScript_TryTradeShard:: @ 8270EC0
 
 Route124_DivingTreasureHuntersHouse_EventScript_TradeShard:: @ 8270F01
 	removeitem VAR_0x8008
-	giveitem VAR_0x8009
+	giveitem VAR_0x8009, 3
 	msgbox Route124_DivingTreasureHuntersHouse_Text_ItsADeal, MSGBOX_DEFAULT
 	call Route124_DivingTreasureHuntersHouse_EventScript_GetPlayersShards
 	compare VAR_TEMP_1, 0
@@ -320,7 +320,7 @@ Route124_DivingTreasureHuntersHouse_Text_WhatDoYouWantToTrade: @ 8271117
 
 Route124_DivingTreasureHuntersHouse_Text_YoullTradeShardForStone: @ 8271132
 	.string "You'll trade your {STR_VAR_1} for\n"
-	.string "my {STR_VAR_2}, then?$"
+	.string "3 {STR_VAR_2}, then?$"
 
 Route124_DivingTreasureHuntersHouse_Text_ItsADeal: @ 8271158
 	.string "It's a done deal!\n"
