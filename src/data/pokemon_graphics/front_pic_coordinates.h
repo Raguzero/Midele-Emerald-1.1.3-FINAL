@@ -2420,8 +2420,8 @@ const struct MonCoords gMonFrontPicCoords[] =
     },
     [SPECIES_RILLABOOM] =
     {
-        .size = 0x77,
-        .y_offset = 0x07,
+        .size = 0x86,
+        .y_offset = 3,
     },
    [SPECIES_MEGA_SABLEYE] =
     {
@@ -2625,8 +2625,8 @@ const struct MonCoords gMonFrontPicCoords[] =
     },
     [SPECIES_INTELEON] =
     {
-        .size = 0x88,
-        .y_offset = 0x0,
+        .size = 0x86,
+        .y_offset = 1,
     },
     [SPECIES_TURTWIG] =
     {
@@ -3075,13 +3075,13 @@ const struct MonCoords gMonFrontPicCoords[] =
     },
     [SPECIES_REGIELEKI] =
     {
-        .size = 0x78,
-        .y_offset = 0x04,
+        .size = 0x86,
+        .y_offset = 4,
     },
     [SPECIES_REGIDRAGO] =
     {
         .size = 0x88,
-        .y_offset = 0x02,
+        .y_offset = 1,
     },
     [SPECIES_WINTASS] =
     {

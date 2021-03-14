@@ -2419,8 +2419,8 @@ const struct MonCoords gMonBackPicCoords[] =
     },
     [SPECIES_RILLABOOM] =
     {
-        .size = 0x77,
-        .y_offset = 0x07,
+        .size = 0x85,
+        .y_offset = 4,
     },
     [SPECIES_MEGA_SABLEYE] =
     {
@@ -2684,8 +2684,8 @@ const struct MonCoords gMonBackPicCoords[] =
     },
     [SPECIES_INTELEON] =
     {
-        .size = 0x64,
-        .y_offset = 0x3,
+        .size = 0x85,
+        .y_offset = 4,
     },
     [SPECIES_SALANDIT] =
     {
@@ -2709,13 +2709,13 @@ const struct MonCoords gMonBackPicCoords[] =
     },
     [SPECIES_FERROSEED] =
     {
-        .size = 0x64,
-        .y_offset = 0xf,
+        .size = 0x65,
+        .y_offset = 15,
     },
     [SPECIES_FERROTHORN] =
     {
-        .size = 0x64,
-        .y_offset = 0xe,
+        .size = 0x85,
+        .y_offset = 14,
     },
     [SPECIES_SANDILE] =
     {
@@ -3079,13 +3079,13 @@ const struct MonCoords gMonBackPicCoords[] =
     },
     [SPECIES_REGIELEKI] =
     {
-        .size = 0x86,
-        .y_offset = 0x0a,
+        .size = 0x85,
+        .y_offset = 9,
     },
     [SPECIES_REGIDRAGO] =
     {
-        .size = 0x85,
-        .y_offset = 0x0e,
+        .size = 0x87,
+        .y_offset = 7,
     },
     [SPECIES_WINTASS] =
     {
