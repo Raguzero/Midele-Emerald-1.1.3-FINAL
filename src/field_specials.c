@@ -4425,15 +4425,15 @@ u16 CheckDeoxys(void)
          {
              return SPECIES_DEOXYS;
          }
-		 if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS_ATTACK)
+         if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS_ATTACK)
          {
              return SPECIES_DEOXYS_ATTACK;
          }
-		 if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS_DEFENSE)
+         if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS_DEFENSE)
          {
              return SPECIES_DEOXYS_DEFENSE;
          }
-		 if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS_SPEED)
+         if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS_SPEED)
          {
              return SPECIES_DEOXYS_SPEED;
          }
@@ -4441,22 +4441,27 @@ u16 CheckDeoxys(void)
     return FALSE;
 }
 
+/**
+ * Cambia la forma de un DEOXYS del equipo.
+ * gSpecialVar_0x8004: la ubicación del POKéMON del equipo en gPlayerParty.
+ * gSpecialVar_0x8005: la nueva forma en la que cambiar el DEOXYS.
+ * Devuelve TRUE si la forma se cambia con éxito, FALSE en otro caso.
+ */
 bool8 ChangeDeoxysForm(void)
 {
     u8 i;
     u16 deoxys = gSpecialVar_0x8005; // Forma de deoxys
-    // Solo cambia la forma del primer DEOXYS que encuentre en el equipo (en teoría debería haber solo uno como mucho)
-    for (i = 0; i < PARTY_SIZE; i++)
+    struct Pokemon* selectedMon = &gPlayerParty[gSpecialVar_0x8004];
+    u16 selectedMonSpecies = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES);
+
+    if (selectedMonSpecies == SPECIES_DEOXYS
+        || selectedMonSpecies == SPECIES_DEOXYS_ATTACK
+        || selectedMonSpecies == SPECIES_DEOXYS_DEFENSE
+        || selectedMonSpecies == SPECIES_DEOXYS_SPEED)
     {
-        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS
-            || GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS_ATTACK
-            || GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS_DEFENSE
-            || GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_DEOXYS_SPEED)
-        {
-            SetMonData(&gPlayerParty[i], MON_DATA_SPECIES, &deoxys);
-            CalculateMonStats(&gPlayerParty[i]);
-            return TRUE;
-        }
+        SetMonData(selectedMon, MON_DATA_SPECIES, &deoxys);
+        CalculateMonStats(selectedMon);
+        return TRUE;
     }
     return FALSE;
 }

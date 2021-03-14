@@ -54,13 +54,23 @@ FallarborTown_CozmosHouse_EventScript_GaveMeteorite:: @ 8200FB2
 	compare VAR_RESULT, NO
 	goto_if_eq FallarborTown_EventScript_Deoxys_NoChange
 	
-	compare VAR_0x8004, SPECIES_DEOXYS
+	special ChoosePartyMon
+	waitstate
+	lock
+	compare VAR_0x8004, 255
+	goto_if_eq FallarborTown_EventScript_Deoxys_NoChange
+	
+	special IsSelectedMonDeoxys
+	compare VAR_RESULT, FALSE
+	goto_if_eq FallarborTown_EventScript_Deoxys_NoChange
+	
+	compare VAR_0x8005, SPECIES_DEOXYS
 	goto_if_eq FallarborTown_CozmosHouse_EventScript_ChangeForm_Normal
-	compare VAR_0x8004, SPECIES_DEOXYS_ATTACK
+	compare VAR_0x8005, SPECIES_DEOXYS_ATTACK
 	goto_if_eq FallarborTown_CozmosHouse_EventScript_ChangeForm_Attack
-	compare VAR_0x8004, SPECIES_DEOXYS_DEFENSE
+	compare VAR_0x8005, SPECIES_DEOXYS_DEFENSE
 	goto_if_eq FallarborTown_CozmosHouse_EventScript_ChangeForm_Defense
-	compare VAR_0x8004, SPECIES_DEOXYS_SPEED
+	compare VAR_0x8005, SPECIES_DEOXYS_SPEED
 	goto_if_eq FallarborTown_CozmosHouse_EventScript_ChangeForm_Speed
 	release
 	end
