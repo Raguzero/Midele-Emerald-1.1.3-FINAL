@@ -28,7 +28,7 @@ IzabeIsland_Mart_Pokemart_Basic: @ 8207D8C
 	.2byte ITEM_BERRY_JUICE
 	.2byte ITEM_MOOMOO_MILK
 	.2byte ITEM_LAVA_COOKIE
-	.2byte ITEM_PP_MAX
+	.2byte ITEM_PP_UP
 	.2byte ITEM_MACHO_BRACE
 	.2byte ITEM_REVIVE
 	.2byte ITEM_MAX_REPEL
