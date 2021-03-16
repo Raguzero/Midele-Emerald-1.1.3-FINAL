@@ -4936,6 +4936,8 @@ extern const u32 gItemIcon_PowerHerb[];
 extern const u32 gItemIconPalette_PowerHerb[];
 extern const u32 gItemIcon_PinkPetal[];
 extern const u32 gItemIconPalette_PinkPetal[];
+extern const u32 gItemIcon_PsycheArmor[];
+extern const u32 gItemIconPalette_PsycheArmor[];
 // Contest hold items
 extern const u32 gItemIcon_Scarf[];
 extern const u32 gItemIconPalette_RedScarf[];

@@ -414,6 +414,9 @@ static bool8 SetUpFieldMove_Dive(void);
 #include "data/party_menu.h"
 #include "data/pokemon/legendaries.h"
 
+// Text string printed when changing the form of certain species like Shaymin and Giratina
+const u8 ChangedForm[] = _("{STR_VAR_1} changed Forme!{PAUSE_UNTIL_PRESS}");
+
 // code
 static void InitPartyMenu(u8 menuType, u8 layout, u8 partyAction, bool8 keepCursorPos, u8 messageId, TaskFunc task, MainCallback callback)
 {
@@ -5240,6 +5243,57 @@ void ItemUseCB_EvolutionStone(u8 taskId, TaskFunc task)
     {
         RemoveBagItem(gSpecialVar_ItemId, 1);
         FreePartyPointers();
+    }
+}
+
+void ItemUseCB_FormChange(u8 taskId, TaskFunc task)
+{
+    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+    u16 item = gSpecialVar_ItemId;
+    u16 species = GetMonData(mon, MON_DATA_SPECIES);
+    u16 forme;
+    bool8 formeAvailable;
+
+    switch (item)
+    {
+    case ITEM_PSYCHE_ARMOR:
+        if (species == SPECIES_MEWTWO)
+        {
+            forme = SPECIES_ARMOR_MEWTWO;
+            formeAvailable = TRUE;
+        }
+        else if (species == SPECIES_ARMOR_MEWTWO)
+        {
+            forme = SPECIES_MEWTWO;
+            formeAvailable = TRUE;
+        }
+        break;
+    }
+
+    if (formeAvailable)
+    {
+
+        gPartyMenuUseExitCallback = TRUE;
+        PlaySE(SE_KAIFUKU);
+        PlayCry2(forme, 0, 0x7D, 0xA);
+        SetMonData(mon, MON_DATA_SPECIES, &forme);
+        FreeAndDestroyMonIconSprite(&gSprites[sPartyMenuBoxes[gPartyMenu.slotId].monSpriteId]);
+        CreatePartyMonIconSpriteParameterized(forme, GetMonData(mon, MON_DATA_PERSONALITY), &sPartyMenuBoxes[gPartyMenu.slotId], 0, FALSE);
+        CalculateMonStats(mon);
+        GetMonNickname(mon, gStringVar1);
+        StringExpandPlaceholders(gStringVar4, ChangedForm);
+        DisplayPartyMenuMessage(gStringVar4, FALSE);
+        schedule_bg_copy_tilemap_to_vram(2);
+        gTasks[taskId].func = task;
+    }
+    else
+    {
+        gPartyMenuUseExitCallback = FALSE;
+        PlaySE(SE_SELECT);
+        DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
+        schedule_bg_copy_tilemap_to_vram(2);
+        gTasks[taskId].func = task;
+        return;
     }
 }
 

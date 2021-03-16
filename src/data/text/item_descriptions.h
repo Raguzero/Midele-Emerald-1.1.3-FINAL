@@ -1640,8 +1640,11 @@ static const u8 sSapphireDesc[] = _(
 static const u8 sMicoloKeyDesc[] = _(
     "Una llave de camión \n"
     "azul que pertenece\n"
-    "a MICOLO."
-);
+    "a MICOLO.");
+
+static const u8 sPsycheArmorDesc[] = _(
+    "Changes the form\n"
+    "of MEWTWO.");
 
 // Emerald-specific key items
 static const u8 sMagmaEmblemDesc[] = _(

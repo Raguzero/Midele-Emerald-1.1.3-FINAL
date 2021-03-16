@@ -105,5 +105,6 @@ void MideleResetSelectedMonEVs(void);
 bool8 CanLearnTutorMove(u16, u8);
 void IsSelectedMonLegendary(void);
 void IsSelectedMonDeoxys(void);
+void ItemUseCB_FormChange(u8 taskId, TaskFunc task);
 
 #endif // GUARD_PARTY_MENU_H

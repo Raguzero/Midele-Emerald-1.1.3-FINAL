@@ -36,5 +36,6 @@ u8 CanUseEscapeRopeOnCurrMap(void);
 u8 CheckIfItemIsTMHMOrEvolutionStone(u16 itemId);
 void ItemUseOutOfBattle_SootSack(u8);
 u16 GetAshCount(void);
+void ItemUseOutOfBattle_FormChange(u8);
 
 #endif // GUARD_ITEM_USE_H

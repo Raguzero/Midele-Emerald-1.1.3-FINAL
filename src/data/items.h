@@ -3062,15 +3062,16 @@ const struct Item gItems[] =
         .secondaryId = 0,
     },
 
-    [ITEM_0E7] =
+    [ITEM_PSYCHE_ARMOR] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
+        .name = _("PSYCHE ARMOR"),
+        .itemId = ITEM_PSYCHE_ARMOR,
         .price = 0,
-        .description = sDummyDesc,
-        .pocket = POCKET_ITEMS,
-        .type = 4,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .description = sPsycheArmorDesc,
+		.importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = 1,
+        .fieldUseFunc = ItemUseOutOfBattle_FormChange,
         .secondaryId = 0,
     },
 
