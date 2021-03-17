@@ -838,6 +838,7 @@ AI_CheckViability:
 	if_effect EFFECT_CALM_MIND, AI_CV_SpDefUp
 	if_effect EFFECT_DRAGON_DANCE, AI_CV_DragonDance
 	if_effect EFFECT_SANDSTORM, AI_CV_Sandstorm
+	if_effect EFFECT_QUICK_ATTACK, AI_CV_QuickAttack @ para FEAR, incluye ExtremeSpeed y Mach Punch
 	end
 
 AI_CV_Sleep: @ 82DCA92
@@ -965,6 +966,23 @@ AI_CV_MirrorMove_EncouragedMovesToMirror: @ 82DCB6C
     .2byte MOVE_SUPERPOWER
     .2byte MOVE_SKILL_SWAP
     .2byte -1
+
+@ IA solo para FEAR (no hace nada si no es FEAR)
+@ Comprueba que tiene Endeavor y nivel como máximo 2
+AI_CV_QuickAttack::
+	if_level_cond 3, AI_CV_QuickAttackFear_CheckEndeavor
+	end
+
+AI_CV_QuickAttackFear_CheckEndeavor:
+	if_has_move AI_USER, MOVE_ENDEAVOR, AI_CV_QuickAttackFear
+	end
+
+@ Quita puntos a no ser que el rival tenga 1 PS
+AI_CV_QuickAttackFear:
+	if_fear_hp_condition 0, AI_CV_QuickAttackFear_End   @ recibirá puntos en otra parte porque es suficiente para KO
+	score -4
+AI_CV_QuickAttackFear_End:
+	end
 
 AI_CV_AttackUp: @ 82DCBBC
 	if_stat_level_less_than AI_USER, STAT_ATK, 9, AI_CV_AttackUp2
@@ -2717,6 +2735,7 @@ AI_CV_KnockOff_End:
 	end
 
 AI_CV_Endeavor:
+	if_level_cond 3, AI_CV_Endeavor_assumeFEAR
 	if_hp_less_than AI_TARGET, 70, AI_CV_Endeavor_ScoreDown1
 	if_target_faster AI_CV_Endeavor2
 	if_hp_more_than AI_USER, 40, AI_CV_Endeavor_ScoreDown1
@@ -2726,6 +2745,15 @@ AI_CV_Endeavor:
 AI_CV_Endeavor2:
 	if_hp_more_than AI_USER, 50, AI_CV_Endeavor_ScoreDown1
 	score +1
+	goto AI_CV_Endeavor_End
+
+@ Si el rival tiene 1 PS, resta 8 (mejor atacar con prioridad)
+@ Si el rival tiene más PS que el usuario más lo que el rival gana por Restos, es buena idea tirar Endeavor: suma 4
+@ En caso contrario, resta 3 (Endeavor no hace mucho)
+AI_CV_Endeavor_assumeFEAR:
+	if_fear_hp_condition 0, Score_Minus8
+	if_fear_hp_condition 1, Score_Minus3
+	score +4
 	goto AI_CV_Endeavor_End
 
 AI_CV_Endeavor_ScoreDown1:
