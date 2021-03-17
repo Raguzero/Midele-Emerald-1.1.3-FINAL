@@ -130,6 +130,16 @@ static bool8 ShouldSwitchIfWonderGuard(void)
     return FALSE; // There is not a single Pokemon in the party that has a super effective move against a mon with Wonder Guard.
 }
 
+static bool8 HasMove(u16 move)
+{
+    s32 i;
+    for (i = 0; i < MAX_MON_MOVES; i++)
+        if (move == gBattleMons[gActiveBattler].moves[i])
+            return TRUE;
+
+    return FALSE;
+}
+
 static bool8 FindMonThatAbsorbsOpponentsMove(void)
 {
     u8 battlerIn1, battlerIn2;
@@ -340,6 +350,27 @@ static bool8 AreStatsRaised(void)
     return (buffedStatsValue > 3);
 }
 
+// AI should switch if it's become setup fodder and has something better to switch to
+bool8 AreAttackingStatsLowered(u8 category)
+{
+    // Considera cambiar si elige un ataque físico y tiene -2 o menos de Ataque,
+    // o si elige un ataque especial y tiene -2 o menos de Ataque Especial
+    // En el resto de casos, descarta el cambio por bajada de stats
+    // (se asume que solo se llama a esta función si el ataque es de daño directo)
+    if ((category == 0 && gBattleMons[gActiveBattler].statStages[MON_DATA_ATK - MON_DATA_MAX_HP] >= 6 - 1)
+     || (category == 1 && gBattleMons[gActiveBattler].statStages[MON_DATA_SPATK - MON_DATA_MAX_HP] >= 6 - 1))
+        return FALSE;
+
+    if (FindMonWithFlagsAndSuperEffective(MOVE_RESULT_DOESNT_AFFECT_FOE, 1))
+        return TRUE;
+    if (FindMonWithFlagsAndSuperEffective(MOVE_RESULT_NOT_VERY_EFFECTIVE, 1))
+        return TRUE;
+
+    *(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler) = PARTY_SIZE;
+    BtlController_EmitTwoReturnValues(1, B_ACTION_SWITCH, 0);
+    return TRUE;
+}
+
 static bool8 FindMonWithFlagsAndSuperEffective(u8 flags, u8 moduloPercent)
 {
     u8 battlerIn1, battlerIn2;
@@ -533,6 +564,8 @@ static bool8 ShouldSwitch(void)
         return TRUE;
     if (ShouldSwitchIfPerishSong())
         return TRUE;
+	if (HasMove(MOVE_BATON_PASS))
+        return FALSE; // los supuestos de cambio a continuación aplican igual con Baton Pass, por lo que el cambio es mejor con Baton Pass
     if (ShouldSwitchIfWonderGuard())
         return TRUE;
     if (FindMonThatAbsorbsOpponentsMove())

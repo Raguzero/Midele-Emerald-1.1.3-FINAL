@@ -529,7 +529,29 @@ static u8 ChooseMoveOrAction_Singles(void)
             }
         }
     }
-    return consideredMoveArray[Random() % numOfBestMoves];
+    {
+        // Escoge cambiar si ha elegido un mov de daño directo de un stat bajado
+        u8 chosenMovePos, type, power;
+		u16 move;
+        chosenMovePos = consideredMoveArray[Random() % numOfBestMoves];
+        move = gBattleMons[sBattler_AI].moves[chosenMovePos];
+        type = gBattleMoves[move].type;
+        power = gBattleMoves[move].power;
+        if (power > 0 && ((IS_TYPE_PHYSICAL(type) && AreAttackingStatsLowered(0)) || (IS_TYPE_SPECIAL(type) && AreAttackingStatsLowered(1)))
+                && !(ABILITY_ON_OPPOSING_FIELD(sBattler_AI, ABILITY_SHADOW_TAG) && (gBattleMons[sBattler_AI].type1 != TYPE_GHOST && gBattleMons[sBattler_AI].type2 != TYPE_GHOST && gBattleMons[sBattler_AI].ability != ABILITY_SHADOW_TAG))
+                && !(ABILITY_ON_OPPOSING_FIELD(sBattler_AI, ABILITY_ARENA_TRAP) && (gBattleMons[sBattler_AI].type1 != TYPE_FLYING && gBattleMons[sBattler_AI].type2 != TYPE_FLYING && gBattleMons[sBattler_AI].type1 != TYPE_GHOST && gBattleMons[sBattler_AI].type2 != TYPE_GHOST && gBattleMons[sBattler_AI].ability != ABILITY_LEVITATE))
+                && !(ABILITY_ON_FIELD2(ABILITY_MAGNET_PULL) && (gBattleMons[sBattler_AI].type1 == TYPE_STEEL || gBattleMons[sBattler_AI].type2 == TYPE_STEEL))
+                && !(gBattleMons[sBattler_AI].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
+                && !(gStatuses3[sBattler_AI] & STATUS3_ROOTED)
+                && gBattleMons[sBattler_AI].hp >= gBattleMons[sBattler_AI].maxHP / 2
+                && !(gBattleTypeFlags & (BATTLE_TYPE_ARENA | BATTLE_TYPE_PALACE)))
+            if (GetMostSuitableMonToSwitchInto() != PARTY_SIZE)
+            {
+                AI_THINKING_STRUCT->switchMon = TRUE;
+                return AI_CHOICE_SWITCH;
+            }
+        return chosenMovePos;
+    }
 }
 
 static u8 ChooseMoveOrAction_Doubles(void)

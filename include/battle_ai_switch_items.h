@@ -13,5 +13,6 @@ enum
 
 void AI_TrySwitchOrUseItem(void);
 u8 GetMostSuitableMonToSwitchInto(void);
+bool8 AreAttackingStatsLowered(u8 category);
 
 #endif // GUARD_BATTLE_AI_SWITCH_ITEMS_H
