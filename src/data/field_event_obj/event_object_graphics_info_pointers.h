@@ -252,6 +252,7 @@ const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_Raikou;
 const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_Suicune;
 const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_Mewtwo;
 const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_Celebi;
+const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_TMBall;
 
 const struct EventObjectGraphicsInfo *const gEventObjectGraphicsInfoPointers[] = {
     [EVENT_OBJ_GFX_BRENDAN_NORMAL] =           &gEventObjectGraphicsInfo_BrendanNormal,
@@ -501,6 +502,7 @@ const struct EventObjectGraphicsInfo *const gEventObjectGraphicsInfoPointers[] =
     [EVENT_OBJ_GFX_SUICUNE] =                &gEventObjectGraphicsInfo_Suicune,
     [EVENT_OBJ_GFX_MEWTWO] =                &gEventObjectGraphicsInfo_Mewtwo,
     [EVENT_OBJ_GFX_CELEBI] =                &gEventObjectGraphicsInfo_Celebi,
+    [EVENT_OBJ_GFX_TM_BALL] =               &gEventObjectGraphicsInfo_TMBall,
 };
 
 const struct EventObjectGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

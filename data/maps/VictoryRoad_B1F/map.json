@@ -238,7 +238,7 @@
         {
             "elevation": 4,
             "flag": "FLAG_ITEM_VICTORY_ROAD_B1F_TM_29",
-            "graphics_id": "EVENT_OBJ_GFX_ITEM_BALL",
+            "graphics_id": "EVENT_OBJ_GFX_TM_BALL",
             "movement_range_x": 1,
             "movement_range_y": 1,
             "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
