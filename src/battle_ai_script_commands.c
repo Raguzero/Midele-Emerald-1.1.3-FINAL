@@ -162,6 +162,7 @@ static void Cmd_if_flash_fired(void);
 static void Cmd_if_holds_item(void);
 static void Cmd_get_hazards_count(void);
 static void Cmd_get_curr_dmg_hp_percent(void);
+static void Cmd_if_fear_hp_condition(void);
 
 // ewram
 EWRAM_DATA const u8 *gAIScriptPtr = NULL;
@@ -273,6 +274,7 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_if_holds_item,                              // 0x62
     Cmd_get_hazards_count,                          // 0x63
     Cmd_get_curr_dmg_hp_percent,                    // 0x64
+    Cmd_if_fear_hp_condition,                       // 0x65
 };
 
 static const u16 sDiscouragedPowerfulMoveEffects[] =
@@ -816,6 +818,25 @@ static void Cmd_score(void)
         AI_THINKING_STRUCT->score[AI_THINKING_STRUCT->movesetIndex] = 0;
 
     gAIScriptPtr += 2; // AI return.
+}
+
+static void Cmd_if_fear_hp_condition(void)
+{
+    switch (gAIScriptPtr[1])
+    {
+    case 0: // comprueba si el rival tiene 1 PS
+        if (gBattleMons[gBattlerTarget].hp == 1)
+            gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
+        else
+            gAIScriptPtr += 6;
+        break;
+    case 1: // comprueba si el rival tiene, como máximo, los PS que tiene el usuario más lo que el rival obtendría por Restos
+        if (gBattleMons[gBattlerTarget].hp <= gBattleMons[sBattler_AI].hp + gBattleMons[gBattlerTarget].maxHP / 16)
+            gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
+        else
+            gAIScriptPtr += 6;
+        break;
+    }
 }
 
 static void Cmd_if_hp_less_than(void)
@@ -2302,6 +2323,12 @@ static void Cmd_if_level_cond(void)
         break;
     case 2: // equal
         if (gBattleMons[sBattler_AI].level == gBattleMons[gBattlerTarget].level)
+            gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
+        else
+            gAIScriptPtr += 6;
+        break;
+    case 3: // AI level is 2 or less
+        if (gBattleMons[sBattler_AI].level <= 2)
             gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
         else
             gAIScriptPtr += 6;

@@ -561,6 +561,12 @@
 	.byte 0x64
 	.endm
 	
+	.macro if_fear_hp_condition param1:req, param2:req
+	.byte 0x65
+	.byte \param1
+	.4byte \param2
+	.endm
+
 @ useful script macros
 	.macro get_curr_move_type
 	get_type AI_TYPE_MOVE
