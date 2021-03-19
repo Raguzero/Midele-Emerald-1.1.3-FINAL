@@ -636,6 +636,9 @@ gSongTable:: @ 86B49F0
 	song song12, 0, 0 // star wars battle hero
 	song Strainer, 0, 0 // GSC BATTLE TRAINER
 	song MirorBColo, 0, 0
+	song incomingx2, 0, 0
+	song sasageyo, 0, 0
+	song musicavegagoldy, 0, 0
 
 	.align 2
 dummy_song_header: @ 86B5D00

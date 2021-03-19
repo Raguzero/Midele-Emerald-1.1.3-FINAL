@@ -1288,7 +1288,7 @@ $(MID_SUBDIR)/cynthiabattle.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100 -P5	
 
 $(MID_SUBDIR)/dialgapalkiabattle.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100 -P5	
+	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -v100
 
 $(MID_SUBDIR)/undertalemegalovania.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100 -P5
@@ -1303,5 +1303,11 @@ $(MID_SUBDIR)/bonetrousleundertale.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100
 
 $(MID_SUBDIR)/wallybattletheme.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -v100
+
+$(MID_SUBDIR)/sasageyo.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100
+	
+$(MID_SUBDIR)/musicavegagoldy.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -v100
 

@@ -1252,6 +1252,9 @@ SECTIONS {
 		sound/songs/battleheroesstarwars.o(.rodata);
 		sound/songs/Johtotrain.o(.rodata);
 		sound/songs/mirorbcolo.o(.rodata);
+		sound/songs/midi/incomingx2.o(.rodata);
+		sound/songs/midi/sasageyo.o(.rodata);
+		sound/songs/midi/musicavegagoldy.o(.rodata);
     } =0
 
     lib_rodata :
