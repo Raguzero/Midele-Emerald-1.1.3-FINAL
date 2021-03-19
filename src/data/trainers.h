@@ -11980,7 +11980,7 @@ const struct Trainer gTrainers[] = {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
         .trainerClass = TRAINER_CLASS_DEBUG,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR,
-        .battleMusic = THEMEOFENCOUNTER,
+        .battleMusic = MUSICAVEGAGOLDY,
         .trainerPic = TRAINER_PIC_LEAF,
         .trainerName = _("MIDELE"),
         .items = {},
@@ -12073,7 +12073,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_RANDOM_PARTY] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_GUITARIST,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR,
         .trainerPic = TRAINER_PIC_GUITARIST,
         .trainerName = _("RANDOM"),
@@ -12539,7 +12539,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_RANDOM_PARTY_2] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_GUITARIST,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR,
         .trainerPic = TRAINER_PIC_GUITARIST,
         .trainerName = _("RANDOM"),
