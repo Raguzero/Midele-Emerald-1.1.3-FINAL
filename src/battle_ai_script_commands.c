@@ -294,6 +294,32 @@ static const u16 sDiscouragedPowerfulMoveEffects[] =
     0xFFFF
 };
 
+static const u16 sDamagingMovesMostlyUnaffectedByStatDrops[] =
+{
+    MOVE_BIND,
+	MOVE_WRAP,
+	MOVE_WHIRLPOOL, 
+	MOVE_FIRE_SPIN, 
+	MOVE_THUNDER_CAGE, 
+	MOVE_CLAMP, 
+	MOVE_ENDEAVOR, 
+	MOVE_GUILLOTINE, 
+	MOVE_FISSURE, 
+	MOVE_SHEER_COLD, 
+	MOVE_HORN_DRILL, 
+	MOVE_COUNTER, 
+	MOVE_MIRROR_COAT, 
+	MOVE_SEISMIC_TOSS, 
+	MOVE_NIGHT_SHADE, 
+	MOVE_RAPID_SPIN, 
+	MOVE_SONIC_BOOM, 
+	MOVE_DRAGON_RAGE, 
+	MOVE_BIDE,
+	MOVE_PSYWAVE,
+	MOVE_SUPER_FANG,
+    0xFFFF
+};
+
 // code
 void BattleAI_HandleItemUseBeforeAISetup(u8 defaultScoreMoves)
 {
@@ -428,6 +454,23 @@ bool32 IsTruantMonVulnerable(u32 battlerAI, u32 opposingBattler)
     return FALSE;
 }
 
+// Determina si un cierto ataque se está viendo afectado por bajadas de stats ofensivos
+bool8 IsMoveSignificantlyAffectedByStatDrops(u16 move)
+{
+    s32 i;
+    u8 type = gBattleMoves[move].type;
+    u8 power = gBattleMoves[move].power;
+    if (power == 0)
+        return FALSE; // Mov de estado; en general no se ve afectado (hay excepciones como Nature Power, Metronome, Mirror Move...)
+    for (i = 0; sDamagingMovesMostlyUnaffectedByStatDrops[i] != 0xFFFF; i++)
+    {
+        if (move == sDamagingMovesMostlyUnaffectedByStatDrops[i])
+            return FALSE; // Aunque sea un mov de daño, no está entre los que se ven muy afectados
+    }
+    // Devuelve TRUE si tiene bajado el stat en la categoría del ataque
+    return AreAttackingStatsLowered(IS_TYPE_PHYSICAL(type) ? 0 : 1);
+}
+
 static u8 ChooseMoveOrAction_Singles(void)
 {
     u8 currentMoveArray[MAX_MON_MOVES];
@@ -533,13 +576,11 @@ static u8 ChooseMoveOrAction_Singles(void)
     }
     {
         // Escoge cambiar si ha elegido un mov de daño directo de un stat bajado
-        u8 chosenMovePos, type, power;
+        u8 chosenMovePos;
 		u16 move;
         chosenMovePos = consideredMoveArray[Random() % numOfBestMoves];
         move = gBattleMons[sBattler_AI].moves[chosenMovePos];
-        type = gBattleMoves[move].type;
-        power = gBattleMoves[move].power;
-        if (power > 0 && ((IS_TYPE_PHYSICAL(type) && AreAttackingStatsLowered(0)) || (IS_TYPE_SPECIAL(type) && AreAttackingStatsLowered(1)))
+        if (IsMoveSignificantlyAffectedByStatDrops(move)
                 && !(ABILITY_ON_OPPOSING_FIELD(sBattler_AI, ABILITY_SHADOW_TAG) && (gBattleMons[sBattler_AI].type1 != TYPE_GHOST && gBattleMons[sBattler_AI].type2 != TYPE_GHOST && gBattleMons[sBattler_AI].ability != ABILITY_SHADOW_TAG))
                 && !(ABILITY_ON_OPPOSING_FIELD(sBattler_AI, ABILITY_ARENA_TRAP) && (gBattleMons[sBattler_AI].type1 != TYPE_FLYING && gBattleMons[sBattler_AI].type2 != TYPE_FLYING && gBattleMons[sBattler_AI].type1 != TYPE_GHOST && gBattleMons[sBattler_AI].type2 != TYPE_GHOST && gBattleMons[sBattler_AI].ability != ABILITY_LEVITATE))
                 && !(ABILITY_ON_FIELD2(ABILITY_MAGNET_PULL) && (gBattleMons[sBattler_AI].type1 == TYPE_STEEL || gBattleMons[sBattler_AI].type2 == TYPE_STEEL))
