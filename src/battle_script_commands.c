@@ -2379,6 +2379,11 @@ void SetMoveEffect(bool8 primary, u8 certain)
         && gBattleMoves[gCurrentMove].flags & FLAG_SHEER_FORCE_BOOST
         && affectsUser != MOVE_EFFECT_AFFECTS_USER)
         INCREMENT_RESET_RETURN
+		
+	if (gBattleMons[gBattlerAttacker].ability == ABILITY_IRON_FIST
+        && gBattleMoves[gCurrentMove].flags & FLAG_IRON_FIST_BOOST
+        && affectsUser != MOVE_EFFECT_AFFECTS_USER)
+        INCREMENT_RESET_RETURN
 
     if (gBattleMons[gEffectBattler].hp == 0
         && gBattleCommunication[MOVE_EFFECT_BYTE] != MOVE_EFFECT_PAYDAY

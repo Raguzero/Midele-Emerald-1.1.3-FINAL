@@ -115,6 +115,7 @@ static const u8 sCorrosionDescription[] = _("Poisons any type.");
 static const u8 sOvercoatDescription[] = _("Blocks weather damage.");
 static const u8 sGooeyDescription[] = _("Lowers SPEED on contact.");
 static const u8 sSandForceDescription[] = _("Ups Sand Types in sandstm.");
+static const u8 sIronFistDescription[] = _("Boosts punching moves.");
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 {
@@ -237,6 +238,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_TANGLING_HAIR] = _("TANGLE HAIR"),
     [ABILITY_IRON_BARBS] = _("IRON BARBS"),
     [ABILITY_SAND_FORCE] = _("SAND FORCE"),
+	[ABILITY_IRON_FIST] = _("IRON FIST"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -360,4 +362,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
 	[ABILITY_TANGLING_HAIR] = sGooeyDescription,
     [ABILITY_IRON_BARBS] = sRoughSkinDescription,
     [ABILITY_SAND_FORCE] = sSandForceDescription,
+    [ABILITY_IRON_FIST] = sIronFistDescription,
 };

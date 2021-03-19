@@ -3456,7 +3456,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroup1 = EGG_GROUP_HUMAN_LIKE,
         .eggGroup2 = EGG_GROUP_HUMAN_LIKE,
-        .abilities = {ABILITY_KEEN_EYE, ABILITY_INNER_FOCUS},
+        .abilities = {ABILITY_INNER_FOCUS, ABILITY_IRON_FIST},
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
@@ -5344,7 +5344,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_FAST,
         .eggGroup1 = EGG_GROUP_BUG,
         .eggGroup2 = EGG_GROUP_BUG,
-        .abilities = {ABILITY_SWARM, ABILITY_EARLY_BIRD},
+        .abilities = {ABILITY_SWARM, ABILITY_IRON_FIST},
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
@@ -14444,7 +14444,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_MEDIUM_FAST,
 		.eggGroup1 = EGG_GROUP_MINERAL,
 		.eggGroup2 = EGG_GROUP_MINERAL,
-        .abilities = {ABILITY_NO_GUARD, ABILITY_NONE},
+        .abilities = {ABILITY_IRON_FIST, ABILITY_NO_GUARD},
 		.bodyColor = BODY_COLOR_GREEN,
 	},
 
@@ -14468,7 +14468,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_MEDIUM_FAST,
 		.eggGroup1 = EGG_GROUP_MINERAL,
 		.eggGroup2 = EGG_GROUP_MINERAL,
-        .abilities = {ABILITY_NO_GUARD, ABILITY_NONE},
+        .abilities = {ABILITY_IRON_FIST, ABILITY_NO_GUARD},
 		.bodyColor = BODY_COLOR_GREEN,
 	},
 	[SPECIES_TYRUNT] =
@@ -16640,7 +16640,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_MEDIUM_FAST,
 		.eggGroup1 = EGG_GROUP_FIELD,
 		.eggGroup2 = EGG_GROUP_HUMAN_LIKE,
-        .abilities = {ABILITY_SCRAPPY, ABILITY_NONE},
+        .abilities = {ABILITY_IRON_FIST, ABILITY_SCRAPPY},
 		.bodyColor = BODY_COLOR_WHITE,
 	},
 
@@ -16665,7 +16665,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_MEDIUM_FAST,
 		.eggGroup1 = EGG_GROUP_FIELD,
 		.eggGroup2 = EGG_GROUP_HUMAN_LIKE,
-        .abilities = {ABILITY_SCRAPPY, ABILITY_NONE},
+        .abilities = {ABILITY_IRON_FIST, ABILITY_SCRAPPY},
 		.bodyColor = BODY_COLOR_WHITE,
 	},
 	
