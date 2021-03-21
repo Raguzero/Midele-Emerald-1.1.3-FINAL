@@ -41,28 +41,28 @@
 #define FLAG_TEMP_1F     (TEMP_FLAGS_START + 0x1F)
 #define TEMP_FLAGS_END   FLAG_TEMP_1F
 
-#define FLAG_DEFEATED_JIRACHI    0x20 // NEW LEGEND ENCOUNTER
-#define FLAG_RYU_RANDOMBATTLE    0x21 // NEW SPECIAL TRAINER
-#define FLAG_RYU_RANDOMBATTLECC    0x22 // NEW SPECIAL TRAINER
-#define FLAG_TOTEM_NEWMAUVILLE    0x23 // NEW TOTEM
-#define FLAG_TOTEM_MIRAGETOWER  0x24 // NEW TOTEM
-#define FLAG_TOTEM_FIERYPATH   0x25 // NEW TOTEM
-#define FLAG_ITEM_SCORCHED_SLAB_B1F_ESCAPE_ROPE    0x26 // Unused Flag
-#define FLAG_ITEM_SCORCHED_SLAB_B1F_ITEM    0x27 // Unused Flag
-#define FLAG_ITEM_SCORCHED_SLAB_B2F_ITEM    0x28 // Unused Flag
-#define FLAG_ITEM_SCORCHED_SLAB_B2F_ITEM2    0x29 // Unused Flag
-#define FLAG_CAUGHT_ENTEI    0x2A // Unused Flag
-#define FLAG_DEFEATED_ENTEI    0x2B // Unused Flag
-#define FLAG_HIDE_ENTEI    0x2C // Unused Flag
-#define FLAG_CAUGHT_SUICUNE    0x2D // Unused Flag
-#define FLAG_DEFEATED_SUICUNE    0x2E // Unused Flag
-#define FLAG_HIDE_SUICUNE    0x2F // Unused Flag
+#define FLAG_DEFEATED_JIRACHI    0x20 // Previously unused Flag
+#define FLAG_RYU_RANDOMBATTLE    0x21 // Previously unused Flag
+#define FLAG_RYU_RANDOMBATTLECC    0x22 // Previously unused Flag
+#define FLAG_TOTEM_NEWMAUVILLE    0x23 // Previously unused Flag
+#define FLAG_TOTEM_MIRAGETOWER  0x24 // Previously unused Flag
+#define FLAG_TOTEM_FIERYPATH   0x25 // Previously unused Flag
+#define FLAG_ITEM_SCORCHED_SLAB_B1F_ESCAPE_ROPE    0x26 // Previously unused Flag
+#define FLAG_ITEM_SCORCHED_SLAB_B1F_ITEM    0x27 // Previously unused Flag
+#define FLAG_ITEM_SCORCHED_SLAB_B2F_ITEM    0x28 // Previously unused Flag
+#define FLAG_ITEM_SCORCHED_SLAB_B2F_ITEM2    0x29 // Previously unused Flag
+#define FLAG_CAUGHT_ENTEI    0x2A // Previously unused Flag
+#define FLAG_DEFEATED_ENTEI    0x2B // Previously unused Flag
+#define FLAG_HIDE_ENTEI    0x2C // Previously unused Flag
+#define FLAG_CAUGHT_SUICUNE    0x2D // Previously unused Flag
+#define FLAG_DEFEATED_SUICUNE    0x2E // Previously unused Flag
+#define FLAG_HIDE_SUICUNE    0x2F // Previously unused Flag
 #define FLAG_CAUGHT_JIRACHI  0x30 // Previously unused Flag
 #define FLAG_DEFEATED_OLDALE_AVADER    0x31 // Previously unused Flag
-#define FLAG_UNUSED_0x032    0x32 // Unused Flag
-#define FLAG_UNUSED_0x033    0x33 // Unused Flag
-#define FLAG_UNUSED_0x034    0x34 // Unused Flag
-#define FLAG_UNUSED_0x035    0x35 // Unused Flag
+#define FLAG_DEFEATED_SANTY_GYM    0x32 // Previously unused Flag
+#define FLAG_DEFEATED_DARKI_GYM    0x33 // Previously unused Flag
+#define FLAG_DEFEATED_SAPPH_GYM    0x34 // Previously unused Flag
+#define FLAG_DEFEATED_GOOSES_GYM    0x35 // Previously unused Flag
 #define FLAG_UNUSED_0x036    0x36 // Unused Flag
 #define FLAG_UNUSED_0x037    0x37 // Unused Flag
 #define FLAG_UNUSED_0x038    0x38 // Unused Flag
@@ -655,7 +655,7 @@
 #define FLAG_HIDDEN_ITEM_IZABE_ISLAND_HOUSE_1_LEEK           0x266 // Previously unused Flag
 #define FLAG_HIDDEN_ITEM_IZABE_ISLAND_LAKE_1                 0x267 // Previously unused Flag
 #define FLAG_HIDDEN_ITEM_IZABE_ISLAND_LAKE_2                 0x268 // Previously unused Flag
-#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_LAKE_CAVE_1            0x269 // Previously unused
+#define FLAG_HIDDEN_ITEM_IZABE_ISLAND_LAKE_CAVE_1            0x269 // Previously unused Flag
 #define FLAG_HIDDEN_ITEM_IZABE_ISLAND_OUTSKIRTS_POISON_BARB  0x26A // Previously unused Flag
 #define FLAG_HIDDEN_ITEM_IZABE_ISLAND_OUTSKIRTS_SPELL_TAG    0x26B // Previously unused Flag
 #define FLAG_HIDE_REGIGIGAS                                  0x26C // Previously unused Flag
@@ -1514,8 +1514,8 @@
 #define FLAG_VISITED_MICOLANDIA                     (SYSTEM_FLAGS + 0x85) // Previously unused Flag
 #define FLAG_LANDMARK_FORBIDDEN_FOREST              (SYSTEM_FLAGS + 0x86) // Previously unused Flag
 #define FLAG_LANDMARK_MAUVILLE_RUINS                (SYSTEM_FLAGS + 0x87) // Previously inused Flag
-#define FLAG_LANDMARK_IZABE_CAVE                    (SYSTEM_FLAGS + 0x88) // Unused Flag
-#define FLAG_LANDMARK_MICOLO_HIDEOUT                (SYSTEM_FLAGS + 0x89) // Unused Flag
+#define FLAG_LANDMARK_IZABE_CAVE                    (SYSTEM_FLAGS + 0x88) // Previously unused Flag
+#define FLAG_LANDMARK_MICOLO_HIDEOUT                (SYSTEM_FLAGS + 0x89) // Previously unused Flag
 #define FLAG_UNUSED_0x8EA                           (SYSTEM_FLAGS + 0x8A) // Unused Flag
 #define FLAG_UNUSED_0x8EB                           (SYSTEM_FLAGS + 0x8B) // Unused Flag
 #define FLAG_UNUSED_0x8EC                           (SYSTEM_FLAGS + 0x8C) // Unused Flag

@@ -4789,6 +4789,16 @@
             "primary_tileset": "gTileset_Building",
             "secondary_tileset": "gTileset_PokemonCenter",
             "width": 32
+        },
+        {
+            "blockdata_filepath": "data/layouts/GymSanty/map.bin",
+            "border_filepath": "data/layouts/GymSanty/border.bin",
+            "height": 30,
+            "id": "LAYOUT_GYMSANTY",
+            "name": "GymSanty_Layout",
+            "primary_tileset": "gTileset_Building",
+            "secondary_tileset": "gTileset_SootopolisGym",
+            "width": 30
         }
     ],
     "layouts_table_label": "gMapLayouts"
