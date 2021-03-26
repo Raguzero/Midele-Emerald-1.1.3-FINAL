@@ -384,8 +384,9 @@
 #define MOVE_APPLE_ACID 380
 #define MOVE_ACCELEROCK 381
 #define MOVE_DARK_THUNDER 382
+#define MOVE_DRILL_RUN 383
 
-#define MOVES_COUNT 383
+#define MOVES_COUNT 384
 
 // NUEVO: Poder de Hidden Power
 #define MOVE_HIDDEN_POWER_DMG 70

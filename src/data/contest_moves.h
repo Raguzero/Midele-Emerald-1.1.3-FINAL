@@ -3019,7 +3019,13 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
 	// [MOVE_APPLE_ACID] = {0}, No tiene stats de concurso en ningún juego, será Cool 4* por defecto
 	// [MOVE_ACCELEROCK] = {0}, No tiene stats de concurso en ningún juego, será Cool 4* por defecto
 	// [MOVE_DARK_THUNDER] = {0}, No tiene stats de concurso en ningún juego, será Cool 4* por defecto
-
+    [MOVE_DRILL_RUN] =
+    {
+        .effect = CONTEST_EFFECT_STARTLE_PREV_MONS,
+        .contestCategory = CONTEST_CATEGORY_TOUGH,
+        .comboStarterId = 0,
+        .comboMoves = {0}
+    },
 };
 
 const struct ContestEffect gContestEffects[] =

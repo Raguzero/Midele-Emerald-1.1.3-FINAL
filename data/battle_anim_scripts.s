@@ -398,6 +398,7 @@ gBattleAnims_Moves::
 	.4byte Move_APPLE_ACID
 	.4byte Move_ACCELEROCK
 	.4byte Move_DARK_THUNDER
+	.4byte Move_DRILL_RUN
 	.4byte Move_COUNT @ cannot be reached, because last move is Psycho Boost
 
 	.align 2
@@ -11055,6 +11056,25 @@ Move_DARK_THUNDER:
 	waitbgfadeout
 	setarg 7, -1
 	waitbgfadein
+	end
+	
+Move_DRILL_RUN:
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_HORN_HIT
+	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 0
+	playsewithpan SE_W029, SOUND_PAN_ATTACKER
+	waitforvisualfinish
+	delay 2
+	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 1
+	delay 2
+	loopsewithpan SE_W030, SOUND_PAN_TARGET, 4, 8
+	createvisualtask sub_810EB88, 5
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 18, 1
+	waitforvisualfinish
+	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 2
+	waitforvisualfinish
+	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 6
+	waitforvisualfinish
 	end
 
 Move_COUNT:

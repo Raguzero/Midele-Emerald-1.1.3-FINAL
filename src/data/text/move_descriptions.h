@@ -1527,6 +1527,10 @@ static const u8 sACCELEROCKDescription[] = _(
 	
 static const u8 sDARKTHUNDERDescription[] = _(
 	"Micolo's ultimate attack.");
+	
+static const u8 sDRILL_RUNDescription[] = _(
+	"Spins its body like a drill.\n"
+	"High critical-hit ratio.");
 
 // MOVE_NONE is ignored in this table. Make sure to always subtract 1 before getting the right pointer.
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
@@ -1914,5 +1918,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_APPLE_ACID - 1] = sAPPLE_ACIDDescription,
     [MOVE_ACCELEROCK - 1] = sACCELEROCKDescription,
     [MOVE_DARK_THUNDER - 1] = sDARKTHUNDERDescription,
+    [MOVE_DRILL_RUN - 1] = sDRILL_RUNDescription,
 	// NUEVO MOVE TIPO HADA
 };
