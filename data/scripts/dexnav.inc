@@ -20,8 +20,8 @@ EventScript_MovedTooFast::
     msgbox sText_TryMovingSlower, MSGBOX_SIGN
     end
 sText_TryMovingSlower:
-    .string "The Pokémon got away!\n"
-    .string "Try moving more slowly.$"
+    .string "The Pokémon got away! Try moving\n"
+    .string "more slowly by holding the A button.$"
 
 EventScript_PokemonGotAway::
     msgbox sText_PokemonGotAway, MSGBOX_SIGN
