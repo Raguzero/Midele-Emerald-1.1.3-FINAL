@@ -4229,6 +4229,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
     gBattleMovePower = (130 * gBattleMovePower) / 100;
 	if (attacker->ability == ABILITY_IRON_FIST && ((gBattleMoves[move].flags & FLAG_IRON_FIST_BOOST)))
     gBattleMovePower = (120 * gBattleMovePower) / 100;
+	if (attacker->ability == ABILITY_SNIPER && gCritMultiplier == 2)
+        gBattleMovePower = (150 * gBattleMovePower) / 100;
 	if (attacker->ability == ABILITY_HUSTLE)
         attack = (150 * attack) / 100;
     if (attacker->ability == ABILITY_PLUS && ABILITY_ON_FIELD2(ABILITY_MINUS))
