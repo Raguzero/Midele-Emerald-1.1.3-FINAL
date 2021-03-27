@@ -925,10 +925,13 @@
 #define TRAINER_DUNK 921
 #define TRAINER_EEVEETO 922
 #define TRAINER_UTALAWEA 923
+#define TRAINER_SANTYGRASS 924
+#define TRAINER_SANTYGRASS_2 925
+#define TRAINER_SANTYGRASS_3 926
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or [changing how trainer flags are handled] --> HECHO ESTO
-#define TRAINERS_COUNT                      924 // NUEVO: aumentar para añadir nuevos entrenadores
-#define MAX_TRAINERS_COUNT                  925
+#define TRAINERS_COUNT                      927 // NUEVO: aumentar para añadir nuevos entrenadores
+#define MAX_TRAINERS_COUNT                  928
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

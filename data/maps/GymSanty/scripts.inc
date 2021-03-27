@@ -10,17 +10,17 @@ GymSanty_EventScript_Santy::
 	end
 
 GymSanty_EventScript_Santy_Shifteo0::
-	trainerbattle_single TRAINER_ISMAPKM_1, GymSanty_Text_SantyShifteo0Intro, GymSanty_Text_SantyShifteo0Defeat, GymSanty_EventScript_SantyShifteo0Defeated, NO_MUSIC
+	trainerbattle_single TRAINER_SANTYGRASS, GymSanty_Text_SantyShifteo0Intro, GymSanty_Text_SantyShifteo0Defeat, GymSanty_EventScript_SantyShifteo0Defeated, NO_MUSIC
 	release
 	end
 	
 GymSanty_EventScript_Santy_Shifteo1::
-	trainerbattle_single TRAINER_JOSITO, GymSanty_Text_SantyShifteo1Intro, GymSanty_Text_SantyShifteo1Defeat, GymSanty_EventScript_SantyShifteo1Defeated, NO_MUSIC
+	trainerbattle_single TRAINER_SANTYGRASS_2, GymSanty_Text_SantyShifteo1Intro, GymSanty_Text_SantyShifteo1Defeat, GymSanty_EventScript_SantyShifteo1Defeated, NO_MUSIC
 	release
 	end
 	
 GymSanty_EventScript_Santy_Shifteo2::
-	trainerbattle_single TRAINER_FIERYPATH_PACOCHEF, GymSanty_Text_SantyShifteo2Intro, GymSanty_Text_SantyShifteo2Defeat, GymSanty_EventScript_SantyShifteo2Defeated, NO_MUSIC
+	trainerbattle_single TRAINER_SANTYGRASS_3, GymSanty_Text_SantyShifteo2Intro, GymSanty_Text_SantyShifteo2Defeat, GymSanty_EventScript_SantyShifteo2Defeated, NO_MUSIC
 	release
 	end
 	
@@ -167,46 +167,67 @@ GymSanty_Text_GymGuidePostVictory:
 	.string "¡WOW! ¡Así que venciste a SANTYGRASS!$"
 
 GymSanty_Text_SantyShifteo0Intro:
-	.string "BIENVENIDO AL GYM\p" 
-	.string "YA HUELO LA HIERBA QUEMADA\p"
-	.string "¡JAJAJAJAJA!\p"
-	.string "MEJORAR FRASES FRASES FRASES$"
-	
-GymSanty_Text_SantyShifteo0Defeat:
-	.string "¡JEJEJEJE! AQUI NO HA PASADO NADA.\p"
-	.string "“SANTYGRASS USA EL PODER DEL SHIFTEO”\p"
-	.string "MEJORAR FRASES FRASES FRASES$"
-	
-GymSanty_Text_SantyShifteo1Intro:
-	.string "BIENVENIDO AL GYM\p" 
-	.string "¿OCURRE ALGO?\p"
-	.string "¿QUE YA ME HAS VENCIDO?\p"
-	.string "NO SE DE QUE HABLAS!!!\p"
-	.string "MEJORAR FRASES FRASES FRASES$"
-	
-GymSanty_Text_SantyShifteo1Defeat:
-	.string "¡JAJAJAJAJAJAJA! ¡NO VENCERÁS!\p"
-	.string "“SANTYGRASS USA EL PODER DEL SHIFTEO”\p"
-	.string "MEJORAR FRASES FRASES FRASES$"
-	
-GymSanty_Text_SantyShifteo2Intro:
-	.string "BIENVENIDO AL GYM\p" 
-	.string "¿QUE TE PASA? JAJAJA\p"
+    .string "Bienvenido a mi gimnasio.\p" 
+    .string "Espero que te agrade el aroma que\n"
+	.string "hay aquí.\p"
 
-	.string "¿QUE YA ME HAS VENCIDO DOS VECES?\p"
-	.string "NO SE DE QUE HABLAS!!!\p"
+    .string "Llevo años cuidando con mucho cariño\n"
+    .string "todas las plantas personalmente.\p"
+
+    .string "¡Ahora es el momento de encender\n"
+	.string "este lugar!$"
+
+GymSanty_Text_SantyShifteo0Defeat:
+    .string "Ya veo, con que esa es tu estrategia...\p"
+    .string "Eh? Acaso crees que ya ha terminado\n"
+	.string "la pelea?\p"
+
+    .string "¡Esto solo ha sido el inicio!\p"
+    .string "“Celebi usa un extraño poder”$"
+
+GymSanty_Text_SantyShifteo1Intro:
+    .string "Bienvenido a mi gimnasio.\p" 
+    .string "Espero que te agrade el aroma que\n"
+	.string "hay aquí.\p"
+    .string "¿La medalla?\p"
+    .string "Lo siento, pero a mí jamás me ganaste,\n"
+    .string "aunque parece que ya viste el poder\l"
+	.string "de mi Celebi.\p"
+
+    .string "¡Si quieres te puedo hacer\n"
+	.string "otra demostración!$"
+
+GymSanty_Text_SantyShifteo1Defeat:
+    .string "Ese ha sido un buen intento\n"
+    .string "aunque parece que el día no me\l"
+	.string "acompañaba.\p"
+
+    .string "Pero no importa, Celebi me permite\n"
+	.string "viajar en el tiempo e ir a una línea\l"
+	.string "temporal en donde no me hayas ganado.\p"
+
+    .string "¡Celebi, es hora de SHIFTear!\p"
+    .string "“Celebi usa un extraño poder”$"
+
+GymSanty_Text_SantyShifteo2Intro:
+    .string "Bienvenido a mi gimnasio.\p" 
+    .string "Espero que te agrade el aroma que\n"
+	.string "hay aquí.\p"
 	
-	.string "ESTA BIEN, ESTA SERÁ LA\n"
-	.string "BATALLA DECISIVA!!\p"
-	
-	.string "ECHARE TODAS LAS PLANTAS AL SOL\p"
-	.string "MEJORAR FRASES FRASES FRASES$"
-	
+    .string "No hay nada mejor que cuando las\n"
+	.string "plantas arden.\p"
+
+    .string "Parece que sabes sobre mi SHIFTeo\p"
+    .string "Así que ya es momento de silenciarte.\p"
+    .string "El olor a hierba quemada es lo mejor\n"
+    .string "para una batalla definitiva.$"
+
+
 GymSanty_Text_SantyShifteo2Defeat:
-	.string "ME HAS VENCIDO...\p"
-	.string "ESTA BIEN, TE GANASTE\n"
-	.string "LA MEDALLA.\p"
-	.string "MEJORAR FRASES FRASES FRASES$"
+    .string "How Could this Happen\n"
+    .string "Even with the apocrypha!?\p"
+    .string "Está bien, toma la medalla\n"
+    .string "y vete que ya me estas quemando.$"
 
 GymSanty_Text_ReceivedBadge:
 	.string "{PLAYER} recibió la MEDALLA HIERBA\n"
