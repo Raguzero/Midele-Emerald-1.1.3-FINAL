@@ -563,6 +563,8 @@
 #define INCOMINGX2 635
 #define SASAGEYO 636
 #define MUSICAVEGAGOLDY 637
+#define VSSUSIEDELTARUNE 638
+#define ZANZATHEME 639
 
 #define MUS_ROUTE_118 0x7FFF  // map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 
