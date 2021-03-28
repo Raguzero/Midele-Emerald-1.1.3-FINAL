@@ -582,8 +582,8 @@ const u32 gItemIconPalette_PowerHerb[] = INCBIN_U32("graphics/items/icon_palette
 const u32 gItemIcon_PinkPetal[] = INCBIN_U32("graphics/items/icons/pink_petal.4bpp.lz");
 const u32 gItemIconPalette_PinkPetal[] = INCBIN_U32("graphics/items/icon_palettes/pink_petal.gbapal.lz");
 
-const u32 gItemIcon_PsycheArmor[] = INCBIN_U32("graphics/items/icons/PsycheArmor.4bpp.lz");
-const u32 gItemIconPalette_PsycheArmor[] = INCBIN_U32("graphics/items/icon_palettes/PsycheArmor.gbapal.lz");
+const u32 gItemIcon_PsycheArmor[] = INCBIN_U32("graphics/items/icons/psychearmor.4bpp.lz");
+const u32 gItemIconPalette_PsycheArmor[] = INCBIN_U32("graphics/items/icon_palettes/psychearmor.gbapal.lz");
 
 // Key items
 
