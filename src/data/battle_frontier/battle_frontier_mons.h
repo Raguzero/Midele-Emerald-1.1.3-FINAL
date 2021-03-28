@@ -9607,7 +9607,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .moves = {MOVE_SWORDS_DANCE, MOVE_SHADOW_BALL, MOVE_ANCIENT_POWER, MOVE_BATON_PASS},
         .itemTableId = BATTLE_FRONTIER_ITEM_LEFTOVERS,
         .evSpread = F_EV_SPREAD_SPEED | F_EV_SPREAD_ATTACK,
-        .nature = NATURE_TIMID
+        .nature = NATURE_JOLLY
     },
     [FRONTIER_MON_CELEBI_10] = {
         .species = SPECIES_CELEBI,
@@ -10241,7 +10241,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_MEGA_MAWILE_1] = {
         .species = SPECIES_MEGA_MAWILE,
-        .moves = {MOVE_IRON_HEAD, MOVE_FAKE_TEARS, MOVE_IRON_DEFENSE, MOVE_BATON_PASS},
+        .moves = {MOVE_IRON_HEAD, MOVE_SWORDS_DANCE, MOVE_IRON_DEFENSE, MOVE_BATON_PASS},
         .itemTableId = BATTLE_FRONTIER_ITEM_LEFTOVERS,
         .evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_HP,
         .nature = NATURE_CAREFUL
