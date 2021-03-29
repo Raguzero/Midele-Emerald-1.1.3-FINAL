@@ -2,9 +2,16 @@ MicoloHideout_LavaRoom_MapScripts::
 	.byte 0
 
 MicoloHideout_LavaRoom_EventScript_EEVEETO::
-	trainerbattle_single TRAINER_EEVEETO, MicoloHideout_LavaRoom_Text_EEVEETOIntro, MicoloHideout_LavaRoom_Text_EEVEETODefeat
+	trainerbattle_double TRAINER_EEVEETO, MicoloHideout_LavaRoom_Text_EEVEETOIntro, MicoloHideout_LavaRoom_Text_EEVEETODefeat, MicoloHideout_LavaRoom_EEVEETO_MasdeunPokemon
 	msgbox MicoloHideout_LavaRoom_Text_EEVEETOPostBattle, MSGBOX_AUTOCLOSE
 	end
+	
+MicoloHideout_LavaRoom_EEVEETO_MasdeunPokemon: // BATALLA DOBLE
+	.string "Así que solo llevas un Pokémon?\n"
+	.string "No puedo luchar contigo, entonces.\p"
+
+	.string "Mi estrategia es solo para las\n"
+	.string "BATALLA DOBLE.$"
 	
 MicoloHideout_LavaRoom_Text_EEVEETOIntro: 
 	.string "Mal día has elegido para pasear\n"

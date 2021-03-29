@@ -278,8 +278,8 @@ ElPrincipe_Text_MasdeunPokemon: // BATALLA DOBLE
 	.string "Así que solo llevas un Pokémon?\n"
 	.string "No puedo luchar contigo, entonces.\p"
 
-	.string "Mi estrategia de la FLOR DEL FIRMAMENTO.\n"
-	.string "solo brilla en BATALLA DOBLE$"
+	.string "Mi estrategia de la FLOR DEL FIRMAMENTO\n"
+	.string "solo brilla en BATALLA DOBLE.$"
 	
 CharizardFan_AntesBatalla: 
 	.string "MEGA CHARIZARD X, MEGA CHARIZARD Y,\n"

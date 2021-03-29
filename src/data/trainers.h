@@ -12951,4 +12951,18 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_Santygrass3),
         .party = {.ItemCustomMidele = sParty_Santygrass3},
     },
+    [TRAINER_DARKI_MALRO] =
+    {
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
+        .battleMusic = DELTARUNCHAOSK,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("DARKI MALRO"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
+        .partySize = ARRAY_COUNT(sParty_Darkimalro),
+        .party = {.ItemCustomMidele = sParty_Darkimalro},
+    },
 };

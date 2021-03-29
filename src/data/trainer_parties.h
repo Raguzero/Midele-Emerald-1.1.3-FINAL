@@ -20440,3 +20440,75 @@ static const struct TrainerMonCustomMidele sParty_Santygrass3[] = {
     .moves = {MOVE_SWORDS_DANCE, MOVE_HIDDEN_POWER, MOVE_SHADOW_BALL, MOVE_ANCIENT_POWER}
     }
 };
+
+static const struct TrainerMonCustomMidele sParty_Darkimalro[] = {
+    {
+    .iv = 31,  
+    .lvl = 80, 
+    .species = SPECIES_MEGA_HOUNDOOM,
+	.heldItem = ITEM_FOCUS_SASH,
+	.nature = NATURE_TIMID, 
+	.evs = {0, 0, 6, 252, 0, 252},  
+	.hpType = TYPE_GRASS,
+	.ability = 0,
+	.friendship = 255,
+    .moves = {MOVE_FIRE_BLAST, MOVE_CRUNCH, MOVE_HIDDEN_POWER, MOVE_SLUDGE_BOMB}
+    },
+    {
+    .iv = 31,  
+    .lvl = 80, 
+    .species = SPECIES_CORVIKNIGHT,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_IMPISH, 
+	.evs = {252, 252, 0, 0, 0, 6},  
+	.ability = 0,
+    .moves = {MOVE_IRON_HEAD, MOVE_BRAVE_BIRD, MOVE_BULK_UP, MOVE_PROTECT}
+    },
+    {
+    .iv = 31,  
+    .lvl = 80, 
+    .species = SPECIES_HYDREIGON,
+	.heldItem = ITEM_CHOICE_SPECS,
+	.nature = NATURE_MODEST,
+	.evs = {0, 6, 0, 252, 0, 252}, 
+	.ability = 0,
+	.shiny = 1,  
+	.friendship = 255,  
+    .moves = {MOVE_OUTRAGE, MOVE_DARK_PULSE, MOVE_FLAMETHROWER, MOVE_SURF}
+    },
+    {
+    .iv = 31, 
+    .lvl = 80,
+    .species = SPECIES_LYCANROC_NIGHT,
+	.heldItem = ITEM_CHOICE_SCARF,
+	.nature = NATURE_ADAMANT,
+	.evs = {0, 252, 6, 0, 0, 252},    
+	.ability = 1,
+	.shiny = 0,  
+	.friendship = 255, 
+    .moves = {MOVE_IRON_TAIL, MOVE_RETURN, MOVE_STONE_EDGE, MOVE_DYNAMIC_PUNCH}
+    },
+    {
+    .iv = 31,  
+    .lvl = 80, 
+    .species = SPECIES_OBSTAGOON,
+	.heldItem = ITEM_SILK_SCARF,
+	.nature = NATURE_ADAMANT, 
+	.evs = {6, 252, 0, 0, 0, 252},  
+	.ability = 0,
+    .moves = {MOVE_RETURN, MOVE_CROSS_CHOP, MOVE_GUNK_SHOT, MOVE_SHADOW_BALL}
+    },
+    {
+    .iv = 31,  
+    .lvl = 80, 
+    .species = SPECIES_GARDEVOIR,
+	.heldItem = ITEM_PINK_PETAL,
+	.nature = NATURE_MODEST, 
+	.evs = {252, 0, 0, 252, 0, 6},   
+	.ability = 0,
+	.shiny = 1,  
+	.friendship = 255,   
+    .moves = {MOVE_PSYCHIC, MOVE_MOONBLAST, MOVE_THUNDERBOLT, MOVE_WILL_O_WISP}
+    }
+};
+

@@ -1319,3 +1319,6 @@ $(MID_SUBDIR)/zanzatheme.s: %.s: %.mid
 
 $(MID_SUBDIR)/incomingx2.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -v100
+	
+$(MID_SUBDIR)/deltarunchaosk.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100
