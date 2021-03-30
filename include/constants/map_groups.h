@@ -630,6 +630,7 @@
 #define MAP_MICOLO_HIDEOUT_LAVA_ROOM             (34 | (34 << 8))
 #define MAP_MICOLO_LEAGUE_LOBBY                  (35 | (34 << 8))
 #define MAP_GYM_SANTY                            (36 | (34 << 8))
+#define MAP_GYM_SANTY2                           (37 | (34 << 8))
 
 #define MAP_GROUPS_COUNT 35
 

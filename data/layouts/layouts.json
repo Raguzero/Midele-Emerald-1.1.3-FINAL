@@ -4799,6 +4799,16 @@
             "primary_tileset": "gTileset_Building",
             "secondary_tileset": "gTileset_SootopolisGym",
             "width": 30
+        },
+        {
+            "blockdata_filepath": "data/layouts/GymSanty2/map.bin",
+            "border_filepath": "data/layouts/GymSanty2/border.bin",
+            "height": 50,
+            "id": "LAYOUT_GYM_SANTY2",
+            "name": "GymSanty2_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_Lavaridge",
+            "width": 60
         }
     ],
     "layouts_table_label": "gMapLayouts"

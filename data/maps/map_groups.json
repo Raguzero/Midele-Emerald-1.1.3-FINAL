@@ -563,7 +563,8 @@
         "MicoloHideout_ExperimentRoom",
         "MicoloHideout_LavaRoom",
         "MicoloLeagueLobby",
-        "GymSanty"
+        "GymSanty",
+        "GymSanty2"
     ],
     "gMapGroup4": [
         "LavaridgeTown_HerbShop",

@@ -31,14 +31,14 @@ GymSanty_EventScript_Santy_Derrotado::
 
 GymSanty_EventScript_SantyShifteo0Defeated::
 	setvar VAR_SHIFTEO_SANTY_GYM, 1
-	warp MAP_GYM_SANTY, 1, 0, 0
+	warp MAP_GYM_SANTY, 3, 0, 0
 	waitstate
 	release
 	end
 	
 GymSanty_EventScript_SantyShifteo1Defeated::
 	setvar VAR_SHIFTEO_SANTY_GYM, 2
-	warp MAP_GYM_SANTY, 1, 0, 0
+	warp MAP_GYM_SANTY, 3, 0, 0
 	waitstate
 	release
 	end

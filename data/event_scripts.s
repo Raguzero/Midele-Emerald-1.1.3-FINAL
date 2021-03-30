@@ -1148,3 +1148,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/scripts/dexnav.inc"
 
 	.include "data/maps/GymSanty/scripts.inc"
+
+	.include "data/maps/GymSanty2/scripts.inc"
