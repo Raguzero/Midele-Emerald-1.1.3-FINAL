@@ -249,6 +249,13 @@
             "elevation": 0,
             "x": 4,
             "y": 6
+        },
+        {
+            "dest_map": "MAP_GYM_GOOSES",
+            "dest_warp_id": 0,
+            "elevation": 0,
+            "x": 80,
+            "y": 45
         }
     ],
     "weather": "WEATHER_SUNNY"

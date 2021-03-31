@@ -4809,6 +4809,16 @@
             "primary_tileset": "gTileset_General",
             "secondary_tileset": "gTileset_Lavaridge",
             "width": 60
+        },
+        {
+            "blockdata_filepath": "data/layouts/GymGooses/map.bin",
+            "border_filepath": "data/layouts/GymGooses/border.bin",
+            "height": 40,
+            "id": "LAYOUT_GYM_GOOSES",
+            "name": "GymGooses_Layout",
+            "primary_tileset": "gTileset_Building",
+            "secondary_tileset": "gTileset_TrainerHill",
+            "width": 30
         }
     ],
     "layouts_table_label": "gMapLayouts"
