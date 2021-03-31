@@ -56,6 +56,7 @@ typedef u16 (*SpecialFunc)(void);
 typedef void (*NativeFunc)(void);
 
 EWRAM_DATA const u8 *gUnknown_020375C0 = NULL;
+EWRAM_DATA u8 gDummyMovementScript[7] = {0};
 static EWRAM_DATA u32 gUnknown_020375C4 = 0;
 static EWRAM_DATA u16 sPauseCounter = 0;
 static EWRAM_DATA u16 sMovingNpcId = 0;
@@ -2391,5 +2392,26 @@ bool8 ScrCmd_setwildbattlecustom(struct ScriptContext *ctx)
     SetMonMoveSlot(pkmn, m2, 2);
     SetMonMoveSlot(pkmn, m3, 3);
 	
+    return FALSE;
+}
+
+bool8 ScrCmd_applydicemovement(struct ScriptContext *ctx)
+{
+    u16 localId = VarGet(ScriptReadHalfword(ctx));
+    const void *movementScript = (const void *)ScriptReadWord(ctx);
+    u8 diceRoll = (Random() % 6) + 1;
+    u8 movement, i;
+    u8 movementCount = 0;
+    i = 0;
+    movement = ((u8*)movementScript)[0];
+    for (i = 0; i < diceRoll; i++)
+    {
+        gDummyMovementScript[i] = ((u8*)movementScript)[i];
+    }
+    gDummyMovementScript[i] = 0xFE;
+
+    ScriptMovement_StartObjectMovementScript(localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, (const void*)gDummyMovementScript);
+    sMovingNpcId = localId;
+    gSpecialVar_Result = diceRoll;
     return FALSE;
 }

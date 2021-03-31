@@ -557,3 +557,4 @@ gSpecials:: @ 81DBA64
 	def_special PokedexRatingPrize
 	def_special IsSelectedMonLegendary
 	def_special IsSelectedMonDeoxys
+	def_special BufferSpecialVarToStringVar1

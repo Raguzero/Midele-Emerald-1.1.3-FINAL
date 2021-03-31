@@ -4557,3 +4557,8 @@ u16 PokedexRatingPrize(void)
         return ITEM_NONE;
     }
 }
+
+void BufferSpecialVarToStringVar1(void)
+{
+    ConvertIntToDecimalStringN(gStringVar1, gSpecialVar_Result, STR_CONV_MODE_LEADING_ZEROS, 1);
+}

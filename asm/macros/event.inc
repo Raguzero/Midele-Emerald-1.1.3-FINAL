@@ -1713,7 +1713,15 @@
     .else
         .byte \isShiny
     .endif
-    .endm	
+    .endm
+
+@ Applies the movement data at movements to the specified (index) Object. Also closes any standard message boxes that are still open.
+@ The number of movements applied will be selected at random between 1 and 6 (like a dice roll)
+.macro applydicemovement index:req, movements:req
+	.byte 0xe7
+	.2byte \index
+	.4byte \movements
+	.endm
 
 @ Supplementary
 

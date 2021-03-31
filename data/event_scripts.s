@@ -959,6 +959,9 @@ gText_Sudowoodo_Attacked:: @ 82731BD
 gText_LegendaryFlewAway:: @ 8273204
 	.string "The {STR_VAR_1} flew away!$"
 
+gText_DiceResult::
+	.string "¡Has sacado un {STR_VAR_1}!\nTe moverás {STR_VAR_1} casillas.$"
+
 	.include "data/text/pc_transfer.inc"
 	.include "data/text/mevent.inc"
 	.include "data/text/abnormal_weather.inc"
