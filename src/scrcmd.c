@@ -49,6 +49,7 @@
 #include "tv.h"
 #include "window.h"
 #include "constants/event_objects.h"
+#include "constants/event_object_movement_constants.h"
 #include "constants/items.h"
 #include "strings.h"
 
@@ -2400,15 +2401,12 @@ bool8 ScrCmd_applydicemovement(struct ScriptContext *ctx)
     u16 localId = VarGet(ScriptReadHalfword(ctx));
     const void *movementScript = (const void *)ScriptReadWord(ctx);
     u8 diceRoll = (Random() % 6) + 1;
-    u8 movement, i;
-    u8 movementCount = 0;
-    i = 0;
-    movement = ((u8*)movementScript)[0];
+    u8 i = 0;
     for (i = 0; i < diceRoll; i++)
     {
         gDummyMovementScript[i] = ((u8*)movementScript)[i];
     }
-    gDummyMovementScript[i] = 0xFE;
+    gDummyMovementScript[i] = MOVEMENT_ACTION_STEP_END;
 
     ScriptMovement_StartObjectMovementScript(localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, (const void*)gDummyMovementScript);
     sMovingNpcId = localId;
