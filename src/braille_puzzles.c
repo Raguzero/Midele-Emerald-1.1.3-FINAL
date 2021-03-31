@@ -548,11 +548,10 @@ bool8 CheckRegielekiPuzzle(void)
     
     for (i = 0; i < gPlayerPartyCount; i++)
     {
-        switch (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2, 0))
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2, 0) == SPECIES_AMPHAROS)
         {
-            case SPECIES_AMPHAROS:
-                hasAmpharos = TRUE;
-                break;
+            hasAmpharos = TRUE;
+            break;
         }
     }
     

@@ -1,19 +1,7 @@
 MauvilleRuins_MapScripts::
-	//map_script MAP_SCRIPT_ON_RESUME, MauvilleRuins_OnResume
 	map_script MAP_SCRIPT_ON_LOAD, MauvilleRuins_OnLoad
 	map_script MAP_SCRIPT_ON_TRANSITION, MauvilleRuins_OnTransition
 	.byte 0
-
-//MauvilleRuins_OnResume:
-//	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, MauvilleRuins_EventScript_TryRemoveRegieleki
-//	end
-
-//MauvilleRuins_EventScript_TryRemoveRegieleki:: 
-//	specialvar VAR_RESULT, GetBattleOutcome
-//	compare VAR_RESULT, B_OUTCOME_CAUGHT
-//	goto_if_ne Common_EventScript_NopReturn
-//	removeobject VAR_LAST_TALKED
-//	return
 
 MauvilleRuins_OnLoad:
 	call_if_unset FLAG_SYS_BRAILLE_REGIELEKI_COMPLETED, MauvilleRuins_EventScript_HideRegiEntrance
@@ -31,17 +19,11 @@ MauvilleRuins_EventScript_HideRegiEntrance::
 MauvilleRuins_OnTransition: 
 	setflag FLAG_LANDMARK_MAUVILLE_RUINS
 	call_if_unset FLAG_VADER_MAUVILLE_RUINS_ANTESDEABRIR, MauvilleRuins_Vader_BlockDoor
-//	call_if_unset FLAG_CAUGHT_REGIELEKI, MauvilleRuins_EventScript_TryShowRegieleki
 	end
 	
 MauvilleRuins_Vader_BlockDoor::
 	setobjectxyperm 5, 8, 0
 	return
-
-//MauvilleRuins_EventScript_TryShowRegieleki:: 
-//	goto_if_set FLAG_DEFEATED_REGIELEKI, Common_EventScript_NopReturn
-//	clearflag FLAG_HIDE_REGIELEKI
-//	return
 
 MauvilleRuins_EventScript_OpenRegiEntrance:: 
 	setmetatile 7, 19, METATILE_Cave_SealedChamberEntrance_TopLeft, 1
@@ -128,39 +110,6 @@ MauvilleRuins_EventScript_Regieleki_Robado::
 	release
 	end
 
-//MauvilleRuins_EventScript_Regieleki::
-//	lock
-//	faceplayer
-//	waitse
-//	playmoncry SPECIES_REGIELEKI, 2
-//	delay 40
-//	waitmoncry
-//	setwildbattle SPECIES_REGIELEKI, 40, ITEM_NONE
-//	setflag FLAG_SYS_CTRL_OBJ_DELETE
-//	special StartRegiBattle
-//	waitstate
-//	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-//	specialvar VAR_RESULT, GetBattleOutcome
-//	compare VAR_RESULT, B_OUTCOME_WON
-//	goto_if_eq MauvilleRuins_EventScript_DefeatedRegieleki
-//	compare VAR_RESULT, B_OUTCOME_RAN
-//	goto_if_eq MauvilleRuins_EventScript_RanFromRegieleki
-//	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
-//	goto_if_eq MauvilleRuins_EventScript_RanFromRegieleki
-//	setflag FLAG_CAUGHT_REGIELEKI
-//	release
-//	end
-
-//MauvilleRuins_EventScript_DefeatedRegieleki::
-//	setflag FLAG_DEFEATED_REGIELEKI
-//	goto Common_EventScript_RemoveStaticPokemon
-//	end
-
-//MauvilleRuins_EventScript_RanFromRegieleki:: 
-//	setvar VAR_0x8004, SPECIES_REGIELEKI
-//	goto Common_EventScript_LegendaryFlewAway
-//	end
-	
 MauvilleRuins_EventScript_Vader::
 	lockall
 	faceplayer
@@ -280,7 +229,7 @@ MauvilleRuins_Text_Vader:
 	.string "PRESENTA AL ELECTRICO\n"
 	.string "QUE ILUMINA UN FARO.\p"
 	
-	.string "En mi viaje por JHOTO, me suena haber\n"
+	.string "En mi viaje por JOHTO, me suena haber\n"
 	.string "oido algo sobre cierto POKÉMON que\l"
 	.string "iluminaba un faro. ¿Cual sería?\p"
 	
