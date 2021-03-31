@@ -18,7 +18,7 @@
         },
         {
             "elevation": 0,
-            "script": "GymGooses_CasillaTableroDado",
+            "script": "GymGooses_CasillaTableroDado2",
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
