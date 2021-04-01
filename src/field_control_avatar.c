@@ -31,6 +31,7 @@
 #include "wild_encounter.h"
 #include "constants/bg_event_constants.h"
 #include "constants/event_objects.h"
+#include "constants/event_object_movement_constants.h"
 #include "constants/field_poison.h"
 #include "constants/map_types.h"
 #include "constants/maps.h"
@@ -1021,4 +1022,29 @@ int SetCableClubWarp(void)
     MapGridGetMetatileBehaviorAt(position.x, position.y);  //unnecessary
     SetupWarp(&gMapHeader, GetWarpEventAtMapPosition(&gMapHeader, &position), &position);
     return 0;
+}
+
+/*
+ * Executes the player movement action stored in gSpecialVar_0x8005 as a player step.
+ */
+void DoApplyrangemovementLastStep(void)
+{
+    u8 dir;
+    switch (gSpecialVar_0x8005) {
+        case MOVEMENT_ACTION_WALK_NORMAL_DOWN:
+            dir = DIR_SOUTH;
+            break;
+        case MOVEMENT_ACTION_WALK_NORMAL_UP:
+            dir = DIR_NORTH;
+            break;
+        case MOVEMENT_ACTION_WALK_NORMAL_LEFT:
+            dir = DIR_WEST;
+            break;
+        case MOVEMENT_ACTION_WALK_NORMAL_RIGHT:
+            dir = DIR_EAST;
+            break;
+        default:
+            dir = DIR_NONE;
+    }
+    PlayerGoSpeed1(dir);
 }

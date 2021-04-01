@@ -6,11 +6,15 @@ GymGooses_CasillaTableroDado::
 	waitmessage
 	lock
 	faceplayer
-	applydicemovement EVENT_OBJ_ID_PLAYER, GymGoosesDado1_Movement_PlayerDado1
-	special BufferSpecialVarToStringVar1
+	random 6
+	addvar VAR_RESULT, 1
+	copyvar VAR_0x8004, VAR_RESULT
+	special Buffer0x8004VarToStringVar1
 	msgbox gText_DiceResult, MSGBOX_DEFAULT
+	waitmessage
+	applyrangemovement EVENT_OBJ_ID_PLAYER, GymGoosesDado1_Movement_PlayerDado1
 	waitmovement 0
-	closemessage
+	special DoApplyrangemovementLastStep
 	release
 	end
 
@@ -19,11 +23,15 @@ GymGooses_CasillaTableroDado2::
 	waitmessage
 	lock
 	faceplayer
-	applydicemovement EVENT_OBJ_ID_PLAYER, GymGoosesDado1_Movement_PlayerDado2
-	special BufferSpecialVarToStringVar1
+	random 6
+	addvar VAR_RESULT, 1
+	copyvar VAR_0x8004, VAR_RESULT
+	special Buffer0x8004VarToStringVar1
 	msgbox gText_DiceResult, MSGBOX_DEFAULT
+	waitmessage
+	applyrangemovement EVENT_OBJ_ID_PLAYER, GymGoosesDado1_Movement_PlayerDado2
 	waitmovement 0
-	closemessage
+	special DoApplyrangemovementLastStep
 	release
 	end
 

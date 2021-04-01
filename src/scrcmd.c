@@ -2396,20 +2396,20 @@ bool8 ScrCmd_setwildbattlecustom(struct ScriptContext *ctx)
     return FALSE;
 }
 
-bool8 ScrCmd_applydicemovement(struct ScriptContext *ctx)
+bool8 ScrCmd_applyrangemovement(struct ScriptContext *ctx)
 {
     u16 localId = VarGet(ScriptReadHalfword(ctx));
     const void *movementScript = (const void *)ScriptReadWord(ctx);
-    u8 diceRoll = (Random() % 6) + 1;
+    u8 diceRoll = gSpecialVar_0x8004;
     u8 i = 0;
-    for (i = 0; i < diceRoll; i++)
+    for (i = 0; i < diceRoll - 1; i++)
     {
         gDummyMovementScript[i] = ((u8*)movementScript)[i];
     }
+    gSpecialVar_0x8005 = ((u8*)movementScript)[i];
     gDummyMovementScript[i] = MOVEMENT_ACTION_STEP_END;
 
     ScriptMovement_StartObjectMovementScript(localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, (const void*)gDummyMovementScript);
     sMovingNpcId = localId;
-    gSpecialVar_Result = diceRoll;
     return FALSE;
 }
