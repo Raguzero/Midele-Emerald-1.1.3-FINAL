@@ -27,16 +27,7 @@
         },
         {
             "elevation": 0,
-            "script": "GymGooses_CasillaTableroDado",
-            "type": "trigger",
-            "var": "VAR_TEMP_0",
-            "var_value": "0",
-            "x": 4,
-            "y": 22
-        },
-        {
-            "elevation": 0,
-            "script": "GymGooses_CasillaTableroDado",
+            "script": "GymGooses_CasillaTableroCombate",
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
@@ -45,43 +36,16 @@
         },
         {
             "elevation": 0,
-            "script": "GymGooses_CasillaTableroDado",
+            "script": "GymGooses_CasillaTableroDado3",
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 2,
-            "y": 21
-        },
-        {
-            "elevation": 0,
-            "script": "GymGooses_CasillaTableroDado",
-            "type": "trigger",
-            "var": "VAR_TEMP_0",
-            "var_value": "0",
-            "x": 3,
+            "x": 5,
             "y": 19
         },
         {
             "elevation": 0,
-            "script": "GymGooses_CasillaTableroDado",
-            "type": "trigger",
-            "var": "VAR_TEMP_0",
-            "var_value": "0",
-            "x": 4,
-            "y": 19
-        },
-        {
-            "elevation": 0,
-            "script": "GymGooses_CasillaTableroDado",
-            "type": "trigger",
-            "var": "VAR_TEMP_0",
-            "var_value": "0",
-            "x": 6,
-            "y": 19
-        },
-        {
-            "elevation": 0,
-            "script": "GymGooses_CasillaTableroDado",
+            "script": "GymGooses_CasillaTableroCombate2",
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
@@ -90,7 +54,7 @@
         },
         {
             "elevation": 0,
-            "script": "GymGooses_CasillaTableroDado",
+            "script": "GymGooses_CasillaTableroCombate2",
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
@@ -99,7 +63,7 @@
         },
         {
             "elevation": 0,
-            "script": "GymGooses_CasillaTableroDado",
+            "script": "GymGooses_CasillaTableroDado4",
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
@@ -108,7 +72,7 @@
         },
         {
             "elevation": 0,
-            "script": "GymGooses_CasillaTableroDado",
+            "script": "GymGooses_CasillaTableroDado5",
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
@@ -117,30 +81,30 @@
         },
         {
             "elevation": 0,
-            "script": "GymGooses_CasillaTableroDado",
+            "script": "GymGooses_CasillaTableroPregunta",
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 9,
+            "x": 4,
             "y": 22
         },
         {
             "elevation": 0,
-            "script": "GymGooses_CasillaTableroDado",
+            "script": "GymGooses_CasillaTableroStatus",
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 8,
-            "y": 22
+            "x": 3,
+            "y": 19
         },
         {
             "elevation": 0,
-            "script": "GymGooses_CasillaTableroDado",
+            "script": "GymGooses_CasillaTableroStatus",
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 7,
-            "y": 22
+            "x": 10,
+            "y": 21
         }
     ],
     "id": "MAP_GYM_GOOSES",
