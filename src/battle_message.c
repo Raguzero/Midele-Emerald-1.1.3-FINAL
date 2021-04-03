@@ -557,6 +557,9 @@ static const u8 sText_RedHPJZombie[] = _("Esto pasa... aaaah... por\n estar luch
 static const u8 sText_EeveetoPierdePrimerPoke[] = _("Todo va según el plan, este sacrificio\n fue necesario.\p");
 static const u8 sText_EeveetoEnviaUltimoPoke[] = _("Mi equipo está débil, pero el tuyo tiene\n hipotermia a estas alturas.\p");
 static const u8 sText_RedHPJEeveeto[] = _("Estás a esto de ganar, pero el frio\n te lo va a impedir.\p");
+static const u8 sText_PacoFieryPierdePrimerPoke[] = _("Uuuuuuh no está mal,\n SHOW ME YOUR BOOBS.\p");
+static const u8 sText_PacoFieryEnviaUltimoPoke[] = _("Carallo neno, te tomas a pecho esto.\p");
+static const u8 sText_RedHPPacoFiery[] = _("Yeee haw, a darlo todel.\p");
 
 static const u8 frase0[] = _("Esh el vecino\nel que elige al alcalde\py esh el alcalde\nel que quiere\lque shean\llosh vecinosh\lel alcalde.\p");
 static const u8 frase1[] = _("Eshpaña esh una gran nación\ny losh eshpañolesh\lmuy eshpañolesh\ly mucho eshpañolesh.\p");
@@ -3184,6 +3187,7 @@ static const struct TrainerSlide sTrainerSlides[] =
     {TRAINER_GRANITECAVE_JZOMBIE, sText_JZombieEnviaUltimoPoke, sText_RedHPJZombie, sText_JZombiePierdePrimerPoke},
     {TRAINER_JZOMBIE2, sText_JZombieEnviaUltimoPoke, sText_RedHPJZombie, sText_JZombiePierdePrimerPoke},
     {TRAINER_EEVEETO, sText_EeveetoEnviaUltimoPoke, sText_RedHPJEeveeto, sText_EeveetoPierdePrimerPoke},
+    {TRAINER_FIERYPATH_PACOCHEF, sText_PacoFieryEnviaUltimoPoke, sText_RedHPPacoFiery, sText_PacoFieryPierdePrimerPoke},
 };
 
 static u32 GetEnemyMonCount(bool32 onlyAlive)
