@@ -91,6 +91,27 @@ MicoloHideout_ExperimentRoom_EventScript_LegendaryMachineNotLegendary:
 	msgbox MicoloHideout_ExperimentRoom_Text_LegendaryMachineNotLegendary, MSGBOX_DEFAULT
 	release
 	end
+	
+MicoloHideout_ExperimentRoom_EventScript_Javisoto2::  
+	trainerbattle_single TRAINER_JAVISITO_POSTGAME, MicoloHideout_ExperimentRoom_Text_Javisoto2Intro, MicoloHideout_ExperimentRoom_Text_Javisoto2Defeat
+	msgbox MicoloHideout_ExperimentRoom_Text_Javisoto2PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+MicoloHideout_ExperimentRoom_Text_Javisoto2Intro: 
+	.string "Buenas, ¿cuando haran el evento de\n" 
+	.string "la Flauta Azur y del Floette Eterno?\p" 
+	
+	.string "Aun estoy esperando estos eventos.$"
+
+MicoloHideout_ExperimentRoom_Text_Javisoto2Defeat: 
+	.string "Y algo me dice que aun tengo que\n" 
+	.string "esperar mas.$"
+
+MicoloHideout_ExperimentRoom_Text_Javisoto2PostBattle: 
+	.string "Supongo que no puedo esperar mucho\n" 
+	.string "de aquellos que arruinaron Pokemon\l" 
+	.string "y monetizaron los shinys, y todos\l"
+	.string "sabemos que tambien arruinaran Sinnoh.$"
 
 MicoloHideout_ExperimentRoom_Text_LegendaryMachineUse:
 	.string "Hay un programa abierto en el PC.\p"

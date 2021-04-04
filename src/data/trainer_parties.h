@@ -19957,10 +19957,9 @@ static const struct TrainerMonCustomMidele sParty_CharizardFan[] = {
 };
 
 static const struct TrainerMonCustomMidele sParty_Javisito2[] = {
-	// PARA METERLE DE NPC TRAINER EN RUTAS FINALES
     {
     .iv = 31, 
-    .lvl = 71, 
+    .lvl = 94, 
     .species = SPECIES_TOGEKISS,
 	.heldItem = ITEM_CHOICE_SCARF, 
 	.nature = NATURE_TIMID, 
@@ -19970,7 +19969,7 @@ static const struct TrainerMonCustomMidele sParty_Javisito2[] = {
     },
     {
     .iv = 31,
-    .lvl = 71, 
+    .lvl = 94, 
     .species = SPECIES_ALOLAN_NINETALES,
 	.heldItem = ITEM_NEVER_MELT_ICE,
 	.nature = NATURE_MODEST, 
@@ -19980,7 +19979,7 @@ static const struct TrainerMonCustomMidele sParty_Javisito2[] = {
     },
     {
     .iv = 31,
-    .lvl = 71, 
+    .lvl = 95, 
     .species = SPECIES_GARDEVOIR,
 	.heldItem = ITEM_BRIGHT_POWDER, 
 	.nature = NATURE_TIMID,
@@ -19990,7 +19989,7 @@ static const struct TrainerMonCustomMidele sParty_Javisito2[] = {
     },
     {
     .iv = 31,
-    .lvl = 77,
+    .lvl = 95,
     .species = SPECIES_PRIMARINA,
 	.heldItem = ITEM_LEFTOVERS,
 	.nature = NATURE_MODEST,
@@ -20000,7 +19999,7 @@ static const struct TrainerMonCustomMidele sParty_Javisito2[] = {
     },
     {
     .iv = 31,  
-    .lvl = 77,
+    .lvl = 95,
     .species = SPECIES_SYLVEON,
 	.heldItem = ITEM_LEFTOVERS,
 	.nature = NATURE_MODEST,
@@ -20010,7 +20009,7 @@ static const struct TrainerMonCustomMidele sParty_Javisito2[] = {
     },
     {
     .iv = 31, 
-    .lvl = 77, 
+    .lvl = 96, 
     .species = SPECIES_FLOETTE,
 	.heldItem = ITEM_FOCUS_SASH,
 	.nature = NATURE_TIMID, 

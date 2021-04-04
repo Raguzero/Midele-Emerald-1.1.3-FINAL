@@ -368,12 +368,17 @@ Felipex88_Text_MasdeunPokemon: // BATALLA DOBLE
 	.string "mi equipo en BATALLA INDIVIDUAL.$"
 	
 Tenshinhan_AntesBatalla: 
-	.string "FRASES.$"
+	.string "Bueno, novato, veamos que puedes hacer\n" 
+	.string "contra este negro, pero te aviso que\l" 
+	.string "acabarás llorando...$"
 
 Tenshinhan_MensajeDerrota: 
-	.string "FRASES$"
+	.string "Vaya, pues sí que me has ganado, hora\n" 
+	.string "de volver a la tumba otros 5 años$"
  
 Tenshinhan_DespuesDeBatalla:
-	.string "FRASES\n"
-	.string "FRASES.$"
-
+	.string "Siempre digo que lo dejo y aquí me ves,\n" 
+	.string "hablándote a través de una hackrom\l" 
+	.string "diciéndote estás tonterías.\p"
+	
+	.string "Pero aquí sigo. Jejeje$"
