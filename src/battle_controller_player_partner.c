@@ -315,7 +315,9 @@ static void Task_GiveExpToMon(u8 taskId)
 {
     u32 monId = (u8)(gTasks[taskId].tExpTask_monId);
     u8 battlerId = gTasks[taskId].tExpTask_bank;
-    s16 gainedExp = gTasks[taskId].tExpTask_gainedExp;
+		 // EXP GEN 5 STYLE (Corregida la superacion de 65535 exp, que solo pasa con poke intercambio a bajisimo nivel + huevo suerte + blissey(o algun otro que da mucha exp) altisimo nivel) 
+        // antes s16
+	u16 gainedExp = gTasks[taskId].tExpTask_gainedExp;
 
     if (IsDoubleBattle() == TRUE || monId != gBattlerPartyIndexes[battlerId]) // give exp without the expbar
     {
@@ -385,8 +387,10 @@ static void sub_81BB4E4(u8 taskId)
     else
     {
         u8 monId = gTasks[taskId].tExpTask_monId;
-        s16 gainedExp = gTasks[taskId].tExpTask_gainedExp;
-        u8 battlerId = gTasks[taskId].tExpTask_bank;
+		 // EXP GEN 5 STYLE (Corregida la superacion de 65535 exp, que solo pasa con poke intercambio a bajisimo nivel + huevo suerte + blissey(o algun otro que da mucha exp) altisimo nivel) 
+        // antes s16
+		u16 gainedExp = gTasks[taskId].tExpTask_gainedExp;
+		u8 battlerId = gTasks[taskId].tExpTask_bank;
         s16 r4;
 
         r4 = MoveBattleBar(battlerId, gHealthboxSpriteIds[battlerId], EXP_BAR, 0);
