@@ -4936,7 +4936,7 @@ static void Task_TryLearningNextMoveAfterText(u8 taskId)
 **/
 bool8 CanUseCandyItem(u16 itemId, u16 monLevel) {
     u16 levelCap = GetLevelCap();
-    if ((itemId == ITEM_GOLDEN_CANDY || itemId == ITEM_RARE_CANDY) && monLevel != levelCap) {
+    if ((itemId == ITEM_GOLDEN_CANDY || itemId == ITEM_RARE_CANDY) && monLevel < levelCap) {
         return TRUE;
     }
     return FALSE;
