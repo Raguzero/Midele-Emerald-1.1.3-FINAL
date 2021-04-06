@@ -1797,7 +1797,7 @@ static bool8 CapturedAllLandMons(u8 headerId)
     }
     else
     {
-        return TRUE;    //technically, no mon data means you caught them all
+        return FALSE;    //technically, no mon data means you caught them all
     }
 
     return FALSE;
@@ -1829,7 +1829,7 @@ static bool8 CapturedAllWaterMons(u8 headerId)
     }
     else
     {
-        return TRUE;    //technically, no mon data means you caught them all
+        return FALSE;    //technically, no mon data means you caught them all
     }
 
     return FALSE;
@@ -1860,7 +1860,7 @@ static bool8 CapturedAllHiddenMons(u8 headerId)
     }
     else
     {
-        return TRUE;    //technically, no mon data means you caught them all
+        return FALSE;    //technically, no mon data means you caught them all
     }
 
     return FALSE;
@@ -2047,7 +2047,7 @@ static void DexNavLoadEncounterData(void)
 static void TryDrawIconInSlot(u16 species, s16 x, s16 y)
 {
 	u16 formId = species;
-    if (species == SPECIES_NONE)
+    if (species == SPECIES_NONE || species > NUM_SPECIES)
         CreateNoDataIcon(x, y);   //'X' in slot
     else if (!GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_SEEN))
         CreateMonIcon(SPECIES_NONE, SpriteCB_MonIcon, x, y, 0, 0xFFFFFFFF, formId); //question mark
@@ -2087,7 +2087,7 @@ static void DrawSpeciesIcons(void)
         y = ROW_HIDDEN_ICON_Y;
         if (FlagGet(FLAG_SYS_DETECTOR_MODE))
             TryDrawIconInSlot(species, x, y);
-       else if (species == SPECIES_NONE)
+       else if (species == SPECIES_NONE || species > NUM_SPECIES)
             CreateNoDataIcon(x, y);
         else
             CreateMonIcon(SPECIES_NONE, SpriteCB_MonIcon, x, y, 0, 0xFFFFFFFF, formId); //question mark if detector mode inactive
@@ -2119,7 +2119,7 @@ static u16 DexNavGetSpecies(void)
         return SPECIES_NONE;
     }
     
-    if (!GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_SEEN))
+    if (species > NUM_SPECIES || !GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_SEEN))
         return SPECIES_NONE;
     
     return species;
