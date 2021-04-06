@@ -628,8 +628,6 @@ const u16 gEggMoves[] = {
     egg_moves(DROWZEE,
               MOVE_BARRIER,
               MOVE_ASSIST,
-              MOVE_ROLE_PLAY,
-			  MOVE_ASSIST,
 			MOVE_FLATTER,
 			MOVE_NASTY_PLOT,
 			MOVE_ROLE_PLAY,

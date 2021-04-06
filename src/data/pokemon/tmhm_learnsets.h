@@ -5555,6 +5555,7 @@ const u32 gTMHMLearnsets[][2] =
 
     [SPECIES_REMORAID]    = TMHM_LEARNSET(TMHM(TM03_WATER_PULSE)
                                         | TMHM(TM06_TOXIC)
+										| TMHM(TM09_BULLET_SEED)
                                         | TMHM(TM10_HIDDEN_POWER)
                                         | TMHM(TM11_SUNNY_DAY)
                                         | TMHM(TM13_ICE_BEAM)

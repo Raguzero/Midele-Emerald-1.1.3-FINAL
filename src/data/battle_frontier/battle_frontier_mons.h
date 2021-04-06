@@ -11313,7 +11313,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     [FRONTIER_MON_REGIDRAGO_2] = {
         .species = SPECIES_REGIDRAGO,
         .moves = {MOVE_DRAGON_ENERGY, MOVE_DRAGON_CLAW, MOVE_EXPLOSION, MOVE_CRUNCH},
-        .itemTableId = BATTLE_FRONTIER_ITEM_CHOICE_SPECS,
+        .itemTableId = BATTLE_FRONTIER_ITEM_CHOICE_SCARF,
         .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
         .nature = NATURE_HASTY
     },
@@ -11665,7 +11665,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     [FRONTIER_MON_MEGA_ABOMASNOW_1] = {
         .species = SPECIES_MEGA_ABOMASNOW,
         .moves = {MOVE_BLIZZARD, MOVE_ENERGY_BALL, MOVE_WATER_PULSE, MOVE_ICICLE_SPEAR},
-        .itemTableId = BATTLE_FRONTIER_ITEM_CHOICE_SCARF,
+        .itemTableId = BATTLE_FRONTIER_ITEM_CHOICE_SPECS,
         .evSpread = F_EV_SPREAD_HP | F_EV_SPREAD_SP_ATTACK,
         .nature = NATURE_MODEST
     },
