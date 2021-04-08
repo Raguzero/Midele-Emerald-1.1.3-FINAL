@@ -1,5 +1,15 @@
 SlateportCity_OceanicMuseum_1F_MapScripts:: @ 820AD95
+	map_script MAP_SCRIPT_ON_TRANSITION, SlateportCity_OceanicMuseum_1F_OnTransition
 	.byte 0
+
+SlateportCity_OceanicMuseum_1F_OnTransition::
+	compare VAR_PACOCHEF_STATE, 1
+	call_if_eq SlateportCity_OceanicMuseum_1F_ActivatePacochefEvent
+	end
+
+SlateportCity_OceanicMuseum_1F_ActivatePacochefEvent::
+	setvar VAR_TEMP_0, 1
+	return
 
 SlateportCity_OceanicMuseum_1F_EventScript_EntranceAttendant:: @ 820AD96
 	msgbox SlateportCity_OceanicMuseum_1F_Text_PleaseEnjoyYourself, MSGBOX_NPC
@@ -194,6 +204,36 @@ SlateportCity_OceanicMuseum_1F_EventScript_FamiliarGruntExited:: @ 820AFAA
 	release
 	end
 
+SlateportCity_OceanicMuseum_1F_EventScript_PacochefWest::
+	lock
+	playse SE_KAIDAN
+	addobject 15
+	applymovement 15, SlateportCity_OceanicMuseum_1F_Movement_PacochefWest
+	waitmovement 0
+	call SlateportCity_OceanicMuseum_1F_EventScript_Pacochef
+	release
+	end
+
+SlateportCity_OceanicMuseum_1F_EventScript_PacochefEast::
+	lock
+	playse SE_KAIDAN
+	addobject 15
+	applymovement 15, SlateportCity_OceanicMuseum_1F_Movement_PacochefEast
+	waitmovement 0
+	call SlateportCity_OceanicMuseum_1F_EventScript_Pacochef
+	release
+	end
+
+SlateportCity_OceanicMuseum_1F_EventScript_Pacochef::
+	msgbox SlateportCity_OceanicMuseum_1F_Text_Pacochef, MSGBOX_NPC
+	applymovement 15, SlateportCity_OceanicMuseum_1F_Movement_PacochefLeave
+	waitmovement 0
+	playse SE_KAIDAN
+	removeobject 15
+	setvar VAR_PACOCHEF_STATE, 2
+	setvar VAR_TEMP_0, 0
+	return
+
 SlateportCity_OceanicMuseum_1F_EventScript_NoRoomForThief:: @ 820AFB5
 	msgbox SlateportCity_OceanicMuseum_1F_Text_YouHaveToTakeThis, MSGBOX_DEFAULT
 	release
@@ -227,6 +267,22 @@ SlateportCity_OceanicMuseum_1F_Movement_FamiliarGruntExitNorth: @ 820AFCE
 	walk_fast_down
 	walk_fast_down
 	delay_8
+	step_end
+
+SlateportCity_OceanicMuseum_1F_Movement_PacochefWest:
+	walk_fast_up
+	delay_4
+	step_end
+
+SlateportCity_OceanicMuseum_1F_Movement_PacochefEast:
+	walk_fast_up
+	walk_right
+	face_up
+	delay_4
+	step_end
+
+SlateportCity_OceanicMuseum_1F_Movement_PacochefLeave:
+	walk_fast_down
 	step_end
 
 SlateportCity_OceanicMuseum_1F_Text_WouldYouLikeToEnter: @ 820AFD5
@@ -383,3 +439,23 @@ SlateportCity_OceanicMuseum_1F_Text_DepthMeasuringMachine: @ 820BA9C
 	.string "Maybe it's for measuring the depth\n"
 	.string "of something…$"
 
+SlateportCity_OceanicMuseum_1F_Text_Pacochef:
+	.string "???: Hey, hey, hey, ¿nos conocemos...?\p"
+	.string "Umm, diría que no. Aunque tu mirada me\n"
+	.string "es familiar. Eso o estoy más drogado\l"
+	.string "de lo que debería.\p"
+	.string "Eh, bueno, eso no importa.\n"
+	.string "Veo que... tienes dos medallas de\l"
+	.string "gimnasio.\p"
+	.string "Estás haciendo tus pinitos como\n"
+	.string "entrenador. Por el momento solo\l"
+	.string "eres un noobaso, pero quién sabe.\p"
+	.string "Una cosa, ¿has oído hablar de\n"
+	.string "MICOLO o la MAFIA?\p"
+	.string "Claro que no, son leyendas del pasado\n"
+	.string "ajajajaja... o no. Quién sabe.\p"
+	.string "Sí que me ha jodido esta hierba lol\p"
+	.string "En fin, ten cuidado, tal vez te topes\n"
+	.string "con monstruos que quieran arrancarte\l"
+	.string "las pelotas. U ovarios, no juzgo.\p"
+	.string "Chau.$"
