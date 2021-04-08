@@ -1,6 +1,6 @@
 EverGrandeCity_PokemonCenter_1F_MapScripts:: @ 8229A34
 	map_script MAP_SCRIPT_ON_TRANSITION, EverGrandeCity_PokemonCenter_1F_OnTransition
-	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
+
 	.byte 0
 
 EverGrandeCity_PokemonCenter_1F_OnTransition: @ 8229A3F
@@ -127,4 +127,3 @@ EverGrandeCity_PokemonCenter_1F_Text_ScottHappyForYou: @ 8229BF1
 	.string "I'll get in touch with you then.\p"
 	.string "Okay, {PLAYER}{KUN}.\n"
 	.string "Go for greatness!$"
-

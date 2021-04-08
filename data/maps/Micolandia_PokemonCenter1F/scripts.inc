@@ -1,6 +1,6 @@
 Micolandia_PokemonCenter1F_MapScripts:: @ 820DABF
 	map_script MAP_SCRIPT_ON_TRANSITION, Micolandia_PokemonCenter1F_OnTransition
-	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
+
 	.byte 0
 
 Micolandia_PokemonCenter1F_OnTransition: @ 820DACA

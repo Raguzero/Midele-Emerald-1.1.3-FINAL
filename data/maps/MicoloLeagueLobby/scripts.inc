@@ -1,6 +1,6 @@
 MicoloLeagueLobby_MapScripts:: @ 82295D2
 	map_script MAP_SCRIPT_ON_TRANSITION, MicoloLeagueLobby_PokemonCenter_OnTransition
-	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
+
 	.byte 0
 	
 MicoloLeagueLobby_PokemonCenter_OnTransition:
