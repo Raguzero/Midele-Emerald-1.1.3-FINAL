@@ -1798,6 +1798,8 @@ void sub_80BBD1C(u8 taskId)
     if (!gTasks[gTasks[taskId].data[0]].isActive)
     {
         ClearMonSprites();
+        TryDestroyStatBars(); //HGSS_Ui
+        TryDestroyStatBarsBg(); //HGSS_Ui
         if (sPokedexView->unk64E != 0)
         {
             sPokedexView->selectedPokemon = 0;
@@ -1848,13 +1850,18 @@ void sub_80BBEB8(u8 taskId)
     if (sPokedexView->menuY)
     {
         sPokedexView->menuY -= 8;
+	   if (sPokedexView->menuIsOpen == FALSE && sPokedexView->menuY == 8) //HGSS_Ui
+        {
+            CreateStatBars(&sPokedexView->pokedexList[sPokedexView->selectedPokemon]);
+            CreateStatBarsBg();
+        }
     }
     else
     {
         if ((gMain.newKeys & A_BUTTON) && sPokedexView->pokedexList[sPokedexView->selectedPokemon].seen)
         {
             u32 a;
-
+            TryDestroyStatBars(); //HGSS_Ui
             UpdateSelectedMonSpriteId();
             a = (1 << (gSprites[sPokedexView->selectedMonSpriteId].oam.paletteNum + 16));
             gSprites[sPokedexView->selectedMonSpriteId].callback = MoveMonIntoPosition;
@@ -1865,6 +1872,8 @@ void sub_80BBEB8(u8 taskId)
         }
         else if (gMain.newKeys & START_BUTTON)
         {
+			TryDestroyStatBars(); //HGSS_Ui
+            TryDestroyStatBarsBg(); //HGSS_Ui
             sPokedexView->menuY = 0;
             sPokedexView->menuIsOpen = 1;
             sPokedexView->menuCursorPos = 0;
@@ -1882,6 +1891,7 @@ void sub_80BBEB8(u8 taskId)
         }
         else if (gMain.newKeys & B_BUTTON)
         {
+			TryDestroyStatBars(); //HGSS_Ui
             BeginNormalPaletteFade(0xFFFFFFFF, 0, 0, 0x10, RGB_BLACK);
             gTasks[taskId].func = sub_80BC3DC;
             PlaySE(SE_PC_OFF);
@@ -1892,12 +1902,15 @@ void sub_80BBEB8(u8 taskId)
             sPokedexView->selectedPokemon = sub_80BD69C(sPokedexView->selectedPokemon, 0xE);
             if (sPokedexView->unk62E)
                 gTasks[taskId].func = sub_80BC0A8;
+            else if (!sPokedexView->unk62E && !sPokedexView->unk638 && sPokedexView->justScrolled) //HGSS_Ui
+                CreateStatBars(&sPokedexView->pokedexList[sPokedexView->selectedPokemon]); //HGSS_Ui
         }
     }
 }
 
 void sub_80BC0A8(u8 taskId)
 {
+	TryDestroyStatBars(); //HGSS_Ui
     if (sub_80BD404(sPokedexView->unk62F, sPokedexView->unk634, sPokedexView->unk636))
         gTasks[taskId].func = sub_80BBEB8;
 }
@@ -5236,8 +5249,10 @@ u32 sub_80C0E68(u16 a)
     }
     else
     {
-        return 0;
-    }
+	// PARTE DEL SCRIPT Support for Gender Differences
+         return 0xFF; //Changed from 0 to make it so the Pokédex shows the default mon pics instead of the female versions.
+	// PARTE DEL SCRIPT Support for Gender Differences
+	}
 }
 
 u16 CreateMonSpriteFromNationalDexNumber(u16 nationalNum, s16 x, s16 y, u16 paletteSlot)
@@ -5496,6 +5511,8 @@ void Task_LoadSearchMenu(u8 taskId)
         case 1:
             LoadCompressedSpriteSheet(sInterfaceSpriteSheet);
             LoadSpritePalettes(sInterfaceSpritePalette);
+			// Por algun razón, si se descomenta esto, se muestra la barra en el menu de busquedas
+			//LoadSpritePalettes(sStatBarSpritePal); //HGSS_Ui
             sub_80C2594(taskId);
             for (i = 0; i < 16; i++)
                 gTasks[taskId].data[i] = 0;
@@ -5510,6 +5527,9 @@ void Task_LoadSearchMenu(u8 taskId)
             break;
         case 2:
             BeginNormalPaletteFade(0xFFFFFFFF, 0, 16, 0, RGB_BLACK);
+			// Por algun razón, si se descomenta esto, se muestra la barra en el menu de busquedas
+			//sPokedexView->statBarsSpriteId = 0xFF;  //HGSS_Ui
+			//CreateStatBars(&sPokedexView->pokedexList[sPokedexView->selectedPokemon]); //HGSS_Ui
             gMain.state++;
             break;
         case 3:
