@@ -302,6 +302,12 @@ const union AnimCmd *const gUnknown_082FF70C[] =
 
 #define TRAINER_BACK_PAL(trainerPic, pal) [TRAINER_BACK_PIC_##trainerPic] = {pal, TRAINER_BACK_PIC_##trainerPic}
 
+const bool8 SpeciesHasGenderDifference[NUM_SPECIES] =
+{
+    [SPECIES_JELLICENT] = TRUE,
+    [SPECIES_FRILLISH] = TRUE,
+};
+
 #include "data/pokemon_graphics/unknown_anims.h"
 #include "data/pokemon_graphics/front_pic_coordinates.h"
 #include "data/pokemon_graphics/still_front_pic_table.h"
