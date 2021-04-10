@@ -1531,6 +1531,10 @@ static const u8 sDARKTHUNDERDescription[] = _(
 static const u8 sDRILL_RUNDescription[] = _(
 	"Spins its body like a drill.\n"
 	"High critical-hit ratio.");
+	
+static const u8 sLEAF_STORMDescription[] = _(
+    "Allows a full-power attack,\n"
+    "but sharply lowers SP. ATK.");
 
 // MOVE_NONE is ignored in this table. Make sure to always subtract 1 before getting the right pointer.
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
@@ -1919,5 +1923,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_ACCELEROCK - 1] = sACCELEROCKDescription,
     [MOVE_DARK_THUNDER - 1] = sDARKTHUNDERDescription,
     [MOVE_DRILL_RUN - 1] = sDRILL_RUNDescription,
+    [MOVE_LEAF_STORM - 1] = sLEAF_STORMDescription,
 	// NUEVO MOVE TIPO HADA
 };

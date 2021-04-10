@@ -223,12 +223,19 @@ void sub_8117854(u8 taskId, int unused, u16 arg2, u8 battler1, u8 arg4, u8 arg5,
 // battle_anim_effects_1.c
 void SetSpriteNextToMonHead(u8 battler, struct Sprite* sprite);
 void AnimMoveTwisterParticle(struct Sprite* sprite);
+extern const union AnimCmd *const gRazorLeafParticleAnimTable[];
+void AnimNeedleArmSpike(struct Sprite *);
 
 // water.c
 void AnimWaterPulseRing(struct Sprite *sprite);
 
 // flying.c
 void sub_810E2C8(struct Sprite *sprite);
+extern const union AnimCmd *const gUnknown_085962D0[];
+void sub_810E044(struct Sprite *sprite);
+
+//poison.c
+extern const union AffineAnimCmd *const gUnknown_085961A0[];
 
 // smokescreen.c
 u8 SmokescreenImpact(s16 x, s16 y, u8 a3);

@@ -653,6 +653,7 @@ const u16 gEggMoves[] = {
               MOVE_INGRAIN,
               MOVE_CURSE,
 			MOVE_BLOCK,
+			MOVE_LEAF_STORM,
 			MOVE_NATURE_POWER,
 			MOVE_SKILL_SWAP),
 
@@ -721,6 +722,7 @@ const u16 gEggMoves[] = {
               MOVE_AMNESIA,
               MOVE_LEECH_SEED,
               MOVE_NATURE_POWER,
+              MOVE_LEAF_STORM,
 			MOVE_ENDEAVOR),
 
     egg_moves(KANGASKHAN,
@@ -1796,6 +1798,7 @@ const u16 gEggMoves[] = {
 			  MOVE_RAZOR_LEAF,
 			  MOVE_MIND_READER,
 			  MOVE_EXTRASENSORY,
+			  MOVE_LEAF_STORM,
 			  MOVE_GRASS_WHISTLE),
 
     egg_moves(SLAKOTH,
@@ -1828,6 +1831,7 @@ const u16 gEggMoves[] = {
 			MOVE_CURSE,
 			MOVE_DRAGON_DANCE,
 			MOVE_LEAF_BLADE,
+			MOVE_LEAF_STORM,
 			MOVE_SYNTHESIS),
 
     egg_moves(WHISMUR,
@@ -2424,6 +2428,7 @@ const u16 gEggMoves[] = {
 		MOVE_RAZOR_LEAF,
 		MOVE_MIND_READER,
 		MOVE_EXTRASENSORY,
+		MOVE_LEAF_STORM,
 		MOVE_GRASS_WHISTLE),
 
 	egg_moves(CHINGLING,
