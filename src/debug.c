@@ -29,7 +29,8 @@
 #include "random.h"
 #include "region_map.h"
 #include "script.h"
-#include "script_pokemon_util.h"
+#include "script_pokemon_80F8.h"
+#include "script_pokemon_util_80F87D8.h"
 #include "sound.h"
 #include "strings.h"
 #include "string_util.h"
@@ -438,7 +439,7 @@ static void Debug_ShowMenu(void (*HandleInput)(u8), struct ListMenuTemplate LMte
 
     // create window
     HideMapNamePopUpWindow();
-    LoadMessageBoxAndBorderGfx();
+    sub_81973A4();
     windowId = AddWindow(&sDebugMenuWindowTemplate);
     DrawStdWindowFrame(windowId, FALSE);
 
@@ -614,7 +615,7 @@ static void DebugAction_OpenGiveMenu(u8 taskId)
 // Actions Utilities
 static void DebugAction_Util_HealParty(u8 taskId)
 {
-    PlaySE(SE_USE_ITEM);
+    PlaySE(SE_KAIFUKU);
     HealPlayerParty();
     Debug_DestroyMenu(taskId);
 }
@@ -639,7 +640,7 @@ static void DebugAction_Util_Fly(u8 taskId)
     FlagSet(FLAG_LANDMARK_POKEMON_LEAGUE);
     FlagSet(FLAG_LANDMARK_BATTLE_FRONTIER);
     Debug_DestroyMenu(taskId);
-    SetMainCallback2(CB2_OpenFlyMap);
+    SetMainCallback2(MCB2_FlyMap);
 }
 
 static void DebugAction_Util_Warp_Warp(u8 taskId)
@@ -650,7 +651,7 @@ static void DebugAction_Util_Warp_Warp(u8 taskId)
     RemoveWindow(gTasks[taskId].data[1]);
 
     HideMapNamePopUpWindow();
-    LoadMessageBoxAndBorderGfx();
+    sub_81973A4();
     windowId = AddWindow(&sDebugNumberDisplayWindowTemplate);
     DrawStdWindowFrame(windowId, FALSE);
 
@@ -872,7 +873,7 @@ static void DebugAction_Flags_Flags(u8 taskId)
     RemoveWindow(gTasks[taskId].data[1]);
 
     HideMapNamePopUpWindow();
-    LoadMessageBoxAndBorderGfx();
+    sub_81973A4();
     windowId = AddWindow(&sDebugNumberDisplayWindowTemplate);
     DrawStdWindowFrame(windowId, FALSE);
 
@@ -1108,7 +1109,7 @@ static void DebugAction_Vars_Vars(u8 taskId)
     RemoveWindow(gTasks[taskId].data[1]);
 
     HideMapNamePopUpWindow();
-    LoadMessageBoxAndBorderGfx();
+    sub_81973A4();
     windowId = AddWindow(&sDebugNumberDisplayWindowTemplate);
     DrawStdWindowFrame(windowId, FALSE);
 
@@ -1285,7 +1286,7 @@ static void DebugAction_Give_Item(u8 taskId)
     RemoveWindow(gTasks[taskId].data[1]);
 
     HideMapNamePopUpWindow();
-    LoadMessageBoxAndBorderGfx();
+    sub_81973A4();
     windowId = AddWindow(&sDebugNumberDisplayWindowTemplate);
     DrawStdWindowFrame(windowId, FALSE);
 
@@ -1422,7 +1423,7 @@ static void DebugAction_Give_Item_SelectQuantity(u8 taskId)
         FreeSpriteOamMatrix(&gSprites[gTasks[taskId].data[6]]); //Destroy item icon
         DestroySprite(&gSprites[gTasks[taskId].data[6]]);       //Destroy item icon
 
-        PlaySE(MUS_OBTAIN_ITEM);
+        PlaySE(MUS_FANFA4);
         AddBagItem(gTasks[taskId].data[5], gTasks[taskId].data[3]);
         DebugAction_DestroyExtraWindow(taskId);
     }
@@ -1447,7 +1448,7 @@ static void DebugAction_Give_PokemonSimple(u8 taskId)
     RemoveWindow(gTasks[taskId].data[1]);
 
     HideMapNamePopUpWindow();
-    LoadMessageBoxAndBorderGfx();
+    sub_81973A4();
     windowId = AddWindow(&sDebugNumberDisplayWindowTemplate);
     DrawStdWindowFrame(windowId, FALSE);
 
@@ -1485,7 +1486,7 @@ static void DebugAction_Give_PokemonComplex(u8 taskId)
     RemoveWindow(gTasks[taskId].data[1]);
 
     HideMapNamePopUpWindow();
-    LoadMessageBoxAndBorderGfx();
+    sub_81973A4();
     windowId = AddWindow(&sDebugNumberDisplayWindowTemplate);
     DrawStdWindowFrame(windowId, FALSE);
 
@@ -1624,7 +1625,7 @@ static void DebugAction_Give_Pokemon_SelectLevel(u8 taskId)
         FreeAndDestroyMonIconSprite(&gSprites[gTasks[taskId].data[6]]); //Destroy pokemon sprite
         if (gTasks[taskId].data[7] == 0)
         {
-            PlaySE(MUS_LEVEL_UP);
+            PlaySE(MUS_FANFA1);
             ScriptGiveMon(gTasks[taskId].data[5], gTasks[taskId].data[3], ITEM_NONE, 0,0,0);
             DebugAction_DestroyExtraWindow(taskId);
         }else{
@@ -1709,8 +1710,8 @@ static void DebugAction_Give_Pokemon_SelectNature(u8 taskId)
         if(gMain.newKeys & DPAD_UP)
         {
             gTasks[taskId].data[3] += sPowersOfTen[gTasks[taskId].data[4]];
-            if(gTasks[taskId].data[3] > NUM_NATURES-1)
-                gTasks[taskId].data[3] = NUM_NATURES-1;
+            if(gTasks[taskId].data[3] > 25-1)
+                gTasks[taskId].data[3] = 25-1;
         }
         if(gMain.newKeys & DPAD_DOWN)
         {
@@ -1835,7 +1836,7 @@ static void DebugAction_Give_Pokemon_SelectIVs(u8 taskId)
     {
         gTasks[taskId].data[12] = gTasks[taskId].data[3]; //IVs
 
-        PlaySE(MUS_LEVEL_UP);
+        PlaySE(MUS_FANFA1);
         gTasks[taskId].func = DebugAction_Give_Pokemon_ComplexCreateMon;
     }
     else if (gMain.newKeys & B_BUTTON)
@@ -1857,8 +1858,8 @@ static void DebugAction_Give_Pokemon_ComplexCreateMon(u8 taskId) //https://githu
     u8 abilityNum   = gTasks[taskId].data[11]; //Ability ID
     u8 iv_val       = gTasks[taskId].data[12]; //IVs
 
-    if (nature == NUM_NATURES || nature == 0xFF)
-        nature = Random() % NUM_NATURES;
+    if (nature == 25 || nature == 0xFF)
+        nature = Random() % 25;
 
     if (isShiny == 1)
         {
