@@ -9415,8 +9415,8 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_SMEARGLE_11] = {
         .species = SPECIES_SMEARGLE,
-        .moves = {MOVE_SPORE, MOVE_TRANSFORM, MOVE_IMPRISON, MOVE_BLOCK},
-        .itemTableId = BATTLE_FRONTIER_ITEM_FOCUS_SASH,
+        .moves = {MOVE_SPORE, MOVE_TRANSFORM, MOVE_TRICK, MOVE_REFLECT},
+        .itemTableId = BATTLE_FRONTIER_ITEM_MACHO_BRACE,
         .evSpread = F_EV_SPREAD_SPEED | F_EV_SPREAD_HP,
         .nature = NATURE_JOLLY
     },

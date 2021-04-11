@@ -1273,8 +1273,8 @@ SlateportCity_Text_HarborSign: @ 81DEB5A
 	.string "the ferry S.S. TIDAL.”$"
 
 SlateportCity_Text_NameRatersHouseSign: @ 81DEBA0
-	.string "NAME RATER'S HOUSE\n"
-	.string "“POKéMON nicknames rated.”$"
+	.string "HOUSE OF PROF. BIRCH's ASSISTANT.\p"
+	.string "Rewards for evaluating the POKéDEX.$"
 
 SlateportCity_Text_ExplainBerries: @ 81DEBCE
 	.string "If a wild POKéMON gets hurt, it heals\n"

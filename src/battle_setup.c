@@ -1747,6 +1747,10 @@ static u16 GetRematchTrainerIdFromTable(const struct RematchTrainer *table, u16 
     {
         if (trainerEntry->trainerIds[i] == 0) // previous entry was this trainer's last one
             return trainerEntry->trainerIds[i - 1];
+	// si este es el último equipo del entrenador y el jugador no se pasó la liga, devolver el equipo anterior
+		if ((i == REMATCHES_COUNT - 1 || trainerEntry->trainerIds[i+1] == 0)
+      && FlagGet(FLAG_SYS_GAME_CLEAR) == FALSE)
+			return trainerEntry->trainerIds[i - 1];
         if (!HasTrainerBeenFought(trainerEntry->trainerIds[i]))
             return trainerEntry->trainerIds[i];
     }
