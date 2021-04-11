@@ -2405,6 +2405,10 @@ AI_CV_MirrorCoat_SpecialTypeList:
     .byte -1
 
 AI_CV_ChargeUpMove:
+if_not_effect EFFECT_SOLARBEAM, AI_CV_ChargeUpMove_NotSolarBeamOnSun
+    get_weather
+    if_equal AI_WEATHER_SUN, AI_CV_ChargeUpMove_End
+AI_CV_ChargeUpMove_NotSolarBeamOnSun:
 	get_hold_effect AI_USER
 	if_equal HOLD_EFFECT_POWER_HERB, AI_CV_ChargeUpMove_ScoreUp2
 	if_type_effectiveness AI_EFFECTIVENESS_x0_25, AI_CV_ChargeUpMove_ScoreDown2
