@@ -63,11 +63,11 @@
 #define FLAG_DEFEATED_DARKI_GYM    0x33 // Previously unused Flag
 #define FLAG_DEFEATED_SAPPH_GYM    0x34 // Previously unused Flag
 #define FLAG_DEFEATED_GOOSES_GYM    0x35 // Previously unused Flag
-#define FLAG_UNUSED_0x036    0x36 // Unused Flag
-#define FLAG_UNUSED_0x037    0x37 // Unused Flag
-#define FLAG_UNUSED_0x038    0x38 // Unused Flag
-#define FLAG_UNUSED_0x039    0x39 // Unused Flag
-#define FLAG_UNUSED_0x03A    0x3A // Unused Flag
+#define FLAG_SYS_NO_COLLISION    0x36 // Unused Flag
+#define FLAG_SYS_NO_ENCOUNTER    0x37 // Unused Flag
+#define FLAG_SYS_NO_TRAINER_SEE    0x38 // Unused Flag
+#define FLAG_SYS_NO_BAG_USE    0x39 // Unused Flag
+#define FLAG_SYS_NO_CATCHING    0x3A // Unused Flag
 #define FLAG_UNUSED_0x03B    0x3B // Unused Flag
 #define FLAG_UNUSED_0x03C    0x3C // Unused Flag
 #define FLAG_UNUSED_0x03D    0x3D // Unused Flag
