@@ -340,48 +340,50 @@ MeteorFalls_1F_1R_Text_WhatsTeamMagmaDoingAtMtChimney: @ 822C47D
 	.string "METEORITE at MT. CHIMNEY?$"
 	
 MeteorFalls_1F_1R_Text_Micolo: 
-	.string "???: MICOLOOOOOOL\p"
+	.string "MICOLO: MICOLOOOOOOL\p"
 
-	.string "???: ¡Esos del TEAM MAGMA y\n"
+	.string "¡Esos del TEAM MAGMA y\n"
 	.string "y TEAM AGUA son unos pringaos\l"
 	.string "de categoría!\p"
 
-	.string "???: El TEAM MAGMA quiere invocar\n"
+	.string "El TEAM MAGMA quiere invocar\n"
 	.string "al Pokémon legendario GROUDON\l"
 	.string "para secar los mares y hacer\l"
 	.string "que la humanidad tenga\l"
 	.string "mayor tierra donde vivir.\p"
 	
-	.string "???: Mientras que el TEAM AQUA quiere\n"
+	.string "Mientras que el TEAM AQUA quiere\n"
 	.string "invocar al Pokémon legendario KYOGRE\l"
 	.string "para que haya mas cantidad de mar\l"
 	.string "donde puedan vivir los Pokémon.\p"
 
-	.string "???: Sus planes no tienen ninguna\n"
+	.string "Sus planes no tienen ninguna\n"
 	.string "lógica. ¡Piensalo!\p"	
 
-	.string "???: Si secan los mares, los\n"
+	.string "Si secan los mares, los\n"
 	.string "humanos nos quedamos sin agua\l"
 	.string "para poder sobrevivir.\p"
 	
-	.string "???: Mientras que si aumentan el\n"
+	.string "Mientras que si aumentan el\n"
 	.string "nivel de mar...\p"
 	
-	.string "???: ¡NOS AHOGAMOS TODOS!\p"
+	.string "¡NOS AHOGAMOS TODOS!\p"
 	
-	.string "???: ¡Que tontos del culo!\n"
+	.string "¡Que tontos del culo!\n"
 	.string "LOOOOOOOOOOOOOOOOOOL\p"
 	
-	.string "???: Pero no te preocupes,\n"
+	.string "Pero no te preocupes,\n"
 	.string "todos sus planes saldrán mal\l"
-	.string "porque tu les pararás los pies.\p"
+	.string "porque tu les pararás los pies...\p"
 	
 	.string "...\p"
 	
-	.string "???: ¿Qué cómo lo sé?\n"
-	.string "Pues porque yo soy el gran MICOLO.\p"
+	.string "¿Qué cómo lo sé?\n"
+	.string "Todo mico tiene sus secretos...\p"
 
-	.string "MICOLO: LOOOOOOOOOOOOOOOOOOOOL\p"
+	.string "xDDDDDDDDDDDDDDDDDD\p"
 	
-	.string "MICOLO: Estoy seguro de que nos\n"
-	.string "volveremos a ver. ¡Adios!$"
+	.string "Estoy seguro de que nos\n"
+	.string "volveremos a ver...\p"
+	.string "Recuerda, monociclo porque mono es uno\n"
+	.string "y la vida es un ciclo.$"
