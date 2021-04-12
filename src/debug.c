@@ -1537,7 +1537,7 @@ static void DebugAction_Give_Item_SelectQuantity(u8 taskId)
 static void DebugAction_Give_AllTMs(u8 taskId)
 {
     u16 i;
-    PlayFanfare(MUS_OBTAIN_TMHM);
+    PlayFanfare(MUS_ME_WAZA);
     for (i = ITEM_TM01; i <= ITEM_TM50; i++)
         if(!CheckBagHasItem(i, 1))
             AddBagItem(i, 1);
