@@ -1584,14 +1584,51 @@ static void Cmd_damagecalc(void)
     gBattlescriptCurrInstr++;
 }
 
+// Ajusta el tipo y la potencia del movimiento para que AI_CalcDmg estime correctamente el daño
+// (el tipo lo reconoce bien sin esto, pero no la categoría del movimiento, e.g. sin esto Hidden Power siempre lo lee físico)
+void PrepareDynamicMoveTypeAndDamageForAI_CalcDmg(u8 attacker)
+{
+    u8 *dynamicMoveType = &gBattleStruct->dynamicMoveType;
+    if (gCurrentMove == MOVE_HIDDEN_POWER) {
+        struct Pokemon *monAttacker;
+        if (GetBattlerSide(attacker) == B_SIDE_PLAYER)
+            monAttacker = &gPlayerParty[gBattlerPartyIndexes[attacker]];
+        else
+            monAttacker = &gEnemyParty[gBattlerPartyIndexes[attacker]];
+
+        *dynamicMoveType = monAttacker->box.hpType;
+    }
+    else if (gCurrentMove == MOVE_WEATHER_BALL)
+    {
+        if (WEATHER_HAS_EFFECT)
+        {
+            if (gBattleWeather & WEATHER_ANY)
+                gBattleScripting.dmgMultiplier = 2;
+
+            if (gBattleWeather & WEATHER_RAIN_ANY)
+                *dynamicMoveType = TYPE_WATER | 0x80;
+            else if (gBattleWeather & WEATHER_SANDSTORM_ANY)
+                *dynamicMoveType = TYPE_ROCK | 0x80;
+            else if (gBattleWeather & WEATHER_SUN_ANY)
+                *dynamicMoveType = TYPE_FIRE | 0x80;
+            else if (gBattleWeather & WEATHER_HAIL_ANY)
+                *dynamicMoveType = TYPE_ICE | 0x80;
+            // cuando es normal no hace falta tocar nada
+        }
+    }
+}
+
 void AI_CalcDmg(u8 attacker, u8 defender)
 {
     u16 sideStatus = gSideStatuses[GET_BATTLER_SIDE(defender)];
+	PrepareDynamicMoveTypeAndDamageForAI_CalcDmg(attacker);
     gBattleMoveDamage = CalculateBaseDamage(&gBattleMons[attacker], &gBattleMons[defender], gCurrentMove,
                                             sideStatus, gDynamicBasePower,
                                             gBattleStruct->dynamicMoveType, attacker, defender);
-    gDynamicBasePower = 0;
+	gDynamicBasePower = 0;
     gBattleMoveDamage = gBattleMoveDamage * gCritMultiplier * gBattleScripting.dmgMultiplier;
+    gBattleStruct->dynamicMoveType = 0;
+	gBattleScripting.dmgMultiplier = 1;
 
     if (gStatuses3[attacker] & STATUS3_CHARGED_UP && gBattleMoves[gCurrentMove].type == TYPE_ELECTRIC)
         gBattleMoveDamage *= 2;
@@ -1846,11 +1883,27 @@ u8 TypeCalc(u16 move, u8 attacker, u8 defender)
     {
         moveType = monAttacker->box.hpType;;
     }
+	else if (move == MOVE_WEATHER_BALL) 
+	{
+		if (WEATHER_HAS_EFFECT)
+        {
+            if (gBattleWeather & WEATHER_RAIN_ANY)
+                moveType = TYPE_WATER;
+            else if (gBattleWeather & WEATHER_SANDSTORM_ANY)
+                moveType = TYPE_ROCK;
+            else if (gBattleWeather & WEATHER_SUN_ANY)
+                moveType = TYPE_FIRE;
+            else if (gBattleWeather & WEATHER_HAIL_ANY)
+                moveType = TYPE_ICE;
+            else
+                moveType = TYPE_NORMAL;
+        }
+	}
     else
     {
         moveType = gBattleMoves[move].type;
     }
-
+	
     // check stab
     if (IS_BATTLER_OF_TYPE(attacker, moveType))
     {
