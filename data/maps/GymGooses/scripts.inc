@@ -1,5 +1,58 @@
 GymGooses_MapScripts::
 	.byte 0
+	
+GymGooses_EventScript_GymGuide::
+	lock
+	faceplayer
+	goto_if_set FLAG_DEFEATED_GOOSES_GYM, GymGooses_EventScript_GymGuidePostVictory
+	msgbox GymGooses_Text_GymGuideAdvice, MSGBOX_DEFAULT
+	release
+	end
+
+GymGooses_EventScript_GymGuidePostVictory::
+	msgbox GymGooses_Text_GymGuidePostVictory, MSGBOX_DEFAULT
+	release
+	end
+
+GymGooses_EventScript_LeftGymStatue::
+	lockall
+	goto_if_set FLAG_DEFEATED_GOOSES_GYM, GymGooses_EventScript_GymStatueCertified
+	goto GymGooses_EventScript_GymStatue
+	end
+
+GymGooses_EventScript_RightGymStatue::
+	lockall
+	goto_if_set FLAG_DEFEATED_GOOSES_GYM, GymGooses_EventScript_GymStatueCertified
+	goto GymGooses_EventScript_GymStatue
+	end
+
+GymGooses_EventScript_GymStatueCertified::
+	msgbox GymGooses_Text_GymStatueCertified, MSGBOX_DEFAULT
+	releaseall
+	end
+
+GymGooses_EventScript_GymStatue::
+	msgbox GymGooses_Text_GymStatue, MSGBOX_DEFAULT
+	releaseall
+	end
+	
+GymGooses_EventScript_TeleportGirl::
+	lock
+	faceplayer
+	msgbox GymGooses_TeleportGirl_Text, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq GymGooses_EventScript_TeleportGirl_Si
+	release
+	end
+GymGooses_EventScript_TeleportGirl_Si::
+	call_if_eq GymGooses_EventScript_Entrada
+	release
+	end
+
+GymGooses_EventScript_Entrada::
+	warp MAP_GYM_GOOSES, 0, 0, 0
+	waitstate
+	end
 
 // Primera Sala	
 GymGooses_CasillaTableroDado::
@@ -309,6 +362,48 @@ GymGoosesStatus_Freeze_Script::
 	
 // Segunda Sala
 
+
+// Tercera Sala
+
+
+// Cuarta Sala
+    @ Combate contra totem.
+GymGooses_EventScript_Totem:: @ 8237725
+	lockall
+	playmoncry SPECIES_DELIBIRD, 2
+	delay 40
+	waitmoncry
+	msgbox Fiery_Path_Text_Totemaparece, MSGBOX_DEFAULT
+    setvar VAR_0x8004, BOSS_BATTLE_TOTEM_CENTISKORCH
+    special CreateBossBattleMon
+    special BattleSetup_StartBossBattle
+    waitstate
+    setvar VAR_LAST_TALKED, 1
+    specialvar VAR_RESULT, GetBattleOutcome
+	removeobject 2
+	removeobject 3
+	setflag FLAG_TOTEM_GYMGOOSES
+    msgbox Fiery_Path_Text_Totemderrotado
+	releaseall
+	end
+    @ Combate contra totem.	
+	
+// Quinta Sala
+GymGooses_EventScript_Gooses::
+	trainerbattle_single TRAINER_GOOSES, GymGooses_Text_GoosesIntro, GymGooses_Text_GoosesDefeat, GymGooses_EventScript_GoosesDefeated, NO_MUSIC
+	release
+	end
+	
+GymGooses_EventScript_GoosesDefeated::
+	message GymGooses_Text_ReceivedBadge
+	waitmessage
+	call Common_EventScript_PlayGymBadgeFanfare
+	msgbox GymGooses_Text_ExplainBadgeTakeThis, MSGBOX_DEFAULT
+	setflag FLAG_DEFEATED_GOOSES_GYM
+	delay 30
+	release
+	end
+
 GymGoosesTirarDado_Text:
 	.string "Casilla Dado: ¡Tira el dado!$"
 	
@@ -338,3 +433,107 @@ GymGoosesPregunta_Text:
 	.string "Casilla Pregunta: ¡Debes responder\n"
 	.string "de forma correcta a la siguiente\l"
 	.string "pregunta!$"
+	
+GymGooses_Text_GymGuideAdvice:
+	.string "¡Ya veo que has llegado lejos!\p"
+	
+	.string "Bienvenido al último GYM de MICOLANDIA.\p"
+
+	.string "La pruebas de este GYM son:\n"
+	.string "Completar los 3 TABLEROS de DADOS\l"
+	.string "Derrotar al POKÉMON TOTEM\l"
+	.string "Derrotar al LIDER de GYM\p"
+	
+	.string "Si consigues superar las pruebas,\n"
+	.string "se te recompensará con la no-oficial\l"
+	.string "MEDALLA FRIO INVERNAL.\p"
+
+	.string "Bien, te voy a explicar en que consiste\n"
+	.string "la prueba principal: TABLERO de DADOS.\p"
+	
+	.string "El tablero de dados consiste en avanzar\n"
+	.string "casillas usando dados aleatorios del\l"
+	.string "1 al 6.\p"
+	
+	.string "Avanzarás casillas según el número que\n"
+	.string "aparezca, pero tendrás que afrontar\l"
+	.string "desafios según la casilla en la que\l"
+	.string "caigas.\p"
+	
+	.string "Te explicaré la función de cada casilla:\p"
+
+	.string "Casilla Naranja: Te permite tirar un dado\n"
+	.string "del 1 al 6.\p"
+	
+	.string "Casilla Direccional: Te permite avanzar\n"
+	.string "una casilla.\p"
+
+	.string "Casilla Salto: Nada útil, solo haces que\n"
+	.string "des un salto en el sitio.\p"
+
+	.string "Casilla Pokéball: Combatirás contra\n"
+	.string "un entrenador generado con un equipo\l"
+	.string "generado de forma aleatoria.\p"
+
+	.string "Casilla Morada: Tendrás que responder de\n"
+	.string "forma correcta a una pregunta.\p"
+
+	.string "Casilla Musical: Tus pokémon pueden\n"
+	.string "caer en un estado alterado aleatorio.\p"	
+
+	.string "En cuanto al LIDER GOOSES, solo te puedo\n"
+	.string "decir... ¡Que tengas mucho cuidado\l" 
+	.string "con las congelaciones!\p"
+
+	.string "¡Buen hax!$"
+
+GymGooses_Text_GymGuidePostVictory:
+	.string "¡Enhorabuena! ¡Ya puedes participar\n"
+	.string "en la MICOLIGA!\p"
+	
+	.string "¡Buen hax!$"	
+	
+GymGooses_Text_GymStatue:
+	.string "POKEMON GYM Nº4\n"
+	.string "LEADER: GOOSES\l"
+	.string "“TEMÁTICA: FRIO INVERNAL”$"
+
+GymGooses_Text_GymStatueCertified:
+	.string "POKEMON GYM Nº4\n"
+	.string "LEADER: GOOSES\l"
+	.string "“TEMÁTICA: FRIO INVERNAL”\p"
+
+	.string "GOOSES'S CERTIFIED TRAINERS:\n"
+	.string "{PLAYER}$"
+	
+GymGooses_TeleportGirl_Text:
+	.string "Si quieres salir del GYM, te puedo\n"
+	.string "regresar a la entrada, pero ten en\l"
+	.string "cuenta que tendrás que empezar el\l"
+	.string "tablero desde el principio.\p"
+
+	.string "¿Quieres que te lleve a la entrada\n"
+	.string "del GYM?$"
+	
+GymGooses_Text_GoosesIntro:
+	.string "FRASES$"
+	
+GymGooses_Text_GoosesDefeat:
+	.string "FRASES$"
+	
+GymGooses_Text_GoosesPostBattle:
+	.string "FRASES$"
+	
+GymGooses_Text_ReceivedBadge:
+	.string "{PLAYER} recibió la MEDALLA FRIO\n"
+	.string "INVERNAL de GOOSES.$"
+
+GymGooses_Text_ExplainBadgeTakeThis:
+	.string "Con esta MEDALLA en tu poder, desde\n"
+	.string "ahora mismo, tus POKÉMON no tienen\l"
+	.string "ninguna limitación para subir de\l"
+	.string "nivel, pudiendo llegar al Nivel 100.\p"
+
+	.string "Y debido a que ya tienes la última\n"
+	.string "medalla, podrás participar en\l"
+	.string "la MICOLIGA.$"

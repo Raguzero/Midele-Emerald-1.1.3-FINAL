@@ -932,10 +932,11 @@
 #define TRAINER_TENSHINHAN 928
 #define TRAINER_KAISSER 929
 #define TRAINER_FELIPEX88 930
+#define TRAINER_GOOSES 931
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or [changing how trainer flags are handled] --> HECHO ESTO
-#define TRAINERS_COUNT                      931 // NUEVO: aumentar para añadir nuevos entrenadores
-#define MAX_TRAINERS_COUNT                  932
+#define TRAINERS_COUNT                      932 // NUEVO: aumentar para añadir nuevos entrenadores
+#define MAX_TRAINERS_COUNT                  933
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

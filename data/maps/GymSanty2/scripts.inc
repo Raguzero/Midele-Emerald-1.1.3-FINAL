@@ -15,7 +15,7 @@ GymSanty2_EventScript_Totem::
     setvar VAR_LAST_TALKED, 1
     specialvar VAR_RESULT, GetBattleOutcome
 	removeobject 9
-	setflag FLAG_TOTEM_FIERYPATH
+	setflag FLAG_TOTEM_GYMSANTY
     msgbox Fiery_Path_Text_Totemderrotado
 	releaseall
 	end

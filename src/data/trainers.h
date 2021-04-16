@@ -13004,4 +13004,18 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_Felipex88),
         .party = {.ItemCustomMidele = sParty_Felipex88},
     },
+    [TRAINER_GOOSES] =
+    {
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
+        .battleMusic = BATTLEHEROESSTARWARS,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("GOOSES"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
+        .partySize = ARRAY_COUNT(sParty_Gooses),
+        .party = {.ItemCustomMidele = sParty_Gooses},
+    },
 };
