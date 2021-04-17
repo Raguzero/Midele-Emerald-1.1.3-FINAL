@@ -358,10 +358,16 @@ static void CB2_EvolutionSceneLoadGraphics(void)
     ResetSpriteData();
     FreeAllSpritePalettes();
     gReservedSpritePaletteCount = 4;
-
-    DecompressPicFromTable_2(&gMonFrontPicTable[postEvoSpecies],
+						 
+	if (SpeciesHasGenderDifference[postEvoSpecies] && GetGenderFromSpeciesAndPersonality(postEvoSpecies, personality) == MON_FEMALE)
+    DecompressPicFromTable_2(&gMonFrontPicTableFemale[postEvoSpecies],
                              gMonSpritesGfxPtr->sprites[3],
                              postEvoSpecies);
+    else
+    DecompressPicFromTable_2(&gMonFrontPicTable[postEvoSpecies],
+                             gMonSpritesGfxPtr->sprites[3],
+                             postEvoSpecies);	
+							 
     pokePal = GetMonSpritePalStructFromOtIdPersonality(postEvoSpecies, trainerId, personality);
 
     LoadCompressedPalette(pokePal->data, 0x120, 0x20);
