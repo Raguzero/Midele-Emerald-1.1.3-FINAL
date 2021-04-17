@@ -2093,7 +2093,11 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                     u8 playerPartyMaxLevel = GetPlayerPartyMaxLevel();
 					u8 minLevel = 60;
 					u8 level = max(playerPartyMaxLevel, minLevel);
-				  const struct FacilityMon * pokeenemy  = &gBattleFrontierMons[Random() % NUM_FRONTIER_MONS];
+				const struct FacilityMon * pokeenemy;
+					do {
+					pokeenemy = &gBattleFrontierMons[Random() % NUM_FRONTIER_MONS];
+						for (j=0; j<i && pokeenemy->species != GetMonData(&gEnemyParty[j], MON_DATA_SPECIES2); j++);
+						} while (j < i);
 				CreateMonWithEVSpreadNatureOTID(&gEnemyParty[i], pokeenemy -> species, level, pokeenemy -> nature, 31, pokeenemy -> evSpread, 0);
                 for (j = 0; j < MAX_MON_MOVES; j++)
         {
@@ -2111,8 +2115,16 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 {
 					 u8 level = 100;
 					u32 otID = T1_READ_32(gSaveBlock2Ptr->playerTrainerId);
-				  const struct FacilityMon * pokeenemy  = &gBattleFrontierMons[Random() % NUM_FRONTIER_MONS];
-				  const struct FacilityMon * pokeplayer = &gBattleFrontierMons[Random() % NUM_FRONTIER_MONS];
+				const struct FacilityMon * pokeenemy;
+				const struct FacilityMon * pokeplayer;
+					do {
+					pokeenemy = &gBattleFrontierMons[Random() % NUM_FRONTIER_MONS];
+						for (j=0; j<i && pokeenemy->species != GetMonData(&gEnemyParty[j], MON_DATA_SPECIES2); j++);
+						} while (j < i);
+					do {
+					pokeplayer = &gBattleFrontierMons[Random() % NUM_FRONTIER_MONS];
+						for (j=0; j<i && pokeplayer->species != GetMonData(&gPlayerParty[j], MON_DATA_SPECIES2); j++);
+						} while (j < i);
 				CreateMonWithEVSpreadNatureOTID(&gEnemyParty[i], pokeenemy -> species, level, pokeenemy -> nature, 31, pokeenemy -> evSpread, otID);
                 CreateMonWithEVSpreadNatureOTID(&gPlayerParty[i], pokeplayer -> species, level, pokeplayer -> nature, 31, pokeplayer -> evSpread, otID);
                 for (j = 0; j < MAX_MON_MOVES; j++)
