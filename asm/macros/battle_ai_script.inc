@@ -566,6 +566,12 @@
 	.byte \param1
 	.4byte \param2
 	.endm
+	
+    .macro if_accuracy_less_than acc:req, param2:req
+    .byte 0x66
+    .byte \acc
+    .4byte \param2
+    .endm
 
 @ useful script macros
 	.macro get_curr_move_type

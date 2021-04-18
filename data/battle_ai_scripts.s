@@ -1602,6 +1602,8 @@ AI_CV_Rest_End:
 	end
 
 AI_CV_OneHitKO:
+    if_ability AI_USER, ABILITY_NO_GUARD, Score_Plus3
+    if_ability AI_TARGET, ABILITY_NO_GUARD, Score_Plus3
 	end
 
 AI_CV_SuperFang:
@@ -2937,12 +2939,29 @@ AI_TryToFaint_DoubleSuperEffective:
 	end
 
 AI_TryToFaint_TryToEncourageQuickAttack:
+    if_not_effect EFFECT_SOLARBEAM, AI_TryToFaint_NotSolarBeamOnSun
+    get_weather
+    if_not_equal AI_WEATHER_SUN, AI_TryToFaint_End
+AI_TryToFaint_NotSolarBeamOnSun:
+    if_effect EFFECT_RAZOR_WIND, AI_TryToFaint_End
+    if_effect EFFECT_SKY_ATTACK, AI_TryToFaint_End
+    if_effect EFFECT_SKULL_BASH, AI_TryToFaint_End
 	if_effect EFFECT_EXPLOSION, AI_TryToFaint_End
-	if_not_effect EFFECT_QUICK_ATTACK, AI_TryToFaint_ScoreUp4
+	if_not_effect EFFECT_QUICK_ATTACK, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
 	score +2
-
-AI_TryToFaint_ScoreUp4:
-	score +4
+	
+AI_TryToFaint_IncreaseScoreDependingOnAccuracy:
+    if_accuracy_less_than 70, AI_TryToFaint_End
+    if_accuracy_less_than 80, AI_TryToFaint_ScoreUp1
+    if_accuracy_less_than 90, AI_TryToFaint_ScoreUp2
+    if_accuracy_less_than 100, AI_TryToFaint_ScoreUp3
+    score +1
+AI_TryToFaint_ScoreUp3:
+    score +1
+AI_TryToFaint_ScoreUp2:
+    score +1
+AI_TryToFaint_ScoreUp1:
+    score +1
 
 AI_TryToFaint_End:
 	end

@@ -163,6 +163,7 @@ static void Cmd_if_holds_item(void);
 static void Cmd_get_hazards_count(void);
 static void Cmd_get_curr_dmg_hp_percent(void);
 static void Cmd_if_fear_hp_condition(void);
+static void Cmd_if_accuracy_less_than(void);
 
 // ewram
 EWRAM_DATA const u8 *gAIScriptPtr = NULL;
@@ -275,6 +276,7 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_get_hazards_count,                          // 0x63
     Cmd_get_curr_dmg_hp_percent,                    // 0x64
     Cmd_if_fear_hp_condition,                       // 0x65
+	Cmd_if_accuracy_less_than,                      // 0x66
 };
 
 static const u16 sDiscouragedPowerfulMoveEffects[] =
@@ -2467,4 +2469,12 @@ static void Cmd_get_curr_dmg_hp_percent(void)
     
 	gBattleResources->ai->funcResult = (gBattleMoveDamage * 100) / gBattleMons[gBattlerTarget].maxHP;
 	gAIScriptPtr++;
+}
+
+static void Cmd_if_accuracy_less_than(void)
+{
+    if (gBattleMoves[AI_THINKING_STRUCT->moveConsidered].accuracy < gAIScriptPtr[1])
+        gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
+    else
+        gAIScriptPtr += 6;
 }
