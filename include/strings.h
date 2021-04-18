@@ -3176,4 +3176,34 @@ extern const u8 gText_MoveItemWhere[];
 extern const u8 gText_XsYAnd[];
 extern const u8 gText_XsYWereSwapped[];
 
+// QUIZ GYM
+extern const u8 gQuiz11[]; 
+extern const u8 gQuiz12[]; 
+extern const u8 gQuiz13[]; 
+extern const u8 gQuiz21[]; 
+extern const u8 gQuiz22[]; 
+extern const u8 gQuiz23[]; 
+extern const u8 gQuiz31[]; 
+extern const u8 gQuiz32[]; 
+extern const u8 gQuiz33[];
+extern const u8 gQuiz41[]; 
+extern const u8 gQuiz42[]; 
+extern const u8 gQuiz43[]; 
+extern const u8 gQuiz51[]; 
+extern const u8 gQuiz52[]; 
+extern const u8 gQuiz53[]; 
+extern const u8 gQuiz61[]; 
+extern const u8 gQuiz62[]; 
+extern const u8 gQuiz63[];
+extern const u8 gQuiz71[]; 
+extern const u8 gQuiz72[]; 
+extern const u8 gQuiz73[]; 
+extern const u8 gQuiz81[]; 
+extern const u8 gQuiz82[]; 
+extern const u8 gQuiz83[]; 
+extern const u8 gQuiz91[]; 
+extern const u8 gQuiz92[]; 
+extern const u8 gQuiz93[];   
+
+
 #endif // GUARD_STRINGS_H

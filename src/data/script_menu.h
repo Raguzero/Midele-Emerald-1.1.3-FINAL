@@ -966,6 +966,69 @@ static const struct MenuAction MultichoiceList_PKMNCentreMovetutor[] =
     {gText_Exit},
 };
 
+static const struct MenuAction MultichoiceList_Quiz1[] =
+{
+    {gQuiz11},
+    {gQuiz12},
+    {gQuiz13}
+};
+
+static const struct MenuAction MultichoiceList_Quiz2[] =
+{
+    {gQuiz21},
+    {gQuiz22},
+    {gQuiz23}
+};
+
+static const struct MenuAction MultichoiceList_Quiz3[] =
+{
+    {gQuiz31},
+    {gQuiz32},
+    {gQuiz33}
+};
+
+static const struct MenuAction MultichoiceList_Quiz4[] =
+{
+    {gQuiz41},
+    {gQuiz42},
+    {gQuiz43}
+};
+
+static const struct MenuAction MultichoiceList_Quiz5[] =
+{
+    {gQuiz51},
+    {gQuiz52},
+    {gQuiz53}
+};
+
+static const struct MenuAction MultichoiceList_Quiz6[] =
+{
+    {gQuiz61},
+    {gQuiz62},
+    {gQuiz63}
+};
+
+static const struct MenuAction MultichoiceList_Quiz7[] =
+{
+    {gQuiz71},
+    {gQuiz72},
+    {gQuiz73}
+};
+
+static const struct MenuAction MultichoiceList_Quiz8[] =
+{
+    {gQuiz81},
+    {gQuiz82},
+    {gQuiz83}
+};
+
+static const struct MenuAction MultichoiceList_Quiz9[] =
+{
+    {gQuiz91},
+    {gQuiz92},
+    {gQuiz93}
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -1110,6 +1173,15 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_CIBERCAFE_BATALLA]     =MULTICHOICE(MultichoiceList_CiberCafe_Batalla),
     [MULTI_RANDOMBATTLE]     =MULTICHOICE(MultichoiceList_RandomBattle),
     [MULTI_PKMN_CENTER_MOVE_TUTOR]     = MULTICHOICE(MultichoiceList_PKMNCentreMovetutor),
+	[MULTI_QUIZ1_GYM] =  MULTICHOICE(MultichoiceList_Quiz1),
+	[MULTI_QUIZ2_GYM] =  MULTICHOICE(MultichoiceList_Quiz2),
+	[MULTI_QUIZ3_GYM] =  MULTICHOICE(MultichoiceList_Quiz3),
+	[MULTI_QUIZ4_GYM] =  MULTICHOICE(MultichoiceList_Quiz4),
+	[MULTI_QUIZ5_GYM] =  MULTICHOICE(MultichoiceList_Quiz5),
+	[MULTI_QUIZ6_GYM] =  MULTICHOICE(MultichoiceList_Quiz6),
+	[MULTI_QUIZ7_GYM] =  MULTICHOICE(MultichoiceList_Quiz7),
+	[MULTI_QUIZ8_GYM] =  MULTICHOICE(MultichoiceList_Quiz8),
+	[MULTI_QUIZ9_GYM] =  MULTICHOICE(MultichoiceList_Quiz9),
 };
 
 const u8 *const gStdStrings[] =

@@ -2049,3 +2049,41 @@ const u8 gMenuText_Move[] = _("MOVE");
 const u8 gText_MoveItemWhere[] = _("Move item to where?");
 const u8 gText_XsYAnd[] = _("{STR_VAR_1}'s\n{STR_VAR_2} and\l");
 const u8 gText_XsYWereSwapped[] = _("{STR_VAR_1}'s\l{STR_VAR_2} were swapped!{PAUSE_UNTIL_PRESS}");
+
+// QUIZ GYM
+//QUIZ1: Quien no pudo abrir un .ZIP?
+const u8 gQuiz11[] =  _("MAESTRO ARENA");
+const u8 gQuiz12[] =  _("ENTROPIA");
+const u8 gQuiz13[] =  _("PACOCHEF");
+//QUIZ2: Quien lideró la Bronyficación por medio de un Golpe de Estado en PxP?
+const u8 gQuiz21[] =  _("KILL-R");
+const u8 gQuiz22[] =  _("MANEC");
+const u8 gQuiz23[] =  _("KRAFT");
+//QUIZ3: Quien se equivocó de set de GYARADOS en un torneo?
+const u8 gQuiz31[] =  _("M.DRAGON");
+const u8 gQuiz32[] =  _("MERÚM");
+const u8 gQuiz33[] =  _("PACOCHEF");
+//QUIZ4: Quien dió una PATADA SALTO a una pobre papelera?
+const u8 gQuiz41[] =  _("CARLOSRO");
+const u8 gQuiz42[] =  _("PACOCHEF");
+const u8 gQuiz43[] =  _("ENTROPIA");
+//QUIZ5: Quien dijo la frase: "Arena, eres un mierdas"?
+const u8 gQuiz51[] =  _("PARRI");
+const u8 gQuiz52[] =  _("MAESTRO ARENA");
+const u8 gQuiz53[] =  _("GOOSES");
+//QUIZ6: Quien se considera el mayor fan de PROBOPASS?
+const u8 gQuiz61[] =  _("ENTROPIA");
+const u8 gQuiz62[] =  _("MERÚM");
+const u8 gQuiz63[] =  _("UTA");
+//QUIZ7: Que esperamos todos ver en un NUZLOCKE de EEVEETO? (Todas son correctas)
+const u8 gQuiz71[] =  _("MUERTE");
+const u8 gQuiz72[] =  _("SUFRIMIENTO");
+const u8 gQuiz73[] =  _("SANGRE");
+//QUIZ8: Según X, de que tipo es ENTEI?
+const u8 gQuiz81[] =  _("PLANTA");
+const u8 gQuiz82[] =  _("AGUA");
+const u8 gQuiz83[] =  _("FUEGO");
+//QUIZ9: ¿Por qué MONOCICLO?
+const u8 gQuiz91[] =  _("PORQUE ???");
+const u8 gQuiz92[] =  _("PORQUE MONO ES UNO Y LA VIDA ES UN CICLO");
+const u8 gQuiz93[] =  _("PORQUE ???");

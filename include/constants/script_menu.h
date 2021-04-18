@@ -139,6 +139,15 @@
 #define MULTI_PKMN_CENTER_MOVE_TUTOR    128
 #define MULTI_GAME_CORNER_COINS_MIDELE    130
 #define MULTI_VENDING_MACHINE_MIDELE    131
+#define MULTI_QUIZ1_GYM    132
+#define MULTI_QUIZ2_GYM    133
+#define MULTI_QUIZ3_GYM    134
+#define MULTI_QUIZ4_GYM    135
+#define MULTI_QUIZ5_GYM    136
+#define MULTI_QUIZ6_GYM    137
+#define MULTI_QUIZ7_GYM    138
+#define MULTI_QUIZ8_GYM    139
+#define MULTI_QUIZ9_GYM    140
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0

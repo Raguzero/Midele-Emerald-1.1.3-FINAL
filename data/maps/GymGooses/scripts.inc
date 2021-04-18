@@ -41,20 +41,42 @@ GymGooses_EventScript_TeleportGirl::
 	faceplayer
 	msgbox GymGooses_TeleportGirl_Text, MSGBOX_YESNO
 	compare VAR_RESULT, YES
-	goto_if_eq GymGooses_EventScript_TeleportGirl_Si
+	goto_if_eq GymGooses_EventScript_Entrada
 	release
 	end
-GymGooses_EventScript_TeleportGirl_Si::
-	call_if_eq GymGooses_EventScript_Entrada
+	
+GymGooses_EventScript_TeleportBoy::
+	lock
+	faceplayer
+	clearflag FLAG_HIDE_GYMGOOSES_TELEPORTBOY
+	msgbox GymGooses_TeleportBoy_Text, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq GymGooses_EventScript_Entrada
+	release
+	end
+	
+GymGooses_EventScript_TeleportBoy2::
+	lock
+	faceplayer
+	msgbox GymGooses_TeleportBoy2_Text, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq GymGooses_EventScript_CuartaSala
 	release
 	end
 
 GymGooses_EventScript_Entrada::
 	warp MAP_GYM_GOOSES, 0, 0, 0
 	waitstate
+	release
+	end
+	
+GymGooses_EventScript_CuartaSala::
+	warp MAP_GYM_GOOSES, 2, 0, 0
+	waitstate
+	release
 	end
 
-// Primera Sala	
+// Primera, Segunda y Tercera Sala	
 GymGooses_CasillaTableroDado::
 	msgbox GymGoosesTirarDado_Text, MSGBOX_DEFAULT
 	waitmessage
@@ -248,20 +270,182 @@ GymGooses_CasillaTableroStatus::
 	end
 
 GymGooses_CasillaTableroPregunta::
-	msgbox GymGoosesPregunta_Text, MSGBOX_DEFAULT
 	lock
 	faceplayer
-//CasillaTableroCorrecta::
-	closemessage
+	msgbox GymGoosesPregunta_Text, MSGBOX_DEFAULT
+	random 14
+	switch VAR_RESULT
+	case 0, Script_Quiz1
+	case 1, Script_Quiz2
+	case 2, Script_Quiz3
+	case 3, Script_Quiz4
+	case 4, Script_Quiz5
+	case 5, Script_Quiz6
+	case 6, Script_Quiz7
+	case 7, Script_Quiz8
+	case 8, Script_Quiz9
+	case 9, Script_QuizYESNO1
+	case 10, Script_QuizYESNO2
+	case 11, Script_QuizYESNO3
+	case 12, Script_QuizYESNO4
+	case 13, Script_QuizYESNO5
+	end	
+	
+Script_Quiz1::	
+	msgbox Quiz1_Text, MSGBOX_DEFAULT
+	multichoice 12, 0, MULTI_QUIZ1_GYM, 0
+	switch VAR_RESULT
+	case 0, GymGooses_EventScript_Incorrecta
+	case 1, GymGooses_EventScript_Correcta
+	case 2, GymGooses_EventScript_Incorrecta
+	case MULTI_B_PRESSED, NoSabeNoContesta
+	end
+	
+Script_Quiz2::	
+	msgbox Quiz2_Text, MSGBOX_DEFAULT
+	multichoice 12, 0, MULTI_QUIZ2_GYM, 0
+	switch VAR_RESULT
+	case 0, GymGooses_EventScript_Correcta
+	case 1, GymGooses_EventScript_Incorrecta
+	case 2, GymGooses_EventScript_Incorrecta
+	case MULTI_B_PRESSED, NoSabeNoContesta
+	end
+	
+Script_Quiz3::	
+	msgbox Quiz3_Text, MSGBOX_DEFAULT
+	multichoice 12, 0, MULTI_QUIZ3_GYM, 0
+	switch VAR_RESULT
+	case 0, GymGooses_EventScript_Correcta
+	case 1, GymGooses_EventScript_Incorrecta
+	case 2, GymGooses_EventScript_Incorrecta
+	case MULTI_B_PRESSED, NoSabeNoContesta
+	end
+	
+Script_Quiz4::	
+	msgbox Quiz4_Text, MSGBOX_DEFAULT
+	multichoice 12, 0, MULTI_QUIZ4_GYM, 0
+	switch VAR_RESULT
+	case 0, GymGooses_EventScript_Incorrecta
+	case 1, GymGooses_EventScript_Correcta
+	case 2, GymGooses_EventScript_Incorrecta
+	case MULTI_B_PRESSED, NoSabeNoContesta
+	end
+	
+Script_Quiz5::	
+	msgbox Quiz5_Text, MSGBOX_DEFAULT
+	multichoice 12, 0, MULTI_QUIZ5_GYM, 0
+	switch VAR_RESULT
+	case 0, GymGooses_EventScript_Correcta
+	case 1, GymGooses_EventScript_Incorrecta
+	case 2, GymGooses_EventScript_Incorrecta
+	case MULTI_B_PRESSED, NoSabeNoContesta
+	end
+	
+Script_Quiz6::	
+	msgbox Quiz6_Text, MSGBOX_DEFAULT
+	multichoice 12, 0, MULTI_QUIZ6_GYM, 0
+	switch VAR_RESULT
+	case 0, GymGooses_EventScript_Incorrecta
+	case 1, GymGooses_EventScript_Correcta
+	case 2, GymGooses_EventScript_Incorrecta
+	case MULTI_B_PRESSED, NoSabeNoContesta
+	end
+	
+Script_Quiz7::	
+	msgbox Quiz7_Text, MSGBOX_DEFAULT
+	multichoice 12, 0, MULTI_QUIZ7_GYM, 0
+	switch VAR_RESULT
+	case 0, GymGooses_EventScript_Correcta
+	case 1, GymGooses_EventScript_Correcta
+	case 2, GymGooses_EventScript_Correcta
+	case MULTI_B_PRESSED, NoSabeNoContesta
+	end
+	
+Script_Quiz8::	
+	msgbox Quiz8_Text, MSGBOX_DEFAULT
+	multichoice 12, 0, MULTI_QUIZ8_GYM, 0
+	switch VAR_RESULT
+	case 0, GymGooses_EventScript_Correcta
+	case 1, GymGooses_EventScript_Incorrecta
+	case 2, GymGooses_EventScript_Incorrecta
+	case MULTI_B_PRESSED, NoSabeNoContesta
+	end
+	
+Script_Quiz9::	
+	msgbox Quiz9_Text, MSGBOX_DEFAULT
+	multichoice 12, 0, MULTI_QUIZ9_GYM, 0
+	switch VAR_RESULT
+	case 0, GymGooses_EventScript_Incorrecta
+	case 1, GymGooses_EventScript_Correcta
+	case 2, GymGooses_EventScript_Incorrecta
+	case MULTI_B_PRESSED, NoSabeNoContesta
+	end
+	
+Script_QuizYESNO1::	
+	msgbox Quiz10_Text, MSGBOX_YESNO
+	switch VAR_RESULT
+	case YES, GymGooses_EventScript_Correcta
+	goto GymGooses_EventScript_Incorrecta
+	end
+	
+Script_QuizYESNO2::	
+	msgbox Quiz11_Text, MSGBOX_YESNO
+	switch VAR_RESULT
+	case YES, GymGooses_EventScript_Correcta
+	goto GymGooses_EventScript_Incorrecta
+	end
+	
+Script_QuizYESNO3::	
+	msgbox Quiz12_Text, MSGBOX_YESNO
+	switch VAR_RESULT
+	case YES, GymGooses_EventScript_Correcta
+	goto GymGooses_EventScript_Incorrecta
+	end
+	
+Script_QuizYESNO4::	
+	msgbox Quiz13_Text, MSGBOX_YESNO
+	switch VAR_RESULT
+	case YES, GymGooses_EventScript_Correcta
+	goto GymGooses_EventScript_Incorrecta
+	end
+	
+Script_QuizYESNO5::	
+	msgbox Quiz14_Text, MSGBOX_YESNO
+	switch VAR_RESULT
+	case YES, GymGooses_EventScript_Correcta
+	goto GymGooses_EventScript_Incorrecta
+	end
+
+GymGooses_EventScript_Incorrecta::
+	msgbox Respuesta_Incorrecta_Text
+	goto CasillaTableroIncorrecta_EventScript
+
+GymGooses_EventScript_Correcta::
+	msgbox Respuesta_Correcta_Text	
+	goto CasillaTableroCorrecta_EventScript
+	
+NoSabeNoContesta::
+	msgbox Respuesta_NSNC_Text
+	goto NoSabeNoContesta_2
+
+CasillaTableroCorrecta_EventScript::
 	applyrangemovement EVENT_OBJ_ID_PLAYER, GymGoosesMoverIzq
 	waitmovement 0
+	special DoApplyrangemovementLastStep
 	release
 	end
-//CasillaTableroIncorrecta::
-//	closemessage
-//	warp MAP_GYM_GOOSES, 0, 0, 0
-//	release
-//	end
+	
+CasillaTableroIncorrecta_EventScript::
+	closemessage
+	warp MAP_GYM_GOOSES, 0, 0, 0
+	release
+	end
+	
+NoSabeNoContesta_2::
+	closemessage
+	warp MAP_GYM_GOOSES, 0, 0, 0
+	release
+	end
 
 // Mover 1 paso en casillas no-dado
 GymGoosesMoverIzq:
@@ -359,17 +543,12 @@ GymGoosesStatus_Freeze_Script::
 	message GymGoosesStatus_Freeze
 	waitmessage
 	end
-	
-// Segunda Sala
-
-
-// Tercera Sala
-
 
 // Cuarta Sala
     @ Combate contra totem.
 GymGooses_EventScript_Totem:: @ 8237725
 	lockall
+	clearflag FLAG_HIDE_GYMGOOSES_TELEPORTBOY
 	playmoncry SPECIES_DELIBIRD, 2
 	delay 40
 	waitmoncry
@@ -418,7 +597,7 @@ GymGoosesStatus_Poison:
 	.string "¡INTOXICATE!$"
 	
 GymGoosesStatus_Slp:
-	.string "¡DUERME!$"
+	.string "¡DUERMETE!$"
 	
 GymGoosesStatus_Prz:
 	.string "¡PARALIZATE!$"
@@ -433,6 +612,64 @@ GymGoosesPregunta_Text:
 	.string "Casilla Pregunta: ¡Debes responder\n"
 	.string "de forma correcta a la siguiente\l"
 	.string "pregunta!$"
+	
+Quiz1_Text:
+	.string "¿Quién no pudo abrir un .ZIP?$"
+
+Quiz2_Text:	
+	.string "¿Quien lideró la Bronyficación por\n" 
+	.string "medio de un Golpe de Estado en PxP?$"
+	
+Quiz3_Text:
+	.string "¿Quién se equivocó de SET de\n"
+	.string "GYARADOS en un torneo?$"
+	
+Quiz4_Text:
+	.string "¿Quién dió una PATADA SALTO a\n" 
+	.string "una pobre papelera?$"
+	
+Quiz5_Text:
+	.string "¿Quién dijo la frase:\n"
+	.string "Arena, eres un mierdas?$"
+
+Quiz6_Text:
+	.string "¿Quién se considera el mayor\n" 
+	.string "fan de PROBOPASS?$"
+	
+Quiz7_Text:
+	.string "¿Qué esperamos ver todos en\n" 
+	.string "un NUZLOCKE de EEVEETO?$"
+	
+Quiz8_Text:
+	.string "Según un usuario de PxP,\n" 
+	.string "¿de qué tipo es ENTEI?$"
+	
+Quiz9_Text:
+	.string "¿Por qué MONOCICLO?$"
+	
+Quiz10_Text:
+	.string "PREGUNTAS DE YES y NO$"
+	
+Quiz11_Text:
+	.string "PREGUNTAS DE YES y NO$"
+	
+Quiz12_Text:
+	.string "PREGUNTAS DE YES y NO$"
+	
+Quiz13_Text:
+	.string "PREGUNTAS DE YES y NO$"
+	
+Quiz14_Text:
+	.string "PREGUNTAS DE YES y NO$"
+	
+Respuesta_Incorrecta_Text:
+	.string "¡RESPUESTA INCORRECTA!$"
+	
+Respuesta_Correcta_Text:
+	.string "¡CORRECTO!$"
+	
+Respuesta_NSNC_Text:
+	.string "¡Has evitado responder!$"
 	
 GymGooses_Text_GymGuideAdvice:
 	.string "¡Ya veo que has llegado lejos!\p"
@@ -514,6 +751,32 @@ GymGooses_TeleportGirl_Text:
 
 	.string "¿Quieres que te lleve a la entrada\n"
 	.string "del GYM?$"
+	
+GymGooses_TeleportBoy_Text:
+	.string "¡Vaya! ¡Así que has superado\n"
+	.string "los 3 tableros de dados logrando\l"
+	.string "llegar hasta la Cuarta Sala!\p"
+	
+	.string "¡Mis más sinceras felicitaciones!\p"
+
+	.string "Por cierto, si quieres salir\n"
+	.string "del GYM, te puedo regresar a la\l"
+	.string "entrada. Eso si, ahora podrás\l" 
+	.string "volver a esta misma sala con la\l"
+	.string "ayuda de mi otro compañero.\p"
+
+	.string "¿Quieres que te lleve a la entrada\n"
+	.string "del GYM?$"
+	
+GymGooses_TeleportBoy2_Text:
+	.string "Debido a que has superado los\n"
+	.string "3 tableros de dados, ahora puedes\l"
+	.string "elegir entre superar de nuevo los\l"
+	.string "tableros o hacer que te lleve de\l"
+	.string "nuevo a la Cuarta Sala.\p"
+
+	.string "¿Quieres que te lleve a la Cuarta\n"
+	.string "Sala del GYM?$"
 	
 GymGooses_Text_GoosesIntro:
 	.string "FRASES$"

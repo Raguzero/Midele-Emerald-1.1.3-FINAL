@@ -243,5 +243,6 @@ EventScript_ResetAllMapFlags:: @ 82715DE
 	setflag FLAG_HIDE_RAYQUAZA_SKY_TOWER_SUMMIT
 	setflag FLAG_TOTEM_NEWMAUVILLE
 	setflag FLAG_HIDE_JZOMBIE_PLAYERS_HOUSE
+	setflag FLAG_HIDE_GYMGOOSES_TELEPORTBOY
 	call EventScript_ResetAllBerries
 	end
