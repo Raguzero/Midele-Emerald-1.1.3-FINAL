@@ -1480,7 +1480,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     [FRONTIER_MON_QWILFISH_1] = {
         .species = SPECIES_QWILFISH,
         .moves = {MOVE_HYDRO_PUMP, MOVE_SLUDGE_BOMB, MOVE_SPIKES, MOVE_EXPLOSION},
-        .itemTableId = BATTLE_FRONTIER_ITEM_CHERI_BERRY,
+        .itemTableId = BATTLE_FRONTIER_ITEM_BRIGHT_POWDER,
         .evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_SP_ATTACK,
         .nature = NATURE_HARDY
     },
@@ -2929,7 +2929,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     [FRONTIER_MON_GOLDUCK_1] = {
         .species = SPECIES_GOLDUCK,
         .moves = {MOVE_HYDRO_PUMP, MOVE_DIG, MOVE_CROSS_CHOP, MOVE_LIGHT_SCREEN},
-        .itemTableId = BATTLE_FRONTIER_ITEM_SHELL_BELL,
+        .itemTableId = BATTLE_FRONTIER_ITEM_POWER_HERB,
         .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_ATTACK,
         .nature = NATURE_QUIET
     },

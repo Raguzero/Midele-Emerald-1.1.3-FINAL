@@ -120,7 +120,7 @@ MicoloHideout_GameCorner_EventScript_MonPrizesList:
 
 MicoloHideout_GameCorner_EventScript_DARK_PIKA_Confirm:
 	setvar VAR_TEMP_1, 1
-  bufferspeciesname 0, SPECIES_PIKACHU
+  bufferspeciesname 0, SPECIES_DARK_PIKACHU
 	goto MicoloHideout_GameCorner_EventScript_MonConfirm
 
 MicoloHideout_GameCorner_EventScript_WINTASS_Confirm:
