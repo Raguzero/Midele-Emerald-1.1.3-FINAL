@@ -28,6 +28,8 @@
 #include "constants/field_effects.h"
 #include "constants/items.h"
 #include "constants/mauville_old_man.h"
+#include "sound.h"
+#include "constants/songs.h"
 
 // this file was known as evobjmv.c in Game Freak's original source
 
@@ -7916,6 +7918,8 @@ void GroundEffect_StepOnTallGrass(struct EventObject *eventObj, struct Sprite *s
     gFieldEffectArguments[5] = eventObj->mapGroup;
     gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
     gFieldEffectArguments[7] = 0;
+    if (eventObj->active && eventObj->isPlayer)
+        PlaySE(SE_W077);
     FieldEffectStart(FLDEFF_TALL_GRASS);
 }
 
@@ -7942,6 +7946,8 @@ void GroundEffect_StepOnLongGrass(struct EventObject *eventObj, struct Sprite *s
     gFieldEffectArguments[5] = eventObj->mapGroup;
     gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
     gFieldEffectArguments[7] = 0;
+   if (eventObj->active && eventObj->isPlayer)
+        PlaySE(SE_W077);
     FieldEffectStart(FLDEFF_LONG_GRASS);
 }
 
@@ -7995,6 +8001,8 @@ static void DoTracksGroundEffect_Footprints(struct EventObject *eventObj, struct
     gFieldEffectArguments[2] = 149;
     gFieldEffectArguments[3] = 2;
     gFieldEffectArguments[4] = eventObj->facingDirection;
+    if (eventObj->active && eventObj->isPlayer)
+        PlaySE(SE_W028);
     FieldEffectStart(sandFootprints_FieldEffectData[a]);
 }
 
