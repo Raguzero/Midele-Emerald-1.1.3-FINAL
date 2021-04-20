@@ -116,7 +116,8 @@ static const u8 sOvercoatDescription[] = _("Blocks weather damage.");
 static const u8 sGooeyDescription[] = _("Lowers SPEED on contact.");
 static const u8 sSandForceDescription[] = _("Ups Sand Types in sandstm.");
 static const u8 sIronFistDescription[] = _("Boosts punching moves.");
-static const u8 sSniperDescription[] = _("Boosts critical hits.");
+static const u8 sSniperDescription[] = _("Boosts x3 critical hits.");
+static const u8 sStrongJawDescription[] = _("Boosts biting moves.");
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 {
@@ -241,6 +242,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_SAND_FORCE] = _("SAND FORCE"),
 	[ABILITY_IRON_FIST] = _("IRON FIST"),
 	[ABILITY_SNIPER] = _("SNIPER"),
+    [ABILITY_STRONG_JAW] = _("STRONG JAW"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -366,4 +368,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_SAND_FORCE] = sSandForceDescription,
     [ABILITY_IRON_FIST] = sIronFistDescription,
     [ABILITY_SNIPER] = sSniperDescription,
+    [ABILITY_STRONG_JAW] = sStrongJawDescription,
 };

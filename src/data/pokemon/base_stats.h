@@ -13021,7 +13021,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_SLOW,
 		.eggGroup1 = EGG_GROUP_WATER_2,
 		.eggGroup2 = EGG_GROUP_WATER_2,
-        .abilities = {ABILITY_ROUGH_SKIN, ABILITY_NONE},
+        .abilities = {ABILITY_STRONG_JAW, ABILITY_NONE},
 		.bodyColor = BODY_COLOR_BLUE,
 	},
 	[SPECIES_MEGA_CAMERUPT] =
@@ -14491,7 +14491,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_MEDIUM_FAST,
 		.eggGroup1 = EGG_GROUP_MONSTER,
 		.eggGroup2 = EGG_GROUP_DRAGON,
-        .abilities = {ABILITY_STURDY, ABILITY_NONE},
+        .abilities = {ABILITY_STURDY, ABILITY_STRONG_JAW},
 		.bodyColor = BODY_COLOR_BROWN,
 	},
 	[SPECIES_TYRANTRUM] =
@@ -14514,7 +14514,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_MEDIUM_FAST,
 		.eggGroup1 = EGG_GROUP_MONSTER,
 		.eggGroup2 = EGG_GROUP_DRAGON,
-        .abilities = {ABILITY_ROCK_HEAD, ABILITY_NONE},
+        .abilities = {ABILITY_ROCK_HEAD, ABILITY_STRONG_JAW},
 		.bodyColor = BODY_COLOR_RED,
 	},
 	[SPECIES_AMAURA] =
