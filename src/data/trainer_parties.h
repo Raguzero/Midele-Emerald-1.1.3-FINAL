@@ -19833,7 +19833,7 @@ static const struct TrainerMonCustomMidele sParty_Random[] = {
         .lvl = 100,
         .iv = 31,
         .species = SPECIES_WIGGLYTUFF
-        },
+        }
 };
 
 static const struct TrainerMonCustomMidele sParty_Random_2[] = {
@@ -19866,7 +19866,7 @@ static const struct TrainerMonCustomMidele sParty_Random_2[] = {
         .lvl = 100,
         .iv = 31,
         .species = SPECIES_WIGGLYTUFF
-        },
+        }
 };
 
 // GRANITE CAVE (POKEMON ORAS)
@@ -22544,4 +22544,22 @@ static const struct TrainerMonCustomMidele sParty_Gooses[] = {
     .ability = 0,
     .moves = {MOVE_SWORDS_DANCE, MOVE_HIDDEN_POWER, MOVE_SHADOW_BALL, MOVE_ANCIENT_POWER}
     }
+};
+
+static const struct TrainerMonCustomMidele sParty_RandomGym[] = {
+        {
+        .lvl = 80,
+        .iv = 31,
+        .species = SPECIES_WIGGLYTUFF
+        },
+        {
+        .lvl = 80,
+        .iv = 31,
+        .species = SPECIES_WIGGLYTUFF
+        },
+        {
+        .lvl = 80,
+        .iv = 31,
+        .species = SPECIES_WIGGLYTUFF
+        }
 };

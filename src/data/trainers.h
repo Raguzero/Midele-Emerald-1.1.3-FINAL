@@ -13018,4 +13018,17 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_Gooses),
         .party = {.ItemCustomMidele = sParty_Gooses},
     },
+    [TRAINER_RANDOM_PARTY_GYM] =
+    {
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR,
+        .trainerPic = TRAINER_PIC_POKEMANIAC,
+        .trainerName = _("RANDOM"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
+        .partySize = ARRAY_COUNT(sParty_RandomGym),
+        .party = {.ItemCustomMidele = sParty_RandomGym},
+    },
 };

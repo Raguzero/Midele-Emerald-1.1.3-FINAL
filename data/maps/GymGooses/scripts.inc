@@ -166,7 +166,7 @@ GymGooses_CasillaTableroCombate::
 	msgbox GymGoosesCombate_Text, MSGBOX_DEFAULT
 	lock
 	faceplayer
-	setflag FLAG_RYU_RANDOMBATTLE
+	setflag FLAG_RANDOMBATTLE_GYMGOOSES
 	setvar VAR_0x8004, SPECIAL_RANDOM_BATTLE
     setvar VAR_0x8005, 0
     special DoSpecialTrainerBattle
@@ -178,7 +178,7 @@ GymGooses_CasillaTableroCombate::
     compare VAR_RESULT, B_OUTCOME_LOST
     call_if_eq CasillaTableroLoss
 CasillaTableroWin::
-	clearflag FLAG_RYU_RANDOMBATTLE
+	clearflag FLAG_RANDOMBATTLE_GYMGOOSES
 	closemessage
 	applymovement EVENT_OBJ_ID_PLAYER, GymGoosesMoverIzq
 	waitmovement 0
@@ -186,7 +186,7 @@ CasillaTableroWin::
 	end
 CasillaTableroLoss::
 	special HealPlayerParty
-	clearflag FLAG_RYU_RANDOMBATTLE
+	clearflag FLAG_RANDOMBATTLE_GYMGOOSES
 	closemessage
 	warp MAP_GYM_GOOSES, 0, 0, 0
 	release
@@ -196,7 +196,7 @@ GymGooses_CasillaTableroCombate2::
 	msgbox GymGoosesCombate_Text, MSGBOX_DEFAULT
 	lock
 	faceplayer
-	setflag FLAG_RYU_RANDOMBATTLE
+	setflag FLAG_RANDOMBATTLE_GYMGOOSES
 	setvar VAR_0x8004, SPECIAL_RANDOM_BATTLE
     setvar VAR_0x8005, 0
     special DoSpecialTrainerBattle
@@ -208,7 +208,7 @@ GymGooses_CasillaTableroCombate2::
     compare VAR_RESULT, B_OUTCOME_LOST
     call_if_eq CasillaTableroLoss2
 CasillaTableroWin2::
-	clearflag FLAG_RYU_RANDOMBATTLE
+	clearflag FLAG_RANDOMBATTLE_GYMGOOSES
 	closemessage
 	applymovement EVENT_OBJ_ID_PLAYER, GymGoosesMoverDer
 	waitmovement 0
@@ -216,7 +216,7 @@ CasillaTableroWin2::
 	end
 CasillaTableroLoss2::
 	special HealPlayerParty
-	clearflag FLAG_RYU_RANDOMBATTLE
+	clearflag FLAG_RANDOMBATTLE_GYMGOOSES
 	closemessage
 	warp MAP_GYM_GOOSES, 0, 0, 0
 	release
@@ -226,7 +226,7 @@ GymGooses_CasillaTableroCombate3::
 	msgbox GymGoosesCombate_Text, MSGBOX_DEFAULT
 	lock
 	faceplayer
-	setflag FLAG_RYU_RANDOMBATTLE
+	setflag FLAG_RANDOMBATTLE_GYMGOOSES
 	setvar VAR_0x8004, SPECIAL_RANDOM_BATTLE
     setvar VAR_0x8005, 0
     special DoSpecialTrainerBattle
@@ -238,7 +238,7 @@ GymGooses_CasillaTableroCombate3::
     compare VAR_RESULT, B_OUTCOME_LOST
     call_if_eq CasillaTableroLoss3
 CasillaTableroWin3::
-	clearflag FLAG_RYU_RANDOMBATTLE
+	clearflag FLAG_RANDOMBATTLE_GYMGOOSES
 	closemessage
 	applymovement EVENT_OBJ_ID_PLAYER, GymGoosesMoverDown
 	waitmovement 0
@@ -246,7 +246,7 @@ CasillaTableroWin3::
 	end
 CasillaTableroLoss3::
 	special HealPlayerParty
-	clearflag FLAG_RYU_RANDOMBATTLE
+	clearflag FLAG_RANDOMBATTLE_GYMGOOSES
 	closemessage
 	warp MAP_GYM_GOOSES, 0, 0, 0
 	release
@@ -293,7 +293,7 @@ GymGooses_CasillaTableroPregunta::
 	
 Script_Quiz1::	
 	msgbox Quiz1_Text, MSGBOX_DEFAULT
-	multichoice 12, 0, MULTI_QUIZ1_GYM, 0
+	multichoice 12, 0, MULTI_QUIZ1_GYM, 1
 	switch VAR_RESULT
 	case 0, GymGooses_EventScript_Incorrecta
 	case 1, GymGooses_EventScript_Correcta
@@ -303,7 +303,7 @@ Script_Quiz1::
 	
 Script_Quiz2::	
 	msgbox Quiz2_Text, MSGBOX_DEFAULT
-	multichoice 12, 0, MULTI_QUIZ2_GYM, 0
+	multichoice 12, 0, MULTI_QUIZ2_GYM, 1
 	switch VAR_RESULT
 	case 0, GymGooses_EventScript_Correcta
 	case 1, GymGooses_EventScript_Incorrecta
@@ -313,7 +313,7 @@ Script_Quiz2::
 	
 Script_Quiz3::	
 	msgbox Quiz3_Text, MSGBOX_DEFAULT
-	multichoice 12, 0, MULTI_QUIZ3_GYM, 0
+	multichoice 12, 0, MULTI_QUIZ3_GYM, 1
 	switch VAR_RESULT
 	case 0, GymGooses_EventScript_Correcta
 	case 1, GymGooses_EventScript_Incorrecta
@@ -323,7 +323,7 @@ Script_Quiz3::
 	
 Script_Quiz4::	
 	msgbox Quiz4_Text, MSGBOX_DEFAULT
-	multichoice 12, 0, MULTI_QUIZ4_GYM, 0
+	multichoice 12, 0, MULTI_QUIZ4_GYM, 1
 	switch VAR_RESULT
 	case 0, GymGooses_EventScript_Incorrecta
 	case 1, GymGooses_EventScript_Correcta
@@ -333,7 +333,7 @@ Script_Quiz4::
 	
 Script_Quiz5::	
 	msgbox Quiz5_Text, MSGBOX_DEFAULT
-	multichoice 12, 0, MULTI_QUIZ5_GYM, 0
+	multichoice 12, 0, MULTI_QUIZ5_GYM, 1
 	switch VAR_RESULT
 	case 0, GymGooses_EventScript_Correcta
 	case 1, GymGooses_EventScript_Incorrecta
@@ -343,7 +343,7 @@ Script_Quiz5::
 	
 Script_Quiz6::	
 	msgbox Quiz6_Text, MSGBOX_DEFAULT
-	multichoice 12, 0, MULTI_QUIZ6_GYM, 0
+	multichoice 12, 0, MULTI_QUIZ6_GYM, 1
 	switch VAR_RESULT
 	case 0, GymGooses_EventScript_Incorrecta
 	case 1, GymGooses_EventScript_Correcta
@@ -353,7 +353,7 @@ Script_Quiz6::
 	
 Script_Quiz7::	
 	msgbox Quiz7_Text, MSGBOX_DEFAULT
-	multichoice 12, 0, MULTI_QUIZ7_GYM, 0
+	multichoice 12, 0, MULTI_QUIZ7_GYM, 1
 	switch VAR_RESULT
 	case 0, GymGooses_EventScript_Correcta
 	case 1, GymGooses_EventScript_Correcta
@@ -363,7 +363,7 @@ Script_Quiz7::
 	
 Script_Quiz8::	
 	msgbox Quiz8_Text, MSGBOX_DEFAULT
-	multichoice 12, 0, MULTI_QUIZ8_GYM, 0
+	multichoice 12, 0, MULTI_QUIZ8_GYM, 1
 	switch VAR_RESULT
 	case 0, GymGooses_EventScript_Correcta
 	case 1, GymGooses_EventScript_Incorrecta
@@ -373,7 +373,7 @@ Script_Quiz8::
 	
 Script_Quiz9::	
 	msgbox Quiz9_Text, MSGBOX_DEFAULT
-	multichoice 12, 0, MULTI_QUIZ9_GYM, 0
+	multichoice 12, 0, MULTI_QUIZ9_GYM, 1
 	switch VAR_RESULT
 	case 0, GymGooses_EventScript_Incorrecta
 	case 1, GymGooses_EventScript_Correcta

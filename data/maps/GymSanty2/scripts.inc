@@ -1,5 +1,10 @@
 GymSanty2_MapScripts::
-	.byte 0
+    map_script MAP_SCRIPT_ON_RESUME, GymSanty2_OnResume
+    .byte 0
+
+GymSanty2_OnResume:
+    setstepcallback STEP_CB_ASH
+    end
 	
     @ Combate contra totem.
 GymSanty2_EventScript_Totem::
@@ -20,3 +25,11 @@ GymSanty2_EventScript_Totem::
 	releaseall
 	end
     @ Combate contra totem.	
+	
+GymSanty2_EventScript_Sign::
+	msgbox GymSanty2_Text_Sign, MSGBOX_SIGN
+	end
+	
+GymSanty2_Text_Sign:
+	.string "ENCIENDE LAS CUATRO ANTORCHAS\n"
+	.string "Y EL CAMINO SE ABRIRÁ$"

@@ -2188,7 +2188,12 @@ void DoSpecialTrainerBattle(void)
 		CreateTask(Task_StartBattleAfterTransition, 1);
         PlayMapChosenOrBattleBGM(509);
         BattleTransition_StartOnField(sub_80B100C(6));
-		gTrainerBattleOpponent_A = TRAINER_RANDOM_PARTY;
+		  if (FlagGet(FLAG_RANDOMBATTLE_GYMGOOSES) == TRUE)
+			{
+			gTrainerBattleOpponent_A = TRAINER_RANDOM_PARTY_GYM;
+			}
+		  else
+	    gTrainerBattleOpponent_A = TRAINER_RANDOM_PARTY;
 		break;
 		case SPECIAL_RANDOM_BATTLE_2:
         gBattleTypeFlags = BATTLE_TYPE_TRAINER;

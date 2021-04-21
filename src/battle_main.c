@@ -2110,6 +2110,29 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 }
 		// NUEVO RANDOM BATTLE
 		
+		// NUEVO RANDOM BATTLE 3 POKEMON NV80 MIN
+                if (FlagGet(FLAG_RANDOMBATTLE_GYMGOOSES) == 1)
+                {
+                    u8 playerPartyMaxLevel = GetPlayerPartyMaxLevel();
+					u8 minLevel = 80;
+					u8 level = max(playerPartyMaxLevel, minLevel);
+				const struct FacilityMon * pokeenemy;
+					do {
+					pokeenemy = &gBattleFrontierMons[Random() % NUM_FRONTIER_MONS];
+						for (j=0; j<i && pokeenemy->species != GetMonData(&gEnemyParty[j], MON_DATA_SPECIES2); j++);
+						} while (j < i);
+				CreateMonWithEVSpreadNatureOTID(&gEnemyParty[i], pokeenemy -> species, level, pokeenemy -> nature, 31, pokeenemy -> evSpread, 0);
+                for (j = 0; j < MAX_MON_MOVES; j++)
+        {
+            SetMonMoveAvoidReturn(&gEnemyParty[i], pokeenemy -> moves[j], j);
+        }
+
+        SetMonData(&gEnemyParty[i], MON_DATA_FRIENDSHIP, 0);
+        SetMonData(&gEnemyParty[i], MON_DATA_HELD_ITEM, &gBattleFrontierHeldItems[pokeenemy -> itemTableId]);
+                    break;
+                }
+		// NUEVO RANDOM BATTLE 3 POKEMON NV80 MIN
+		
 		// NUEVO RANDOM BATTLE CC
                 if (FlagGet(FLAG_RYU_RANDOMBATTLECC) == 1)
                 {
