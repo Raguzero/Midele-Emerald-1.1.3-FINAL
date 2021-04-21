@@ -557,8 +557,14 @@ void BattleLoadOpponentMonSpriteGfx(struct Pokemon *mon, u8 battlerId)
             lzPaletteData = GetMonFrontSpritePal(mon);
         }
     }
-    else
+	else if (!SpeciesHasGenderDifference[species])
         lzPaletteData = GetMonSpritePalFromSpeciesAndPersonality(species, otId, monsPersonality);
+    else
+    {
+        // Esto garantiza que la paleta se escoge según el género del poke original, sin hacer que se copie el ser shiny
+        u32 xor = (monsPersonality ^ currentPersonality) & 0xFF;
+        lzPaletteData = GetMonSpritePalFromSpeciesAndPersonality(species, otId ^ xor, monsPersonality ^ xor);
+}
 
     LZDecompressWram(lzPaletteData, gDecompressionBuffer);
     LoadPalette(gDecompressionBuffer, paletteOffset, 0x20);
@@ -620,8 +626,14 @@ void BattleLoadPlayerMonSpriteGfx(struct Pokemon *mon, u8 battlerId)
 
     if (gBattleSpritesDataPtr->battlerData[battlerId].transformSpecies == SPECIES_NONE)
         lzPaletteData = GetMonFrontSpritePal(mon);
-    else
+	else if (!SpeciesHasGenderDifference[species])
         lzPaletteData = GetMonSpritePalFromSpeciesAndPersonality(species, otId, monsPersonality);
+    else
+    {
+        // Esto garantiza que la paleta se escoge según el género del poke original, sin hacer que se copie el ser shiny
+        u32 xor = (monsPersonality ^ currentPersonality) & 0xFF;
+        lzPaletteData = GetMonSpritePalFromSpeciesAndPersonality(species, otId ^ xor, monsPersonality ^ xor);
+}
 
     LZDecompressWram(lzPaletteData, gDecompressionBuffer);
     LoadPalette(gDecompressionBuffer, paletteOffset, 0x20);
@@ -942,7 +954,19 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, bool8 notTransform
         dst = (void *)(VRAM + 0x10000 + gSprites[gBattlerSpriteIds[battlerAtk]].oam.tileNum * 32);
         DmaCopy32(3, src, dst, 0x800);
         paletteOffset = 0x100 + battlerAtk * 16;
+		if (!SpeciesHasGenderDifference[targetSpecies])
         lzPaletteData = GetMonSpritePalFromSpeciesAndPersonality(targetSpecies, otId, personalityValue);
+		else
+{
+        // Esto garantiza que la paleta se escoge según el género del poke original, sin hacer que se copie el ser shiny
+        u32 xor, originalPersonalityValue;
+        if (GetBattlerSide(battlerDef) == B_SIDE_OPPONENT)
+                originalPersonalityValue = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerDef]], MON_DATA_PERSONALITY);
+        else
+                originalPersonalityValue = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerDef]], MON_DATA_PERSONALITY);
+        xor = (personalityValue ^ originalPersonalityValue) & 0xFF;
+        lzPaletteData = GetMonSpritePalFromSpeciesAndPersonality(targetSpecies, otId ^ xor, personalityValue ^ xor);
+}
         LZDecompressWram(lzPaletteData, gDecompressionBuffer);
         LoadPalette(gDecompressionBuffer, paletteOffset, 32);
 
