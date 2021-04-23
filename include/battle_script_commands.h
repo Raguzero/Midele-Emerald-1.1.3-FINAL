@@ -4,6 +4,12 @@
 #define WINDOW_CLEAR            0x1
 #define WINDOW_x80              0x80
 
+struct StatFractions
+{
+    u8 dividend;
+    u8 divisor;
+};
+
 void AI_CalcDmg(u8 battlerIdAtk, u8 battlerIdDef);
 u8 TypeCalc(u16 move, u8 battlerIdAtk, u8 battlerIdDef);
 u8 AI_TypeCalc(u16 move, u16 targetSpecies, u8 targetAbility);
@@ -17,5 +23,6 @@ bool8 UproarWakeUpCheck(u8 battlerId);
 
 extern void (* const gBattleScriptingCommandsTable[])(void);
 extern const u8 gUnknown_0831C494[][4];
+extern const struct StatFractions sAccuracyStageRatios[];
 
 #endif // GUARD_BATTLE_SCRIPT_COMMANDS_H

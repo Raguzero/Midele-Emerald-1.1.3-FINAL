@@ -2473,8 +2473,68 @@ static void Cmd_get_curr_dmg_hp_percent(void)
 
 static void Cmd_if_accuracy_less_than(void)
 {
-    if (gBattleMoves[AI_THINKING_STRUCT->moveConsidered].accuracy < gAIScriptPtr[1])
-        gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
+    u8 type, finalAcc, evasion;
+    s8 buff;
+    u16 move = AI_THINKING_STRUCT->moveConsidered;
+    u16 accuracy = gBattleMoves[move].accuracy;
+
+    gAIScriptPtr += 6; // asume que la precisión no es menor (no salta) hasta que se observe lo contrario
+    if (accuracy == 0)
+        return;
+    // Comprueba distintas situaciones en las que los movs no fallan o pierden precisión
+    // Se ignoran algunas cosas porque afectan por igual a todos los movimientos
+    // o porque la IA no las sabe (Sand Veil, BrightPowder...)
+
+    // Lock-On, Mind Reader
+    if (gStatuses3[gBattlerTarget] & STATUS3_ALWAYS_HITS && gDisableStructs[gBattlerTarget].battlerWithSureHit == sBattler_AI)
+        return;
+    // No Guard
+    if (gBattleMons[gBattlerTarget].ability == ABILITY_NO_GUARD || gBattleMons[sBattler_AI].ability == ABILITY_NO_GUARD)
+        return;
+
+    // ataques que cambian de precisión en clima
+    if (WEATHER_HAS_EFFECT) {
+        if (gBattleMoves[move].effect == EFFECT_THUNDER) {
+            if (gBattleWeather & WEATHER_RAIN_ANY)
+                return;
+            if (gBattleWeather & WEATHER_SUN_ANY)
+                accuracy = 50;
+        }
+        else if ((gBattleWeather & WEATHER_HAIL_ANY) && move == MOVE_BLIZZARD)
+            return;
+    }
+
+    // Comprueba cambios de stats en Precisión y Evasión
+    evasion = gBattleMons[gBattlerTarget].statStages[STAT_EVASION];
+    if (gBattleMons[sBattler_AI].ability == ABILITY_KEEN_EYE && evasion > 6)
+        evasion = 6;
+
+ if (gBattleMons[gBattlerTarget].status2 & STATUS2_FORESIGHT)
+    {
+        u8 acc = gBattleMons[sBattler_AI].statStages[STAT_ACC];
+        buff = acc; // ignora la Evasión del rival (sí, aunque sea negativa)
+    }
     else
-        gAIScriptPtr += 6;
+    {
+        u8 acc = gBattleMons[sBattler_AI].statStages[STAT_ACC];
+        buff = acc + 6 - evasion;
+    }
+
+    if (buff < 0)   buff = 0;
+    if (buff > 0xC) buff = 0xC;
+
+    // Solo se tiene en cuenta una menor precisión si estamos comparando con precisión 100
+    if (sAccuracyStageRatios[buff].dividend >= sAccuracyStageRatios[buff].divisor || gAIScriptPtr[1] == 100)
+        accuracy = (sAccuracyStageRatios[buff].dividend * accuracy) / sAccuracyStageRatios[buff].divisor;
+
+    if (gBattleMons[sBattler_AI].ability == ABILITY_COMPOUND_EYES)
+        accuracy = (accuracy * 13) / 10;
+    GET_MOVE_TYPE(move, type);
+    if (gBattleMons[sBattler_AI].ability == ABILITY_HUSTLE && IS_TYPE_PHYSICAL(type) && gBattleMoves[move].power > 0)
+        accuracy = (accuracy * 4) / 5;
+
+    // Determina si la precisión es menor que la pedida
+    finalAcc = (u8) accuracy;
+    if (accuracy < 0x100 && finalAcc < gAIScriptPtr[1])
+        gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
 }

@@ -812,13 +812,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
 	Cmd_trainerslideout2                        //0xFB
 };
 
-struct StatFractions
-{
-    u8 dividend;
-    u8 divisor;
-};
-
-static const struct StatFractions sAccuracyStageRatios[] =
+const struct StatFractions sAccuracyStageRatios[] =
 {
     { 33, 100}, // -6
     { 36, 100}, // -5
