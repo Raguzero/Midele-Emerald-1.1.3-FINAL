@@ -11,11 +11,11 @@ const struct BossBattle gBossBattles[] = {
         .music = JENOVA,
         .boss = BOSS_CORONA,
     },
-    [BOSS_BATTLE_YETI] =
+    [BOSS_BATTLE_TOTEM_WINTASS] =
     {
-        .battleType = BATTLE_TYPE_BOSS,
-        .music = FF6BOSS,
-        .boss = BOSS_YETI,
+        .battleType = BATTLE_TYPE_TOTEM,
+        .music = MUS_RG_VS_LAST,
+        .boss = TOTEM_WINTASS,
     },
     [BOSS_BATTLE_TOTEM_TOXTRICITY] =
     {

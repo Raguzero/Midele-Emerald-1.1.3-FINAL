@@ -40,12 +40,12 @@
     "object_events": [
         {
             "elevation": 3,
-            "flag": "FLAG_DEFEATED_IZABE_GIANT_1",
+            "flag": "FLAG_DEFEATED_IZABE_TOTEM",
             "graphics_id": "EVENT_OBJ_GFX_QUINTY_PLUMP",
             "movement_range_x": 0,
             "movement_range_y": 0,
             "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-            "script": "IzabeIsland_OutskirtsCave_EventScript_Titan",
+            "script": "IzabeIsland_OutskirtsCave_EventScript_Totem",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
             "x": 8,
