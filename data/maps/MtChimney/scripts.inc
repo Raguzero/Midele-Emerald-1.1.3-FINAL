@@ -69,6 +69,7 @@ MtChimney_EventScript_Maxie:: @ 822EE0B
 	compare VAR_FACING, DIR_NORTH
 	call_if_eq MtChimney_EventScript_ArchieExitNorth
 	removeobject 1
+	call MtChimney_EventScript_Darkizard
 	setflag FLAG_HIDE_MT_CHIMNEY_TEAM_AQUA
 	setflag FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY
 	clearflag FLAG_HIDE_FALLARBOR_HOUSE_PROF_COZMO
@@ -537,6 +538,85 @@ MtChimney_EventScript_SawyerRematch:: @ 822F253
 	msgbox MtChimney_Text_SawyerPostRematch, MSGBOX_AUTOCLOSE
 	end
 
+MtChimney_EventScript_Darkizard::
+	lock
+	compare VAR_FACING, DIR_NORTH
+	goto_if_eq MtChimney_EventScript_Darkizard_2
+	applymovement 31, DarkizardMovementEast
+	waitmovement 0
+MtChimney_EventScript_Darkizard_1:
+	msgbox MtChimney_EventScript_Darkizard_Text_0
+	compare VAR_FACING, DIR_NORTH
+	goto_if_eq MtChimney_EventScript_Darkizard_6
+	applymovement 31, DarkizardMovementLeaveEast
+	waitmovement 0
+MtChimney_EventScript_Darkizard_5:
+	removeobject 31
+	release
+	return
+
+MtChimney_EventScript_Darkizard_2:
+	applymovement 31, DarkizardMovementNorth
+	waitmovement 0
+	goto MtChimney_EventScript_Darkizard_1
+
+MtChimney_EventScript_Darkizard_6:
+	applymovement 31, DarkizardMovementLeaveNorth
+	waitmovement 0
+	goto MtChimney_EventScript_Darkizard_5
+
+DarkizardMovementEast:
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_down
+	walk_down
+	jump_down
+	jump_down
+	walk_right
+	walk_right
+	walk_up
+	walk_right
+	step_end
+
+DarkizardMovementNorth:
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_down
+	walk_down
+	jump_down
+	jump_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+DarkizardMovementLeaveNorth:
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+DarkizardMovementLeaveEast:
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
 MtChimney_Text_MeteoriteWillActivateVolcano: @ 822F26A
 	.string "The power contained in the METEORITE…\p"
 	.string "By amplifying its power with this\n"
@@ -848,3 +928,38 @@ MtChimney_Text_SawyerPostRematch: @ 8230614
 	.string "Actually, it really is hot here.\n"
 	.string "I'm overdressed for these parts.$"
 
+MtChimney_EventScript_Darkizard_Text_0:
+	.string "Así... que incluso hasta este supuesto\n"
+	.string "mundo idílico, no escapa de la\l"
+	.string "estupidez de la humanidad....\p"
+	.string "Tú, criatura, ¿fuiste quien lo\n"
+	.string "derrotó?...\p"
+	.string "Ya veo, es gracioso que un mortal que\n"
+	.string "apenas lleva una década en este mundo\l"
+	.string "tenga más luz que esos idiotas,\l"
+	.string "usualmente estaría a favor del caos y\l"
+	.string "la destrucción que esos subhumanos\l"
+	.string "quieren provocar, pero son tan\l"
+	.string "subnormales que piensan que lo hacen\l"
+	.string "por el bien de la humanidad fu fu fu...\p"
+	.string "¿Sabes, criatura? Idiotas como esos\n"
+	.string "que se engañan a sí mismos con\l"
+	.string "mentiras y se escudan en otros en\l"
+	.string "lugar de confiar en su propia fuerza me\l"
+	.string "dan asco... por lo que, si los ves\l"
+	.string "nuevamente... me harías un gran favor\l"
+	.string "si les revientas la boca con esos\l"
+	.string "monstruitos tuyos, de lo contrario...\l"
+	.string "prepárate para que esta realidad se\l"
+	.string "convierta en un yermo deshabitado a\l"
+	.string "causa de la arrogancia de unos\l"
+	.string "descerebrados...\p"
+	.string "¿Que quién soy yo? Ahora no tengo\n"
+	.string "tiempo para explicártelo, pero solo te\l"
+	.string "diré que estoy a la caza de una\l"
+	.string "criatura temible que engatusa los\l"
+	.string "corazones de la gente de mente débil,\l"
+	.string "ten cuidado si ves a una niña de gorro\l"
+	.string "blanco, es... una amenaza mucho más\l"
+	.string "grande que estos zopencos del equipo\l"
+	.string "aqua o magma intentan hacerte creer.$"
