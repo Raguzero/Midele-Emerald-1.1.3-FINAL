@@ -116,12 +116,20 @@ Route102_Text_RouteSignPetalburg: @ 81EC373
 	.string "{LEFT_ARROW} PETALBURG CITY$"
 
 Route102_Text_IsmaPKMIntro:
-  .string "Hora de poner a mi GUILMON a prueba.\p"
+  .string "Los POKéMON están sobrevalorados, los\n"
+  .string "DIGIMON son mejores.\p"
+  .string "¿Eres un de esos POKéMANIACOS...? Nivel\n"
+  .string "de mal rollo al 87%...\p"
+  .string "...\p"
+  .string "Hora de poner a mi GUILMON a prueba.\n"
   .string "¡Vamos, GUILMON! ¡Poder digital!$"
 Route102_Text_IsmaPKMDefeated:
-  .string "Nivel de mal rollo: 50%...$"
+  .string "MI OIDO PRO\n"
+  .string "ASSFHAKLGSDGLJKSAJLSJKF\l"
+  .string "NSDJLKNJKLAGDNJKLNFDJKL$"
 Route102_Text_IsmaPKMPostBattle:
-  .string "El GUILMON que me ha dado ese tal\n"
-  .string "A.VADER es bastante débil.\p"
-  .string "Pero lo entrenaré hasta que sea el\n"
-  .string "mejor GUILMON.$"
+  .string "Espera... esto no es un GUILMON... ¡es un\n"
+  .string "CHARMANDER! Ese maldito A.VADER me ha\l"
+  .string "timado.\p"
+  .string "Mejor me voy a jugar FINAL FANTASY\n"
+  .string "VIII, que me ha dado la nostalgia...$"
