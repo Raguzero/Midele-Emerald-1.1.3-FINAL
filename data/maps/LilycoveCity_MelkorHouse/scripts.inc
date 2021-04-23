@@ -98,6 +98,11 @@ LilycoveCity_MelkorHouse_EventScript_Melkor_20:
 	goto_if_ne LilycoveCity_MelkorHouse_EventScript_Melkor_19
 	goto LilycoveCity_MelkorHouse_EventScript_Melkor_18
 
+LilycoveCity_MelkorHouse_EventScript_PCPokexperto::
+	lock
+	msgbox LilycoveCity_MelkorHouse_EventScript_PCPokexperto_Text
+	release
+	return
 
 LilycoveCity_MelkorHouse_EventScript_Alliare_Text_0:
 	.string "ALLIARE: Los foros están pasados de\n"
@@ -162,3 +167,30 @@ LilycoveCity_MelkorHouse_EventScript_Melkor_Text_5:
 	.string "Entonces será mejor que te largues de\n"
 	.string "aquí antes de que te lleve a los\l"
 	.string "tribunales.$"
+
+LilycoveCity_MelkorHouse_EventScript_PCPokexperto_Text:
+	.string "PC iniciado. Conectándose a\n"
+	.string "Pokéxperto.net.\p"
+	.string "...\p"
+	.string "...\p"
+	.string "...\p"
+	.string "Estableciendo una conexión TLS con\n"
+	.string "pokexperto.net...\p"
+	.string "Enviando datos a pokexperto.net...\p"
+	.string "Esperando a pokexperto.net...\p"
+	.string "...\p"
+	.string "...\p"
+	.string "...\p"
+	.string "...\p"
+	.string "Cargando foros Pokéxperto...\p"
+	.string "Cargando comentarios flood de Micolo y\n"
+	.string "poke-xavi...\p"
+	.string "Cargando calendario de eventos\n"
+	.string "bugeado... (quedan -1230 días para el\l"
+	.string "evento de DARKRAI)\p"
+	.string "Cargando emoticonos...\p"
+	.string "...\p"
+	.string "...\p"
+	.string "...\p"
+	.string "... ERROR 500 INTERNAL SERVER ERROR.\p"
+	.string "No te has podido conectar a PxP :($"
