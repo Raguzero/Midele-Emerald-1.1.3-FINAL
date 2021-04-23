@@ -125,7 +125,8 @@ LilycoveCity_MelkorHouse_EventScript_Melkor_Text_0:
 LilycoveCity_MelkorHouse_EventScript_Melkor_Text_1:
 	.string "¿Eh? ¿Quién eres? ¿Alguien de la MAFIA?\n"
 	.string "¿Uno de mis haters? Que sepas que soy\l"
-	.string "abogado, podría llevarte a los\l"
+	.string "abogado, y no me hagas la rima que ya\l"
+	.string "somos mayorcitos, podría llevarte a los\l"
 	.string "tribunales por allanamiento de morada\l"
 	.string "y tráfico de POKéMON en peligro...\p"
 	.string "...\p"
