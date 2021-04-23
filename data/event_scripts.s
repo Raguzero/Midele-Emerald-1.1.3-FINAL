@@ -1157,3 +1157,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/GymSanty2/scripts.inc"
 
 	.include "data/maps/GymGooses/scripts.inc"
+
+	.include "data/maps/LilycoveCity_MelkorHouse/scripts.inc"

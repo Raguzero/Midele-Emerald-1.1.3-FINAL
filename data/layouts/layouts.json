@@ -4819,6 +4819,16 @@
             "primary_tileset": "gTileset_Building",
             "secondary_tileset": "gTileset_TrainerHill",
             "width": 30
+        },
+        {
+            "blockdata_filepath": "data/layouts/LilycoveCity_MelkorHouse/map.bin",
+            "border_filepath": "data/layouts/LilycoveCity_MelkorHouse/border.bin",
+            "height": 10,
+            "id": "LAYOUT_LILYCOVE_CITY_MELKOR_HOUSE",
+            "name": "LilycoveCity_MelkorHouse_Layout",
+            "primary_tileset": "gTileset_Building",
+            "secondary_tileset": "gTileset_BrendansMaysHouse",
+            "width": 14
         }
     ],
     "layouts_table_label": "gMapLayouts"

@@ -662,5 +662,7 @@ LilycoveCity_Text_HoneymoonVowToSeeRarePokemon: @ 81E49F4
 	.string "I mean, we are totally happy!$"
 	
 LilycoveCity_Text_MelkorHouseSign:
-	.string "CASA DE MELKOR$"
-
+	.string "CASA DE MELKOR\p"
+	.string "Hay algo garabateado en una esquina\n"
+	.string "del cartel...\p"
+	.string "“MELKOR, PAGA EL SERVER”$"
