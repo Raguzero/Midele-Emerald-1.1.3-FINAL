@@ -93,22 +93,27 @@ IzabeIsland_OutskirtsCave_EventScript_HideLavender::
 	removeobject 2
 	end
 
-IzabeIsland_OutskirtsCave_EventScript_Titan::
+IzabeIsland_OutskirtsCave_EventScript_Totem::
 	lockall
-	setvar VAR_0x8004, BOSS_BATTLE_YETI
-	special CreateBossBattleMon
-	special BattleSetup_StartBossBattle
-	waitstate
+	playmoncry SPECIES_WINTASS, 2
+	delay 40
+	waitmoncry
+	msgbox IzabeIsland_OutskirtsCave_Text_TotemAppears, MSGBOX_DEFAULT
+    setvar VAR_0x8004, BOSS_BATTLE_TOTEM_WINTASS
+    special CreateBossBattleMon
+    special BattleSetup_StartBossBattle
+    waitstate
 	setvar VAR_LAST_TALKED, 1
 	specialvar VAR_RESULT, GetBattleOutcome
 	compare VAR_RESULT, B_OUTCOME_WON
-	call_if_eq IzabeIsland_OutskirtsCave_EventScript_Titan_Won
+	call_if_eq IzabeIsland_OutskirtsCave_EventScript_Totem_Won
 	releaseall
 	end
 
-IzabeIsland_OutskirtsCave_EventScript_Titan_Won::
-	setflag FLAG_DEFEATED_IZABE_GIANT_1
+IzabeIsland_OutskirtsCave_EventScript_Totem_Won::
+	setflag FLAG_DEFEATED_IZABE_TOTEM
 	removeobject 1
+	msgbox IzabeIsland_OutskirtsCave_Text_TotemDisappears
 	return
 
 IzabeIsland_OutskirtsCave_EventScript_Braille_ThreeRegi::
@@ -231,3 +236,10 @@ IzabeIsland_OutskirtsCave_Text_Lavender_TryGiveItem::
 
 IzabeIsland_OutskirtsCave_Text_DoorOpen::
 	.string "Se ha abierto un agujero en la pared.$"
+
+IzabeIsland_OutskirtsCave_Text_TotemAppears:
+	.string "WINTASS, the Totem Pokémon of\n" 
+	.string "IZABE ISLAND, has appeared!$"
+
+IzabeIsland_OutskirtsCave_Text_TotemDisappears:
+	.string "WINTASS disappeared...$"

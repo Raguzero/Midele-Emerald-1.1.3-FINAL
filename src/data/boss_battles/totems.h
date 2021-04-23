@@ -44,5 +44,17 @@ const struct TotemMon gTotemMons[] =
         .abilityNumber = 0,
         .statBoosts = {6, 6, 8, 6, 6, 8, 6, 6},
         .evs = {252, 100, 56, 100, 56, 56},
+    },
+    // TODO: cambiar moveset y stats
+    [TOTEM_WINTASS] =
+    {
+        .species = SPECIES_WINTASS,
+        .minLevel = 35,
+        .moves = {MOVE_FLAMETHROWER, MOVE_SOLAR_BEAM, MOVE_LEECH_LIFE, MOVE_CRUNCH},
+        .item = ITEM_LEFTOVERS,
+        .nature = NATURE_QUIET,
+        .abilityNumber = 0,
+        .statBoosts = {6, 6, 8, 6, 6, 8, 6, 6},
+        .evs = {252, 100, 56, 100, 56, 56},
     }
 };

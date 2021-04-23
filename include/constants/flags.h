@@ -513,7 +513,7 @@
 #define FLAG_RECEIVED_IZABE_ITEM_LUCKY_EGG           0x1DE // Previously unused Flag
 #define FLAG_RECEIVED_MICOLO_MON             0x1DF // Previously unused Flag
 #define FLAG_RECEIVED_IZABE_ITEM_LAVENDER    0x1E0 // Previously unused Flag
-#define FLAG_DEFEATED_IZABE_GIANT_1          0x1E1 // Previously unused Flag
+#define FLAG_DEFEATED_IZABE_TOTEM          0x1E1 // Previously unused Flag
 #define FLAG_DEFEATED_REGIGIGAS              0x1E2 // Previously unused Flag
 #define FLAG_CAUGHT_REGIGIGAS                0x1E3 // Previously unused Flag
 
