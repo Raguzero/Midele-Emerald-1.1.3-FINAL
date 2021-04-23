@@ -1739,6 +1739,8 @@ AI_CV_VitalThrow_End:
 	end
 
 AI_CV_Substitute:
+	goto AI_IsHealingAbilityActive
+AI_CV_SubstituteStart:
 	if_not_status2 AI_TARGET, STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION, AI_CV_Substitute1
 	if_status3 AI_TARGET, STATUS3_PERISH_SONG, AI_CV_SubstitutePlus3Continue
 	if_status AI_TARGET, STATUS1_BURN | STATUS1_PSN_ANY, AI_CV_SubstitutePlus1Continue
@@ -1784,6 +1786,21 @@ AI_CV_Substitute8:
 	if_random_less_than 100, AI_CV_Substitute_End
 	score +1
 AI_CV_Substitute_End:
+	end
+	
+@ Check for abilities that let the user spam Substitute under certain conditions
+AI_IsHealingAbilityActive:
+	if_ability AI_USER, ABILITY_ICE_BODY, AI_HealHail
+	if_ability AI_USER, ABILITY_RAIN_DISH, AI_HealRain
+	if_ability AI_USER, ABILITY_DRY_SKIN, AI_HealRain
+	goto AI_CV_SubstituteStart
+
+AI_HealHail:
+	if_equal AI_WEATHER_HAIL, AI_CV_SubstitutePlus1Continue
+	end
+
+AI_HealRain:
+	if_equal AI_WEATHER_RAIN, AI_CV_SubstitutePlus1Continue
 	end
 
 AI_CV_Recharge:
@@ -1965,6 +1982,11 @@ AI_CV_Encore_EncouragedMovesToEncore:
     .byte EFFECT_WATER_SPORT
     .byte EFFECT_DRAGON_DANCE
     .byte EFFECT_CAMOUFLAGE
+	.byte EFFECT_QUIVER_DANCE
+   	.byte EFFECT_COIL
+    .byte EFFECT_SPECIAL_ATTACK_UP_2
+    .byte EFFECT_SPECIAL_ATTACK_UP_3
+    .byte EFFECT_SPEED_UP_2
     .byte -1
 
 AI_CV_PainSplit:
@@ -2646,6 +2668,7 @@ AI_CV_ChangeSelfAbility_AbilitiesToEncourage:
     .byte ABILITY_SNOW_CLOAK
     .byte ABILITY_SAND_RUSH
     .byte ABILITY_SLUSH_RUSH
+    .byte ABILITY_SAND_FORCE
     .byte -1
 
 AI_CV_Superpower:
@@ -2939,6 +2962,9 @@ AI_TryToFaint_DoubleSuperEffective:
 	end
 
 AI_TryToFaint_TryToEncourageQuickAttack:
+    if_not_effect EFFECT_PURSUIT, AI_TryToFaint_SkipPursuitBonus
+    score +3
+AI_TryToFaint_SkipPursuitBonus:
     if_not_effect EFFECT_SOLARBEAM, AI_TryToFaint_NotSolarBeamOnSun
     get_weather
     if_not_equal AI_WEATHER_SUN, AI_TryToFaint_End
@@ -3245,6 +3271,9 @@ AI_TrySkillSwapOnAlly2:
 	if_has_move AI_USER_PARTNER, MOVE_DYNAMIC_PUNCH, AI_TrySkillSwapOnAllyPlus3
 	if_has_move AI_USER_PARTNER, MOVE_BLIZZARD, AI_TrySkillSwapOnAllyPlus3
 	if_has_move AI_USER_PARTNER, MOVE_MEGAHORN, AI_TrySkillSwapOnAllyPlus3
+	if_has_move AI_USER_PARTNER, MOVE_ZAP_CANNON, AI_TrySkillSwapOnAllyPlus3
+	if_has_move AI_USER_PARTNER, MOVE_STONE_EDGE, AI_TrySkillSwapOnAllyPlus3
+	if_has_move AI_USER_PARTNER, MOVE_GUNK_SHOT, AI_TrySkillSwapOnAllyPlus3
 	goto Score_Minus30_
 
 AI_TrySkillSwapOnAllyPlus3:
@@ -3387,6 +3416,7 @@ AI_HPAware_DiscouragedEffectsWhenMediumHP: @ 82DE22D
     .byte EFFECT_BULK_UP
     .byte EFFECT_CALM_MIND
     .byte EFFECT_DRAGON_DANCE
+	.byte EFFECT_SPECIAL_ATTACK_UP_3
     .byte -1
 
 AI_HPAware_DiscouragedEffectsWhenLowHP: @ 82DE258
@@ -3437,6 +3467,9 @@ AI_HPAware_DiscouragedEffectsWhenLowHP: @ 82DE258
     .byte EFFECT_BULK_UP
     .byte EFFECT_CALM_MIND
     .byte EFFECT_DRAGON_DANCE
+	.byte EFFECT_QUIVER_DANCE
+	.byte EFFECT_COIL
+	.byte EFFECT_SPECIAL_ATTACK_UP_3
     .byte -1
 
 AI_HPAware_DiscouragedEffectsWhenTargetHighHP: @ 82DE288
@@ -3544,6 +3577,9 @@ AI_HPAware_DiscouragedEffectsWhenTargetLowHP: @ 82DE2B1
     .byte EFFECT_BULK_UP
     .byte EFFECT_CALM_MIND
     .byte EFFECT_DRAGON_DANCE
+	.byte EFFECT_QUIVER_DANCE
+	.byte EFFECT_COIL
+	.byte EFFECT_SPECIAL_ATTACK_UP_3
     .byte -1
 
 AI_Unknown:
