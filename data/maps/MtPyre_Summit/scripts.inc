@@ -45,6 +45,7 @@ MtPyre_Summit_EventScript_TeamAquaExits:: @ 823203C
 	call_if_eq MtPyre_Summit_EventScript_ArchieFacePlayer2
 	msgbox MtPyre_Summit_Text_ArchieWeGotTheOrbLetsGo, MSGBOX_DEFAULT
 	closemessage
+	call MtPyre_Summit_EventScript_Micolo
 	fadescreen FADE_TO_BLACK
 	removeobject 2
 	removeobject 4
@@ -312,6 +313,91 @@ MtPyre_Summit_EventScript_MaxieApproachArchie2:: @ 8232392
 	applymovement 2, Common_Movement_WalkInPlaceFastestRight
 	waitmovement 0
 	return
+
+MtPyre_Summit_EventScript_Micolo::
+	addobject 9
+	playbgm THATPERSONSNAMEIS, 1
+	compare VAR_0x8008, 0
+	goto_if_eq MtPyre_Summit_EventScript_Micolo_2
+	compare VAR_0x8008, 1
+	goto_if_eq MtPyre_Summit_EventScript_Micolo_3
+	applymovement 9, MtPyre_Summit_Movement_Micolo_2
+	waitmovement 0
+MtPyre_Summit_EventScript_Micolo_1:
+	applymovement EVENT_OBJ_ID_PLAYER, Common_Movement_FaceDown
+	waitmovement 0
+	msgbox MtPyre_Summit_EventScript_Micolo_Text_0
+	trainerbattle_no_intro TRAINER_MICOLO_2, MtPyre_Summit_EventScript_Micolo_Text_1
+	msgbox MtPyre_Summit_EventScript_Micolo_Text_2
+	closemessage
+	applymovement 9, MtPyre_Summit_Movement_Micolo_Leaves
+	waitmovement 0
+	removeobject 9
+	applymovement EVENT_OBJ_ID_PLAYER, Common_Movement_FaceUp
+	waitmovement 0
+	playbgm MUS_MACHUPI, 1
+	release
+	return
+
+MtPyre_Summit_EventScript_Micolo_2:
+	applymovement 9, MtPyre_Summit_Movement_Micolo_0
+	waitmovement 0
+	goto MtPyre_Summit_EventScript_Micolo_1
+
+MtPyre_Summit_EventScript_Micolo_3:
+	applymovement 9, MtPyre_Summit_Movement_Micolo_1
+	waitmovement 0
+	goto MtPyre_Summit_EventScript_Micolo_1
+
+MtPyre_Summit_Movement_Micolo_0:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+MtPyre_Summit_Movement_Micolo_1:
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+MtPyre_Summit_Movement_Micolo_2:
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+MtPyre_Summit_Movement_Micolo_Leaves:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
 
 MtPyre_Summit_Movement_PlayerFaceMaxie0: @ 82323AE
 	delay_16
@@ -636,3 +722,41 @@ MtPyre_Summit_Text_HoennTrioTale: @ 823325D
 	.string "Then, its duty done, the green POKéMON\n"
 	.string "flew off into the wild blue yonder…$"
 
+MtPyre_Summit_EventScript_Micolo_Text_0:
+	.string "LOOOOOOOOOOOOOOOOL\p"
+	.string "MICOLO: Hola, reina n.n\p"
+	.string "El equipo AQUA y MAGMA son muy noobs\n"
+	.string "xDDDDDDD\p"
+	.string "Si el magma es rojo, GROUDON es rojo y\n"
+	.string "los trajes del equipo MAGMA son rojos,\l"
+	.string "¿por qué se llevan la esfera AZUL en\l"
+	.string "vez de la ROJA?\p"
+	.string "porque tienen daltonismo\n"
+	.string "LOOOOOOOOOOOOOOOOOOOL\p"
+	.string "Si se usa la ESFERA ROJA en KYOGRE o\n"
+	.string "viceversa, ¿qué crees que ocurrirá? n.n\p"
+	.string "MOLTRES: si ocurre eso GROUDON y\n"
+	.string "KYOGRE se desbocarán\p"
+	.string "ARTICUNO: cállate pollo frito\p"
+	.string "MICOLO: LOOOOOOOOOOOOOOOOL\p"
+	.string "Como el equipo AQUA y MAGMA son tan\n"
+	.string "NOOBS, probablemente te toque a ti\l"
+	.string "detenerlos n.n\p"
+	.string "¿Estás preparado para ello? Hora de\n"
+	.string "comprobarlo n.n$"
+
+MtPyre_Summit_EventScript_Micolo_Text_1:
+	.string "Todo va como he planeado... n.n$"
+
+MtPyre_Summit_EventScript_Micolo_Text_2:
+	.string "MICOLO: has mejorado mucho, no tendrás\n"
+	.string "problemas con AQUA y MAGMA... y\l"
+	.string "seguramente puedas derrotar a la LIGA\l"
+	.string "POKéMON...\p"
+	.string "No creo que nos veamos en bastante\n"
+	.string "tiempo... n.n\p"
+	.string "Pero no te preocupes, cuando llegue el\n"
+	.string "momento me pondré en contacto\l"
+	.string "contigo.\p"
+	.string "Recuerda, monociclo porque mono es uno\n"
+	.string "y la vida es un ciclo.$"

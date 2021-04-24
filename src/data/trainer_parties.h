@@ -3333,23 +3333,6 @@ static const struct TrainerMonCustomMidele sParty_Micolo1[] = {
     .moves = {MOVE_GLARE, MOVE_THUNDER_SHOCK, MOVE_NIGHT_SHADE, MOVE_DOUBLE_KICK}
     }
 };
-
-static const struct TrainerMonCustomMidele sParty_GruntMuseum2[] = {
-    {
-    .iv = 31,
-    .lvl = 18,
-    .species = SPECIES_ZUBAT,
-	.evs = {0, 48, 0, 0, 0, 0},
-    .moves = {MOVE_WING_ATTACK, MOVE_HYPNOSIS, MOVE_BITE, MOVE_POISON_FANG}
-    },
-    {
-    .iv = 31,
-    .lvl = 17,
-    .species = SPECIES_WAILMER,
-	.evs = {48, 0, 0, 0, 0, 0},
-    .moves = {MOVE_MIST, MOVE_WATER_GUN, MOVE_ROLLOUT, MOVE_NONE}
-    }
-};
 // OCEANIC MUSEUM
 
 
@@ -23795,4 +23778,22 @@ static const struct TrainerMonCustomMidele sParty_RandomGym[] = {
         .iv = 31,
         .species = SPECIES_WIGGLYTUFF
         }
+};
+
+static const struct TrainerMonCustomMidele sParty_Micolo2[] = {
+	// TODO MIDELE: FALTA EQUIPO
+    {
+    .iv = 31,
+    .lvl = 35,
+    .species = SPECIES_DARK_PIKACHU,
+    .evs = {0, 0, 0, 0, 0, 48},
+    .moves = {MOVE_GLARE, MOVE_THUNDER_SHOCK, MOVE_NIGHT_SHADE, MOVE_DOUBLE_KICK}
+    },
+    {
+    .iv = 31,
+    .lvl = 35,
+    .species = SPECIES_DARK_PIKACHU,
+    .evs = {0, 0, 0, 0, 0, 48},
+    .moves = {MOVE_GLARE, MOVE_THUNDER_SHOCK, MOVE_NIGHT_SHADE, MOVE_DOUBLE_KICK}
+    }
 };

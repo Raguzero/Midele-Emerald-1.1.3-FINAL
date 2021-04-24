@@ -187,6 +187,19 @@
             "trainer_type": "0",
             "x": 23,
             "y": 6
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_HIDE_MTPYRE_MICOLO",
+            "graphics_id": "EVENT_OBJ_GFX_BOY_1",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "NULL",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 26,
+            "y": 15
         }
     ],
     "region_map_section": "MAPSEC_MT_PYRE",
