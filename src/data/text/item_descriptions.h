@@ -1011,8 +1011,8 @@ static const u8 sThickClubDesc[] = _(
     "MAROWAK's ATTACK.");
 
 static const u8 sStickDesc[] = _(
-    "A hold item that\n"
-    "raises FARFETCH'D's\n"
+    "Hold item: raises\n"
+    "FARFETCH'D KANTO\n"
     "ATK, SPEED & CRIT.");
 
 static const u8 sRedScarfDesc[] = _(
