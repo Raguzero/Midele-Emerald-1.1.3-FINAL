@@ -218,6 +218,7 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_LOCK_ON, AI_CBM_LockOn
 	if_effect EFFECT_COIL, AI_CBM_Coil
 	if_effect EFFECT_TAUNT, AI_CBM_Taunt
+	if_effect EFFECT_PROTECT, AI_CBM_Protect
 	if_effect EFFECT_HEAL_BELL, AI_CBM_HealBell
 	if_effect EFFECT_HEAL_PULSE, Score_Minus5
 	if_effect EFFECT_MIDELE_POWER Score_Plus10
@@ -640,6 +641,12 @@ AI_CBM_HealBell_End:
 AI_CBM_Taunt:
 	if_ability_might_be AI_TARGET, ABILITY_OBLIVIOUS, Score_Minus10
 	if_target_taunted Score_Minus10
+	end
+	
+AI_CBM_Protect:
+	get_protect_count AI_USER
+	if_more_than 2, Score_Minus10
+	if_status AI_TARGET, STATUS1_SLEEP | STATUS1_FREEZE, Score_Minus8
 	end
 	
 AI_CBM_Coil:
@@ -2146,7 +2153,7 @@ AI_CV_Protect:
 	if_status3 AI_TARGET, STATUS3_YAWN, AI_CV_Protect_ScoreUp2
 	get_last_used_bank_move AI_TARGET
 	get_move_effect_from_result
-	if_not_equal EFFECT_LOCK_ON, AI_CV_Protect_ScoreUp2
+	if_equal EFFECT_LOCK_ON, AI_CV_Protect_ScoreUp2
 	goto AI_CV_Protect2
 
 AI_CV_Protect_ScoreUp2:
@@ -2173,7 +2180,7 @@ AI_CV_ProtectUserStatused:
 AI_CV_Protect3:
 	get_last_used_bank_move AI_TARGET
 	get_move_effect_from_result
-	if_not_equal EFFECT_LOCK_ON, AI_CV_Protect_End
+	if_equal EFFECT_LOCK_ON, AI_CV_Protect_End
 
 AI_CV_Protect_ScoreDown5:
 	score -5
@@ -3061,6 +3068,11 @@ AI_SetupFirstTurn_SetupEffectsToEncourage:
     .byte EFFECT_CALM_MIND
     .byte EFFECT_CAMOUFLAGE
     .byte EFFECT_QUIVER_DANCE
+    .byte EFFECT_COIL
+    .byte EFFECT_RAIN_DANCE
+    .byte EFFECT_SUNNY_DAY
+    .byte EFFECT_SANDSTORM
+    .byte EFFECT_HAIL
     .byte -1
 
 AI_PreferStrongestMove:
@@ -3416,7 +3428,7 @@ AI_HPAware_DiscouragedEffectsWhenMediumHP: @ 82DE22D
     .byte EFFECT_BULK_UP
     .byte EFFECT_CALM_MIND
     .byte EFFECT_DRAGON_DANCE
-	.byte EFFECT_SPECIAL_ATTACK_UP_3
+	.byte EFFECT_ATTACK_SPATK_UP
     .byte -1
 
 AI_HPAware_DiscouragedEffectsWhenLowHP: @ 82DE258
@@ -3470,6 +3482,7 @@ AI_HPAware_DiscouragedEffectsWhenLowHP: @ 82DE258
 	.byte EFFECT_QUIVER_DANCE
 	.byte EFFECT_COIL
 	.byte EFFECT_SPECIAL_ATTACK_UP_3
+	.byte EFFECT_ATTACK_SPATK_UP
     .byte -1
 
 AI_HPAware_DiscouragedEffectsWhenTargetHighHP: @ 82DE288
@@ -3515,6 +3528,7 @@ AI_HPAware_DiscouragedEffectsWhenTargetMediumHP: @ 82DE289
     .byte EFFECT_BULK_UP
     .byte EFFECT_CALM_MIND
     .byte EFFECT_DRAGON_DANCE
+	.byte EFFECT_ATTACK_SPATK_UP
     .byte -1
 
 AI_HPAware_DiscouragedEffectsWhenTargetLowHP: @ 82DE2B1
@@ -3580,6 +3594,7 @@ AI_HPAware_DiscouragedEffectsWhenTargetLowHP: @ 82DE2B1
 	.byte EFFECT_QUIVER_DANCE
 	.byte EFFECT_COIL
 	.byte EFFECT_SPECIAL_ATTACK_UP_3
+	.byte EFFECT_ATTACK_SPATK_UP
     .byte -1
 
 AI_Unknown:
