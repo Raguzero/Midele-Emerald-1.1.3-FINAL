@@ -92,8 +92,9 @@ AI_CheckBadMove_CheckSoundproof_: @ 82DBFF7
 	if_equal 0, AI_CheckBadMove_CheckSoundproof
 
 AI_CheckBadMove_CheckSoundproof: @ 82DBFFE
-	get_ability AI_TARGET
-	if_not_equal ABILITY_SOUNDPROOF, AI_CheckBadMove_CheckEffect
+    if_ability_might_be AI_TARGET, ABILITY_SOUNDPROOF, AI_CheckBadMove_CheckSoundMoves
+    goto AI_CheckBadMove_CheckEffect
+AI_CheckBadMove_CheckSoundMoves:
 	if_move MOVE_GROWL, Score_Minus10
 	if_move MOVE_ROAR, Score_Minus10
 	if_move MOVE_SING, Score_Minus10
@@ -103,6 +104,10 @@ AI_CheckBadMove_CheckSoundproof: @ 82DBFFE
 	if_move MOVE_UPROAR, Score_Minus10
 	if_move MOVE_METAL_SOUND, Score_Minus10
 	if_move MOVE_GRASS_WHISTLE, Score_Minus10
+	if_move MOVE_HYPER_VOICE, Score_Minus10
+	if_move MOVE_PERISH_SONG, Score_Minus10
+	if_move MOVE_OVERDRIVE, Score_Minus10
+	if_move MOVE_BOOMBURST, Score_Minus10
 
 AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_SLEEP, AI_CBM_Sleep
@@ -198,11 +203,10 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_MEMENTO, AI_CBM_Memento
 	if_effect EFFECT_FOCUS_PUNCH, AI_CBM_HighRiskForDamage
 	if_effect EFFECT_HELPING_HAND, AI_CBM_HelpingHand
-	if_effect EFFECT_TRICK, AI_CBM_TrickAndKnockOff
+	if_effect EFFECT_TRICK, AI_CBM_Trick
 	if_effect EFFECT_INGRAIN, AI_CBM_Ingrain
 	if_effect EFFECT_SUPERPOWER, AI_CBM_HighRiskForDamage
 	if_effect EFFECT_RECYCLE, AI_CBM_Recycle
-	if_effect EFFECT_KNOCK_OFF, AI_CBM_TrickAndKnockOff
 	if_effect EFFECT_ENDEAVOR, AI_CBM_HighRiskForDamage
 	if_effect EFFECT_IMPRISON, AI_CBM_Imprison
 	if_effect EFFECT_REFRESH, AI_CBM_Refresh
@@ -222,18 +226,23 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_HEAL_BELL, AI_CBM_HealBell
 	if_effect EFFECT_HEAL_PULSE, Score_Minus5
 	if_effect EFFECT_MIDELE_POWER Score_Plus10
+	if_effect EFFECT_YAWN, AI_CBM_Sleep
+	if effect EFFECT_MIMIC, AI_CMB_Mimic
 	end
 
 AI_CBM_Sleep: @ 82DC2D4
     if_ability_might_be AI_TARGET, ABILITY_INSOMNIA, Score_Minus10
     if_ability_might_be AI_TARGET, ABILITY_VITAL_SPIRIT, Score_Minus10
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_status AI_TARGET, STATUS1_ANY, Score_Minus10
+	if_status3 AI_TARGET, STATUS3_YAWN, Score_Minus10
 	if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
 	end
 
 AI_CBM_Explosion: @ 82DC2F7
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
     if_ability_might_be AI_TARGET, ABILITY_DAMP, Score_Minus10
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus8
 	count_usable_party_mons AI_USER
 	if_not_equal 0, AI_CBM_Explosion_End
 	count_usable_party_mons AI_TARGET
@@ -245,11 +254,13 @@ AI_CBM_Explosion_End: @ 82DC31A
 
 AI_CBM_Nightmare: @ 82DC31B
 	if_status2 AI_TARGET, STATUS2_NIGHTMARE, Score_Minus10
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_not_status AI_TARGET, STATUS1_SLEEP, Score_Minus8
 	end
 
 AI_CBM_DreamEater: @ 82DC330
 	if_not_status AI_TARGET, STATUS1_SLEEP, Score_Minus8
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
 	end
 
@@ -285,33 +296,40 @@ AI_CBM_EvasionUp: @ 82DC37E
 	end
 
 AI_CBM_AttackDown: @ 82DC387
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_stat_level_equal AI_TARGET, STAT_ATK, 0, Score_Minus10
     if_ability_might_be AI_TARGET, ABILITY_HYPER_CUTTER, Score_Minus10
 	goto CheckIfAbilityBlocksStatChange
 
 AI_CBM_DefenseDown: @ 82DC39C
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_stat_level_equal AI_TARGET, STAT_DEF, 0, Score_Minus10
 	goto CheckIfAbilityBlocksStatChange
 
 AI_CBM_SpeedDown: @ 82DC3A9
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_stat_level_equal AI_TARGET, STAT_SPEED, 0, Score_Minus10
 	if_ability_might_be AI_TARGET, ABILITY_SPEED_BOOST, Score_Minus10
 	goto CheckIfAbilityBlocksStatChange
 
 AI_CBM_SpAtkDown: @ 82DC3BF
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_stat_level_equal AI_TARGET, STAT_SPATK, 0, Score_Minus10
 	goto CheckIfAbilityBlocksStatChange
 
 AI_CBM_SpDefDown: @ 82DC3CC
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_stat_level_equal AI_TARGET, STAT_SPDEF, 0, Score_Minus10
 	goto CheckIfAbilityBlocksStatChange
 
 AI_CBM_AccDown: @ 82DC3D9
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_stat_level_equal AI_TARGET, STAT_ACC, 0, Score_Minus10
     if_ability_might_be AI_TARGET, ABILITY_KEEN_EYE, Score_Minus10
 	goto CheckIfAbilityBlocksStatChange
 
 AI_CBM_EvasionDown: @ 82DC3EE
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_stat_level_equal AI_TARGET, STAT_EVASION, 0, Score_Minus10
 
 CheckIfAbilityBlocksStatChange: @ 82DC3F6
@@ -355,6 +373,8 @@ AI_CBM_Toxic: @ 82DC48C
 	if_equal TYPE_POISON, Score_Minus10
 AI_CBM_Toxic_SkipTypeCheck:
     if_ability_might_be AI_TARGET, ABILITY_IMMUNITY, Score_Minus10
+    if_ability_might_be AI_TARGET, ABILITY_GUTS, Score_Minus8
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_status AI_TARGET, STATUS1_ANY, Score_Minus10
 	if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
 	end
@@ -367,6 +387,7 @@ AI_CBM_OneHitKO: @ 82DC4D0
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
     if_ability_might_be AI_TARGET, ABILITY_STURDY, Score_Minus10
 	if_level_cond 1, Score_Minus10
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus5
 	end
 
 AI_CBM_Magnitude: @ 82DC4E5
@@ -392,6 +413,7 @@ AI_CBM_FocusEnergy: @ 82DC512
 
 AI_CBM_Confuse: @ 82DC51D
 	if_status2 AI_TARGET, STATUS2_CONFUSION, Score_Minus5
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_ability_might_be AI_TARGET, ABILITY_OWN_TEMPO, Score_Minus10
 	if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
 	end
@@ -405,7 +427,9 @@ AI_CBM_Paralyze: @ 82DC545
     if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
 AI_CBM_Paralyze_SkipEffectiveness:
 	if_ability_might_be AI_TARGET, ABILITY_LIMBER, Score_Minus10
+    if_ability_might_be AI_TARGET, ABILITY_GUTS, Score_Minus2
     if_status AI_TARGET, STATUS1_ANY, Score_Minus10
+	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
     if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
     if_move MOVE_THUNDER_WAVE, AI_ThunderWave
     end
@@ -422,6 +446,7 @@ AI_CBM_Substitute: @ 82DC568
 	end
 
 AI_CBM_LeechSeed: @ 82DC57A
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_status3 AI_TARGET, STATUS3_LEECHSEED, Score_Minus10
 	get_target_type1
 	if_equal TYPE_GRASS, Score_Minus10
@@ -442,6 +467,7 @@ AI_CBM_DamageDuringSleep: @ 82DC5A5
 	end
 
 AI_CBM_CantEscape: @ 82DC5B0
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_status2 AI_TARGET, STATUS2_ESCAPE_PREVENTION, Score_Minus10
 	end
 
@@ -501,6 +527,7 @@ AI_CBM_Safeguard: @ 82DC635
 	end
 
 AI_CBM_Memento: @ 82DC640
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_stat_level_equal AI_TARGET, STAT_ATK, 0, Score_Minus10
 	if_stat_level_equal AI_TARGET, STAT_SPATK, 0, Score_Minus8
 
@@ -526,6 +553,7 @@ AI_CBM_FutureSight: @ 82DC669
 	end
 
 AI_CBM_FakeOut: @ 82DC680
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus8
 	is_first_turn_for AI_USER
 	if_equal 0, Score_Minus10
 	end
@@ -553,7 +581,9 @@ AI_CBM_Torment: @ 82DC6A9
 AI_CBM_WillOWisp: @ 82DC6B4
     if_ability_might_be AI_TARGET, ABILITY_FLASH_FIRE, Score_Minus10
     if_ability_might_be AI_TARGET, ABILITY_WATER_VEIL, Score_Minus10
+    if_ability_might_be AI_TARGET, ABILITY_GUTS, Score_Minus8
 	if_status AI_TARGET, STATUS1_ANY, Score_Minus10
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	get_target_type1
     if_equal TYPE_FIRE, Score_Minus10
     get_target_type2
@@ -565,7 +595,8 @@ AI_CBM_HelpingHand: @ 82DC6E3
 	if_not_double_battle Score_Minus10
 	end
 
-AI_CBM_TrickAndKnockOff: @ 82DC6EB
+AI_CBM_Trick: @ 82DC6EB
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_ability_might_be AI_TARGET, ABILITY_STICKY_HOLD, Score_Minus10
 	end
 
@@ -626,6 +657,7 @@ AI_CBM_QuiverDance:
 	end
 	
 AI_CBM_LockOn:
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_status3 AI_TARGET, STATUS3_ALWAYS_HITS, Score_Minus10
 	if_ability_might_be AI_TARGET, ABILITY_NO_GUARD, Score_Minus10
 	if_ability AI_USER, ABILITY_NO_GUARD, Score_Minus10
@@ -653,6 +685,10 @@ AI_CBM_Coil:
 	if_stat_level_not_equal AI_USER, STAT_ATK, 12, AI_Ret
 	if_stat_level_not_equal AI_USER, STAT_DEF, 12, AI_Ret
 	if_stat_level_equal AI_USER, STAT_ACC, 12, Score_Minus10
+	end
+	
+AI_CMB_Mimic:
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	end
 
 @ If move doesn't do meaningful damage, switch out
@@ -1812,6 +1848,7 @@ AI_HealRain:
 	end
 
 AI_CV_Recharge:
+	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus2
 	if_type_effectiveness AI_EFFECTIVENESS_x0_25, AI_CV_Recharge_ScoreDown1
 	if_type_effectiveness AI_EFFECTIVENESS_x0_5, AI_CV_Recharge_ScoreDown1
 	if_target_faster AI_CV_Recharge2
@@ -1998,6 +2035,7 @@ AI_CV_Encore_EncouragedMovesToEncore:
     .byte -1
 
 AI_CV_PainSplit:
+	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_hp_less_than AI_TARGET, 80, AI_CV_PainSplit_ScoreDown1
 	if_target_faster AI_CV_PainSplit2
 	if_hp_more_than AI_USER, 40, AI_CV_PainSplit_ScoreDown1
@@ -2132,6 +2170,7 @@ AI_CV_Curse3:
 	goto AI_CV_Curse_End
 
 AI_CV_Curse4:
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_hp_more_than AI_USER, 80, AI_CV_Curse_End
 	score -1
 
