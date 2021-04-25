@@ -1528,6 +1528,7 @@ static u8 DexNavGeneratePotential(u8 searchLevel)
 static u8 GetEncounterLevelFromMapData(u16 species, u8 environment)
 {
     u16 headerId = GetCurrentMapWildMonHeaderId();
+
     const struct WildPokemonInfo *landMonsInfo = gWildMonHeaders[headerId].landMonsInfo;
 	const struct WildPokemonInfo *landMonsNightInfo = gWildMonHeaders[headerId].landMonsNightInfo;
 	const struct WildPokemonInfo *waterMonsInfo = gWildMonHeaders[headerId].waterMonsInfo;
@@ -1535,6 +1536,9 @@ static u8 GetEncounterLevelFromMapData(u16 species, u8 environment)
     u8 min = 100;
     u8 max = 0;
     u8 i;
+	
+    if (headerId == 0xFFFF)
+       return MON_LEVEL_NONEXISTENT;
     
     switch (environment)
     {
@@ -1869,6 +1873,9 @@ static bool8 CapturedAllHiddenMons(u8 headerId)
 static void DexNavLoadCapturedAllSymbols(void)
 {
     u8 headerId = GetCurrentMapWildMonHeaderId();
+	
+    if (headerId == 0xFFFF)
+        return;
     
     LoadCompressedSpriteSheetUsingHeap(&sCapturedAllPokemonSpriteSheet);
 
@@ -1994,6 +2001,9 @@ static void DexNavLoadEncounterData(void)
     memset(sDexNavUiDataPtr->waterSpecies, 0, sizeof(sDexNavUiDataPtr->waterSpecies));
     memset(sDexNavUiDataPtr->hiddenSpecies, 0, sizeof(sDexNavUiDataPtr->hiddenSpecies));
     
+	if (headerId == 0xFFFF)
+    return;
+	
 	if (IsCurrentlyDay())
     {
         // land mons
