@@ -227,7 +227,7 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_HEAL_PULSE, Score_Minus5
 	if_effect EFFECT_MIDELE_POWER Score_Plus10
 	if_effect EFFECT_YAWN, AI_CBM_Sleep
-	if effect EFFECT_MIMIC, AI_CMB_Mimic
+	if_effect EFFECT_MIMIC, AI_CMB_Mimic
 	end
 
 AI_CBM_Sleep: @ 82DC2D4
