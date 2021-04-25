@@ -802,6 +802,7 @@ AI_CheckViability:
 	if_effect EFFECT_MORNING_SUN, AI_CV_HealWeather
 	if_effect EFFECT_SYNTHESIS, AI_CV_HealWeather
 	if_effect EFFECT_MOONLIGHT, AI_CV_HealWeather
+	if_effect EFFECT_SHORE_UP, AI_CV_Heal
 	if_effect EFFECT_RAIN_DANCE, AI_CV_RainDance
 	if_effect EFFECT_SUNNY_DAY, AI_CV_SunnyDay
 	if_effect EFFECT_BELLY_DRUM, AI_CV_BellyDrum
@@ -3383,6 +3384,7 @@ AI_HPAware_DiscouragedEffectsWhenHighHP: @ 82DE21F
     .byte EFFECT_MEMENTO
     .byte EFFECT_GRUDGE
     .byte EFFECT_OVERHEAT
+    .byte EFFECT_SHORE_UP
     .byte -1
 
 AI_HPAware_DiscouragedEffectsWhenMediumHP: @ 82DE22D

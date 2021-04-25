@@ -1535,6 +1535,10 @@ static const u8 sDRILL_RUNDescription[] = _(
 static const u8 sLEAF_STORMDescription[] = _(
     "Allows a full-power attack,\n"
     "but sharply lowers SP. ATK.");
+	
+static const u8 sSHORE_UPDescription[] = _(
+	"Restores the user's HP.\n"
+	"More HP in a sandstorm.");
 
 // MOVE_NONE is ignored in this table. Make sure to always subtract 1 before getting the right pointer.
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
@@ -1924,5 +1928,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_DARK_THUNDER - 1] = sDARKTHUNDERDescription,
     [MOVE_DRILL_RUN - 1] = sDRILL_RUNDescription,
     [MOVE_LEAF_STORM - 1] = sLEAF_STORMDescription,
+    [MOVE_SHORE_UP - 1] = sSHORE_UPDescription,
 	// NUEVO MOVE TIPO HADA
 };

@@ -12948,7 +12948,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
 
     [FRONTIER_MON_SANDYGAST] = {
         .species = SPECIES_SANDYGAST,
-        .moves = {MOVE_EARTHQUAKE, MOVE_SHADOW_BALL, MOVE_RECOVER, MOVE_TRICK},
+        .moves = {MOVE_EARTHQUAKE, MOVE_SHADOW_BALL, MOVE_SHORE_UP, MOVE_TRICK},
         .itemTableId = BATTLE_FRONTIER_ITEM_MACHO_BRACE,
         .evSpread = F_EV_SPREAD_HP | F_EV_SPREAD_DEFENSE,
         .nature = NATURE_IMPISH
@@ -12956,7 +12956,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
 
     [FRONTIER_MON_PALOSSAND_1] = {
         .species = SPECIES_PALOSSAND,
-        .moves = {MOVE_EARTHQUAKE, MOVE_SHADOW_BALL, MOVE_RECOVER, MOVE_TRICK},
+        .moves = {MOVE_EARTHQUAKE, MOVE_SHADOW_BALL, MOVE_SHORE_UP, MOVE_TRICK},
         .itemTableId = BATTLE_FRONTIER_ITEM_MACHO_BRACE,
         .evSpread = F_EV_SPREAD_HP | F_EV_SPREAD_DEFENSE,
         .nature = NATURE_IMPISH
@@ -12964,7 +12964,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
 
     [FRONTIER_MON_PALOSSAND_2] = {
         .species = SPECIES_PALOSSAND,
-        .moves = {MOVE_GIGA_DRAIN, MOVE_PSYCHIC, MOVE_RECOVER, MOVE_TOXIC},
+        .moves = {MOVE_GIGA_DRAIN, MOVE_PSYCHIC, MOVE_SHORE_UP, MOVE_TOXIC},
         .itemTableId = BATTLE_FRONTIER_ITEM_LEFTOVERS,
         .evSpread = F_EV_SPREAD_HP | F_EV_SPREAD_DEFENSE,
         .nature = NATURE_CALM
@@ -12972,7 +12972,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
 
     [FRONTIER_MON_PALOSSAND_3] = {
         .species = SPECIES_PALOSSAND,
-        .moves = {MOVE_IRON_DEFENSE, MOVE_RECYCLE, MOVE_RECOVER, MOVE_BLOCK},
+        .moves = {MOVE_IRON_DEFENSE, MOVE_RECYCLE, MOVE_SHORE_UP, MOVE_BLOCK},
         .itemTableId = BATTLE_FRONTIER_ITEM_LEPPA_BERRY,
         .evSpread = F_EV_SPREAD_HP | F_EV_SPREAD_DEFENSE,
         .nature = NATURE_CAREFUL

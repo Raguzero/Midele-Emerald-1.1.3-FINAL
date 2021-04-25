@@ -954,6 +954,7 @@ static const bool8 sValidApprenticeMoves[MOVES_COUNT] =
 	[MOVE_ACCELEROCK] = TRUE,
 	[MOVE_DRILL_RUN] = TRUE,
 	[MOVE_LEAF_STORM] = TRUE,
+	[MOVE_SHORE_UP] = TRUE,
 };
 
 // The possible questions to ask after the initial 3 WHICH MON questions. Retrieved from here and shuffled

@@ -400,6 +400,7 @@ gBattleAnims_Moves::
 	.4byte Move_DARK_THUNDER
 	.4byte Move_DRILL_RUN
 	.4byte Move_LEAF_STORM
+	.4byte Move_SHORE_UP
 	.4byte Move_COUNT @ cannot be reached, because last move is Psycho Boost
 
 	.align 2
@@ -11189,6 +11190,26 @@ Move_LEAF_STORM:
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 1, 12, 0, RGB(13, 31, 12)
 	waitforvisualfinish
 	clearmonbg ANIM_DEF_PARTNER
+	end
+	
+Move_SHORE_UP:
+	loadspritegfx ANIM_TAG_FLYING_DIRT
+	playsewithpan SE_W201, 0
+	createvisualtask AnimTask_LoadSandstormBackground, 5, FALSE
+	delay 16
+	createsprite gBattleAnimSpriteTemplate_8596BA0, ANIM_ATTACKER, 40, 10, 2304, 96, 0
+	delay 10
+	createsprite gBattleAnimSpriteTemplate_8596BA0, ANIM_ATTACKER, 40, 90, 2048, 96, 0
+	delay 10
+	createsprite gBattleAnimSpriteTemplate_8596BA0, ANIM_ATTACKER, 40, 50, 2560, 96, 0
+	delay 10
+	createsprite gBattleAnimSpriteTemplate_8596BA0, ANIM_ATTACKER, 40, 20, 2304, 96, 0
+	delay 10
+	createsprite gBattleAnimSpriteTemplate_8596BA0, ANIM_ATTACKER, 40, 70, 1984, 96, 0
+	delay 10
+	createsprite gBattleAnimSpriteTemplate_8596BA0, ANIM_ATTACKER, 40, 0, 2816, 96, 0
+	delay 10
+	createsprite gBattleAnimSpriteTemplate_8596BA0, ANIM_ATTACKER, 40, 60, 2560, 96, 0
 	end
 
 Move_COUNT:

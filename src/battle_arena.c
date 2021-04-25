@@ -428,6 +428,7 @@ static const s8 sMindRatings[] =
     [MOVE_DARK_THUNDER] = 1,
     [MOVE_DRILL_RUN] = 1,
     [MOVE_LEAF_STORM] = 1,
+    [MOVE_SHORE_UP] = 0,
 };
 
 #define TAG_JUDGEMENT_ICON 1000

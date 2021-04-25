@@ -3017,7 +3017,15 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
 
     // [MOVE_GRAV_APPLE] = {0}, No tiene stats de concurso en ningún juego, será Cool 4* por defecto
 	// [MOVE_APPLE_ACID] = {0}, No tiene stats de concurso en ningún juego, será Cool 4* por defecto
-	// [MOVE_ACCELEROCK] = {0}, No tiene stats de concurso en ningún juego, será Cool 4* por defecto
+	
+    [MOVE_ACCELEROCK] =
+    {
+        .effect = CONTEST_EFFECT_NEXT_APPEAL_EARLIER,
+        .contestCategory = CONTEST_CATEGORY_TOUGH,
+        .comboStarterId = 0,
+        .comboMoves = {0},
+    },
+
 	// [MOVE_DARK_THUNDER] = {0}, No tiene stats de concurso en ningún juego, será Cool 4* por defecto
     [MOVE_DRILL_RUN] =
     {
@@ -3033,6 +3041,14 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
         .contestCategory = CONTEST_CATEGORY_BEAUTY,
         .comboStarterId = 0,
         .comboMoves = {0},
+    },
+	
+    [MOVE_SHORE_UP] =
+    {
+        .effect = CONTEST_EFFECT_QUALITY_DEPENDS_ON_TIMING,
+        .contestCategory = CONTEST_CATEGORY_TOUGH,
+        .comboStarterId = 0,
+        .comboMoves = {COMBO_STARTER_SANDSTORM},
     },
 };
 

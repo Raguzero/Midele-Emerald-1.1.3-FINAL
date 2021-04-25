@@ -237,6 +237,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectRecoil50
 	.4byte BattleScript_EffectHealPulse
 	.4byte BattleScript_EffectRecoilStruggleNewGen
+	.4byte BattleScript_EffectShoreUp
 
 BattleScript_EffectSpeedUp::
 BattleScript_EffectSpecialDefenseUp::
@@ -1786,6 +1787,7 @@ BattleScript_EffectSonicboom::
 BattleScript_EffectMorningSun::
 BattleScript_EffectSynthesis::
 BattleScript_EffectMoonlight::
+BattleScript_EffectShoreUp::
 	attackcanceler
 	attackstring
 	ppreduce
