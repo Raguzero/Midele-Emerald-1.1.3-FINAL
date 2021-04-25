@@ -1539,6 +1539,10 @@ static const u8 sLEAF_STORMDescription[] = _(
 static const u8 sSHORE_UPDescription[] = _(
 	"Restores the user's HP.\n"
 	"More HP in a sandstorm.");
+	
+static const u8 sDRAGON_HAMMERDescription[] = _(
+	"Swings its whole body\n"
+	"like a hammer to damage.");
 
 // MOVE_NONE is ignored in this table. Make sure to always subtract 1 before getting the right pointer.
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
@@ -1897,7 +1901,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_WATER_PULSE - 1] = sWaterPulseDescription,
     [MOVE_DOOM_DESIRE - 1] = sDoomDesireDescription,
     [MOVE_PSYCHO_BOOST - 1] = sPsychoBoostDescription,
-	// NUEVO MOVE TIPO HADA
+	// NUEVOS MOVES
     [MOVE_FAIRY_WIND - 1] = sFAIRY_WINDDescription,
     [MOVE_MOONBLAST - 1] = sMOONBLASTDescription,
 	[MOVE_DAZZLING_GLEAM - 1] = sDAZZLING_GLEAMDescription,
@@ -1929,5 +1933,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_DRILL_RUN - 1] = sDRILL_RUNDescription,
     [MOVE_LEAF_STORM - 1] = sLEAF_STORMDescription,
     [MOVE_SHORE_UP - 1] = sSHORE_UPDescription,
-	// NUEVO MOVE TIPO HADA
+    [MOVE_DRAGON_HAMMER - 1] = sDRAGON_HAMMERDescription,
+	// NUEVOS MOVES
 };

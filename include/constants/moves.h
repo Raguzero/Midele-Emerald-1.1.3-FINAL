@@ -387,8 +387,9 @@
 #define MOVE_DRILL_RUN 383
 #define MOVE_LEAF_STORM 384
 #define MOVE_SHORE_UP 385
+#define MOVE_DRAGON_HAMMER 386
 
-#define MOVES_COUNT 386
+#define MOVES_COUNT 387
 
 // NUEVO: Poder de Hidden Power
 #define MOVE_HIDDEN_POWER_DMG 70
