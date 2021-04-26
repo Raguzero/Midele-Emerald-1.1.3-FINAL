@@ -4761,7 +4761,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
     [MOVE_SHADOW_SNEAK] =
     {
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_QUICK_ATTACK,
         .power = 40,
         .type = TYPE_GHOST,
         .accuracy = 100,
@@ -4929,7 +4929,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
     [MOVE_ACCELEROCK] =
     {
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_QUICK_ATTACK,
         .power = 40,
         .type = TYPE_ROCK,
         .accuracy = 100,

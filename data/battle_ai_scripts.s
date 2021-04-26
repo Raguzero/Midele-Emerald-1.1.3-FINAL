@@ -228,6 +228,7 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_MIDELE_POWER Score_Plus10
 	if_effect EFFECT_YAWN, AI_CBM_Sleep
 	if_effect EFFECT_MIMIC, AI_CMB_Mimic
+	if_effect EFFECT_TEETER_DANCE, AI_CBM_Confuse
 	end
 
 AI_CBM_Sleep: @ 82DC2D4
@@ -326,11 +327,13 @@ AI_CBM_AccDown: @ 82DC3D9
     if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_stat_level_equal AI_TARGET, STAT_ACC, 0, Score_Minus10
     if_ability_might_be AI_TARGET, ABILITY_KEEN_EYE, Score_Minus10
+    if_ability_might_be AI_TARGET, ABILITY_NO_GUARD, Score_Minus10
 	goto CheckIfAbilityBlocksStatChange
 
 AI_CBM_EvasionDown: @ 82DC3EE
     if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_stat_level_equal AI_TARGET, STAT_EVASION, 0, Score_Minus10
+	goto CheckIfAbilityBlocksStatChange
 
 CheckIfAbilityBlocksStatChange: @ 82DC3F6
     if_ability_might_be AI_TARGET, ABILITY_CLEAR_BODY, Score_Minus10
@@ -361,6 +364,7 @@ AI_CBM_Roar: @ 82DC47B
 	count_usable_party_mons AI_TARGET
 	if_equal 0, Score_Minus10
     if_ability_might_be AI_TARGET, ABILITY_SUCTION_CUPS, Score_Minus10
+	if_status3 AI_TARGET, STATUS3_ROOTED, Score_Minus10
 	end
 
 AI_CBM_Toxic: @ 82DC48C
@@ -530,6 +534,7 @@ AI_CBM_Memento: @ 82DC640
     if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_stat_level_equal AI_TARGET, STAT_ATK, 0, Score_Minus10
 	if_stat_level_equal AI_TARGET, STAT_SPATK, 0, Score_Minus8
+	goto CheckIfAbilityBlocksStatChange
 
 AI_CBM_BatonPass: @ 82DC650
 	count_usable_party_mons AI_USER
@@ -1881,6 +1886,7 @@ AI_CV_Disable_End:
 
 AI_CV_Counter:
 	if_status AI_TARGET, STATUS1_SLEEP, AI_CV_Counter_ScoreDown1
+	if_status AI_TARGET, STATUS1_FREEZE, AI_CV_Counter_ScoreDown1
 	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_Counter_ScoreDown1
 	if_status2 AI_TARGET, STATUS2_CONFUSION, AI_CV_Counter_ScoreDown1
 	if_hp_more_than AI_USER, 30, AI_CV_Counter2
@@ -2410,6 +2416,7 @@ AI_CV_PsychUp_End:
 
 AI_CV_MirrorCoat:
 	if_status AI_TARGET, STATUS1_SLEEP, AI_CV_MirrorCoat_ScoreDown1
+	if_status AI_TARGET, STATUS1_FREEZE, AI_CV_MirrorCoat_ScoreDown1
 	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_MirrorCoat_ScoreDown1
 	if_status2 AI_TARGET, STATUS2_CONFUSION, AI_CV_MirrorCoat_ScoreDown1
 	if_hp_more_than AI_USER, 30, AI_CV_MirrorCoat2
@@ -2774,6 +2781,7 @@ AI_CV_Recycle_ItemsToEncourage:
     .byte ITEM_CHESTO_BERRY
     .byte ITEM_LUM_BERRY
     .byte ITEM_STARF_BERRY
+    .byte ITEM_SITRUS_BERRY
     .byte -1
 
 AI_CV_Revenge:
@@ -3113,6 +3121,7 @@ AI_SetupFirstTurn_SetupEffectsToEncourage:
     .byte EFFECT_SUNNY_DAY
     .byte EFFECT_SANDSTORM
     .byte EFFECT_HAIL
+    .byte EFFECT_STOCKPILE
     .byte -1
 
 AI_PreferStrongestMove:
@@ -3524,6 +3533,7 @@ AI_HPAware_DiscouragedEffectsWhenLowHP: @ 82DE258
 	.byte EFFECT_COIL
 	.byte EFFECT_SPECIAL_ATTACK_UP_3
 	.byte EFFECT_ATTACK_SPATK_UP
+    .byte EFFECT_STOCKPILE
     .byte -1
 
 AI_HPAware_DiscouragedEffectsWhenTargetHighHP: @ 82DE288
@@ -3636,6 +3646,7 @@ AI_HPAware_DiscouragedEffectsWhenTargetLowHP: @ 82DE2B1
 	.byte EFFECT_COIL
 	.byte EFFECT_SPECIAL_ATTACK_UP_3
 	.byte EFFECT_ATTACK_SPATK_UP
+    .byte EFFECT_STOCKPILE
     .byte -1
 
 AI_Unknown:
