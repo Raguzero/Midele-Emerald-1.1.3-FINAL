@@ -149,7 +149,7 @@ u32 sub_805725C(u8 battlerId)
                     else
                         toSub = 1;
 
-                    if ((gBattleMons[battlerId].status1 & STATUS1_SLEEP) < toSub)
+                    if ((gBattleMons[battlerId].status1 & 0x3) <= toSub)
                         gBattleMons[battlerId].status1 &= ~(STATUS1_SLEEP);
                     else
                         gBattleMons[battlerId].status1 -= toSub;

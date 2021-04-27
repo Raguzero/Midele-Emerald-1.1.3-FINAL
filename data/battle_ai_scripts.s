@@ -467,7 +467,7 @@ AI_CBM_Encore: @ 82DC59D
 	end
 
 AI_CBM_DamageDuringSleep: @ 82DC5A5
-	if_not_status AI_USER, STATUS1_SLEEP, Score_Minus8
+	if_not_expected_to_sleep Score_Minus8
 	end
 
 AI_CBM_CantEscape: @ 82DC5B0
@@ -2071,8 +2071,8 @@ AI_CV_LockOn_End:
 	end
 
 AI_CV_SleepTalk:
-	if_status AI_USER, STATUS1_SLEEP, Score_Plus10
-	score -5
+    if_not_expected_to_sleep Score_Minus5
+    score +10
 	end
 
 AI_CV_DestinyBond:

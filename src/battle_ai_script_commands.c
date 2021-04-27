@@ -164,6 +164,7 @@ static void Cmd_get_hazards_count(void);
 static void Cmd_get_curr_dmg_hp_percent(void);
 static void Cmd_if_fear_hp_condition(void);
 static void Cmd_if_accuracy_less_than(void);
+static void Cmd_if_not_expected_to_sleep(void);
 
 // ewram
 EWRAM_DATA const u8 *gAIScriptPtr = NULL;
@@ -277,6 +278,7 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_get_curr_dmg_hp_percent,                    // 0x64
     Cmd_if_fear_hp_condition,                       // 0x65
 	Cmd_if_accuracy_less_than,                      // 0x66
+	Cmd_if_not_expected_to_sleep,                   // 0x67
 };
 
 static const u16 sDiscouragedPowerfulMoveEffects[] =
@@ -2537,4 +2539,12 @@ static void Cmd_if_accuracy_less_than(void)
     finalAcc = (u8) accuracy;
     if (accuracy < 0x100 && finalAcc < gAIScriptPtr[1])
         gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
+}
+
+static void Cmd_if_not_expected_to_sleep(void)
+{
+    if (!(gBattleMons[AI_USER].status1 & STATUS1_SLEEP) || (gBattleMons[AI_USER].status1 & STATUS1_SLEEP) == 5)
+        gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 1);
+    else
+        gAIScriptPtr += 5;
 }

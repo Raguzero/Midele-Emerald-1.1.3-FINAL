@@ -572,6 +572,11 @@
     .byte \acc
     .4byte \param2
     .endm
+	
+    .macro if_not_expected_to_sleep param:req
+    .byte 0x67
+    .4byte \param
+    .endm
 
 @ useful script macros
 	.macro get_curr_move_type
