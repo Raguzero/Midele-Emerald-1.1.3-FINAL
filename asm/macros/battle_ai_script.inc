@@ -577,6 +577,12 @@
     .byte 0x67
     .4byte \param
     .endm
+	
+    .macro if_receiving_wish battler:req, param:req
+    .byte 0x68
+    .byte \battler
+    .4byte \param
+    .endm
 
 @ useful script macros
 	.macro get_curr_move_type

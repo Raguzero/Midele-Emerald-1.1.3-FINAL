@@ -165,6 +165,7 @@ static void Cmd_get_curr_dmg_hp_percent(void);
 static void Cmd_if_fear_hp_condition(void);
 static void Cmd_if_accuracy_less_than(void);
 static void Cmd_if_not_expected_to_sleep(void);
+static void Cmd_if_receiving_wish(void);
 
 // ewram
 EWRAM_DATA const u8 *gAIScriptPtr = NULL;
@@ -279,6 +280,7 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_if_fear_hp_condition,                       // 0x65
 	Cmd_if_accuracy_less_than,                      // 0x66
 	Cmd_if_not_expected_to_sleep,                   // 0x67
+    Cmd_if_receiving_wish,                          // 0x68
 };
 
 static const u16 sDiscouragedPowerfulMoveEffects[] =
@@ -2547,4 +2549,19 @@ static void Cmd_if_not_expected_to_sleep(void)
         gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 1);
     else
         gAIScriptPtr += 5;
+}
+
+static void Cmd_if_receiving_wish(void)
+{
+    u16 battlerId;
+
+    if (gAIScriptPtr[1] == AI_USER)
+        battlerId = sBattler_AI;
+    else
+        battlerId = gBattlerTarget;
+
+    if (gWishFutureKnock.wishCounter[battlerId])
+        gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
+    else
+        gAIScriptPtr += 6;
 }

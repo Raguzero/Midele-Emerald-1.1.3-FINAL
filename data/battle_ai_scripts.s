@@ -229,6 +229,7 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_YAWN, AI_CBM_Sleep
 	if_effect EFFECT_MIMIC, AI_CMB_Mimic
 	if_effect EFFECT_TEETER_DANCE, AI_CBM_Confuse
+	if_effect EFFECT_WISH, AI_CBM_Wish
 	end
 
 AI_CBM_Sleep: @ 82DC2D4
@@ -450,6 +451,7 @@ AI_CBM_Substitute: @ 82DC568
 	end
 
 AI_CBM_LeechSeed: @ 82DC57A
+	if_ability_might_be AI_TARGET, ABILITY_LIQUID_OOZE, Score_Minus10
     if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_status3 AI_TARGET, STATUS3_LEECHSEED, Score_Minus10
 	get_target_type1
@@ -694,6 +696,10 @@ AI_CBM_Coil:
 	
 AI_CMB_Mimic:
     if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
+	end
+	
+AI_CBM_Wish:
+	if_receiving_wish AI_USER, Score_Minus10
 	end
 
 @ If move doesn't do meaningful damage, switch out
@@ -1651,6 +1657,7 @@ AI_CV_Rest_End:
 	end
 
 AI_CV_OneHitKO:
+	if_status3 AI_TARGET, STATUS3_ALWAYS_HITS, Score_Plus3
     if_ability AI_USER, ABILITY_NO_GUARD, Score_Plus3
     if_ability AI_TARGET, ABILITY_NO_GUARD, Score_Plus3
 	end
@@ -2122,7 +2129,7 @@ AI_CV_Flail_End:
 	end
 
 AI_CV_HealBell:
-	if_move MOVE_HEAL_BELL AI_CV_HealBell2
+	if_move MOVE_HEAL_BELL, AI_CV_HealBell2
 AI_CV_HealBellEnd:
 	end
 @ Don't use Heal Bell to heal a partner that has Soundproof
@@ -2200,6 +2207,7 @@ AI_CV_Protect:
 	get_last_used_bank_move AI_TARGET
 	get_move_effect_from_result
 	if_equal EFFECT_LOCK_ON, AI_CV_Protect_ScoreUp2
+	if_receiving_wish AI_USER, AI_CV_Protect_Wish
 	goto AI_CV_Protect2
 
 AI_CV_Protect_ScoreUp2:
@@ -2230,6 +2238,12 @@ AI_CV_Protect3:
 
 AI_CV_Protect_ScoreDown5:
 	score -5
+	
+AI_CV_Protect_Wish:
+	if_hp_more_than AI_USER, 75, Score_Minus3
+	if_hp_more_than AI_USER, 50, AI_CV_Protect_End
+	score +3
+	goto AI_CV_Protect_End
 
 AI_CV_Protect_End:
 	end
@@ -2273,6 +2287,7 @@ AI_CV_BatonPass:
 	if_stat_level_more_than AI_USER, STAT_DEF, 8, AI_CV_BatonPass2
 	if_stat_level_more_than AI_USER, STAT_SPATK, 8, AI_CV_BatonPass2
 	if_stat_level_more_than AI_USER, STAT_SPDEF, 8, AI_CV_BatonPass2
+	if_stat_level_more_than AI_USER, STAT_SPEED, 8, AI_CV_BatonPass2
 	if_stat_level_more_than AI_USER, STAT_EVASION, 8, AI_CV_BatonPass2
 	goto AI_CV_BatonPass5
 
@@ -2294,6 +2309,7 @@ AI_CV_BatonPass5:
 	if_stat_level_more_than AI_USER, STAT_DEF, 7, AI_CV_BatonPass7
 	if_stat_level_more_than AI_USER, STAT_SPATK, 7, AI_CV_BatonPass7
 	if_stat_level_more_than AI_USER, STAT_SPDEF, 7, AI_CV_BatonPass7
+	if_stat_level_more_than AI_USER, STAT_SPEED, 7, AI_CV_BatonPass7
 	if_stat_level_more_than AI_USER, STAT_EVASION, 7, AI_CV_BatonPass7
 	goto AI_CV_BatonPass_ScoreDown2
 
@@ -2483,7 +2499,7 @@ AI_CV_MirrorCoat_SpecialTypeList:
     .byte -1
 
 AI_CV_ChargeUpMove:
-if_not_effect EFFECT_SOLARBEAM, AI_CV_ChargeUpMove_NotSolarBeamOnSun
+	if_not_effect EFFECT_SOLARBEAM, AI_CV_ChargeUpMove_NotSolarBeamOnSun
     get_weather
     if_equal AI_WEATHER_SUN, AI_CV_ChargeUpMove_End
 AI_CV_ChargeUpMove_NotSolarBeamOnSun:
@@ -3008,6 +3024,7 @@ AI_TryToFaint:
 	if_can_faint AI_TryToFaint_TryToEncourageQuickAttack
 	get_how_powerful_move_is
 	if_equal MOVE_NOT_MOST_POWERFUL, Score_Minus1
+	if_equal 0, AI_Ret
 	if_type_effectiveness AI_EFFECTIVENESS_x4, AI_TryToFaint_DoubleSuperEffective
 	end
 
