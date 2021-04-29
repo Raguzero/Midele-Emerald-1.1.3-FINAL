@@ -230,6 +230,7 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_MIMIC, AI_CMB_Mimic
 	if_effect EFFECT_TEETER_DANCE, AI_CBM_Confuse
 	if_effect EFFECT_WISH, AI_CBM_Wish
+	if_effect EFFECT_FOLLOW_ME, AI_CBM_FollowMe
 	end
 
 AI_CBM_Sleep: @ 82DC2D4
@@ -239,6 +240,7 @@ AI_CBM_Sleep: @ 82DC2D4
 	if_status AI_TARGET, STATUS1_ANY, Score_Minus10
 	if_status3 AI_TARGET, STATUS3_YAWN, Score_Minus10
 	if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
+    if_ability_might_be AI_TARGET, ABILITY_EARLY_BIRD, Score_Minus5
 	end
 
 AI_CBM_Explosion: @ 82DC2F7
@@ -700,6 +702,11 @@ AI_CMB_Mimic:
 	
 AI_CBM_Wish:
 	if_receiving_wish AI_USER, Score_Minus10
+	end
+	
+AI_CBM_FollowMe:
+	if_not_double_battle Score_Minus10
+	@if_battler_absent AI_USER_PARTNER, Score_Minus10 NO EXISTE IF BATTLER_ABSENT
 	end
 
 @ If move doesn't do meaningful damage, switch out
@@ -1797,6 +1804,7 @@ AI_CV_VitalThrow_End:
 AI_CV_Substitute:
 	goto AI_IsHealingAbilityActive
 AI_CV_SubstituteStart:
+	if_ability AI_USER, ABILITY_SPEED_BOOST, AI_CV_Substitute_SpeedBoost
 	if_not_status2 AI_TARGET, STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION, AI_CV_Substitute1
 	if_status3 AI_TARGET, STATUS3_PERISH_SONG, AI_CV_SubstitutePlus3Continue
 	if_status AI_TARGET, STATUS1_BURN | STATUS1_PSN_ANY, AI_CV_SubstitutePlus1Continue
@@ -1841,6 +1849,10 @@ AI_CV_Substitute7:
 AI_CV_Substitute8:
 	if_random_less_than 100, AI_CV_Substitute_End
 	score +1
+AI_CV_Substitute_SpeedBoost:
+	if_user_faster Score_Plus5
+	score -3
+	goto AI_CV_Substitute_End
 AI_CV_Substitute_End:
 	end
 	
@@ -2084,6 +2096,7 @@ AI_CV_SleepTalk:
 
 AI_CV_DestinyBond:
 	score -1
+	if_status2 AI_USER, STATUS2_SUBSTITUTE, AI_CV_DestinyBond_End
 	if_target_faster AI_CV_DestinyBond_End
 	if_hp_more_than AI_USER, 70, AI_CV_DestinyBond_End
 	if_random_less_than 128, AI_CV_DestinyBond2
@@ -2193,6 +2206,7 @@ AI_CV_Curse_End:
 AI_CV_Protect:
 	get_protect_count AI_USER
 	if_more_than 1, AI_CV_Protect_ScoreDown5
+	if_ability AI_USER, ABILITY_SPEED_BOOST, AI_CV_Protect_Boost
 	if_status  AI_USER, STATUS1_PSN_ANY | STATUS1_BURN, AI_CV_ProtectUserStatused
 	if_status2 AI_USER, STATUS2_CURSED | STATUS2_INFATUATION, AI_CV_ProtectUserStatused
 	if_status3 AI_USER, STATUS3_PERISH_SONG | STATUS3_LEECHSEED | STATUS3_YAWN, AI_CV_ProtectUserStatused
@@ -2243,6 +2257,14 @@ AI_CV_Protect_Wish:
 	if_hp_more_than AI_USER, 75, Score_Minus3
 	if_hp_more_than AI_USER, 50, AI_CV_Protect_End
 	score +3
+	goto AI_CV_Protect_End
+	
+AI_CV_Protect_Boost:
+	is_first_turn_for AI_USER
+	if_equal 1, AI_CV_Protect_Boost2
+	goto AI_CV_Protect_End	
+AI_CV_Protect_Boost2:
+	if_target_faster Score_Plus10
 	goto AI_CV_Protect_End
 
 AI_CV_Protect_End:
