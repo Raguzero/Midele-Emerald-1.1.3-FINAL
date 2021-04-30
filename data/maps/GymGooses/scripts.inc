@@ -179,9 +179,17 @@ GymGooses_CasillaTableroCombate::
     call_if_eq CasillaTableroLoss
 CasillaTableroWin::
 	clearflag FLAG_RANDOMBATTLE_GYMGOOSES
-	closemessage
-	applymovement EVENT_OBJ_ID_PLAYER, GymGoosesMoverIzq
+	msgbox GymGoosesTirarDadoAgain_Text, MSGBOX_DEFAULT
+	waitmessage
+	random 6
+	addvar VAR_RESULT, 1
+	copyvar VAR_0x8004, VAR_RESULT
+	special Buffer0x8004VarToStringVar1
+	msgbox gText_DiceResult, MSGBOX_DEFAULT
+	waitmessage
+	applyrangemovement EVENT_OBJ_ID_PLAYER, GymGoosesDado1_Movement_PlayerDadoCombateGanado
 	waitmovement 0
+	special DoApplyrangemovementLastStep
 	release
 	end
 CasillaTableroLoss::
@@ -209,9 +217,17 @@ GymGooses_CasillaTableroCombate2::
     call_if_eq CasillaTableroLoss2
 CasillaTableroWin2::
 	clearflag FLAG_RANDOMBATTLE_GYMGOOSES
-	closemessage
-	applymovement EVENT_OBJ_ID_PLAYER, GymGoosesMoverDer
+	msgbox GymGoosesTirarDadoAgain_Text, MSGBOX_DEFAULT
+	waitmessage
+	random 6
+	addvar VAR_RESULT, 1
+	copyvar VAR_0x8004, VAR_RESULT
+	special Buffer0x8004VarToStringVar1
+	msgbox gText_DiceResult, MSGBOX_DEFAULT
+	waitmessage
+	applyrangemovement EVENT_OBJ_ID_PLAYER, GymGoosesDado2_Movement_PlayerDadoCombateGanado
 	waitmovement 0
+	special DoApplyrangemovementLastStep
 	release
 	end
 CasillaTableroLoss2::
@@ -239,9 +255,17 @@ GymGooses_CasillaTableroCombate3::
     call_if_eq CasillaTableroLoss3
 CasillaTableroWin3::
 	clearflag FLAG_RANDOMBATTLE_GYMGOOSES
-	closemessage
-	applymovement EVENT_OBJ_ID_PLAYER, GymGoosesMoverDown
+	msgbox GymGoosesTirarDadoAgain_Text, MSGBOX_DEFAULT
+	waitmessage
+	random 6
+	addvar VAR_RESULT, 1
+	copyvar VAR_0x8004, VAR_RESULT
+	special Buffer0x8004VarToStringVar1
+	msgbox gText_DiceResult, MSGBOX_DEFAULT
+	waitmessage
+	applyrangemovement EVENT_OBJ_ID_PLAYER, GymGoosesDado3_Movement_PlayerDadoCombateGanado
 	waitmovement 0
+	special DoApplyrangemovementLastStep
 	release
 	end
 CasillaTableroLoss3::
@@ -272,6 +296,7 @@ GymGooses_CasillaTableroStatus::
 GymGooses_CasillaTableroPregunta::
 	lock
 	faceplayer
+	setvar VAR_TEMP_1, 0
 	msgbox GymGoosesPregunta_Text, MSGBOX_DEFAULT
 	random 14
 	switch VAR_RESULT
@@ -289,7 +314,99 @@ GymGooses_CasillaTableroPregunta::
 	case 11, Script_QuizYESNO3
 	case 12, Script_QuizYESNO4
 	case 13, Script_QuizYESNO5
-	end	
+	end
+	
+GymGooses_CasillaTableroPregunta2::
+	lock
+	faceplayer
+	setvar VAR_TEMP_1, 1
+	msgbox GymGoosesPregunta_Text, MSGBOX_DEFAULT
+	random 14
+	switch VAR_RESULT
+	case 0, Script_Quiz1
+	case 1, Script_Quiz2
+	case 2, Script_Quiz3
+	case 3, Script_Quiz4
+	case 4, Script_Quiz5
+	case 5, Script_Quiz6
+	case 6, Script_Quiz7
+	case 7, Script_Quiz8
+	case 8, Script_Quiz9
+	case 9, Script_QuizYESNO1
+	case 10, Script_QuizYESNO2
+	case 11, Script_QuizYESNO3
+	case 12, Script_QuizYESNO4
+	case 13, Script_QuizYESNO5
+	end
+
+GymGooses_CasillaTableroPregunta3::
+	lock
+	faceplayer
+	setvar VAR_TEMP_1, 2
+	msgbox GymGoosesPregunta_Text, MSGBOX_DEFAULT
+	random 14
+	switch VAR_RESULT
+	case 0, Script_Quiz1
+	case 1, Script_Quiz2
+	case 2, Script_Quiz3
+	case 3, Script_Quiz4
+	case 4, Script_Quiz5
+	case 5, Script_Quiz6
+	case 6, Script_Quiz7
+	case 7, Script_Quiz8
+	case 8, Script_Quiz9
+	case 9, Script_QuizYESNO1
+	case 10, Script_QuizYESNO2
+	case 11, Script_QuizYESNO3
+	case 12, Script_QuizYESNO4
+	case 13, Script_QuizYESNO5
+	end
+
+GymGooses_CasillaTableroPregunta4::
+	lock
+	faceplayer
+	setvar VAR_TEMP_1, 3
+	msgbox GymGoosesPregunta_Text, MSGBOX_DEFAULT
+	random 14
+	switch VAR_RESULT
+	case 0, Script_Quiz1
+	case 1, Script_Quiz2
+	case 2, Script_Quiz3
+	case 3, Script_Quiz4
+	case 4, Script_Quiz5
+	case 5, Script_Quiz6
+	case 6, Script_Quiz7
+	case 7, Script_Quiz8
+	case 8, Script_Quiz9
+	case 9, Script_QuizYESNO1
+	case 10, Script_QuizYESNO2
+	case 11, Script_QuizYESNO3
+	case 12, Script_QuizYESNO4
+	case 13, Script_QuizYESNO5
+	end
+
+GymGooses_CasillaTableroPregunta5::
+	lock
+	faceplayer
+	setvar VAR_TEMP_1, 4
+	msgbox GymGoosesPregunta_Text, MSGBOX_DEFAULT
+	random 14
+	switch VAR_RESULT
+	case 0, Script_Quiz1
+	case 1, Script_Quiz2
+	case 2, Script_Quiz3
+	case 3, Script_Quiz4
+	case 4, Script_Quiz5
+	case 5, Script_Quiz6
+	case 6, Script_Quiz7
+	case 7, Script_Quiz8
+	case 8, Script_Quiz9
+	case 9, Script_QuizYESNO1
+	case 10, Script_QuizYESNO2
+	case 11, Script_QuizYESNO3
+	case 12, Script_QuizYESNO4
+	case 13, Script_QuizYESNO5
+	end			
 	
 Script_Quiz1::	
 	msgbox Quiz1_Text, MSGBOX_DEFAULT
@@ -429,7 +546,84 @@ NoSabeNoContesta::
 	goto NoSabeNoContesta_2
 
 CasillaTableroCorrecta_EventScript::
-	applyrangemovement EVENT_OBJ_ID_PLAYER, GymGoosesMoverIzq
+	switch VAR_TEMP_1
+	case 0, CasillaTableroCorrectaCasilla1_EventScript
+	case 1, CasillaTableroCorrectaCasilla2_EventScript
+	case 2, CasillaTableroCorrectaCasilla3_EventScript
+	case 3, CasillaTableroCorrectaCasilla4_EventScript
+	case 4, CasillaTableroCorrectaCasilla5_EventScript
+	end
+	
+CasillaTableroCorrectaCasilla1_EventScript::
+	msgbox GymGoosesTirarDadoAgain_Text, MSGBOX_DEFAULT
+	waitmessage
+	random 6
+	addvar VAR_RESULT, 1
+	copyvar VAR_0x8004, VAR_RESULT
+	special Buffer0x8004VarToStringVar1
+	msgbox gText_DiceResult, MSGBOX_DEFAULT
+	waitmessage
+	applyrangemovement EVENT_OBJ_ID_PLAYER, GymGoosesDado1_Movement_PlayerDadoPreguntaCorrecta
+	waitmovement 0
+	special DoApplyrangemovementLastStep
+	release
+	end
+	
+CasillaTableroCorrectaCasilla2_EventScript::
+	msgbox GymGoosesTirarDadoAgain_Text, MSGBOX_DEFAULT
+	waitmessage
+	random 6
+	addvar VAR_RESULT, 1
+	copyvar VAR_0x8004, VAR_RESULT
+	special Buffer0x8004VarToStringVar1
+	msgbox gText_DiceResult, MSGBOX_DEFAULT
+	waitmessage
+	applyrangemovement EVENT_OBJ_ID_PLAYER, GymGoosesDado2_Movement_PlayerDadoPreguntaCorrecta
+	waitmovement 0
+	special DoApplyrangemovementLastStep
+	release
+	end
+	
+CasillaTableroCorrectaCasilla3_EventScript::
+	msgbox GymGoosesTirarDadoAgain_Text, MSGBOX_DEFAULT
+	waitmessage
+	random 6
+	addvar VAR_RESULT, 1
+	copyvar VAR_0x8004, VAR_RESULT
+	special Buffer0x8004VarToStringVar1
+	msgbox gText_DiceResult, MSGBOX_DEFAULT
+	waitmessage
+	applyrangemovement EVENT_OBJ_ID_PLAYER, GymGoosesDado3_Movement_PlayerDadoPreguntaCorrecta
+	waitmovement 0
+	special DoApplyrangemovementLastStep
+	release
+	end
+	
+CasillaTableroCorrectaCasilla4_EventScript::
+	msgbox GymGoosesTirarDadoAgain_Text, MSGBOX_DEFAULT
+	waitmessage
+	random 6
+	addvar VAR_RESULT, 1
+	copyvar VAR_0x8004, VAR_RESULT
+	special Buffer0x8004VarToStringVar1
+	msgbox gText_DiceResult, MSGBOX_DEFAULT
+	waitmessage
+	applyrangemovement EVENT_OBJ_ID_PLAYER, GymGoosesDado4_Movement_PlayerDadoPreguntaCorrecta
+	waitmovement 0
+	special DoApplyrangemovementLastStep
+	release
+	end
+	
+CasillaTableroCorrectaCasilla5_EventScript::
+	msgbox GymGoosesTirarDadoAgain_Text, MSGBOX_DEFAULT
+	waitmessage
+	random 6
+	addvar VAR_RESULT, 1
+	copyvar VAR_0x8004, VAR_RESULT
+	special Buffer0x8004VarToStringVar1
+	msgbox gText_DiceResult, MSGBOX_DEFAULT
+	waitmessage
+	applyrangemovement EVENT_OBJ_ID_PLAYER, GymGoosesDado5_Movement_PlayerDadoPreguntaCorrecta
 	waitmovement 0
 	special DoApplyrangemovementLastStep
 	release
@@ -446,23 +640,6 @@ NoSabeNoContesta_2::
 	warp MAP_GYM_GOOSES, 0, 0, 0
 	release
 	end
-
-// Mover 1 paso en casillas no-dado
-GymGoosesMoverIzq:
-	walk_left
-	step_end
-	
-GymGoosesMoverDer:
-	walk_right
-	step_end
-	
-GymGoosesMoverUp:
-	walk_up
-	step_end
-	
-GymGoosesMoverDown:
-	walk_down
-	step_end
 
 //Dado primera casilla
 GymGoosesDado1_Movement_PlayerDado1:
@@ -497,11 +674,11 @@ GymGoosesDado1_Movement_PlayerDado3:
 //Dado cuarta casilla
 GymGoosesDado1_Movement_PlayerDado4:
 	walk_right
-	walk_right
-	walk_right
-	walk_right
 	walk_down
 	walk_down
+	walk_right
+	walk_right
+	walk_right
 	step_end
 
 //Dado quinta casilla	
@@ -514,34 +691,179 @@ GymGoosesDado1_Movement_PlayerDado5:
 	walk_right
 	step_end
 	
+//Dado primera casilla combate ganado
+GymGoosesDado1_Movement_PlayerDadoCombateGanado:
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	step_end
+
+//Dado segunda casilla combate ganado
+GymGoosesDado2_Movement_PlayerDadoCombateGanado:
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	step_end
+
+//Dado tercera casilla combate ganado
+GymGoosesDado3_Movement_PlayerDadoCombateGanado:
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+//Dado primera casilla respuesta correcta
+GymGoosesDado1_Movement_PlayerDadoPreguntaCorrecta:
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	step_end
+
+//Dado segunda casilla respuesta correcta
+GymGoosesDado2_Movement_PlayerDadoPreguntaCorrecta:
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+//Dado tercera casilla respuesta correcta
+GymGoosesDado3_Movement_PlayerDadoPreguntaCorrecta:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	step_end
+	
+//Dado cuarta casilla respuesta correcta
+GymGoosesDado4_Movement_PlayerDadoPreguntaCorrecta:
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_right
+	step_end
+	
+//Dado quinta casilla respuesta correcta
+GymGoosesDado5_Movement_PlayerDadoPreguntaCorrecta:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+	
+//Dado casillas Status
+GymGoosesDado1_Movement_PlayerDadoStatus:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
 GymGoosesStatus_Poison_Script::
 	pike_flashscreen
 	message GymGoosesStatus_Poison
+	msgbox GymGoosesTirarDadoAgain_Text, MSGBOX_DEFAULT
+	closemessage
+	random 6
+	addvar VAR_RESULT, 1
+	copyvar VAR_0x8004, VAR_RESULT
+	special Buffer0x8004VarToStringVar1
+	msgbox gText_DiceResult, MSGBOX_DEFAULT
 	waitmessage
+	applyrangemovement EVENT_OBJ_ID_PLAYER, GymGoosesDado1_Movement_PlayerDadoStatus
+	waitmovement 0
+	special DoApplyrangemovementLastStep
+	release
 	end
 	
 GymGoosesStatus_Slp_Script::
 	pike_flashscreen
 	message GymGoosesStatus_Slp
+	msgbox GymGoosesTirarDadoAgain_Text, MSGBOX_DEFAULT
+	closemessage
+	random 6
+	addvar VAR_RESULT, 1
+	copyvar VAR_0x8004, VAR_RESULT
+	special Buffer0x8004VarToStringVar1
+	msgbox gText_DiceResult, MSGBOX_DEFAULT
 	waitmessage
+	applyrangemovement EVENT_OBJ_ID_PLAYER, GymGoosesDado1_Movement_PlayerDadoStatus
+	waitmovement 0
+	special DoApplyrangemovementLastStep
+	release
 	end
 	
 GymGoosesStatus_Prz_Script::
 	pike_flashscreen
 	message GymGoosesStatus_Prz
+	msgbox GymGoosesTirarDadoAgain_Text, MSGBOX_DEFAULT
+	closemessage
+	random 6
+	addvar VAR_RESULT, 1
+	copyvar VAR_0x8004, VAR_RESULT
+	special Buffer0x8004VarToStringVar1
+	msgbox gText_DiceResult, MSGBOX_DEFAULT
 	waitmessage
+	applyrangemovement EVENT_OBJ_ID_PLAYER, GymGoosesDado1_Movement_PlayerDadoStatus
+	waitmovement 0
+	special DoApplyrangemovementLastStep
+	release
 	end
 	
 GymGoosesStatus_Burn_Script::
 	pike_flashscreen
 	message GymGoosesStatus_Burn
+	msgbox GymGoosesTirarDadoAgain_Text, MSGBOX_DEFAULT
+	closemessage
+	random 6
+	addvar VAR_RESULT, 1
+	copyvar VAR_0x8004, VAR_RESULT
+	special Buffer0x8004VarToStringVar1
+	msgbox gText_DiceResult, MSGBOX_DEFAULT
 	waitmessage
+	applyrangemovement EVENT_OBJ_ID_PLAYER, GymGoosesDado1_Movement_PlayerDadoStatus
+	waitmovement 0
+	special DoApplyrangemovementLastStep
+	release
 	end
 	
 GymGoosesStatus_Freeze_Script::
 	pike_flashscreen
 	message GymGoosesStatus_Freeze
+	msgbox GymGoosesTirarDadoAgain_Text, MSGBOX_DEFAULT
+	closemessage
+	random 6
+	addvar VAR_RESULT, 1
+	copyvar VAR_0x8004, VAR_RESULT
+	special Buffer0x8004VarToStringVar1
+	msgbox gText_DiceResult, MSGBOX_DEFAULT
 	waitmessage
+	applyrangemovement EVENT_OBJ_ID_PLAYER, GymGoosesDado1_Movement_PlayerDadoStatus
+	waitmovement 0
+	special DoApplyrangemovementLastStep
+	release
 	end
 
 // Cuarta Sala
@@ -585,6 +907,10 @@ GymGooses_EventScript_GoosesDefeated::
 
 GymGoosesTirarDado_Text:
 	.string "Casilla Dado: ¡Tira el dado!$"
+	
+GymGoosesTirarDadoAgain_Text:
+	.string "Has superado la prueba:\n"
+	.string "¡Tira el dado otra vez!$"
 	
 GymGoosesCombate_Text:
 	.string "Casilla Pokeball: ¡A combatir!$"

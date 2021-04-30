@@ -9,7 +9,7 @@
             "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
             "script": "GymGooses_EventScript_LeftGymStatue",
             "type": "sign",
-            "x": 4,
+            "x": 3,
             "y": 35
         },
         {
@@ -17,7 +17,7 @@
             "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
             "script": "GymGooses_EventScript_RightGymStatue",
             "type": "sign",
-            "x": 6,
+            "x": 5,
             "y": 35
         }
     ],
@@ -29,7 +29,7 @@
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 5,
+            "x": 4,
             "y": 22
         },
         {
@@ -38,7 +38,7 @@
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 2,
+            "x": 1,
             "y": 20
         },
         {
@@ -47,7 +47,7 @@
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 3,
+            "x": 2,
             "y": 22
         },
         {
@@ -56,93 +56,21 @@
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 5,
+            "x": 4,
             "y": 19
         },
         {
             "elevation": 0,
-            "script": "GymGooses_CasillaTableroCombate2",
+            "script": "GymGooses_CasillaTableroCombate3",
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 9,
+            "x": 8,
             "y": 20
         },
         {
             "elevation": 0,
             "script": "GymGooses_CasillaTableroCombate2",
-            "type": "trigger",
-            "var": "VAR_TEMP_0",
-            "var_value": "0",
-            "x": 7,
-            "y": 19
-        },
-        {
-            "elevation": 0,
-            "script": "GymGooses_CasillaTableroDado4",
-            "type": "trigger",
-            "var": "VAR_TEMP_0",
-            "var_value": "0",
-            "x": 8,
-            "y": 19
-        },
-        {
-            "elevation": 0,
-            "script": "GymGooses_CasillaTableroDado5",
-            "type": "trigger",
-            "var": "VAR_TEMP_0",
-            "var_value": "0",
-            "x": 9,
-            "y": 21
-        },
-        {
-            "elevation": 0,
-            "script": "GymGooses_CasillaTableroPregunta",
-            "type": "trigger",
-            "var": "VAR_TEMP_0",
-            "var_value": "0",
-            "x": 4,
-            "y": 22
-        },
-        {
-            "elevation": 0,
-            "script": "GymGooses_CasillaTableroStatus",
-            "type": "trigger",
-            "var": "VAR_TEMP_0",
-            "var_value": "0",
-            "x": 3,
-            "y": 19
-        },
-        {
-            "elevation": 0,
-            "script": "GymGooses_CasillaTableroStatus",
-            "type": "trigger",
-            "var": "VAR_TEMP_0",
-            "var_value": "0",
-            "x": 10,
-            "y": 21
-        },
-        {
-            "elevation": 0,
-            "script": "GymGooses_CasillaTableroPregunta",
-            "type": "trigger",
-            "var": "VAR_TEMP_0",
-            "var_value": "0",
-            "x": 2,
-            "y": 21
-        },
-        {
-            "elevation": 0,
-            "script": "GymGooses_CasillaTableroPregunta",
-            "type": "trigger",
-            "var": "VAR_TEMP_0",
-            "var_value": "0",
-            "x": 4,
-            "y": 19
-        },
-        {
-            "elevation": 0,
-            "script": "GymGooses_CasillaTableroPregunta",
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
@@ -151,11 +79,83 @@
         },
         {
             "elevation": 0,
+            "script": "GymGooses_CasillaTableroDado4",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 7,
+            "y": 19
+        },
+        {
+            "elevation": 0,
+            "script": "GymGooses_CasillaTableroDado5",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 8,
+            "y": 21
+        },
+        {
+            "elevation": 0,
             "script": "GymGooses_CasillaTableroPregunta",
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 11,
+            "x": 3,
+            "y": 22
+        },
+        {
+            "elevation": 0,
+            "script": "GymGooses_CasillaTableroStatus",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 2,
+            "y": 19
+        },
+        {
+            "elevation": 0,
+            "script": "GymGooses_CasillaTableroStatus",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 9,
+            "y": 21
+        },
+        {
+            "elevation": 0,
+            "script": "GymGooses_CasillaTableroPregunta2",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 1,
+            "y": 21
+        },
+        {
+            "elevation": 0,
+            "script": "GymGooses_CasillaTableroPregunta3",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 3,
+            "y": 19
+        },
+        {
+            "elevation": 0,
+            "script": "GymGooses_CasillaTableroPregunta4",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 5,
+            "y": 19
+        },
+        {
+            "elevation": 0,
+            "script": "GymGooses_CasillaTableroPregunta5",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 10,
             "y": 21
         },
         {
@@ -164,7 +164,7 @@
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 18,
+            "x": 16,
             "y": 34
         },
         {
@@ -173,7 +173,7 @@
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 17,
+            "x": 15,
             "y": 34
         },
         {
@@ -182,16 +182,16 @@
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 16,
+            "x": 14,
             "y": 34
         },
         {
             "elevation": 0,
-            "script": "GymGooses_CasillaTableroPregunta",
+            "script": "GymGooses_CasillaTableroPregunta2",
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 15,
+            "x": 13,
             "y": 33
         },
         {
@@ -200,7 +200,7 @@
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 15,
+            "x": 13,
             "y": 32
         },
         {
@@ -209,16 +209,16 @@
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 16,
+            "x": 14,
             "y": 31
         },
         {
             "elevation": 0,
-            "script": "GymGooses_CasillaTableroPregunta",
+            "script": "GymGooses_CasillaTableroPregunta3",
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 17,
+            "x": 15,
             "y": 31
         },
         {
@@ -227,16 +227,16 @@
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 18,
+            "x": 16,
             "y": 31
         },
         {
             "elevation": 0,
-            "script": "GymGooses_CasillaTableroPregunta",
+            "script": "GymGooses_CasillaTableroPregunta4",
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 19,
+            "x": 17,
             "y": 31
         },
         {
@@ -245,7 +245,7 @@
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 20,
+            "x": 18,
             "y": 31
         },
         {
@@ -254,16 +254,16 @@
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 21,
+            "x": 19,
             "y": 31
         },
         {
             "elevation": 0,
-            "script": "GymGooses_CasillaTableroCombate2",
+            "script": "GymGooses_CasillaTableroCombate3",
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 22,
+            "x": 20,
             "y": 32
         },
         {
@@ -272,7 +272,7 @@
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 22,
+            "x": 20,
             "y": 33
         },
         {
@@ -281,16 +281,16 @@
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 23,
+            "x": 21,
             "y": 33
         },
         {
             "elevation": 0,
-            "script": "GymGooses_CasillaTableroPregunta",
+            "script": "GymGooses_CasillaTableroPregunta5",
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 24,
+            "x": 22,
             "y": 33
         },
         {
@@ -299,7 +299,7 @@
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 21,
+            "x": 16,
             "y": 14
         },
         {
@@ -308,7 +308,7 @@
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 20,
+            "x": 15,
             "y": 14
         },
         {
@@ -317,16 +317,16 @@
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 19,
+            "x": 14,
             "y": 14
         },
         {
             "elevation": 0,
-            "script": "GymGooses_CasillaTableroPregunta",
+            "script": "GymGooses_CasillaTableroPregunta2",
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 18,
+            "x": 13,
             "y": 13
         },
         {
@@ -335,7 +335,7 @@
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 18,
+            "x": 13,
             "y": 12
         },
         {
@@ -344,16 +344,16 @@
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 19,
+            "x": 14,
             "y": 11
         },
         {
             "elevation": 0,
-            "script": "GymGooses_CasillaTableroPregunta",
+            "script": "GymGooses_CasillaTableroPregunta3",
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 20,
+            "x": 15,
             "y": 11
         },
         {
@@ -362,16 +362,16 @@
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 21,
+            "x": 16,
             "y": 11
         },
         {
             "elevation": 0,
-            "script": "GymGooses_CasillaTableroPregunta",
+            "script": "GymGooses_CasillaTableroPregunta4",
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 22,
+            "x": 17,
             "y": 11
         },
         {
@@ -380,7 +380,7 @@
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 23,
+            "x": 18,
             "y": 11
         },
         {
@@ -389,16 +389,16 @@
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 24,
+            "x": 19,
             "y": 11
         },
         {
             "elevation": 0,
-            "script": "GymGooses_CasillaTableroCombate2",
+            "script": "GymGooses_CasillaTableroCombate3",
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 25,
+            "x": 20,
             "y": 12
         },
         {
@@ -407,7 +407,7 @@
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 25,
+            "x": 20,
             "y": 13
         },
         {
@@ -416,16 +416,16 @@
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 26,
+            "x": 21,
             "y": 13
         },
         {
             "elevation": 0,
-            "script": "GymGooses_CasillaTableroPregunta",
+            "script": "GymGooses_CasillaTableroPregunta5",
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "0",
-            "x": 27,
+            "x": 22,
             "y": 13
         }
     ],
@@ -484,7 +484,7 @@
             "script": "GymGooses_EventScript_GymGuide",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
-            "x": 6,
+            "x": 5,
             "y": 36
         },
         {
@@ -497,7 +497,7 @@
             "script": "GymGooses_EventScript_TeleportGirl",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
-            "x": 19,
+            "x": 17,
             "y": 29
         },
         {
@@ -510,7 +510,7 @@
             "script": "GymGooses_EventScript_TeleportGirl",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
-            "x": 20,
+            "x": 17,
             "y": 17
         },
         {
@@ -561,14 +561,14 @@
             "dest_map": "MAP_MICOLANDIA",
             "dest_warp_id": 8,
             "elevation": 0,
-            "x": 5,
+            "x": 4,
             "y": 39
         },
         {
             "dest_map": "MAP_MICOLANDIA",
             "dest_warp_id": 8,
             "elevation": 0,
-            "x": 6,
+            "x": 5,
             "y": 39
         },
         {
