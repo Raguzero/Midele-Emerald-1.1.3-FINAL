@@ -689,7 +689,7 @@ static void ModulateByTypeEffectiveness(u8 atkType, u8 defType1, u8 defType2, u8
 u8 GetMostSuitableMonToSwitchInto(void)
 {
     u8 opposingBattler;
-    u8 bestDmg; // Note : should be changed to u32 for obvious reasons.
+	s32 bestDmg;
     u8 bestMonId;
     u8 battlerIn1, battlerIn2;
     s32 firstId;
@@ -808,6 +808,7 @@ u8 GetMostSuitableMonToSwitchInto(void)
     // If we couldn't find the best mon in terms of typing, find the one that deals most damage.
     for (i = firstId; i < lastId; i++)
     {
+		u16 savedCurrentMove = gCurrentMove;
         if ((u16)(GetMonData(&party[i], MON_DATA_SPECIES)) == SPECIES_NONE)
             continue;
         if (GetMonData(&party[i], MON_DATA_HP) == 0)
@@ -824,6 +825,7 @@ u8 GetMostSuitableMonToSwitchInto(void)
         for (j = 0; j < MAX_MON_MOVES; j++)
         {
             move = GetMonData(&party[i], MON_DATA_MOVE1 + j);
+			gCurrentMove = move;
             gBattleMoveDamage = 0;
             if (move != MOVE_NONE && gBattleMoves[move].power != 1)
             {
@@ -836,6 +838,7 @@ u8 GetMostSuitableMonToSwitchInto(void)
                 bestMonId = i;
             }
         }
+		gCurrentMove = savedCurrentMove;
     }
 
     return bestMonId;
