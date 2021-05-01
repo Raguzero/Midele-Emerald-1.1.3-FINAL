@@ -33,6 +33,27 @@ MicoloLeagueLobby_EventScript_4::
 	msgbox MicoloLeagueLobby_Text_4, MSGBOX_NPC
 	end
 	
+MicoloLeagueLobby_EventScript_ResetTrainerFlagsMachine::
+	lock
+	faceplayer
+	msgbox MicoloLeagueLobby_Text_ResetTrainerFlagsMachine, MSGBOX_NPC
+	msgbox MicoloLeagueLobby_Text_ResetTrainerFlagsMachinePregunta, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq MicoloLeagueLobby_EventScript_ResetTrainerYES
+	msgbox MicoloLeagueLobby_Text_ResetTrainerFlagsMachineNO, MSGBOX_DEFAULT
+	release
+	end
+MicoloLeagueLobby_EventScript_ResetTrainerYES:
+	msgbox MicoloLeagueLobby_Text_ResetTrainerFlagsComplete, MSGBOX_DEFAULT	
+	cleartrainerflag TRAINER_ENTROPIA
+	//cleartrainerflag TRAINER_UTALAWEA
+	//cleartrainerflag TRAINER_UTALAWEA
+	//cleartrainerflag TRAINER_UTALAWEA
+	//cleartrainerflag TRAINER_UTALAWEA
+	// Etc
+	release
+	end
+	
 MicoloLeagueLobby_Mart_EventScript_Clerk::
 	lock
 	faceplayer
@@ -134,3 +155,34 @@ MicoloLeagueLobby_Text_4:
 
 	.string "Aún nadie ha podido vencer a los\n"
 	.string "cinco entrenadores del ALTO MANDO.$"
+	
+MicoloLeagueLobby_Text_ResetTrainerFlagsMachine:
+	.string "¡Hola, soy el ReseT.Ador!\p"
+	
+	.string "Esta máquina que ves aquí, sirve para\n"
+	.string "resetear todos los encuentros con\l"
+	.string "entrenadores especiales de MIDELE\l" 
+	.string "que has tenido a lo largo del juego.\p"
+
+	.string "Si quieres volver a luchar contra todos\n"
+	.string "los entrenadores especiales, yo puedo\l"
+	.string "hacer ese deseo realidad.\p"
+	
+	.string "Ten en cuenta, que no todos los\n"
+	.string "entrenadores especiales son\l"
+	.string "reseteables, y que no podrás elegir\l"
+	.string "cuales quieres resetear.\p"
+	
+	.string "¡Van todos en el pack!$"
+
+MicoloLeagueLobby_Text_ResetTrainerFlagsMachinePregunta:
+	.string "¿Quieres usar la máquina para resetear\n"
+	.string "los encuentros de los entrenadores\l"
+	.string "especiales de MIDELE?$"
+	
+MicoloLeagueLobby_Text_ResetTrainerFlagsMachineNO:
+	.string "Así que no quieres...$"
+	
+MicoloLeagueLobby_Text_ResetTrainerFlagsComplete:
+	.string "Los entrenadores especiales MIDELE se\n"
+	.string "han reseteado de forma satisfactoria.$"

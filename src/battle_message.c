@@ -558,6 +558,12 @@ static const u8 sText_RedHPJEeveeto[] = _("Estás a esto de ganar, pero el frio\
 static const u8 sText_PacoFieryPierdePrimerPoke[] = _("Uuuuuuh no está mal,\n SHOW ME YOUR BOOBS.\p");
 static const u8 sText_PacoFieryEnviaUltimoPoke[] = _("Carallo neno, te tomas a pecho esto.\p");
 static const u8 sText_RedHPPacoFiery[] = _("Yeee haw, a darlo todel.\p");
+static const u8 sText_EntropiaPierdePrimerPoke[] = _("Espera un momento...\n ¿Qué esto va en serio?\p O sea, ¿no era para hacer el paripé\n y enseñarnos las pokebolas?\p");
+static const u8 sText_EntropiaEnviaUltimoPoke[] = _("Ni se te ocurra usar un ataque más\n o te juro que hago ragequit.\p");
+static const u8 sText_RedHPEntropia[] = _("Jo nene, esperaba que entre nosotros\n todo fluyese mejor pero veo que\l eres acuario y eso si que doesn't sit\l right with me\p");
+static const u8 sText_UtaPierdePrimerPoke[] = _("No vale, era de prueba.\p");
+static const u8 sText_UtaEnviaUltimoPoke[] = _("¡Pongamos punto y final a este combate!\p");
+static const u8 sText_RedHPUta[] = _("¿Y a eso lo llamas un ataque?\n No bastó para debilitarlo lol\p");
 
 static const u8 frase0[] = _("Esh el vecino\nel que elige al alcalde\py esh el alcalde\nel que quiere\lque shean\llosh vecinosh\lel alcalde.\p");
 static const u8 frase1[] = _("Eshpaña esh una gran nación\ny losh eshpañolesh\lmuy eshpañolesh\ly mucho eshpañolesh.\p");
@@ -3061,6 +3067,8 @@ static const struct TrainerSlide sTrainerSlides[] =
     {TRAINER_JZOMBIE2, sText_JZombieEnviaUltimoPoke, sText_RedHPJZombie, sText_JZombiePierdePrimerPoke},
     {TRAINER_EEVEETO, sText_EeveetoEnviaUltimoPoke, sText_RedHPJEeveeto, sText_EeveetoPierdePrimerPoke},
     {TRAINER_FIERYPATH_PACOCHEF, sText_PacoFieryEnviaUltimoPoke, sText_RedHPPacoFiery, sText_PacoFieryPierdePrimerPoke},
+    {TRAINER_ENTROPIA, sText_EntropiaEnviaUltimoPoke, sText_RedHPEntropia, sText_EntropiaPierdePrimerPoke},
+    {TRAINER_UTALAWEA, sText_UtaEnviaUltimoPoke, sText_RedHPUta, sText_UtaPierdePrimerPoke},
 };
 
 static u32 GetEnemyMonCount(bool32 onlyAlive)

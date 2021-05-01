@@ -20943,12 +20943,12 @@ static const struct TrainerMonCustomMidele sParty_Debug[] = {
         .lvl = 100,
         .iv = 31,
         .evs = {170, 0, 0, 0, 0, 0},
-        .species = SPECIES_CASTFORM,
-        .moves = {MOVE_THUNDER, MOVE_SURF, MOVE_WEATHER_BALL, MOVE_SOLAR_BEAM},
-        .heldItem = ITEM_NONE,
+        .species = SPECIES_NINJASK,
+        .moves = {MOVE_BATON_PASS, MOVE_X_SCISSOR, MOVE_PROTECT, MOVE_SUBSTITUTE},
+        .heldItem = ITEM_LEFTOVERS,
         .ability = 0,
         .shiny = 0,
-		.nature = NATURE_ADAMANT,
+		.nature = NATURE_HARDY,
         .friendship = 255,
         .hpType = TYPE_GHOST
         },
@@ -20957,7 +20957,7 @@ static const struct TrainerMonCustomMidele sParty_Debug[] = {
         .iv = 31,
         .evs = {170, 0, 0, 0, 0, 0},
         .species = SPECIES_CASTFORM,
-        .moves = {MOVE_THUNDER, MOVE_SURF, MOVE_WEATHER_BALL, MOVE_MEGA_DRAIN},
+        .moves = {MOVE_CURSE, MOVE_SURF, MOVE_MIMIC, MOVE_TEETER_DANCE},
         .heldItem = ITEM_LEFTOVERS,
         .ability = 0,
         .shiny = 1,
@@ -20969,8 +20969,8 @@ static const struct TrainerMonCustomMidele sParty_Debug[] = {
         .lvl = 100,
         .iv = 31,
         .evs = {170, 0, 0, 0, 0, 0},
-        .species = SPECIES_CASTFORM,
-        .moves = {MOVE_ICE_BEAM, MOVE_SURF, MOVE_WEATHER_BALL, MOVE_MEGA_DRAIN},
+        .species = SPECIES_DECIDUEYE,
+        .moves = {MOVE_SPORE, MOVE_SURF, MOVE_NIGHTMARE, MOVE_DREAM_EATER},
         .heldItem = ITEM_POWER_HERB,
         .ability = 0,
         .shiny = 0,
@@ -20982,8 +20982,8 @@ static const struct TrainerMonCustomMidele sParty_Debug[] = {
         .lvl = 100,
         .iv = 31,
         .evs = {170, 0, 0, 0, 0, 0},
-        .species = SPECIES_CASTFORM,
-        .moves = {MOVE_ICE_BEAM, MOVE_SURF, MOVE_WEATHER_BALL, MOVE_MEGA_DRAIN},
+        .species = SPECIES_ALTARIA,
+        .moves = {MOVE_THUNDER_WAVE, MOVE_SURF, MOVE_MEAN_LOOK, MOVE_FAKE_OUT},
         .heldItem = ITEM_POWER_HERB,
         .ability = 0,
         .shiny = 0,
@@ -20995,8 +20995,8 @@ static const struct TrainerMonCustomMidele sParty_Debug[] = {
         .lvl = 100,
         .iv = 31,
         .evs = {170, 0, 0, 0, 0, 0},
-        .species = SPECIES_CASTFORM,
-        .moves = {MOVE_ICE_BEAM, MOVE_SURF, MOVE_WEATHER_BALL, MOVE_MEGA_DRAIN},
+        .species = SPECIES_FERALIGATR,
+        .moves = {MOVE_WILL_O_WISP, MOVE_SURF, MOVE_LOCK_ON, MOVE_HYDRO_CANNON},
         .heldItem = ITEM_POWER_HERB,
         .ability = 0,
         .shiny = 0,
@@ -21008,8 +21008,8 @@ static const struct TrainerMonCustomMidele sParty_Debug[] = {
         .lvl = 100,
         .iv = 31,
         .evs = {170, 0, 0, 0, 0, 0},
-        .species = SPECIES_CASTFORM,
-        .moves = {MOVE_ICE_BEAM, MOVE_SURF, MOVE_WEATHER_BALL, MOVE_MEGA_DRAIN},
+        .species = SPECIES_CHARIZARD,
+        .moves = {MOVE_FAKE_OUT, MOVE_SURF, MOVE_PAIN_SPLIT, MOVE_LEECH_SEED},
         .heldItem = ITEM_POWER_HERB,
         .ability = 0,
         .shiny = 0,
@@ -23121,10 +23121,9 @@ static const struct TrainerMonCustomMidele sParty_Merum[] = {
 };
 
 static const struct TrainerMonCustomMidele sParty_Entropia[] = {
-		// PARA METERLE DE NPC TRAINER EN RUTAS FINALES
     {
     .iv = 31,  
-    .lvl = 70, 
+    .lvl = 76, 
     .species = SPECIES_LUVDISC,
 	.heldItem = ITEM_HEART_SCALE, 
 	.nature = NATURE_MODEST, 
@@ -23134,7 +23133,7 @@ static const struct TrainerMonCustomMidele sParty_Entropia[] = {
     },
     {
     .iv = 31,  
-    .lvl = 70, 
+    .lvl = 76, 
     .species = SPECIES_CLEFABLE,
 	.heldItem = ITEM_LEFTOVERS,
 	.nature = NATURE_BOLD,
@@ -23144,7 +23143,7 @@ static const struct TrainerMonCustomMidele sParty_Entropia[] = {
     },
     {
     .iv = 31,  
-    .lvl = 70, 
+    .lvl = 77, 
     .species = SPECIES_FROSLASS,
 	.heldItem = ITEM_FOCUS_SASH, 
 	.nature = NATURE_TIMID, 
@@ -23155,7 +23154,7 @@ static const struct TrainerMonCustomMidele sParty_Entropia[] = {
     },
     {
     .iv = 31,  
-    .lvl = 70, 
+    .lvl = 76, 
     .species = SPECIES_SALAZZLE,
 	.heldItem = ITEM_LEFTOVERS,
 	.nature = NATURE_TIMID,
@@ -23167,7 +23166,7 @@ static const struct TrainerMonCustomMidele sParty_Entropia[] = {
     },
     {
     .iv = 31,  
-    .lvl = 70, 
+    .lvl = 77, 
     .species = SPECIES_GOODRA,
 	.heldItem = ITEM_CHOICE_SCARF, 
 	.nature = NATURE_TIMID,
@@ -23177,12 +23176,12 @@ static const struct TrainerMonCustomMidele sParty_Entropia[] = {
     },
     {
     .iv = 31,  
-    .lvl = 70, 
+    .lvl = 77, 
     .species = SPECIES_MEGANIUM,
 	.heldItem = ITEM_LEFTOVERS, 
 	.nature = NATURE_BOLD,
 	.evs = {252, 0, 252, 0, 0, 6},
-	.ability = 0, 
+	.ability = 1, 
     .moves = {MOVE_ENERGY_BALL, MOVE_LEECH_SEED, MOVE_SYNTHESIS, MOVE_TOXIC}
     }
 };
@@ -23402,10 +23401,9 @@ static const struct TrainerMonCustomMidele sParty_Eeveeto[] = {
     }
 };
 static const struct TrainerMonCustomMidele sParty_Utalawea[] = {
-// PARA METERLE DE NPC TRAINER EN RUTAS FINALES
     {
     .iv = 31,  
-    .lvl = 78, 
+    .lvl = 94, 
     .species = SPECIES_PARASECT,
 	.heldItem = ITEM_BIG_MUSHROOM, 
 	.nature = NATURE_CAREFUL, 
@@ -23415,7 +23413,7 @@ static const struct TrainerMonCustomMidele sParty_Utalawea[] = {
     },
     {
     .iv = 31,  
-    .lvl = 75, 
+    .lvl = 95, 
     .species = SPECIES_DUSKNOIR,
 	.heldItem = ITEM_LEFTOVERS, 
 	.nature = NATURE_BOLD,
@@ -23426,7 +23424,7 @@ static const struct TrainerMonCustomMidele sParty_Utalawea[] = {
     },
     {
     .iv = 31,  
-    .lvl = 75, 
+    .lvl = 94, 
     .species = SPECIES_METAGROSS,
 	.heldItem = ITEM_LEFTOVERS, 
 	.nature = NATURE_QUIET, 
@@ -23437,7 +23435,7 @@ static const struct TrainerMonCustomMidele sParty_Utalawea[] = {
     },
     {
     .iv = 31,  
-    .lvl = 76, 
+    .lvl = 100, 
     .species = SPECIES_MEGA_HOUNDOOM,
 	.heldItem = ITEM_CHOICE_SPECS, 
 	.nature = NATURE_TIMID, 
@@ -23447,7 +23445,7 @@ static const struct TrainerMonCustomMidele sParty_Utalawea[] = {
     },
     {
     .iv = 31,  
-    .lvl = 75, 
+    .lvl = 94, 
     .species = SPECIES_KROOKODILE,
 	.heldItem = ITEM_LEFTOVERS, 
 	.nature = NATURE_ADAMANT, 
@@ -23457,7 +23455,7 @@ static const struct TrainerMonCustomMidele sParty_Utalawea[] = {
     },
     {
     .iv = 31,  
-    .lvl = 75, 
+    .lvl = 96, 
     .species = SPECIES_PRIMARINA,
 	.heldItem = ITEM_LEFTOVERS, 
 	.nature = NATURE_MODEST,

@@ -96,6 +96,11 @@ MicoloHideout_ExperimentRoom_EventScript_Javisoto2::
 	trainerbattle_single TRAINER_JAVISITO_POSTGAME, MicoloHideout_ExperimentRoom_Text_Javisoto2Intro, MicoloHideout_ExperimentRoom_Text_Javisoto2Defeat
 	msgbox MicoloHideout_ExperimentRoom_Text_Javisoto2PostBattle, MSGBOX_AUTOCLOSE
 	end
+	
+MicoloHideout_ExperimentRoom_EventScript_Uta::  
+	trainerbattle_single TRAINER_UTALAWEA, MicoloHideout_ExperimentRoom_Text_UtaIntro, MicoloHideout_ExperimentRoom_Text_UtaDefeat
+	msgbox MicoloHideout_ExperimentRoom_Text_UtaPostBattle, MSGBOX_AUTOCLOSE
+	end
 
 MicoloHideout_ExperimentRoom_Text_Javisoto2Intro: 
 	.string "Buenas, ¿cuando haran el evento de\n" 
@@ -112,6 +117,17 @@ MicoloHideout_ExperimentRoom_Text_Javisoto2PostBattle:
 	.string "de aquellos que arruinaron Pokemon\l" 
 	.string "y monetizaron los shinys, y todos\l"
 	.string "sabemos que tambien arruinaran Sinnoh.$"
+	
+MicoloHideout_ExperimentRoom_Text_UtaIntro: 
+	.string "No deberías molestarte en combatir.\n"
+	.string "Ya sé como acabará.$"
+
+MicoloHideout_ExperimentRoom_Text_UtaDefeat: 
+	.string "Me cago en tu puta madre.$"
+
+MicoloHideout_ExperimentRoom_Text_UtaPostBattle: 
+	.string "El resultado fue el que esperaba.\n"
+	.string "Lo planeé desde el principio.$"
 
 MicoloHideout_ExperimentRoom_Text_LegendaryMachineUse:
 	.string "Hay un programa abierto en el PC.\p"
