@@ -7466,19 +7466,19 @@ u16 GetBattleBGM(void)
         return MUS_BATTLE20;
     else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {
-        u8 trainerClass;
-        u16 trainerBattleMusic;
-        trainerBattleMusic = gTrainers[gTrainerBattleOpponent_A].battleMusic;
-        if (trainerBattleMusic != 0) {
-          return trainerBattleMusic;
-        }
-	
+		u8 trainerClass;
         if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
             trainerClass = GetFrontierOpponentClass(gTrainerBattleOpponent_A);
         else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_HILL)
             trainerClass = TRAINER_CLASS_EXPERT;
         else
+        {
+            u16 trainerBattleMusic;
+            trainerBattleMusic = gTrainers[gTrainerBattleOpponent_A].battleMusic;
+            if (trainerBattleMusic != 0)
+                return trainerBattleMusic;
             trainerClass = gTrainers[gTrainerBattleOpponent_A].trainerClass;
+        }
 
         switch (trainerClass)
         {
