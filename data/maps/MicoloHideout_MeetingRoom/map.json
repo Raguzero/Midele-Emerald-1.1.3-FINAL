@@ -69,15 +69,15 @@
         {
             "elevation": 3,
             "flag": "0",
-            "graphics_id": "EVENT_OBJ_GFX_BUG_CATCHER",
+            "graphics_id": "EVENT_OBJ_GFX_MAN_4",
             "movement_range_x": 0,
             "movement_range_y": 0,
             "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-            "script": "NULL",
-            "trainer_sight_or_berry_tree_id": "0",
-            "trainer_type": "0",
-            "x": 20,
-            "y": 8
+            "script": "MicoloHideout_MeetingRoom_EventScript_Merum",
+            "trainer_sight_or_berry_tree_id": "3",
+            "trainer_type": "1",
+            "x": 19,
+            "y": 7
         },
         {
             "elevation": 3,
@@ -143,6 +143,19 @@
             "trainer_type": "0",
             "x": 18,
             "y": 2
+        },
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_WOMAN_5",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+            "script": "MicoloHideout_MeetingRoom_EventScript_Goldie",
+            "trainer_sight_or_berry_tree_id": "2",
+            "trainer_type": "1",
+            "x": 2,
+            "y": 3
         }
     ],
     "region_map_section": "MAPSEC_MICOLO_HIDEOUT",

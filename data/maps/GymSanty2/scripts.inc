@@ -31,6 +31,11 @@ GymSanty2_EventScript_Entropia::
 	msgbox Entropia_DespuesDeBatalla, MSGBOX_AUTOCLOSE
 	end
 	
+GymSanty2_EventScript_RedKrow::
+	trainerbattle_single TRAINER_RED_KROW, RedKrow_AntesBatalla, RedKrow_MensajeDerrota
+	msgbox RedKrow_DespuesDeBatalla, MSGBOX_AUTOCLOSE
+	end
+	
 Entropia_AntesBatalla: 
 	.string "Amore, ¿sabías que estamos en la\n"
     .string "piscis season?\p"
@@ -62,6 +67,29 @@ Entropia_DespuesDeBatalla:
 	.string "que seguramente esté por algún\l"
 	.string "lugar de aquí fagoteando.\l"
 	.string "¡Besis de fresi!$"
+	
+RedKrow_AntesBatalla: 
+    .string "No hace falta que digas nada,\n"
+    .string "solo con verte ya estoy entrando\l"
+    .string "en calor.\p"
+	
+	.string "Federico, prepárate que vamos\n" 
+	.string "a erupcionar.$"
+	
+RedKrow_MensajeDerrota: 
+    .string "¡Por favor, no me pegues!\n"
+    .string "...\l"
+    .string "...\p"
+    .string "O bueno, si quieres pégame.\n"
+    .string "...\l"
+    .string "...\p"
+    .string "¿No? Oh.\n"
+    .string "¿Y si te pagara me pegarías?$"
+	
+RedKrow_DespuesDeBatalla:
+    .string "Si quieres que repitamos, creéme, por mí\n"
+    .string "encantado, pero deja por lo menos que\l"
+    .string "vaya a limpiarme la cara primero.$"
 
 GymSanty2_EventScript_Sign::
 	msgbox GymSanty2_Text_Sign, MSGBOX_SIGN

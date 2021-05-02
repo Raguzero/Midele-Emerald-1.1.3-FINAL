@@ -564,6 +564,12 @@ static const u8 sText_RedHPEntropia[] = _("Jo nene, esperaba que entre nosotros\
 static const u8 sText_UtaPierdePrimerPoke[] = _("No vale, era de prueba.\p");
 static const u8 sText_UtaEnviaUltimoPoke[] = _("¡Pongamos punto y final a este combate!\p");
 static const u8 sText_RedHPUta[] = _("¿Y a eso lo llamas un ataque?\n No bastó para debilitarlo lol\p");
+static const u8 sText_RedKrowPierdePrimerPoke[] = _("¡Oye! Por tu culpa está sufriendo\n mi fabuloso Pokémon. Pero mira,\l como soy humilde y misericordioso,\l te voy a dejar que me resarzas.\l De hecho, tengo una idea de cómo\l podrías resarcirme...\p");
+static const u8 sText_RedKrowEnviaUltimoPoke[] = _("Ugh, maldito tardocapitalismo.\p");
+static const u8 sText_RedHPRedKrow[] = _("Ay, ay, ay, ay,\n ay, ay, ay, ay, ay,\l Ay Dios, Ay Dios, Ay Dios,\l AY DIOS NO$\p");
+static const u8 sText_GoldiePierdePrimerPoke[] = _("¡Apenas estamos empezando!\n ¡Verás cuando saque a\l mi Reshiram de nivel 100!\p");
+static const u8 sText_GoldieEnviaUltimoPoke[] = _("¡Mierda, me he dejado a mi Reshiram en casa!\p");
+static const u8 sText_RedHPGoldie[] = _("Esto me pasa por despistada...\p");
 
 static const u8 frase0[] = _("Esh el vecino\nel que elige al alcalde\py esh el alcalde\nel que quiere\lque shean\llosh vecinosh\lel alcalde.\p");
 static const u8 frase1[] = _("Eshpaña esh una gran nación\ny losh eshpañolesh\lmuy eshpañolesh\ly mucho eshpañolesh.\p");
@@ -3069,6 +3075,8 @@ static const struct TrainerSlide sTrainerSlides[] =
     {TRAINER_FIERYPATH_PACOCHEF, sText_PacoFieryEnviaUltimoPoke, sText_RedHPPacoFiery, sText_PacoFieryPierdePrimerPoke},
     {TRAINER_ENTROPIA, sText_EntropiaEnviaUltimoPoke, sText_RedHPEntropia, sText_EntropiaPierdePrimerPoke},
     {TRAINER_UTALAWEA, sText_UtaEnviaUltimoPoke, sText_RedHPUta, sText_UtaPierdePrimerPoke},
+    {TRAINER_RED_KROW, sText_RedKrowEnviaUltimoPoke, sText_RedHPRedKrow, sText_RedKrowPierdePrimerPoke},
+    {TRAINER_GOLDIE, sText_GoldieEnviaUltimoPoke, sText_RedHPGoldie, sText_GoldiePierdePrimerPoke},
 };
 
 static u32 GetEnemyMonCount(bool32 onlyAlive)
