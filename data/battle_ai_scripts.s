@@ -380,10 +380,25 @@ AI_CBM_Toxic: @ 82DC48C
 	if_equal TYPE_POISON, Score_Minus10
 AI_CBM_Toxic_SkipTypeCheck:
     if_ability_might_be AI_TARGET, ABILITY_IMMUNITY, Score_Minus10
-    if_ability_might_be AI_TARGET, ABILITY_GUTS, Score_Minus8
     if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_status AI_TARGET, STATUS1_ANY, Score_Minus10
 	if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
+    if_ability_might_be AI_TARGET, ABILITY_GUTS, Score_Minus8
+	if_ability_might_be AI_TARGET, ABILITY_SYNCHRONIZE, AI_CBM_Toxic_Synchronize
+AI_CBM_Toxic_End:
+	end
+AI_CBM_Toxic_Synchronize:
+	if_ability AI_USER, ABILITY_GUTS, AI_CBM_Toxic_End
+	if_ability AI_USER, ABILITY_MARVEL_SCALE, AI_CBM_Toxic_End
+	if_ability AI_USER, ABILITY_IMMUNITY, AI_CBM_Toxic_End
+	if_status AI_USER, STATUS1_ANY, AI_CBM_Toxic_End
+	get_user_type1
+	if_equal TYPE_STEEL, AI_CBM_Toxic_End
+	if_equal TYPE_POISON, AI_CBM_Toxic_End
+	get_user_type2
+	if_equal TYPE_STEEL, AI_CBM_Toxic_End
+	if_equal TYPE_POISON, AI_CBM_Toxic_End
+	score -5
 	end
 
 AI_CBM_LightScreen: @ 82DC4C5
@@ -439,13 +454,23 @@ AI_CBM_Paralyze_SkipEffectiveness:
 	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
     if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
     if_move MOVE_THUNDER_WAVE, AI_ThunderWave
+AI_CBM_Paralyze_SynchronizeCheck:
+    if_ability_might_be AI_TARGET, ABILITY_SYNCHRONIZE, AI_CBM_Paralyze_Synchronize
+AI_CBM_Paralyze_End:
     end
     
 AI_ThunderWave:
 	if_ability_might_be AI_TARGET, ABILITY_MOTOR_DRIVE, Score_Minus10
 	if_ability_might_be AI_TARGET, ABILITY_LIGHTNING_ROD, Score_Minus10
 	if_ability_might_be AI_TARGET, ABILITY_VOLT_ABSORB, Score_Minus10
-    end
+    goto AI_CBM_Paralyze_SynchronizeCheck
+AI_CBM_Paralyze_Synchronize:
+	if_ability AI_USER, ABILITY_GUTS, AI_CBM_Paralyze_End
+	if_ability AI_USER, ABILITY_MARVEL_SCALE, AI_CBM_Paralyze_End
+	if_ability AI_USER, ABILITY_LIMBER, AI_CBM_Paralyze_End
+	if_status AI_USER, STATUS1_ANY, AI_CBM_Paralyze_End
+	score -5
+    goto AI_CBM_Paralyze_End
 
 AI_CBM_Substitute: @ 82DC568
 	if_status2 AI_USER, STATUS2_SUBSTITUTE, Score_Minus8
@@ -598,6 +623,19 @@ AI_CBM_WillOWisp: @ 82DC6B4
     get_target_type2
     if_equal TYPE_FIRE, Score_Minus10
 	if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
+	if_ability_might_be AI_TARGET, ABILITY_SYNCHRONIZE, WillOWisp_Synchronize
+AI_CBM_WillOWisp_End:
+	end
+WillOWisp_Synchronize:
+	if_ability AI_USER, ABILITY_GUTS, AI_CBM_WillOWisp_End
+	if_ability AI_USER, ABILITY_MARVEL_SCALE, AI_CBM_WillOWisp_End
+	if_ability AI_USER, ABILITY_WATER_VEIL, AI_CBM_WillOWisp_End
+	if_status AI_USER, STATUS1_ANY, AI_CBM_WillOWisp_End
+	get_user_type1
+    if_equal TYPE_FIRE, AI_CBM_WillOWisp_End
+    get_user_type2
+    if_equal TYPE_FIRE, AI_CBM_WillOWisp_End
+	score -5
 	end
 
 AI_CBM_HelpingHand: @ 82DC6E3
@@ -1329,7 +1367,6 @@ AI_CV_SpeedDownFromChance: @ 82DCE6B
 
 AI_CV_SpeedDown: @ 82DCE81
 	if_target_faster AI_CV_SpeedDown2
-	score -3
 	goto AI_CV_SpeedDown_End
 
 AI_CV_SpeedDown2: @ 82DCE8E

@@ -1902,7 +1902,7 @@ u8 TypeCalc(u16 move, u8 attacker, u8 defender)
     // check stab
     if (IS_BATTLER_OF_TYPE(attacker, moveType))
     {
-	  if (gBattleMons[gBattlerAttacker].ability == ABILITY_ADAPTABILITY)
+	  if (gBattleMons[attacker].ability == ABILITY_ADAPTABILITY)
 		gBattleMoveDamage = gBattleMoveDamage *= 2;
 	  else
 	  {gBattleMoveDamage = gBattleMoveDamage * 15;
@@ -1948,14 +1948,14 @@ u8 TypeCalc(u16 move, u8 attacker, u8 defender)
     }
 	
 		// Solid Rock
-	if (gMoveResultFlags & MOVE_RESULT_SUPER_EFFECTIVE && (gBattleMons[gBattlerTarget].ability == ABILITY_SOLID_ROCK))
+	if (flags & MOVE_RESULT_SUPER_EFFECTIVE && (gBattleMons[defender].ability == ABILITY_SOLID_ROCK))
 	{
         gBattleMoveDamage = gBattleMoveDamage * 15;
         gBattleMoveDamage = gBattleMoveDamage / 20;
 	}
 	
 	// Tinted Lens
-	if ((gMoveResultFlags & MOVE_RESULT_NOT_VERY_EFFECTIVE) && gBattleMons[gBattlerAttacker].ability == ABILITY_TINTED_LENS)
+	if ((flags & MOVE_RESULT_NOT_VERY_EFFECTIVE) && gBattleMons[attacker].ability == ABILITY_TINTED_LENS)
         gBattleMoveDamage = gBattleMoveDamage *= 2;
 	
     return flags;
