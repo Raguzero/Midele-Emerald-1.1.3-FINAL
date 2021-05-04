@@ -2826,7 +2826,7 @@ const struct MonCoords gMonFrontPicCoords[] =
     [SPECIES_APPLETUN] =
     {
         .size = 0x64,
-        .y_offset = 0x12,
+        .y_offset = 0x0,
     },
     [SPECIES_DURALUDON] =
     {
