@@ -38,6 +38,10 @@ Micolandia_EventScript_CibercafeSign::
 	msgbox Micolandia_CibercafeSign, MSGBOX_SIGN
 	end
 	
+Micolandia_EventScript_ForestSign::
+	msgbox Micolandia_Text_ForestSign, MSGBOX_SIGN
+	end
+	
 Micolandia_Kirlia_Script::
 	lock
 	faceplayer
@@ -72,53 +76,6 @@ Micolandia_EventScript_PlayersHouseMale::
 Micolandia_EventScript_BirchsHouseFemale::
 	warp MAP_LITTLEROOT_TOWN, 0, 0, 0
 	waitstate
-	end
-
-Micolandia_VentaTickets::
-	lock
-	faceplayer
-	checkflag FLAG_SYS_HAS_EON_TICKET 
-	compare VAR_RESULT, TRUE
-	goto_if_eq MicolandiaYaCompradoTickets
-	showmoneybox 0, 0, 0
-	msgbox Micolandia_VentaTickets_Text, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq Micolandia_EventScript_SiVendido
-	compare VAR_RESULT, NO
-	goto_if_eq Micolandia_EventScript_NotEnoughMoney
-	end
-	
-Micolandia_EventScript_SiVendido::
-	checkmoney 50000, 0
-    compare VAR_RESULT, 0
-    goto_if_eq Micolandia_EventScript_NotEnoughMoney
-    playse SE_REGI
-    removemoney 50000, 0
-	delay 8
-    updatemoneybox 0, 0
-	giveitem ITEM_EON_TICKET
-	setflag FLAG_SYS_HAS_EON_TICKET
-	setvar VAR_DISTRIBUTE_EON_TICKET, 0
-	giveitem ITEM_OLD_SEA_MAP
-	setflag FLAG_ENABLE_SHIP_FARAWAY_ISLAND
-	giveitem ITEM_MYSTIC_TICKET
-	setflag FLAG_ENABLE_SHIP_NAVEL_ROCK
-	giveitem ITEM_AURORA_TICKET
-	setflag FLAG_ENABLE_SHIP_BIRTH_ISLAND
-	msgbox Micolandia_SiVendido_Text
-	hidemoneybox
-	release
-	end
-	
-Micolandia_EventScript_NotEnoughMoney::
-	msgbox Micolandia_Text_NotEnoughMoney
-	hidemoneybox
-	release
-	end
-	
-MicolandiaYaCompradoTickets::
-	msgbox Micolandia_SiVendido_Text
-	release
 	end
 
 Micolandia_Text_Marihuana:
@@ -165,34 +122,12 @@ Micolandia_GymSuresteSign:
 	
 Micolandia_CibercafeSign:
 	.string "CIBERCAFE BATALLA$"
+	
+Micolandia_Text_ForestSign:
+	.string "Entrada a Forbidden Forest.\p"
 
-Micolandia_VentaTickets_Text:
-	.string "¡¡¡Eh, pringao!!\n"
-	.string "¡¡O pringaa!!\p" 
-	.string "¡Seas lo que seas\n"
-	.string "Me da iguaa!\p"
+	.string "Entra bajo tu propio riesgo.$"
 
-	.string "¡¡Tengo cuatro tickets que\n"
-	.string	"te abrirán las puertas\p"
-	.string "a lugares que te molarán\n"
-	.string "cantidubi!!\p"
-	
-	.string "¿Qué de donde los he\n"
-	.string "sacado?\p"
-	
-	.string "¡Eso no es asunto tuyo!\p"
-	
-	.string "Bah, te los vendo por solo\n"
-	.string "50000 Pokeyens.\l"
-	.string "¿Trato hecho?$"
-
-Micolandia_Text_NotEnoughMoney:
-	.string "¿Me estas intentando\n"
-	.string "timar?$"
-	
-Micolandia_SiVendido_Text:
-	.string "¡¡Esto es un trato dabuten!!$"
-	
 Micolandia_Dueno_de_Kirlia_Text:
 	.string "La única forma de salir de aquí\n"
 	.string "es volando.\p"

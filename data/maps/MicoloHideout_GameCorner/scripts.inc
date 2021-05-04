@@ -390,6 +390,52 @@ MicoloHideout_EventScript_ExitVendingMachine::
 	releaseall
 	end
 
+MicoloHideout_VentaTickets::
+	lock
+	faceplayer
+	checkflag FLAG_SYS_HAS_EON_TICKET 
+	compare VAR_RESULT, TRUE
+	goto_if_eq MicoloHideoutYaCompradoTickets
+	showmoneybox 0, 0, 0
+	msgbox MicoloHideout_VentaTickets_Text, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq MicoloHideout_EventScript_SiVendido
+	compare VAR_RESULT, NO
+	goto_if_eq MicoloHideoutTickets_NotEnoughMoney
+	end
+	
+MicoloHideout_EventScript_SiVendido::
+	checkmoney 50000, 0
+    compare VAR_RESULT, 0
+    goto_if_eq MicoloHideoutTickets_NotEnoughMoney
+    playse SE_REGI
+    removemoney 50000, 0
+	delay 8
+    updatemoneybox 0, 0
+	giveitem ITEM_EON_TICKET
+	setflag FLAG_SYS_HAS_EON_TICKET
+	setvar VAR_DISTRIBUTE_EON_TICKET, 0
+	giveitem ITEM_OLD_SEA_MAP
+	setflag FLAG_ENABLE_SHIP_FARAWAY_ISLAND
+	giveitem ITEM_MYSTIC_TICKET
+	setflag FLAG_ENABLE_SHIP_NAVEL_ROCK
+	giveitem ITEM_AURORA_TICKET
+	setflag FLAG_ENABLE_SHIP_BIRTH_ISLAND
+	msgbox MicoloHideout_SiVendido_Text
+	hidemoneybox
+	release
+	end
+	
+MicoloHideoutTickets_NotEnoughMoney::
+	msgbox MicoloHideoutTickets_Text_NotEnoughMoney
+	hidemoneybox
+	release
+	end
+	
+MicoloHideoutYaCompradoTickets::
+	msgbox MicoloHideout_SiVendido_Text
+	release
+	end
 
 MicoloHideout_GameCorner_Text_ThisIsMicoloHideoutGameCorner: @ 8210460
 	.string "Bienvenido al CASINO de MICOLANDIA.$"
@@ -464,3 +510,29 @@ MicoloHideout_Text_NotEnoughMoney: @ 82205F1
 
 MicoloHideout_Text_DecidedAgainstBuyingDrink: @ 8220603
 	.string "Decided against buying a drink.$"
+	
+MicoloHideout_VentaTickets_Text:
+	.string "¡¡¡Eh, pringao!!\n"
+	.string "¡¡O pringaa!!\p" 
+	.string "¡Seas lo que seas\n"
+	.string "Me da iguaa!\p"
+
+	.string "¡¡Tengo cuatro tickets que te\n"
+	.string	"abrirán las puertas a lugares\l"
+	.string "que te molarán cantidubi!!\p"
+	
+	.string "¿Qué de donde los he\n"
+	.string "sacado?\p"
+	
+	.string "¡Eso no es asunto tuyo!\p"
+	
+	.string "Bah, te los vendo por solo\n"
+	.string "50.000 Pokeyens.\l"
+	.string "¿Trato hecho?$"
+
+MicoloHideoutTickets_Text_NotEnoughMoney:
+	.string "¿Me estas intentando\n"
+	.string "timar?$"
+	
+MicoloHideout_SiVendido_Text:
+	.string "¡¡Esto es un trato dabuten!!$"
