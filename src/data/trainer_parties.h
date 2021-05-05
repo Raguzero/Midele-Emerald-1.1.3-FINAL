@@ -20942,11 +20942,11 @@ static const struct TrainerMonCustomMidele sParty_Debug[] = {
        {
         .lvl = 100,
         .iv = 31,
-        .evs = {170, 0, 0, 0, 0, 0},
-        .species = SPECIES_NINJASK,
-        .moves = {MOVE_BATON_PASS, MOVE_X_SCISSOR, MOVE_PROTECT, MOVE_SUBSTITUTE},
-        .heldItem = ITEM_LEFTOVERS,
-        .ability = 0,
+        .evs = {170, 252, 0, 0, 0, 0},
+        .species = SPECIES_STEELIX,
+        .moves = {MOVE_EARTHQUAKE, MOVE_X_SCISSOR, MOVE_ROCK_BLAST, MOVE_ROCK_SLIDE},
+        .heldItem = ITEM_CHOICE_BAND,
+        .ability = 1,
         .shiny = 0,
 		.nature = NATURE_HARDY,
         .friendship = 255,
@@ -23859,5 +23859,16 @@ static const struct TrainerMonCustomMidele sParty_RedKrow[] = {
 	.evs = {0, 252, 0, 0, 6, 252},  
 	.ability = 1, 
     .moves = {MOVE_SWORDS_DANCE, MOVE_EARTHQUAKE, MOVE_SLUDGE_BOMB, MOVE_SUNNY_DAY}
+    }
+};
+static const struct TrainerMonCustomMidele sParty_Topo[] = {
+    {
+    .iv = 31,
+    .lvl = 100,
+    .species = SPECIES_KROOKODILE,
+	.heldItem = ITEM_BLACK_GLASSES,
+	.nature = NATURE_QUIET, 
+	.evs = {0, 158, 0, 100, 0, 252},  
+    .moves = {MOVE_EARTHQUAKE, MOVE_CRUNCH, MOVE_STONE_EDGE, MOVE_KNOCK_OFF}  
     }
 };

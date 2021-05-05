@@ -13048,4 +13048,17 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_RedKrow),
         .party = {.ItemCustomMidele = sParty_RedKrow},
     },
+    [TRAINER_TOPO] =
+    {
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_SWIMMING_TRIATHLETE_M,
+        .trainerName = _("TOPO"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
+        .partySize = ARRAY_COUNT(sParty_Topo),
+        .party = {.ItemCustomMidele = sParty_Topo},
+    },
 };

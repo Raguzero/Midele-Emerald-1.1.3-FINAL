@@ -2,9 +2,23 @@ Micolandia_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Micolandia_OnTransition
 	.byte 0
 
-Micolandia_OnTransition: @ 81DC2D7
+Micolandia_OnTransition:
 	setflag FLAG_VISITED_MICOLANDIA
+	compare VAR_MICOLANDIA_GUARD, 0
+	call_if_eq Micolandia_EventScript_SetGuardBlockingDoor
+	compare VAR_MICOLANDIA_GUARD, 1
+	call_if_eq Micolandia_EventScript_SetGuardUnblockingDoor
 	end
+	
+Micolandia_EventScript_SetGuardBlockingDoor::
+	setobjectxyperm 5, 41, 6
+	setobjectmovementtype 5, MOVEMENT_TYPE_FACE_DOWN
+	return
+
+Micolandia_EventScript_SetGuardUnblockingDoor::
+	setobjectxyperm 5, 40, 7
+	setobjectmovementtype 5, MOVEMENT_TYPE_FACE_DOWN
+	return
 	
 Micolandia_EventScript_Marihuana::
 	msgbox Micolandia_Text_Marihuana, MSGBOX_NPC
@@ -42,6 +56,34 @@ Micolandia_EventScript_ForestSign::
 	msgbox Micolandia_Text_ForestSign, MSGBOX_SIGN
 	end
 	
+Micolandia_EventScript_GymSantySign::
+	lock
+	faceplayer
+	msgbox Micolandia_Text_GymSantySign, MSGBOX_NPC
+	release
+	end
+	
+Micolandia_EventScript_GymDarkiSign::
+	lock
+	faceplayer
+	msgbox Micolandia_Text_GymDarkiSign, MSGBOX_NPC
+	release
+	end
+
+Micolandia_EventScript_GymSapphSign::
+	lock
+	faceplayer
+	msgbox Micolandia_Text_GymSapphSign, MSGBOX_NPC
+	release
+	end
+
+Micolandia_EventScript_GymGoosesSign::
+	lock
+	faceplayer
+	msgbox Micolandia_Text_GymGoosesSign, MSGBOX_NPC
+	release
+	end
+	
 Micolandia_Kirlia_Script::
 	lock
 	faceplayer
@@ -77,6 +119,100 @@ Micolandia_EventScript_BirchsHouseFemale::
 	warp MAP_LITTLEROOT_TOWN, 0, 0, 0
 	waitstate
 	end
+	
+Micolandia_EventScript_TopoVigilante::
+	lock
+	faceplayer
+	compare VAR_MICOLANDIA_GUARD, 1
+	call_if_eq Micolandia_EventScript_TopoVigilante2
+	goto_if_set FLAG_DEFEATED_GOOSES_GYM, Micolandia_EventScript_TopoCombate
+	msgbox Micolandia_Text_TopoVigilante, MSGBOX_DEFAULT
+	release
+	end
+	
+Micolandia_EventScript_TopoCombate::
+	lock
+	faceplayer
+	msgbox Micolandia_Text_TopoVigilante2, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_TOPO, Micolandia_Text_TopoDerrota
+	msgbox Micolandia_Text_TopoPostCombate, MSGBOX_DEFAULT
+	closemessage
+	applymovement EVENT_OBJ_ID_PLAYER, Micolandia_Movement_Player
+	waitmovement 0
+	setvar VAR_MICOLANDIA_GUARD, 1
+	applymovement 5, Micolandia_Topo_Movement
+	waitmovement 0
+	releaseall
+	end
+	
+Micolandia_EventScript_TopoVigilante2::
+	lock
+	faceplayer
+	msgbox Micolandia_Text_TopoVigilante3, MSGBOX_DEFAULT
+	release
+	end
+	
+Micolandia_Movement_Player:
+	walk_down
+	walk_in_place_fastest_up
+	step_end
+	
+Micolandia_Topo_Movement:
+	walk_down
+	walk_left
+	walk_in_place_fastest_down
+	step_end
+	
+Micolandia_Text_TopoVigilante:
+	.string "Hola, soy TOPO, el vigilante\n"
+	.string "de seguridad.\p"
+	
+	.string "Este edificio que ves delante tiene\n"
+	.string "muchas instalaciones. El Micocasino,\l"
+	.string "los laboratorios y, por supuesto, la\l"
+	.string "impresionante Micoliga.\p"
+	
+	.string "Pero este lugar es exclusivo.\p"
+	
+	.string "Solo te puedo dejar pasar si has\n"
+	.string "conseguido la Medalla de los 4 lideres\l"
+	.string "de gym de MICOLANDIA.$"
+	
+Micolandia_Text_TopoVigilante2:
+	.string "Hola, soy TOPO, el vigilante\n"
+	.string "de seguridad.\p"
+	
+	.string "Este edificio que ves delante tiene\n"
+	.string "muchas instalaciones. El Micocasino,\l"
+	.string "los laboratorios y, por supuesto, la\l" 
+	.string "impresionante Micoliga.\p"
+	
+	.string "Ya me he enterado que has vencido a los\n"
+	.string "lideres gym de MICOLANDIA.\p"
+	
+	.string "Te has ganado el derecho a dejarte pasar\n"
+	.string "por esta puerta.\p"
+
+	.string "Pero antes...\p"
+	
+	.string "(Se pone las gafas de sol)\p"
+	
+	.string "¡Demuéstrame lo que vales!$"
+	
+Micolandia_Text_TopoDerrota:
+	.string "¿Es que no soy lo suficientemente\n"
+	.string "intimidante?$"
+	
+Micolandia_Text_TopoVigilante3:
+	.string "Hola, soy TOPO, el vigilante\n"
+	.string "de seguridad.\p"
+	
+	.string "No tendrás miedo a entrar por\n"
+	.string "esa puerta ¿no?$"
+	
+Micolandia_Text_TopoPostCombate:
+	.string "Me has convencido.\n"
+	.string "¡Adelante!$"
 
 Micolandia_Text_Marihuana:
 	.string "¿Ves esas plantas de ahí?\p"
@@ -127,6 +263,32 @@ Micolandia_Text_ForestSign:
 	.string "Entrada a Forbidden Forest.\p"
 
 	.string "Entra bajo tu propio riesgo.$"
+	
+Micolandia_Text_GymSantySign:
+	.string "Estamos haciendo preparativos.\n"
+	.string "¡Lo sentimos!\p"
+	
+	.string "¿Por qué no visitas el bosque\n"
+	.string "mientras tanto? Te servirá\l"
+	.string "para entrenar.\p"
+	
+	.string "Pero cuidado, ¡hay entrenadores\n"
+	.string "¡bastante fuertes!$"
+	
+Micolandia_Text_GymDarkiSign:
+	.string "Solo está permitido el paso\n"
+	.string "a quienes hayan derrotado al\l"
+	.string "LIDER SANTY.$"
+	
+Micolandia_Text_GymSapphSign:
+	.string "Solo está permitido el paso\n"
+	.string "a quienes hayan derrotado al\l"
+	.string "LIDER DARKI.$"
+	
+Micolandia_Text_GymGoosesSign:
+	.string "Solo está permitido el paso\n"
+	.string "a quienes hayan derrotado a la\l"
+	.string "LIDER SAPPH.$"
 
 Micolandia_Dueno_de_Kirlia_Text:
 	.string "La única forma de salir de aquí\n"
