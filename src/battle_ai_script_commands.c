@@ -476,6 +476,16 @@ bool8 IsMoveSignificantlyAffectedByStatDrops(u16 move)
     return AreAttackingStatsLowered(IS_TYPE_PHYSICAL(type) ? 0 : 1);
 }
 
+bool8 AICanSwitchAssumingEnoughPokemon(void)
+{
+    return !(ABILITY_ON_OPPOSING_FIELD(sBattler_AI, ABILITY_SHADOW_TAG) && (gBattleMons[sBattler_AI].type1 != TYPE_GHOST && gBattleMons[sBattler_AI].type2 != TYPE_GHOST && gBattleMons[sBattler_AI].ability != ABILITY_SHADOW_TAG))
+            && !(ABILITY_ON_OPPOSING_FIELD(sBattler_AI, ABILITY_ARENA_TRAP) && (gBattleMons[sBattler_AI].type1 != TYPE_FLYING && gBattleMons[sBattler_AI].type2 != TYPE_FLYING && gBattleMons[sBattler_AI].type1 != TYPE_GHOST && gBattleMons[sBattler_AI].type2 != TYPE_GHOST && gBattleMons[sBattler_AI].ability != ABILITY_LEVITATE))
+            && !(ABILITY_ON_FIELD2(ABILITY_MAGNET_PULL) && (gBattleMons[sBattler_AI].type1 == TYPE_STEEL || gBattleMons[sBattler_AI].type2 == TYPE_STEEL))
+            && !(gBattleMons[sBattler_AI].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
+            && !(gStatuses3[sBattler_AI] & STATUS3_ROOTED)
+            && !(gBattleTypeFlags & (BATTLE_TYPE_ARENA | BATTLE_TYPE_PALACE));
+}
+
 static u8 ChooseMoveOrAction_Singles(void)
 {
     u8 currentMoveArray[MAX_MON_MOVES];
@@ -517,12 +527,7 @@ static u8 ChooseMoveOrAction_Singles(void)
 // Consider switching if all moves are worthless to use.
     if (AI_THINKING_STRUCT->aiFlags & (AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_PREFER_BATON_PASS)
         && gBattleMons[sBattler_AI].hp >= gBattleMons[sBattler_AI].maxHP / 2
-		&& !(ABILITY_ON_OPPOSING_FIELD(sBattler_AI, ABILITY_SHADOW_TAG) && (gBattleMons[sBattler_AI].type1 != TYPE_GHOST && gBattleMons[sBattler_AI].type2 != TYPE_GHOST && gBattleMons[sBattler_AI].ability != ABILITY_SHADOW_TAG))
-		&& !(ABILITY_ON_OPPOSING_FIELD(sBattler_AI, ABILITY_ARENA_TRAP) && (gBattleMons[sBattler_AI].type1 != TYPE_FLYING && gBattleMons[sBattler_AI].type2 != TYPE_FLYING && gBattleMons[sBattler_AI].type1 != TYPE_GHOST && gBattleMons[sBattler_AI].type2 != TYPE_GHOST && gBattleMons[sBattler_AI].ability != ABILITY_LEVITATE))
-		&& !(ABILITY_ON_FIELD2(ABILITY_MAGNET_PULL) && (gBattleMons[sBattler_AI].type1 == TYPE_STEEL || gBattleMons[sBattler_AI].type2 == TYPE_STEEL))
-		&& !(gBattleMons[sBattler_AI].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
-        && !(gStatuses3[sBattler_AI] & STATUS3_ROOTED)
-        && !(gBattleTypeFlags & (BATTLE_TYPE_ARENA | BATTLE_TYPE_PALACE)))
+		&& AICanSwitchAssumingEnoughPokemon())
     {
         s32 cap = AI_THINKING_STRUCT->aiFlags & (AI_SCRIPT_CHECK_VIABILITY) ? 95 : 93;
 		for (i = 0; i < MAX_MON_MOVES; i++)
@@ -544,13 +549,7 @@ static u8 ChooseMoveOrAction_Singles(void)
         if (gBattleMons[sBattler_AI].ability == ABILITY_TRUANT
             && IsTruantMonVulnerable(sBattler_AI, gBattlerTarget)
             && gDisableStructs[sBattler_AI].truantCounter
-			&& !(ABILITY_ON_OPPOSING_FIELD(sBattler_AI, ABILITY_SHADOW_TAG) && (gBattleMons[sBattler_AI].type1 != TYPE_GHOST && gBattleMons[sBattler_AI].type2 != TYPE_GHOST && gBattleMons[sBattler_AI].ability != ABILITY_SHADOW_TAG))
-			&& !(ABILITY_ON_OPPOSING_FIELD(sBattler_AI, ABILITY_ARENA_TRAP) && (gBattleMons[sBattler_AI].type1 != TYPE_FLYING && gBattleMons[sBattler_AI].type2 != TYPE_FLYING && gBattleMons[sBattler_AI].type1 != TYPE_GHOST && gBattleMons[sBattler_AI].type2 != TYPE_GHOST && gBattleMons[sBattler_AI].ability != ABILITY_LEVITATE))
-			&& !(ABILITY_ON_FIELD2(ABILITY_MAGNET_PULL) && (gBattleMons[sBattler_AI].type1 == TYPE_STEEL || gBattleMons[sBattler_AI].type2 == TYPE_STEEL))
-			&& !(gBattleMons[sBattler_AI].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
-			&& !(gStatuses3[sBattler_AI] & STATUS3_ROOTED)
-            && gBattleMons[sBattler_AI].hp >= gBattleMons[sBattler_AI].maxHP / 2
-			&& !(gBattleTypeFlags & (BATTLE_TYPE_ARENA | BATTLE_TYPE_PALACE)))
+			&& AICanSwitchAssumingEnoughPokemon())
             if (GetMostSuitableMonToSwitchInto() != PARTY_SIZE)
             {
                 AI_THINKING_STRUCT->switchMon = TRUE;
@@ -586,13 +585,7 @@ static u8 ChooseMoveOrAction_Singles(void)
         chosenMovePos = consideredMoveArray[Random() % numOfBestMoves];
         move = gBattleMons[sBattler_AI].moves[chosenMovePos];
         if (IsMoveSignificantlyAffectedByStatDrops(move)
-                && !(ABILITY_ON_OPPOSING_FIELD(sBattler_AI, ABILITY_SHADOW_TAG) && (gBattleMons[sBattler_AI].type1 != TYPE_GHOST && gBattleMons[sBattler_AI].type2 != TYPE_GHOST && gBattleMons[sBattler_AI].ability != ABILITY_SHADOW_TAG))
-                && !(ABILITY_ON_OPPOSING_FIELD(sBattler_AI, ABILITY_ARENA_TRAP) && (gBattleMons[sBattler_AI].type1 != TYPE_FLYING && gBattleMons[sBattler_AI].type2 != TYPE_FLYING && gBattleMons[sBattler_AI].type1 != TYPE_GHOST && gBattleMons[sBattler_AI].type2 != TYPE_GHOST && gBattleMons[sBattler_AI].ability != ABILITY_LEVITATE))
-                && !(ABILITY_ON_FIELD2(ABILITY_MAGNET_PULL) && (gBattleMons[sBattler_AI].type1 == TYPE_STEEL || gBattleMons[sBattler_AI].type2 == TYPE_STEEL))
-                && !(gBattleMons[sBattler_AI].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
-                && !(gStatuses3[sBattler_AI] & STATUS3_ROOTED)
-                && gBattleMons[sBattler_AI].hp >= gBattleMons[sBattler_AI].maxHP / 2
-                && !(gBattleTypeFlags & (BATTLE_TYPE_ARENA | BATTLE_TYPE_PALACE)))
+			&& AICanSwitchAssumingEnoughPokemon())
             if (GetMostSuitableMonToSwitchInto() != PARTY_SIZE)
             {
                 AI_THINKING_STRUCT->switchMon = TRUE;
