@@ -31,6 +31,17 @@ static bool8 ShouldSwitchIfAllBadMoves(void)
     }
 }
 
+static bool8 ShouldSwitchIfForcedToUseStruggle(void)
+{
+    if (CheckMoveLimitations(gActiveBattler, 0, 0xFF) == 0xF) // no hay movimientos disponibles (es lo que se usa en AreAllMovesUnusable en battle_util.c)
+    {
+        *(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler) = PARTY_SIZE;
+        BtlController_EmitTwoReturnValues(1, B_ACTION_SWITCH, 0);
+        return TRUE;
+    }
+    return FALSE;
+}
+
 static bool8 ShouldSwitchIfPerishSong(void)
 {
     if (gStatuses3[gActiveBattler] & STATUS3_PERISH_SONG
@@ -567,6 +578,8 @@ static bool8 ShouldSwitch(void)
 	if (HasMove(MOVE_BATON_PASS))
         return FALSE; // los supuestos de cambio a continuación aplican igual con Baton Pass, por lo que el cambio es mejor con Baton Pass
     if (ShouldSwitchIfWonderGuard())
+        return TRUE;
+    if (ShouldSwitchIfForcedToUseStruggle())
         return TRUE;
     if (FindMonThatAbsorbsOpponentsMove())
         return TRUE;
