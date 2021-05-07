@@ -1,6 +1,7 @@
 #include "global.h"
 #include "metatile_behavior.h"
 #include "constants/metatile_behaviors.h"
+#include "event_data.h"
 
 #define TILE_FLAG_ENCOUNTER_TILE 1
 #define TILE_FLAG_SURFABLE 2
@@ -958,10 +959,13 @@ bool8 MetatileBehavior_IsMountain(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsDiveable(u8 metatileBehavior)
 {
+   if (!FlagGet(FLAG_SYS_DEXNAV_SEARCH))
+   {
     if (metatileBehavior == MB_SEMI_DEEP_WATER
      || metatileBehavior == MB_DEEP_WATER
      || metatileBehavior == MB_SOOTOPOLIS_DEEP_WATER)
         return TRUE;
+   }
     else
         return FALSE;
 }
