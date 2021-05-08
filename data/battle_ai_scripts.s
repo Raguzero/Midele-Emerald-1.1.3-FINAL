@@ -62,38 +62,34 @@ AI_CBM_CheckIfNegatesType: @ 82DBF92
 	if_ability_might_be AI_TARGET, ABILITY_FLASH_FIRE, CheckIfFlashFireCancelsFire
 	if_ability_might_be AI_TARGET, ABILITY_WONDER_GUARD, CheckIfWonderGuardCancelsMove
 	if_ability_might_be AI_TARGET, ABILITY_LEVITATE, CheckIfLevitateCancelsGroundMove
-	goto AI_CheckBadMove_CheckSoundproof_
+	goto AI_CheckBadMove_CheckSoundproof
 
 CheckIfVoltAbsorbCancelsElectric: @ 82DBFBD
 	get_curr_move_type
 	if_equal_ TYPE_ELECTRIC, Score_Minus12
-	goto AI_CheckBadMove_CheckSoundproof_
+	goto AI_CheckBadMove_CheckSoundproof
 
 CheckIfWaterAbsorbCancelsWater: @ 82DBFCA
 	get_curr_move_type
 	if_equal_ TYPE_WATER, Score_Minus12
-	goto AI_CheckBadMove_CheckSoundproof_
+	goto AI_CheckBadMove_CheckSoundproof
 
 CheckIfFlashFireCancelsFire: @ 82DBFD7
 	get_curr_move_type
 	if_equal_ TYPE_FIRE, Score_Minus12
-	goto AI_CheckBadMove_CheckSoundproof_
+	goto AI_CheckBadMove_CheckSoundproof
 
 CheckIfWonderGuardCancelsMove: @ 82DBFE4
-	if_type_effectiveness AI_EFFECTIVENESS_x2, AI_CheckBadMove_CheckSoundproof_
+	if_type_effectiveness AI_EFFECTIVENESS_x2, AI_CheckBadMove_CheckSoundproof
 	goto Score_Minus10
 
 CheckIfLevitateCancelsGroundMove: @ 82DBFEF
 	get_curr_move_type
 	if_equal_ TYPE_GROUND, Score_Minus10
 
-AI_CheckBadMove_CheckSoundproof_: @ 82DBFF7
-	get_how_powerful_move_is
-	if_equal 0, AI_CheckBadMove_CheckSoundproof
-
 AI_CheckBadMove_CheckSoundproof: @ 82DBFFE
     if_ability_might_be AI_TARGET, ABILITY_SOUNDPROOF, AI_CheckBadMove_CheckSoundMoves
-    goto AI_CheckBadMove_CheckEffect
+    goto AI_CheckBadMove_CheckThawingAndNotKO
 AI_CheckBadMove_CheckSoundMoves:
 	if_move MOVE_GROWL, Score_Minus10
 	if_move MOVE_ROAR, Score_Minus10
@@ -108,6 +104,16 @@ AI_CheckBadMove_CheckSoundMoves:
 	if_move MOVE_PERISH_SONG, Score_Minus10
 	if_move MOVE_OVERDRIVE, Score_Minus10
 	if_move MOVE_BOOMBURST, Score_Minus10
+	
+AI_CheckBadMove_CheckThawingAndNotKO:
+    if_not_status AI_TARGET, STATUS1_FREEZE, AI_CheckBadMove_CheckEffect
+    get_curr_move_type
+    if_not_equal TYPE_FIRE, AI_CheckBadMove_CheckEffect
+    get_considered_move_power
+    if_equal 0, AI_CheckBadMove_CheckEffect
+    if_can_faint AI_CheckBadMove_CheckEffect
+    score -5
+
 
 AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_SLEEP, AI_CBM_Sleep
@@ -383,6 +389,9 @@ AI_CBM_Toxic_SkipTypeCheck:
     if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_status AI_TARGET, STATUS1_ANY, Score_Minus10
 	if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
+    if_effect EFFECT_TOXIC, AI_CBM_Toxic_SkipMarvelScaleCheck
+    if_ability_might_be AI_TARGET, ABILITY_MARVEL_SCALE, Score_Minus8
+AI_CBM_Toxic_SkipMarvelScaleCheck:
     if_ability_might_be AI_TARGET, ABILITY_GUTS, Score_Minus8
 	if_ability_might_be AI_TARGET, ABILITY_SYNCHRONIZE, AI_CBM_Toxic_Synchronize
 AI_CBM_Toxic_End:
@@ -449,6 +458,7 @@ AI_CBM_Paralyze: @ 82DC545
     if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
 AI_CBM_Paralyze_SkipEffectiveness:
 	if_ability_might_be AI_TARGET, ABILITY_LIMBER, Score_Minus10
+    if_ability_might_be AI_TARGET, ABILITY_MARVEL_SCALE, Score_Minus8
     if_ability_might_be AI_TARGET, ABILITY_GUTS, Score_Minus2
     if_status AI_TARGET, STATUS1_ANY, Score_Minus10
 	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
@@ -560,6 +570,8 @@ AI_CBM_Safeguard: @ 82DC635
 	end
 
 AI_CBM_Memento: @ 82DC640
+	count_usable_party_mons AI_USER
+	if_equal 0, Score_Minus12
     if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_stat_level_equal AI_TARGET, STAT_ATK, 0, Score_Minus10
 	if_stat_level_equal AI_TARGET, STAT_SPATK, 0, Score_Minus8
@@ -615,7 +627,6 @@ AI_CBM_Torment: @ 82DC6A9
 AI_CBM_WillOWisp: @ 82DC6B4
     if_ability_might_be AI_TARGET, ABILITY_FLASH_FIRE, Score_Minus10
     if_ability_might_be AI_TARGET, ABILITY_WATER_VEIL, Score_Minus10
-    if_ability_might_be AI_TARGET, ABILITY_GUTS, Score_Minus8
 	if_status AI_TARGET, STATUS1_ANY, Score_Minus10
     if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	get_target_type1
@@ -623,6 +634,8 @@ AI_CBM_WillOWisp: @ 82DC6B4
     get_target_type2
     if_equal TYPE_FIRE, Score_Minus10
 	if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
+    if_ability_might_be AI_TARGET, ABILITY_MARVEL_SCALE, Score_Minus8
+    if_ability_might_be AI_TARGET, ABILITY_GUTS, Score_Minus8
 	if_ability_might_be AI_TARGET, ABILITY_SYNCHRONIZE, WillOWisp_Synchronize
 AI_CBM_WillOWisp_End:
 	end
@@ -750,7 +763,7 @@ AI_CBM_FollowMe:
 @ If move doesn't do meaningful damage, switch out
 AI_ChoiceDamage:
 	get_considered_move_power
-	if_equal 0, Score_Minus10
+	if_equal 0, Score_Minus5
 	if_can_faint AI_ChoiceDamage_End
 	get_curr_dmg_hp_percent
 	if_less_than 60, Score_Minus10
@@ -2603,6 +2616,8 @@ AI_CV_SemiInvulnerable_CheckSandstormTypes:
 	if_in_bytes AI_CV_SandstormResistantTypes, AI_CV_SemiInvulnerable_TryEncourage
 	get_user_type2
 	if_in_bytes AI_CV_SandstormResistantTypes, AI_CV_SemiInvulnerable_TryEncourage
+	get_ability AI_USER
+	if_in_bytes AI_SandstormResistantAbilities, AI_CV_SemiInvulnerable_TryEncourage
 	goto AI_CV_SemiInvulnerable5
 
 AI_CV_SemiInvulnerable_CheckIceType:
@@ -2610,6 +2625,8 @@ AI_CV_SemiInvulnerable_CheckIceType:
 	if_equal TYPE_ICE, AI_CV_SemiInvulnerable_TryEncourage
 	get_user_type2
 	if_equal TYPE_ICE, AI_CV_SemiInvulnerable_TryEncourage
+	get_ability AI_USER
+	if_in_bytes AI_HailResistantAbilities, AI_CV_SemiInvulnerable_TryEncourage
 
 AI_CV_SemiInvulnerable5:
 	if_target_faster AI_CV_SemiInvulnerable_End
@@ -2630,6 +2647,19 @@ AI_CV_SandstormResistantTypes:
     .byte TYPE_ROCK
     .byte TYPE_STEEL
     .byte -1
+	
+AI_SandstormResistantAbilities:
+	.byte ABILITY_SAND_VEIL
+	.byte ABILITY_SAND_FORCE
+	.byte ABILITY_SAND_RUSH
+	.byte ABILITY_OVERCOAT
+	.byte -1
+
+AI_HailResistantAbilities:
+	.byte ABILITY_ICE_BODY
+	.byte ABILITY_SNOW_CLOAK
+	.byte ABILITY_OVERCOAT
+	.byte -1
 
 AI_CV_FakeOut:
 	if_ability_might_be AI_TARGET, ABILITY_INNER_FOCUS, AI_CV_FakeOut_End
@@ -3359,7 +3389,7 @@ AI_DoubleBattleFireMove2:
 	goto Score_Plus1
 
 AI_TryOnAlly:
-	get_how_powerful_move_is
+	get_considered_move_power @ Fix Bug. This checks if he should roll a worthy status move to ally. But that was never going to happen, so this was wasting time checking.
 	if_equal 0, AI_TryStatusMoveOnAlly
 	get_curr_move_type
 	if_equal TYPE_FIRE, AI_TryFireMoveOnAlly
