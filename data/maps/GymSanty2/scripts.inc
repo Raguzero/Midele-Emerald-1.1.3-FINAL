@@ -1,10 +1,114 @@
 GymSanty2_MapScripts::
     map_script MAP_SCRIPT_ON_RESUME, GymSanty2_OnResume
+	map_script MAP_SCRIPT_ON_LOAD, GymSanty2_OnLoad
     .byte 0
+	
+GymSanty2_OnLoad:
+	compare VAR_FUEGO_GYM_SANTY, 0
+	goto_if_eq GymSanty2_Script_Close
+	compare VAR_FUEGO_GYM_SANTY, 1
+	goto_if_eq GymSanty2_Script_Close
+	compare VAR_FUEGO_GYM_SANTY, 2
+	goto_if_eq GymSanty2_Script_Close
+	compare VAR_FUEGO_GYM_SANTY, 3
+	goto_if_eq GymSanty2_Script_Close
+	end
 
 GymSanty2_OnResume:
     setstepcallback STEP_CB_ASH
     end
+	
+GymSanty2_Script_Close::
+	setmetatile 28, 11, 0x04E, 1
+	return
+
+GymSanty2_EventScript_Sign::
+	msgbox GymSanty2_Text_Sign, MSGBOX_SIGN
+	end
+	
+GymSanty2_EventScript_Farol1::
+	lock
+	faceplayer
+	goto_if_set FLAG_FAROL1_GYM_SANTY, GymSanty2_EventScript_FarolEncendida2
+	msgbox GymSanty2_Text_EncenderFarol, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq GymSanty2_EventScript_FarolEncendida
+	release
+	end
+GymSanty2_EventScript_FarolEncendida:
+	msgbox GymSanty2_Text_FarolEncendida, MSGBOX_DEFAULT
+	addvar VAR_FUEGO_GYM_SANTY, 1
+	setflag FLAG_FAROL1_GYM_SANTY
+	compare VAR_FUEGO_GYM_SANTY, 4
+	goto_if_eq GymSanty2_EventScript_FarolesEncendidos
+	release
+	end
+	
+GymSanty2_EventScript_Farol2::
+	lock
+	faceplayer
+	goto_if_set FLAG_FAROL2_GYM_SANTY, GymSanty2_EventScript_FarolEncendida2
+	msgbox GymSanty2_Text_EncenderFarol, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq GymSanty2_EventScript_Farol2Encendida
+	release
+	end
+GymSanty2_EventScript_Farol2Encendida:
+	msgbox GymSanty2_Text_FarolEncendida, MSGBOX_DEFAULT
+	addvar VAR_FUEGO_GYM_SANTY, 1
+	setflag FLAG_FAROL2_GYM_SANTY
+	compare VAR_FUEGO_GYM_SANTY, 4
+	goto_if_eq GymSanty2_EventScript_FarolesEncendidos
+	release
+	end
+	
+GymSanty2_EventScript_Farol3::
+	lock
+	faceplayer
+	goto_if_set FLAG_FAROL3_GYM_SANTY, GymSanty2_EventScript_FarolEncendida2
+	msgbox GymSanty2_Text_EncenderFarol, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq GymSanty2_EventScript_Farol3Encendida
+	release
+	end
+GymSanty2_EventScript_Farol3Encendida:
+	msgbox GymSanty2_Text_FarolEncendida, MSGBOX_DEFAULT
+	addvar VAR_FUEGO_GYM_SANTY, 1
+	setflag FLAG_FAROL3_GYM_SANTY
+	compare VAR_FUEGO_GYM_SANTY, 4
+	goto_if_eq GymSanty2_EventScript_FarolesEncendidos
+	release
+	end
+	
+GymSanty2_EventScript_Farol4::
+	lock
+	faceplayer
+	goto_if_set FLAG_FAROL4_GYM_SANTY, GymSanty2_EventScript_FarolEncendida2
+	msgbox GymSanty2_Text_EncenderFarol, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq GymSanty2_EventScript_Farol4Encendida
+	release
+	end
+GymSanty2_EventScript_Farol4Encendida:
+	msgbox GymSanty2_Text_FarolEncendida, MSGBOX_DEFAULT
+	addvar VAR_FUEGO_GYM_SANTY, 1
+	setflag FLAG_FAROL4_GYM_SANTY
+	compare VAR_FUEGO_GYM_SANTY, 4
+	goto_if_eq GymSanty2_EventScript_FarolesEncendidos
+	release
+	end
+
+GymSanty2_EventScript_FarolEncendida2:
+	msgbox GymSanty2_Text_FarolEncendida2, MSGBOX_DEFAULT
+	release
+	end
+
+GymSanty2_EventScript_FarolesEncendidos::
+	setmetatile 28, 11, METATILE_General_Grass, 0
+	special DrawWholeMapView
+	msgbox GymSanty2_Text_CaminoAbierto, MSGBOX_SIGN
+	releaseall
+	end
 	
     @ Combate contra totem.
 GymSanty2_EventScript_Totem::
@@ -91,10 +195,21 @@ RedKrow_DespuesDeBatalla:
     .string "encantado, pero deja por lo menos que\l"
     .string "vaya a limpiarme la cara primero.$"
 
-GymSanty2_EventScript_Sign::
-	msgbox GymSanty2_Text_Sign, MSGBOX_SIGN
-	end
-	
 GymSanty2_Text_Sign:
-	.string "ENCIENDE LAS CUATRO ANTORCHAS\n"
+	.string "ENCIENDE LOS CUATRO FAROLES\n"
 	.string "Y EL CAMINO SE ABRIRÁ$"
+	
+GymSanty2_Text_EncenderFarol:
+	.string "¿Quieres encender el farol?$"
+	
+GymSanty2_Text_FarolEncendida:
+	.string "Has encendido el farol.$"
+	
+GymSanty2_Text_FarolEncendida2:
+	.string "El fuego arde en el farol.$"
+
+GymSanty2_Text_CaminoAbierto:
+	.string "Han sido encendidos los 4 faroles.\p"
+
+	.string "El camino hacia la siguiente sala\n"
+	.string "ha sido desbloqueado.$"

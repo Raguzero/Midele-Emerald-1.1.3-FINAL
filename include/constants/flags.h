@@ -74,11 +74,11 @@
 #define FLAG_TOTEM_GYMGOOSES    0x3E // Previously unused Flag
 #define FLAG_HIDE_GYMGOOSES_TELEPORTBOY    0x3F // Previously unused Flag
 #define FLAG_RANDOMBATTLE_GYMGOOSES    0x40 // Previously unused Flag
-#define FLAG_HIDE_MTPYRE_MICOLO    0x41 // Unused Flag
-#define FLAG_UNUSED_0x042    0x42 // Unused Flag
-#define FLAG_UNUSED_0x043    0x43 // Unused Flag
-#define FLAG_UNUSED_0x044    0x44 // Unused Flag
-#define FLAG_UNUSED_0x045    0x45 // Unused Flag
+#define FLAG_HIDE_MTPYRE_MICOLO    0x41 // Previously unused Flag
+#define FLAG_FAROL1_GYM_SANTY    0x42 // Previously unused Flag
+#define FLAG_FAROL2_GYM_SANTY    0x43 // Previously unused Flag
+#define FLAG_FAROL3_GYM_SANTY    0x44 // Previously unused Flag
+#define FLAG_FAROL4_GYM_SANTY    0x45 // Previously unused Flag
 #define FLAG_UNUSED_0x046    0x46 // Unused Flag
 #define FLAG_UNUSED_0x047    0x47 // Unused Flag
 #define FLAG_UNUSED_0x048    0x48 // Unused Flag
