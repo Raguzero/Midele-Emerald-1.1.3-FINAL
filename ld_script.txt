@@ -1260,6 +1260,7 @@ SECTIONS {
 		sound/songs/midi/vssusiedeltarune.o(.rodata);
 		sound/songs/midi/zanzatheme.o(.rodata);
 		sound/songs/midi/deltarunchaosk.o(.rodata);
+		sound/songs/midi/swordshieldwild.o(.rodata);
     } =0
 
     lib_rodata :

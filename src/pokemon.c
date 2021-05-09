@@ -7648,7 +7648,57 @@ u16 GetBattleBGM(void)
 	species == NATIONAL_DEX_GOOMY ||
 	species == NATIONAL_DEX_SLIGGOO ||
 	species == NATIONAL_DEX_GOODRA ||
+	species == NATIONAL_DEX_MEGA_BEEDRILL ||	
+	species == NATIONAL_DEX_MEGA_PIDGEOT ||	
+	species == NATIONAL_DEX_MEGA_BANETTE ||	
+	species == NATIONAL_DEX_MEGA_SHARPEDO ||	
+	species == NATIONAL_DEX_MEGA_CAMERUPT ||	
+	species == NATIONAL_DEX_MEGA_MAWILE ||	
+	species == NATIONAL_DEX_MEGA_ABOMASNOW ||	
+	species == NATIONAL_DEX_MEGA_GLALIE ||
+	species == NATIONAL_DEX_MEGA_SABLEYE ||	
+	species == NATIONAL_DEX_MEGA_ALTARIA ||	
+	species == NATIONAL_DEX_MEGA_ABSOL ||
+	species == NATIONAL_DEX_MEGA_HOUNDOOM ||	
 	species ==  NATIONAL_DEX_FLOETTE) return XYWILDBATTLE;
+	if (species == NATIONAL_DEX_GROOKEY ||
+	species == NATIONAL_DEX_THWACKEY ||
+	species == NATIONAL_DEX_RILLABOOM ||
+	species == NATIONAL_DEX_DREEPY ||
+	species == NATIONAL_DEX_DRAKLOAK ||
+	species == NATIONAL_DEX_DRAGAPULT ||
+	species == NATIONAL_DEX_WOOLOO ||
+	species == NATIONAL_DEX_SOBBLE ||
+	species == NATIONAL_DEX_DRIZZILE ||
+	species == NATIONAL_DEX_INTELEON ||
+	species == NATIONAL_DEX_IMPIDIMP ||
+	species == NATIONAL_DEX_MORGREM ||
+	species == NATIONAL_DEX_GRIMMSNARL ||
+	species == NATIONAL_DEX_SIZZLIPEDE ||
+	species == NATIONAL_DEX_CENTISKORCH ||
+	species == NATIONAL_DEX_ROOKIDEE ||
+	species == NATIONAL_DEX_CORVISQUIRE ||
+	species == NATIONAL_DEX_CORVIKNIGHT ||
+	species == NATIONAL_DEX_SNOM ||
+	species == NATIONAL_DEX_FROSMOTH ||
+	species == NATIONAL_DEX_TOXEL ||
+	species == NATIONAL_DEX_TOXTRICITY ||
+	species == NATIONAL_DEX_APPLIN ||
+	species == NATIONAL_DEX_FLAPPLE ||
+	species == NATIONAL_DEX_APPLETUN ||
+	species == NATIONAL_DEX_DURALUDON ||
+	species == NATIONAL_DEX_SILICOBRA ||
+	species == NATIONAL_DEX_SANDACONDA ||
+	species == NATIONAL_DEX_MILCERY ||
+	species == NATIONAL_DEX_ALCREMIE ||
+	species == NATIONAL_DEX_G_BUTTERFREE ||
+	species == NATIONAL_DEX_G_KINGLER ||
+	species == NATIONAL_DEX_OBSTAGOON ||
+	species == NATIONAL_DEX_SIRFETCH ||
+	species == NATIONAL_DEX_MRRIME ||
+	species == NATIONAL_DEX_RUNERIGUS ||		
+	species == NATIONAL_DEX_PERSERKER ||
+	species == NATIONAL_DEX_CURSOLA) return SWORDSHIELDWILD;
     return MUS_BATTLE27;
   }
 }

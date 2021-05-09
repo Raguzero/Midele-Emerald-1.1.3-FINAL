@@ -40,7 +40,7 @@ EverGrandeCity_ChampionsRoom_Movement_PlayerApproachWallace: @ 8228A42
 EverGrandeCity_ChampionsRoom_EventScript_Wallace:: @ 8228A45
 	playbgm MUS_DAIGO, 0
 	msgbox EverGrandeCity_ChampionsRoom_Text_IntroSpeech, MSGBOX_DEFAULT
-	goto_if_set FLAG_SYS_GAME_CLEAR, EGC_AltWallace
+	goto_if_set FLAG_DEFEATED_GOOSES_GYM, EGC_AltWallace
 	trainerbattle_no_intro TRAINER_WALLACE, EverGrandeCity_ChampionsRoom_Text_Defeat
 	goto EverGrandeCity_ChampionsRoom_EventScript_Defeated
 	end

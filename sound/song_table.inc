@@ -642,6 +642,7 @@ gSongTable:: @ 86B49F0
 	song vssusiedeltarune, 0, 0
 	song zanzatheme, 0, 0
 	song deltarunchaosk, 0, 0
+	song swordshieldwild, 0, 0
 
 	.align 2
 dummy_song_header: @ 86B5D00

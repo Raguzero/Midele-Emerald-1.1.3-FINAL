@@ -43,7 +43,7 @@ EverGrandeCity_PhoebesRoom_EventScript_Phoebe:: @ 82281CB
 	goto_if_set FLAG_DEFEATED_ELITE_4_PHOEBE, EverGrandeCity_PhoebesRoom_EventScript_PostBattleSpeech
 	playbgm MUS_SITENNOU, 0
 	msgbox EverGrandeCity_PhoebesRoom_Text_IntroSpeech, MSGBOX_DEFAULT
-	goto_if_set FLAG_SYS_GAME_CLEAR, EGC_AltPhoebes
+	goto_if_set FLAG_DEFEATED_GOOSES_GYM, EGC_AltPhoebes
 	trainerbattle_no_intro TRAINER_PHOEBE, EverGrandeCity_PhoebesRoom_Text_Defeat
 	goto EverGrandeCity_PhoebesRoom_EventScript_Defeated
 	end
