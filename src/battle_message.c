@@ -570,6 +570,8 @@ static const u8 sText_RedHPRedKrow[] = _("Ay, ay, ay, ay,\n ay, ay, ay, ay, ay,\
 static const u8 sText_GoldiePierdePrimerPoke[] = _("¡Apenas estamos empezando!\n ¡Verás cuando saque a\l mi Reshiram de nivel 100!\p");
 static const u8 sText_GoldieEnviaUltimoPoke[] = _("¡Mierda, me he dejado a mi Reshiram en casa!\p");
 static const u8 sText_RedHPGoldie[] = _("Esto me pasa por despistada...\p");
+static const u8 sText_GrimPierdePrimerPoke[] = _("Interesante... ¡Muéstrame más!\n Quiero ver hasta dónde llegan\l tus lazos con tus Pokémon!\p");
+static const u8 sText_GrimEnviaUltimoPoke[] = _("La suerte está echada...\n ¡Es ahora o nunca!\p");
 
 static const u8 frase0[] = _("Esh el vecino\nel que elige al alcalde\py esh el alcalde\nel que quiere\lque shean\llosh vecinosh\lel alcalde.\p");
 static const u8 frase1[] = _("Eshpaña esh una gran nación\ny losh eshpañolesh\lmuy eshpañolesh\ly mucho eshpañolesh.\p");
@@ -3077,6 +3079,7 @@ static const struct TrainerSlide sTrainerSlides[] =
     {TRAINER_UTALAWEA, sText_UtaEnviaUltimoPoke, sText_RedHPUta, sText_UtaPierdePrimerPoke},
     {TRAINER_RED_KROW, sText_RedKrowEnviaUltimoPoke, sText_RedHPRedKrow, sText_RedKrowPierdePrimerPoke},
     {TRAINER_GOLDIE, sText_GoldieEnviaUltimoPoke, sText_RedHPGoldie, sText_GoldiePierdePrimerPoke},
+    {TRAINER_GRIM, sText_GrimEnviaUltimoPoke, NULL, sText_GrimPierdePrimerPoke},
 };
 
 static u32 GetEnemyMonCount(bool32 onlyAlive)

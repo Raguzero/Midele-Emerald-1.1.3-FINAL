@@ -936,10 +936,21 @@
 #define TRAINER_RANDOM_PARTY_GYM 932
 #define TRAINER_RED_KROW 933
 #define TRAINER_TOPO 934
+#define TRAINER_GRIM 935
+#define TRAINER_MAESTRO_ARENA 936
+#define TRAINER_MANEC 937
+#define TRAINER_RAGU 938
+#define TRAINER_PACOCHEF_MICOLANDIA 939
+#define TRAINER_LAVENDER_MICOLANDIA 940
+#define TRAINER_AVADER_MICOLANDIA 941
+#define TRAINER_MICOLO_MICOLANDIA 942
+#define TRAINER_ALPHA 943
+#define TRAINER_JPROGAMER 944
+#define TRAINER_SLOWBRO 945
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or [changing how trainer flags are handled] --> HECHO ESTO
-#define TRAINERS_COUNT                      935 // NUEVO: aumentar para añadir nuevos entrenadores
-#define MAX_TRAINERS_COUNT                  936
+#define TRAINERS_COUNT                      946 // NUEVO: aumentar para añadir nuevos entrenadores
+#define MAX_TRAINERS_COUNT                  947
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

@@ -73,12 +73,12 @@
             "graphics_id": "EVENT_OBJ_GFX_MAN_5",
             "movement_range_x": 0,
             "movement_range_y": 0,
-            "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+            "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
             "script": "ForbiddenForest_EventScript_Tenshinhan",
-            "trainer_sight_or_berry_tree_id": "4",
+            "trainer_sight_or_berry_tree_id": "2",
             "trainer_type": "1",
-            "x": 16,
-            "y": 28
+            "x": 24,
+            "y": 56
         },
         {
             "elevation": 3,
@@ -86,12 +86,12 @@
             "graphics_id": "EVENT_OBJ_GFX_BOY_1",
             "movement_range_x": 0,
             "movement_range_y": 0,
-            "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-            "script": "NULL",
-            "trainer_sight_or_berry_tree_id": "3",
-            "trainer_type": "0",
-            "x": 25,
-            "y": 56
+            "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+            "script": "ForbiddenForest_EventScript_Grim",
+            "trainer_sight_or_berry_tree_id": "4",
+            "trainer_type": "1",
+            "x": 16,
+            "y": 28
         },
         {
             "elevation": 3,

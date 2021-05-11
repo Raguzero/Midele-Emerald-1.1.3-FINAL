@@ -143,6 +143,11 @@ ForbiddenForest_EventScript_Tenshinhan::
 	msgbox Tenshinhan_DespuesDeBatalla, MSGBOX_AUTOCLOSE
 	end
 	
+ForbiddenForest_EventScript_Grim::
+	trainerbattle_single TRAINER_GRIM, Grim_AntesBatalla, Grim_MensajeDerrota
+	msgbox Grim_DespuesDeBatalla, MSGBOX_AUTOCLOSE
+	end
+	
 ForbiddenForest_Text_Celebi:
 	.string "El cartel se ha deteriorado\n"
 	.string "por el paso del tiempo y solo\l"
@@ -382,3 +387,62 @@ Tenshinhan_DespuesDeBatalla:
 	.string "diciéndote estás tonterías.\p"
 	
 	.string "Pero aquí sigo. Jejeje$"
+
+Grim_AntesBatalla: 
+	.string "Hola, viajero. Por tu aspecto y\n" 
+	.string "mirada deduzco que estás embarcado\l" 
+	.string "en un largo viaje.\p" 
+	
+	.string "En tiempos yo también estuve inmerso\n" 
+	.string "en uno, pero no acabó tan bien como\l" 
+	.string "esperaba. Perdí la fe en muchas\l" 
+	.string "cosas en las que creía, aunque\l"
+	.string "al menos me consuela saber que\l"
+	.string "muchas lecciones.\p"
+	
+	.string "Ahora dedico mis días a la vida\n"
+	.string	"contemplativa, buscando la mejora\l"
+	.string "personal y la pureza del alma.\p"
+	
+	.string "¿Sabes?\n" 
+	.string "Este bosque engaña. A pesar de\l" 
+	.string "su tranquilidad, noto que guarda\l" 
+	.string "algunos secretos. Quizá esté\l" 
+	.string "relacionado de alguna manera\l" 
+	.string "con Génesis... el Árbol de la\l"
+	.string "Vida.\p" 
+	
+	.string "Un tal Krossotha Vader\n"
+	.string "lo buscaba con ahínco.\p"
+	
+	.string "Un tipo turbio y malvado...\p"
+
+	.string "En fin, discúlpame.\n" 
+	.string "Estoy aquí soltándote una\l" 
+	.string "turra que ni te va ni te\l" 
+	.string "va ni te viene y seguro que y\l" 
+	.string "solo buscas combatir.\p"
+	
+	.string "Mis Pokémon no es que sean los\n" 
+	.string "más fuertes, pero son los que\l" 
+	.string "han crecido a mi lado. ¡Veamos\l" 
+	.string "de qué pasta estás hecho!$"  
+
+Grim_MensajeDerrota: 
+	.string "¡Así son las cosas! Reconozco\n" 
+	.string "tu justa pericia y mi derrota.$"  
+ 
+Grim_DespuesDeBatalla:
+	.string "Viris acquirit eundo.\p"
+
+	.string "La fuerza se adquiere avanzando.\n" 
+	.string "Es algo que aprendí durante\l" 
+	.string "mi aventura.\p"
+	
+	.string "¡Sigue adelante, entrenador!\n"
+	.string "Hasta el fin del mundo, si\l" 
+	.string "es preciso.\p"
+	
+	.string "Espíritus fuertes como el\n" 
+	.string "tuyo me hacen creer que un\l" 
+	.string "mundo mejor es posible.$"

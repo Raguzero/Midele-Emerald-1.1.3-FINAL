@@ -23872,3 +23872,365 @@ static const struct TrainerMonCustomMidele sParty_Topo[] = {
     .moves = {MOVE_EARTHQUAKE, MOVE_CRUNCH, MOVE_STONE_EDGE, MOVE_KNOCK_OFF}  
     }
 };
+static const struct TrainerMonCustomMidele sParty_Grim[] = { 
+	{ 
+	.iv = 31,
+	.lvl = 73, 
+	.species = SPECIES_HERACROSS, 
+	.heldItem = ITEM_CHOICE_BAND,  
+	.nature = NATURE_ADAMANT,
+	.evs = {4, 252, 0, 0, 0, 252},
+	.ability = 1, 
+	.moves = {MOVE_MEGAHORN, MOVE_STONE_EDGE, MOVE_EARTHQUAKE, MOVE_BRICK_BREAK} 
+	},  
+	{
+	.iv = 31,
+	.lvl = 74, 
+	.species = SPECIES_MEGA_ABSOL, 
+	.heldItem = ITEM_LUM_BERRY,  
+	.nature = NATURE_HASTY,
+	.evs = {0, 4, 0, 252, 0, 252},
+	.ability = 1,
+	.moves = {MOVE_ICE_BEAM, MOVE_FLAMETHROWER, MOVE_SUPERPOWER, MOVE_MEGAHORN} 
+	}, 
+	{
+	.iv = 31,
+	.lvl = 73, 
+	.species = SPECIES_STARMIE, 
+	.heldItem = ITEM_LEFTOVERS,  
+	.nature = NATURE_TIMID,
+	.evs = {0, 4, 0, 252, 0, 252},
+	.ability = 1, 
+	.moves = {MOVE_ICE_BEAM, MOVE_HYDRO_PUMP, MOVE_THUNDERBOLT, MOVE_PSYCHIC} 
+	}, 
+	{ 
+	.iv = 31,
+	.lvl = 72, 
+	.species = SPECIES_SNORLAX, 
+	.heldItem = ITEM_LEFTOVERS, 
+	.nature = NATURE_CAREFUL,
+	.evs = {144, 96, 132, 0, 136, 0},
+	.ability = 0, 
+	.friendship = 255, 
+	.moves = {MOVE_CURSE, MOVE_REST, MOVE_RETURN, MOVE_EARTHQUAKE} 
+	}, 
+	{ 
+	.iv = 31,
+	.lvl = 72, 
+	.species = SPECIES_GENGAR, 
+	.heldItem = ITEM_LEFTOVERS, 
+	.nature = NATURE_TIMID,
+	.evs = {4, 0, 0, 252, 0, 252},
+	.ability = 0, 
+	.moves = {MOVE_THUNDERBOLT, MOVE_ICE_PUNCH, MOVE_GIGA_DRAIN, MOVE_FIRE_PUNCH} 
+	}, 
+	{ 
+	.iv = 31,
+	.lvl = 73, 
+	.species = SPECIES_MILOTIC, 
+	.heldItem = ITEM_LEFTOVERS, 
+	.nature = NATURE_BOLD,
+	.evs = {252, 0, 252, 0, 4, 0},
+	.ability = 0, 
+	.moves = {MOVE_SURF, MOVE_RECOVER, MOVE_TOXIC, MOVE_REFRESH} 
+	}
+};
+static const struct TrainerMonCustomMidele sParty_Maestro_Arena[] = {
+// FALTA FRASES Y LOCALIZACIÓN
+	{
+	.iv = 31,
+	.lvl = 74, 
+	.species = SPECIES_SKARMORY, 
+	.heldItem = ITEM_MENTAL_HERB,  
+	.nature = NATURE_JOLLY,
+	.evs = {252, 0, 6, 0, 0, 252},
+	.ability = 1,
+	.moves = {MOVE_SPIKES, MOVE_WHIRLWIND, MOVE_DRILL_PECK, MOVE_IRON_HEAD} 
+	},
+	{ 
+	.iv = 31,
+	.lvl = 73, 
+	.species = SPECIES_HIPPOWDON, 
+	.heldItem = ITEM_LEFTOVERS,  
+	.nature = NATURE_CAREFUL,
+	.evs = {252, 0, 6, 0, 252, 0},
+	.moves = {MOVE_EARTHQUAKE, MOVE_SLACK_OFF, MOVE_TOXIC, MOVE_WHIRLWIND} 
+	},  
+	{
+	.iv = 31,
+	.lvl = 73, 
+	.species = SPECIES_TENTACRUEL, 
+	.heldItem = ITEM_LEFTOVERS,  
+	.nature = NATURE_BOLD,
+	.evs = {252, 0, 158, 0, 100, 0},
+	.moves = {MOVE_ICE_BEAM, MOVE_SURF, MOVE_CONFUSE_RAY, MOVE_WHIRLPOOL} 
+	}, 
+	{ 
+	.iv = 31,
+	.lvl = 72, 
+	.species = SPECIES_SANDSLASH, 
+	.heldItem = ITEM_LUM_BERRY, 
+	.nature = NATURE_ADAMANT,
+	.evs = {6, 252, 0, 0, 0, 252},
+	.ability = 1, 
+	.moves = {MOVE_SWORDS_DANCE, MOVE_ROCK_SLIDE, MOVE_LEECH_LIFE, MOVE_EARTHQUAKE} 
+	}, 
+	{ 
+	.iv = 31,
+	.lvl = 72, 
+	.species = SPECIES_MEGA_SABLEYE, 
+	.heldItem = ITEM_LEFTOVERS, 
+	.nature = NATURE_RELAXED,
+	.evs = {252, 0, 252, 0, 0, 6},
+	.moves = {MOVE_RECOVER, MOVE_WILL_O_WISP, MOVE_KNOCK_OFF, MOVE_SHADOW_BALL} 
+	}, 
+	{ 
+	.iv = 31,
+	.lvl = 73, 
+	.species = SPECIES_CRADILY, 
+	.heldItem = ITEM_LEFTOVERS, 
+	.nature = NATURE_BOLD,
+	.evs = {252, 0, 252, 6, 0, 0},
+	.ability = 0, 
+	.moves = {MOVE_RECOVER, MOVE_TOXIC, MOVE_MIRROR_COAT, MOVE_GIGA_DRAIN} 
+	}
+};
+static const struct TrainerMonCustomMidele sParty_Manec[] = { 
+// FALTA EQUIPO, FRASES Y LOCALIZACIÓN
+	{
+	.iv = 31,
+	.lvl = 10, 
+	.species = SPECIES_BULBASAUR, 
+	.heldItem = ITEM_MENTAL_HERB,  
+	.nature = NATURE_JOLLY,
+	.evs = {252, 0, 6, 0, 0, 252},
+	.ability = 1,
+	.moves = {MOVE_SPIKES, MOVE_WHIRLWIND, MOVE_DRILL_PECK, MOVE_IRON_HEAD} 
+	}
+};
+static const struct TrainerMonCustomMidele sParty_Ragu[] = {
+// FALTA FRASES Y LOCALIZACIÓN
+	{
+	.iv = 31,
+	.lvl = 100, 
+	.species = SPECIES_FURRET, 
+	.heldItem = ITEM_FLUFFY_TAIL,  
+	.nature = NATURE_JOLLY,
+	.evs = {0, 200, 0, 0, 58, 252},
+	.ability = 1,
+	.moves = {MOVE_COIL, MOVE_RETURN, MOVE_BRICK_BREAK, MOVE_SHADOW_BALL} 
+	},
+	{
+	.iv = 31,
+	.lvl = 100, 
+	.species = SPECIES_MEGA_ALTARIA, 
+	.heldItem = ITEM_CHOICE_SPECS,  
+	.nature = NATURE_MODEST,
+	.evs = {106, 0, 0, 252, 0, 152},
+	.moves = {MOVE_DRAGON_CLAW, MOVE_ICE_BEAM, MOVE_FLAMETHROWER, MOVE_MOONBLAST} 
+	},
+	{
+	.iv = 31,
+	.lvl = 100, 
+	.species = SPECIES_TOGEKISS, 
+	.heldItem = ITEM_SITRUS_BERRY,  
+	.nature = NATURE_TIMID,
+	.evs = {252, 0, 6, 0, 0, 252},
+	.ability = 1,
+	.moves = {MOVE_SOFT_BOILED, MOVE_DAZZLING_GLEAM, MOVE_FLAMETHROWER, MOVE_NASTY_PLOT} 
+	},
+	{
+	.iv = 31,
+	.lvl = 100, 
+	.species = SPECIES_BLAZIKEN, 
+	.heldItem = ITEM_CHOICE_SCARF,  
+	.nature = NATURE_NAIVE,
+	.evs = {0, 252, 0, 6, 0, 252},
+	.ability = 1,
+	.moves = {MOVE_DYNAMIC_PUNCH, MOVE_OVERHEAT, MOVE_BRAVE_BIRD, MOVE_STONE_EDGE} 
+	},
+	{
+	.iv = 31,
+	.lvl = 100, 
+	.species = SPECIES_RAIKOU, 
+	.heldItem = ITEM_FOCUS_SASH,  
+	.nature = NATURE_TIMID,
+	.evs = {6, 0, 0, 252, 0, 252},
+	.hpType = TYPE_GRASS,
+	.moves = {MOVE_CALM_MIND, MOVE_THUNDERBOLT, MOVE_EXTRASENSORY, MOVE_HIDDEN_POWER} 
+	},
+	{
+	.iv = 31,
+	.lvl = 100, 
+	.species = SPECIES_SWAMPERT, 
+	.heldItem = ITEM_CHESTO_BERRY,  
+	.nature = NATURE_BRAVE,
+	.evs = {200, 158, 0, 0, 152, 0},
+	.ability = 1,
+	.moves = {MOVE_EARTHQUAKE, MOVE_SURF, MOVE_CURSE, MOVE_REST} 
+	}
+};
+static const struct TrainerMonCustomMidele sParty_Pacochef2[] = { 
+// FALTA FRASES Y LOCALIZACIÓN
+	{
+	.iv = 31,
+	.lvl = 10, 
+	.species = SPECIES_BULBASAUR, 
+	.heldItem = ITEM_MENTAL_HERB,  
+	.nature = NATURE_JOLLY,
+	.evs = {252, 0, 6, 0, 0, 252},
+	.ability = 1,
+	.moves = {MOVE_SPIKES, MOVE_WHIRLWIND, MOVE_DRILL_PECK, MOVE_IRON_HEAD} 
+	}
+};
+static const struct TrainerMonCustomMidele sParty_Lavender2[] = { 
+// FALTA FRASES Y LOCALIZACIÓN
+	{
+	.iv = 31,
+	.lvl = 10, 
+	.species = SPECIES_BULBASAUR, 
+	.heldItem = ITEM_MENTAL_HERB,  
+	.nature = NATURE_JOLLY,
+	.evs = {252, 0, 6, 0, 0, 252},
+	.ability = 1,
+	.moves = {MOVE_SPIKES, MOVE_WHIRLWIND, MOVE_DRILL_PECK, MOVE_IRON_HEAD} 
+	}
+};
+static const struct TrainerMonCustomMidele sParty_Micolo3[] = { 
+// FALTA FRASES Y LOCALIZACIÓN
+	{
+	.iv = 31,
+	.lvl = 10, 
+	.species = SPECIES_DARK_PIKACHU, 
+	.heldItem = ITEM_MENTAL_HERB,  
+	.nature = NATURE_JOLLY,
+	.evs = {252, 0, 6, 0, 0, 252},
+	.ability = 1,
+	.moves = {MOVE_SPIKES, MOVE_WHIRLWIND, MOVE_DRILL_PECK, MOVE_IRON_HEAD} 
+	}
+};
+static const struct TrainerMonCustomMidele sParty_Alpha[] = {
+// FALTA EQUIPO, FRASES Y LOCALIZACIÓN
+	{
+	.iv = 31,
+	.lvl = 10, 
+	.species = SPECIES_BULBASAUR, 
+	.heldItem = ITEM_MENTAL_HERB,  
+	.nature = NATURE_JOLLY,
+	.evs = {252, 0, 6, 0, 0, 252},
+	.ability = 1,
+	.moves = {MOVE_SPIKES, MOVE_WHIRLWIND, MOVE_DRILL_PECK, MOVE_IRON_HEAD} 
+	}
+};
+static const struct TrainerMonCustomMidele sParty_JProgamer[] = {
+// FALTA FRASES Y LOCALIZACIÓN	
+	{
+	.iv = 31,
+	.lvl = 100, 
+	.species = SPECIES_WEEZING, 
+	.heldItem = ITEM_POISON_BARB,  
+	.nature = NATURE_BRAVE,
+	.evs = {0, 252, 6, 252, 0, 0},
+	.moves = {MOVE_SLUDGE_BOMB, MOVE_FLAMETHROWER, MOVE_THUNDERBOLT, MOVE_WILL_O_WISP} 
+	},
+	{
+	.iv = 31,
+	.lvl = 100, 
+	.species = SPECIES_SLOWPOKE, 
+	.heldItem = ITEM_BRIGHT_POWDER,  
+	.nature = NATURE_CAREFUL,
+	.evs = {252, 0, 6, 0, 252, 0},
+	.moves = {MOVE_SLACK_OFF, MOVE_THUNDER_WAVE, MOVE_CURSE, MOVE_EARTHQUAKE} 
+	},
+	{
+	.iv = 31,
+	.lvl = 100, 
+	.species = SPECIES_SLOWBRO, 
+	.heldItem = ITEM_QUICK_CLAW,  
+	.nature = NATURE_MODEST,
+	.evs = {252, 0, 6, 252, 0, 0},
+	.ability = 1,
+	.moves = {MOVE_SURF, MOVE_FLAMETHROWER, MOVE_PSYCHIC, MOVE_SLACK_OFF} 
+	},
+	{
+	.iv = 31,
+	.lvl = 100, 
+	.species = SPECIES_MILTANK, 
+	.heldItem = ITEM_HARD_STONE,  
+	.nature = NATURE_JOLLY,
+	.evs = {0, 252, 6, 0, 0, 252},
+	.ability = 1,
+	.moves = {MOVE_DEFENSE_CURL, MOVE_MILK_DRINK, MOVE_BODY_SLAM, MOVE_ROLLOUT} 
+	},
+	{
+	.iv = 31,
+	.lvl = 100, 
+	.species = SPECIES_WOBBUFFET, 
+	.heldItem = ITEM_SALAC_BERRY,  
+	.nature = NATURE_JOLLY,
+	.evs = {252, 0, 6, 0, 0, 252},
+	.moves = {MOVE_DESTINY_BOND, MOVE_COUNTER, MOVE_MIRROR_COAT, MOVE_TICKLE} 
+	}
+};
+static const struct TrainerMonCustomMidele sParty_Slowbro[] = {
+// FALTA FRASES Y LOCALIZACIÓN
+	{
+	.iv = 31,
+	.lvl = 100, 
+	.species = SPECIES_OMASTAR, 
+	.heldItem = ITEM_BRIGHT_POWDER,  
+	.nature = NATURE_TIMID,
+	.evs = {252, 0, 6, 0, 0, 252},
+	.ability = 1,
+	.moves = {MOVE_SPIKES, MOVE_KNOCK_OFF, MOVE_HYDRO_PUMP, MOVE_ATTRACT} 
+	},
+	{
+	.iv = 31,
+	.lvl = 100, 
+	.species = SPECIES_PARASECT, 
+	.heldItem = ITEM_TINY_MUSHROOM,  
+	.nature = NATURE_JOLLY,
+	.evs = {6, 252, 0, 0, 0, 252},
+	.ability = 1,
+	.moves = {MOVE_SPORE, MOVE_SCREECH, MOVE_LEECH_LIFE, MOVE_BRICK_BREAK} 
+	},
+	{
+	.iv = 31,
+	.lvl = 100, 
+	.species = SPECIES_SLOWBRO, 
+	.heldItem = ITEM_LEFTOVERS,  
+	.nature = NATURE_JOLLY,
+	.evs = {252, 0, 6, 0, 0, 252},
+	.ability = 1,
+	.moves = {MOVE_SLACK_OFF, MOVE_YAWN, MOVE_FISSURE, MOVE_ICE_BEAM} 
+	},
+	{
+	.iv = 31,
+	.lvl = 100, 
+	.species = SPECIES_KABUTOPS, 
+	.heldItem = ITEM_BRIGHT_POWDER,  
+	.nature = NATURE_NAIVE,
+	.evs = {252, 6, 0, 0, 0, 252},
+	.ability = 1,
+	.moves = {MOVE_CONFUSE_RAY, MOVE_HYDRO_PUMP, MOVE_DOUBLE_TEAM, MOVE_STONE_EDGE} 
+	},
+	{
+	.iv = 31,
+	.lvl = 100, 
+	.species = SPECIES_AERODACTYL, 
+	.heldItem = ITEM_LEFTOVERS,  
+	.nature = NATURE_JOLLY,
+	.evs = {252, 6, 0, 0, 0, 252},
+	.ability = 1,
+	.moves = {MOVE_SUBSTITUTE, MOVE_PROTECT, MOVE_FLY, MOVE_TOXIC} 
+	},
+	{
+	.iv = 31,
+	.lvl = 100, 
+	.species = SPECIES_UNOWN, 
+	.heldItem = ITEM_CHOICE_SCARF,  
+	.nature = NATURE_JOLLY,
+	.evs = {6, 252, 0, 0, 0, 252},
+	.moves = {MOVE_MIDELE_POWER, MOVE_NONE, MOVE_NONE, MOVE_NONE} 
+	}
+};
