@@ -177,6 +177,8 @@ GymGooses_CasillaTableroCombate::
     call_if_eq CasillaTableroWin
     compare VAR_RESULT, B_OUTCOME_LOST
     call_if_eq CasillaTableroLoss
+    compare VAR_RESULT, B_OUTCOME_FORFEITED
+    call_if_eq CasillaTableroLoss
 CasillaTableroWin::
 	clearflag FLAG_RANDOMBATTLE_GYMGOOSES
 	msgbox GymGoosesTirarDadoAgain_Text, MSGBOX_DEFAULT
@@ -215,6 +217,8 @@ GymGooses_CasillaTableroCombate2::
     call_if_eq CasillaTableroWin2
     compare VAR_RESULT, B_OUTCOME_LOST
     call_if_eq CasillaTableroLoss2
+    compare VAR_RESULT, B_OUTCOME_FORFEITED
+    call_if_eq CasillaTableroLoss2
 CasillaTableroWin2::
 	clearflag FLAG_RANDOMBATTLE_GYMGOOSES
 	msgbox GymGoosesTirarDadoAgain_Text, MSGBOX_DEFAULT
@@ -252,6 +256,8 @@ GymGooses_CasillaTableroCombate3::
     compare VAR_RESULT, B_OUTCOME_WON
     call_if_eq CasillaTableroWin3
     compare VAR_RESULT, B_OUTCOME_LOST
+    call_if_eq CasillaTableroLoss3
+    compare VAR_RESULT, B_OUTCOME_FORFEITED
     call_if_eq CasillaTableroLoss3
 CasillaTableroWin3::
 	clearflag FLAG_RANDOMBATTLE_GYMGOOSES

@@ -152,6 +152,8 @@ RANDOMINDIVIDUAL::
     call_if_eq BF_RandomBattleCleanupWIN
     compare VAR_RESULT, B_OUTCOME_LOST
     call_if_eq BF_RandomBattleCleanupLOSS
+    compare VAR_RESULT, B_OUTCOME_FORFEITED
+    call_if_eq BF_RandomBattleCleanupLOSS
 	end
 
 RANDOMDOBLES::	
@@ -170,6 +172,8 @@ RANDOMDOBLES::
     compare VAR_RESULT, B_OUTCOME_WON
     call_if_eq BF_RandomBattleCleanupWIN
     compare VAR_RESULT, B_OUTCOME_LOST
+    call_if_eq BF_RandomBattleCleanupLOSS
+    compare VAR_RESULT, B_OUTCOME_FORFEITED
     call_if_eq BF_RandomBattleCleanupLOSS
 	end
 
@@ -243,6 +247,8 @@ RANDOMCCINDIVIDUAL::
     call_if_eq BF_RandomBattleCleanupWINCC
     compare VAR_RESULT, B_OUTCOME_LOST
     call_if_eq BF_RandomBattleCleanupLOSSCC
+    compare VAR_RESULT, B_OUTCOME_FORFEITED
+    call_if_eq BF_RandomBattleCleanupLOSSCC
 	end
 
 RANDOMCCDOBLES::
@@ -258,6 +264,8 @@ RANDOMCCDOBLES::
     compare VAR_RESULT, B_OUTCOME_WON
     call_if_eq BF_RandomBattleCleanupWINCC
     compare VAR_RESULT, B_OUTCOME_LOST
+    call_if_eq BF_RandomBattleCleanupLOSSCC
+    compare VAR_RESULT, B_OUTCOME_FORFEITED
     call_if_eq BF_RandomBattleCleanupLOSSCC
 	end
 	

@@ -3138,14 +3138,10 @@ void SetMoveEffect(bool8 primary, u8 certain)
                 break;
             case MOVE_EFFECT_STEAL_ITEM:
                 {
-                    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_HILL)
-                    {
-                        gBattlescriptCurrInstr++;
-                        break;
-                    }
-
                     side = GetBattlerSide(gBattlerAttacker);
-                    if (GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT
+					if ((GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT
+                         || (gBattleTypeFlags & BATTLE_TYPE_TRAINER))
+                       && FlagGet(FLAG_RYU_RANDOMBATTLECC) != 1
                         && !(gBattleTypeFlags &
                              (BATTLE_TYPE_EREADER_TRAINER
                               | BATTLE_TYPE_FRONTIER

@@ -4546,8 +4546,10 @@ static void HandleTurnActionSelectionState(void)
                 }
 
                 if (gBattleTypeFlags & BATTLE_TYPE_TRAINER
-                    && gBattleTypeFlags & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_TRAINER_HILL)
-                    && gBattleBufferB[gActiveBattler][1] == B_ACTION_RUN)
+                    && (gBattleTypeFlags & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_TRAINER_HILL)
+                    || FlagGet(FLAG_RYU_RANDOMBATTLE) == 1
+                    || FlagGet(FLAG_RYU_RANDOMBATTLECC) == 1)
+					&& gBattleBufferB[gActiveBattler][1] == B_ACTION_RUN)
                 {
                     gSelectionBattleScripts[gActiveBattler] = BattleScript_AskIfWantsToForfeitMatch;
                     gBattleCommunication[gActiveBattler] = STATE_SELECTION_SCRIPT_MAY_RUN;
@@ -5389,6 +5391,12 @@ static void HandleEndTurn_RanFromBattle(void)
         gBattlescriptCurrInstr = BattleScript_PrintPlayerForfeited;
         gBattleOutcome = B_OUTCOME_FORFEITED;
     }
+	else if (FlagGet(FLAG_RYU_RANDOMBATTLE) == 1
+            || FlagGet(FLAG_RYU_RANDOMBATTLECC) == 1)
+    {
+        gBattlescriptCurrInstr = BattleScript_PrintPlayerForfeited;
+        gBattleOutcome = B_OUTCOME_FORFEITED;
+    }
     else
     {
         switch (gProtectStructs[gBattlerAttacker].fleeFlag)
@@ -5966,7 +5974,10 @@ bool8 TryRunFromBattle(u8 battler)
             effect++;
         }
     }
-    else if (gBattleTypeFlags & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_TRAINER_HILL) && gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+    else if ((gBattleTypeFlags & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_TRAINER_HILL) 
+			|| FlagGet(FLAG_RYU_RANDOMBATTLE) == 1
+            || FlagGet(FLAG_RYU_RANDOMBATTLECC) == 1)	
+	        && gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {
         effect++;
     }
