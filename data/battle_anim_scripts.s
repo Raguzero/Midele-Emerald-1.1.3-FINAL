@@ -11062,21 +11062,52 @@ Move_DARK_THUNDER:
 	end
 	
 Move_DRILL_RUN:
-	loadspritegfx ANIM_TAG_IMPACT
-	loadspritegfx ANIM_TAG_HORN_HIT
+	loadspritegfx 10135
+	loadspritegfx 10020
 	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 0
-	playsewithpan SE_W029, SOUND_PAN_ATTACKER
+	playsewithpan SE_W029, 192
 	waitforvisualfinish
 	delay 2
 	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 1
-	delay 2
-	loopsewithpan SE_W030, SOUND_PAN_TARGET, 4, 8
-	createvisualtask sub_810EB88, 5
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 18, 1
+	createsprite gHornHitSpriteTemplate, ANIM_TARGET, 4, 0, 0, 12
 	waitforvisualfinish
+	playse SE_BAN
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_ATTACKER, 2, 0, 40, 1
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 10, 0, 40, 1
+	createsprite gUnknown_085973E8, ANIM_TARGET, 3, 0, 0, 1, 3
+	playsewithpan SE_W030, 63
+	delay 4
+	createsprite gUnknown_085973E8, ANIM_TARGET, 3, 0, 2, 1, 3
+	playsewithpan SE_W030, 63
+	delay 4
+	createsprite gUnknown_085973E8, ANIM_TARGET, 3, -4, 3, 1, 3
+	playsewithpan SE_W030, 63
+	delay 4
+	createsprite gUnknown_085973E8, ANIM_TARGET, 3, -8, -5, 1, 3
+	playsewithpan SE_W030, 63
+	delay 4
+	createsprite gUnknown_085973E8, ANIM_TARGET, 3, 4, -12, 1, 3
+	playsewithpan SE_W030, 63
+	delay 4
+	createsprite gUnknown_085973E8, ANIM_TARGET, 3, 16, 0, 1, 3
+	playsewithpan SE_W030, 63
+	delay 4
+	createsprite gUnknown_085973E8, ANIM_TARGET, 3, 5, 18, 1, 3
+	playsewithpan SE_W030, 63
+	delay 4
+	createsprite gUnknown_085973E8, ANIM_TARGET, 3, -17, 12, 1, 2
+	playsewithpan SE_W030, 63
+	delay 4
+	createsprite gUnknown_085973E8, ANIM_TARGET, 3, -21, -15, 1, 2
+	playsewithpan SE_W030, 63
+	delay 4
+	createsprite gUnknown_085973E8, ANIM_TARGET, 3, 8, -27, 1, 2
+	playsewithpan SE_W030, 63
+	delay 4
+	createsprite gUnknown_085973E8, ANIM_TARGET, 3, 32, 0, 1, 2
+	playsewithpan SE_W030, 63
+	delay 4
 	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 2
-	waitforvisualfinish
-	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 6
 	waitforvisualfinish
 	end
 	

@@ -23642,6 +23642,7 @@ static const struct TrainerMonCustomMidele sParty_Tenshinhan[] = {
 };
 
 static const struct TrainerMonCustomMidele sParty_Kaisser[] = {
+// FALTA FRASES Y LOCALIZACIÓN
     {
     .iv = 31, 
     .lvl = 100,
@@ -24123,10 +24124,9 @@ static const struct TrainerMonCustomMidele sParty_Alpha[] = {
 	}
 };
 static const struct TrainerMonCustomMidele sParty_JProgamer[] = {
-// FALTA FRASES Y LOCALIZACIÓN	
 	{
 	.iv = 31,
-	.lvl = 100, 
+	.lvl = 73, 
 	.species = SPECIES_WEEZING, 
 	.heldItem = ITEM_POISON_BARB,  
 	.nature = NATURE_BRAVE,
@@ -24135,7 +24135,7 @@ static const struct TrainerMonCustomMidele sParty_JProgamer[] = {
 	},
 	{
 	.iv = 31,
-	.lvl = 100, 
+	.lvl = 80, 
 	.species = SPECIES_SLOWPOKE, 
 	.heldItem = ITEM_BRIGHT_POWDER,  
 	.nature = NATURE_CAREFUL,
@@ -24144,7 +24144,7 @@ static const struct TrainerMonCustomMidele sParty_JProgamer[] = {
 	},
 	{
 	.iv = 31,
-	.lvl = 100, 
+	.lvl = 73, 
 	.species = SPECIES_SLOWBRO, 
 	.heldItem = ITEM_QUICK_CLAW,  
 	.nature = NATURE_MODEST,
@@ -24154,7 +24154,7 @@ static const struct TrainerMonCustomMidele sParty_JProgamer[] = {
 	},
 	{
 	.iv = 31,
-	.lvl = 100, 
+	.lvl = 73, 
 	.species = SPECIES_MILTANK, 
 	.heldItem = ITEM_HARD_STONE,  
 	.nature = NATURE_JOLLY,
@@ -24164,7 +24164,7 @@ static const struct TrainerMonCustomMidele sParty_JProgamer[] = {
 	},
 	{
 	.iv = 31,
-	.lvl = 100, 
+	.lvl = 74, 
 	.species = SPECIES_WOBBUFFET, 
 	.heldItem = ITEM_SALAC_BERRY,  
 	.nature = NATURE_JOLLY,

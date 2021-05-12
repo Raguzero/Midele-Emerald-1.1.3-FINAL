@@ -148,6 +148,11 @@ ForbiddenForest_EventScript_Grim::
 	msgbox Grim_DespuesDeBatalla, MSGBOX_AUTOCLOSE
 	end
 	
+ForbiddenForest_EventScript_JProgamer::
+	trainerbattle_single TRAINER_JPROGAMER, JProgamer_AntesBatalla, JProgamer_MensajeDerrota
+	msgbox JProgamer_DespuesDeBatalla, MSGBOX_AUTOCLOSE
+	end
+	
 ForbiddenForest_Text_Celebi:
 	.string "El cartel se ha deteriorado\n"
 	.string "por el paso del tiempo y solo\l"
@@ -446,3 +451,63 @@ Grim_DespuesDeBatalla:
 	.string "Espíritus fuertes como el\n" 
 	.string "tuyo me hacen creer que un\l" 
 	.string "mundo mejor es posible.$"
+	
+JProgamer_AntesBatalla: 
+	.string "No sé si sabeis que es un borrego\n" 
+	.string "pero es alguien que le cree todo\l"
+	.string "al nuevo orden mundial que se ha\l"
+	.string "instaurado ya en la sociedad.\p"
+	
+	.string "Llevo varios años y Mideles avisando,\n"
+	.string "¡pero nadie me hizo caso!\p"
+	
+	.string "¡Ya es tarde! ¡Muy tarde!\p"
+	
+	.string "El nuevo orden mundial ya nos obliga\n"
+	.string "a llevar bozales para callarnos ante\l"
+	.string "las versiones oficiales del gobierno.\p"
+	
+	.string "La medicina actual no busca curarnos,\n"
+	.string "busca mantenernos vivos y enfermos\l"
+	.string "para sacarnos el dinero.\p"
+	
+	.string "Y los alimentos transgénicos y la leche\n"
+	.string "materna son claramente cancerígenas.\p"
+	
+	.string "¿Que será lo próximo? ¿Ponermos en fila\n"
+	.string "como borregos para que nos metan un\l"
+	.string "PCR por el culo?\p"
+	
+	.string "...\p"
+	
+	.string "¿Qué pasa?\n"
+	.string "¿Quieres fuentes de todo esto?\p"
+
+	.string "¡No necesito fuentes, debatir con\n" 
+	.string "borregos es lo mismo que perder\l" 
+	.string "el tiempo, todas las fuentes\l"
+	.string "están trucadas!\p"
+
+	.string "¡Demuéstrame que no eres un borrego\n"
+	.string "del sistema!$"
+
+JProgamer_MensajeDerrota: 
+	.string "¡Otro maldito borrego del sistema!\p"
+
+	.string "¡Te voy a jalar el clito...!$"
+ 
+JProgamer_DespuesDeBatalla:
+	.string "¡Todo el que vaya en contra de la versión\n"
+	.string "oficial, será tratado como un peligroso\l"
+	.string "negacionista!\p"
+	
+	.string "¡Esta plandemia existe para controlarnos\n"
+	.string "mentalmente a todos con el 5G!\p"
+	
+	.string "¿Fuentes? Ya te lo he dicho antes,\n"
+	.string "maldito borrego.\p"
+	
+	.string "¡No necesito fuentes, debatir con\n" 
+	.string "borregos es lo mismo que perder\l" 
+	.string "el tiempo, todas las fuentes\l"
+	.string "están trucadas!$"
