@@ -10055,15 +10055,16 @@ static void Cmd_trysethelpinghand(void)
 
 static void Cmd_tryswapitems(void) // trick
 {
-    // opponent can't swap items with player in regular battles
+    // No one can swap items in regular trainer battles
     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_HILL
         || gBossBattleFlags != BATTLE_TYPE_NORMAL
-        || (GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT
-            && !(FlagGet(FLAG_RYU_RANDOMBATTLECC) == 1 || (gBattleTypeFlags & (BATTLE_TYPE_LINK
+        || !(!(gBattleTypeFlags & BATTLE_TYPE_TRAINER) 
+		||  FlagGet(FLAG_RYU_RANDOMBATTLECC) == 1 
+		|| (gBattleTypeFlags & (BATTLE_TYPE_LINK
                                   | BATTLE_TYPE_EREADER_TRAINER
                                   | BATTLE_TYPE_FRONTIER
                                   | BATTLE_TYPE_SECRET_BASE
-                                  | BATTLE_TYPE_x2000000)))))
+                                  | BATTLE_TYPE_x2000000))))
     {
         gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
     }
