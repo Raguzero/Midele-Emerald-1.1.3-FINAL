@@ -143,7 +143,7 @@ static u8 DexNavGetAbilityNum(u16 species, u8 searchLevel);
 static u8 DexNavGeneratePotential(u8 searchLevel);
 static u8 DexNavTryGenerateMonLevel(u16 species, u8 environment);
 static u8 GetEncounterLevelFromMapData(u16 species, u8 environment);
-static void CreateDexNavWildMon(u16 species, u8 potential, u8 level, u8 abilityNum, u16* moves);
+static void CreateDexNavWildMon(u16 species, u8 potential, u8 level, u8 abilityNum, u16* moves, u16 item);
 static u8 GetPlayerDistance(s16 x, s16 y);
 static u8 DexNavPickTile(u8 environment, u8 xSize, u8 ySize, bool8 smallScan);
 static void DexNavProximityUpdate(void);
@@ -1102,7 +1102,7 @@ static void Task_DexNavSearch(u8 taskId)
     if (sDexNavSearchDataPtr->proximity < 1)
     {
         CreateDexNavWildMon(sDexNavSearchDataPtr->species, sDexNavSearchDataPtr->potential, sDexNavSearchDataPtr->monLevel, 
-          sDexNavSearchDataPtr->abilityNum, sDexNavSearchDataPtr->moves);
+          sDexNavSearchDataPtr->abilityNum, sDexNavSearchDataPtr->moves, sDexNavSearchDataPtr->heldItem);
         
         FlagClear(FLAG_SYS_DEXNAV_SEARCH);
         gDexnavBattle = TRUE;        
@@ -1211,7 +1211,7 @@ static void DexNavUpdateSearchWindow(u8 proximity, u8 searchLevel)
 //////////////////////////////
 //// DEXNAV MON GENERATOR ////
 //////////////////////////////
-static void CreateDexNavWildMon(u16 species, u8 potential, u8 level, u8 abilityNum, u16* moves)
+static void CreateDexNavWildMon(u16 species, u8 potential, u8 level, u8 abilityNum, u16* moves, u16 item)
 {
     struct Pokemon* mon = &gEnemyParty[0];
     u8 iv[3];
@@ -1240,6 +1240,9 @@ static void CreateDexNavWildMon(u16 species, u8 potential, u8 level, u8 abilityN
     //Set moves
     for (i = 0; i < MAX_MON_MOVES; i++)
         SetMonMoveSlot(mon, moves[i], i);
+
+	// Set held item
+	SetMonData(mon, MON_DATA_HELD_ITEM, &item);
 
     CalculateMonStats(mon);
 }
@@ -1368,68 +1371,11 @@ static u16 DexNavGenerateHeldItem(u16 species, u8 searchLevel)
 
 static u8 DexNavGetAbilityNum(u16 species, u8 searchLevel)
 {
-    bool8 genAbility = FALSE;
-    u16 randVal = Random() % 100;
-    u8 abilityNum = 0;
-    
-    if (searchLevel < 5)
-    {
-        #if (SEARCHLEVEL0_ABILITYCHANCE != 0)
-        if (randVal < SEARCHLEVEL0_ABILITYCHANCE)
-            genAbility = TRUE;
-        #endif
-    }
-    else if (searchLevel < 10)
-    {
-        #if (SEARCHLEVEL5_ABILITYCHANCE != 0)
-        if (randVal < SEARCHLEVEL5_ABILITYCHANCE)
-            genAbility = TRUE;
-        #endif
-    }
-    else if (searchLevel < 25)
-    {
-        #if (SEARCHLEVEL10_ABILITYCHANCE != 0)
-        if (randVal < SEARCHLEVEL10_ABILITYCHANCE)
-            genAbility = TRUE;
-        #endif
-    }
-    else if (searchLevel < 50)
-    {
-        #if (SEARCHLEVEL25_ABILITYCHANCE != 0)
-        if (randVal < SEARCHLEVEL25_ABILITYCHANCE)
-            genAbility = TRUE;
-        #endif
-    }
-    else if (searchLevel < 100)
-    {
-        #if (SEARCHLEVEL50_ABILITYCHANCE != 0)
-        if (randVal < SEARCHLEVEL50_ABILITYCHANCE)
-            genAbility = TRUE;
-        #endif
-    }
-    else
-    {
-        #if (SEARCHLEVEL100_ABILITYCHANCE != 0)
-        if (randVal < SEARCHLEVEL100_ABILITYCHANCE)
-            genAbility = TRUE;
-        #endif
-    }
-    
-   /* if (genAbility && gBaseStats[species].abilityHidden != ABILITY_NONE && GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_CAUGHT))
-    {
-        //Only give hidden ability if Pokemon has been caught before
-        abilityNum = 2;
-    }
-    else
-    {
-        //Pick a normal ability of that Pokemon
-        if (gBaseStats[species].abilities[1] != ABILITY_NONE)
-            abilityNum = Random() & 1;
-        else
-            abilityNum = 0;
-    } */
-    
-    return abilityNum;
+    // no hay hab oculta en Midele, así que se elige entre las dos normales
+    if (gBaseStats[species].abilities[1] == ABILITY_NONE)
+        return 0; // la única que hay
+
+    return Random() & 1; // la primera o la segunda
 }
 
 static u8 DexNavGeneratePotential(u8 searchLevel)
@@ -2237,24 +2183,7 @@ static void PrintCurrentSpeciesInfo(void)
         AddTextPrinterParameterized3(WINDOW_INFO, 0, 0, LEVEL_BONUS_Y, sFontColor_Black, 0, sText_DexNav_NoInfo);
     else
         AddTextPrinterParameterized3(WINDOW_INFO, 0, 0, LEVEL_BONUS_Y, sFontColor_Black, 0, gStringVar4);
-    
-    //hidden ability
-  /*  if (species == SPECIES_NONE)
-    {
-        AddTextPrinterParameterized3(WINDOW_INFO, 0, 0, HA_INFO_Y, sFontColor_Black, 0, sText_DexNav_NoInfo);
-    }
-    else if (GetSetPokedexFlag(dexNum, FLAG_GET_CAUGHT))
-    {
-        if (gBaseStats[species].abilityHidden != ABILITY_NONE)
-            AddTextPrinterParameterized3(WINDOW_INFO, 0, 0, HA_INFO_Y, sFontColor_Black, 0, gAbilityNames[gBaseStats[species].abilityHidden]);
-        else
-            AddTextPrinterParameterized3(WINDOW_INFO, 0, 0, HA_INFO_Y, sFontColor_Black, 0, gText_None);
-    } 
-    else
-    {
-        AddTextPrinterParameterized3(WINDOW_INFO, 0, 0, HA_INFO_Y, sFontColor_Black, 0, sText_DexNav_CaptureToSee);
-    }*/
-    
+
     CopyWindowToVram(WINDOW_INFO, 3);
     PutWindowTilemap(WINDOW_INFO);
 }
