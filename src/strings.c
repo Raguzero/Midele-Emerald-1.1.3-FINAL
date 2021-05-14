@@ -2087,3 +2087,7 @@ const u8 gQuiz83[] =  _("FUEGO");
 const u8 gQuiz91[] =  _("PORQUE ???");
 const u8 gQuiz92[] =  _("PORQUE MONO ES UNO Y LA VIDA ES UN CICLO");
 const u8 gQuiz93[] =  _("PORQUE ???");
+
+// SHINY STAR
+const u8 gText_ShinyStar[] = _("{STAR}");
+

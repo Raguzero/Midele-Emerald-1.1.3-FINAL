@@ -3205,5 +3205,7 @@ extern const u8 gQuiz91[];
 extern const u8 gQuiz92[]; 
 extern const u8 gQuiz93[];   
 
+// SHINY STAR
+extern const u8 gText_ShinyStar[];
 
 #endif // GUARD_STRINGS_H
