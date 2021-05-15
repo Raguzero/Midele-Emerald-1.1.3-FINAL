@@ -3152,7 +3152,7 @@ void nullsub_38(struct Sprite *sprite)
 
 void sub_80BE44C(struct Sprite *sprite)
 {
-    if (sPokedexView->unk64A != 0 && sPokedexView->unk64A != 2)
+    if (sPokedexView->unk64A != 0 && sPokedexView->unk64A != 3)
         DestroySprite(sprite);
 }
 
@@ -5511,8 +5511,7 @@ void Task_LoadSearchMenu(u8 taskId)
         case 1:
             LoadCompressedSpriteSheet(sInterfaceSpriteSheet);
             LoadSpritePalettes(sInterfaceSpritePalette);
-			// Por algun razón, si se descomenta esto, se muestra la barra en el menu de busquedas
-			//LoadSpritePalettes(sStatBarSpritePal); //HGSS_Ui
+			LoadSpritePalettes(sStatBarSpritePal); //HGSS_Ui
             sub_80C2594(taskId);
             for (i = 0; i < 16; i++)
                 gTasks[taskId].data[i] = 0;
@@ -5527,9 +5526,8 @@ void Task_LoadSearchMenu(u8 taskId)
             break;
         case 2:
             BeginNormalPaletteFade(0xFFFFFFFF, 0, 16, 0, RGB_BLACK);
-			// Por algun razón, si se descomenta esto, se muestra la barra en el menu de busquedas
-			//sPokedexView->statBarsSpriteId = 0xFF;  //HGSS_Ui
-			//CreateStatBars(&sPokedexView->pokedexList[sPokedexView->selectedPokemon]); //HGSS_Ui
+			sPokedexView->statBarsSpriteId = 0xFF;  //HGSS_Ui
+			CreateStatBars(&sPokedexView->pokedexList[sPokedexView->selectedPokemon]); //HGSS_Ui
             gMain.state++;
             break;
         case 3:
@@ -7827,7 +7825,7 @@ static void SpriteCB_StatBars(struct Sprite *sprite)
 {
     if (IsMonInfoBeingLoaded())
         sprite->invisible = TRUE;
-    if (sPokedexView->unk64A != 0 && sPokedexView->unk64A != 2)
+    if (sPokedexView->unk64A != 0 && sPokedexView->unk64A != 3)
     {
         FreeSpriteTilesByTag(TAG_STAT_BAR);
         FreeSpriteOamMatrix(&gSprites[sPokedexView->statBarsSpriteId]);
@@ -7839,7 +7837,7 @@ static void SpriteCB_StatBarsBg(struct Sprite *sprite)
 {
     if (IsMonInfoBeingLoaded())
         sprite->invisible = TRUE;
-    if (sPokedexView->unk64A != 0 && sPokedexView->unk64A != 2)
+    if (sPokedexView->unk64A != 0 && sPokedexView->unk64A != 3)
     {
         FreeSpriteTilesByTag(TAG_STAT_BAR_BG);
         FreeSpriteOamMatrix(&gSprites[sPokedexView->statBarsBgSpriteId]);
