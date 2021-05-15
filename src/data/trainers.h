@@ -285,7 +285,7 @@ const struct Trainer gTrainers[] = {
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .battleMusic = CRUELANGELSTHESIS,
-        .trainerPic = TRAINER_PIC_YOUNGSTER, // MIDELE: cambiar imagen de Micolo
+        .trainerPic = TRAINER_PIC_MICOLO,
         .trainerName = _("MICOLO"),
         .items = {},
         .doubleBattle = FALSE,
@@ -300,7 +300,7 @@ const struct Trainer gTrainers[] = {
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .battleMusic = CRUELANGELSTHESIS,
-        .trainerPic = TRAINER_PIC_YOUNGSTER, // MIDELE: cambiar imagen de Micolo
+        .trainerPic = TRAINER_PIC_MICOLO,
         .trainerName = _("MICOLO"),
         .items = {},
         .doubleBattle = FALSE,
@@ -12113,7 +12113,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_IZABE_SAILOR] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_SAILOR,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR,
         .trainerPic = TRAINER_PIC_ELITE_FOUR_DRAKE,
         .trainerName = _("RALSEI"),
@@ -12126,7 +12126,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_IZABE_MAYOR] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR,
         .trainerPic = TRAINER_PIC_EXPERT_M,
         .trainerName = _("GARM"),
@@ -12204,7 +12204,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_IZABE_LAVENDER] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .battleMusic = MUS_VS_FRONT,
         .trainerPic = TRAINER_PIC_SOPHOCLES,
@@ -12526,7 +12526,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_AVADER_OLDALE] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .battleMusic = MUS_VS_FRONT,
         .trainerPic = TRAINER_PIC_COLLECTOR,
@@ -12553,7 +12553,7 @@ const struct Trainer gTrainers[] = {
 	[TRAINER_FORBIDDENFOREST_EZECUTER] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
         .trainerPic = TRAINER_PIC_KINDLER,
         .trainerName = _("EZECUTER"),
@@ -12565,7 +12565,7 @@ const struct Trainer gTrainers[] = {
     },[TRAINER_ISMAPKM_1] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .battleMusic = BUTTERFLYWADAKOUJI,
         .trainerPic = TRAINER_PIC_POKEMANIAC,
@@ -12579,7 +12579,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_FIERYPATH_PACOCHEF] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SWIMMER,
         .trainerPic = TRAINER_PIC_SWIMMER_M,
         .trainerName = _("PACOCHEF"),
@@ -12592,7 +12592,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_FIERYPATH_KRUB] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_BIRD_KEEPER,
         .trainerName = _("KRUB"),
@@ -12605,7 +12605,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_FIERYPATH_KADERETE] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_GUITARIST,
         .trainerName = _("KADERETE"),
@@ -12618,7 +12618,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_FIERYPATH_CHINPO] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_CAMPER,
         .trainerName = _("CHINPO"),
@@ -12631,7 +12631,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_FIERYPATH_DOBLEC] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
         .trainerPic = TRAINER_PIC_KINDLER,
         .trainerName = _("DOBLEC"),
@@ -12644,7 +12644,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_GOLDIE] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_2,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_GIRL,
         .battleMusic = MUSICAVEGAGOLDY,
         .trainerPic = TRAINER_PIC_GOLDIE,
@@ -12658,7 +12658,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_JOSITO] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .trainerPic = TRAINER_PIC_NINJA_BOY,
         .trainerName = _("JOSITO"),
@@ -12671,7 +12671,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_GHADDAR] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .trainerPic = TRAINER_PIC_POKEMANIAC,
         .trainerName = _("GHADDAR"),
@@ -12684,7 +12684,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_HYPEANTONIO] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .battleMusic = THEMEOFENCOUNTER,
         .trainerPic = TRAINER_PIC_CAMPER,
@@ -12698,7 +12698,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_VLADILAND] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .trainerPic = TRAINER_PIC_POKEFAN_M,
         .trainerName = _("VLADILAND"),
@@ -12711,7 +12711,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_JAVISITO] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
 		.battleMusic = THEREINCARNATION,
         .trainerPic = TRAINER_PIC_NINJA_BOY,
@@ -12725,7 +12725,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_KEFKY] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .trainerPic = TRAINER_PIC_KEFKY,
         .trainerName = _("KEFKY"),
@@ -12738,7 +12738,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_ELPRINCIPE] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .trainerPic = TRAINER_PIC_POKEMON_RANGER_M,
         .trainerName = _("EL PRINCIPE"),
@@ -12751,7 +12751,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_GRANITECAVE_JZOMBIE] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .trainerPic = TRAINER_PIC_BLACK_BELT,
         .trainerName = _("JZOMBIE"),
@@ -12764,7 +12764,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_JZOMBIE2] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .trainerPic = TRAINER_PIC_BLACK_BELT,
         .trainerName = _("JZOMBIE"),
@@ -12777,7 +12777,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_CHARIZARD_FAN] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .trainerPic = TRAINER_PIC_POKEMANIAC,
         .trainerName = _("CHARFAN"),
@@ -12790,7 +12790,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_JAVISITO_POSTGAME] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
 	    .battleMusic = THEREINCARNATION,
         .trainerPic = TRAINER_PIC_NINJA_BOY,
@@ -12804,7 +12804,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_MERUM] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .battleMusic = INCOMINGX2,
         .trainerPic = TRAINER_PIC_MERUM,
@@ -12818,7 +12818,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_ENTROPIA] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_COOLTRAINER_2,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_ENTROPIA,
         .trainerName = _("ENTROPÍA"),
@@ -12831,7 +12831,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_TREVEJO] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .battleMusic = THEMEOFENCOUNTER,
         .trainerPic = TRAINER_PIC_SCHOOL_KID_M,
@@ -12845,7 +12845,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_PUFFU] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .battleMusic = THEMEOFENCOUNTER,
         .trainerPic = TRAINER_PIC_TUBER_M,
@@ -12859,7 +12859,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_MERCIBOKU] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .battleMusic = THEMEOFENCOUNTER,
         .trainerPic = TRAINER_PIC_POKEMANIAC,
@@ -12873,7 +12873,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_DUNK] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .battleMusic = THEMEOFENCOUNTER,
         .trainerPic = TRAINER_PIC_SCIENTISH_FRLG,
@@ -12887,7 +12887,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_EEVEETO] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .battleMusic = DIALGAPALKIABATTLE,
         .trainerPic = TRAINER_PIC_POKEMON_BREEDER_M,
@@ -12901,7 +12901,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_UTALAWEA] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .battleMusic = JOHTOTRAIN,
         .trainerPic = TRAINER_PIC_BUG_CATCHER,
@@ -12915,9 +12915,8 @@ const struct Trainer gTrainers[] = {
     [TRAINER_SANTYGRASS] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_LEADER,
+        .trainerClass = TRAINER_CLASS_LEADER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
-        .battleMusic = JOHTOTRAIN,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("SANTYGRASS"),
         .items = {},
@@ -12929,9 +12928,8 @@ const struct Trainer gTrainers[] = {
     [TRAINER_SANTYGRASS_2] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_LEADER,
+        .trainerClass = TRAINER_CLASS_LEADER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
-        .battleMusic = JOHTOTRAIN,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("SANTYGRASS"),
         .items = {},
@@ -12943,9 +12941,8 @@ const struct Trainer gTrainers[] = {
     [TRAINER_SANTYGRASS_3] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_LEADER,
+        .trainerClass = TRAINER_CLASS_LEADER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
-        .battleMusic = JOHTOTRAIN,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("SANTYGRASS"),
         .items = {},
@@ -12971,7 +12968,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_TENSHINHAN] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_EXPERT_M,
         .trainerName = _("TENSHINHAN"),
@@ -12984,7 +12981,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_KAISSER] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
         .trainerPic = TRAINER_PIC_FISHERMAN,
         .trainerName = _("KAISSER"),
@@ -12997,7 +12994,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_FELIPEX88] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .trainerPic = TRAINER_PIC_POKEMANIAC,
         .trainerName = _("FELIPEX88"),
@@ -13010,7 +13007,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_GOOSES] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_LEADER,
+        .trainerClass = TRAINER_CLASS_LEADER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .battleMusic = BATTLEHEROESSTARWARS,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
@@ -13037,7 +13034,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_RED_KROW] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .battleMusic = ZINNIATHEME,
         .trainerPic = TRAINER_PIC_NINJA_BOY,
@@ -13051,7 +13048,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_TOPO] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .trainerPic = TRAINER_PIC_SWIMMING_TRIATHLETE_M,
         .trainerName = _("TOPO"),
@@ -13064,7 +13061,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_GRIM] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_POKEMON_BREEDER_M,
         .trainerName = _("GRIM"),
@@ -13077,7 +13074,7 @@ const struct Trainer gTrainers[] = {
 	[TRAINER_MAESTRO_ARENA] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_RUIN_MANIAC,
         .trainerName = _("M.ARENA"),
@@ -13090,7 +13087,7 @@ const struct Trainer gTrainers[] = {
 	[TRAINER_MANEC] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("MANEC"),
@@ -13103,7 +13100,7 @@ const struct Trainer gTrainers[] = {
 	[TRAINER_RAGU] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_ELITE_FOUR_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("RAGU"),
@@ -13116,7 +13113,7 @@ const struct Trainer gTrainers[] = {
 	[TRAINER_PACOCHEF_MICOLANDIA] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_ELITE_FOUR_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SWIMMER,
         .trainerPic = TRAINER_PIC_SWIMMER_M,
         .trainerName = _("PACOCHEF"),
@@ -13129,7 +13126,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_LAVENDER_MICOLANDIA] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_ELITE_FOUR_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .battleMusic = MUS_VS_FRONT,
         .trainerPic = TRAINER_PIC_SOPHOCLES,
@@ -13143,10 +13140,10 @@ const struct Trainer gTrainers[] = {
     [TRAINER_MICOLO_MICOLANDIA] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_ELITE_FOUR_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .battleMusic = CRUELANGELSTHESIS,
-        .trainerPic = TRAINER_PIC_YOUNGSTER, // MIDELE: cambiar imagen de Micolo
+        .trainerPic = TRAINER_PIC_MICOLO,
         .trainerName = _("MICOLO"),
         .items = {},
         .doubleBattle = FALSE,
@@ -13157,7 +13154,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_ALPHA] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("ALPHA"),
@@ -13170,7 +13167,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_JPROGAMER] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .trainerPic = TRAINER_PIC_SCIENTISH_FRLG,
         .trainerName = _("JPROGAMER"),
@@ -13183,7 +13180,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_SLOWBRO] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1, // AÑADIR NUEVA CLASE EN PLAN, EXPERIMENTO FALLIDO
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE, // AÑADIR NUEVA CLASE EN PLAN, EXPERIMENTO FALLIDO
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .trainerPic = TRAINER_PIC_POKEMANIAC, // AÑADIR PIC PARA SLOWBRO
         .trainerName = _("SLOWBRO"),

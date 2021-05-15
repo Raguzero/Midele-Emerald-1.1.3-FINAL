@@ -337,6 +337,9 @@ const u32 gTrainerPalette_Entropia[] = INCBIN_U32("graphics/trainers/palettes/en
 const u32 gTrainerFrontPic_scientish_frlg[] = INCBIN_U32("graphics/trainers/front_pics/scientist_front_pic.4bpp.lz");
 const u32 gTrainerPalette_scientish_frlg[] = INCBIN_U32("graphics/trainers/palettes/scientist.gbapal.lz");
 
+const u32 gTrainerFrontPic_Micolo[] = INCBIN_U32("graphics/trainers/front_pics/micolo_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Micolo[] = INCBIN_U32("graphics/trainers/palettes/micolo.gbapal.lz");
+
 
 const u8 gTrainerBackPic_Brendan[] = INCBIN_U8("graphics/trainers/back_pics/brendan_back_pic.4bpp");
 const u8 gTrainerBackPic_May[] = INCBIN_U8("graphics/trainers/back_pics/may_back_pic.4bpp");

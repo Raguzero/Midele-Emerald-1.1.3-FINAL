@@ -49,10 +49,24 @@ Goldie_DespuesDeBatalla:
     .string "cuarta pared de gratis.$"
 	
 Merum_AntesBatalla: 
-    .string "FRASES$"
+    .string "A ver que yo me entere... ¿me estás\n"
+    .string "diciendo que tienes un equipo de\l"
+    .string "la hostia y entre ellos no hay un\l"
+    .string "buen puto MOÁI bien mamadísimo?\p"
+    .string "Es que es para pegarte.\p"
+    .string "Es más, seré YO quien te pegue.$"
 	
 Merum_MensajeDerrota: 
-    .string "FRASES$"
+    .string "Vaya por dios. Bueno, como sea...\n"
+    .string "espero que este combate sirviese\l"
+    .string "para mostrarte lo que mola mi MOÁI.$"
 	
 Merum_DespuesDeBatalla:
-    .string "FRASES$"
+	.string "Es gracioso y a la par triste cuando\n"
+    .string "tu parodia es exactamente como tú.\p"
+
+    .string "Si te empiezas a sentir como un NPC\n"
+    .string "es que quizás deberías ampliar tus\l"
+    .string "temas de conversación. Dicho eso,\l"
+    .string "¿qué opinas de mi GRAN MOÁI?$"
+
