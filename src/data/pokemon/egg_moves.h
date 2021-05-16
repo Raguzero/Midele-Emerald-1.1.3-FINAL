@@ -1970,7 +1970,7 @@ const u16 gEggMoves[] = {
 			MOVE_ENCORE,
 			MOVE_GRUDGE,
 			MOVE_SHADOW_SNEAK,
-			MOVE_SKILL_SWAP),
+			MOVE_KNOCK_OFF),
 
     egg_moves(BAGON,
               MOVE_HYDRO_PUMP,
