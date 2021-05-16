@@ -2873,6 +2873,11 @@ static void AddBagSortSubMenu(void)
 
 static void Task_LoadBagSortOptions(u8 taskId)
 {
+    s16* data = gTasks[taskId].data;
+    data[1] = GetItemListPosition(gBagPositionStruct.pocket);
+    if (data[1] == gBagMenu->numItemStacks[gBagPositionStruct.pocket] - 1)
+        data[1] = -2;
+
     AddBagSortSubMenu();
     gTasks[taskId].func = Task_HandleOutOfBattleItemMenuInput;
 }
