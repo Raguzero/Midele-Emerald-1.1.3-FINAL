@@ -645,6 +645,7 @@ BattleScript_MultiHitLoop::
 	jumpifstatus BS_ATTACKER, STATUS1_SLEEP, BattleScript_MultiHitPrintStrings
 BattleScript_DoMultiHit::
 	movevaluescleanup
+	trysetdestinybondtohappen
 	copybyte cEFFECT_CHOOSER, sMULTIHIT_EFFECT
 	critcalc
 	damagecalc
@@ -1452,6 +1453,7 @@ BattleScript_TripleKickLoop::
 BattleScript_DoTripleKickAttack::
 	accuracycheck BattleScript_TripleKickNoMoreHits, ACC_CURR_MOVE
 	movevaluescleanup
+	trysetdestinybondtohappen
 	addbyte sTRIPLE_KICK_POWER, 10
 	addbyte sMULTIHIT_STRING + 4, 0x1
 	copyhword gDynamicBasePower, sTRIPLE_KICK_POWER
@@ -1998,6 +2000,7 @@ BattleScript_EffectBeatUp::
 	setbyte gBattleCommunication, 0x0
 BattleScript_BeatUpLoop::
 	movevaluescleanup
+	trysetdestinybondtohappen
 	trydobeatup BattleScript_BeatUpEnd, BattleScript_ButItFailed
 	printstring STRINGID_PKMNATTACK
 	critcalc
