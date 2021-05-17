@@ -283,20 +283,17 @@ CasillaTableroLoss3::
 	end
 	
 GymGooses_CasillaTableroStatus::
-	msgbox GymGoosesStatus_Text, MSGBOX_DEFAULT
 	lock
 	faceplayer
-	pike_getstatus
-	compare VAR_RESULT, PIKE_STATUS_TOXIC
-	call_if_eq GymGoosesStatus_Poison_Script
-	compare VAR_RESULT, PIKE_STATUS_BURN
-	call_if_eq GymGoosesStatus_Burn_Script
-	compare VAR_RESULT, PIKE_STATUS_PARALYSIS
-	call_if_eq GymGoosesStatus_Prz_Script
-	compare VAR_RESULT, PIKE_STATUS_SLEEP
-	call_if_eq GymGoosesStatus_Slp_Script
-	compare VAR_RESULT, PIKE_STATUS_FREEZE
-	call_if_eq GymGoosesStatus_Freeze_Script
+	msgbox GymGoosesStatus_Text, MSGBOX_DEFAULT
+	random 6
+	switch VAR_RESULT
+	case 0, GymGoosesStatus_Poison_Script
+	case 1, GymGoosesStatus_Toxic_Script
+	case 2, GymGoosesStatus_Burn_Script
+	case 3, GymGoosesStatus_Prz_Script
+	case 4, GymGoosesStatus_Slp_Script
+	case 5, GymGoosesStatus_Freeze_Script
 	end
 
 GymGooses_CasillaTableroPregunta::
@@ -788,9 +785,28 @@ GymGoosesDado1_Movement_PlayerDadoStatus:
 	step_end
 
 GymGoosesStatus_Poison_Script::
-	pike_flashscreen
-	message GymGoosesStatus_Poison
-	msgbox GymGoosesTirarDadoAgain_Text, MSGBOX_DEFAULT
+	special PoisonMons
+	msgbox GymGoosesStatus_Poison
+	waitse
+	msgbox GymGoosesTirarDadoStatus_Text, MSGBOX_DEFAULT
+	closemessage
+	random 6
+	addvar VAR_RESULT, 1
+	copyvar VAR_0x8004, VAR_RESULT
+	special Buffer0x8004VarToStringVar1
+	msgbox gText_DiceResult, MSGBOX_DEFAULT
+	waitmessage
+	applyrangemovement EVENT_OBJ_ID_PLAYER, GymGoosesDado1_Movement_PlayerDadoStatus
+	waitmovement 0
+	special DoApplyrangemovementLastStep
+	release
+	end
+	
+GymGoosesStatus_Toxic_Script::
+	special ToxicMons
+	msgbox GymGoosesStatus_Toxic
+	waitse
+	msgbox GymGoosesTirarDadoStatus_Text, MSGBOX_DEFAULT
 	closemessage
 	random 6
 	addvar VAR_RESULT, 1
@@ -805,9 +821,10 @@ GymGoosesStatus_Poison_Script::
 	end
 	
 GymGoosesStatus_Slp_Script::
-	pike_flashscreen
-	message GymGoosesStatus_Slp
-	msgbox GymGoosesTirarDadoAgain_Text, MSGBOX_DEFAULT
+	special SleepMons
+	msgbox GymGoosesStatus_Slp
+	waitse
+	msgbox GymGoosesTirarDadoStatus_Text, MSGBOX_DEFAULT
 	closemessage
 	random 6
 	addvar VAR_RESULT, 1
@@ -822,9 +839,10 @@ GymGoosesStatus_Slp_Script::
 	end
 	
 GymGoosesStatus_Prz_Script::
-	pike_flashscreen
-	message GymGoosesStatus_Prz
-	msgbox GymGoosesTirarDadoAgain_Text, MSGBOX_DEFAULT
+	special ParalisisMons
+	msgbox GymGoosesStatus_Prz
+	waitse
+	msgbox GymGoosesTirarDadoStatus_Text, MSGBOX_DEFAULT
 	closemessage
 	random 6
 	addvar VAR_RESULT, 1
@@ -839,9 +857,10 @@ GymGoosesStatus_Prz_Script::
 	end
 	
 GymGoosesStatus_Burn_Script::
-	pike_flashscreen
-	message GymGoosesStatus_Burn
-	msgbox GymGoosesTirarDadoAgain_Text, MSGBOX_DEFAULT
+	special BurnMons
+	msgbox GymGoosesStatus_Burn
+	waitse
+	msgbox GymGoosesTirarDadoStatus_Text, MSGBOX_DEFAULT
 	closemessage
 	random 6
 	addvar VAR_RESULT, 1
@@ -856,9 +875,10 @@ GymGoosesStatus_Burn_Script::
 	end
 	
 GymGoosesStatus_Freeze_Script::
-	pike_flashscreen
-	message GymGoosesStatus_Freeze
-	msgbox GymGoosesTirarDadoAgain_Text, MSGBOX_DEFAULT
+	special FreezeMons
+	msgbox GymGoosesStatus_Freeze
+	waitse
+	msgbox GymGoosesTirarDadoStatus_Text, MSGBOX_DEFAULT
 	closemessage
 	random 6
 	addvar VAR_RESULT, 1
@@ -918,14 +938,24 @@ GymGoosesTirarDadoAgain_Text:
 	.string "Has superado la prueba:\n"
 	.string "¡Tira el dado otra vez!$"
 	
+GymGoosesTirarDadoStatus_Text:
+	.string "¡Tira el dado otra vez!$"
+	
 GymGoosesCombate_Text:
-	.string "Casilla Pokeball: ¡A combatir!$"
+	.string "Casilla Pokeball:\n"
+	.string "¡Deberás vencer a un entrenador\l"
+	.string "que usará un equipo creado\l"
+	.string "de forma aleatoria!$"
 	
 GymGoosesStatus_Text:
-	.string "Casilla Status: ¡Tus pokémon\n"
-	.string "sufrirán un estado alterado!$"
+	.string "Casilla Status:\n"
+	.string "¡Probablemente tus POKÉMON sufrirán\l"
+	.string "un estado pernicioso!$"
 	
 GymGoosesStatus_Poison:
+	.string "¡ENVENENATE!$"
+	
+GymGoosesStatus_Toxic:
 	.string "¡INTOXICATE!$"
 	
 GymGoosesStatus_Slp:
@@ -935,15 +965,15 @@ GymGoosesStatus_Prz:
 	.string "¡PARALIZATE!$"
 	
 GymGoosesStatus_Burn:
-	.string "¡QUÉMATE!$"
+	.string "¡QUEMATE!$"
 	
 GymGoosesStatus_Freeze:
-	.string "¡CONGELATE!$"
+	.string "¡CONGÉLATE!$"
 	
 GymGoosesPregunta_Text:
-	.string "Casilla Pregunta: ¡Debes responder\n"
-	.string "de forma correcta a la siguiente\l"
-	.string "pregunta!$"
+	.string "Casilla Pregunta:\n"
+	.string "¡Debes responder de forma correcta\l" 
+	.string "a la siguiente pregunta!$"
 	
 Quiz1_Text:
 	.string "¿Quién no pudo abrir un .ZIP?$"
@@ -1057,7 +1087,10 @@ GymGooses_Text_GymGuideAdvice:
 	.string "¡Buen hax!$"
 
 GymGooses_Text_GymGuidePostVictory:
-	.string "¡Enhorabuena! ¡Ya puedes participar\n"
+	.string "¡Enhorabuena! ¡Has vencido a\n"
+	.string "todos los lideres de GYM!\p"
+
+	.string "¡Ya puedes participar\n"
 	.string "en la MICOLIGA!\p"
 	
 	.string "¡Buen hax!$"	

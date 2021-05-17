@@ -2084,9 +2084,9 @@ const u8 gQuiz81[] =  _("PLANTA");
 const u8 gQuiz82[] =  _("AGUA");
 const u8 gQuiz83[] =  _("FUEGO");
 //QUIZ9: ¿Por qué MONOCICLO?
-const u8 gQuiz91[] =  _("PORQUE ???");
+const u8 gQuiz91[] =  _("PORQUE EL MONO HACE CICLOS");
 const u8 gQuiz92[] =  _("PORQUE MONO ES UNO Y LA VIDA ES UN CICLO");
-const u8 gQuiz93[] =  _("PORQUE ???");
+const u8 gQuiz93[] =  _("PORQUE NO ES UN TRICICLO");
 
 // SHINY STAR
 const u8 gText_ShinyStar[] = _("{STAR}");

@@ -70,6 +70,7 @@
 #include "constants/metatile_labels.h"
 #include "palette.h"
 #include "pokedex.h"
+#include "constants/abilities.h"
 
 EWRAM_DATA bool8 gBikeCyclingChallenge = FALSE;
 EWRAM_DATA u8 gBikeCollisions = 0;
@@ -4561,4 +4562,145 @@ u16 PokedexRatingPrize(void)
 void Buffer0x8004VarToStringVar1(void)
 {
     ConvertIntToDecimalStringN(gStringVar1, gSpecialVar_0x8004, STR_CONV_MODE_LEADING_ZEROS, 1);
+}
+
+u8 decidir_numero_de_pokes_afectados(u8 param) {
+    return ((Random() % param + 1)*(Random() % param + 1) + 2*param)/(param + 2);
+}
+
+bool8 TryToPoisonMon(struct Pokemon *pokemon) {
+    u16 species = GetMonData(pokemon, MON_DATA_SPECIES);
+    if (!(gBaseStats[species].type1 == TYPE_POISON || gBaseStats[species].type1 == TYPE_STEEL || gBaseStats[species].type2 == TYPE_POISON || gBaseStats[species].type2 == TYPE_STEEL)
+        && GetMonAbility(pokemon) != ABILITY_IMMUNITY)
+    {
+        u32 curStatus = STATUS1_POISON;
+        SetMonData(pokemon, MON_DATA_STATUS, &curStatus);
+        return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 CauseStatusToMons(u8 param, bool8 (*TryToCauseStatusToMon)(struct Pokemon *), u16 sound)
+{
+    u8 i;
+    struct Pokemon *pokemon;
+    u8 pokes_afectados = 0;
+    u8 pokes_a_afectar = decidir_numero_de_pokes_afectados(param);
+    u8 pokes_sin_explorar = 0x3F; // en binario, 111111
+
+    while (pokes_a_afectar != pokes_afectados && pokes_sin_explorar != 0)
+    {
+        if (!(pokes_sin_explorar & (pokes_sin_explorar-1))) // si solo queda 1
+        {
+            i = 0;
+            while ((1 << i) != pokes_sin_explorar)
+                i += 1;
+        }
+        else
+            i = Random() % PARTY_SIZE;
+
+        pokemon = &gPlayerParty[i];
+        if ((pokes_sin_explorar & (1 << i)) && GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG)
+        && GetAilmentFromStatus(GetMonData(pokemon, MON_DATA_STATUS)) == AILMENT_NONE
+        && GetMonData(pokemon, MON_DATA_HP) != 0)
+        {
+            if ((*TryToCauseStatusToMon)(pokemon))
+                pokes_afectados += 1;
+        }
+        pokes_sin_explorar &= ~(1 << i);
+    }
+    if (pokes_afectados != 0)
+    {
+        PlaySE(sound);
+        return TRUE;
+    }
+    
+    return FALSE;
+}
+
+bool8 PoisonMons(void)
+{
+    return CauseStatusToMons(6, TryToPoisonMon, SE_W092);
+}
+
+bool8 TryToToxicMon(struct Pokemon *pokemon) {
+    u16 species = GetMonData(pokemon, MON_DATA_SPECIES);
+    if (!(gBaseStats[species].type1 == TYPE_POISON || gBaseStats[species].type1 == TYPE_STEEL || gBaseStats[species].type2 == TYPE_POISON || gBaseStats[species].type2 == TYPE_STEEL)
+        && GetMonAbility(pokemon) != ABILITY_IMMUNITY)
+    {
+        u32 curStatus = STATUS1_TOXIC_POISON;
+        SetMonData(pokemon, MON_DATA_STATUS, &curStatus);
+        return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 ToxicMons(void)
+{
+    return CauseStatusToMons(3, TryToToxicMon, SE_W092);
+}
+
+bool8 TryToFreezeMon(struct Pokemon *pokemon) {
+    u16 species = GetMonData(pokemon, MON_DATA_SPECIES);
+    if (!(gBaseStats[species].type1 == TYPE_ICE || gBaseStats[species].type2 == TYPE_ICE))
+    {
+        u32 curStatus = STATUS1_FREEZE;
+        SetMonData(pokemon, MON_DATA_STATUS, &curStatus);
+        return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 FreezeMons(void)
+{
+    return CauseStatusToMons(1, TryToFreezeMon, SE_W196);
+}
+
+bool8 TryToParalisisMon(struct Pokemon *pokemon) {
+    u16 species = GetMonData(pokemon, MON_DATA_SPECIES);
+    if (!(GetMonAbility(pokemon) == ABILITY_LIMBER))
+    {
+        u32 curStatus = STATUS1_PARALYSIS;
+        SetMonData(pokemon, MON_DATA_STATUS, &curStatus);
+        return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 ParalisisMons(void)
+{
+    return CauseStatusToMons(3, TryToParalisisMon, SE_W085B);
+}
+
+bool8 TryToBurnMon(struct Pokemon *pokemon) {
+    u16 species = GetMonData(pokemon, MON_DATA_SPECIES);
+    if (!(gBaseStats[species].type1 == TYPE_FIRE || gBaseStats[species].type2 == TYPE_FIRE)
+        && GetMonAbility(pokemon) != ABILITY_WATER_VEIL)
+    {
+        u32 curStatus = STATUS1_BURN;
+        SetMonData(pokemon, MON_DATA_STATUS, &curStatus);
+        return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 BurnMons(void)
+{
+    return CauseStatusToMons(6, TryToBurnMon, SE_W172);
+}
+
+bool8 TryToSleepMon(struct Pokemon *pokemon) {
+    u16 species = GetMonData(pokemon, MON_DATA_SPECIES);
+    if (!(GetMonAbility(pokemon) == ABILITY_INSOMNIA || GetMonAbility(pokemon) == ABILITY_VITAL_SPIRIT))
+    {
+        u32 curStatus = STATUS1_SLEEP;
+        SetMonData(pokemon, MON_DATA_STATUS, &curStatus);
+        return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 SleepMons(void)
+{
+    return CauseStatusToMons(2, TryToSleepMon, SE_W173);
 }

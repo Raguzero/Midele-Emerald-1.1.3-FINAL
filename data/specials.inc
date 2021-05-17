@@ -559,3 +559,9 @@ gSpecials:: @ 81DBA64
 	def_special IsSelectedMonDeoxys
 	def_special Buffer0x8004VarToStringVar1
 	def_special DoApplyrangemovementLastStep
+	def_special PoisonMons
+	def_special ToxicMons
+	def_special FreezeMons
+	def_special ParalisisMons
+	def_special BurnMons
+	def_special SleepMons

@@ -46,10 +46,40 @@ MicoloLeagueLobby_EventScript_ResetTrainerFlagsMachine::
 MicoloLeagueLobby_EventScript_ResetTrainerYES:
 	msgbox MicoloLeagueLobby_Text_ResetTrainerFlagsComplete, MSGBOX_DEFAULT	
 	cleartrainerflag TRAINER_ENTROPIA
-	//cleartrainerflag TRAINER_UTALAWEA
-	//cleartrainerflag TRAINER_UTALAWEA
-	//cleartrainerflag TRAINER_UTALAWEA
-	//cleartrainerflag TRAINER_UTALAWEA
+	cleartrainerflag TRAINER_UTALAWEA
+	cleartrainerflag TRAINER_FORBIDDENFOREST_EZECUTER
+	//cleartrainerflag TRAINER_ISMAPKM_1 ???
+	cleartrainerflag TRAINER_GOLDIE
+	//cleartrainerflag TRAINER_JOSITO ???
+	//cleartrainerflag TRAINER_GHADDAR ??
+	//cleartrainerflag TRAINER_HYPEANTONIO ??
+	//cleartrainerflag TRAINER_VLADILAND ??
+	cleartrainerflag TRAINER_KEFKY
+	cleartrainerflag TRAINER_ELPRINCIPE
+	cleartrainerflag TRAINER_JZOMBIE2
+	cleartrainerflag TRAINER_CHARIZARD_FAN
+	cleartrainerflag TRAINER_JAVISITO_POSTGAME
+	cleartrainerflag TRAINER_MERUM
+	//cleartrainerflag TRAINER_TREVEJO ??
+	cleartrainerflag TRAINER_PUFFU 
+	cleartrainerflag TRAINER_MERCIBOKU 
+	//cleartrainerflag TRAINER_DUNK ??
+	cleartrainerflag TRAINER_EEVEETO 
+	cleartrainerflag TRAINER_UTALAWEA 
+	//cleartrainerflag TRAINER_SANTYGRASS_3  ???
+	//cleartrainerflag TRAINER_DARKI_MALRO ???
+	cleartrainerflag TRAINER_TENSHINHAN 
+	cleartrainerflag TRAINER_KAISSER 
+	cleartrainerflag TRAINER_FELIPEX88 
+	//cleartrainerflag TRAINER_GOOSES ???
+	cleartrainerflag TRAINER_RED_KROW 
+	//cleartrainerflag TRAINER_TOPO ??
+	cleartrainerflag TRAINER_GRIM 
+	cleartrainerflag TRAINER_MAESTRO_ARENA 
+	cleartrainerflag TRAINER_MANEC 
+	cleartrainerflag TRAINER_ALPHA 
+	cleartrainerflag TRAINER_JPROGAMER 
+	cleartrainerflag TRAINER_SLOWBRO
 	// Etc
 	release
 	end
