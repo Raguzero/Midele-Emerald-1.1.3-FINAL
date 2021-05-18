@@ -2184,7 +2184,10 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 partyData[i].friendship, partyData[i].hpType);
 
                 SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
-
+                {
+                u32 initial_status = (u32) (partyData[i].initial_status1);
+                SetMonData(&party[i], MON_DATA_STATUS, &initial_status);
+                }
                 for (j = 0; j < MAX_MON_MOVES; j++)
                 {
                     u8 maxPp = CalculatePPWithBonus(partyData[i].moves[j], 3, 0);

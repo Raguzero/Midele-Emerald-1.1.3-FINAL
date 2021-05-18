@@ -61,6 +61,7 @@ struct TrainerMonCustomMidele
     u16 moves[MAX_MON_MOVES];
     u8 friendship;
     u8 hpType;
+	u8 initial_status1;
 };
 // NUEVO PARA CUSTOM TRAINER
 
