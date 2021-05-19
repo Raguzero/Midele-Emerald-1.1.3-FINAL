@@ -4296,8 +4296,10 @@ u8 IsRunningFromBattleImpossible(void)
         gBattleCommunication[MULTISTRING_CHOOSER] = 2;
         return 2;
     }
-    if ((gBattleMons[gActiveBattler].status2 & (STATUS2_ESCAPE_PREVENTION | STATUS2_WRAPPED))
-        || (gStatuses3[gActiveBattler] & STATUS3_ROOTED))
+    if ((gBattleMons[gActiveBattler].status2 & (STATUS2_ESCAPE_PREVENTION | STATUS2_WRAPPED) 
+		&& !IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_GHOST))
+        || ((gStatuses3[gActiveBattler] & STATUS3_ROOTED) 
+		&& !IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_GHOST)))
     {
         gBattleCommunication[MULTISTRING_CHOOSER] = 0;
         return 1;
@@ -4468,9 +4470,9 @@ static void HandleTurnActionSelectionState(void)
                     break;
                 case B_ACTION_SWITCH:
                     *(gBattleStruct->field_58 + gActiveBattler) = gBattlerPartyIndexes[gActiveBattler];
-                    if (gBattleMons[gActiveBattler].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION)
+                    if ((gBattleMons[gActiveBattler].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION) && !IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_GHOST))
                         || gBattleTypeFlags & BATTLE_TYPE_ARENA
-                        || gStatuses3[gActiveBattler] & STATUS3_ROOTED)
+                        || ((gStatuses3[gActiveBattler] & STATUS3_ROOTED) && !IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_GHOST)))
                     {
                         BtlController_EmitChoosePokemon(0, PARTY_ACTION_CANT_SWITCH, PARTY_SIZE, ABILITY_NONE, gBattleStruct->field_60[gActiveBattler]);
                     }

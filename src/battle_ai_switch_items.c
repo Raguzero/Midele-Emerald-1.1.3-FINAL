@@ -494,9 +494,15 @@ static bool8 ShouldSwitch(void)
     s32 availableToSwitch;
 
     if (gBattleMons[*(activeBattlerPtr = &gActiveBattler)].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
-        return FALSE;
+	{
+		if ((gBattleMons[gActiveBattler].type1 != TYPE_GHOST) && (gBattleMons[gActiveBattler].type2 != TYPE_GHOST))
+			return FALSE;
+	}
     if (gStatuses3[gActiveBattler] & STATUS3_ROOTED)
+	{
+		if ((gBattleMons[gActiveBattler].type1 != TYPE_GHOST) && (gBattleMons[gActiveBattler].type2 != TYPE_GHOST))
         return FALSE;
+	}
     if (ABILITY_ON_OPPOSING_FIELD(gActiveBattler, ABILITY_SHADOW_TAG))
     {
         if ((gBattleMons[gActiveBattler].type1 != TYPE_GHOST) && (gBattleMons[gActiveBattler].type2 != TYPE_GHOST) && (gBattleMons[gActiveBattler].ability != ABILITY_SHADOW_TAG))

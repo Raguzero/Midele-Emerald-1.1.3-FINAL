@@ -393,11 +393,13 @@ AI_CBM_Toxic_SkipTypeCheck:
     if_ability_might_be AI_TARGET, ABILITY_MARVEL_SCALE, Score_Minus8
 AI_CBM_Toxic_SkipMarvelScaleCheck:
     if_ability_might_be AI_TARGET, ABILITY_GUTS, Score_Minus8
+    if_ability_might_be AI_TARGET, ABILITY_TOXIC_BOOST, Score_Minus8
 	if_ability_might_be AI_TARGET, ABILITY_SYNCHRONIZE, AI_CBM_Toxic_Synchronize
 AI_CBM_Toxic_End:
 	end
 AI_CBM_Toxic_Synchronize:
 	if_ability AI_USER, ABILITY_GUTS, AI_CBM_Toxic_End
+	if_ability AI_USER, ABILITY_TOXIC_BOOST, AI_CBM_Toxic_End
 	if_ability AI_USER, ABILITY_MARVEL_SCALE, AI_CBM_Toxic_End
 	if_ability AI_USER, ABILITY_IMMUNITY, AI_CBM_Toxic_End
 	if_status AI_USER, STATUS1_ANY, AI_CBM_Toxic_End
@@ -510,6 +512,10 @@ AI_CBM_DamageDuringSleep: @ 82DC5A5
 	end
 
 AI_CBM_CantEscape: @ 82DC5B0
+	get_target_type1
+    if_equal TYPE_GHOST, Score_Minus10
+    get_target_type2
+    if_equal TYPE_GHOST, Score_Minus10
     if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_status2 AI_TARGET, STATUS2_ESCAPE_PREVENTION, Score_Minus10
 	end
@@ -3330,6 +3336,8 @@ AI_DoubleBattle:
 	get_curr_move_type
 	if_move MOVE_EARTHQUAKE, AI_DoubleBattleAllHittingGroundMove
 	if_move MOVE_MAGNITUDE, AI_DoubleBattleAllHittingGroundMove
+	if_move MOVE_SURF, AI_DoubleBattleAllHittingWaterMove
+	if_move MOVE_BOOMBURST, AI_DoubleBattleAllHittingBoomburts
 	if_equal TYPE_ELECTRIC, AI_DoubleBattleElectricMove
 	if_equal TYPE_FIRE, AI_DoubleBattleFireMove
 	get_ability AI_USER
@@ -3360,6 +3368,19 @@ AI_DoubleBattleAllHittingGroundMove:
 	if_type AI_USER_PARTNER, TYPE_ELECTRIC, Score_Minus10
 	if_type AI_USER_PARTNER, TYPE_POISON, Score_Minus10
 	if_type AI_USER_PARTNER, TYPE_ROCK, Score_Minus10
+	goto Score_Minus3
+	
+AI_DoubleBattleAllHittingWaterMove:
+	if_ability AI_USER_PARTNER, ABILITY_WATER_ABSORB, Score_Plus2
+	if_ability AI_USER_PARTNER, ABILITY_DRY_SKIN, Score_Plus2
+	if_type AI_USER_PARTNER, TYPE_FIRE, Score_Minus10
+	if_type AI_USER_PARTNER, TYPE_GROUND, Score_Minus10
+	if_type AI_USER_PARTNER, TYPE_ROCK, Score_Minus10
+	goto Score_Minus3
+	
+AI_DoubleBattleAllHittingBoomburts:
+	if_ability AI_USER_PARTNER, ABILITY_SOUNDPROOF, Score_Plus2
+	if_type AI_USER_PARTNER, TYPE_GHOST, Score_Plus2
 	goto Score_Minus3
 
 AI_DoubleBattleSkillSwap:
@@ -3448,10 +3469,17 @@ AI_TrySkillSwapOnAllyPlus3:
 
 AI_TryStatusOnAlly:
 	get_ability AI_TARGET
+    if_equal ABILITY_TOXIC_BOOST, AI_TryStatusOnAlly_ToxicBoost
 	if_not_equal ABILITY_GUTS, Score_Minus30_
+AI_TryStatusOnAlly_CorrectAbility:
 	if_status AI_TARGET, STATUS1_ANY, Score_Minus30_
 	if_hp_less_than AI_USER, 91, Score_Minus30_
 	goto Score_Plus5
+
+AI_TryStatusOnAlly_ToxicBoost:
+    if_effect EFFECT_TOXIC, AI_TryStatusOnAlly_CorrectAbility
+    if_effect EFFECT_POISON, AI_TryStatusOnAlly_CorrectAbility
+    goto Score_Minus30_
 
 AI_TryHelpingHandOnAlly:
 	if_random_less_than 64, Score_Minus1
