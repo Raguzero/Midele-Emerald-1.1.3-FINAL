@@ -801,7 +801,7 @@ u8 GetMostSuitableMonToSwitchInto(void)
             for (i = 0; i < MAX_MON_MOVES; i++)
             {
                 move = GetMonData(&party[bestMonId], MON_DATA_MOVE1 + i);
-                if (move != MOVE_NONE && TypeCalc(move, gActiveBattler, opposingBattler) & MOVE_RESULT_SUPER_EFFECTIVE)
+				if (move != MOVE_NONE && AI_TypeCalc(move, gBattleMons[opposingBattler].species, gBattleMons[opposingBattler].ability) & MOVE_RESULT_SUPER_EFFECTIVE)
                     break;
             }
 
@@ -849,7 +849,6 @@ u8 GetMostSuitableMonToSwitchInto(void)
             if (move != MOVE_NONE && gBattleMoves[move].power != 1)
             {
                 AI_CalcDmg(gActiveBattler, opposingBattler);
-                TypeCalc(move, gActiveBattler, opposingBattler);
             }
             if (bestDmg < gBattleMoveDamage)
             {

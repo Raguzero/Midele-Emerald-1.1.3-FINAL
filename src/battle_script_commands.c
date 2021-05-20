@@ -1616,11 +1616,53 @@ void PrepareDynamicMoveTypeAndDamageForAI_CalcDmg(u8 attacker)
 void AI_CalcDmg(u8 attacker, u8 defender)
 {
     u16 sideStatus = gSideStatuses[GET_BATTLER_SIDE(defender)];
+	u8 flags;
 	PrepareDynamicMoveTypeAndDamageForAI_CalcDmg(attacker);
     gBattleMoveDamage = CalculateBaseDamage(&gBattleMons[attacker], &gBattleMons[defender], gCurrentMove,
                                             sideStatus, gDynamicBasePower,
                                             gBattleStruct->dynamicMoveType, attacker, defender);
-	gDynamicBasePower = 0;
+    gDynamicBasePower = 0;
+    flags = TypeCalc(gCurrentMove, attacker, defender);
+    if (flags & (MOVE_RESULT_MISSED | MOVE_RESULT_DOESNT_AFFECT_FOE)) {
+        gBattleMoveDamage = 0;
+        return;
+    }
+// Account for moves with special damage calculations
+    switch (gBattleMoves[gCurrentMove].effect)
+    {
+    case EFFECT_LEVEL_DAMAGE:
+        gBattleMoveDamage = gBattleMons[attacker].level;
+        break;
+    case EFFECT_DRAGON_RAGE:
+        gBattleMoveDamage = 40;
+        break;
+    case EFFECT_SONICBOOM:
+        gBattleMoveDamage = 20;
+        break;
+    case EFFECT_PSYWAVE:
+        {
+            u32 randDamage;
+                randDamage = (Random() % 11) * 10;
+            gBattleMoveDamage = gBattleMons[attacker].level * (randDamage + 50) / 100;
+        }
+        break;
+    case EFFECT_SUPER_FANG:
+        gBattleMoveDamage = gBattleMons[defender].hp/2;
+        break;
+    case EFFECT_MULTI_HIT:
+            gBattleMoveDamage *= 3; // Average number of hits is three
+        break;
+	case EFFECT_TWINEEDLE:
+	case EFFECT_DOUBLE_HIT:
+            gBattleMoveDamage *= 2;
+        break;
+    case EFFECT_TRIPLE_KICK:
+            gBattleMoveDamage *= 6;
+        break;
+    default:
+        break;
+    }
+
     gBattleMoveDamage = gBattleMoveDamage * gCritMultiplier * gBattleScripting.dmgMultiplier;
     gBattleStruct->dynamicMoveType = 0;
 	gBattleScripting.dmgMultiplier = 1;

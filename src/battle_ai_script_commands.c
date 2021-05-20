@@ -1375,7 +1375,6 @@ static void Cmd_get_how_powerful_move_is(void)
             {
                 gCurrentMove = gBattleMons[sBattler_AI].moves[checkedMove];
                 AI_CalcDmg(sBattler_AI, gBattlerTarget);
-                TypeCalc(gCurrentMove, sBattler_AI, gBattlerTarget);
                 moveDmgs[checkedMove] = gBattleMoveDamage * AI_THINKING_STRUCT->simulatedRNG[checkedMove] / 100;
                 if (moveDmgs[checkedMove] == 0)
                     moveDmgs[checkedMove] = 1;
@@ -1899,7 +1898,6 @@ static void Cmd_if_can_faint(void)
     gCritMultiplier = 1;
     gCurrentMove = AI_THINKING_STRUCT->moveConsidered;
     AI_CalcDmg(sBattler_AI, gBattlerTarget);
-    TypeCalc(gCurrentMove, sBattler_AI, gBattlerTarget);
 
     gBattleMoveDamage = gBattleMoveDamage * AI_THINKING_STRUCT->simulatedRNG[AI_THINKING_STRUCT->movesetIndex] / 100;
 
@@ -1928,7 +1926,6 @@ static void Cmd_if_cant_faint(void)
     gCritMultiplier = 1;
     gCurrentMove = AI_THINKING_STRUCT->moveConsidered;
     AI_CalcDmg(sBattler_AI, gBattlerTarget);
-    TypeCalc(gCurrentMove, sBattler_AI, gBattlerTarget);
 
     gBattleMoveDamage = gBattleMoveDamage * AI_THINKING_STRUCT->simulatedRNG[AI_THINKING_STRUCT->movesetIndex] / 100;
 
@@ -2459,7 +2456,6 @@ static void Cmd_get_curr_dmg_hp_percent(void)
     gCritMultiplier = 1;
     gCurrentMove = AI_THINKING_STRUCT->moveConsidered;
     AI_CalcDmg(sBattler_AI, gBattlerTarget);
-    TypeCalc(gCurrentMove, sBattler_AI, gBattlerTarget);
 
     gBattleMoveDamage = gBattleMoveDamage * AI_THINKING_STRUCT->simulatedRNG[AI_THINKING_STRUCT->movesetIndex] / 100;
     

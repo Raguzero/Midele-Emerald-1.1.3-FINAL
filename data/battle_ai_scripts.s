@@ -140,7 +140,6 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_LIGHT_SCREEN, AI_CBM_LightScreen
 	if_effect EFFECT_OHKO, AI_CBM_OneHitKO
 	if_effect EFFECT_RAZOR_WIND, AI_CBM_HighRiskForDamage
-	if_effect EFFECT_SUPER_FANG, AI_CBM_HighRiskForDamage
 	if_effect EFFECT_MIST, AI_CBM_Mist
 	if_effect EFFECT_FOCUS_ENERGY, AI_CBM_FocusEnergy
 	if_effect EFFECT_CONFUSE, AI_CBM_Confuse
@@ -863,7 +862,6 @@ AI_CheckViability:
 	if_effect EFFECT_REST, AI_CV_Rest
 	if_effect EFFECT_OHKO, AI_CV_OneHitKO
 	if_effect EFFECT_RAZOR_WIND, AI_CV_ChargeUpMove
-	if_effect EFFECT_SUPER_FANG, AI_CV_SuperFang
 	if_effect EFFECT_TRAP, AI_CV_Trap
 	if_effect EFFECT_HIGH_CRITICAL, AI_CV_HighCrit
 	if_effect EFFECT_CONFUSE, AI_CV_Confuse
@@ -1723,13 +1721,6 @@ AI_CV_OneHitKO:
 	if_status3 AI_TARGET, STATUS3_ALWAYS_HITS, Score_Plus3
     if_ability AI_USER, ABILITY_NO_GUARD, Score_Plus3
     if_ability AI_TARGET, ABILITY_NO_GUARD, Score_Plus3
-	end
-
-AI_CV_SuperFang:
-	if_hp_more_than AI_TARGET, 50, AI_CV_SuperFang_End
-	score -1
-
-AI_CV_SuperFang_End:
 	end
 
 AI_CV_Trap:
