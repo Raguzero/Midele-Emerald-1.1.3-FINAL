@@ -1592,6 +1592,8 @@ void PrepareDynamicMoveTypeAndDamageForAI_CalcDmg(u8 attacker)
             monAttacker = &gEnemyParty[gBattlerPartyIndexes[attacker]];
 
         *dynamicMoveType = monAttacker->box.hpType;
+		if (gBattleMons[attacker].ability == ABILITY_TECHNICIAN)
+        gDynamicBasePower = 60;
     }
     else if (gCurrentMove == MOVE_WEATHER_BALL)
     {
