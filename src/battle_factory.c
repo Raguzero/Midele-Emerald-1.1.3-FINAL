@@ -159,25 +159,9 @@ static const u8 sFixedIVTable[][2] =
     {31, 31},
 };
 
-static const u16 sMonsToChooseFrom[][2] =
-{
-    {0x006e, 0x00c7},
-    {0x00a2, 0x010a},
-    {0x010b, 0x0173},
-    {0x0174, 0x01d3},
-    {0x01d4, 0x0233},
-    {0x0234, 0x0293},
-    {0x0294, 0x02f3},
-    {0x0174, 0x0351},
-    {0x0174, 0x01d3},
-    {0x01d4, 0x0233},
-    {0x0234, 0x0293},
-    {0x0294, 0x02f3},
-    {0x0174, 0x0371},
-    {0x0174, 0x0371},
-    {0x0174, 0x0371},
-    {0x0174, 0x0371},
-};
+// Se ha movido a este archivo la información sobre las tiers de la Battle Factory
+// (es decir, las listas de sets a partir de las cuales se escogen los teams)
+#include "data/battle_frontier/battle_factory_pokemon_tiers.h"
 
 // code
 void CallBattleFactoryFunction(void)
@@ -776,38 +760,31 @@ void FillFactoryBrainParty(void)
 
 static u16 GetMonSetId(u8 lvlMode, u8 challengeNum, bool8 arg2)
 {
-    u16 range, monSetId;
-    u16 adder;
+    u16 range, range_old, monSetId;
+    u8 num = challengeNum;
 
-    if (lvlMode == FRONTIER_LVL_50)
-        adder = 0;
-    else
-        adder = 8;
+    if (arg2)
+        num += 1;
+    
+    if (num > 7)
+        num = 7;
 
-    if (challengeNum < 7)
-    {
-        if (arg2)
-        {
-            range = (sMonsToChooseFrom[adder + challengeNum + 1][1] - sMonsToChooseFrom[adder + challengeNum + 1][0]) + 1;
-            monSetId = Random() % range;
-            monSetId += sMonsToChooseFrom[adder + challengeNum + 1][0];
-        }
-        else
-        {
-            range = (sMonsToChooseFrom[adder + challengeNum][1] - sMonsToChooseFrom[adder + challengeNum][0]) + 1;
-            monSetId = Random() % range;
-            monSetId += sMonsToChooseFrom[adder + challengeNum][0];
-        }
-    }
-    else
-    {
-        u16 num = challengeNum;
-        if (num != 7)
-            num = 7;
-        range = (sMonsToChooseFrom[adder + num][1] - sMonsToChooseFrom[adder + num][0]) + 1;
-        monSetId = Random() % range;
-        monSetId += sMonsToChooseFrom[adder + num][0];
-    }
+    if (lvlMode != FRONTIER_LVL_50)
+        num += 8;
+
+    /* Este bloque de código en lugar del siguiente elige solo entre los sets originales
+    range = (sMonsToChooseFrom[num][1] - sMonsToChooseFrom[num][0]) + 1;
+    monSetId = Random() % range;
+    monSetId += sMonsToChooseFrom[num][0];
+    */
+
+    range_old = (sMonsToChooseFrom[num][1] - sMonsToChooseFrom[num][0]) + 1;
+    range = range_old + (sNewMonsToChooseFrom[num][1] - sNewMonsToChooseFrom[num][0]) + 1;
+    monSetId = Random() % range;
+    if (monSetId < range_old) // set original
+        monSetId += sMonsToChooseFrom[num][0];
+    else // set nuevo
+        monSetId = sNewMonsForBattleFactory[monSetId - range_old + sNewMonsToChooseFrom[num][0]];
 
     return monSetId;
 }
