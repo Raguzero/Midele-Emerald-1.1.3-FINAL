@@ -236,6 +236,7 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_TEETER_DANCE, AI_CBM_Confuse
 	if_effect EFFECT_WISH, AI_CBM_Wish
 	if_effect EFFECT_FOLLOW_ME, AI_CBM_FollowMe
+	if_effect EFFECT_RECOIL_IF_MISS, AI_CBM_JumpKickMiss
 	end
 
 AI_CBM_Sleep: @ 82DC2D4
@@ -252,6 +253,11 @@ AI_CBM_Explosion: @ 82DC2F7
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
     if_ability_might_be AI_TARGET, ABILITY_DAMP, Score_Minus10
     if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus8
+	if_doesnt_have_move_with_effect AI_TARGET, EFFECT_PROTECT, AI_CBM_Explosion_TargetNotExpectedToUseProtect
+	get_protect_count AI_TARGET
+    if_equal 0, Score_Minus8
+    if_equal 1, Score_Minus2
+AI_CBM_Explosion_TargetNotExpectedToUseProtect:
 	count_usable_party_mons AI_USER
 	if_not_equal 0, AI_CBM_Explosion_End
 	count_usable_party_mons AI_TARGET
@@ -604,7 +610,6 @@ AI_CBM_FutureSight: @ 82DC669
 	end
 
 AI_CBM_FakeOut: @ 82DC680
-    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus8
 	is_first_turn_for AI_USER
 	if_equal 0, Score_Minus10
 	end
@@ -764,6 +769,21 @@ AI_CBM_FollowMe:
 	if_not_double_battle Score_Minus10
 	@if_battler_absent AI_USER_PARTNER, Score_Minus10 NO EXISTE IF BATTLER_ABSENT
 	end
+	
+AI_CBM_JumpKickMiss:
+	if_has_move_with_effect AI_TARGET, EFFECT_PROTECT, AI_CBM_JumpKick_TargetHasProtect
+	end
+AI_CBM_JumpKick_TargetHasProtect:
+	get_protect_count AI_TARGET
+    if_more_than 1, AI_CBM_JumpKick_End
+    if_more_than 0, AI_CBM_JumpKick_ProtectedOnce
+    if_random_less_than 128, Score_Minus10
+	score -3
+AI_CBM_JumpKick_End:
+    end
+AI_CBM_JumpKick_ProtectedOnce:
+	if_random_less_than 128, Score_Minus3
+    goto AI_CBM_JumpKick_End
 
 @ If move doesn't do meaningful damage, switch out
 AI_ChoiceDamage:
@@ -956,6 +976,9 @@ AI_CheckViability:
 	if_effect EFFECT_DRAGON_DANCE, AI_CV_DragonDance
 	if_effect EFFECT_SANDSTORM, AI_CV_Sandstorm
 	if_effect EFFECT_QUICK_ATTACK, AI_CV_QuickAttack @ para FEAR, incluye ExtremeSpeed y Mach Punch
+	if_effect EFFECT_WILL_O_WISP, AI_CV_WillOWisp
+	if_effect EFFECT_RAPID_SPIN, AI_CV_RapidSpin
+	if_effect EFFECT_ROLLOUT, AI_CV_Rollout
 	end
 
 AI_CV_Sleep: @ 82DCA92
@@ -1099,6 +1122,30 @@ AI_CV_QuickAttackFear:
 	if_fear_hp_condition 0, AI_CV_QuickAttackFear_End   @ recibirá puntos en otra parte porque es suficiente para KO
 	score -4
 AI_CV_QuickAttackFear_End:
+	end
+	
+AI_CV_WillOWisp:
+    if_ability_might_be AI_TARGET, ABILITY_WONDER_GUARD, Score_Plus1
+    end
+
+AI_CV_RapidSpin: @ Hay que pensarlo mejor, spamea Rapid Spin ante otros ataques cuando compensa mas hacer muchisimo daño a por ejemplo Ferrothron con ataques Lucha
+	if_status3 AI_USER, STATUS3_LEECHSEED, Score_Plus2
+	get_hazards_count AI_USER, EFFECT_SPIKES
+	if_more_than 0, Score_Plus2
+	end
+	
+AI_CV_Rollout:
+	if_status AI_USER, STATUS1_ANY, Score_Minus10
+	if_status2 AI_USER, STATUS2_CONFUSION | STATUS2_INFATUATION, Score_Minus10
+	if_stat_level_less_than AI_USER, STAT_ACC, 6, Score_Minus5
+	if_stat_level_more_than AI_TARGET, STAT_EVASION, 6, Score_Minus5
+	if_status2 AI_TARGET, STATUS2_CONFUSION | STATUS2_INFATUATION, AI_CV_Rollout2
+	if_status AI_TARGET, STATUS1_PARALYSIS, AI_CV_Rollout2
+	goto AI_CV_Rollout3
+AI_CV_Rollout2:
+	score +1
+AI_CV_Rollout3:
+	if_status AI_TARGET, STATUS1_SLEEP | STATUS1_FREEZE, Score_Plus2
 	end
 
 AI_CV_AttackUp: @ 82DCBBC
@@ -1634,6 +1681,7 @@ AI_CV_Heal_End:
 	end
 
 AI_CV_Toxic:
+	if_ability_might_be AI_TARGET, ABILITY_WONDER_GUARD, Score_Plus2
 	if_user_has_no_attacking_moves AI_CV_Toxic3
 	if_hp_more_than AI_USER, 50, AI_CV_Toxic2
 	if_random_less_than 50, AI_CV_Toxic2
@@ -1759,6 +1807,7 @@ AI_CV_Flatter:
 	score +1
 
 AI_CV_Confuse:
+	if_ability_might_be AI_TARGET, ABILITY_WONDER_GUARD, Score_Plus1
 	if_hp_more_than AI_TARGET, 70, AI_CV_Confuse_End
 	if_random_less_than 128, AI_CV_Confuse2
 	score -1
@@ -1813,6 +1862,7 @@ AI_CV_Reflect_PhysicalTypeList:
     .byte -1
 
 AI_CV_Poison:
+	if_ability_might_be AI_TARGET, ABILITY_WONDER_GUARD, Score_Plus1
 	if_hp_less_than AI_USER, 50, AI_CV_Poison_ScoreDown1
 	if_hp_more_than AI_TARGET, 50, AI_CV_Poison_End
 
@@ -2419,6 +2469,7 @@ AI_CV_Pursuit_End:
 AI_CV_RainDance:
 	if_user_faster AI_CV_RainDance2
 	get_ability AI_USER
+	if_equal ABILITY_FORECAST, AI_CV_RainDance3
 	if_equal ABILITY_SWIFT_SWIM, AI_CV_RainDance3
 
 AI_CV_RainDance2:
@@ -2429,6 +2480,7 @@ AI_CV_RainDance2:
 	if_equal AI_WEATHER_SANDSTORM, AI_CV_RainDance3
 	get_ability AI_USER
 	if_equal ABILITY_RAIN_DISH, AI_CV_RainDance3
+	if_equal ABILITY_DRY_SKIN, AI_CV_RainDance3
 	goto AI_CV_RainDance_End
 
 AI_CV_RainDance3:
@@ -2442,14 +2494,20 @@ AI_CV_RainDance_End:
 	end
 
 AI_CV_SunnyDay:
-	if_hp_less_than AI_USER, 40, AI_CV_SunnyDay_ScoreDown1
-	get_weather
-	if_equal AI_WEATHER_HAIL, AI_CV_SunnyDay2
-	if_equal AI_WEATHER_RAIN, AI_CV_SunnyDay2
-	if_equal AI_WEATHER_SANDSTORM, AI_CV_SunnyDay2
-	goto AI_CV_SunnyDay_End
+	if_user_faster AI_CV_SunnyDay2
+	get_ability AI_USER
+	if_equal ABILITY_FORECAST, AI_CV_SunnyDay3
+	if_equal ABILITY_CHLOROPHYLL, AI_CV_SunnyDay3
 
 AI_CV_SunnyDay2:
+	if_hp_less_than AI_USER, 40, AI_CV_SunnyDay_ScoreDown1
+	get_weather
+	if_equal AI_WEATHER_HAIL, AI_CV_SunnyDay3
+	if_equal AI_WEATHER_RAIN, AI_CV_SunnyDay3
+	if_equal AI_WEATHER_SANDSTORM, AI_CV_SunnyDay3
+	goto AI_CV_SunnyDay_End
+
+AI_CV_SunnyDay3:
 	score +1
 	goto AI_CV_SunnyDay_End
 
@@ -2659,7 +2717,9 @@ AI_HailResistantAbilities:
 	.byte -1
 
 AI_CV_FakeOut:
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus8
 	if_ability_might_be AI_TARGET, ABILITY_INNER_FOCUS, AI_CV_FakeOut_End
+	if_ability_might_be AI_TARGET, ABILITY_SHIELD_DUST, AI_CV_FakeOut_End
 	if_double_battle AI_CV_FakeOut_Double
 	score +5
 	end
@@ -2678,19 +2738,23 @@ AI_CV_SpitUp_End:
 	end
 
 AI_CV_Hail:
-	if_hp_less_than AI_USER, 40, AI_CV_Hail_ScoreDown1
-	get_weather
-	if_equal AI_WEATHER_SUN, AI_CV_Hail2
-	if_equal AI_WEATHER_RAIN, AI_CV_Hail2
-	if_equal AI_WEATHER_SANDSTORM, AI_CV_Hail2
+    if_user_faster AI_CV_Hail2
     get_ability AI_USER
-	if_equal ABILITY_ICE_BODY, AI_CV_Hail2
-	if_equal ABILITY_SNOW_CLOAK, AI_CV_Hail2
-	if_equal ABILITY_SLUSH_RUSH, AI_CV_Hail2
-	if_equal ABILITY_OVERCOAT, AI_CV_Hail2
-	goto AI_CV_Hail_End
+    if_equal ABILITY_FORECAST, AI_CV_Hail3
+    if_equal ABILITY_SLUSH_RUSH, AI_CV_Hail3
 
 AI_CV_Hail2:
+	if_hp_less_than AI_USER, 40, AI_CV_Hail_ScoreDown1
+	get_weather
+	if_equal AI_WEATHER_SUN, AI_CV_Hail3
+	if_equal AI_WEATHER_RAIN, AI_CV_Hail3
+	if_equal AI_WEATHER_SANDSTORM, AI_CV_Hail3
+    get_ability AI_USER
+	if_equal ABILITY_ICE_BODY, AI_CV_Hail3
+	if_equal ABILITY_SNOW_CLOAK, AI_CV_Hail3
+	goto AI_CV_Hail_End
+
+AI_CV_Hail3:
 	score +1
 	goto AI_CV_Hail_End
 
@@ -2974,14 +3038,8 @@ AI_CV_Imprison_End:
 	end
 
 AI_CV_Refresh:
-	if_hp_less_than AI_TARGET, 50, AI_CV_Refresh_ScoreDown1
-	goto AI_CV_Refresh_End
-
-AI_CV_Refresh_ScoreDown1:
-	score -1
-
-AI_CV_Refresh_End:
-	end
+	if_status AI_USER, STATUS1_ANY, Score_Plus3
+	goto Score_Minus8
 
 AI_CV_Snatch:
 	is_first_turn_for AI_USER
@@ -3083,19 +3141,22 @@ AI_CV_DragonDance_End:
 	end
 
 AI_CV_Sandstorm:
-	if_hp_less_than AI_USER, 40, AI_CV_Sandstorm_ScoreDown1
-	get_weather
-	if_equal AI_WEATHER_SUN, AI_CV_Sandstorm2
-	if_equal AI_WEATHER_RAIN, AI_CV_Sandstorm2
-	if_equal AI_WEATHER_HAIL, AI_CV_Sandstorm2
+    if_user_faster AI_CV_Sandstorm2
     get_ability AI_USER
-	if_equal ABILITY_SAND_VEIL, AI_CV_Sandstorm2
-	if_equal ABILITY_SAND_RUSH, AI_CV_Sandstorm2
-	if_equal ABILITY_OVERCOAT, AI_CV_Sandstorm2
-	if_equal ABILITY_SAND_FORCE, AI_CV_Sandstorm2
-	goto AI_CV_Sandstorm_End
+    if_equal ABILITY_SAND_RUSH, AI_CV_Sandstorm3
 
 AI_CV_Sandstorm2:
+	if_hp_less_than AI_USER, 40, AI_CV_Sandstorm_ScoreDown1
+	get_weather
+	if_equal AI_WEATHER_SUN, AI_CV_Sandstorm3
+	if_equal AI_WEATHER_RAIN, AI_CV_Sandstorm3
+	if_equal AI_WEATHER_HAIL, AI_CV_Sandstorm3
+    get_ability AI_USER
+	if_equal ABILITY_SAND_VEIL, AI_CV_Sandstorm3
+	if_equal ABILITY_SAND_FORCE, AI_CV_Sandstorm3
+	goto AI_CV_Sandstorm_End
+
+AI_CV_Sandstorm3:
 	score +1
 	goto AI_CV_Sandstorm_End
 
@@ -3107,7 +3168,9 @@ AI_CV_Sandstorm_End:
 	
 AI_TryToFaint:
 	if_target_is_ally AI_Ret
+	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_TryToFaint_SkipCanFaint
 	if_can_faint AI_TryToFaint_TryToEncourageQuickAttack
+AI_TryToFaint_SkipCanFaint:
 	get_how_powerful_move_is
 	if_equal MOVE_NOT_MOST_POWERFUL, Score_Minus1
 	if_equal 0, AI_Ret
@@ -3120,9 +3183,13 @@ AI_TryToFaint_DoubleSuperEffective:
 	end
 
 AI_TryToFaint_TryToEncourageQuickAttack:
-    if_not_effect EFFECT_PURSUIT, AI_TryToFaint_SkipPursuitBonus
+    if_effect EFFECT_PURSUIT, AI_TryToFaint_PursuitAndFakeOutBonus
+    if_not_effect EFFECT_FAKE_OUT, AI_TryToFaint_SkipPlus3Bonus
+    is_first_turn_for AI_USER
+    if_equal 0, AI_TryToFaint_End
+AI_TryToFaint_PursuitAndFakeOutBonus:
     score +3
-AI_TryToFaint_SkipPursuitBonus:
+AI_TryToFaint_SkipPlus3Bonus:
     if_not_effect EFFECT_SOLARBEAM, AI_TryToFaint_NotSolarBeamOnSun
     get_weather
     if_not_equal AI_WEATHER_SUN, AI_TryToFaint_End
@@ -3130,9 +3197,15 @@ AI_TryToFaint_NotSolarBeamOnSun:
     if_effect EFFECT_RAZOR_WIND, AI_TryToFaint_End
     if_effect EFFECT_SKY_ATTACK, AI_TryToFaint_End
     if_effect EFFECT_SKULL_BASH, AI_TryToFaint_End
-	if_effect EFFECT_EXPLOSION, AI_TryToFaint_End
+	if_effect EFFECT_EXPLOSION, AI_TryToFaint_EncourageExplosionIfOpponentHasOneMonLeft
 	if_not_effect EFFECT_QUICK_ATTACK, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
 	score +2
+	goto AI_TryToFaint_IncreaseScoreDependingOnAccuracy
+
+AI_TryToFaint_EncourageExplosionIfOpponentHasOneMonLeft:
+    count_usable_party_mons AI_TARGET
+    if_not_equal 0, AI_TryToFaint_End
+    score -1  @ Recibirá un punto menos que un ataque de la misma precisión
 	
 AI_TryToFaint_IncreaseScoreDependingOnAccuracy:
     if_accuracy_less_than 70, AI_TryToFaint_End
@@ -3329,6 +3402,7 @@ AI_DoubleBattle:
 	if_move MOVE_MAGNITUDE, AI_DoubleBattleAllHittingGroundMove
 	if_move MOVE_SURF, AI_DoubleBattleAllHittingWaterMove
 	if_move MOVE_BOOMBURST, AI_DoubleBattleAllHittingBoomburts
+	if_move MOVE_EXPLOSION, AI_DoubleBattleAllHittingExplosion
 	if_equal TYPE_ELECTRIC, AI_DoubleBattleElectricMove
 	if_equal TYPE_FIRE, AI_DoubleBattleFireMove
 	get_ability AI_USER
@@ -3372,6 +3446,15 @@ AI_DoubleBattleAllHittingWaterMove:
 AI_DoubleBattleAllHittingBoomburts:
 	if_ability AI_USER_PARTNER, ABILITY_SOUNDPROOF, Score_Plus2
 	if_type AI_USER_PARTNER, TYPE_GHOST, Score_Plus2
+	goto Score_Minus3
+	
+AI_DoubleBattleAllHittingExplosion:
+	if_ability AI_USER_PARTNER, ABILITY_DAMP, Score_Minus10
+	if_type AI_USER_PARTNER, TYPE_GHOST, Score_Plus2
+	if_type AI_USER_PARTNER, TYPE_ROCK, AI_DoubleBattleAllHittingExplosion_Rock_Type
+	goto Score_Minus3
+AI_DoubleBattleAllHittingExplosion_Rock_Type:
+	if_type AI_USER_PARTNER, TYPE_STEEL, Score_Plus2
 	goto Score_Minus3
 
 AI_DoubleBattleSkillSwap:
