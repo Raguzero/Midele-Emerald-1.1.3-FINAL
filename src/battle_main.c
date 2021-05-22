@@ -4091,7 +4091,7 @@ static void TryDoEventsBeforeFirstTurn(void)
     {
         if (AbilityBattleEffects(ABILITYEFFECT_ON_SWITCHIN, gBattlerByTurnOrder[gBattleStruct->switchInAbilitiesCounter], 0, 0, 0) != 0)
             effect++;
-
+		if (!effect || gBattleMons[gBattlerByTurnOrder[gBattleStruct->switchInAbilitiesCounter]].ability != ABILITY_IMPOSTER)
         gBattleStruct->switchInAbilitiesCounter++;
 
         if (effect)

@@ -1785,8 +1785,8 @@ static void Cmd_if_status_not_in_party(void)
 
         if (species != SPECIES_NONE && species != SPECIES_EGG && hp != 0 && status == statusToCompareTo)
         {
-            gAIScriptPtr += 10; // UB: Still bugged in Emerald. Uncomment the return statement to fix.
-            // return;
+            gAIScriptPtr += 10;
+            return;
         }
     }
 
@@ -2045,8 +2045,7 @@ static void Cmd_if_has_move_with_effect(void)
     case AI_TARGET_PARTNER:
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
-            // UB: checks sBattler_AI instead of gBattlerTarget.
-            if (gBattleMons[sBattler_AI].moves[i] != 0 && gBattleMoves[BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i]].effect == gAIScriptPtr[2])
+            if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] && gBattleMoves[BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i]].effect == gAIScriptPtr[2])
                 break;
         }
         if (i == MAX_MON_MOVES)
@@ -2181,17 +2180,16 @@ static void Cmd_get_hold_effect(void)
 static void Cmd_if_holds_item(void)
 {
     u8 battlerId = BattleAI_GetWantedBattler(gAIScriptPtr[1]);
-    u16 item;
-    u8 var1, var2;
+	u16 item, var1, var2;
 
     if ((battlerId & BIT_SIDE) == (sBattler_AI & BIT_SIDE))
         item = gBattleMons[battlerId].item;
     else
         item = BATTLE_HISTORY->itemEffects[battlerId];
 
-    // UB: doesn't properly read an unaligned u16
     var2 = gAIScriptPtr[2];
     var1 = gAIScriptPtr[3];
+	var1 <<= 8;
 
     if ((var1 | var2) == item)
         gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 4);
