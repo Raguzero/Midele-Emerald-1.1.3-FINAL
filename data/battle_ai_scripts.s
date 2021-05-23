@@ -247,6 +247,11 @@ AI_CBM_Sleep: @ 82DC2D4
 	if_status3 AI_TARGET, STATUS3_YAWN, Score_Minus10
 	if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
     if_ability_might_be AI_TARGET, ABILITY_EARLY_BIRD, Score_Minus5
+	if_move MOVE_SLEEP_POWDER, AI_CBM_Sleep_Overcoat
+	if_move MOVE_SPORE, AI_CBM_Sleep_Overcoat
+	end
+AI_CBM_Sleep_Overcoat:
+	if_ability_might_be AI_TARGET, ABILITY_OVERCOAT, Score_Minus10
 	end
 
 AI_CBM_Explosion: @ 82DC2F7
@@ -325,6 +330,10 @@ AI_CBM_SpeedDown: @ 82DC3A9
     if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_stat_level_equal AI_TARGET, STAT_SPEED, 0, Score_Minus10
 	if_ability_might_be AI_TARGET, ABILITY_SPEED_BOOST, Score_Minus10
+	if_move MOVE_COTTON_SPORE, AI_CBM_SpeedDown_Overcoat
+	goto CheckIfAbilityBlocksStatChange
+AI_CBM_SpeedDown_Overcoat:
+	if_ability_might_be AI_TARGET, ABILITY_OVERCOAT, Score_Minus10
 	goto CheckIfAbilityBlocksStatChange
 
 AI_CBM_SpAtkDown: @ 82DC3BF
@@ -400,6 +409,7 @@ AI_CBM_Toxic_SkipMarvelScaleCheck:
     if_ability_might_be AI_TARGET, ABILITY_GUTS, Score_Minus8
     if_ability_might_be AI_TARGET, ABILITY_TOXIC_BOOST, Score_Minus8
 	if_ability_might_be AI_TARGET, ABILITY_SYNCHRONIZE, AI_CBM_Toxic_Synchronize
+	if_move MOVE_POISON_POWDER, AI_CBM_PoisonPowder_OverCoat
 AI_CBM_Toxic_End:
 	end
 AI_CBM_Toxic_Synchronize:
@@ -415,6 +425,9 @@ AI_CBM_Toxic_Synchronize:
 	if_equal TYPE_STEEL, AI_CBM_Toxic_End
 	if_equal TYPE_POISON, AI_CBM_Toxic_End
 	score -5
+	end
+AI_CBM_PoisonPowder_OverCoat:
+	if_ability_might_be AI_TARGET, ABILITY_OVERCOAT, Score_Minus10
 	end
 
 AI_CBM_LightScreen: @ 82DC4C5
@@ -471,6 +484,7 @@ AI_CBM_Paralyze_SkipEffectiveness:
 	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
     if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
     if_move MOVE_THUNDER_WAVE, AI_ThunderWave
+    if_move MOVE_STUN_SPORE, AI_CBM_Paralyze_OverCoat
 AI_CBM_Paralyze_SynchronizeCheck:
     if_ability_might_be AI_TARGET, ABILITY_SYNCHRONIZE, AI_CBM_Paralyze_Synchronize
 AI_CBM_Paralyze_End:
@@ -480,6 +494,9 @@ AI_ThunderWave:
 	if_ability_might_be AI_TARGET, ABILITY_MOTOR_DRIVE, Score_Minus10
 	if_ability_might_be AI_TARGET, ABILITY_LIGHTNING_ROD, Score_Minus10
 	if_ability_might_be AI_TARGET, ABILITY_VOLT_ABSORB, Score_Minus10
+    goto AI_CBM_Paralyze_SynchronizeCheck
+AI_CBM_Paralyze_OverCoat:
+	if_ability_might_be AI_TARGET, ABILITY_OVERCOAT, Score_Minus10
     goto AI_CBM_Paralyze_SynchronizeCheck
 AI_CBM_Paralyze_Synchronize:
 	if_ability AI_USER, ABILITY_GUTS, AI_CBM_Paralyze_End
@@ -748,6 +765,7 @@ AI_CBM_Taunt:
 AI_CBM_Protect:
 	get_protect_count AI_USER
 	if_more_than 2, Score_Minus10
+	if_target_wont_attack_due_to_truant Score_Minus10
 	if_status AI_TARGET, STATUS1_SLEEP | STATUS1_FREEZE, Score_Minus8
 	end
 	
@@ -2303,6 +2321,12 @@ AI_CV_Curse_End:
 AI_CV_Protect:
 	get_protect_count AI_USER
 	if_more_than 1, AI_CV_Protect_ScoreDown5
+    if_no_ability AI_TARGET, ABILITY_TRUANT, AI_CV_Protect_NoChanceToMessWithTruant
+    if_target_wont_attack_due_to_truant AI_CV_Protect_NoChanceToMessWithTruant
+    if_target_faster Score_Plus5
+    score +4
+    goto AI_CV_Protect_End
+AI_CV_Protect_NoChanceToMessWithTruant:
 	if_ability AI_USER, ABILITY_SPEED_BOOST, AI_CV_Protect_Boost
 	if_status  AI_USER, STATUS1_PSN_ANY | STATUS1_BURN, AI_CV_ProtectUserStatused
 	if_status2 AI_USER, STATUS2_CURSED | STATUS2_INFATUATION, AI_CV_ProtectUserStatused
@@ -2387,14 +2411,25 @@ AI_CV_Foresight_End:
 	end
 
 AI_CV_Endure:
-	if_hp_less_than AI_USER, 4, AI_CV_Endure2
+	get_protect_count AI_USER
+	if_more_than 1, AI_CV_Endure2
+	if_hp_less_than AI_USER, 8, AI_CV_Endure2
+	if_hp_less_than AI_USER, 14, AI_CV_Endure4
 	if_hp_less_than AI_USER, 35, AI_CV_Endure3
+	if_doesnt_have_move_with_effect AI_USER, EFFECT_FLAIL, AI_CV_Endure2
+	score +1
+	goto AI_CV_Endure_End
 
 AI_CV_Endure2:
+	score -3
+	goto AI_CV_Endure_End
+
+AI_CV_Endure4:
 	score -1
 	goto AI_CV_Endure_End
 
 AI_CV_Endure3:
+	if_has_move_with_effect AI_USER, EFFECT_FLAIL, Score_Plus2
 	if_random_less_than 70, AI_CV_Endure_End
 	score +1
 
@@ -2471,6 +2506,9 @@ AI_CV_RainDance:
 	get_ability AI_USER
 	if_equal ABILITY_FORECAST, AI_CV_RainDance3
 	if_equal ABILITY_SWIFT_SWIM, AI_CV_RainDance3
+	get_ability AI_USER_PARTNER
+	if_equal ABILITY_FORECAST, AI_CV_RainDance3
+	if_equal ABILITY_SWIFT_SWIM, AI_CV_RainDance3
 
 AI_CV_RainDance2:
 	if_hp_less_than AI_USER, 40, AI_CV_RainDance_ScoreDown1
@@ -2496,6 +2534,9 @@ AI_CV_RainDance_End:
 AI_CV_SunnyDay:
 	if_user_faster AI_CV_SunnyDay2
 	get_ability AI_USER
+	if_equal ABILITY_FORECAST, AI_CV_SunnyDay3
+	if_equal ABILITY_CHLOROPHYLL, AI_CV_SunnyDay3
+	get_ability AI_USER_PARTNER
 	if_equal ABILITY_FORECAST, AI_CV_SunnyDay3
 	if_equal ABILITY_CHLOROPHYLL, AI_CV_SunnyDay3
 
@@ -2654,10 +2695,17 @@ AI_CV_SemiInvulnerable:
 	score -1
 	goto AI_CV_SemiInvulnerable_End
 
-@ BUG: The scripts for checking type-resistance to weather for semi-invulnerable moves are swapped
-@      The result is that the AI is encouraged to stall while taking damage from weather
-@      To fix, swap _CheckSandstormTypes/_CheckIceType in the below script
 AI_CV_SemiInvulnerable2:
+    if_equal HOLD_EFFECT_POWER_HERB, Score_Plus2
+    if_no_ability AI_TARGET, ABILITY_TRUANT, AI_CV_SemiInvulnerable2_NoTruant
+    if_target_faster AI_CV_SemiInvulnerable2_TruantTargetFaster
+    @ La IA ataca antes que el poke con Truant: conviene iniciar el ataque si ataca en este turno
+    if_target_wont_attack_due_to_truant Score_Minus3
+    goto Score_Plus3
+AI_CV_SemiInvulnerable2_TruantTargetFaster:  @ La IA ataca después del poke con Truant: conviene iniciar el ataque si no ataca en este turno
+    if_target_wont_attack_due_to_truant Score_Plus3
+    goto Score_Minus3
+AI_CV_SemiInvulnerable2_NoTruant:
 	if_status AI_TARGET, STATUS1_TOXIC_POISON, AI_CV_SemiInvulnerable_TryEncourage
 	if_status2 AI_TARGET, STATUS2_CURSED, AI_CV_SemiInvulnerable_TryEncourage
 	if_status3 AI_TARGET, STATUS3_LEECHSEED, AI_CV_SemiInvulnerable_TryEncourage
@@ -2742,6 +2790,9 @@ AI_CV_Hail:
     get_ability AI_USER
     if_equal ABILITY_FORECAST, AI_CV_Hail3
     if_equal ABILITY_SLUSH_RUSH, AI_CV_Hail3
+	get_ability AI_USER_PARTNER
+    if_equal ABILITY_FORECAST, AI_CV_Hail3
+    if_equal ABILITY_SLUSH_RUSH, AI_CV_Hail3
 
 AI_CV_Hail2:
 	if_hp_less_than AI_USER, 40, AI_CV_Hail_ScoreDown1
@@ -2764,7 +2815,6 @@ AI_CV_Hail_ScoreDown1:
 AI_CV_Hail_End:
 	end
 
-@ BUG: Facade score is increased if the target is statused, but should be if the user is. Replace AI_TARGET with AI_USER
 AI_CV_Facade:
 	if_not_status AI_USER, STATUS1_POISON | STATUS1_BURN | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON, AI_CV_Facade_End
 	score +1
@@ -2889,6 +2939,10 @@ AI_CV_ChangeSelfAbility_AbilitiesToEncourage:
     .byte ABILITY_SAND_RUSH
     .byte ABILITY_SLUSH_RUSH
     .byte ABILITY_SAND_FORCE
+    .byte ABILITY_ADAPTABILITY
+    .byte ABILITY_FUR_COAT
+    .byte ABILITY_SOLID_ROCK
+    .byte ABILITY_ICE_SCALES
     .byte -1
 
 AI_CV_Superpower:
@@ -3143,6 +3197,8 @@ AI_CV_DragonDance_End:
 AI_CV_Sandstorm:
     if_user_faster AI_CV_Sandstorm2
     get_ability AI_USER
+    if_equal ABILITY_SAND_RUSH, AI_CV_Sandstorm3
+	get_ability AI_USER_PARTNER
     if_equal ABILITY_SAND_RUSH, AI_CV_Sandstorm3
 
 AI_CV_Sandstorm2:

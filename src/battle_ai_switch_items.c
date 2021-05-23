@@ -154,7 +154,7 @@ static bool8 HasMove(u16 move)
 static bool8 FindMonThatAbsorbsOpponentsMove(void)
 {
     u8 battlerIn1, battlerIn2;
-    u8 absorbingTypeAbility;
+	u8 moveType;
     s32 firstId;
     s32 lastId; // + 1
     struct Pokemon *party;
@@ -183,23 +183,26 @@ static bool8 FindMonThatAbsorbsOpponentsMove(void)
         battlerIn2 = gActiveBattler;
     }
 
-    if (gBattleMoves[gLastLandedMoves[gActiveBattler]].type == TYPE_FIRE)
-        absorbingTypeAbility = ABILITY_FLASH_FIRE;
-    else if (gBattleMoves[gLastLandedMoves[gActiveBattler]].type == TYPE_WATER)
-        absorbingTypeAbility = ABILITY_WATER_ABSORB;
-    else if (gBattleMoves[gLastLandedMoves[gActiveBattler]].type == TYPE_WATER)
-        absorbingTypeAbility = ABILITY_DRY_SKIN;
-    else if (gBattleMoves[gLastLandedMoves[gActiveBattler]].type == TYPE_ELECTRIC)
-        absorbingTypeAbility = ABILITY_MOTOR_DRIVE;
-    else if (gBattleMoves[gLastLandedMoves[gActiveBattler]].type == TYPE_ELECTRIC)
-        absorbingTypeAbility = ABILITY_VOLT_ABSORB;
-    else if (gBattleMoves[gLastLandedMoves[gActiveBattler]].type == TYPE_ELECTRIC)
-        absorbingTypeAbility = ABILITY_LIGHTNING_ROD;
-    else
-        return FALSE;
+	moveType = gBattleMoves[gLastLandedMoves[gActiveBattler]].type;
 
-    if (gBattleMons[gActiveBattler].ability == absorbingTypeAbility)
-        return FALSE;
+    // Comprueba que el tipo del movimiento no es ya absorbido por el poke actual
+    switch(moveType)
+    {
+        case TYPE_FIRE:
+            if (gBattleMons[gActiveBattler].ability == ABILITY_FLASH_FIRE)
+                return FALSE;
+            break;
+        case TYPE_WATER:
+            if (gBattleMons[gActiveBattler].ability == ABILITY_WATER_ABSORB || gBattleMons[gActiveBattler].ability == ABILITY_DRY_SKIN)
+                return FALSE;
+            break;
+        case TYPE_ELECTRIC:
+            if (gBattleMons[gActiveBattler].ability == ABILITY_MOTOR_DRIVE || gBattleMons[gActiveBattler].ability == ABILITY_VOLT_ABSORB || gBattleMons[gActiveBattler].ability == ABILITY_LIGHTNING_ROD)
+                return FALSE;
+            break;
+        default:
+            return FALSE; // no hay habilidad que absorba este tipo
+    }
 
     if (gBattleTypeFlags & (BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_x800000))
     {
@@ -244,12 +247,31 @@ static bool8 FindMonThatAbsorbsOpponentsMove(void)
         else
             monAbility = gBaseStats[species].abilities[0];
 
-        if (absorbingTypeAbility == monAbility && Random() & 1)
+        if (Random() & 1)
         {
-            // we found a mon.
-            *(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler) = i;
-            BtlController_EmitTwoReturnValues(1, B_ACTION_SWITCH, 0);
-            return TRUE;
+            bool8 found = FALSE;
+            switch(moveType)
+            {
+                case TYPE_FIRE:
+                    if (monAbility == ABILITY_FLASH_FIRE)
+                        found = TRUE;
+                    break;
+                case TYPE_WATER:
+                    if (monAbility == ABILITY_WATER_ABSORB || monAbility == ABILITY_DRY_SKIN)
+                        found = TRUE;
+                    break;
+                case TYPE_ELECTRIC:
+                    if (monAbility == ABILITY_MOTOR_DRIVE || monAbility == ABILITY_VOLT_ABSORB || monAbility == ABILITY_LIGHTNING_ROD)
+                        found = TRUE;
+                    break;
+            };
+            if (found)
+            {
+                // we found a mon.
+                *(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler) = i;
+                BtlController_EmitTwoReturnValues(1, B_ACTION_SWITCH, 0);
+                return TRUE;
+            }
         }
     }
 

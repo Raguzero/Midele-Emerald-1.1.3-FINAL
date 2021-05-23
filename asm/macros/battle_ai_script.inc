@@ -583,6 +583,11 @@
     .byte \battler
     .4byte \param
     .endm
+	
+    .macro if_target_wont_attack_due_to_truant param:req
+    .byte 0x69
+    .4byte \param
+    .endm
 
 @ useful script macros
 	.macro get_curr_move_type

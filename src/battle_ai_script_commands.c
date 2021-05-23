@@ -166,6 +166,7 @@ static void Cmd_if_fear_hp_condition(void);
 static void Cmd_if_accuracy_less_than(void);
 static void Cmd_if_not_expected_to_sleep(void);
 static void Cmd_if_receiving_wish(void);
+static void Cmd_if_target_wont_attack_due_to_truant(void);
 
 // ewram
 EWRAM_DATA const u8 *gAIScriptPtr = NULL;
@@ -281,6 +282,7 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
 	Cmd_if_accuracy_less_than,                      // 0x66
 	Cmd_if_not_expected_to_sleep,                   // 0x67
     Cmd_if_receiving_wish,                          // 0x68
+	Cmd_if_target_wont_attack_due_to_truant,        // 0x69
 };
 
 static const u16 sDiscouragedPowerfulMoveEffects[] =
@@ -2550,4 +2552,13 @@ static void Cmd_if_receiving_wish(void)
         gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
     else
         gAIScriptPtr += 6;
+}
+
+// Salta si, en el próximo turno, el rival no podrá atacar debido a Truant
+static void Cmd_if_target_wont_attack_due_to_truant(void)
+{
+    if (gBattleMons[gBattlerTarget].ability == ABILITY_TRUANT && gDisableStructs[gBattlerTarget].truantCounter)
+        gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 1);
+    else
+        gAIScriptPtr += 5;
 }
