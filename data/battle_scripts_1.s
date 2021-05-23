@@ -238,6 +238,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectHealPulse
 	.4byte BattleScript_EffectRecoilStruggleNewGen
 	.4byte BattleScript_EffectShoreUp
+	.4byte BattleScript_PowderMoveNoEffect
 
 BattleScript_EffectSpeedUp::
 BattleScript_EffectSpecialDefenseUp::
@@ -4899,6 +4900,20 @@ BattleScript_QuickClawActivation::
 	printstring STRINGID_CANACTFASTERTHANKSTO
 	waitmessage 0x40
 	end2
+	
+BattleScript_PowderMoveNoEffect::
+	attackstring
+	ppreduce
+	pause 0x20
+	jumpifability BS_TARGET, ABILITY_OVERCOAT, BattleScript_PowderMoveNoEffectOvercoat
+	goto BattleScript_PowderMoveNoEffectWaitMsg
+BattleScript_PowderMoveNoEffectOvercoat:
+	printstring STRINGID_ITDOESNTAFFECT
+BattleScript_PowderMoveNoEffectWaitMsg:
+	waitmessage 0x40
+	cancelmultiturnmoves BS_ATTACKER
+	sethword gMoveResultFlags, MOVE_RESULT_FAILED
+	goto BattleScript_MoveEnd
 
 BattleScript_BufferEndTurn::
 	printstring STRINGID_BUFFERENDS
