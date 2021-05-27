@@ -8324,6 +8324,9 @@ static const u32 sTutorLearnsets[] =
 											| TUTOR(MOVE_SNORE)
 											| TUTOR(MOVE_SUBSTITUTE)
 											| TUTOR(MOVE_SWAGGER)
+											| TUTOR(MOVE_ENDURE)
+											| TUTOR(MOVE_MEGA_PUNCH)
+											| TUTOR(MOVE_MEGA_KICK)
 											| TUTOR(MOVE_THUNDER_PUNCH)),
 											
     [SPECIES_STUNFISK]      = (TUTOR(MOVE_ENDURE)

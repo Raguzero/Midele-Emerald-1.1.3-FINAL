@@ -245,14 +245,16 @@ AI_CBM_Sleep: @ 82DC2D4
     if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_status AI_TARGET, STATUS1_ANY, Score_Minus10
 	if_status3 AI_TARGET, STATUS3_YAWN, Score_Minus10
-	if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
+    if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
+    if_move MOVE_SLEEP_POWDER, AI_CBM_Sleep_Overcoat
+    if_move MOVE_SPORE, AI_CBM_Sleep_Overcoat
+AI_CBM_Sleep_NoProblemWithOvercoat:
     if_ability_might_be AI_TARGET, ABILITY_EARLY_BIRD, Score_Minus5
-	if_move MOVE_SLEEP_POWDER, AI_CBM_Sleep_Overcoat
-	if_move MOVE_SPORE, AI_CBM_Sleep_Overcoat
-	end
+    if_has_move_with_effect AI_TARGET, EFFECT_SLEEP_TALK, Score_Minus3
+    end
 AI_CBM_Sleep_Overcoat:
-	if_ability_might_be AI_TARGET, ABILITY_OVERCOAT, Score_Minus10
-	end
+    if_ability_might_be AI_TARGET, ABILITY_OVERCOAT, Score_Minus10
+    goto AI_CBM_Sleep_NoProblemWithOvercoat
 
 AI_CBM_Explosion: @ 82DC2F7
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
@@ -867,9 +869,13 @@ Score_Plus10:
 
 AI_CheckViability:
 	if_target_is_ally AI_Ret
-	if_holds_item AI_USER, ITEM_CHOICE_BAND, AI_ChoiceDamage
-	if_holds_item AI_USER, ITEM_CHOICE_SPECS, AI_ChoiceDamage
-	if_holds_item AI_USER, ITEM_CHOICE_SCARF, AI_ChoiceDamage
+    if_holds_item AI_USER, ITEM_CHOICE_BAND, AI_CheckViability_CallChoiceDamage
+    if_holds_item AI_USER, ITEM_CHOICE_SPECS, AI_CheckViability_CallChoiceDamage
+    if_holds_item AI_USER, ITEM_CHOICE_SCARF, AI_CheckViability_CallChoiceDamage
+    goto AI_CheckViability_CheckEffects
+AI_CheckViability_CallChoiceDamage:
+    call AI_ChoiceDamage
+AI_CheckViability_CheckEffects:
 	if_effect EFFECT_SLEEP, AI_CV_Sleep
 	if_effect EFFECT_ABSORB, AI_CV_Absorb
 	if_effect EFFECT_EXPLOSION, AI_CV_SelfKO
@@ -965,7 +971,6 @@ AI_CheckViability:
 	if_effect EFFECT_HAIL, AI_CV_Hail
 	if_effect EFFECT_FLATTER, AI_CV_Flatter
 	if_effect EFFECT_MEMENTO, AI_CV_SelfKO
-	if_effect EFFECT_FACADE, AI_CV_Facade
 	if_effect EFFECT_FOCUS_PUNCH, AI_CV_FocusPunch
 	if_effect EFFECT_SMELLINGSALT, AI_CV_SmellingSalt
 	if_effect EFFECT_TRICK, AI_CV_Trick
@@ -995,13 +1000,12 @@ AI_CheckViability:
 	if_effect EFFECT_SANDSTORM, AI_CV_Sandstorm
 	if_effect EFFECT_QUICK_ATTACK, AI_CV_QuickAttack @ para FEAR, incluye ExtremeSpeed y Mach Punch
 	if_effect EFFECT_WILL_O_WISP, AI_CV_WillOWisp
-	if_effect EFFECT_RAPID_SPIN, AI_CV_RapidSpin
 	if_effect EFFECT_ROLLOUT, AI_CV_Rollout
 	end
 
 AI_CV_Sleep: @ 82DCA92
-	if_has_move_with_effect AI_TARGET, EFFECT_DREAM_EATER, AI_CV_SleepEncourageSlpDamage
-	if_has_move_with_effect AI_TARGET, EFFECT_NIGHTMARE, AI_CV_SleepEncourageSlpDamage
+	if_has_move_with_effect AI_USER, EFFECT_DREAM_EATER, AI_CV_SleepEncourageSlpDamage
+	if_has_move_with_effect AI_USER, EFFECT_NIGHTMARE, AI_CV_SleepEncourageSlpDamage
 	goto AI_CV_Sleep_End
 
 AI_CV_SleepEncourageSlpDamage: @ 82DCAA5
@@ -1146,12 +1150,6 @@ AI_CV_WillOWisp:
     if_ability_might_be AI_TARGET, ABILITY_WONDER_GUARD, Score_Plus1
     end
 
-AI_CV_RapidSpin: @ Hay que pensarlo mejor, spamea Rapid Spin ante otros ataques cuando compensa mas hacer muchisimo daño a por ejemplo Ferrothron con ataques Lucha
-	if_status3 AI_USER, STATUS3_LEECHSEED, Score_Plus2
-	get_hazards_count AI_USER, EFFECT_SPIKES
-	if_more_than 0, Score_Plus2
-	end
-	
 AI_CV_Rollout:
 	if_status AI_USER, STATUS1_ANY, Score_Minus10
 	if_status2 AI_USER, STATUS2_CONFUSION | STATUS2_INFATUATION, Score_Minus10
@@ -1167,6 +1165,7 @@ AI_CV_Rollout3:
 	end
 
 AI_CV_AttackUp: @ 82DCBBC
+	call AI_CheckFreeSetup
 	if_stat_level_less_than AI_USER, STAT_ATK, 9, AI_CV_AttackUp2
 	if_random_less_than 100, AI_CV_AttackUp3
 	score -1
@@ -1240,13 +1239,24 @@ AI_CV_SpeedUp: @ 82DCC5D
 	goto AI_CV_SpeedUp_End
 
 AI_CV_SpeedUp2: @ 82DCC6A
+	call AI_CheckFreeSetup_AssumeTargetIsSlowerAfterSetup
 	if_random_less_than 70, AI_CV_SpeedUp_End
 	score +3
 
 AI_CV_SpeedUp_End: @ 82DCC72
 	end
+	
+AI_CheckFreeSetup:
+    if_target_faster AI_Ret
+AI_CheckFreeSetup_AssumeTargetIsSlowerAfterSetup:
+    if_hp_less_than AI_USER, 100, AI_Ret
+	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_Ret
+    if_ability AI_USER, ABILITY_STURDY, Score_Plus5
+    if_holds_item AI_USER, ITEM_FOCUS_SASH, Score_Plus5
+    end
 
 AI_CV_SpAtkUp: @ 82DCC73
+	call AI_CheckFreeSetup
 	if_stat_level_less_than AI_USER, STAT_SPATK, 9, AI_CV_SpAtkUp2
 	if_random_less_than 100, AI_CV_SpAtkUp3
 	score -1
@@ -1441,6 +1451,8 @@ AI_CV_DefenseDown_End:
 	end
 
 AI_CV_SpeedDownFromChance: @ 82DCE6B
+	if_ability AI_USER, ABILITY_SHEER_FORCE, AI_Ret
+	if_ability AI_TARGET, ABILITY_SHIELD_DUST, AI_Ret
 	if_move MOVE_ICY_WIND, AI_CV_SpeedDown
 	if_move MOVE_ROCK_TOMB, AI_CV_SpeedDown
 	if_move MOVE_MUD_SHOT, AI_CV_SpeedDown
@@ -1510,17 +1522,36 @@ AI_CV_SpDefDown3: @ 82DCF02
 
 AI_CV_SpDefDown_End: @ 82DCF0B
 	end
+	
+AI_CV_AccuracyDownFromChance:
+	if_ability AI_USER, ABILITY_SHEER_FORCE, AI_Ret
+	if_ability AI_TARGET, ABILITY_SHIELD_DUST, AI_Ret
+	if_move MOVE_MUD_SLAP, AI_CV_AccuracyDown
+	end
 
 AI_CV_AccuracyDown: @ 82DCF0C
 	if_hp_less_than AI_USER, 70, AI_CV_AccuracyDown2
-	if_hp_more_than AI_TARGET, 70, AI_CV_AccuracyDown3
+	if_hp_more_than AI_TARGET, 70, AI_CV_AccuracyDownIfOpponentCannotSwitch
 
 AI_CV_AccuracyDown2:
-	if_random_less_than 100, AI_CV_AccuracyDown3
+	if_random_less_than 100, AI_CV_AccuracyDownIfOpponentCannotSwitch
 	score -1
+	
+AI_CV_AccuracyDownIfOpponentCannotSwitch:
+    if_stat_level_less_than AI_TARGET, STAT_ACC, 2, AI_CV_AccuracyDown3
+    if_has_move_with_effect AI_TARGET, EFFECT_ALWAYS_HIT, AI_CV_AccuracyDown3
+    if_has_move_with_effect AI_TARGET, EFFECT_VITAL_THROW, AI_CV_AccuracyDown3
+    count_usable_party_mons AI_TARGET
+    if_equal 0, AI_CV_AccuracyDown_OpponentCannotSwitch
+    if_not_status3 AI_TARGET, STATUS3_ROOTED, AI_CV_AccuracyDown3
+AI_CV_AccuracyDown_OpponentCannotSwitch:
+    if_random_less_than 100, AI_CV_AccuracyDown3
+    score +2
+    if_random_less_than 100, AI_CV_AccuracyDown3
+    score +2
 
 AI_CV_AccuracyDown3:
-	if_stat_level_more_than AI_USER, STAT_ACC, 4, AI_CV_AccuracyDown4
+	if_stat_level_more_than AI_TARGET, STAT_ACC, 4, AI_CV_AccuracyDown4
 	if_random_less_than 80, AI_CV_AccuracyDown4
 	score -2
 
@@ -2339,6 +2370,7 @@ AI_CV_Protect_NoChanceToMessWithTruant:
 	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_Protect_ScoreUp2
 	if_status3 AI_TARGET, STATUS3_LEECHSEED, AI_CV_Protect_ScoreUp2
 	if_status3 AI_TARGET, STATUS3_YAWN, AI_CV_Protect_ScoreUp2
+	if_status3 AI_TARGET, STATUS3_SEMI_INVULNERABLE, AI_CV_Protect_ScoreUp2
 	get_last_used_bank_move AI_TARGET
 	get_move_effect_from_result
 	if_equal EFFECT_LOCK_ON, AI_CV_Protect_ScoreUp2
@@ -2813,12 +2845,6 @@ AI_CV_Hail_ScoreDown1:
 	score -1
 
 AI_CV_Hail_End:
-	end
-
-AI_CV_Facade:
-	if_not_status AI_USER, STATUS1_POISON | STATUS1_BURN | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON, AI_CV_Facade_End
-	score +1
-AI_CV_Facade_End:
 	end
 
 AI_CV_FocusPunch:

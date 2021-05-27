@@ -13555,6 +13555,7 @@ const u32 gTMHMLearnsets[][2] =
 											| TMHM(HM04_STRENGTH)
 											| TMHM(TM11_SUNNY_DAY)
 											| TMHM(HM03_SURF)
+											| TMHM(TM12_TAUNT)
 											| TMHM(TM41_TORMENT)
 											| TMHM(TM06_TOXIC)),
 											
@@ -14611,6 +14612,7 @@ const u32 gTMHMLearnsets[][2] =
 											| TMHM(TM43_SECRET_POWER)
 											| TMHM(TM34_SHOCK_WAVE)
 											| TMHM(TM36_SLUDGE_BOMB)
+											| TMHM(HM03_SURF)
 											| TMHM(HM04_STRENGTH)
 											| TMHM(TM11_SUNNY_DAY)
 											| TMHM(TM25_THUNDER)

@@ -1613,6 +1613,18 @@ void PrepareDynamicMoveTypeAndDamageForAI_CalcDmg(u8 attacker)
             // cuando es normal no hace falta tocar nada
         }
     }
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_ERUPTION)
+    {
+        u8 power = gBattleMoves[gCurrentMove].power;
+        gDynamicBasePower = gBattleMons[attacker].hp * power / gBattleMons[attacker].maxHP;
+        if (gDynamicBasePower == 0)
+            gDynamicBasePower = 1;
+    }
+    else if (gCurrentMove == MOVE_FACADE)
+    {
+        if (gBattleMons[attacker].status1 & (STATUS1_POISON | STATUS1_BURN | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON))
+            gBattleScripting.dmgMultiplier = 2;
+    }
 }
 
 void AI_CalcDmg(u8 attacker, u8 defender)
