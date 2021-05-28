@@ -549,6 +549,13 @@ void BattleSetup_StartBossBattle(void) {
     gMain.savedCallback = CB2_EndScriptedWildBattle;
     gBattleTypeFlags = BATTLE_TYPE_LEGENDARY;
     gBossBattleFlags = gBossBattles[bossBattleId].battleType;
+	gBossBattleId = bossBattleId;
+
+    if (gBossBattles[bossBattleId].weather != 0)
+    {
+        gBattleWeather = gBossBattles[bossBattleId].weather;
+    }
+
     if (gBossBattleFlags ==  BATTLE_TYPE_BOSS)
     {
         gBossOrTotemId = gBossBattles[bossBattleId].boss.bossId;
@@ -652,6 +659,7 @@ static void CB2_EndScriptedWildBattle(void)
     
     // Midele: Reinicia gBossBattleFlags al terminar el combate. 
     gBossBattleFlags = BATTLE_TYPE_NORMAL;
+	gBossBattleId = 0;
     gBossOrTotemId = 0;
     if (IsPlayerDefeated(gBattleOutcome) == TRUE)
     {

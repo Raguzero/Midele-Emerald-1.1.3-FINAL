@@ -897,11 +897,11 @@ GymGoosesStatus_Freeze_Script::
 GymGooses_EventScript_Totem:: @ 8237725
 	lockall
 	clearflag FLAG_HIDE_GYMGOOSES_TELEPORTBOY
-	playmoncry SPECIES_DELIBIRD, 2
+	playmoncry SPECIES_MEGA_GLALIE, 2
 	delay 40
 	waitmoncry
-	msgbox Fiery_Path_Text_Totemaparece, MSGBOX_DEFAULT
-    setvar VAR_0x8004, BOSS_BATTLE_TOTEM_CENTISKORCH
+	msgbox GymGooses_Text_Totemaparece, MSGBOX_DEFAULT
+    setvar VAR_0x8004, BOSS_BATTLE_TOTEM_MEGA_GLALIE
     special CreateBossBattleMon
     special BattleSetup_StartBossBattle
     waitstate
@@ -910,7 +910,7 @@ GymGooses_EventScript_Totem:: @ 8237725
 	removeobject 2
 	removeobject 3
 	setflag FLAG_TOTEM_GYMGOOSES
-    msgbox Fiery_Path_Text_Totemderrotado
+    msgbox GymGooses_Text_Totemderrotado
 	releaseall
 	end
     @ Combate contra totem.	
@@ -1165,3 +1165,10 @@ GymGooses_Text_ExplainBadgeTakeThis:
 	.string "Y debido a que ya tienes la última\n"
 	.string "medalla, podrás participar en\l"
 	.string "la MICOLIGA.$"
+	
+GymGooses_Text_Totemaparece:
+	.string "M-GLALIE, the Totem Pokémon\n"
+	.string "has appeared!$"
+	
+GymGooses_Text_Totemderrotado:
+	.string "M-GLALIE disappeared...$"

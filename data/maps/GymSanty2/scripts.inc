@@ -113,19 +113,19 @@ GymSanty2_EventScript_FarolesEncendidos::
     @ Combate contra totem.
 GymSanty2_EventScript_Totem::
 	lockall
-	playmoncry SPECIES_INFERNAPE, 2
+	playmoncry SPECIES_TYPHLOSION, 2
 	delay 40
 	waitmoncry
-	msgbox Fiery_Path_Text_Totemaparece, MSGBOX_DEFAULT
-    setvar VAR_0x8004, BOSS_BATTLE_TOTEM_CENTISKORCH
+	msgbox GymSanty2_Text_Totemaparece, MSGBOX_DEFAULT
+    setvar VAR_0x8004, BOSS_BATTLE_TOTEM_TYPHLOSION
     special CreateBossBattleMon
     special BattleSetup_StartBossBattle
     waitstate
     setvar VAR_LAST_TALKED, 1
     specialvar VAR_RESULT, GetBattleOutcome
-	removeobject 9
+	removeobject 1
 	setflag FLAG_TOTEM_GYMSANTY
-    msgbox Fiery_Path_Text_Totemderrotado
+    msgbox GymSanty2_Text_Totemderrotado
 	releaseall
 	end
     @ Combate contra totem.	
@@ -213,3 +213,10 @@ GymSanty2_Text_CaminoAbierto:
 
 	.string "El camino hacia la siguiente sala\n"
 	.string "ha sido desbloqueado.$"
+	
+GymSanty2_Text_Totemaparece:
+	.string "TYPHLOSION, the Totem Pokémon\n"
+	.string "has appeared!$"
+	
+GymSanty2_Text_Totemderrotado:
+	.string "TYPHLOSION disappeared...$"

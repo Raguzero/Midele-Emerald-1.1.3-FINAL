@@ -628,6 +628,7 @@ extern u8 gBattleTextBuff3[TEXT_BUFF_ARRAY_COUNT];
 extern u32 gBattleTypeFlags;
 extern u8 gBossBattleFlags;
 extern u8 gBossOrTotemId;
+extern u16 gBossBattleId;
 extern u8 gShouldShowTotemAura;
 extern u8 gBattleTerrain;
 extern u32 gUnknown_02022FF4;

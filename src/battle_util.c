@@ -1,6 +1,7 @@
 #include "global.h"
 #include "battle.h"
 #include "battle_anim.h"
+#include "boss_battles.h"
 #include "pokemon.h"
 #include "item.h"
 #include "util.h"
@@ -1840,6 +1841,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
         u16 move;
         u8 side;
         u8 target1;
+		u8 currentWeather;
 
         if (special)
             gLastUsedAbility = special;
@@ -1863,7 +1865,14 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
             case ABILITYEFFECT_SWITCH_IN_WEATHER:
                 if (!(gBattleTypeFlags & BATTLE_TYPE_RECORDED))
                 {
-                    switch (GetCurrentWeather())
+					if (gBossBattleFlags != BATTLE_TYPE_NORMAL && gBossBattles[gBossBattleId].weather != 0)
+                    {
+                        currentWeather = gBossBattles[gBossBattleId].weather;
+                    } else
+                    {
+                        currentWeather = GetCurrentWeather();
+                    }
+                    switch (currentWeather)
                     {
                     case WEATHER_RAIN:
                     case WEATHER_RAIN_THUNDERSTORM:
@@ -1897,7 +1906,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 case WEATHER_SNOW:
                     if (!(gBattleWeather & WEATHER_HAIL_ANY))
                     {
-                        gBattleWeather = WEATHER_HAIL_ANY;
+                        gBattleWeather = (WEATHER_HAIL_PERMANENT | WEATHER_HAIL_TEMPORARY);
                         gBattleScripting.animArg1 = B_ANIM_HAIL_CONTINUES;
                         gBattleScripting.battler = battler;
                         effect++;

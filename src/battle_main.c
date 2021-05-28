@@ -267,6 +267,7 @@ EWRAM_DATA u8 gBattleMonForms[MAX_BATTLERS_COUNT] = {0};
 // Midele: variables para boss battles.
 EWRAM_DATA u8 gBossBattleFlags = 0; // Indica el tipo de boss battle (constants/boss_battles.h)
 EWRAM_DATA u8 gBossOrTotemId = 0;   // Indica el ID del boss o totem (src/data/boss_battles/)
+EWRAM_DATA u16 gBossBattleId = 0;   // Indica el ID de la boss battle (constants/boss_battles.h)
 EWRAM_DATA u8 gShouldShowTotemAura = 0; // Indica si se debería mostrar o no el aura de un totem.
 
 EWRAM_DATA u8 gMaxPartyLevel = 1;
