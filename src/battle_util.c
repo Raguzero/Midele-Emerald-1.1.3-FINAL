@@ -1841,7 +1841,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
         u16 move;
         u8 side;
         u8 target1;
-		u8 currentWeather;
+        u8 currentWeather;
 
         if (special)
             gLastUsedAbility = special;
@@ -1865,7 +1865,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
             case ABILITYEFFECT_SWITCH_IN_WEATHER:
                 if (!(gBattleTypeFlags & BATTLE_TYPE_RECORDED))
                 {
-					if (gBossBattleFlags != BATTLE_TYPE_NORMAL && gBossBattles[gBossBattleId].weather != 0)
+                    if (gBossBattleFlags != BATTLE_TYPE_NORMAL && gBossBattles[gBossBattleId].weather != 0)
                     {
                         currentWeather = gBossBattles[gBossBattleId].weather;
                     } else
@@ -1916,7 +1916,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 }
                 if (effect)
                 {
-                    gBattleCommunication[MULTISTRING_CHOOSER] = GetCurrentWeather();
+                    gBattleCommunication[MULTISTRING_CHOOSER] = currentWeather;
                     BattleScriptPushCursorAndCallback(BattleScript_OverworldWeatherStarts);
                 }
                 break;

@@ -549,12 +549,7 @@ void BattleSetup_StartBossBattle(void) {
     gMain.savedCallback = CB2_EndScriptedWildBattle;
     gBattleTypeFlags = BATTLE_TYPE_LEGENDARY;
     gBossBattleFlags = gBossBattles[bossBattleId].battleType;
-	gBossBattleId = bossBattleId;
-
-    if (gBossBattles[bossBattleId].weather != 0)
-    {
-        gBattleWeather = gBossBattles[bossBattleId].weather;
-    }
+    gBossBattleId = bossBattleId;
 
     if (gBossBattleFlags ==  BATTLE_TYPE_BOSS)
     {
@@ -661,6 +656,7 @@ static void CB2_EndScriptedWildBattle(void)
     gBossBattleFlags = BATTLE_TYPE_NORMAL;
 	gBossBattleId = 0;
     gBossOrTotemId = 0;
+    gBossBattleId = 0;
     if (IsPlayerDefeated(gBattleOutcome) == TRUE)
     {
         if (InBattlePyramid())

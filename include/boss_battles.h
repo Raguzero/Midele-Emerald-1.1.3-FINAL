@@ -5,14 +5,14 @@
   Estructura de datos boss battle.
     music: Música que sonará en combate (songs.h)
     battleType: tipo de boss battle (constants/boss_battles.h)
-	weather: clima que aparecerá durante el combate.
-	boss: totemId indica el ID del Pokémon Totem en caso de que la battleType sea BATTLE_TYPE_TOTEM,
+    weather: clima que aparecerá durante el combate.
+    boss: totemId indica el ID del Pokémon Totem en caso de que la battleType sea BATTLE_TYPE_TOTEM,
           bossId indica el ID del BOSS en caso de que la battleType sea BATTLE_TYPE_BOSS.
 */
 struct BossBattle {
     u16 music;
     u8 battleType;
-    u16 weather;
+    u8 weather;
     union {
         u8 totemId;
         u8 bossId;

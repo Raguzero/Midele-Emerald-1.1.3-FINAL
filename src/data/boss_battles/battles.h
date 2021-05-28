@@ -3,7 +3,7 @@ const struct BossBattle gBossBattles[] = {
     {
         .battleType = BATTLE_TYPE_TOTEM,
         .music = MUS_RG_VS_LAST,
-        .weather = (WEATHER_RAIN_TEMPORARY | WEATHER_RAIN_PERMANENT), // ver Battle Weather flags en include/constants/battle.h
+        .weather = WEATHER_SNOW, // ver WEATHER_* flags en include/constants/weather.h
         .boss = TOTEM_SUDOWOODO_DEBUG,
     },
     [BOSS_BATTLE_CORONA] =
@@ -40,14 +40,14 @@ const struct BossBattle gBossBattles[] = {
     {
         .battleType = BATTLE_TYPE_TOTEM,
         .music = MUS_RG_VS_LAST,
-        .weather = (WEATHER_HAIL_TEMPORARY | WEATHER_HAIL_PERMANENT), // ver Battle Weather flags en include/constants/battle.h
+        .weather = WEATHER_SNOW, // ver WEATHER_* flags en include/constants/weather.h
         .boss = TOTEM_MEGA_GLALIE,
     },
     [BOSS_BATTLE_TOTEM_TYPHLOSION] =
     {
         .battleType = BATTLE_TYPE_TOTEM,
         .music = MUS_RG_VS_LAST,
-        .weather = (WEATHER_SUN_TEMPORARY | WEATHER_SUN_PERMANENT), // ver Battle Weather flags en include/constants/battle.h
+        .weather = WEATHER_DROUGHT, // ver WEATHER_* flags en include/constants/weather.h
         .boss = TOTEM_TYPHLOSION,
     },
 };
