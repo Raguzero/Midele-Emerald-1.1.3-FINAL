@@ -1325,3 +1325,7 @@ $(MID_SUBDIR)/deltarunchaosk.s: %.s: %.mid
 	
 $(MID_SUBDIR)/swordshieldwild.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100
+	
+$(MID_SUBDIR)/shum.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -V110
+	

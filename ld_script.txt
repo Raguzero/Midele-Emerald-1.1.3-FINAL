@@ -1261,6 +1261,7 @@ SECTIONS {
 		sound/songs/midi/zanzatheme.o(.rodata);
 		sound/songs/midi/deltarunchaosk.o(.rodata);
 		sound/songs/midi/swordshieldwild.o(.rodata);
+		sound/songs/midi/shum.o(.rodata);
     } =0
 
     lib_rodata :

@@ -567,6 +567,7 @@
 #define ZANZATHEME 639
 #define DELTARUNCHAOSK 640
 #define SWORDSHIELDWILD 641
+#define SHUM 642
 
 #define MUS_ROUTE_118 0x7FFF  // map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 
