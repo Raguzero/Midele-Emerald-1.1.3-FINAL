@@ -27,6 +27,26 @@ MtPyre_6F_EventScript_Cedric:: @ 8231D9D
 	trainerbattle_single TRAINER_CEDRIC, MtPyre_6F_Text_CedricIntro, MtPyre_6F_Text_CedricDefeat
 	msgbox MtPyre_6F_Text_CedricPostBattle, MSGBOX_AUTOCLOSE
 	end
+	
+    @ Combate contra totem.
+MtPyre_6F_EventScript_Totem::
+	lockall
+	playmoncry SPECIES_MEGA_ABSOL, 2
+	delay 40
+	waitmoncry
+	msgbox MtPyre_6F_Text_Totemaparece, MSGBOX_DEFAULT
+    setvar VAR_0x8004, BOSS_BATTLE_TOTEM_MEGA_ABSOL
+    special CreateBossBattleMon
+    special BattleSetup_StartBossBattle
+    waitstate
+    setvar VAR_LAST_TALKED, 1
+    specialvar VAR_RESULT, GetBattleOutcome
+	removeobject 4
+	setflag FLAG_TOTEM_MTPYRE
+    msgbox MtPyre_6F_Text_Totemderrotado
+	releaseall
+	end
+    @ Combate contra totem.	
 
 MtPyre_6F_Text_ValerieIntro: @ 8231DB4
 	.string "When I'm here…\n"
@@ -67,4 +87,11 @@ MtPyre_6F_Text_CedricPostBattle: @ 8231F5C
 	.string "I had this feeling that a lost TRAINER\n"
 	.string "would be panicked and easy to beat.\p"
 	.string "It's dirty and I won't try it again…$"
+	
+MtPyre_6F_Text_Totemaparece:
+	.string "MEGA ABSOL, the Totem Pokémon\n"
+	.string "has appeared!$"
+	
+MtPyre_6F_Text_Totemderrotado:
+	.string "MEGA ABSOL disappeared...$"
 

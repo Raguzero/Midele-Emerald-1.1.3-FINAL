@@ -64,8 +64,8 @@ const struct TotemMon gTotemMons[] =
         .item = ITEM_LEFTOVERS,
         .nature = NATURE_QUIET,
         .abilityNumber = 1, // ICE BODY
-        .statBoosts = {6, 8, 8, 8, 8, 8, 6, 6}, // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
-        .evs = {0, 252, 0, 252, 0, 6},
+        .statBoosts = {6, 8, 12, 6, 8, 12, 6, 6}, // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
+        .evs = {252, 252, 252, 252, 252, 252},
     },
     [TOTEM_TYPHLOSION] =
     {
@@ -75,7 +75,18 @@ const struct TotemMon gTotemMons[] =
         .item = ITEM_CHARCOAL,
         .nature = NATURE_MODEST,
         .abilityNumber = 0, // BLAZE
-        .statBoosts = {6, 8, 8, 8, 8, 8, 6, 6}, // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
-        .evs = {0, 6, 0, 252, 0, 252},
-    }
+        .statBoosts = {6, 8, 12, 6, 6, 12, 6, 6}, // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
+        .evs = {252, 252, 252, 252, 252, 252},
+    },
+    [TOTEM_MEGA_ABSOL] =
+    {
+        .species = SPECIES_MEGA_ABSOL,
+        .minLevel = 40,
+        .moves = {MOVE_SLASH, MOVE_FOCUS_ENERGY, MOVE_KNOCK_OFF, MOVE_X_SCISSOR},
+        .item = ITEM_SCOPE_LENS,
+        .nature = NATURE_JOLLY,
+        .abilityNumber = 1, // SUPER LUCK
+        .statBoosts = {6, 6, 8, 6, 6, 8, 6, 6}, // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
+        .evs = {252, 0, 252, 0, 0, 6},
+    },
 };

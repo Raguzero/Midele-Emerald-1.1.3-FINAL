@@ -690,7 +690,7 @@
 #define FLAG_CAUGHT_MEWTWO  0x289 // Previously unused Flag
 #define FLAG_DEFEATED_MEWTWO  0x28A // Previously unused Flag
 #define FLAG_HIDE_MEWTWO  0x28B // Previously unused Flag
-#define FLAG_UNUSED_0x28C  0x28C // Unused Flag
+#define FLAG_TOTEM_MTPYRE  0x28C // Previously unused Flag
 #define FLAG_UNUSED_0x28D  0x28D // Unused Flag
 #define FLAG_UNUSED_0x28E  0x28E // Unused Flag
 #define FLAG_UNUSED_0x28F  0x28F // Unused Flag

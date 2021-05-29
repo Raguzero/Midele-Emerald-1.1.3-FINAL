@@ -50,4 +50,10 @@ const struct BossBattle gBossBattles[] = {
         .weather = WEATHER_DROUGHT, // ver WEATHER_* flags en include/constants/weather.h
         .boss = TOTEM_TYPHLOSION,
     },
+    [BOSS_BATTLE_TOTEM_MEGA_ABSOL] =
+    {
+        .battleType = BATTLE_TYPE_TOTEM,
+        .music = MUS_RG_VS_LAST,
+        .boss = TOTEM_MEGA_ABSOL,
+    }
 };
