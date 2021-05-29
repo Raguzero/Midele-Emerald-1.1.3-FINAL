@@ -1,7 +1,9 @@
 #include "global.h"
 #include "battle.h"
 #include "battle_anim.h"
+#include "battle_setup.h"
 #include "boss_battles.h"
+#include "data.h"
 #include "pokemon.h"
 #include "item.h"
 #include "util.h"
@@ -1865,7 +1867,11 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
             case ABILITYEFFECT_SWITCH_IN_WEATHER:
                 if (!(gBattleTypeFlags & BATTLE_TYPE_RECORDED))
                 {
-                    if (gBossBattleFlags != BATTLE_TYPE_NORMAL && gBossBattles[gBossBattleId].weather != 0)
+                    if ((gBattleTypeFlags & BATTLE_TYPE_TRAINER) && gTrainers[gTrainerBattleOpponent_A].battleWeather != WEATHER_NONE)
+                    {
+                        currentWeather = gTrainers[gTrainerBattleOpponent_A].battleWeather;
+                    }
+                    else if (gBossBattleFlags != BATTLE_TYPE_NORMAL && gBossBattles[gBossBattleId].weather != WEATHER_NONE)
                     {
                         currentWeather = gBossBattles[gBossBattleId].weather;
                     } else
