@@ -65,6 +65,32 @@
             "trainer_type": "0",
             "x": 5,
             "y": 6
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_TOTEM_SCORCHEDSLAB",
+            "graphics_id": "EVENT_OBJ_GFX_TRICK_HOUSE_STATUE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+            "script": "ScorchedSlab_B2F_EventScript_Totem",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 18,
+            "y": 5
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_ITEM_SCORCHED_SLAB_B2F_TM35",
+            "graphics_id": "EVENT_OBJ_GFX_TM_BALL",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "script": "ScorchedSlab_B2F_EventScript_ItemTM35",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 18,
+            "y": 4
         }
     ],
     "region_map_section": "MAPSEC_SCORCHED_SLAB",
@@ -86,5 +112,5 @@
             "y": 3
         }
     ],
-    "weather": "WEATHER_FOG_DIAGONAL"
+    "weather": "WEATHER_DROUGHT"
 }

@@ -21,6 +21,26 @@ GraniteCave_EventScript_JZombie::
 	trainerbattle_single TRAINER_GRANITECAVE_JZOMBIE, GraniteCave_Text_JZombieIntro, GraniteCave_Text_JZombieDefeat
 	msgbox GraniteCave_Text_JZombiePostBattle, MSGBOX_AUTOCLOSE
 	end
+	
+    @ Combate contra totem.
+GraniteCave_1F_EventScript_Totem::
+	lockall
+	playmoncry SPECIES_PROBOPASS, 2
+	delay 40
+	waitmoncry
+	msgbox GraniteCave_1F_Text_Totemaparece, MSGBOX_DEFAULT
+    setvar VAR_0x8004, BOSS_BATTLE_TOTEM_PROBOPASS
+    special CreateBossBattleMon
+    special BattleSetup_StartBossBattle
+    waitstate
+    setvar VAR_LAST_TALKED, 1
+    specialvar VAR_RESULT, GetBattleOutcome
+	removeobject 4
+	setflag FLAG_TOTEM_GRANITECAVE
+    msgbox GraniteCave_1F_Text_Totemderrotado
+	releaseall
+	end
+    @ Combate contra totem.	
 
 GraniteCave_Text_JZombieIntro: 
 	.string "¡KALOS SUR es real y existe!\p"
@@ -73,4 +93,11 @@ GraniteCave_1F_Text_ExplainFlash: @ 822DBB7
 	.string "of caves.\p"
 	.string "But, to use it, you need the GYM BADGE\n"
 	.string "from DEWFORD's POKéMON GYM.$"
+	
+GraniteCave_1F_Text_Totemaparece:
+	.string "PROBOPASS, the Totem Pokémon\n"
+	.string "has appeared!$"
+	
+GraniteCave_1F_Text_Totemderrotado:
+	.string "PROBOPASS disappeared...$"
 

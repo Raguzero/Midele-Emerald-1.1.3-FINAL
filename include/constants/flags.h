@@ -691,9 +691,9 @@
 #define FLAG_DEFEATED_MEWTWO  0x28A // Previously unused Flag
 #define FLAG_HIDE_MEWTWO  0x28B // Previously unused Flag
 #define FLAG_TOTEM_MTPYRE  0x28C // Previously unused Flag
-#define FLAG_UNUSED_0x28D  0x28D // Unused Flag
-#define FLAG_UNUSED_0x28E  0x28E // Unused Flag
-#define FLAG_UNUSED_0x28F  0x28F // Unused Flag
+#define FLAG_TOTEM_GRANITECAVE  0x28D // Previously unused Flag
+#define FLAG_TOTEM_SCORCHEDSLAB  0x28E // Previously unused Flag
+#define FLAG_ITEM_SCORCHED_SLAB_B2F_TM35  0x28F // Previously unused Flag
 #define FLAG_UNUSED_0x290  0x290 // Unused Flag
 #define FLAG_UNUSED_0x291  0x291 // Unused Flag
 #define FLAG_UNUSED_0x292  0x292 // Unused Flag

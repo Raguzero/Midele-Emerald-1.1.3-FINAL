@@ -663,7 +663,7 @@ ScorchedSlab_B1F_EventScript_ItemEscapeRope::
 	end
 	
 ScorchedSlab_B1F_EventScript_Item::
-	finditem ITEM_MAX_REPEL
+	finditem ITEM_FIRE_STONE
 	end
 	
 ScorchedSlab_B2F_EventScript_Item1::
@@ -672,4 +672,8 @@ ScorchedSlab_B2F_EventScript_Item1::
 	
 ScorchedSlab_B2F_EventScript_Item2::
 	finditem ITEM_NUGGET
+	end
+	
+ScorchedSlab_B2F_EventScript_ItemTM35::
+	finditem ITEM_TM35
 	end

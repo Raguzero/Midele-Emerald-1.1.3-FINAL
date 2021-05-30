@@ -5292,7 +5292,7 @@
                             {
                                 "max_level": 33,
                                 "min_level": 27,
-                                "species": "SPECIES_CORVISQUIRE"
+                                "species": "SPECIES_MORGREM"
                             },
                             {
                                 "max_level": 33,
@@ -5361,7 +5361,7 @@
                             {
                                 "max_level": 33,
                                 "min_level": 28,
-                                "species": "SPECIES_CORVISQUIRE"
+                                "species": "SPECIES_MORGREM"
                             },
                             {
                                 "max_level": 33,
@@ -12333,7 +12333,7 @@
                             {
                                 "max_level": 34,
                                 "min_level": 32,
-                                "species": "SPECIES_MORGREM"
+                                "species": "SPECIES_NUZLEAF"
                             },
                             {
                                 "max_level": 34,
@@ -12487,7 +12487,7 @@
                             {
                                 "max_level": 34,
                                 "min_level": 32,
-                                "species": "SPECIES_MORGREM"
+                                "species": "SPECIES_NUZLEAF"
                             },
                             {
                                 "max_level": 34,
@@ -12586,7 +12586,7 @@
                             {
                                 "max_level": 34,
                                 "min_level": 32,
-                                "species": "SPECIES_MORGREM"
+                                "species": "SPECIES_NUZLEAF"
                             },
                             {
                                 "max_level": 34,
@@ -12655,7 +12655,7 @@
                             {
                                 "max_level": 34,
                                 "min_level": 32,
-                                "species": "SPECIES_MORGREM"
+                                "species": "SPECIES_NUZLEAF"
                             },
                             {
                                 "max_level": 34,

@@ -55,5 +55,17 @@ const struct BossBattle gBossBattles[] = {
         .battleType = BATTLE_TYPE_TOTEM,
         .music = MUS_RG_VS_LAST,
         .boss = TOTEM_MEGA_ABSOL,
+    },
+    [BOSS_BATTLE_TOTEM_PROBOPASS] =
+    {
+        .battleType = BATTLE_TYPE_TOTEM,
+        .music = MUS_RG_VS_LAST,
+        .boss = TOTEM_PROBOPASS,
+    },
+    [BOSS_BATTLE_TOTEM_RHYPERIOR] =
+    {
+        .battleType = BATTLE_TYPE_TOTEM,
+        .music = MUS_RG_VS_LAST,
+        .boss = TOTEM_RHYPERIOR,
     }
 };
