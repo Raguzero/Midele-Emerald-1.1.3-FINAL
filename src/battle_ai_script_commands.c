@@ -6,6 +6,7 @@
 #include "battle_setup.h"
 #include "boss_battles.h"
 #include "data.h"
+#include "event_data.h"
 #include "item.h"
 #include "pokemon.h"
 #include "random.h"
@@ -169,6 +170,7 @@ static void Cmd_if_accuracy_less_than(void);
 static void Cmd_if_not_expected_to_sleep(void);
 static void Cmd_if_receiving_wish(void);
 static void Cmd_if_target_wont_attack_due_to_truant(void);
+static void Cmd_if_trick_fails_in_this_type_of_battle(void);
 
 // ewram
 EWRAM_DATA const u8 *gAIScriptPtr = NULL;
@@ -285,6 +287,7 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
 	Cmd_if_not_expected_to_sleep,                   // 0x67
     Cmd_if_receiving_wish,                          // 0x68
 	Cmd_if_target_wont_attack_due_to_truant,        // 0x69
+	Cmd_if_trick_fails_in_this_type_of_battle,        // 0x6A
 };
 
 static const u16 sDiscouragedPowerfulMoveEffects[] =
@@ -2566,3 +2569,23 @@ static void Cmd_if_target_wont_attack_due_to_truant(void)
     else
         gAIScriptPtr += 5;
 }
+
+static void Cmd_if_trick_fails_in_this_type_of_battle(void)
+{
+    // No one can swap items in regular trainer battles
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_HILL
+        || gBossBattleFlags != BATTLE_TYPE_NORMAL
+        || !(!(gBattleTypeFlags & BATTLE_TYPE_TRAINER) 
+        ||  FlagGet(FLAG_RYU_RANDOMBATTLECC) == 1 
+        || (gBattleTypeFlags & (BATTLE_TYPE_LINK
+                                  | BATTLE_TYPE_EREADER_TRAINER
+                                  | BATTLE_TYPE_FRONTIER
+                                  | BATTLE_TYPE_SECRET_BASE
+                                  | BATTLE_TYPE_x2000000))))
+    {
+        gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 1);
+    }
+    else
+        gAIScriptPtr += 5;
+}
+

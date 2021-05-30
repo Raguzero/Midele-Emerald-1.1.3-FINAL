@@ -588,6 +588,11 @@
     .byte 0x69
     .4byte \param
     .endm
+	
+    .macro if_trick_fails_in_this_type_of_battle param:req
+    .byte 0x6a
+    .4byte \param
+    .endm
 
 @ useful script macros
 	.macro get_curr_move_type

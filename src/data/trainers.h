@@ -12612,7 +12612,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("KADERETE"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE | AI_SCRIPT_USE_PERISH_SONG_EVEN_IF_LAST_POKEMON,
         .partySize = ARRAY_COUNT(sParty_Kaderete),
         .party = {.ItemCustomMidele = sParty_Kaderete},
     },

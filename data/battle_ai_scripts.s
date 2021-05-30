@@ -22,7 +22,7 @@ gBattleAI_ScriptsTable:: @ 82DBEF8
 	.4byte AI_DoubleBattle
 	.4byte AI_HPAware
 	.4byte AI_Unknown
-	.4byte AI_Ret
+    .4byte AI_UsePerishSongEvenIfLastPokemon
 	.4byte AI_Ret
 	.4byte AI_Ret
 	.4byte AI_Ret
@@ -542,6 +542,8 @@ AI_CBM_CantEscape: @ 82DC5B0
     if_equal TYPE_GHOST, Score_Minus10
     if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_status2 AI_TARGET, STATUS2_ESCAPE_PREVENTION, Score_Minus10
+    count_usable_party_mons AI_TARGET
+    if_equal 0, Score_Minus10
 	end
 
 AI_CBM_Curse: @ 82DC5BB
@@ -567,6 +569,11 @@ AI_CBM_PerishSong: @ 82DC5E2
 	if_equal 0, Score_Plus2
 	count_usable_party_mons AI_USER
 	if_equal 0, Score_Minus10
+AI_CBM_PerishSong_CheckStatusAgain:
+    if_status2 AI_TARGET, STATUS2_ESCAPE_PREVENTION, Score_Plus2
+    if_has_move_with_effect AI_USER, EFFECT_MEAN_LOOK, Score_Minus8
+    if_status2 AI_TARGET, STATUS2_WRAPPED, Score_Plus2
+    if_has_move_with_effect AI_USER, EFFECT_TRAP, Score_Minus8
 	end
 
 AI_CBM_Sandstorm: @ 82DC5ED
@@ -685,6 +692,7 @@ AI_CBM_HelpingHand: @ 82DC6E3
 	end
 
 AI_CBM_Trick: @ 82DC6EB
+	if_trick_fails_in_this_type_of_battle Score_Minus10
     if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_ability_might_be AI_TARGET, ABILITY_STICKY_HOLD, Score_Minus10
 	end
@@ -768,7 +776,8 @@ AI_CBM_Protect:
 	get_protect_count AI_USER
 	if_more_than 2, Score_Minus10
 	if_target_wont_attack_due_to_truant Score_Minus10
-	if_status AI_TARGET, STATUS1_SLEEP | STATUS1_FREEZE, Score_Minus8
+	if_status AI_TARGET, STATUS1_FREEZE, Score_Minus8
+	if_status AI_TARGET, STATUS1_SLEEP, Score_Minus5
 	end
 	
 AI_CBM_Coil:
@@ -3949,6 +3958,19 @@ AI_Unknown:
 
 AI_Unknown_End: @ 82DE308
 	end
+	
+@ Hace que la IA ignore la penalización a Perish Song por quedarse con un solo poke contra un rival con más de uno
+AI_UsePerishSongEvenIfLastPokemon:
+    if_not_effect EFFECT_PERISH_SONG, AI_UsePerishSongEvenIfLastPokemon_End
+    if_status3 AI_TARGET, STATUS3_PERISH_SONG, AI_UsePerishSongEvenIfLastPokemon_End
+    count_usable_party_mons AI_TARGET
+    if_equal 0, AI_UsePerishSongEvenIfLastPokemon_End
+    count_usable_party_mons AI_USER
+    if_not_equal 0, AI_UsePerishSongEvenIfLastPokemon_End
+    score +10
+	goto AI_CBM_PerishSong_CheckStatusAgain
+AI_UsePerishSongEvenIfLastPokemon_End:
+    end
 
 AI_Roaming:
 	if_status2 AI_USER, STATUS2_WRAPPED, AI_Roaming_End
