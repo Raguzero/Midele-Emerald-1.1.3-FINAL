@@ -22520,6 +22520,7 @@ static const struct TrainerMonCustomMidele sParty_Pacochef[] = {
     .species = SPECIES_UMBREON,
     .heldItem = ITEM_BLACK_GLASSES,
 	.evs = {84, 0, 42, 0, 42, 0},
+	.shiny = 1,
     .nature = NATURE_BOLD,
     .moves = {MOVE_PURSUIT, MOVE_SPITE, MOVE_YAWN, MOVE_PROTECT},
     },
@@ -24139,6 +24140,7 @@ static const struct TrainerMonCustomMidele sParty_Pacochef2[] = {
 	.heldItem = ITEM_BRIGHT_POWDER,  
 	.nature = NATURE_BOLD,
 	.evs = {252, 0, 6, 0, 252, 0},
+	.shiny = 1,
 	.ability = 0,  // SINCRONIA
 	.moves = {MOVE_DOUBLE_TEAM, MOVE_TOXIC, MOVE_MOONLIGHT, MOVE_CRUNCH} 
 	},
@@ -24346,4 +24348,58 @@ static const struct TrainerMonCustomMidele sParty_Slowbro[] = {
 	.evs = {6, 252, 0, 0, 0, 252},
 	.moves = {MOVE_MIDELE_POWER, MOVE_NONE, MOVE_NONE, MOVE_NONE} 
 	}
+};
+static const struct TrainerMonCustomMidele sParty_Botones[] = {
+	{
+	.iv = 31,
+	.lvl = 41, 
+	.species = SPECIES_FLOETTE, 
+	.heldItem = ITEM_MIRACLE_SEED,  
+	.nature = NATURE_TIMID,
+	.evs = {0, 0, 0, 112, 0, 112},
+	.moves = {MOVE_SOLAR_BEAM, MOVE_MAGIC_COAT, MOVE_DAZZLING_GLEAM, MOVE_FLASH} 
+	},
+	{
+	.iv = 31,
+	.lvl = 39, 
+	.species = SPECIES_GENGAR, 
+	.heldItem = ITEM_SPELL_TAG,  
+	.nature = NATURE_ADAMANT,
+	.evs = {0, 224, 0, 0, 0, 0},
+	.moves = {MOVE_POISON_GAS, MOVE_CONFUSE_RAY, MOVE_SHADOW_PUNCH, MOVE_SLUDGE_BOMB} 
+	}
+};
+static const struct TrainerMonCustomMidele sParty_Hypeantonio2[] = {
+    // ZYGARDE 1%
+    {
+    .iv = 31,
+    .lvl = 40,
+    .species = SPECIES_CATERPIE,
+    .heldItem = ITEM_SILK_SCARF,
+    .nature = NATURE_ADAMANT,
+	.evs = {0, 252, 0, 0, 0, 0},
+	.initial_status1 = STATUS1_SLEEP,
+    .moves = {MOVE_TACKLE, MOVE_STRING_SHOT, MOVE_SNORE, MOVE_NONE},
+    },
+    // ZYGARDE 10%
+    {
+    .iv = 31,
+    .lvl = 41,
+    .species = SPECIES_HOUNDOOM,
+    .heldItem = ITEM_LUM_BERRY,
+    .nature = NATURE_MODEST,
+	.evs = {0, 0, 0, 0, 0, 224},
+    .moves = {MOVE_FLAMETHROWER, MOVE_TOXIC, MOVE_PROTECT, MOVE_TAUNT},
+    },
+    // ZYGARDE 50%
+    {
+    .iv = 31,
+    .lvl = 41,
+    .species = SPECIES_SANDACONDA,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .nature = NATURE_ADAMANT,
+	.evs = {112, 112, 0, 0, 0, 0},
+    .moves = {MOVE_DRILL_RUN, MOVE_POISON_TAIL, MOVE_REST, MOVE_SLEEP_TALK},
+    .shiny = 1
+    }
 };

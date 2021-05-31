@@ -947,10 +947,12 @@
 #define TRAINER_ALPHA 943
 #define TRAINER_JPROGAMER 944
 #define TRAINER_SLOWBRO 945
+#define TRAINER_BOTONES 946
+#define TRAINER_HYPEANTONIO_2 947
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or [changing how trainer flags are handled] --> HECHO ESTO
-#define TRAINERS_COUNT                      946 // NUEVO: aumentar para añadir nuevos entrenadores
-#define MAX_TRAINERS_COUNT                  947
+#define TRAINERS_COUNT                      948 // NUEVO: aumentar para añadir nuevos entrenadores
+#define MAX_TRAINERS_COUNT                  949
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H
