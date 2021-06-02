@@ -110,5 +110,16 @@ const struct TotemMon gTotemMons[] =
         .abilityNumber = 1, // SOLID ROCK
         .statBoosts = {6, 6, 6, 6, 12, 8, 6, 6}, // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
         .evs = {252, 0, 0, 0, 252, 252},
+    },
+    [TOTEM_TYRANITAR] =
+    {
+        .species = SPECIES_TYRANITAR,
+        .minLevel = 80,
+        .moves = {MOVE_CRUNCH, MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_FIRE_BLAST},
+        .item = ITEM_LEFTOVERS,
+        .nature = NATURE_BRAVE,
+        .abilityNumber = 0, // SANDS STREAM
+        .statBoosts = {6, 6, 8, 12, 8, 8, 8, 6}, // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
+        .evs = {252, 252, 252, 252, 252, 252},
     }
 };

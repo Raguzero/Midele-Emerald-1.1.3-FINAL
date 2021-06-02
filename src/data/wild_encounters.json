@@ -9554,7 +9554,7 @@
                             {
                                 "max_level": 33,
                                 "min_level": 29,
-                                "species": "SPECIES_CORVISQUIRE"
+                                "species": "SPECIES_YANMA"
                             },
                             {
                                 "max_level": 33,
@@ -9579,12 +9579,12 @@
                             {
                                 "max_level": 33,
                                 "min_level": 30,
-                                "species": "SPECIES_WIGGLYTUFF"
+                                "species": "SPECIES_JIGGLYPUFF"
                             },
                             {
                                 "max_level": 33,
                                 "min_level": 30,
-                                "species": "SPECIES_WIGGLYTUFF"
+                                "species": "SPECIES_JIGGLYPUFF"
                             },
                             {
                                 "max_level": 33,
@@ -9619,7 +9619,7 @@
                             {
                                 "max_level": 33,
                                 "min_level": 29,
-                                "species": "SPECIES_CORVISQUIRE"
+                                "species": "SPECIES_YANMA"
                             },
                             {
                                 "max_level": 33,
@@ -9654,7 +9654,7 @@
                             {
                                 "max_level": 33,
                                 "min_level": 30,
-                                "species": "SPECIES_CUBONE"
+                                "species": "SPECIES_ALOLAN_MAROWAK"
                             },
                             {
                                 "max_level": 33,
@@ -10131,7 +10131,7 @@
                             {
                                 "max_level": 35,
                                 "min_level": 32,
-                                "species": "SPECIES_CORVISQUIRE"
+                                "species": "SPECIES_EXEGGCUTE"
                             },
                             {
                                 "max_level": 35,
@@ -10197,12 +10197,12 @@
                             {
                                 "max_level": 35,
                                 "min_level": 30,
-                                "species": "SPECIES_OCTILLERY"
+                                "species": "SPECIES_HORSEA"
                             },
                             {
                                 "max_level": 35,
                                 "min_level": 30,
-                                "species": "SPECIES_HORSEA"
+                                "species": "SPECIES_OCTILLERY"
                             },
                             {
                                 "max_level": 30,
@@ -10374,7 +10374,7 @@
                             {
                                 "max_level": 38,
                                 "min_level": 35,
-                                "species": "SPECIES_XATU"
+                                "species": "SPECIES_NATU"
                             },
                             {
                                 "max_level": 38,
@@ -10394,12 +10394,12 @@
                             {
                                 "max_level": 35,
                                 "min_level": 32,
-                                "species": "SPECIES_PELIPPER"
+                                "species": "SPECIES_WINGULL"
                             },
                             {
                                 "max_level": 35,
                                 "min_level": 32,
-                                "species": "SPECIES_PELIPPER"
+                                "species": "SPECIES_WINGULL"
                             },
                             {
                                 "max_level": 38,
@@ -10439,12 +10439,12 @@
                             {
                                 "max_level": 38,
                                 "min_level": 35,
-                                "species": "SPECIES_XATU"
+                                "species": "SPECIES_NATU"
                             },
                             {
                                 "max_level": 38,
                                 "min_level": 35,
-                                "species": "SPECIES_CORVISQUIRE"
+                                "species": "SPECIES_EXEGGCUTE"
                             },
                             {
                                 "max_level": 38,
@@ -10459,12 +10459,12 @@
                             {
                                 "max_level": 35,
                                 "min_level": 32,
-                                "species": "SPECIES_PELIPPER"
+                                "species": "SPECIES_WINGULL"
                             },
                             {
                                 "max_level": 35,
                                 "min_level": 32,
-                                "species": "SPECIES_PELIPPER"
+                                "species": "SPECIES_WINGULL"
                             },
                             {
                                 "max_level": 38,
@@ -10593,7 +10593,7 @@
                             {
                                 "max_level": 40,
                                 "min_level": 37,
-                                "species": "SPECIES_AZUMARILL"
+                                "species": "SPECIES_MARILL"
                             },
                             {
                                 "max_level": 40,
@@ -10618,7 +10618,7 @@
                             {
                                 "max_level": 40,
                                 "min_level": 37,
-                                "species": "SPECIES_PERSERKER"
+                                "species": "SPECIES_AZUMARILL"
                             },
                             {
                                 "max_level": 40,
@@ -10628,7 +10628,7 @@
                             {
                                 "max_level": 38,
                                 "min_level": 35,
-                                "species": "SPECIES_ALOLAN_EXEGGUTOR"
+                                "species": "SPECIES_PERSERKER"
                             },
                             {
                                 "max_level": 40,

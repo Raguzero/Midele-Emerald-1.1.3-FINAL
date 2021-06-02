@@ -67,5 +67,12 @@ const struct BossBattle gBossBattles[] = {
         .battleType = BATTLE_TYPE_TOTEM,
         .music = MUS_RG_VS_LAST,
         .boss = TOTEM_RHYPERIOR,
+    },
+    [BOSS_BATTLE_TOTEM_TYRANITAR] =
+    {
+        .battleType = BATTLE_TYPE_TOTEM,
+        .music = MUS_RG_VS_LAST,
+        .weather = WEATHER_SANDSTORM, // ver WEATHER_* flags en include/constants/weather.h
+        .boss = TOTEM_TYRANITAR,
     }
 };
