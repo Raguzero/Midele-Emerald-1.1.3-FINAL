@@ -3056,7 +3056,7 @@ void CreateMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFix
 }
 
 // NUEVO PARA CUSTOM TRAINER
-void CreateMonMidele(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, const u8 *evs, u8 nature, u8 shiny, u8 abilityNumber, u8 friendship, u8 hpType)
+void CreateMonMidele(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, const u8 *evs, u8 nature, u8 shiny, u8 abilityNumber, u8 friendship, u8 hpType, u8 genderValue)
 {
     struct BoxPokemon *box;
     u32 arg;
@@ -3065,7 +3065,7 @@ void CreateMonMidele(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, con
 
     do
     {
-        personality = Random32();
+        personality = (Random32() & 0xFFFFFF80) | genderValue;
     }
     while (nature != GetNatureFromPersonality(personality));
 

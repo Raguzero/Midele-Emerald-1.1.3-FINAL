@@ -15,6 +15,7 @@
 #include "boss_battles.h"
 #include "bg.h"
 #include "data.h"
+#include "daycare.h"
 #include "dexnav.h"
 #include "decompress.h"
 #include "dma3.h"
@@ -2088,8 +2089,6 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             {
                 const struct TrainerMonCustomMidele *partyData = gTrainers[trainerNum].party.ItemCustomMidele;
 				u8 mideleLevel;
-                for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
-                    nameHash += gSpeciesNames[partyData[i].species][j];
 
 		// NUEVO RANDOM BATTLE
                 if (FlagGet(FLAG_RYU_RANDOMBATTLE) == 1)
@@ -2110,7 +2109,14 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
         SetMonData(&gEnemyParty[i], MON_DATA_FRIENDSHIP, 0);
         SetMonData(&gEnemyParty[i], MON_DATA_HELD_ITEM, &gBattleFrontierHeldItems[pokeenemy -> itemTableId]);
-                    break;
+				for (j = 0; j < MAX_MON_MOVES; j++)
+                {
+                    u8 maxPp = CalculatePPWithBonus(pokeenemy -> moves[j], 3, 0);
+                    u8 fullpp = 0xFF;
+					SetMonData(&gEnemyParty[i], MON_DATA_PP1 + j, &maxPp);
+					SetMonData(&gEnemyParty[i], MON_DATA_PP_BONUSES, &fullpp);
+                }
+					break;
                 }
 		// NUEVO RANDOM BATTLE
 		
@@ -2133,7 +2139,14 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
         SetMonData(&gEnemyParty[i], MON_DATA_FRIENDSHIP, 0);
         SetMonData(&gEnemyParty[i], MON_DATA_HELD_ITEM, &gBattleFrontierHeldItems[pokeenemy -> itemTableId]);
-                    break;
+				for (j = 0; j < MAX_MON_MOVES; j++)
+                {
+                    u8 maxPp = CalculatePPWithBonus(pokeenemy -> moves[j], 3, 0);
+                    u8 fullpp = 0xFF;
+					SetMonData(&gEnemyParty[i], MON_DATA_PP1 + j, &maxPp);
+					SetMonData(&gEnemyParty[i], MON_DATA_PP_BONUSES, &fullpp);
+                }
+					break;
                 }
 		// NUEVO RANDOM BATTLE 3 POKEMON NV80 MIN
 		
@@ -2162,13 +2175,26 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
         SetMonData(&gEnemyParty[i], MON_DATA_FRIENDSHIP, 0);
         SetMonData(&gEnemyParty[i], MON_DATA_HELD_ITEM, &gBattleFrontierHeldItems[pokeenemy -> itemTableId]);
+				for (j = 0; j < MAX_MON_MOVES; j++)
+                {
+                    u8 maxPp = CalculatePPWithBonus(pokeenemy -> moves[j], 3, 0);
+                    u8 fullpp = 0xFF;
+					SetMonData(&gEnemyParty[i], MON_DATA_PP1 + j, &maxPp);
+					SetMonData(&gEnemyParty[i], MON_DATA_PP_BONUSES, &fullpp);
+                }
         SetMonData(&gPlayerParty[i], MON_DATA_FRIENDSHIP, 0);
         SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &gBattleFrontierHeldItems[pokeplayer -> itemTableId]); 
+				for (j = 0; j < MAX_MON_MOVES; j++)
+                {
+                    u8 maxPp = CalculatePPWithBonus(pokeplayer -> moves[j], 3, 0);
+                    u8 fullpp = 0xFF;
+					SetMonData(&gPlayerParty[i], MON_DATA_PP1 + j, &maxPp);
+					SetMonData(&gPlayerParty[i], MON_DATA_PP_BONUSES, &fullpp);
+                }
 					break;
                 }
 		// NUEVO RANDOM BATTLE CC
 				
-                personalityValue += nameHash << 8;
                 fixedIV = partyData[i].iv;
                 if (partyData[i].syncLevel == TRUE)
                 {
@@ -2182,7 +2208,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 }
                 
                 CreateMonMidele(&party[i], partyData[i].species, mideleLevel, fixedIV, partyData[i].evs, partyData[i].nature, partyData[i].shiny, partyData[i].ability,
-                partyData[i].friendship, partyData[i].hpType);
+                partyData[i].friendship, partyData[i].hpType, (u8) (nameHash + 51*GetEggSpecies(partyData[i].species)));
 
                 SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
                 {
@@ -2192,8 +2218,10 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 for (j = 0; j < MAX_MON_MOVES; j++)
                 {
                     u8 maxPp = CalculatePPWithBonus(partyData[i].moves[j], 3, 0);
-                    SetMonData(&party[i], MON_DATA_MOVE1 + j, &partyData[i].moves[j]);
+                    u8 fullpp = 0xFF;
+					SetMonData(&party[i], MON_DATA_MOVE1 + j, &partyData[i].moves[j]);
                     SetMonData(&party[i], MON_DATA_PP1 + j, &maxPp);
+					SetMonData(&party[i], MON_DATA_PP_BONUSES, &fullpp);
                 }
                 break;
             }
