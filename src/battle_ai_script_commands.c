@@ -1950,13 +1950,15 @@ static void Cmd_if_has_move(void)
 {
     s32 i;
     const u16 *movePtr = (u16 *)(gAIScriptPtr + 2);
+	u8 moveLimitations;
 
     switch (gAIScriptPtr[1])
     {
     case AI_USER:
+        moveLimitations = CheckMoveLimitations(sBattler_AI, 0, MOVE_LIMITATION_PP);
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
-            if (gBattleMons[sBattler_AI].moves[i] == *movePtr)
+            if (gBattleMons[sBattler_AI].moves[i] == *movePtr && !(gBitTable[i] & moveLimitations))
                 break;
         }
         if (i == MAX_MON_MOVES)
@@ -1965,6 +1967,7 @@ static void Cmd_if_has_move(void)
             gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 4);
         break;
     case AI_USER_PARTNER:
+        moveLimitations = CheckMoveLimitations(sBattler_AI ^ BIT_FLANK, 0, MOVE_LIMITATION_PP);
         if (gBattleMons[sBattler_AI ^ BIT_FLANK].hp == 0)
         {
             gAIScriptPtr += 8;
@@ -1974,7 +1977,7 @@ static void Cmd_if_has_move(void)
         {
             for (i = 0; i < MAX_MON_MOVES; i++)
             {
-                if (gBattleMons[sBattler_AI ^ BIT_FLANK].moves[i] == *movePtr)
+                if (gBattleMons[sBattler_AI ^ BIT_FLANK].moves[i] == *movePtr && !(gBitTable[i] & moveLimitations))
                     break;
             }
         }
@@ -1985,10 +1988,18 @@ static void Cmd_if_has_move(void)
         break;
     case AI_TARGET:
     case AI_TARGET_PARTNER:
+        moveLimitations = CheckMoveLimitations(gBattlerTarget, 0, MOVE_LIMITATION_PP);
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
             if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] == *movePtr)
-                break;
+            {
+                s32 j;
+                for (j = 0; j < MAX_MON_MOVES; j++)
+                    if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] == gBattleMons[gBattlerTarget].moves[j] && !(gBitTable[j] & moveLimitations))
+                        break;
+                if (j != MAX_MON_MOVES)
+                    break;
+            }
         }
         if (i == MAX_MON_MOVES)
             gAIScriptPtr += 8;
@@ -2002,14 +2013,16 @@ static void Cmd_if_doesnt_have_move(void)
 {
     s32 i;
     const u16 *movePtr = (u16 *)(gAIScriptPtr + 2);
+    u8 moveLimitations;
 
     switch(gAIScriptPtr[1])
     {
     case AI_USER:
     case AI_USER_PARTNER: // UB: no separate check for user partner.
+        moveLimitations = CheckMoveLimitations(sBattler_AI, 0, MOVE_LIMITATION_PP);
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
-            if (gBattleMons[sBattler_AI].moves[i] == *movePtr)
+            if (gBattleMons[sBattler_AI].moves[i] == *movePtr && !(gBitTable[i] & moveLimitations))
                 break;
         }
         if (i != MAX_MON_MOVES)
@@ -2019,10 +2032,18 @@ static void Cmd_if_doesnt_have_move(void)
         break;
     case AI_TARGET:
     case AI_TARGET_PARTNER:
+        moveLimitations = CheckMoveLimitations(gBattlerTarget, 0, MOVE_LIMITATION_PP);
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
             if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] == *movePtr)
-                break;
+            {
+                s32 j;
+                for (j = 0; j < MAX_MON_MOVES; j++)
+                    if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] == gBattleMons[gBattlerTarget].moves[j] && !(gBitTable[j] & moveLimitations))
+                        break;
+                if (j != MAX_MON_MOVES)
+                    break;
+            }
         }
         if (i != MAX_MON_MOVES)
             gAIScriptPtr += 8;
@@ -2035,14 +2056,16 @@ static void Cmd_if_doesnt_have_move(void)
 static void Cmd_if_has_move_with_effect(void)
 {
     s32 i;
+    u8 moveLimitations;
 
     switch (gAIScriptPtr[1])
     {
     case AI_USER:
     case AI_USER_PARTNER:
+        moveLimitations = CheckMoveLimitations(sBattler_AI, 0, MOVE_LIMITATION_PP);
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
-            if (gBattleMons[sBattler_AI].moves[i] != 0 && gBattleMoves[gBattleMons[sBattler_AI].moves[i]].effect == gAIScriptPtr[2])
+            if (gBattleMons[sBattler_AI].moves[i] != 0 && gBattleMoves[gBattleMons[sBattler_AI].moves[i]].effect == gAIScriptPtr[2] && !(gBitTable[i] & moveLimitations))
                 break;
         }
         if (i == MAX_MON_MOVES)
@@ -2052,10 +2075,18 @@ static void Cmd_if_has_move_with_effect(void)
         break;
     case AI_TARGET:
     case AI_TARGET_PARTNER:
+        moveLimitations = CheckMoveLimitations(gBattlerTarget, 0, MOVE_LIMITATION_PP);
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
             if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] && gBattleMoves[BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i]].effect == gAIScriptPtr[2])
-                break;
+            {
+                s32 j;
+                for (j = 0; j < MAX_MON_MOVES; j++)
+                    if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] == gBattleMons[gBattlerTarget].moves[j] && !(gBitTable[j] & moveLimitations))
+                        break;
+                if (j != MAX_MON_MOVES)
+                    break;
+            }
         }
         if (i == MAX_MON_MOVES)
             gAIScriptPtr += 7;
@@ -2068,14 +2099,16 @@ static void Cmd_if_has_move_with_effect(void)
 static void Cmd_if_doesnt_have_move_with_effect(void)
 {
     s32 i;
+    u8 moveLimitations;
 
     switch (gAIScriptPtr[1])
     {
     case AI_USER:
     case AI_USER_PARTNER:
+        moveLimitations = CheckMoveLimitations(sBattler_AI, 0, MOVE_LIMITATION_PP);
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
-            if(gBattleMons[sBattler_AI].moves[i] != 0 && gBattleMoves[gBattleMons[sBattler_AI].moves[i]].effect == gAIScriptPtr[2])
+            if(gBattleMons[sBattler_AI].moves[i] != 0 && gBattleMoves[gBattleMons[sBattler_AI].moves[i]].effect == gAIScriptPtr[2] && !(gBitTable[i] & moveLimitations))
                 break;
         }
         if (i != MAX_MON_MOVES)
@@ -2085,10 +2118,18 @@ static void Cmd_if_doesnt_have_move_with_effect(void)
         break;
     case AI_TARGET:
     case AI_TARGET_PARTNER:
+        moveLimitations = CheckMoveLimitations(gBattlerTarget, 0, MOVE_LIMITATION_PP);
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
             if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] && gBattleMoves[BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i]].effect == gAIScriptPtr[2])
-                break;
+            {
+                s32 j;
+                for (j = 0; j < MAX_MON_MOVES; j++)
+                    if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] == gBattleMons[gBattlerTarget].moves[j] && !(gBitTable[j] & moveLimitations))
+                        break;
+                if (j != MAX_MON_MOVES)
+                    break;
+            }
         }
         if (i != MAX_MON_MOVES)
             gAIScriptPtr += 7;
