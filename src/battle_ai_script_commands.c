@@ -489,6 +489,36 @@ bool8 IsMoveSignificantlyAffectedByStatDrops(u16 move)
     return AreAttackingStatsLowered(IS_TYPE_PHYSICAL(type) ? 0 : 1);
 }
 
+void CalculategBattleMoveDamageFromgCurrentMove(u8 attackerId, u8 targetId, u8 simulatedRng)
+{
+    gDynamicBasePower = 0;
+    gBattleStruct->dynamicMoveType = 0;
+    gBattleScripting.dmgMultiplier = 1;
+    gMoveResultFlags = 0;
+    gCritMultiplier = 1;
+    AI_CalcDmg(attackerId, targetId);
+
+    if (simulatedRng)
+        gBattleMoveDamage = gBattleMoveDamage * simulatedRng / 100;
+}
+
+s32 CalculatenHKOFromgCurrentMove(u8 attackerId, u8 targetId, u8 simulatedRng, s32 best_nhko)
+{
+    s32 n;
+
+    CalculategBattleMoveDamageFromgCurrentMove(attackerId, targetId, simulatedRng);
+
+    // Moves always do at least 1 damage.
+    if (gBattleMoveDamage == 0)
+        gBattleMoveDamage = 1;
+
+    for (n = 1; n < best_nhko; n++)
+        if (gBattleMons[targetId].hp <= n * gBattleMoveDamage)
+            return n;
+
+    return best_nhko;
+}
+
 bool8 AICanSwitchAssumingEnoughPokemon(void)
 {
     return !(ABILITY_ON_OPPOSING_FIELD(sBattler_AI, ABILITY_SHADOW_TAG) && (gBattleMons[sBattler_AI].type1 != TYPE_GHOST && gBattleMons[sBattler_AI].type2 != TYPE_GHOST && gBattleMons[sBattler_AI].ability != ABILITY_SHADOW_TAG))
@@ -1905,15 +1935,8 @@ static void Cmd_if_can_faint(void)
         return;
     }
 
-    gDynamicBasePower = 0;
-    gBattleStruct->dynamicMoveType = 0;
-    gBattleScripting.dmgMultiplier = 1;
-    gMoveResultFlags = 0;
-    gCritMultiplier = 1;
     gCurrentMove = AI_THINKING_STRUCT->moveConsidered;
-    AI_CalcDmg(sBattler_AI, gBattlerTarget);
-
-    gBattleMoveDamage = gBattleMoveDamage * AI_THINKING_STRUCT->simulatedRNG[AI_THINKING_STRUCT->movesetIndex] / 100;
+    CalculategBattleMoveDamageFromgCurrentMove(sBattler_AI, gBattlerTarget, AI_THINKING_STRUCT->simulatedRNG[AI_THINKING_STRUCT->movesetIndex]);
 
     // Moves always do at least 1 damage.
     if (gBattleMoveDamage == 0)
@@ -1933,15 +1956,8 @@ static void Cmd_if_cant_faint(void)
         return;
     }
 
-    gDynamicBasePower = 0;
-    gBattleStruct->dynamicMoveType = 0;
-    gBattleScripting.dmgMultiplier = 1;
-    gMoveResultFlags = 0;
-    gCritMultiplier = 1;
     gCurrentMove = AI_THINKING_STRUCT->moveConsidered;
-    AI_CalcDmg(sBattler_AI, gBattlerTarget);
-
-    gBattleMoveDamage = gBattleMoveDamage * AI_THINKING_STRUCT->simulatedRNG[AI_THINKING_STRUCT->movesetIndex] / 100;
+    CalculategBattleMoveDamageFromgCurrentMove(sBattler_AI, gBattlerTarget, AI_THINKING_STRUCT->simulatedRNG[AI_THINKING_STRUCT->movesetIndex]);
 
     // This macro is missing the damage 0 = 1 assumption.
 
@@ -2502,15 +2518,8 @@ static void Cmd_get_hazards_count(void)
 
 static void Cmd_get_curr_dmg_hp_percent(void)
 {
-	gDynamicBasePower = 0;
-    gBattleStruct->dynamicMoveType = 0;
-    gBattleScripting.dmgMultiplier = 1;
-    gMoveResultFlags = 0;
-    gCritMultiplier = 1;
     gCurrentMove = AI_THINKING_STRUCT->moveConsidered;
-    AI_CalcDmg(sBattler_AI, gBattlerTarget);
-
-    gBattleMoveDamage = gBattleMoveDamage * AI_THINKING_STRUCT->simulatedRNG[AI_THINKING_STRUCT->movesetIndex] / 100;
+    CalculategBattleMoveDamageFromgCurrentMove(sBattler_AI, gBattlerTarget, AI_THINKING_STRUCT->simulatedRNG[AI_THINKING_STRUCT->movesetIndex]);
     
 	gBattleResources->ai->funcResult = (gBattleMoveDamage * 100) / gBattleMons[gBattlerTarget].maxHP;
 	gAIScriptPtr++;
@@ -2640,7 +2649,7 @@ static void Cmd_calculate_nhko(void)
     u16 attackerId, targetId;
     u16 * movePointer;
     bool8 attacker_is_user;
-    s32 i, n;
+    s32 i;
     s32 best_nhko = 5;     // todo lo que sea peor que 4HKO se lee como 5HKO (incluso daño 0)
 
     if (gAIScriptPtr[1] == AI_USER)
@@ -2662,7 +2671,6 @@ static void Cmd_calculate_nhko(void)
     {
         if (!movePointer[i] || gBattleMoves[movePointer[i]].power < 2)
             continue;  // se ignora el movimiento
-		
 
         if (!attacker_is_user)
         {
@@ -2675,36 +2683,67 @@ static void Cmd_calculate_nhko(void)
                 continue; // No puede usar el movimiento por el momento; se ignora
         }
 
-        gDynamicBasePower = 0;
-        gBattleStruct->dynamicMoveType = 0;
-        gBattleScripting.dmgMultiplier = 1;
-        gMoveResultFlags = 0;
-        gCritMultiplier = 1;
         gCurrentMove = movePointer[i];
-        AI_CalcDmg(attackerId, targetId);
+        best_nhko = CalculatenHKOFromgCurrentMove(attackerId, targetId, attacker_is_user ? AI_THINKING_STRUCT->simulatedRNG[AI_THINKING_STRUCT->movesetIndex] : 0, best_nhko);
 
-        if (attacker_is_user)
-            gBattleMoveDamage = gBattleMoveDamage * AI_THINKING_STRUCT->simulatedRNG[AI_THINKING_STRUCT->movesetIndex] / 100;
+        if (attacker_is_user || best_nhko == 1)
+            break; // solo se mira el movimiento pensado, y no se sigue mirando si es OHKO
+    }
 
-        // Moves always do at least 1 damage.
-        if (gBattleMoveDamage == 0)
-            gBattleMoveDamage = 1;
-
-
-        if (gBattleMons[targetId].hp <= gBattleMoveDamage)
+    // Si el atacante es el oponente, no se conocen todos sus movs y no da OHKO,
+    // la IA asume que los STAB estándar (de precisión alta) pueden ser los movs que faltan
+    if (!attacker_is_user && best_nhko > 1)
+    {
+        for (i = 0; i < MAX_MON_MOVES; i++)
+            if (!movePointer[i]) // hay un ataque no conocido
+                break;
+        
+        if (i != MAX_MON_MOVES) // algún ataque no se conoce
         {
-            // OHKO
-            best_nhko = 1;
-            break;
+            s32 type_i;
+            u8 opponent_types[2] = {gBattleMons[gBattlerTarget].type1, gBattleMons[gBattlerTarget].type1};
+            s16 standard_moves[] = {
+                [TYPE_NORMAL] = MOVE_EGG_BOMB,       // prácticamente la misma potencia que Return/Frustration al máximo
+                [TYPE_FIGHTING] = MOVE_SKY_UPPERCUT, // los movs más potentes son más arriesgados
+                [TYPE_FLYING] = MOVE_DRILL_PECK,
+                [TYPE_POISON] = MOVE_SLUDGE_BOMB,
+                [TYPE_GROUND] = MOVE_EARTHQUAKE,
+                [TYPE_ROCK] = MOVE_ROCK_SLIDE,       // se considera arriesgado Stone Edge
+                [TYPE_BUG] = MOVE_X_SCISSOR,
+                [TYPE_GHOST] = MOVE_SHADOW_BALL,
+                [TYPE_STEEL] = MOVE_IRON_HEAD,
+                [TYPE_FIRE] = MOVE_FLAMETHROWER,
+                [TYPE_WATER] = MOVE_SURF,
+                [TYPE_GRASS] = MOVE_ENERGY_BALL,
+                [TYPE_ELECTRIC] = MOVE_THUNDERBOLT,
+                [TYPE_PSYCHIC] = MOVE_PSYCHIC,
+                [TYPE_ICE] = MOVE_ICE_BEAM,
+                [TYPE_DRAGON] = MOVE_DRAGON_CLAW,
+                [TYPE_DARK] = MOVE_CRUNCH,
+                [TYPE_FAIRY] = MOVE_MOONBLAST,
+            };
+
+            if (opponent_types[1] == opponent_types[0])
+                opponent_types[1] = TYPE_NONE;
+
+            for (type_i = 0; type_i < 2 && opponent_types[type_i] != TYPE_NONE; type_i++)
+            {
+                u8 stab_type = opponent_types[type_i];
+
+                // Comprueba que no se conoce un ataque de ese tipo (de potencia mayor que 40) en el rival
+                for (i = 0; i < MAX_MON_MOVES; i++)
+                    if (movePointer[i] && gBattleMoves[movePointer[i]].type == stab_type && gBattleMoves[movePointer[i]].power > 40)
+                        break;
+                if (i == MAX_MON_MOVES)
+                {
+                    // Procede a considerar un ataque STAB estándar de este tipo
+                    gCurrentMove = standard_moves[stab_type];
+                    best_nhko = CalculatenHKOFromgCurrentMove(attackerId, targetId, 0, best_nhko);
+                    if (best_nhko == 1)
+                        break; // el presunto ataque STAB es OHKO: no hace falta comprobar el otro tipo STAB si lo hay
+                }
+            }
         }
-
-        for (n = 2; n < best_nhko; n++)
-            if (gBattleMons[targetId].hp <= n * gBattleMoveDamage)
-                best_nhko = n;
-
-
-        if (attacker_is_user)
-            break; // solo se mira el movimiento pensado
     }
     
     AI_THINKING_STRUCT->funcResult = best_nhko;
