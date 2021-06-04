@@ -171,6 +171,8 @@ static void Cmd_if_not_expected_to_sleep(void);
 static void Cmd_if_receiving_wish(void);
 static void Cmd_if_target_wont_attack_due_to_truant(void);
 static void Cmd_if_trick_fails_in_this_type_of_battle(void);
+static void Cmd_calculate_nhko(void);
+static void Cmd_if_next_turn_target_might_use_move_with_effect(void);
 
 // ewram
 EWRAM_DATA const u8 *gAIScriptPtr = NULL;
@@ -288,6 +290,8 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_if_receiving_wish,                          // 0x68
 	Cmd_if_target_wont_attack_due_to_truant,        // 0x69
 	Cmd_if_trick_fails_in_this_type_of_battle,        // 0x6A
+	Cmd_calculate_nhko,        // 0x6B
+	Cmd_if_next_turn_target_might_use_move_with_effect,        // 0x6C
 };
 
 static const u16 sDiscouragedPowerfulMoveEffects[] =
@@ -535,10 +539,11 @@ static u8 ChooseMoveOrAction_Singles(void)
 #endif
 // Consider switching if all moves are worthless to use.
     if (AI_THINKING_STRUCT->aiFlags & (AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_PREFER_BATON_PASS)
-        && gBattleMons[sBattler_AI].hp >= gBattleMons[sBattler_AI].maxHP / 2
 		&& AICanSwitchAssumingEnoughPokemon())
     {
         s32 cap = AI_THINKING_STRUCT->aiFlags & (AI_SCRIPT_CHECK_VIABILITY) ? 95 : 93;
+	if (gBattleMons[sBattler_AI].hp < gBattleMons[sBattler_AI].maxHP / 2 && (Random() & 1))
+           cap -= 3;
 		for (i = 0; i < MAX_MON_MOVES; i++)
         {
             if (AI_THINKING_STRUCT->score[i] > cap)
@@ -2630,3 +2635,108 @@ static void Cmd_if_trick_fails_in_this_type_of_battle(void)
         gAIScriptPtr += 5;
 }
 
+static void Cmd_calculate_nhko(void)
+{
+    u16 attackerId, targetId;
+    u16 * movePointer;
+    bool8 attacker_is_user;
+    s32 i, n;
+    s32 best_nhko = 5;     // todo lo que sea peor que 4HKO se lee como 5HKO (incluso daño 0)
+
+    if (gAIScriptPtr[1] == AI_USER)
+    {
+        attackerId = sBattler_AI;
+        targetId = gBattlerTarget;
+		movePointer = &AI_THINKING_STRUCT->moveConsidered;
+        attacker_is_user = TRUE;
+    }
+    else
+    {
+        attackerId = gBattlerTarget;
+        targetId = sBattler_AI;
+        movePointer = BATTLE_HISTORY->usedMoves[gBattlerTarget].moves;
+        attacker_is_user = FALSE;
+    }
+    
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        if (!movePointer[i] || gBattleMoves[movePointer[i]].power < 2)
+            continue;  // se ignora el movimiento
+		
+
+        if (!attacker_is_user)
+        {
+            u8 moveLimitations = CheckMoveLimitations(gBattlerTarget, 0, MOVE_LIMITATION_CHOICE-1);
+            s32 j;
+            for (j = 0; j < MAX_MON_MOVES; j++)
+                if (movePointer[i] == gBattleMons[gBattlerTarget].moves[j] && !(gBitTable[j] & moveLimitations))
+                    break;
+            if (j == MAX_MON_MOVES)
+                continue; // No puede usar el movimiento por el momento; se ignora
+        }
+
+        gDynamicBasePower = 0;
+        gBattleStruct->dynamicMoveType = 0;
+        gBattleScripting.dmgMultiplier = 1;
+        gMoveResultFlags = 0;
+        gCritMultiplier = 1;
+        gCurrentMove = movePointer[i];
+        AI_CalcDmg(attackerId, targetId);
+
+        if (attacker_is_user)
+            gBattleMoveDamage = gBattleMoveDamage * AI_THINKING_STRUCT->simulatedRNG[AI_THINKING_STRUCT->movesetIndex] / 100;
+
+        // Moves always do at least 1 damage.
+        if (gBattleMoveDamage == 0)
+            gBattleMoveDamage = 1;
+
+
+        if (gBattleMons[targetId].hp <= gBattleMoveDamage)
+        {
+            // OHKO
+            best_nhko = 1;
+            break;
+        }
+
+        for (n = 2; n < best_nhko; n++)
+            if (gBattleMons[targetId].hp <= n * gBattleMoveDamage)
+                best_nhko = n;
+
+
+        if (attacker_is_user)
+            break; // solo se mira el movimiento pensado
+    }
+    
+    AI_THINKING_STRUCT->funcResult = best_nhko;
+    gAIScriptPtr += 2;
+}
+
+static void Cmd_if_next_turn_target_might_use_move_with_effect(void)
+{
+    s32 i;
+    u8 moveLimitations = CheckMoveLimitations(gBattlerTarget, 0, MOVE_LIMITATION_CHOICE-1);
+
+    gAIScriptPtr += 6; // será sobreescrito si el objetivo sí podrá usar un movimiento con el efecto
+
+    if (gBattleMons[gBattlerTarget].status2 & STATUS2_RECHARGE)
+        return; // estará descansando por Hiperrayo o similar
+
+    if (gBattleMons[gBattlerTarget].status2 & STATUS2_MULTIPLETURNS)
+        return; // está en un ataque multiturno. (Se asume que no se está preguntando por ese mismo ataque multiturno)
+
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] && gBattleMoves[BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i]].effect == gAIScriptPtr[1])
+        {
+            s32 j;
+            for (j = 0; j < MAX_MON_MOVES; j++)
+                if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] == gBattleMons[gBattlerTarget].moves[j] && !(gBitTable[j] & moveLimitations))
+                    break;
+            if (j != MAX_MON_MOVES)
+                break;
+        }
+    }
+
+    if (i != MAX_MON_MOVES)
+        gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
+}

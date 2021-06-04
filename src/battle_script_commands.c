@@ -1584,6 +1584,10 @@ static void Cmd_damagecalc(void)
 void PrepareDynamicMoveTypeAndDamageForAI_CalcDmg(u8 attacker)
 {
     u8 *dynamicMoveType = &gBattleStruct->dynamicMoveType;
+
+    if (gBattleMons[attacker].species == SPECIES_PERSIAN && gBattleMons[attacker].item == ITEM_NUGGET)
+        gCritMultiplier = 2;
+
     if (gCurrentMove == MOVE_HIDDEN_POWER) {
         struct Pokemon *monAttacker;
         if (GetBattlerSide(attacker) == B_SIDE_PLAYER)
@@ -1632,7 +1636,10 @@ void AI_CalcDmg(u8 attacker, u8 defender)
     u16 sideStatus = gSideStatuses[GET_BATTLER_SIDE(defender)];
 	u8 flags;
 	PrepareDynamicMoveTypeAndDamageForAI_CalcDmg(attacker);
-    gBattleMoveDamage = CalculateBaseDamage(&gBattleMons[attacker], &gBattleMons[defender], gCurrentMove,
+	if (gBattleMons[defender].ability == ABILITY_BATTLE_ARMOR || gBattleMons[defender].ability == ABILITY_SHELL_ARMOR || (gStatuses3[attacker] & STATUS3_CANT_SCORE_A_CRIT))
+        gCritMultiplier = 1;
+
+	gBattleMoveDamage = CalculateBaseDamage(&gBattleMons[attacker], &gBattleMons[defender], gCurrentMove,
                                             sideStatus, gDynamicBasePower,
                                             gBattleStruct->dynamicMoveType, attacker, defender);
     gDynamicBasePower = 0;
@@ -1680,6 +1687,7 @@ void AI_CalcDmg(u8 attacker, u8 defender)
     gBattleMoveDamage = gBattleMoveDamage * gCritMultiplier * gBattleScripting.dmgMultiplier;
     gBattleStruct->dynamicMoveType = 0;
 	gBattleScripting.dmgMultiplier = 1;
+	gCritMultiplier = 1;
 
     if (gStatuses3[attacker] & STATUS3_CHARGED_UP && gBattleMoves[gCurrentMove].type == TYPE_ELECTRIC)
         gBattleMoveDamage *= 2;

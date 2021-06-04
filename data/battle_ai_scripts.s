@@ -140,6 +140,7 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_LIGHT_SCREEN, AI_CBM_LightScreen
 	if_effect EFFECT_OHKO, AI_CBM_OneHitKO
 	if_effect EFFECT_RAZOR_WIND, AI_CBM_HighRiskForDamage
+	if_effect EFFECT_SUPER_FANG, AI_CBM_HighRiskForDamage
 	if_effect EFFECT_MIST, AI_CBM_Mist
 	if_effect EFFECT_FOCUS_ENERGY, AI_CBM_FocusEnergy
 	if_effect EFFECT_CONFUSE, AI_CBM_Confuse
@@ -260,7 +261,9 @@ AI_CBM_Explosion: @ 82DC2F7
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
     if_ability_might_be AI_TARGET, ABILITY_DAMP, Score_Minus10
     if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus8
-	if_doesnt_have_move_with_effect AI_TARGET, EFFECT_PROTECT, AI_CBM_Explosion_TargetNotExpectedToUseProtect
+    if_next_turn_target_might_use_move_with_effect EFFECT_PROTECT, AI_CBM_Explosion_TargetHasProtect
+    goto AI_CBM_Explosion_TargetNotExpectedToUseProtect
+AI_CBM_Explosion_TargetHasProtect:
 	get_protect_count AI_TARGET
     if_equal 0, Score_Minus8
     if_equal 1, Score_Minus2
@@ -695,6 +698,8 @@ AI_CBM_Trick: @ 82DC6EB
 	if_trick_fails_in_this_type_of_battle Score_Minus10
     if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	if_ability_might_be AI_TARGET, ABILITY_STICKY_HOLD, Score_Minus10
+	is_first_turn_for AI_USER
+	if_equal 0, Score_Minus8
 	end
 
 AI_CBM_Ingrain: @ 82DC6F4
@@ -800,7 +805,7 @@ AI_CBM_FollowMe:
 	end
 	
 AI_CBM_JumpKickMiss:
-	if_has_move_with_effect AI_TARGET, EFFECT_PROTECT, AI_CBM_JumpKick_TargetHasProtect
+    if_next_turn_target_might_use_move_with_effect EFFECT_PROTECT, AI_CBM_JumpKick_TargetHasProtect
 	end
 AI_CBM_JumpKick_TargetHasProtect:
 	get_protect_count AI_TARGET
@@ -818,9 +823,22 @@ AI_CBM_JumpKick_ProtectedOnce:
 AI_ChoiceDamage:
 	get_considered_move_power
 	if_equal 0, Score_Minus5
-	if_can_faint AI_ChoiceDamage_End
-	get_curr_dmg_hp_percent
-	if_less_than 60, Score_Minus10
+    calculate_nhko
+    if_less_than 3, AI_ChoiceDamage_End
+    if_equal 3, AI_ChoiceDamage_3HKO
+    if_equal 4, AI_ChoiceDamage_4HKO
+    goto Score_Minus8
+
+AI_ChoiceDamage_3HKO:
+    if_has_a_50_percent_hp_recovery_move AI_TARGET, Score_Minus8
+    if_target_faster Score_Minus5
+    goto AI_ChoiceDamage_End
+
+AI_ChoiceDamage_4HKO:
+    if_has_a_50_percent_hp_recovery_move AI_TARGET, Score_Minus8
+    if_has_move_with_effect AI_TARGET, EFFECT_REST, Score_Minus8
+    if_target_faster Score_Minus8
+    goto Score_Minus5
 AI_ChoiceDamage_End:
 	end
 
@@ -1175,11 +1193,16 @@ AI_CV_Rollout3:
 
 AI_CV_AttackUp: @ 82DCBBC
 	call AI_CheckFreeSetup
+    calculate_nhko AI_TARGET
+    if_equal 1, Score_Minus5
+    if_more_than 2, AI_CV_AttackUp_ProbablyNotSuicidal
+    if_target_faster Score_Minus5
+AI_CV_AttackUp_ProbablyNotSuicidal:
 	if_stat_level_less_than AI_USER, STAT_ATK, 9, AI_CV_AttackUp2
 	if_random_less_than 100, AI_CV_AttackUp3
 	score -1
 	goto AI_CV_AttackUp3
-
+	 
 AI_CV_AttackUp2: @ 82DCBD1
 	if_hp_not_equal AI_USER, 100, AI_CV_AttackUp3
 	if_random_less_than 128, AI_CV_AttackUp3
@@ -1266,6 +1289,11 @@ AI_CheckFreeSetup_AssumeTargetIsSlowerAfterSetup:
 
 AI_CV_SpAtkUp: @ 82DCC73
 	call AI_CheckFreeSetup
+    calculate_nhko AI_TARGET
+    if_equal 1, Score_Minus5
+    if_more_than 2, AI_CV_SpAtkUp_ProbablyNotSuicidal
+    if_target_faster Score_Minus5
+AI_CV_SpAtkUp_ProbablyNotSuicidal:
 	if_stat_level_less_than AI_USER, STAT_SPATK, 9, AI_CV_SpAtkUp2
 	if_random_less_than 100, AI_CV_SpAtkUp3
 	score -1
@@ -1728,7 +1756,9 @@ AI_CV_Heal4:
 	goto AI_CV_Heal_End
 
 AI_CV_Heal5:
-	if_doesnt_have_move_with_effect AI_TARGET, EFFECT_SNATCH, AI_CV_Heal6
+     if_next_turn_target_might_use_move_with_effect EFFECT_SNATCH, AI_CV_Heal5b
+    goto AI_CV_Heal6
+AI_CV_Heal5b:
 	if_random_less_than 100, AI_CV_Heal_End
 
 AI_CV_Heal6:
@@ -1813,7 +1843,9 @@ AI_CV_Rest5:
 	goto AI_CV_Rest_End
 
 AI_CV_Rest6:
-	if_doesnt_have_move_with_effect AI_TARGET, EFFECT_SNATCH, AI_CV_Rest7
+	 if_next_turn_target_might_use_move_with_effect EFFECT_SNATCH, AI_CV_Rest6b
+     goto AI_CV_Rest7
+AI_CV_Rest6b:
 	if_random_less_than 50, AI_CV_Rest_End
 
 AI_CV_Rest7:
@@ -2309,13 +2341,13 @@ AI_CV_HealBell2:
 
 AI_CV_Thief:
 	get_hold_effect AI_TARGET
-	if_not_in_bytes AI_CV_Thief_EncourageItemsToSteal, AI_CV_Thief_ScoreDown2
+	if_in_bytes AI_CV_Thief_EncourageItemsToSteal, AI_CV_Thief_ScorePlus2
 	if_random_less_than 50, AI_CV_Thief_End
 	score +1
 	goto AI_CV_Thief_End
 
-AI_CV_Thief_ScoreDown2:
-	score -2
+AI_CV_Thief_ScorePlus2:
+	score +2
 
 AI_CV_Thief_End:
 	end
@@ -2371,8 +2403,13 @@ AI_CV_Protect_NoChanceToMessWithTruant:
 	if_status  AI_USER, STATUS1_PSN_ANY | STATUS1_BURN, AI_CV_ProtectUserStatused
 	if_status2 AI_USER, STATUS2_CURSED | STATUS2_INFATUATION, AI_CV_ProtectUserStatused
 	if_status3 AI_USER, STATUS3_PERISH_SONG | STATUS3_LEECHSEED | STATUS3_YAWN, AI_CV_ProtectUserStatused
-	if_has_move_with_effect AI_TARGET, EFFECT_RESTORE_HP, AI_CV_Protect3
-	if_has_move_with_effect AI_TARGET, EFFECT_DEFENSE_CURL, AI_CV_Protect3
+    if_next_turn_target_might_use_move_with_effect EFFECT_RESTORE_HP, AI_CV_Protect3
+	if_next_turn_target_might_use_move_with_effect EFFECT_SOFTBOILED, AI_CV_Protect3
+	if_next_turn_target_might_use_move_with_effect EFFECT_MORNING_SUN, AI_CV_Protect3
+	if_next_turn_target_might_use_move_with_effect EFFECT_MOONLIGHT, AI_CV_Protect3
+	if_next_turn_target_might_use_move_with_effect EFFECT_SHORE_UP, AI_CV_Protect3
+	if_next_turn_target_might_use_move_with_effect EFFECT_SYNTHESIS, AI_CV_Protect3
+    if_next_turn_target_might_use_move_with_effect EFFECT_DEFENSE_CURL, AI_CV_Protect3	
 	if_status AI_TARGET, STATUS1_TOXIC_POISON, AI_CV_Protect_ScoreUp2
 	if_status2 AI_TARGET, STATUS2_CURSED, AI_CV_Protect_ScoreUp2
 	if_status3 AI_TARGET, STATUS3_PERISH_SONG, AI_CV_Protect_ScoreUp2
@@ -3142,8 +3179,13 @@ AI_CV_Snatch:
 
 AI_CV_Snatch2:
 	if_hp_more_than AI_TARGET, 25, AI_CV_Snatch5
-	if_has_move_with_effect AI_TARGET, EFFECT_RESTORE_HP, AI_CV_Snatch3
-	if_has_move_with_effect AI_TARGET, EFFECT_DEFENSE_CURL, AI_CV_Snatch3
+    if_next_turn_target_might_use_move_with_effect EFFECT_RESTORE_HP, AI_CV_Snatch3
+	if_next_turn_target_might_use_move_with_effect EFFECT_SOFTBOILED, AI_CV_Snatch3
+	if_next_turn_target_might_use_move_with_effect EFFECT_MORNING_SUN, AI_CV_Snatch3
+	if_next_turn_target_might_use_move_with_effect EFFECT_MOONLIGHT, AI_CV_Snatch3
+	if_next_turn_target_might_use_move_with_effect EFFECT_SHORE_UP, AI_CV_Snatch3
+	if_next_turn_target_might_use_move_with_effect EFFECT_SYNTHESIS, AI_CV_Snatch3
+	if_next_turn_target_might_use_move_with_effect EFFECT_DEFENSE_CURL, AI_CV_Snatch3
 	goto AI_CV_Snatch4
 
 AI_CV_Snatch3:

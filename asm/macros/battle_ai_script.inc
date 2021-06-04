@@ -593,6 +593,21 @@
     .byte 0x6a
     .4byte \param
     .endm
+	
+    .macro calculate_nhko battler
+    .byte 0x6b
+    .ifnb \battler
+        .byte \battler
+    .else
+        .byte AI_USER
+    .endif
+    .endm
+
+    .macro if_next_turn_target_might_use_move_with_effect effect:req param:req
+    .byte 0x6c
+    .byte \effect
+    .4byte \param
+    .endm
 
 @ useful script macros
 	.macro get_curr_move_type
@@ -665,3 +680,12 @@
 	.macro if_any_move_encored battler:req, ptr:req
 	if_any_move_disabled_or_encored \battler, 1, \ptr
 	.endm
+	
+	.macro if_has_a_50_percent_hp_recovery_move battler:req, ptr:req
+    if_has_move_with_effect \battler, EFFECT_RESTORE_HP, \ptr
+    if_has_move_with_effect \battler, EFFECT_SOFTBOILED, \ptr
+    if_has_move_with_effect \battler, EFFECT_MORNING_SUN, \ptr
+    if_has_move_with_effect \battler, EFFECT_MOONLIGHT, \ptr
+    if_has_move_with_effect \battler, EFFECT_SHORE_UP, \ptr
+    if_has_move_with_effect \battler, EFFECT_SYNTHESIS, \ptr
+    .endm
