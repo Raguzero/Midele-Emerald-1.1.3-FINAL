@@ -1237,8 +1237,8 @@
 #define FLAG_ITEM_IZABE_TRUCK_CHOICE_SCARF                          0x499 // Previously unused Flag
 #define FLAG_VADER_MAUVILLE_RUINS_ANTESDEABRIR                      0x49A // Previously Unused Flag
 #define FLAG_VADER_MAUVILLE_RUINS_ROBO                              0x49B // Previously Unused Flag
-#define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag
-#define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag
+#define FLAG_HIDE_TELEPORT_MICOLANDIA_BOY_CHECK                       0x49C // Previously Unused Flag
+#define FLAG_HIDE_TELEPORT_MICOLANDIA_GIRL_CHECK                      0x49D // Previously Unused Flag
 #define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag
 #define FLAG_UNUSED_0x49F                                           0x49F // Unused Flag
 #define FLAG_UNUSED_0x4A0                                           0x4A0 // Unused Flag

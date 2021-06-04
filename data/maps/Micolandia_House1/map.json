@@ -17,7 +17,7 @@
         {
             "elevation": 3,
             "flag": "0",
-            "graphics_id": "EVENT_OBJ_GFX_BARD",
+            "graphics_id": "EVENT_OBJ_GFX_DEVON_EMPLOYEE",
             "movement_range_x": 0,
             "movement_range_y": 0,
             "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -45,6 +45,13 @@
             "elevation": 0,
             "x": 5,
             "y": 9
+        },
+        {
+            "dest_map": "MAP_MICOLANDIA_HOUSE1",
+            "dest_warp_id": 0,
+            "elevation": 0,
+            "x": 7,
+            "y": 2
         }
     ],
     "weather": "WEATHER_NONE"

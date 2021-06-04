@@ -88,6 +88,7 @@ EverGrandeCity_ChampionsRoom_EventScript_MayAdvice:: @ 8228AC6
 	waitmovement 0
 	applymovement 2, Common_Movement_Delay48
 	waitmovement 0
+	clearflag FLAG_HIDE_TELEPORT_MICOLANDIA_BOY_CHECK
 	call EverGrandeCity_ChampionsRoom_EventScript_RivalLookBackAndForth
 	msgbox EverGrandeCity_ChampionsRoom_Text_MayItsAlreadyOver, MSGBOX_DEFAULT
 	goto EverGrandeCity_ChampionsRoom_EventScript_BirchArrivesExitForHoF
@@ -101,6 +102,7 @@ EverGrandeCity_ChampionsRoom_EventScript_BrendanAdvice:: @ 8228AFB
 	waitmovement 0
 	applymovement 2, Common_Movement_Delay48
 	waitmovement 0
+	clearflag FLAG_HIDE_TELEPORT_MICOLANDIA_GIRL_CHECK
 	call EverGrandeCity_ChampionsRoom_EventScript_RivalLookBackAndForth
 	msgbox EverGrandeCity_ChampionsRoom_Text_BrendanYouveWon, MSGBOX_DEFAULT
 	goto EverGrandeCity_ChampionsRoom_EventScript_BirchArrivesExitForHoF

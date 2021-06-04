@@ -228,7 +228,6 @@ LittlerootTown_EventScript_BeginDexUpgradeScene:: @ 81E7FB1
 	end
 
 LittlerootTown_OnWarp: @ 81E7FE2
-	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_SetRivalBirchPosForDexUpgrade
 	.2byte 0
 
 LittlerootTown_EventScript_SetRivalBirchPosForDexUpgrade:: @ 81E7FEC
@@ -911,6 +910,21 @@ LittlerootTown_Movement_MomReturnHomeFemale5: @ 81E8635
 LittlerootTown_Movement_MomExitThroughDoor: @ 81E863B
 	walk_up
 	step_end
+	
+LittlerootTown_Teleport::
+	lock
+	faceplayer
+	msgbox LittlerootTown_Text_Teleport, MSGBOX_DEFAULT
+	msgbox LittlerootTown_Text_Teleport_2, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq LittlerootTown_Text_Teleport_Yes
+	release
+	end
+LittlerootTown_Text_Teleport_Yes:
+	msgbox LittlerootTown_Text_Teleport_3, MSGBOX_DEFAULT
+	warp MAP_MICOLANDIA_HOUSE1, 2, 0, 0
+	waitstate
+	end
 
 LittlerootTown_EventScript_Mom:: @ 81E863D
 	lock
@@ -1061,4 +1075,53 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab: @ 81E8DA2
 	.string "I gave you?\p"
 	.string "I have something to show you.\n"
 	.string "Let's go to my LAB.$"
+	
+LittlerootTown_Text_Teleport:
+	.string "Eres {PLAYER}, el nuevo CAMPEÓN ¿no?\n"
+	.string "¿Conoces un lugar llamado MICOLANDIA?\p"
+	
+	.string "Está claro que no, es ¡TOP SECRET!\n"
+	.string "Bien, deja que te cuente.\p"
+	
+	.string "MICOLANDIA es el mayor reto POSTGAME\n"
+	.string "que encontrarás en este juego, sin\l"
+	.string "contar el BATTLE FRONTIER, que no sé\l"
+	.string "si ya conocerás.\p"
+	
+	.string "MICOLO, es el dueño de dicho lugar, donde\n"
+	.string "ha montado una competición llamada\l"
+	.string "MICOLIGA que consiste en obtener la\l"
+	.string "medalla de los 4 GYMs para poder\l"
+	.string "participar en la Liga Pokémon más\l" 
+	.string "poderosa que hayas visto jamás.\p"
+	
+	.string "También encontrarás allí a los\n"
+	.string "entrenadores más fuertes de la región,\l"
+	.string "y otras sorpresas que no te quiero\l"
+	.string "desvelar, pero que te ayudarán a\l"
+	.string "afrontar mejor el reto del\l"
+	.string "BATTLE FRONTIER.\p"
+	
+	.string "Dicho lugar se encuentra en un lugar\n"
+	.string "inaccesible para la gente común.\p"
+	
+	.string "¡Ya te digo que vale la pena!$"
 
+LittlerootTown_Text_Teleport_2:
+	.string "¿Te he convencido?\n"
+	.string "¿Quieres que lleve a MICOLANDIA?$"
+	
+LittlerootTown_Text_Teleport_3:
+	.string "Como dije antes, ese lugar es\n"
+	.string "TOP SECRET.\p"
+	
+	.string "MICOLANDIA está construido sobre\n"
+	.string "terreno ilegal para edificar, al igual\l"
+	.string "que toda la competición de la MICOLIGA\l"
+	.string "es ilegal al no tener los permisos\l"
+	.string "pertinentes del gobierno para montarlo.\p"
+	
+	.string "Así que lo siento por esto, pero...\n"
+	.string "buenas noches.\p"
+	
+	.string "({PLAYER} huele el cloroformo y se desmaya)$"
