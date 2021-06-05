@@ -6556,8 +6556,9 @@ static void Task_HandleStatsScreenInput(u8 taskId)
     }
     if (gMain.newKeys & B_BUTTON)
     {
-        BeginNormalPaletteFade(0xFFFFFFFF, 0, 0, 16, RGB_BLACK);
-        gTasks[taskId].func = Task_ExitStatsScreen;
+        BeginNormalPaletteFade(0xFFFFFFEB, 0, 0, 0x10, RGB_BLACK);
+        sPokedexView->unk64E = 0;
+        gTasks[taskId].func = Task_SwitchScreensFromStatsScreen;
         PlaySE(SE_PC_OFF);
         return;
     }
@@ -7457,8 +7458,9 @@ static void Task_HandleEvolutionScreenInput(u8 taskId)
     //Exit to overview
     if (JOY_NEW(B_BUTTON))
     {
-        BeginNormalPaletteFade(0xFFFFFFFF, 0, 0, 16, RGB_BLACK);
-        gTasks[taskId].func = Task_ExitEvolutionScreen;
+        BeginNormalPaletteFade(0xFFFFFFEB, 0, 0, 0x10, RGB_BLACK);
+        sPokedexView->unk64E = 0;
+        gTasks[taskId].func = Task_SwitchScreensFromEvolutionScreen;
         PlaySE(SE_PC_OFF);
         return;
     }
