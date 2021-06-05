@@ -301,7 +301,7 @@ GymGooses_CasillaTableroPregunta::
 	faceplayer
 	setvar VAR_TEMP_1, 0
 	msgbox GymGoosesPregunta_Text, MSGBOX_DEFAULT
-	random 14
+	random 18
 	switch VAR_RESULT
 	case 0, Script_Quiz1
 	case 1, Script_Quiz2
@@ -312,11 +312,15 @@ GymGooses_CasillaTableroPregunta::
 	case 6, Script_Quiz7
 	case 7, Script_Quiz8
 	case 8, Script_Quiz9
-	case 9, Script_QuizYESNO1
-	case 10, Script_QuizYESNO2
-	case 11, Script_QuizYESNO3
-	case 12, Script_QuizYESNO4
-	case 13, Script_QuizYESNO5
+	case 9, Script_Quiz10
+	case 10, Script_Quiz11
+	case 11, Script_Quiz12
+	case 12, Script_Quiz13
+	case 13, Script_QuizYESNO1
+	case 14, Script_QuizYESNO2
+	case 15, Script_QuizYESNO3
+	case 16, Script_QuizYESNO4
+	case 17, Script_QuizYESNO5
 	end
 	
 GymGooses_CasillaTableroPregunta2::
@@ -324,7 +328,7 @@ GymGooses_CasillaTableroPregunta2::
 	faceplayer
 	setvar VAR_TEMP_1, 1
 	msgbox GymGoosesPregunta_Text, MSGBOX_DEFAULT
-	random 14
+	random 18
 	switch VAR_RESULT
 	case 0, Script_Quiz1
 	case 1, Script_Quiz2
@@ -335,11 +339,15 @@ GymGooses_CasillaTableroPregunta2::
 	case 6, Script_Quiz7
 	case 7, Script_Quiz8
 	case 8, Script_Quiz9
-	case 9, Script_QuizYESNO1
-	case 10, Script_QuizYESNO2
-	case 11, Script_QuizYESNO3
-	case 12, Script_QuizYESNO4
-	case 13, Script_QuizYESNO5
+	case 9, Script_Quiz10
+	case 10, Script_Quiz11
+	case 11, Script_Quiz12
+	case 12, Script_Quiz13
+	case 13, Script_QuizYESNO1
+	case 14, Script_QuizYESNO2
+	case 15, Script_QuizYESNO3
+	case 16, Script_QuizYESNO4
+	case 17, Script_QuizYESNO5
 	end
 
 GymGooses_CasillaTableroPregunta3::
@@ -347,7 +355,7 @@ GymGooses_CasillaTableroPregunta3::
 	faceplayer
 	setvar VAR_TEMP_1, 2
 	msgbox GymGoosesPregunta_Text, MSGBOX_DEFAULT
-	random 14
+	random 18
 	switch VAR_RESULT
 	case 0, Script_Quiz1
 	case 1, Script_Quiz2
@@ -358,11 +366,15 @@ GymGooses_CasillaTableroPregunta3::
 	case 6, Script_Quiz7
 	case 7, Script_Quiz8
 	case 8, Script_Quiz9
-	case 9, Script_QuizYESNO1
-	case 10, Script_QuizYESNO2
-	case 11, Script_QuizYESNO3
-	case 12, Script_QuizYESNO4
-	case 13, Script_QuizYESNO5
+	case 9, Script_Quiz10
+	case 10, Script_Quiz11
+	case 11, Script_Quiz12
+	case 12, Script_Quiz13
+	case 13, Script_QuizYESNO1
+	case 14, Script_QuizYESNO2
+	case 15, Script_QuizYESNO3
+	case 16, Script_QuizYESNO4
+	case 17, Script_QuizYESNO5
 	end
 
 GymGooses_CasillaTableroPregunta4::
@@ -370,7 +382,7 @@ GymGooses_CasillaTableroPregunta4::
 	faceplayer
 	setvar VAR_TEMP_1, 3
 	msgbox GymGoosesPregunta_Text, MSGBOX_DEFAULT
-	random 14
+	random 18
 	switch VAR_RESULT
 	case 0, Script_Quiz1
 	case 1, Script_Quiz2
@@ -381,11 +393,15 @@ GymGooses_CasillaTableroPregunta4::
 	case 6, Script_Quiz7
 	case 7, Script_Quiz8
 	case 8, Script_Quiz9
-	case 9, Script_QuizYESNO1
-	case 10, Script_QuizYESNO2
-	case 11, Script_QuizYESNO3
-	case 12, Script_QuizYESNO4
-	case 13, Script_QuizYESNO5
+	case 9, Script_Quiz10
+	case 10, Script_Quiz11
+	case 11, Script_Quiz12
+	case 12, Script_Quiz13
+	case 13, Script_QuizYESNO1
+	case 14, Script_QuizYESNO2
+	case 15, Script_QuizYESNO3
+	case 16, Script_QuizYESNO4
+	case 17, Script_QuizYESNO5
 	end
 
 GymGooses_CasillaTableroPregunta5::
@@ -393,7 +409,7 @@ GymGooses_CasillaTableroPregunta5::
 	faceplayer
 	setvar VAR_TEMP_1, 4
 	msgbox GymGoosesPregunta_Text, MSGBOX_DEFAULT
-	random 14
+	random 18
 	switch VAR_RESULT
 	case 0, Script_Quiz1
 	case 1, Script_Quiz2
@@ -404,11 +420,15 @@ GymGooses_CasillaTableroPregunta5::
 	case 6, Script_Quiz7
 	case 7, Script_Quiz8
 	case 8, Script_Quiz9
-	case 9, Script_QuizYESNO1
-	case 10, Script_QuizYESNO2
-	case 11, Script_QuizYESNO3
-	case 12, Script_QuizYESNO4
-	case 13, Script_QuizYESNO5
+	case 9, Script_Quiz10
+	case 10, Script_Quiz11
+	case 11, Script_Quiz12
+	case 12, Script_Quiz13
+	case 13, Script_QuizYESNO1
+	case 14, Script_QuizYESNO2
+	case 15, Script_QuizYESNO3
+	case 16, Script_QuizYESNO4
+	case 17, Script_QuizYESNO5
 	end			
 	
 Script_Quiz1::	
@@ -501,36 +521,77 @@ Script_Quiz9::
 	case MULTI_B_PRESSED, NoSabeNoContesta
 	end
 	
-Script_QuizYESNO1::	
-	msgbox Quiz10_Text, MSGBOX_YESNO
+Script_Quiz10::	
+	msgbox Quiz10_Text, MSGBOX_DEFAULT
+	multichoice 12, 0, MULTI_QUIZ10_GYM, 1
 	switch VAR_RESULT
-	case YES, GymGooses_EventScript_Correcta
+	case 0, GymGooses_EventScript_Incorrecta
+	case 1, GymGooses_EventScript_Incorrecta
+	case 2, GymGooses_EventScript_Correcta
+	case MULTI_B_PRESSED, NoSabeNoContesta
+	end
+	
+Script_Quiz11::	
+	msgbox Quiz11_Text, MSGBOX_DEFAULT
+	multichoice 12, 0, MULTI_QUIZ11_GYM, 1
+	switch VAR_RESULT
+	case 0, GymGooses_EventScript_Incorrecta
+	case 1, GymGooses_EventScript_Incorrecta
+	case 2, GymGooses_EventScript_Correcta
+	case MULTI_B_PRESSED, NoSabeNoContesta
+	end
+	
+Script_Quiz12::	
+	msgbox Quiz12_Text, MSGBOX_DEFAULT
+	multichoice 12, 0, MULTI_QUIZ12_GYM, 1
+	switch VAR_RESULT
+	case 0, GymGooses_EventScript_Incorrecta
+	case 1, GymGooses_EventScript_Incorrecta
+	case 2, GymGooses_EventScript_Correcta
+	case MULTI_B_PRESSED, NoSabeNoContesta
+	end
+	
+Script_Quiz13::	
+	msgbox Quiz13_Text, MSGBOX_DEFAULT
+	multichoice 12, 0, MULTI_QUIZ13_GYM, 1
+	switch VAR_RESULT
+	case 0, GymGooses_EventScript_Incorrecta
+	case 1, GymGooses_EventScript_Correcta
+	case 2, GymGooses_EventScript_Incorrecta
+	case MULTI_B_PRESSED, NoSabeNoContesta
+	end
+	
+Script_QuizYESNO1::	
+	msgbox Quiz14_Text, MSGBOX_YESNO
+	switch VAR_RESULT
+	case NO, GymGooses_EventScript_Correcta
 	goto GymGooses_EventScript_Incorrecta
 	end
 	
 Script_QuizYESNO2::	
-	msgbox Quiz11_Text, MSGBOX_YESNO
+	msgbox Quiz15_Text, MSGBOX_YESNO
 	switch VAR_RESULT
-	case YES, GymGooses_EventScript_Correcta
+	case NO, GymGooses_EventScript_Correcta
 	goto GymGooses_EventScript_Incorrecta
 	end
 	
 Script_QuizYESNO3::	
-	msgbox Quiz12_Text, MSGBOX_YESNO
+	msgbox Quiz16_Text, MSGBOX_YESNO
 	switch VAR_RESULT
-	case YES, GymGooses_EventScript_Correcta
+	case NO, GymGooses_EventScript_Correcta
+	msgbox Quiz16_Text_Correcta, MSGBOX_DEFAULT
 	goto GymGooses_EventScript_Incorrecta
 	end
 	
 Script_QuizYESNO4::	
-	msgbox Quiz13_Text, MSGBOX_YESNO
+	msgbox Quiz17_Text, MSGBOX_YESNO
 	switch VAR_RESULT
 	case YES, GymGooses_EventScript_Correcta
 	goto GymGooses_EventScript_Incorrecta
 	end
 	
 Script_QuizYESNO5::	
-	msgbox Quiz14_Text, MSGBOX_YESNO
+	msgbox Quiz18_Text, MSGBOX_YESNO
 	switch VAR_RESULT
 	case YES, GymGooses_EventScript_Correcta
 	goto GymGooses_EventScript_Incorrecta
@@ -1010,19 +1071,45 @@ Quiz9_Text:
 	.string "¿Por qué MONOCICLO?$"
 	
 Quiz10_Text:
-	.string "PREGUNTAS DE YES y NO$"
-	
+	.string "¿Quién creó la prestigiosa\n"
+	.string "GUARDERIA MIDELE?$"
+
 Quiz11_Text:
-	.string "PREGUNTAS DE YES y NO$"
-	
+	.string "¿Quién fué baneado recibiendo\n"
+	.string "Una cantidad de -100 Karma?$"
+
 Quiz12_Text:
-	.string "PREGUNTAS DE YES y NO$"
+	.string "¿Qué significa el título\n"
+	.string "No Person?$"
 	
 Quiz13_Text:
-	.string "PREGUNTAS DE YES y NO$"
-	
+	.string "¿Cuál es el POKÉMON capaz de\n" 
+	.string "usar el Trueno de la Oscuridad\l" 
+	.string "(DARK THUNDER)?$"
+
 Quiz14_Text:
-	.string "PREGUNTAS DE YES y NO$"
+	.string "¿PHENT es una multicuenta\n" 
+	.string "de KADERETE?$"
+	
+Quiz15_Text:
+	.string "Según GHADDAR, ¿los juegos\n"
+	.string "de la saga principal de\l"
+	.string "Final Fantasy son RPGs?$"
+	
+Quiz16_Text:
+	.string "¿Fué MELKOR el genuino creador\n"
+	.string "del Off Off Topic (OOT) de PxP?$"
+	
+Quiz16_Text_Correcta:
+	.string "¡El genuino creador del OOT\n"
+	.string "fué MICHOH!$"
+	
+Quiz17_Text:
+	.string "¿felipex88 se cortó la lengua?\n"
+	.string "por gusto? O eso dijo.$"
+	
+Quiz18_Text:
+	.string "¿El último OOT fue el MCCLVIII?$"
 	
 Respuesta_Incorrecta_Text:
 	.string "¡RESPUESTA INCORRECTA!$"

@@ -3203,7 +3203,19 @@ extern const u8 gQuiz82[];
 extern const u8 gQuiz83[]; 
 extern const u8 gQuiz91[]; 
 extern const u8 gQuiz92[]; 
-extern const u8 gQuiz93[];   
+extern const u8 gQuiz93[];
+extern const u8 gQuizAA[]; 
+extern const u8 gQuizAB[]; 
+extern const u8 gQuizAC[];
+extern const u8 gQuizBA[]; 
+extern const u8 gQuizBB[]; 
+extern const u8 gQuizBC[]; 
+extern const u8 gQuizCA[]; 
+extern const u8 gQuizCB[]; 
+extern const u8 gQuizCC[]; 
+extern const u8 gQuizDA[]; 
+extern const u8 gQuizDB[]; 
+extern const u8 gQuizDC[];     
 
 // SHINY STAR
 extern const u8 gText_ShinyStar[];

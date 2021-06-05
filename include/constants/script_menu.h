@@ -148,6 +148,10 @@
 #define MULTI_QUIZ7_GYM    138
 #define MULTI_QUIZ8_GYM    139
 #define MULTI_QUIZ9_GYM    140
+#define MULTI_QUIZ10_GYM    141
+#define MULTI_QUIZ11_GYM    142
+#define MULTI_QUIZ12_GYM    143
+#define MULTI_QUIZ13_GYM    144
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0

@@ -2083,6 +2083,22 @@ const u8 gQuiz83[] =  _("FUEGO");
 const u8 gQuiz91[] =  _("PORQUE EL MONO HACE CICLOS");
 const u8 gQuiz92[] =  _("PORQUE MONO ES UNO Y LA VIDA ES UN CICLO");
 const u8 gQuiz93[] =  _("PORQUE NO ES UN TRICICLO");
+//QUIZ10: ¿Quién creó la GUARDERIA MIDELE?
+const u8 gQuizAA[] =  _("LAVENDER");
+const u8 gQuizAB[] =  _("MIDELE");
+const u8 gQuizAC[] =  _("MICOLO");
+//QUIZ11: ¿Quién fué baneado recibiendo -100 Karma?
+const u8 gQuizBA[] =  _("MICOLO");
+const u8 gQuizBB[] =  _("DOBLE C");
+const u8 gQuizBC[] =  _("UMBREON123");
+//QUIZ12: ¿Qué significa el título No Person?
+const u8 gQuizCA[] =  _("No puedes usar avatar");
+const u8 gQuizCB[] =  _("No puedes escribir");
+const u8 gQuizCC[] =  _("No puedes usar avatar ni firma");
+//QUIZ13: ¿Cuál es el Pokémon capaz de usar el Trueno de la Oscuridad (Dark Thunder)?
+const u8 gQuizDA[] =  _("DARK RAICHU");
+const u8 gQuizDB[] =  _("DARK PIKACHU");
+const u8 gQuizDC[] =  _("DARK PLUSLE");
 
 // SHINY STAR
 const u8 gText_ShinyStar[] = _("{STAR}");

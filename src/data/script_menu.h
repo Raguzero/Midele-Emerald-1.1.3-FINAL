@@ -1025,6 +1025,34 @@ static const struct MenuAction MultichoiceList_Quiz9[] =
     {gQuiz93}
 };
 
+static const struct MenuAction MultichoiceList_Quiz10[] =
+{
+    {gQuizAA},
+    {gQuizAB},
+    {gQuizAC}
+};
+
+static const struct MenuAction MultichoiceList_Quiz11[] =
+{
+    {gQuizBA},
+    {gQuizBB},
+    {gQuizBC}
+};
+
+static const struct MenuAction MultichoiceList_Quiz12[] =
+{
+    {gQuizCA},
+    {gQuizCB},
+    {gQuizCC}
+};
+
+static const struct MenuAction MultichoiceList_Quiz13[] =
+{
+    {gQuizDA},
+    {gQuizDB},
+    {gQuizDC}
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -1178,6 +1206,10 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
 	[MULTI_QUIZ7_GYM] =  MULTICHOICE(MultichoiceList_Quiz7),
 	[MULTI_QUIZ8_GYM] =  MULTICHOICE(MultichoiceList_Quiz8),
 	[MULTI_QUIZ9_GYM] =  MULTICHOICE(MultichoiceList_Quiz9),
+	[MULTI_QUIZ10_GYM] =  MULTICHOICE(MultichoiceList_Quiz10),
+	[MULTI_QUIZ11_GYM] =  MULTICHOICE(MultichoiceList_Quiz11),
+	[MULTI_QUIZ12_GYM] =  MULTICHOICE(MultichoiceList_Quiz12),
+	[MULTI_QUIZ13_GYM] =  MULTICHOICE(MultichoiceList_Quiz13),
 };
 
 const u8 *const gStdStrings[] =
