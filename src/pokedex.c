@@ -6469,7 +6469,7 @@ static void Task_LoadStatsScreen(u8 taskId)
             //Icon
             FreeMonIconPalettes(); //Free space for new pallete
             LoadMonIconPalette(sPokedexListItem->species); //Loads pallete for current mon
-            gTasks[taskId].data[4] = CreateMonIcon(sPokedexListItem->species, SpriteCB_MonIcon, 17, 31, 4, 0, TRUE); //Create pokemon sprite
+            gTasks[taskId].data[4] = CreateMonIcon(sPokedexListItem->species, SpriteCB_MonIcon, 19, 34, 4, 0, TRUE); //Create pokemon sprite
             gSprites[gTasks[taskId].data[4]].oam.priority = 0;
         }
         gMain.state++;
@@ -7402,7 +7402,7 @@ static void Task_LoadEvolutionScreen(u8 taskId)
             //Icon
             FreeMonIconPalettes(); //Free space for new pallete
             LoadMonIconPalette(sPokedexListItem->species); //Loads pallete for current mon
-                gTasks[taskId].data[4] = CreateMonIcon(sPokedexListItem->species, SpriteCB_MonIcon, 17, 31, 4, 0, TRUE); //Create pokemon sprite
+                gTasks[taskId].data[4] = CreateMonIcon(sPokedexListItem->species, SpriteCB_MonIcon, 19, 34, 4, 0, TRUE); //Create pokemon sprite
             gSprites[gTasks[taskId].data[4]].oam.priority = 0;
         }
         gMain.state++;
@@ -7497,10 +7497,22 @@ static void handleTargetSpeciesPrint(u8 taskId, u16 targetSpecies, u8 base_x, u8
     StringExpandPlaceholders(gStringVar3, gText_EVO_Name); //evolution mon name
     PrintInfoScreenTextSmall(gStringVar3, base_x, base_y + base_offset*base_i); //evolution mon name
 
-    if(base_i < 6)
+    if (base_i < 8)
     {
+        u8 horizontal_space = 32;
+        u8 offset_x = 52;
+
+        if ((targetSpecies >= SPECIES_VAPOREON && targetSpecies <= SPECIES_FLAREON)
+          || targetSpecies == SPECIES_ESPEON  || targetSpecies == SPECIES_UMBREON
+          || targetSpecies == SPECIES_LEAFEON || targetSpecies == SPECIES_GLACEON
+          || targetSpecies == SPECIES_SYLVEON)
+        {
+            horizontal_space = 25;
+            offset_x = 48;
+        }
+
         LoadMonIconPalette(targetSpecies); //Loads pallete for current mon
-        gTasks[taskId].data[4+base_i] = CreateMonIcon(targetSpecies, SpriteCB_MonIcon, 50 + 32*base_i, 31, 4, 0, TRUE); //Create pokemon sprite
+        gTasks[taskId].data[4+base_i] = CreateMonIcon(targetSpecies, SpriteCB_MonIcon, offset_x + horizontal_space*base_i, 34, 4, 0, TRUE); //Create pokemon sprite
         gSprites[gTasks[taskId].data[4+base_i]].oam.priority = 0;
     }
 }
