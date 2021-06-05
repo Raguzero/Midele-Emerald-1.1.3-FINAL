@@ -733,7 +733,7 @@ const u16 gSpeciesToHoennPokedexNum[] = // Assigns all species to the Hoenn Dex 
 	SPECIES_TO_HOENN(DARK_PIKACHU),
 };
 
-const u16 gSpeciesToNationalPokedexNum[] = // Assigns all species to the National Dex Index (Summary No. for National Dex)
+const u16 gSpeciesToNationalPokedexNum[NUM_SPECIES] = // Assigns all species to the National Dex Index (Summary No. for National Dex)
 {
     SPECIES_TO_NATIONAL(BULBASAUR),
     SPECIES_TO_NATIONAL(IVYSAUR),

@@ -7088,6 +7088,7 @@ static void PrintMonStatsToggle(u8 taskId)
         base_i++;
 
         //Egg group 2
+		if (gBaseStats[species].eggGroup2 != gBaseStats[species].eggGroup1) {
         PrintInfoScreenTextSmall(gText_Stats_eggGroup_g2, base_x, base_y + base_offset*base_i);
         switch (gBaseStats[species].eggGroup2)
         {
@@ -7138,7 +7139,8 @@ static void PrintMonStatsToggle(u8 taskId)
             break;
         }
         PrintInfoScreenTextSmall(gStringVar1, base_x + 37, base_y + base_offset*base_i);
-    }
+        }
+	}
 
 
 
