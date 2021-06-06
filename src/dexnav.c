@@ -852,8 +852,15 @@ static void Task_InitDexNavSearch(u8 taskId)
     u8 searchLevel;
     u16 species = task->tSpecies;
     u8 environment = task->tEnvironment;
+    u8 previous_chain = gSaveBlock1Ptr->dexNavChain;
+    u16 previous_species = VarGet(VAR_DEXNAV_LAST_SPECIES);
     
     sDexNavSearchDataPtr = AllocZeroed(sizeof(struct DexNavSearch));
+	
+	if (previous_species != ((environment << 14) | species)) {
+        gSaveBlock1Ptr->dexNavChain = 0; // al cambiar de especie se reinicia la cadena
+        VarSet(VAR_DEXNAV_LAST_SPECIES, ((environment << 14) | species));
+    }
     
     // assign non-objects to struct
     sDexNavSearchDataPtr->species = species;
@@ -864,18 +871,24 @@ static void Task_InitDexNavSearch(u8 taskId)
     if (Overworld_GetFlashLevel() > 1)
     {
         Free(sDexNavSearchDataPtr);
+		sDexNavSearchDataPtr = NULL;
         FreeMonIconPalettes();
         ScriptContext1_SetupScript(EventScript_TooDark);
         DestroyTask(taskId);
+		gSaveBlock1Ptr->dexNavChain = previous_chain;
+        VarSet(VAR_DEXNAV_LAST_SPECIES, previous_species);
         return;
     }
     
     if (sDexNavSearchDataPtr->monLevel == MON_LEVEL_NONEXISTENT || !TryStartHiddenMonFieldEffect(sDexNavSearchDataPtr->environment, 12, 12, FALSE))
     {
         Free(sDexNavSearchDataPtr);
+		sDexNavSearchDataPtr = NULL;
         FreeMonIconPalettes();
         ScriptContext1_SetupScript(EventScript_NotFoundNearby);
         DestroyTask(taskId);
+		gSaveBlock1Ptr->dexNavChain = previous_chain;
+        VarSet(VAR_DEXNAV_LAST_SPECIES, previous_species);
         return;
     }
     
@@ -989,6 +1002,7 @@ void EndDexNavSearch(u8 taskId)
     RemoveDexNavWindowAndGfx();
     FieldEffectStop(&gSprites[sDexNavSearchDataPtr->fldEffSpriteId], sDexNavSearchDataPtr->fldEffId);
     Free(sDexNavSearchDataPtr);
+	sDexNavSearchDataPtr = NULL;
 }
 
 static void EndDexNavSearchSetupScript(const u8 *script, u8 taskId)
@@ -1108,6 +1122,7 @@ static void Task_DexNavSearch(u8 taskId)
         gDexnavBattle = TRUE;        
         ScriptContext1_SetupScript(EventScript_StartDexNavBattle);
         Free(sDexNavSearchDataPtr);
+		sDexNavSearchDataPtr = NULL;
         DestroyTask(taskId);
         return;
     }
@@ -2606,6 +2621,7 @@ bool8 TryFindHiddenPokemon(void)
         if (sDexNavSearchDataPtr->monLevel == MON_LEVEL_NONEXISTENT)
         {
             Free(sDexNavSearchDataPtr);
+			sDexNavSearchDataPtr = NULL;
             return FALSE;
         }
 
