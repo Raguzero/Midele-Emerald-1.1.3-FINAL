@@ -2765,7 +2765,7 @@ static void Cmd_if_next_turn_target_might_use_move_with_effect(void)
 
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
-        if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] && gBattleMoves[BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i]].effect == gAIScriptPtr[1])
+        if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] && gBattleMoves[BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i]].effect == *(gAIScriptPtr - 5))
         {
             s32 j;
             for (j = 0; j < MAX_MON_MOVES; j++)
@@ -2777,5 +2777,5 @@ static void Cmd_if_next_turn_target_might_use_move_with_effect(void)
     }
 
     if (i != MAX_MON_MOVES)
-        gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
+        gAIScriptPtr = T1_READ_PTR(gAIScriptPtr - 4);
 }
