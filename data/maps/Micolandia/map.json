@@ -316,6 +316,13 @@
             "elevation": 0,
             "x": 80,
             "y": 45
+        },
+        {
+            "dest_map": "MAP_DARKIGYM",
+            "dest_warp_id": 0,
+            "elevation": 0,
+            "x": 79,
+            "y": 6
         }
     ],
     "weather": "WEATHER_SUNNY"

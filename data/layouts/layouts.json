@@ -4829,6 +4829,16 @@
             "primary_tileset": "gTileset_Building",
             "secondary_tileset": "gTileset_BrendansMaysHouse",
             "width": 14
+        },
+        {
+            "blockdata_filepath": "data/layouts/Darkigym/map.bin",
+            "border_filepath": "data/layouts/Darkigym/border.bin",
+            "height": 99,
+            "id": "LAYOUT_DARKIGYM",
+            "name": "Darkigym_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_Facility",
+            "width": 30
         }
     ],
     "layouts_table_label": "gMapLayouts"
