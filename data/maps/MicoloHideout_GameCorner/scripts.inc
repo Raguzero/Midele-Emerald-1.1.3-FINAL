@@ -594,6 +594,34 @@ MicoloHideout_EventScript_MagnoAquiles_Text_9:
 	.string "AZUL!\p"
 	.string "Oh, espera... otra vez no...$"
 
+MicoloHideout_EventScript_NerdMaquinas::
+	lock
+	compare VAR_STATE_MICOLANDIA, 1
+	goto_if_eq MicoloHideout_EventScript_NerdMaquinas_2
+	msgbox MicoloHideout_EventScript_NerdMaquinas_Text_1, MSGBOX_NPC
+MicoloHideout_EventScript_NerdMaquinas_1:
+	release
+	return
+
+MicoloHideout_EventScript_NerdMaquinas_2:
+	msgbox MicoloHideout_EventScript_NerdMaquinas_Text_0, MSGBOX_NPC
+	goto MicoloHideout_EventScript_NerdMaquinas_1
+
+
+MicoloHideout_EventScript_NerdMaquinas_Text_0:
+	.string "Jeje... aquí hay demasiadas máquinas\n"
+	.string "expendedoras, ¿no te parece\l"
+	.string "sospechoso?\p"
+	.string "Además, ¿por qué una planta y una\n"
+	.string "papelera? La decoración de interiores\l"
+	.string "brilla por su ausencia en esta parte de\l"
+	.string "la sala.$"
+
+MicoloHideout_EventScript_NerdMaquinas_Text_1:
+	.string "¡Lo sabía! ¡Sabía que había algo raro\n"
+	.string "en este sitio!\p"
+	.string "Por cierto... menuda PATADA SALTO...$"
+
 
 MicoloHideout_GameCorner_Text_ThisIsMicoloHideoutGameCorner: @ 8210460
 	.string "Bienvenido al CASINO de MICOLANDIA.$"
