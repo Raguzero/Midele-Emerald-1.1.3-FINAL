@@ -590,8 +590,10 @@ static u8 ChooseMoveOrAction_Singles(void)
 	
 	   // Consider switching if your mon with truant is bodied by Protect spam.
         // Or is using a double turn semi invulnerable move(such as Fly) and is faster.
-        if (gBattleMons[sBattler_AI].ability == ABILITY_TRUANT
-            && IsTruantMonVulnerable(sBattler_AI, gBattlerTarget)
+        // Or its ability is actually not Truant.
+		if (gBattleMons[sBattler_AI].ability == ABILITY_TRUANT
+            && (GetAbilityBySpecies(gBattleMons[sBattler_AI].species, gBattleMons[sBattler_AI].abilityNum) != ABILITY_TRUANT
+            || IsTruantMonVulnerable(sBattler_AI, gBattlerTarget))
             && gDisableStructs[sBattler_AI].truantCounter
 			&& AICanSwitchAssumingEnoughPokemon())
             if (GetMostSuitableMonToSwitchInto() != PARTY_SIZE)
@@ -759,6 +761,24 @@ static u8 ChooseMoveOrAction_Doubles(void)
     }
 
     gBattlerTarget = mostViableTargetsArray[Random() % mostViableTargetsNo];
+
+    // Consider switching if your mon with truant is bodied by Protect spam.
+    // Or is using a double turn semi invulnerable move(such as Fly) and is faster.
+    // Or its ability is actually not Truant.
+    if (gBattleMons[sBattler_AI].ability == ABILITY_TRUANT
+        && GET_BATTLER_SIDE(sBattler_AI) != GET_BATTLER_SIDE(gBattlerTarget)
+        && actionOrMoveIndex[gBattlerTarget] != AI_CHOICE_FLEE
+        && actionOrMoveIndex[gBattlerTarget] != AI_CHOICE_WATCH
+        && (GetAbilityBySpecies(gBattleMons[sBattler_AI].species, gBattleMons[sBattler_AI].abilityNum) != ABILITY_TRUANT
+              || (IsTruantMonVulnerable(sBattler_AI, gBattlerTarget)
+                  && (gBattleMons[gBattlerTarget ^ BIT_FLANK].hp == 0 || IsTruantMonVulnerable(sBattler_AI, gBattlerTarget ^ BIT_FLANK))))
+        && gDisableStructs[sBattler_AI].truantCounter
+        && AICanSwitchAssumingEnoughPokemon())
+        if (GetMostSuitableMonToSwitchInto() != PARTY_SIZE)
+        {
+            AI_THINKING_STRUCT->switchMon = TRUE;
+            return AI_CHOICE_SWITCH;
+        }
     return actionOrMoveIndex[gBattlerTarget];
 }
 
