@@ -631,6 +631,7 @@ static u8 ChooseMoveOrAction_Singles(void)
         chosenMovePos = consideredMoveArray[Random() % numOfBestMoves];
         move = gBattleMons[sBattler_AI].moves[chosenMovePos];
         if (IsMoveSignificantlyAffectedByStatDrops(move)
+			&& currentMoveArray[0] <= 101 // no cambia si el movimiento alcanza los 102 puntos (probable KO)
 			&& AICanSwitchAssumingEnoughPokemon())
             if (GetMostSuitableMonToSwitchInto() != PARTY_SIZE)
             {
@@ -2712,7 +2713,10 @@ static void Cmd_calculate_nhko(void)
 
     // Si el atacante es el oponente, no se conocen todos sus movs y no da OHKO,
     // la IA asume que los STAB estándar (de precisión alta) pueden ser los movs que faltan
-    if (!attacker_is_user && best_nhko > 1)
+	// siempre que la IA esté en condiciones de usar un ataque nuevo
+		if (!attacker_is_user && best_nhko > 1
+        && gDisableStructs[attackerId].encoredMove == MOVE_NONE
+        && !(gBattleMons[attackerId].status2 & (STATUS2_RECHARGE | STATUS2_MULTIPLETURNS)))
     {
         for (i = 0; i < MAX_MON_MOVES; i++)
             if (!movePointer[i]) // hay un ataque no conocido
@@ -2721,7 +2725,7 @@ static void Cmd_calculate_nhko(void)
         if (i != MAX_MON_MOVES) // algún ataque no se conoce
         {
             s32 type_i;
-            u8 opponent_types[2] = {gBattleMons[gBattlerTarget].type1, gBattleMons[gBattlerTarget].type1};
+            u8 opponent_types[2] = {gBattleMons[gBattlerTarget].type1, gBattleMons[gBattlerTarget].type2};
             s16 standard_moves[] = {
                 [TYPE_NORMAL] = MOVE_EGG_BOMB,       // prácticamente la misma potencia que Return/Frustration al máximo
                 [TYPE_FIGHTING] = MOVE_SKY_UPPERCUT, // los movs más potentes son más arriesgados
@@ -2766,6 +2770,9 @@ static void Cmd_calculate_nhko(void)
         }
     }
     
+    if (((gBattleMons[attackerId].status2 & STATUS2_RECHARGE) || gDisableStructs[attackerId].truantCounter) && best_nhko < 5)
+        best_nhko += 1;
+
     AI_THINKING_STRUCT->funcResult = best_nhko;
     gAIScriptPtr += 2;
 }
