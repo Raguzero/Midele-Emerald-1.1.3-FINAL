@@ -437,6 +437,192 @@ MicoloHideoutYaCompradoTickets::
 	release
 	end
 
+MicoloHideout_EventScript_Gordo::
+	lock
+	faceplayer
+	msgbox MicoloHideout_EventScript_Gordo_Text_0, MSGBOX_NPC
+	return
+
+MicoloHideout_EventScript_Gordo_Text_0:
+	.string "Jeje... me he colado.\n"
+	.string "¿Ah, te han dejado pasar?\p"
+	.string "Dicen que aquí solo dejan pasar a los\n"
+	.string "mejores... no tienes pinta de ser muy\l"
+	.string "bueno, jeje. MICOLO te ganaría sin\l"
+	.string "despeinarse.$"
+
+MicoloHideout_EventScript_Recepcionista::
+	lock
+	faceplayer
+	msgbox MicoloHideout_EventScript_Recepcionista_Text_0, MSGBOX_NPC
+	return
+
+MicoloHideout_EventScript_Recepcionista_Text_0:
+	.string "Bienvenido al CASINO de MICOLANDIA,\n"
+	.string "{PLAYER}. Disfruta de tu merecida\l"
+	.string "recompensa tras haber derrotado a los\l"
+	.string "4 líderes de gimnasio de MICOLANDIA y\l"
+	.string "haber llegado al final del viaje.$"
+
+MicoloHideout_EventScript_ViejoFichas::
+	lock
+	faceplayer
+	msgbox MicoloHideout_EventScript_ViejoFichas_Text_0, MSGBOX_NPC
+	return
+
+
+MicoloHideout_EventScript_ViejoFichas_Text_0:
+	.string "Jojojo... ¿me parece a mí o las fichas de\n"
+	.string "este CASINO son más baratas que las\l"
+	.string "del CASINO de MAUVILLE?\p"
+	.string "Por cierto, ¿sigue el loco de los gachas\n"
+	.string "por ahí? Antes se pasaba por aquí,\l"
+	.string "pero MICOLO le metió un buen 6-0 y lo\l"
+	.string "echó a micopatadas, jojojo...$"
+
+MicoloHideout_EventScript_ViejoPremios::
+	lock
+	faceplayer
+	msgbox MicoloHideout_EventScript_ViejoPremios_Text_0, MSGBOX_NPC
+	return
+
+
+MicoloHideout_EventScript_ViejoPremios_Text_0:
+	.string "Mmm... los premios de este casino son\n"
+	.string "excepcionales... no los encontrarás en\l"
+	.string "ningún otro lugar... ¿o quizás sí?\p"
+	.string "No me molestes, joven, todavía no me he\n"
+	.string "tomado la pastilla.$"
+
+MicoloHideout_EventScript_Caballero::
+	lock
+	faceplayer
+	msgbox MicoloHideout_EventScript_Caballero_Text_0, MSGBOX_NPC
+	return
+
+
+MicoloHideout_EventScript_Caballero_Text_0:
+	.string "No sé quién será ese tal MICOLO, pero\n"
+	.string "debe de tener buen gusto si ha decido\l"
+	.string "invitarme a mí hasta aquí...\p"
+	.string "Ejem, esto del casino está muy bien,\n"
+	.string "pero yo me esperaba... no sé... algo más.\p"
+	.string "¿Dónde está ese tal MICOLO?$"
+
+MicoloHideout_EventScript_TecnicoTragaperras::
+	lock
+	faceplayer
+	msgbox MicoloHideout_EventScript_TecnicoTragaperras_Text_0, MSGBOX_NPC
+	return
+
+
+MicoloHideout_EventScript_TecnicoTragaperras_Text_0:
+	.string "Dicen que las máquinas de este CASINO\n"
+	.string "dan más premios...\p"
+	.string "O eso te esperarías, pero no. ¿Has visto\n"
+	.string "el código de esas cosas? ¡No entiendo\l"
+	.string "absolutamente nada! ¡En mis 20 años de\l"
+	.string "técnico de máquinas de casino no había\l"
+	.string "visto nada igual!\p"
+	.string "Ah, pero las ruletas... esas sí, dan mas\n"
+	.string "premios. Pruébalas, no te arrepentirás.$"
+
+MicoloHideout_EventScript_MagnoAquiles::
+	lock
+	applymovement 8, Common_Movement_WalkInPlaceFastestRight
+	msgbox MicoloHideout_EventScript_MagnoAquiles_Text_0, MSGBOX_DEFAULT
+	applymovement 9, Common_Movement_WalkInPlaceFastestLeft
+	msgbox MicoloHideout_EventScript_MagnoAquiles_Text_1, MSGBOX_DEFAULT
+	msgbox MicoloHideout_EventScript_MagnoAquiles_Text_2, MSGBOX_DEFAULT
+	playse SE_PIN
+	applymovement 8, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox MicoloHideout_EventScript_MagnoAquiles_Text_3, MSGBOX_DEFAULT
+	msgbox MicoloHideout_EventScript_MagnoAquiles_Text_4, MSGBOX_DEFAULT
+	msgbox MicoloHideout_EventScript_MagnoAquiles_Text_5, MSGBOX_DEFAULT
+	msgbox MicoloHideout_EventScript_MagnoAquiles_Text_6, MSGBOX_DEFAULT
+	msgbox MicoloHideout_EventScript_MagnoAquiles_Text_7, MSGBOX_DEFAULT
+	msgbox MicoloHideout_EventScript_MagnoAquiles_Text_8, MSGBOX_DEFAULT
+	msgbox MicoloHideout_EventScript_MagnoAquiles_Text_9, MSGBOX_DEFAULT
+	closemessage
+	release
+	return
+
+
+MicoloHideout_EventScript_MagnoAquiles_Text_0:
+	.string "MAGNO: ¡Apuesto todo al AZUL!$"
+
+MicoloHideout_EventScript_MagnoAquiles_Text_1:
+	.string "AQUILES: ¡Puesto yo apuesto todo al\n"
+	.string "ROJO!\p"
+	.string "...$"
+
+MicoloHideout_EventScript_MagnoAquiles_Text_2:
+	.string "MAGNO: Oye... creo que nos hemos\n"
+	.string "confundido otra vez de color...$"
+
+MicoloHideout_EventScript_MagnoAquiles_Text_3:
+	.string "MAGNO: ¡Eh! ¡Tú eres aquel chico que\n"
+	.string "detuvo nuestros planes! Si no hubiese\l"
+	.string "sido por ti y por ese MICOLO...$"
+
+MicoloHideout_EventScript_MagnoAquiles_Text_4:
+	.string "AQUILES: Creo que no deberías hablar\n"
+	.string "así de MICOLO. Al fin y al cabo, él es\l"
+	.string "quien nos ha dejado refugiarnos aquí\l"
+	.string "en MICOLANDIA con toda clase de lujos.$"
+
+MicoloHideout_EventScript_MagnoAquiles_Text_5:
+	.string "MAGNO: Ya... pero, no sé... Algo falla...\n"
+	.string "Mmm...$"
+
+MicoloHideout_EventScript_MagnoAquiles_Text_6:
+	.string "AQUILES: ¿A qué te refieres?$"
+
+MicoloHideout_EventScript_MagnoAquiles_Text_7:
+	.string "MAGNO: Diría que MICOLO nos ha estado\n"
+	.string "utilizando durante todo este tiempo.$"
+
+MicoloHideout_EventScript_MagnoAquiles_Text_8:
+	.string "AQUILES: ¡Ja! ¿Utilizarnos? ¿A\n"
+	.string "nosotros, las mentes más capaces de\l"
+	.string "todo HOENN? ¡Ni en sueños!\p"
+	.string "¡Apuesto todo al ROJO!$"
+
+MicoloHideout_EventScript_MagnoAquiles_Text_9:
+	.string "MAGNO: ¡Y que lo digas! ¡Apuesto todo al\n"
+	.string "AZUL!\p"
+	.string "Oh, espera... otra vez no...$"
+
+MicoloHideout_EventScript_NerdMaquinas::
+	lock
+	compare VAR_STATE_MICOLANDIA, 1
+	goto_if_eq MicoloHideout_EventScript_NerdMaquinas_2
+	msgbox MicoloHideout_EventScript_NerdMaquinas_Text_1, MSGBOX_NPC
+MicoloHideout_EventScript_NerdMaquinas_1:
+	release
+	return
+
+MicoloHideout_EventScript_NerdMaquinas_2:
+	msgbox MicoloHideout_EventScript_NerdMaquinas_Text_0, MSGBOX_NPC
+	goto MicoloHideout_EventScript_NerdMaquinas_1
+
+
+MicoloHideout_EventScript_NerdMaquinas_Text_0:
+	.string "Jeje... aquí hay demasiadas máquinas\n"
+	.string "expendedoras, ¿no te parece\l"
+	.string "sospechoso?\p"
+	.string "Además, ¿por qué una planta y una\n"
+	.string "papelera? La decoración de interiores\l"
+	.string "brilla por su ausencia en esta parte de\l"
+	.string "la sala.$"
+
+MicoloHideout_EventScript_NerdMaquinas_Text_1:
+	.string "¡Lo sabía! ¡Sabía que había algo raro\n"
+	.string "en este sitio!\p"
+	.string "Por cierto... menuda PATADA SALTO...$"
+
+
 MicoloHideout_GameCorner_Text_ThisIsMicoloHideoutGameCorner: @ 8210460
 	.string "Bienvenido al CASINO de MICOLANDIA.$"
 
