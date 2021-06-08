@@ -5153,6 +5153,11 @@ static void sub_80CC100(struct Sprite *sprite)
 static u16 sub_80CC124(u16 species, u32 personality)
 {
     u16 i, var;
+	
+	if (SpeciesHasGenderDifference[species] && GetGenderFromSpeciesAndPersonality(species, personality) == MON_FEMALE)
+    {
+        species |= 0x8000;
+    }
 
     for (i = 0; i < 40; i++)
     {
@@ -5174,14 +5179,20 @@ static u16 sub_80CC124(u16 species, u32 personality)
     sPSSData->field_B58[i] = species;
     sPSSData->field_B08[i]++;
     var = 16 * i;
+	species &= 0x7FFF;
     CpuCopy32(GetMonIconTiles(species, TRUE, personality), (void*)(OBJ_VRAM0) + var * 32, 0x200);
 
     return var;
 }
 
-static void sub_80CC1E0(u16 species)
+static void sub_80CC1E0(u16 species, u32 personality)
 {
     u16 i;
+
+    if (SpeciesHasGenderDifference[species] && GetGenderFromSpeciesAndPersonality(species, personality) == MON_FEMALE)
+    {
+        species |= 0x8000;
+    }
 
     for (i = 0; i < 40; i++)
     {
@@ -5209,19 +5220,20 @@ static struct Sprite *CreateMonIconSprite(u16 species, u32 personality, s16 x, s
     spriteId = CreateSprite(&tempalte, x, y, subpriority);
     if (spriteId == MAX_SPRITES)
     {
-        sub_80CC1E0(species);
+        sub_80CC1E0(species, personality);
         return NULL;
     }
 
     gSprites[spriteId].oam.tileNum = tileNum;
     gSprites[spriteId].oam.priority = oamPriority;
     gSprites[spriteId].data[0] = species;
+	gSprites[spriteId].data[7] = (u16) personality;
     return &gSprites[spriteId];
 }
 
 static void DestroyBoxMonIcon(struct Sprite *sprite)
 {
-    sub_80CC1E0(sprite->data[0]);
+	sub_80CC1E0(sprite->data[0], (u32) sprite->data[7]);
     DestroySprite(sprite);
 }
 
