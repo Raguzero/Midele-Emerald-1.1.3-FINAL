@@ -38,7 +38,7 @@ Darkigym_EventScript_GymStatue::
 	end
 	
 Darkigym_EventScript_Buenro::
-	trainerbattle_single TRAINER_JOSITO, Darkigym_Text_BuenroIntro, Darkigym_Text_BuenroDefeat, Darkigym_EventScript_BuenroDefeated, NO_MUSIC
+	trainerbattle_single TRAINER_DARKI_BUENRO, Darkigym_Text_BuenroIntro, Darkigym_Text_BuenroDefeat, Darkigym_EventScript_BuenroDefeated, NO_MUSIC
 	release
 	end
 	
@@ -69,7 +69,8 @@ Darkigym_EventScript_Darki_Derrotado::
 	end
 	
 Darkigym_EventScript_BuenroDefeated::
-	msgbox Darkigym_Text_BuenroDefeat, MSGBOX_DEFAULT
+	msgbox Darkigym_Text_BuenroPostBattle, MSGBOX_DEFAULT
+	special HealPlayerParty
 	release
 	end
 	
@@ -188,13 +189,103 @@ Darkigym_Text_MalroPostBattle2:
     .string "o algo, estarás agradecido...$"
 
 Darkigym_Text_BuenroIntro:
-	.string "FRASES$"
+	.string "OH! Genialoso, un invitado!\p"
+
+	.string "Espera, esas ropas... tu no eres\n"
+	.string "un invitado, ¡eres EL humano!\p"
+
+	.string "Me han dicho que debo capturarte.\p"
+
+	.string "Si te dejo a tus anchas podrías echar\n" 
+	.string "todos sus planes por tierra.\p"
+
+	.string "Además este sitio es muy peligroso, solo\n" 
+	.string "alguien igual de genialoso como yo\l"
+	.string "podría atravesarlo y salir indemne.\p"
+	
+	.string "¿Insistes en seguir?\p"
+	
+	.string "Bueno, supongo que YO el GRAN Darkizard,\n" 
+	.string "el todo poderoso buen rollo,\l" 
+	.string "Capitan de la guardía imperial del\l" 
+	.string "inframundo y co-lider de este Gymnasio,\l"
+	.string "tendre que detenerte aquí y ahora.\p"
+
+	.string "Nyeh heh heh heh$" 
 	
 Darkigym_Text_BuenroDefeat:
-	.string "FRASES$"
-	
+	.string "Vaya, si que eres fuerte,\n"
+	.string "tienes mi respeto.$"
+
 Darkigym_Text_BuenroPostBattle:
-	.string "FRASES$"
+	.string "Ahora te espera la más genial de mis\n"
+	.string "creaciones y me la encargo nada más ni\l" 
+	.string "nada menos que mi hermano el Mal rollo.\p"
+
+	.string "Él quería que construyera una mazmorra\n" 
+	.string "que les hiciera sentir el horror y la\l"
+	.string "desesperación que es transitar por\l" 
+	.string "aquellos agónicos sitios.\p"
+
+	.string "Que son: Alola y Sinnoh.\p"
+
+	.string "Que para mi no estan TAAAAN mal como dice\n"
+	.string "malro, pero bueno, como decía.\p"
+
+	.string "Para un amante de los puzzles como yo,\n"
+	.string "no podría contentarme con hacer solo un\l" 
+	.string "pasillo simplon en el que se avanzara\l" 
+	.string "muy lentamente.\p"
+
+	.string "Así que hice un pasillo en el que avanzas\n" 
+	.string "muy lentamente, te puedes extraviar para\l"
+	.string "siempre y te asalten todo tipo de trampas\l" 
+	.string "mortales meticulozamente colocadas para\l" 
+	.string "enviarte directo a un CENTRO POKEMON\p"
+	
+	.string "Nyeh heh heh.\p"
+
+	.string "Te advierto, solo un verdadero amante\n" 
+	.string "de los Puzzles y las mazmorras con\l" 
+	.string "la mas ferrea de las voluntades podrá\l"
+	.string "superarlo.\p"
+
+	.string "No te preocupes, si pudiste vencerme\n" 
+	.string "a mi, al GRAN DARKIZARD, esta mazmorra\l" 
+	.string "de la desesperación no sera nada\l"
+	.string "para ti.\p"
+
+	.string "Nyehehehe\p"
+
+	.string "En especial por que ese tal RAGU, mejoró\n" 
+	.string "las MO, ¡mecachis!\p"
+
+	.string "¡Ánimo y mucha suerte!\p"
+
+	.string "Te advierto, te enfrentaras con el rey\n" 
+	.string "del inframundo y gobernante de todos\l" 
+	.string "los monstruos.\p"
+
+	.string "¡Sus tormentas de arena y aura siniestra\n" 
+	.string "son legendarias!\p"
+
+	.string "Vinimos aquí a llevar a cabo una\n" 
+	.string "operación que asegurará la salvación de\l" 
+	.string "esta rama de las lineas del mundo.\p"
+	
+	.string "¿A que es todo un cacho de pan\n"
+	.string "malrollo?\p"
+
+	.string "Estoy seguro que te agradará.\p" 
+	
+	.string "Nyeh heh heh\p"
+//si los pokemon estan dañados
+	.string "Oh, veo que tu equipo esta decaido.\p"
+	
+	.string "(Fuiste curado de las heridas)\p"
+
+	.string "Tanto mejor, sigue adelante humano,\n" 
+	.string "no pierdas la determinación.$"
 
 Darkigym_Text_ReceivedBadge:
 	.string "{PLAYER} recibió la MEDALLA\n"

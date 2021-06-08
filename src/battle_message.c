@@ -575,6 +575,15 @@ static const u8 sText_GrimEnviaUltimoPoke[] = _("La suerte está echada...\n ¡E
 static const u8 sText_MerumPierdePrimerPoke[] = _("¿Sabías que pulsar ALT+F4 te da un\ninstawin? Pruébalo, ya verás que guay.\p");
 static const u8 sText_MerumEnviaUltimoPoke[] = _("Todo esto está siendo un contratiempo.\n La vida del NPC es difícil, ¿sabes?\p");
 static const u8 sText_RedHPMerum[] = _("A ver a ver a ver, que lo de pegarte\n era en broma eh, no te pases tú tampoco.\p");
+static const u8 sText_VinPierdePrimerPoke[] = _("¡Todavía podemos volar más alto!\p");
+static const u8 sText_VinEnviaUltimoPoke[] = _("Un viento favorable es lo que nos hace\n falta para remontar esto.\p");
+static const u8 sText_RedHPVin[] = _("¡Un último intento por no estrellarnos!\p");
+static const u8 sText_DarkibuenroPierdePrimerPoke[] = _("Vaya eres fuerte, si sigues así tendras el honor\n de ver mi gran ataque especial.\l nyeh heh heh\p");
+static const u8 sText_DarkibuenroEnviaUltimoPoke[] = _("Lo veras, mi fantabuloso y nuevo\n Ataque midelar!\p");
+static const u8 sText_RedHPDarkibuenro[] = _("Diantres.\n No contaba con que no tengo ese movimiento.\l nyoh hoh hoh\p");
+static const u8 sText_DarkimalroPierdePrimerPoke[] = _("Tsk, eso fue un golpe de suerte, si ese pinguino\n no me hubiera atado a la normas de este mundo...\p");
+static const u8 sText_DarkimalroEnviaUltimoPoke[] = _("¿Que? ¡esto es imposible! pulga molesta te aplastare...\p");
+static const u8 sText_RedHPDarkimalro[] = _("Mi odio me hara prevalecer. ¡Ya lo veras!\p");
 
 static const u8 frase0[] = _("Esh el vecino\nel que elige al alcalde\py esh el alcalde\nel que quiere\lque shean\llosh vecinosh\lel alcalde.\p");
 static const u8 frase1[] = _("Eshpaña esh una gran nación\ny losh eshpañolesh\lmuy eshpañolesh\ly mucho eshpañolesh.\p");
@@ -3084,6 +3093,9 @@ static const struct TrainerSlide sTrainerSlides[] =
     {TRAINER_GOLDIE, sText_GoldieEnviaUltimoPoke, sText_RedHPGoldie, sText_GoldiePierdePrimerPoke},
     {TRAINER_GRIM, sText_GrimEnviaUltimoPoke, NULL, sText_GrimPierdePrimerPoke},
     {TRAINER_MERUM, sText_MerumEnviaUltimoPoke, sText_RedHPMerum, sText_MerumPierdePrimerPoke},
+    {TRAINER_VIN, sText_MerumEnviaUltimoPoke, sText_RedHPMerum, sText_MerumPierdePrimerPoke},
+    {TRAINER_DARKI_BUENRO, sText_DarkibuenroEnviaUltimoPoke, sText_RedHPDarkibuenro, sText_DarkibuenroPierdePrimerPoke},
+    {TRAINER_DARKI_MALRO, sText_DarkimalroEnviaUltimoPoke, sText_RedHPDarkimalro, sText_DarkimalroPierdePrimerPoke},
 };
 
 static u32 GetEnemyMonCount(bool32 onlyAlive)
