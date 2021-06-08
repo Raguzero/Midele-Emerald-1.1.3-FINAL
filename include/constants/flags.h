@@ -1239,7 +1239,7 @@
 #define FLAG_VADER_MAUVILLE_RUINS_ROBO                              0x49B // Previously Unused Flag
 #define FLAG_HIDE_TELEPORT_MICOLANDIA_BOY_CHECK                       0x49C // Previously Unused Flag
 #define FLAG_HIDE_TELEPORT_MICOLANDIA_GIRL_CHECK                      0x49D // Previously Unused Flag
-#define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag
+#define FLAG_HIDE_MICOCASINO_PACOCHEF                               0x49E // Previously Unused Flag
 #define FLAG_UNUSED_0x49F                                           0x49F // Unused Flag
 #define FLAG_UNUSED_0x4A0                                           0x4A0 // Unused Flag
 #define FLAG_UNUSED_0x4A1                                           0x4A1 // Unused Flag

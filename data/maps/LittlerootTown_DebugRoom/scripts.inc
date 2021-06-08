@@ -114,6 +114,9 @@ LittlerootTown_DebugRoom_Script_ActivarTodo::
     giveitem ITEM_SWEET_HEART, 1
 	giveitem ITEM_ABILITY_CAPSULE, 1
 	giveitem ITEM_MASTER_BALL, 99
+
+    @ Entrar a Micocasino
+    setvar VAR_STATE_MICOLANDIA, 1
   closemessage
     end
 
