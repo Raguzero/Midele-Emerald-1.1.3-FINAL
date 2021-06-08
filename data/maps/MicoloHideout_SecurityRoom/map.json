@@ -4,6 +4,86 @@
     "allow_running": true,
     "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
     "bg_events": [
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+            "script": "MicoloHideout_SecurityRoom_PC1",
+            "type": "sign",
+            "x": 5,
+            "y": 1
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_SecurityRoom_PC1",
+            "type": "sign",
+            "x": 4,
+            "y": 1
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_SecurityRoom_PC2",
+            "type": "sign",
+            "x": 2,
+            "y": 1
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_SecurityRoom_PC2",
+            "type": "sign",
+            "x": 3,
+            "y": 1
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_SecurityRoom_PC3",
+            "type": "sign",
+            "x": 0,
+            "y": 1
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_SecurityRoom_PC3",
+            "type": "sign",
+            "x": 1,
+            "y": 1
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_SecurityRoom_PC4",
+            "type": "sign",
+            "x": 9,
+            "y": 5
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_SecurityRoom_PC4",
+            "type": "sign",
+            "x": 0,
+            "y": 5
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_SecurityRoom_Machine",
+            "type": "sign",
+            "x": 5,
+            "y": 6
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_SecurityRoom_Machine",
+            "type": "sign",
+            "x": 4,
+            "y": 6
+        }
     ],
     "connections": null,
     "coord_events": [
@@ -34,7 +114,7 @@
     "warp_events": [
         {
             "dest_map": "MAP_MICOLO_HIDEOUT_GAME_CORNER",
-            "dest_warp_id": 0,
+            "dest_warp_id": 3,
             "elevation": 0,
             "x": 8,
             "y": 1
