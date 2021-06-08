@@ -2488,12 +2488,22 @@ static void Task_DexNavMain(u8 taskId)
         
         if (species != SPECIES_NONE)
         {            
-            PrintSearchableSpecies(species);
-            PlaySE(SE_Z_SEARCH);
-            PlayCry5(species, 0);
+            u16 previous_species = VarGet(VAR_DEXNAV_SPECIES);
+            u16 new_species = ((sDexNavUiDataPtr->environment << 14) | species);
+            if (new_species == previous_species)
+            {
+                new_species = SPECIES_NONE; // se limpia el poke buscado
+                PlaySE(SE_C_SYU);
+            }
+            else
+            {
+                PlaySE(SE_Z_SEARCH);
+                PlayCry5(species, 0);
+            }
+            PrintSearchableSpecies(new_species & 0x3FFF);
             
             // create value to store in a var
-            VarSet(VAR_DEXNAV_SPECIES, ((sDexNavUiDataPtr->environment << 14) | species));
+            VarSet(VAR_DEXNAV_SPECIES, new_species);
         }
         else
         {
