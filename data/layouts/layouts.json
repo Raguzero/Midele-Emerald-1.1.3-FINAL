@@ -4746,7 +4746,7 @@
             "height": 21,
             "id": "LAYOUT_MICOLO_HIDEOUT_GAME_CORNER",
             "name": "MicoloHideout_GameCorner_Layout",
-            "primary_tileset": "gTileset_Building",
+            "primary_tileset": "gTileset_General",
             "secondary_tileset": "gTileset_MauvilleGameCorner",
             "width": 20
         },

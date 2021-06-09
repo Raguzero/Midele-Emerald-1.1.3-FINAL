@@ -204,6 +204,7 @@
 #define METATILE_General_CaveEntrance_Top      0x09F
 #define METATILE_General_Door                  0x021
 #define METATILE_General_Door_Contest          0x1DB
+#define METATILE_General_Upper_Door_Contest    0x1D3
 #define METATILE_General_Door_Gym              0x1CD
 #define METATILE_General_Door_PokeCenter       0x061
 #define METATILE_General_Door_PokeMart         0x041
@@ -662,5 +663,13 @@
 // gTileset_Underwater
 #define METATILE_Underwater_FloorShadow  0x228
 #define METATILE_Underwater_RockWall     0x21E
+
+//gTileset_MauvilleGameCorner
+#define METATILE_MauvilleGameCorner_CenteredUpperWall        0x212
+#define METATILE_MauvilleGameCorner_UpperGreenVendingMachine 0x20E
+#define METATILE_MauvilleGameCorner_LowerGreenVendingMachine 0x216
+#define METATILE_MauvilleGameCorner_UpperBlueVendingMachine  0x20F
+#define METATILE_MauvilleGameCorner_LowerBlueVendingMachine  0x217
+#define METATILE_MauvilleGameCorner_NoShadowRedFloor         0x202
 
 #endif // GUARD_METATILE_LABELS_H

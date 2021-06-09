@@ -1,12 +1,138 @@
 MicoloHideout_GameCorner_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, MicoloHideout_GameCorner_OnLoad
 	.byte 0
   .set COINS_PRICE_50_MICOLO,  750
 	.set COINS_PRICE_500_MICOLO, 7500
 
-MicoloHideout_GameCorner_Sign_TrashBin::
-  warp MAP_MICOLO_HIDEOUT_SECURITY_ROOM, 0, 0, 0
-  waitstate
-  end
+MicoloHideout_GameCorner_OnLoad:
+	compare VAR_STATE_MICOLANDIA, 2
+	call_if_lt MicoloHideout_GameCorner_CloseMicoloHideoutEntrance
+	end
+
+MicoloHideout_GameCorner_CloseMicoloHideoutEntrance:
+	setmetatile 6, 0, METATILE_MauvilleGameCorner_CenteredUpperWall , 1
+	setmetatile 6, 1, METATILE_MauvilleGameCorner_UpperGreenVendingMachine, 1
+	setmetatile 6, 2, METATILE_MauvilleGameCorner_LowerGreenVendingMachine, 1
+	setmetatile 7, 0, METATILE_MauvilleGameCorner_CenteredUpperWall , 1
+	setmetatile 7, 1, METATILE_MauvilleGameCorner_UpperBlueVendingMachine, 1
+	setmetatile 7, 2, METATILE_MauvilleGameCorner_LowerBlueVendingMachine, 1
+	return
+
+MicoloHideout_GameCorner_OpenMicoloHideoutEntrance:
+	setmetatile 6, 0, METATILE_General_Upper_Door_Contest , 1
+	setmetatile 6, 1, METATILE_General_Door_Contest, 1
+	setmetatile 6, 2, METATILE_MauvilleGameCorner_NoShadowRedFloor, 0
+	setmetatile 7, 0, METATILE_General_Upper_Door_Contest , 1
+	setmetatile 7, 1, METATILE_General_Door_Contest, 1
+	setmetatile 7, 2, METATILE_MauvilleGameCorner_NoShadowRedFloor, 0
+	return
+
+MicoloHideout_Sign_LaPapelera::
+	lockall
+	compare VAR_STATE_MICOLANDIA, 1
+	goto_if_eq MicoloHideout_Sign_LaPapelera_2
+	msgbox MicoloHideout_Sign_LaPapelera_Text_4, MSGBOX_SIGN
+MicoloHideout_Sign_LaPapelera_1:
+	releaseall
+	return
+
+MicoloHideout_Sign_LaPapelera_2:
+	msgbox MicoloHideout_Sign_LaPapelera_Text_0, MSGBOX_SIGN
+	waitmessage
+	playse SE_HAZURE
+	waitse
+	applymovement 10, Common_Movement_WalkInPlaceFastestLeft
+	waitmovement 0
+	applymovement 10, Common_Movement_WalkInPlaceFastestLeft
+	waitmovement 0
+	applymovement 10, Common_Movement_WalkInPlaceFastestLeft
+	waitmovement 0
+	applymovement 10, Common_Movement_WalkInPlaceFastestLeft
+	waitmovement 0
+	applymovement 10, Movement_Paco_Approach
+	waitmovement 0
+	msgbox MicoloHideout_Sign_LaPapelera_Text_1, MSGBOX_DEFAULT
+	waitmessage
+	applymovement EVENT_OBJ_ID_PLAYER, Movement_JugadorEmpujado
+	applymovement 10, Movement_Paco_EmpujaJugador
+	waitmovement 0
+	msgbox MicoloHideout_Sign_LaPapelera_Text_2, MSGBOX_DEFAULT
+	waitmessage
+	playse SE_W026
+	waitse
+	playse SE_W153
+	waitse
+	playse SE_TRACK_MOVE
+	special DoSealedChamberShakingEffect1
+	waitstate
+	delay 40
+	special DoSealedChamberShakingEffect2
+	waitstate
+	playse SE_DOOR
+	delay 40
+	special DoSealedChamberShakingEffect2
+	waitstate
+	playse SE_DOOR
+	delay 40
+	special DoSealedChamberShakingEffect2
+	waitstate
+	playse SE_DOOR
+	delay 40
+	call MicoloHideout_GameCorner_OpenMicoloHideoutEntrance
+	playse(SE_RG_W_DOOR)
+	special DrawWholeMapView
+	msgbox MicoloHideout_Sign_LaPapelera_Text_3, MSGBOX_DEFAULT
+	applymovement 10, Movement_Paco_Chau
+	waitmovement 0
+	playse SE_JIDO_DOA
+	removeobject 10
+	waitse
+	setvar VAR_STATE_MICOLANDIA, 2
+	goto MicoloHideout_Sign_LaPapelera_1
+
+
+Movement_Paco_Approach:
+	walk_fast_up
+	walk_fast_up
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	face_up
+	step_end
+
+Movement_JugadorEmpujado:
+	face_right
+	lock_facing_direction
+	walk_left
+	unlock_facing_direction
+	step_end
+
+Movement_Paco_EmpujaJugador:
+	walk_up
+	step_end
+
+Movement_Paco_Chau:
+	walk_right
+	walk_up
+	step_end
+
+MicoloHideout_Sign_LaPapelera_Text_0:
+	.string "It's empty.... no, wait, amigo. It's not\n"
+	.string "empty.\p"
+	.string "Parece haber algo al fondo de la\n"
+	.string "papelera...$"
+
+MicoloHideout_Sign_LaPapelera_Text_1:
+	.string "TEXTO MUEVE EL CULETE$"
+
+MicoloHideout_Sign_LaPapelera_Text_2:
+	.string "TEXTO PATADA SALTO$"
+
+MicoloHideout_Sign_LaPapelera_Text_3:
+	.string "TEXTO CHAU$"
+
+MicoloHideout_Sign_LaPapelera_Text_4:
+	.string "La papelera ha quedado destruida...$"
 
 MicoloHideout_GameCorner_EventScript_CoinsClerk:: @ 820FBB9
 	lock
@@ -250,6 +376,20 @@ MicoloHideout_EventScript_VendingMachine::
 	showmoneybox 0, 0, 0
 	goto MicoloHideout_EventScript_ChooseDrink
 	end
+
+MicoloHideout_EventScript_VendingMachine2::
+	lockall
+	compare VAR_STATE_MICOLANDIA, 1
+	goto_if_eq MicoloHideout_EventScript_VendingMachine2_2
+MicoloHideout_EventScript_VendingMachine2_1:
+	end
+
+MicoloHideout_EventScript_VendingMachine2_2:
+	message MicoloHideout_Text_WhichDrinkWouldYouLike
+	waitmessage
+	showmoneybox 0, 0, 0
+	goto MicoloHideout_EventScript_ChooseDrink
+	goto MicoloHideout_EventScript_VendingMachine2_1
 
 MicoloHideout_EventScript_ChooseDrink::
 	multichoice 16, 0, MULTI_VENDING_MACHINE_MIDELE, 0
