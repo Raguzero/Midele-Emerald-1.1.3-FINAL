@@ -70,3 +70,127 @@ Merum_DespuesDeBatalla:
     .string "temas de conversación. Dicho eso,\l"
     .string "¿qué opinas de mi GRAN MOÁI?$"
 
+MicoloHideout_MeetingRoom_Showcase_Monociclo::
+	msgbox MicoloHideout_MeetingRoom_Showcase_Monociclo_Text_0, MSGBOX_SIGN
+	return
+
+
+MicoloHideout_MeetingRoom_Showcase_Micomandamientos::
+	msgbox MicoloHideout_MeetingRoom_Showcase_Micomandamientos_Text_0, MSGBOX_SIGN
+	return
+
+
+MicoloHideout_MeetingRoom_Showcase_Monociclo_Text_0:
+	.string "Hay un monociclo dentro.$"
+
+MicoloHideout_MeetingRoom_Showcase_Micomandamientos_Text_0:
+	.string "Hay una inscripción en una tabilla de\n"
+	.string "piedra. Lees lo que pone:\p"
+	.string "“LOS DIEZ MICOMANDAMIENTOS\p"
+	.string "1. Amarás al mico sobre todas las cosas.\p"
+	.string "2. No tomarás el nombre del mico en vano.\p"
+	.string "3. Santificarás a los monociclos.\p"
+	.string "4. Honrarás a MIDELE y a ULTRA MAGIC.\p"
+	.string "5. No pensarás.\p"
+	.string "6. No hackearás POKéMON impuros.\p"
+	.string "7. No robarás protagonismo a MICOLO.\p"
+	.string "8. No dirás LOOOOOOL en vano.\p"
+	.string "9. NO consentirás pensamientos ni\n"
+	.string "deseos inteligentes.\p"
+	.string "10. NO codiciarás monociclos ajenos.\p"
+	.string "En nombre del mico, del hijo, del\n"
+	.string "espíritu midélico. LOOOOOOOOOL.”$"
+
+MicoloHideout_MeetingRoom_MagmaLetter::
+	msgbox MicoloHideout_MeetingRoom_MagmaLetter_Text_0, MSGBOX_SIGN
+	return
+
+
+MicoloHideout_MeetingRoom_MagmaLetter_Text_0:
+	.string "Hay una carta con el símbolo MAGMA en\n"
+	.string "la mesa, dice lo siguiente:\p"
+	.string "“Estimado MICOLO:\p"
+	.string "Tu plan sobre el secado de todas las\n"
+	.string "rutas marítimas más allá de RUTA 124\l"
+	.string "nos ha parecido bastante interesante,\l"
+	.string "así que hemos decidido enviarte todas\l"
+	.string "esas máquinas, como pediste.\p"
+	.string "Son el mismo tipo de máquinas que\n"
+	.string "utilizamos en nuestra GUARIDA MAGMA,\l"
+	.string "así que sin duda te serán útiles.\p"
+	.string "Según tus indicaciones, se espera que\n"
+	.string "sean enviadas en unos días a la isla al\l"
+	.string "oeste de IZABE, de nombre MICOLANDIA.\l"
+	.string "Recomiendo que hagas espacio para\l"
+	.string "ellas, pues son bastante grandes.\p"
+	.string "PD: si bien nuestras máquinas son de la\n"
+	.string "máxima calidad, dudo que sean capaces\l"
+	.string "de secar en su totalidad toda esa masa\l"
+	.string "de agua. Probablamente ocurra un\l"
+	.string "secado parcial, pero eso debería ser\l"
+	.string "más que suficiente para probar la\l"
+	.string "efectividad de las máquinas.\p"
+	.string "LÍDER MAGMA, MAGNO”$"
+
+MicoloHideout_MeetingRoom_PC1::
+	playse SE_PC_LOGIN
+	waitse
+	msgbox MicoloHideout_MeetingRoom_PC1_Text_0, MSGBOX_SIGN
+	return
+
+
+MicoloHideout_MeetingRoom_PC2::
+	playse SE_W153
+	waitse
+	msgbox MicoloHideout_MeetingRoom_PC2_Text_0, MSGBOX_SIGN
+	return
+
+
+MicoloHideout_MeetingRoom_PC3::
+	playse SE_PC_LOGIN
+	waitse
+	msgbox MicoloHideout_MeetingRoom_PC3_Text_0, MSGBOX_SIGN
+	return
+
+
+MicoloHideout_MeetingRoom_PCHeal::
+	lock
+	playse SE_PC_LOGIN
+	waitse
+	msgbox MicoloHideout_MeetingRoom_PCHeal_Text_0, MSGBOX_YESNO
+	waitmessage
+	compare VAR_RESULT, YES
+	goto_if_eq MicoloHideout_MeetingRoom_PCHeal_2
+MicoloHideout_MeetingRoom_PCHeal_1:
+	release
+	return
+
+MicoloHideout_MeetingRoom_PCHeal_2:
+	playse MUS_ME_ASA
+	waitse
+	special HealPlayerParty
+	goto MicoloHideout_MeetingRoom_PCHeal_1
+
+
+MicoloHideout_MeetingRoom_PC1_Text_0:
+	.string "Hay un montón de datos técnicos sobre\n"
+	.string "POKéMON y entrenadores.$"
+
+MicoloHideout_MeetingRoom_PC2_Text_0:
+	.string "No funciona. Le han pegado una PATADA\n"
+	.string "SALTO...$"
+
+MicoloHideout_MeetingRoom_PC3_Text_0:
+	.string "Hay una tabla con datos sobre las\n"
+	.string "operaciones de MICOLANDIA:\p"
+	.string "“MAQUINARIA MAGMA: 300000¥\p"
+	.string "INFRAESTRUCTURA GENERAL DE LA CIUDAD:\n"
+	.string "1000000¥\p"
+	.string "MICOCASINO: 250000¥\p"
+	.string "MICOLIGA: 350000¥\p"
+	.string "LABORATORIO: 800000¥\p"
+	.string "MONOCICLOS: 9999000¥”$"
+
+MicoloHideout_MeetingRoom_PCHeal_Text_0:
+	.string "¿Quieres curar a tus POKéMON?$"
+

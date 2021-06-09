@@ -4,6 +4,166 @@
     "allow_running": true,
     "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
     "bg_events": [
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_MeetingRoom_Showcase_Monociclo",
+            "type": "sign",
+            "x": 5,
+            "y": 2
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_MeetingRoom_Showcase_Monociclo",
+            "type": "sign",
+            "x": 1,
+            "y": 2
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_MeetingRoom_Showcase_Monociclo",
+            "type": "sign",
+            "x": 19,
+            "y": 2
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_MeetingRoom_Showcase_Monociclo",
+            "type": "sign",
+            "x": 15,
+            "y": 2
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_MeetingRoom_Showcase_Micomandamientos",
+            "type": "sign",
+            "x": 0,
+            "y": 14
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_MeetingRoom_Showcase_Micomandamientos",
+            "type": "sign",
+            "x": 17,
+            "y": 10
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_MeetingRoom_Showcase_Micomandamientos",
+            "type": "sign",
+            "x": 16,
+            "y": 10
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_MeetingRoom_Showcase_Micomandamientos",
+            "type": "sign",
+            "x": 15,
+            "y": 10
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_MeetingRoom_Showcase_Micomandamientos",
+            "type": "sign",
+            "x": 5,
+            "y": 10
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_MeetingRoom_Showcase_Micomandamientos",
+            "type": "sign",
+            "x": 4,
+            "y": 10
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_MeetingRoom_Showcase_Micomandamientos",
+            "type": "sign",
+            "x": 3,
+            "y": 10
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_MeetingRoom_Showcase_Micomandamientos",
+            "type": "sign",
+            "x": 20,
+            "y": 14
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_MeetingRoom_MagmaLetter",
+            "type": "sign",
+            "x": 11,
+            "y": 16
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_MeetingRoom_MagmaLetter",
+            "type": "sign",
+            "x": 11,
+            "y": 15
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_MeetingRoom_MagmaLetter",
+            "type": "sign",
+            "x": 10,
+            "y": 15
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_MeetingRoom_MagmaLetter",
+            "type": "sign",
+            "x": 10,
+            "y": 16
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+            "script": "MicoloHideout_MeetingRoom_PC1",
+            "type": "sign",
+            "x": 6,
+            "y": 14
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+            "script": "MicoloHideout_MeetingRoom_PC2",
+            "type": "sign",
+            "x": 2,
+            "y": 17
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+            "script": "MicoloHideout_MeetingRoom_PC3",
+            "type": "sign",
+            "x": 13,
+            "y": 17
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+            "script": "MicoloHideout_MeetingRoom_PCHeal",
+            "type": "sign",
+            "x": 17,
+            "y": 17
+        }
     ],
     "connections": null,
     "coord_events": [
@@ -156,6 +316,32 @@
             "trainer_type": "1",
             "x": 2,
             "y": 3
+        },
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_ITEM_BALL",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "NULL",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 0,
+            "y": 18
+        },
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_ITEM_BALL",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "NULL",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 20,
+            "y": 15
         }
     ],
     "region_map_section": "MAPSEC_MICOLO_HIDEOUT",
