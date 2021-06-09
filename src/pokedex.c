@@ -304,7 +304,7 @@ static void CreateStatBars(struct PokedexListItem *dexMon);
 static void CreateStatBarsBg(void);
 static void SpriteCB_StatBars(struct Sprite *sprite);
 static void SpriteCB_StatBarsBg(struct Sprite *sprite);
-u16 CreateMonSpriteFromSpeciesNumber(u16 speciesNum, s16 x, s16 y, u16 paletteSlot);
+u16 CreateMonSpriteFromSpeciesNumber(u16 speciesNum, s16 x, s16 y, u16 paletteSlot, bool8 forceFemale);
 
 //Physical/Special Split from BE
  #define TAG_SPLIT_ICONS 30004
@@ -2353,7 +2353,7 @@ static void PrintMonDexNumAndName(u8 windowId, u8 fontId, const u8* str, u8 left
     color[0] = 0;
     color[1] = 15;
     color[2] = 3;
-    AddTextPrinterParameterized4(windowId, fontId, left * 8, (top * 8) + 1, 0, 0, color, -1, str);
+    AddTextPrinterParameterized4(windowId, fontId, left * 8 - (left == 7 ? 3 : 2), (top * 8) + 1, 0, 0, color, -1, str);
 }
 
 #define MON_LIST_X 2
@@ -2462,9 +2462,9 @@ static void CreateMonDexNum(u16 a, u8 left, u8 top, u16 unused)
 static void CreateCaughtBall(u16 a, u8 x, u8 y, u16 unused)
 {
     if (a)
-        BlitBitmapToWindow(0, gUnknown_0855D2BE, x * 8, y * 8, 8, 16);
+        BlitBitmapToWindow(0, gUnknown_0855D2BE, x * 8 - 2, y * 8, 8, 16);
     else
-        FillWindowPixelRect(0, PIXEL_FILL(0), x * 8, y * 8, 8, 16);
+        FillWindowPixelRect(0, PIXEL_FILL(0), x * 8 - 2, y * 8, 8, 16);
 }
 
 static u8 CreateMonName(u16 num, u8 left, u8 top)
@@ -2482,7 +2482,7 @@ static u8 CreateMonName(u16 num, u8 left, u8 top)
 
 static void ClearMonListEntry(u8 x, u8 y, u16 unused)
 {
-    FillWindowPixelRect(0, PIXEL_FILL(0), x * 8, y * 8, 0x60, 16);
+    FillWindowPixelRect(0, PIXEL_FILL(0), x * 8 - 2, y * 8, 0x62, 16);
 }
 
 static void CreateInitialPokemonSprites(u16 selectedMon, u16 b)
@@ -3479,7 +3479,7 @@ void LoadInfoScreen(u8 taskId)
             gMain.state++;
             break;
         case 4:
-            PrintMonInfo(sPokedexListItem->dexNum, sPokedexView->dexMode == 0 ? 0 : 1, sPokedexListItem->owned, 0);
+			PrintMonInfo(sPokedexListItem->species, sPokedexView->dexMode == 0 ? 0 : 1, sPokedexListItem->owned, 0);
             if (!sPokedexListItem->owned)
                 LoadPalette(gPlttBufferUnfaded + 1, 0x31, 0x1E);
             CopyWindowToVram(WIN_INFO, 3);
@@ -3491,7 +3491,7 @@ void LoadInfoScreen(u8 taskId)
         case 5:
             if (gTasks[taskId].data[1] == 0)
             {
-                gTasks[taskId].tMonSpriteId = (u16)CreateMonSpriteFromSpeciesNumber(sPokedexListItem->species, 48, 56, 0);
+                gTasks[taskId].tMonSpriteId = (u16)CreateMonSpriteFromSpeciesNumber(sPokedexListItem->species, 48, 56, 0, FALSE);
                 gSprites[gTasks[taskId].tMonSpriteId].oam.priority = 0;
             }
             gMain.state++;
@@ -3797,7 +3797,7 @@ void LoadCryScreen(u8 taskId)
             gMain.state++;
             break;
         case 5:
-            gTasks[taskId].tMonSpriteId = CreateMonSpriteFromSpeciesNumber(sPokedexListItem->species, 48, 56, 0);
+            gTasks[taskId].tMonSpriteId = CreateMonSpriteFromSpeciesNumber(sPokedexListItem->species, 48, 56, 0, FALSE);
             gSprites[gTasks[taskId].tMonSpriteId].oam.priority = 0;
             gDexCryScreenState = 0;
             gMain.state++;
@@ -4011,7 +4011,7 @@ void LoadSizeScreen(u8 taskId)
             gMain.state++;
             break;
         case 6:
-            spriteId = CreateMonSpriteFromSpeciesNumber(sPokedexListItem->species, 88, 56, 1);
+            spriteId = CreateMonSpriteFromSpeciesNumber(sPokedexListItem->species, 88, 56, 1, FALSE);
             gSprites[spriteId].oam.affineMode = ST_OAM_AFFINE_NORMAL;
             gSprites[spriteId].oam.matrixNum = 2;
             gSprites[spriteId].oam.priority = 0;
@@ -4296,23 +4296,24 @@ _080BFDB4:\n\
 }
 #endif
 
-u8 CreateDexDisplayMonDataTask(u16 dexNum, u32 b, u32 c)
+u8 CreateDexDisplayMonDataTask(u16 species, u32 trainerId, u32 personality)
 {
     u8 taskId = CreateTask(Task_DisplayNewMonData, 0);
 
     gTasks[taskId].data[0] = 0;
-    gTasks[taskId].data[1] = dexNum;
-    gTasks[taskId].data[12] = b;
-    gTasks[taskId].data[13] = b >> 16;
-    gTasks[taskId].data[14] = c;
-    gTasks[taskId].data[15] = c >> 16;
+    gTasks[taskId].data[1] = species;
+    gTasks[taskId].data[12] = trainerId;
+    gTasks[taskId].data[13] = trainerId >> 16;
+    gTasks[taskId].data[14] = personality;
+    gTasks[taskId].data[15] = personality >> 16;
     return taskId;
 }
 
 static void Task_DisplayNewMonData(u8 taskId)
 {
     u8 spriteId;
-    u16 dexNum = gTasks[taskId].data[1];
+    u16 species = gTasks[taskId].data[1];
+    u16 dexNum = SpeciesToNationalPokedexNum(species);
 
     switch (gTasks[taskId].data[0])
     {
@@ -4337,10 +4338,9 @@ static void Task_DisplayNewMonData(u8 taskId)
             CopyToBgTilemapBuffer(3, gPokedexTilemap_DescriptionScreen, 0, 0);
             FillWindowPixelBuffer(WIN_INFO, PIXEL_FILL(0));
             PutWindowTilemap(WIN_INFO);
-			CopyWindowToVram(WIN_INFO, 3);
-			CopyBgTilemapBufferToVram(1);
-			CopyBgTilemapBufferToVram(2);
-			CopyBgTilemapBufferToVram(3);
+            PutWindowTilemap(WIN_FOOTPRINT);
+            PrintFootprint(WIN_FOOTPRINT, dexNum);
+            CopyWindowToVram(WIN_FOOTPRINT, 2);
             ResetPaletteFade();
             LoadPokedexBgPalette(0);
             gTasks[taskId].data[0]++;
@@ -4349,14 +4349,15 @@ static void Task_DisplayNewMonData(u8 taskId)
             gTasks[taskId].data[0]++;
             break;
         case 3:
-            PrintMonInfo(dexNum, IsNationalPokedexEnabled(), 1, 1);
+            PrintMonInfo(species, IsNationalPokedexEnabled(), 1, 1);
             CopyWindowToVram(WIN_INFO, 3);
+			CopyBgTilemapBufferToVram(1);
             CopyBgTilemapBufferToVram(2);
             CopyBgTilemapBufferToVram(3);
             gTasks[taskId].data[0]++;
             break;
         case 4:
-            spriteId = CreateMonSpriteFromNationalDexNumber(dexNum, 48, 56, 0);
+			spriteId = CreateMonSpriteFromSpeciesNumber(species, 48, 56, 0, SpeciesHasGenderDifference[species] && GetGenderFromSpeciesAndPersonality(species, gTasks[taskId].data[14] | (gTasks[taskId].data[15] << 16)) == MON_FEMALE);
             gSprites[spriteId].oam.priority = 0;
             BeginNormalPaletteFade(0xFFFFFFFF, 0, 0x10, 0, RGB_BLACK);
             SetVBlankCallback(gUnknown_030060B4);
@@ -4375,7 +4376,7 @@ static void Task_DisplayNewMonData(u8 taskId)
         case 6:
             if (!gPaletteFade.active)
             {
-                PlayCry1(NationalPokedexNumToSpecies(dexNum), 0);
+                PlayCry1(species, 0);
                 gTasks[taskId].data[2] = 0;
                 gTasks[taskId].func = sub_80C0088;
             }
@@ -4421,7 +4422,7 @@ void blockset_load_palette_to_gpu(u8 taskId)
         if (buffer)
             Free(buffer);
 
-        species = NationalPokedexNumToSpecies(gTasks[taskId].data[1]);
+        species = gTasks[taskId].data[1];
         otId = ((u16)gTasks[taskId].data[13] << 16) | (u16)gTasks[taskId].data[12];
         personality = ((u16)gTasks[taskId].data[15] << 16) | (u16)gTasks[taskId].data[14];
         paletteNum = gSprites[gTasks[taskId].data[3]].oam.paletteNum;
@@ -4491,9 +4492,8 @@ static void SetTypeIconPosAndPal(u8 typeId, u8 x, u8 y, u8 spriteArrayId)
     sprite->pos1.y = y + 8;
     SetSpriteInvisibility(spriteArrayId, FALSE);
 }
-static void PrintCurrentSpeciesTypeInfo(void)
+static void PrintSpeciesTypeInfo(u16 species)
 {
-    u16 species = sPokedexListItem->species;
     u32 i;
     u8 type1, type2;
 
@@ -4530,11 +4530,11 @@ static void CreateTypeIconSprites(void)
     }
 }
 
-static void PrintMonInfo(u32 num, u32 value, u32 owned, u32 newEntry)
+static void PrintMonInfo(u32 natNum, u32 value, u32 owned, u32 newEntry)
 {
     u8 str[0x10];
     u8 str2[0x20];
-    u16 natNum;
+	u16 num = SpeciesToNationalPokedexNum(natNum);
     const u8 *text;
     const u8 *text2;
     const u8 *text3;
@@ -4585,10 +4585,7 @@ static void PrintMonInfo(u32 num, u32 value, u32 owned, u32 newEntry)
 
     //Type Icon(s) //HGSS_Ui
     if (owned && !newEntry)
-    {
-        text3 = gPokedexEntries[num].description;
-        PrintCurrentSpeciesTypeInfo(); //HGSS_Ui
-    }
+        PrintSpeciesTypeInfo(natNum); //HGSS_Ui
 }
 
 static void PrintMonHeight(u16 height, u8 left, u8 top)
@@ -5315,9 +5312,10 @@ u16 CreateMonSpriteFromNationalDexNumber(u16 nationalNum, s16 x, s16 y, u16 pale
 	return CreateMonPicSprite_HandleDeoxys(nationalNum, personality ^ 0x8000, personality, TRUE, x, y, paletteSlot, 0xFFFF);
 }
 
-u16 CreateMonSpriteFromSpeciesNumber(u16 speciesNum, s16 x, s16 y, u16 paletteSlot)
+u16 CreateMonSpriteFromSpeciesNumber(u16 speciesNum, s16 x, s16 y, u16 paletteSlot, bool8 forceFemale)
 {
     u32 personality = sub_80C0E68(speciesNum);
+	if (forceFemale) personality = 1;
     return CreateMonPicSprite_HandleDeoxys(speciesNum, personality ^ 0x8000, personality, TRUE, x, y, paletteSlot, 0xFFFF);
 }
 
