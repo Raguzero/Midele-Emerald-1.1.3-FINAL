@@ -4357,7 +4357,7 @@ static void Task_DisplayNewMonData(u8 taskId)
             gTasks[taskId].data[0]++;
             break;
         case 4:
-			spriteId = CreateMonSpriteFromSpeciesNumber(species, 48, 56, 0, SpeciesHasGenderDifference[species] && GetGenderFromSpeciesAndPersonality(species, gTasks[taskId].data[14] | (gTasks[taskId].data[15] << 16)) == MON_FEMALE);
+			spriteId = CreateMonSpriteFromSpeciesNumber(species, 48, 56, 0, SPECIES_HAS_GENDER_DIFFERENCE(species) && GetGenderFromSpeciesAndPersonality(species, gTasks[taskId].data[14] | (gTasks[taskId].data[15] << 16)) == MON_FEMALE);
             gSprites[spriteId].oam.priority = 0;
             BeginNormalPaletteFade(0xFFFFFFFF, 0, 0x10, 0, RGB_BLACK);
             SetVBlankCallback(gUnknown_030060B4);

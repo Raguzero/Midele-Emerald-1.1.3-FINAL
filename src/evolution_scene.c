@@ -255,7 +255,7 @@ void EvolutionScene(struct Pokemon* mon, u16 speciesToEvolve, bool8 canStopEvo, 
     currSpecies = GetMonData(mon, MON_DATA_SPECIES);
     trainerId = GetMonData(mon, MON_DATA_OT_ID);
     personality = GetMonData(mon, MON_DATA_PERSONALITY);
-	if (SpeciesHasGenderDifference[currSpecies] && GetGenderFromSpeciesAndPersonality(currSpecies, personality) == MON_FEMALE)
+	if (SPECIES_HAS_GENDER_DIFFERENCE(currSpecies) && GetGenderFromSpeciesAndPersonality(currSpecies, personality) == MON_FEMALE)
     DecompressPicFromTable_2(&gMonFrontPicTableFemale[currSpecies],
                              gMonSpritesGfxPtr->sprites[1],
                              currSpecies);
@@ -276,7 +276,7 @@ void EvolutionScene(struct Pokemon* mon, u16 speciesToEvolve, bool8 canStopEvo, 
     gSprites[ID].invisible = TRUE;
 
     // postEvo sprite
-	if (SpeciesHasGenderDifference[currSpecies] && GetGenderFromSpeciesAndPersonality(currSpecies, personality) == MON_FEMALE)
+	if (SPECIES_HAS_GENDER_DIFFERENCE(currSpecies) && GetGenderFromSpeciesAndPersonality(currSpecies, personality) == MON_FEMALE)
     DecompressPicFromTable_2(&gMonFrontPicTableFemale[speciesToEvolve],
                              gMonSpritesGfxPtr->sprites[3],
                              speciesToEvolve);
@@ -359,7 +359,7 @@ static void CB2_EvolutionSceneLoadGraphics(void)
     FreeAllSpritePalettes();
     gReservedSpritePaletteCount = 4;
 						 
-	if (SpeciesHasGenderDifference[postEvoSpecies] && GetGenderFromSpeciesAndPersonality(postEvoSpecies, personality) == MON_FEMALE)
+	if (SPECIES_HAS_GENDER_DIFFERENCE(postEvoSpecies) && GetGenderFromSpeciesAndPersonality(postEvoSpecies, personality) == MON_FEMALE)
     DecompressPicFromTable_2(&gMonFrontPicTableFemale[postEvoSpecies],
                              gMonSpritesGfxPtr->sprites[3],
                              postEvoSpecies);

@@ -557,7 +557,7 @@ void BattleLoadOpponentMonSpriteGfx(struct Pokemon *mon, u8 battlerId)
             lzPaletteData = GetMonFrontSpritePal(mon);
         }
     }
-	else if (!SpeciesHasGenderDifference[species])
+	else if (!SPECIES_HAS_GENDER_DIFFERENCE(species))
         lzPaletteData = GetMonSpritePalFromSpeciesAndPersonality(species, otId, monsPersonality);
     else
     {
@@ -626,7 +626,7 @@ void BattleLoadPlayerMonSpriteGfx(struct Pokemon *mon, u8 battlerId)
 
     if (gBattleSpritesDataPtr->battlerData[battlerId].transformSpecies == SPECIES_NONE)
         lzPaletteData = GetMonFrontSpritePal(mon);
-	else if (!SpeciesHasGenderDifference[species])
+	else if (!SPECIES_HAS_GENDER_DIFFERENCE(species))
         lzPaletteData = GetMonSpritePalFromSpeciesAndPersonality(species, otId, monsPersonality);
     else
     {
@@ -954,7 +954,7 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, bool8 notTransform
         dst = (void *)(VRAM + 0x10000 + gSprites[gBattlerSpriteIds[battlerAtk]].oam.tileNum * 32);
         DmaCopy32(3, src, dst, 0x800);
         paletteOffset = 0x100 + battlerAtk * 16;
-		if (!SpeciesHasGenderDifference[targetSpecies])
+		if (!SPECIES_HAS_GENDER_DIFFERENCE(targetSpecies))
         lzPaletteData = GetMonSpritePalFromSpeciesAndPersonality(targetSpecies, otId, personalityValue);
 		else
 {

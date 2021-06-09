@@ -5154,7 +5154,7 @@ static u16 sub_80CC124(u16 species, u32 personality)
 {
     u16 i, var;
 	
-	if (SpeciesHasGenderDifference[species] && GetGenderFromSpeciesAndPersonality(species, personality) == MON_FEMALE)
+	if (SPECIES_HAS_GENDER_DIFFERENCE(species) && GetGenderFromSpeciesAndPersonality(species, personality) == MON_FEMALE)
     {
         species |= 0x8000;
     }
@@ -5189,7 +5189,7 @@ static void sub_80CC1E0(u16 species, u32 personality)
 {
     u16 i;
 
-    if (SpeciesHasGenderDifference[species] && GetGenderFromSpeciesAndPersonality(species, personality) == MON_FEMALE)
+    if (SPECIES_HAS_GENDER_DIFFERENCE(species) && GetGenderFromSpeciesAndPersonality(species, personality) == MON_FEMALE)
     {
         species |= 0x8000;
     }

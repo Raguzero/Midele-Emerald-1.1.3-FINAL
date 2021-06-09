@@ -136,7 +136,8 @@ extern const u8 gEnemyMonElevation[NUM_SPECIES];
 extern const union AnimCmd *const *const gMonFrontAnimsPtrTable[];
 extern const struct CompressedSpriteSheet gMonFrontPicTable[];
 extern const struct CompressedSpriteSheet gMonFrontPicTableFemale[];
-extern const bool8 SpeciesHasGenderDifference[NUM_SPECIES];
+#define SPECIES_HAS_GENDER_DIFFERENCE(species) (species == SPECIES_FRILLISH || species == SPECIES_JELLICENT)
+
 
 extern const struct Trainer gTrainers[];
 extern const u8 gTrainerClassNames[][13];
