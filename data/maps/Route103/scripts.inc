@@ -455,6 +455,7 @@ Route103_EventScript_NotEnoughMoney::
 
 Route103_EventScript_Avader::
 	lockall
+    goto_if_unset FLAG_ADVENTURE_STARTED, Route103_EventScript_Avader_NoDex
 	msgbox Route103_Text_Avader_TalkToHimself, MSGBOX_DEFAULT
 	faceplayer
 	playse SE_PIN
@@ -471,6 +472,13 @@ Route103_EventScript_Avader::
 	goto_if_eq Route103_EventScript_Avader_ReceiveUnownPC
 	goto Route103_Avader_EventScript_NoRoomForPokemon
 	end
+
+Route103_EventScript_Avader_NoDex:
+    lockall
+    faceplayer
+    msgbox Route103_Text_Avader_NoDex, MSGBOX_DEFAULT
+    releaseall
+    end
 
 Route103_EventScript_Avader_ReceiveUnownParty::
 	call Route103_EventScript_Avader_ReceivedUnownFanfare
@@ -717,4 +725,16 @@ Route103_Text_Avader_NoRoomForPokemon:
 
 Route103_Text_Avader_PlayerReceivedUnown: 
 	.string "{PLAYER} received UNOWN!$"
+
+Route103_Text_Avader_NoDex:
+    .string "¿Osas hablar conmigo? Para hacer eso\n"
+	.string "antes tendrás que haber jugado\l"
+	.string "XENOBLADE.\p"
+	.string "Es broma, en este mundo POKéMON no\n"
+	.string "existe XENOBLADE. Un mundo\l"
+	.string "postapocalíptico, lo sé.\p"
+	.string "Sea como sea, ni siquiera tienes una\n"
+	.string "POKéDEX, y eso te hace un NOOB de\l"
+	.string "manual, así que mejor vete, que no\l"
+	.string "quiero que te vean comigo, jeje.$"
 
