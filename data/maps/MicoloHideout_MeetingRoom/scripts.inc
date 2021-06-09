@@ -194,3 +194,19 @@ MicoloHideout_MeetingRoom_PC3_Text_0:
 MicoloHideout_MeetingRoom_PCHeal_Text_0:
 	.string "¿Quieres curar a tus POKéMON?$"
 
+MicoloHideout_MeetingRoom_MauvilleMewVader::
+	lock
+	faceplayer
+	playmoncry SPECIES_MEWTWO, 2
+	waitmoncry
+	msgbox MicoloHideout_MeetingRoom_MauvilleMewVader_Text_0, MSGBOX_DEFAULT
+	release
+	return
+
+
+MicoloHideout_MeetingRoom_MauvilleMewVader_Text_0:
+	.string "Este MEW tiene una nota:\p"
+	.string "“He ido a la RUTA 110 con tu PRIMA.\n"
+	.string "Si quieres pasar, ve a buscarme.\p"
+	.string "A.VADER”$"
+

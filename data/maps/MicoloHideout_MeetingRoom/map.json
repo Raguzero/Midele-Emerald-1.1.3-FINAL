@@ -294,19 +294,6 @@
         {
             "elevation": 3,
             "flag": "0",
-            "graphics_id": "EVENT_OBJ_GFX_MYSTERY_GIFT_MAN",
-            "movement_range_x": 0,
-            "movement_range_y": 0,
-            "movement_type": "MOVEMENT_TYPE_NONE",
-            "script": "NULL",
-            "trainer_sight_or_berry_tree_id": "0",
-            "trainer_type": "0",
-            "x": 18,
-            "y": 2
-        },
-        {
-            "elevation": 3,
-            "flag": "0",
             "graphics_id": "EVENT_OBJ_GFX_WOMAN_5",
             "movement_range_x": 0,
             "movement_range_y": 0,
@@ -342,6 +329,19 @@
             "trainer_type": "0",
             "x": 20,
             "y": 15
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_VADER_MAUVILLE_RUINS_ROBO",
+            "graphics_id": "EVENT_OBJ_GFX_MEW",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_DOWN_LEFT_AND_RIGHT",
+            "script": "MicoloHideout_MeetingRoom_MauvilleMewVader",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 17,
+            "y": 2
         }
     ],
     "region_map_section": "MAPSEC_MICOLO_HIDEOUT",
