@@ -4768,7 +4768,7 @@
             "name": "MicoloHideout_ExperimentRoom_Layout",
             "primary_tileset": "gTileset_General",
             "secondary_tileset": "gTileset_Facility",
-            "width": 20
+            "width": 30
         },
         {
             "blockdata_filepath": "data/layouts/MicoloHideout_LavaRoom/map.bin",

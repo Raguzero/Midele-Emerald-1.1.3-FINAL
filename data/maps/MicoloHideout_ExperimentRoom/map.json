@@ -11,6 +11,62 @@
             "type": "sign",
             "x": 15,
             "y": 28
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_ExperimentRoom_Experiment1",
+            "type": "sign",
+            "x": 4,
+            "y": 14
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_ExperimentRoom_Experiment3",
+            "type": "sign",
+            "x": 17,
+            "y": 14
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_ExperimentRoom_Experiment2",
+            "type": "sign",
+            "x": 11,
+            "y": 14
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_ExperimentRoom_Experiment6",
+            "type": "sign",
+            "x": 17,
+            "y": 19
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_ExperimentRoom_Experiment5",
+            "type": "sign",
+            "x": 11,
+            "y": 19
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_ExperimentRoom_Experiment4",
+            "type": "sign",
+            "x": 4,
+            "y": 19
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloHideout_ExperimentRoom_Experiment7",
+            "type": "sign",
+            "x": 14,
+            "y": 28
         }
     ],
     "connections": null,
@@ -28,6 +84,20 @@
             "weather": "COORD_EVENT_WEATHER_FOG_HORIZONTAL",
             "x": 9,
             "y": 24
+        },
+        {
+            "elevation": 0,
+            "type": "weather",
+            "weather": "COORD_EVENT_WEATHER_RAIN_THUNDERSTORM",
+            "x": 21,
+            "y": 27
+        },
+        {
+            "elevation": 0,
+            "type": "weather",
+            "weather": "COORD_EVENT_WEATHER_SUNNY",
+            "x": 20,
+            "y": 27
         }
     ],
     "id": "MAP_MICOLO_HIDEOUT_EXPERIMENT_ROOM",
@@ -134,7 +204,7 @@
             "movement_range_x": 0,
             "movement_range_y": 0,
             "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-            "script": "NULL",
+            "script": "MicoloHideout_ExperimentRoom_Scientist1",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
             "x": 17,
@@ -243,6 +313,71 @@
             "trainer_type": "1",
             "x": 4,
             "y": 4
+        },
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_REGIROCK",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "NULL",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 25,
+            "y": 8
+        },
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_ITEM_BALL",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "NULL",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 27,
+            "y": 2
+        },
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_ITEM_BALL",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "NULL",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 4,
+            "y": 16
+        },
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_SCIENTIST_2",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
+            "script": "MicoloHideout_ExperimentRoom_Scientist2",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 14,
+            "y": 26
+        },
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_SCIENTIST_2",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_DOWN_UP_AND_LEFT",
+            "script": "MicoloHideout_ExperimentRoom_Scientist3",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 19,
+            "y": 28
         }
     ],
     "region_map_section": "MAPSEC_MICOLO_HIDEOUT",

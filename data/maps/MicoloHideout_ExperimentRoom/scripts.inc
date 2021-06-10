@@ -147,3 +147,105 @@ MicoloHideout_ExperimentRoom_Text_LegendaryMachineNoRoom:
 MicoloHideout_ExperimentRoom_Text_LegendaryMachineNotLegendary:
 	.string "El POKéMON que has elegido no es un\n"
 	.string "POKéMON legendario.$"
+
+MicoloHideout_ExperimentRoom_Experiment1::
+	msgbox MicoloHideout_ExperimentRoom_Experiment1_Text_0, MSGBOX_SIGN
+	return
+
+
+MicoloHideout_ExperimentRoom_Experiment2::
+	msgbox MicoloHideout_ExperimentRoom_Experiment2_Text_0, MSGBOX_SIGN
+	return
+
+
+MicoloHideout_ExperimentRoom_Experiment3::
+	msgbox MicoloHideout_ExperimentRoom_Experiment3_Text_0, MSGBOX_SIGN
+	return
+
+
+MicoloHideout_ExperimentRoom_Experiment4::
+	msgbox MicoloHideout_ExperimentRoom_Experiment4_Text_0, MSGBOX_SIGN
+	return
+
+
+MicoloHideout_ExperimentRoom_Experiment5::
+	msgbox MicoloHideout_ExperimentRoom_Experiment5_Text_0, MSGBOX_SIGN
+	return
+
+
+MicoloHideout_ExperimentRoom_Experiment6::
+	msgbox MicoloHideout_ExperimentRoom_Experiment6_Text_0, MSGBOX_SIGN
+	return
+
+
+MicoloHideout_ExperimentRoom_Experiment7::
+	msgbox MicoloHideout_ExperimentRoom_Experiment7_Text_0, MSGBOX_SIGN
+	return
+
+
+MicoloHideout_ExperimentRoom_Scientist1::
+	msgbox MicoloHideout_ExperimentRoom_Scientist1_Text_0, MSGBOX_NPC
+	return
+
+
+MicoloHideout_ExperimentRoom_Scientist2::
+	msgbox MicoloHideout_ExperimentRoom_Scientist2_Text_0, MSGBOX_NPC
+	return
+
+
+MicoloHideout_ExperimentRoom_Scientist3::
+	msgbox MicoloHideout_ExperimentRoom_Scientist3_Text_0, MSGBOX_NPC
+	return
+
+
+MicoloHideout_ExperimentRoom_Experiment1_Text_0:
+	.string "EXPERIMENTO FALLIDO N1$"
+
+MicoloHideout_ExperimentRoom_Experiment2_Text_0:
+	.string "EXPERIMENTO FALLIDO N2$"
+
+MicoloHideout_ExperimentRoom_Experiment3_Text_0:
+	.string "EXPERIMENTO FALLIDO N3$"
+
+MicoloHideout_ExperimentRoom_Experiment4_Text_0:
+	.string "CLON N1: GROUDON$"
+
+MicoloHideout_ExperimentRoom_Experiment5_Text_0:
+	.string "CLON N2: KYOGRE$"
+
+MicoloHideout_ExperimentRoom_Experiment6_Text_0:
+	.string "CLON N3: RAYQUAZA$"
+
+MicoloHideout_ExperimentRoom_Experiment7_Text_0:
+	.string "CLON DE MEW N12$"
+
+MicoloHideout_ExperimentRoom_Scientist1_Text_0:
+	.string "¿Q-quién eres? ¿Cómo has llegado hasta\n"
+	.string "aquí?\p"
+	.string "N-no me hagas nada, yo solo sigo las\n"
+	.string "órdenes de MICOLO...\p"
+	.string "Mira, hagamos un trato. Si me dejas en\n"
+	.string "paz, te dejaré utilizar ese PC de ahí.\p"
+	.string "Es la última creación de MICOLO, con él\n"
+	.string "podrás criar POKéMON legendarios...$"
+
+MicoloHideout_ExperimentRoom_Scientist2_Text_0:
+	.string "¿Que qué hay en esa sala de ahí? Es\n"
+	.string "donde hemos almacenado a todos los\l"
+	.string "clones de MEW y MEWTWO fallidos.\p"
+	.string "Quizás quede alguno vivo, pero ya no\n"
+	.string "nos sirven de nada, haz lo que quieras\l"
+	.string "con ellos.$"
+
+MicoloHideout_ExperimentRoom_Scientist3_Text_0:
+	.string "No sé quién eres, pero no te\n"
+	.string "recomendaría continuar por la sala de\l"
+	.string "la derecha.\p"
+	.string "En esa sala se encuentra el POKéMON que\n"
+	.string "A.VADER trajo de su viaje a la RUTA\l"
+	.string "110... REGIELEKI, creo que se llamaba.\l"
+	.string "Es extremadamente peligroso, apenas\l"
+	.string "hemos podido contenerlo.\p"
+    .string "Dicen que A.VADER se lo quitó en la cara\n"
+	.string "a un entrenador muy PALLASO.$"
+	
