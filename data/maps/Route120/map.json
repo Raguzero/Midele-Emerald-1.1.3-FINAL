@@ -864,6 +864,19 @@
             "trainer_type": "0",
             "x": 7,
             "y": 18
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_SYS_GAME_CLEAR",
+            "graphics_id": "EVENT_OBJ_GFX_HIKER",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+            "script": "Route120_EventScript_Maestro_Arena",
+            "trainer_sight_or_berry_tree_id": "3",
+            "trainer_type": "1",
+            "x": 19,
+            "y": 69
         }
     ],
     "region_map_section": "MAPSEC_ROUTE_120",

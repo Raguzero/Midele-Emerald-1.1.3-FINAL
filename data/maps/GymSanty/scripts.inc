@@ -222,7 +222,6 @@ GymSanty_Text_SantyShifteo2Intro:
     .string "El olor a hierba quemada es lo mejor\n"
     .string "para una batalla definitiva.$"
 
-
 GymSanty_Text_SantyShifteo2Defeat:
     .string "How Could this Happen\n"
     .string "Even with the apocrypha!?\p"
@@ -234,11 +233,15 @@ GymSanty_Text_ReceivedBadge:
 	.string "QUEMADA de SANTYGRASS.$"
 
 GymSanty_Text_ExplainBadgeTakeThis:
-	.string "Con esta medalla en tu poder, estarás\n"
-	.string "capacitado para retar al siguiente\l"
-	.string "GYM.\p"
+	.string "Con esta MEDALLA en tu poder, desde\n"
+	.string "ahora mismo, tus POKÉMON no tienen\l"
+	.string "ninguna limitación para subir hasta\l"
+	.string "el nivel 80.\p"
 	
-	.string "DARKIZARD te estará esperando allí.$"
+	.string "También estarás capacitado para el\n"
+	.string "reto del siguiente GYM.\p"
+
+	.string "SAPPH te estará esperando allí.$"
 
 GymSanty_Text_SantyPostBattle:
 	.string "FRASES$"

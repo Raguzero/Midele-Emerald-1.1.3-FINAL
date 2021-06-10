@@ -23666,7 +23666,6 @@ static const struct TrainerMonCustomMidele sParty_Tenshinhan[] = {
 };
 
 static const struct TrainerMonCustomMidele sParty_Kaisser[] = {
-// FALTA FRASES Y LOCALIZACIÓN
     {
     .iv = 31, 
     .lvl = 100,
@@ -24483,7 +24482,6 @@ static const struct TrainerMonCustomMidele sParty_Darkibuenro[] = {
     }
 };
 static const struct TrainerMonCustomMidele sParty_Vin[] = {
-// FALTA FRASES Y LOCALIZACIÓN
     {
     .iv = 31,
     .lvl = 70,
@@ -24551,7 +24549,6 @@ static const struct TrainerMonCustomMidele sParty_Vin[] = {
     }
 };
 static const struct TrainerMonCustomMidele sParty_Maestro_Arena2[] = {
-// FALTA FRASES Y LOCALIZACIÓN
 	{
 	.iv = 31,
 	.lvl = 39, 
@@ -24581,4 +24578,129 @@ static const struct TrainerMonCustomMidele sParty_Maestro_Arena2[] = {
 	.evs = {0, 112, 0, 0, 0, 112},
 	.moves = {MOVE_EARTHQUAKE, MOVE_ROCK_POLISH, MOVE_ROCK_BLAST, MOVE_BODY_SLAM} 
 	}
+};
+// ESBIRRO DE DARKI
+static const struct TrainerMonCustomMidele sParty_Red_Secretaria[] = {
+    {
+    .iv = 31,  
+    .lvl = 80, 
+    .species = SPECIES_BEWEAR,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_ADAMANT, 
+	.evs = {0, 6, 0, 252, 0, 252},  
+	.ability = 0, // FLUFFY
+	.shiny = 1,  
+	.friendship = 255,
+    .moves = {MOVE_SUPERPOWER, MOVE_DOUBLE_EDGE, MOVE_IRON_HEAD, MOVE_ROCK_TOMB}
+    },
+    {
+    .iv = 31,  
+    .lvl = 80, 
+    .species = SPECIES_PRIMEAPE,
+	.heldItem = ITEM_CHOICE_BAND,
+	.nature = NATURE_JOLLY,
+	.evs = {0, 252, 6, 0, 0, 252},  
+	.ability = 0, // VITAL SPIRIT
+	.hpType = TYPE_GHOST,
+    .moves = {MOVE_CROSS_CHOP, MOVE_EARTHQUAKE, MOVE_STONE_EDGE, MOVE_HIDDEN_POWER}
+    },
+	{
+    .iv = 31,  
+    .lvl = 80, 
+    .species = SPECIES_DRAGAPULT,
+	.heldItem = ITEM_FOCUS_SASH,
+	.nature = NATURE_TIMID, 
+	.evs = {0, 6, 0, 252, 0, 252},  
+	.ability = 0, // CLEAR BODY
+    .moves = {MOVE_SHADOW_BALL, MOVE_OUTRAGE, MOVE_WILL_O_WISP, MOVE_THUNDERBOLT}
+    }
+};
+static const struct TrainerMonCustomMidele sParty_Loco_Kizarde[] = {
+    {
+    .iv = 31,  
+    .lvl = 80,
+    .species = SPECIES_XATU,
+	.heldItem = ITEM_FOCUS_SASH,
+	.nature = NATURE_TIMID,
+	.evs = {0, 6, 0, 252, 0, 252}, 
+	.ability = 0, // SYNCHRONIZE
+    .moves = {MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_WISH, MOVE_BATON_PASS}
+    },
+    {
+    .iv = 31, 
+    .lvl = 80,
+    .species = SPECIES_ABSOL,
+	.heldItem = ITEM_CHOICE_SCARF,
+	.nature = NATURE_ADAMANT,
+	.evs = {0, 252, 6, 0, 0, 252},
+	.ability = 0, // PRESSURE
+	.hpType = TYPE_FIGHTING,
+    .moves = {MOVE_SHADOW_BALL, MOVE_HIDDEN_POWER, MOVE_BODY_SLAM, MOVE_AERIAL_ACE}
+    },
+	{
+    .iv = 31,  
+    .lvl = 80,
+    .species = SPECIES_HO_OH,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_TIMID,
+	.evs = {0, 6, 0, 252, 0, 252},  
+	.ability = 0, // PRESSURE
+    .moves = {MOVE_SACRED_FIRE, MOVE_RECOVER, MOVE_THUNDERBOLT, MOVE_FUTURE_SIGHT}
+    }
+};
+static const struct TrainerMonCustomMidele sParty_Espi[] = {
+    {
+    .iv = 31,  
+    .lvl = 80,
+    .species = SPECIES_MEGA_ABSOL,
+	.heldItem = ITEM_CHOICE_SPECS,
+	.nature = NATURE_TIMID,
+	.evs = {0, 0, 6, 252, 0, 252}, 
+	.ability = 0, // PRESSURE
+	.shiny = 1,
+    .moves = {MOVE_DARK_PULSE, MOVE_FIRE_BLAST, MOVE_THUNDERBOLT, MOVE_ICE_BEAM}
+    },
+	{
+    .iv = 31,  
+    .lvl = 80,
+    .species = SPECIES_MEGA_SABLEYE,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_IMPISH,
+	.evs = {252, 6, 252, 0, 0, 0}, 
+	.ability = 0, // KEEN EYE
+    .moves = {MOVE_SHADOW_BALL, MOVE_RECOVER, MOVE_TOXIC, MOVE_SEISMIC_TOSS}
+    }
+};
+static const struct TrainerMonCustomMidele sParty_Mobu[] = {
+    {
+    .iv = 31,  
+    .lvl = 80, 
+    .species = SPECIES_TOGEKISS,
+	.heldItem = ITEM_PINK_PETAL,
+	.nature = NATURE_ADAMANT, 
+	.evs = {252, 0, 6, 252, 0, 0},  
+	.ability = 1, // SERENE GRACE
+	.shiny = 1,
+    .moves = {MOVE_DAZZLING_GLEAM, MOVE_FIRE_BLAST, MOVE_THUNDER_WAVE, MOVE_PSYCHIC}
+    },
+	{
+    .iv = 31,  
+    .lvl = 80,
+    .species = SPECIES_METAGROSS,
+	.heldItem = ITEM_LUM_BERRY,
+	.nature = NATURE_NAIVE,
+	.evs = {0, 252, 6, 0, 0, 252},  
+	.ability = 0, // CLEAR BODY
+    .moves = {MOVE_METEOR_MASH, MOVE_PSYCHIC, MOVE_EARTHQUAKE, MOVE_EXPLOSION}
+    },
+    {
+    .iv = 31,  
+    .lvl = 80,
+    .species = SPECIES_REUNICLUS,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_BOLD,
+	.evs = {252, 0, 6, 252, 0, 0}, 
+	.ability = 0, // OVERCOAT
+    .moves = {MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_RECOVER, MOVE_FIRE_PUNCH}
+    }
 };

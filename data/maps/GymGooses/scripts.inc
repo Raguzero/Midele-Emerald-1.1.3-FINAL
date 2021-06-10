@@ -1132,7 +1132,7 @@ GymGooses_Text_GymGuideAdvice:
 	
 	.string "Si consigues superar las pruebas,\n"
 	.string "se te recompensará con la no-oficial\l"
-	.string "MEDALLA FRIO INVERNAL.\p"
+	.string "MEDALLA FRÍO INVERNAL.\p"
 
 	.string "Bien, te voy a explicar en que consiste\n"
 	.string "la prueba principal: TABLERO de DADOS.\p"
@@ -1183,14 +1183,14 @@ GymGooses_Text_GymGuidePostVictory:
 	.string "¡Buen hax!$"	
 	
 GymGooses_Text_GymStatue:
-	.string "POKEMON GYM Nº4\n"
+	.string "POKEMON GYM Nº3\n"
 	.string "LEADER: GOOSES\l"
-	.string "“TEMÁTICA: FRIO INVERNAL”$"
+	.string "“TEMÁTICA: FRÍO INVERNAL”$"
 
 GymGooses_Text_GymStatueCertified:
-	.string "POKEMON GYM Nº4\n"
+	.string "POKEMON GYM Nº3\n"
 	.string "LEADER: GOOSES\l"
-	.string "“TEMÁTICA: FRIO INVERNAL”\p"
+	.string "“TEMÁTICA: FRÍO INVERNAL”\p"
 
 	.string "GOOSES'S CERTIFIED TRAINERS:\n"
 	.string "{PLAYER}$"
@@ -1240,18 +1240,18 @@ GymGooses_Text_GoosesPostBattle:
 	.string "FRASES$"
 	
 GymGooses_Text_ReceivedBadge:
-	.string "{PLAYER} recibió la MEDALLA FRIO\n"
+	.string "{PLAYER} recibió la MEDALLA FRÍO\n"
 	.string "INVERNAL de GOOSES.$"
 
 GymGooses_Text_ExplainBadgeTakeThis:
-	.string "Con esta MEDALLA en tu poder, desde\n"
-	.string "ahora mismo, tus POKÉMON no tienen\l"
-	.string "ninguna limitación para subir de\l"
-	.string "nivel, pudiendo llegar al Nivel 100.\p"
-
-	.string "Y debido a que ya tienes la última\n"
-	.string "medalla, podrás participar en\l"
-	.string "la MICOLIGA.$"
+	.string "Con esta MEDALLA en tu poder, estás\n"
+	.string "capacitado para afrontar el reto de\l" 
+	.string "DARKIZARD, en el último GYM.\p"
+	
+	.string "El HATE sobre DPP que él desborda\n"
+	.string "lo ha transformado en GYMNASIO\p"
+	
+	.string "Mucha suerte, ¡La necesitarás!$"
 	
 GymGooses_Text_Totemaparece:
 	.string "M-GLALIE, the Totem Pokémon\n"

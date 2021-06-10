@@ -125,7 +125,7 @@ Micolandia_EventScript_TopoVigilante::
 	faceplayer
 	compare VAR_STATE_MICOLANDIA, 1
 	call_if_eq Micolandia_EventScript_TopoVigilante2
-	goto_if_set FLAG_DEFEATED_GOOSES_GYM, Micolandia_EventScript_TopoCombate
+	goto_if_set FLAG_DEFEATED_DARKI_GYM, Micolandia_EventScript_TopoCombate
 	msgbox Micolandia_Text_TopoVigilante, MSGBOX_DEFAULT
 	release
 	end
@@ -241,20 +241,20 @@ Micolandia_GymNoroesteSign:
 	.string "LEADER: SANTYGRASS\l"
 	.string "“TEMÁTICA: HIERBA QUEMADA”$"
 
-Micolandia_GymNoresteSign:
-	.string "POKEMON GYM Nº2\n"
-	.string "LEADER: DARKI\l"
-	.string "“TEMÁTICA: BUENROLLO y MALROLLO”$"
-
 Micolandia_GymSuroesteSign:
-	.string "POKEMON GYM Nº3\n"
+	.string "POKEMON GYM Nº2\n"
 	.string "LEADER: SAPPH\l"
 	.string "“TEMÁTICA: ????”$"
 
 Micolandia_GymSuresteSign:
-	.string "POKEMON GYM Nº4\n"
+	.string "POKEMON GYM Nº3\n"
 	.string "LEADER: GOOSES\l"
-	.string "“TEMÁTICA: INVIERNO”$"
+	.string "“TEMÁTICA: FRÍO INVERNAL”$"
+	
+Micolandia_GymNoresteSign:
+	.string "POKEMON GYM Nº4\n"
+	.string "LEADER: DARKIZARD\l"
+	.string "“TEMÁTICA: BUENROLLO y MALROLLO”$"
 	
 Micolandia_CibercafeSign:
 	.string "CIBERCAFE BATALLA$"
@@ -278,12 +278,12 @@ Micolandia_Text_GymSantySign:
 Micolandia_Text_GymDarkiSign:
 	.string "Solo está permitido el paso\n"
 	.string "a quienes hayan derrotado al\l"
-	.string "LIDER SANTY.$"
+	.string "LIDER GOOSES.$"
 	
 Micolandia_Text_GymSapphSign:
 	.string "Solo está permitido el paso\n"
 	.string "a quienes hayan derrotado al\l"
-	.string "LIDER DARKI.$"
+	.string "LIDER SANTYGRASS.$"
 	
 Micolandia_Text_GymGoosesSign:
 	.string "Solo está permitido el paso\n"

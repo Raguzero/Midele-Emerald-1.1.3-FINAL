@@ -140,6 +140,11 @@ GymSanty2_EventScript_RedKrow::
 	msgbox RedKrow_DespuesDeBatalla, MSGBOX_AUTOCLOSE
 	end
 	
+GymSanty2_EventScript_Vin::
+	trainerbattle_single TRAINER_VIN, Vin_AntesBatalla, Vin_MensajeDerrota
+	msgbox Vin_DespuesDeBatalla, MSGBOX_AUTOCLOSE
+	end
+	
 Entropia_AntesBatalla: 
 	.string "Amore, ¿sabías que estamos en la\n"
     .string "piscis season?\p"
@@ -194,6 +199,31 @@ RedKrow_DespuesDeBatalla:
     .string "Si quieres que repitamos, creéme, por mí\n"
     .string "encantado, pero deja por lo menos que\l"
     .string "vaya a limpiarme la cara primero.$"
+	
+Vin_AntesBatalla: 
+	.string "¡Volar es la mejor forma de\n"
+	.string "liberar el espíritu!\p"
+
+    .string "Desde pequeña he querido siempre\n"
+    .string "llegar hasta las nubes.\p"
+
+    .string "Todos los viajes por los aires\n"
+    .string "que he realizado con mis Pokémon\l"
+    .string "nos han dado un vínculo\l"
+    .string "inquebrantable.\p"
+
+    .string "¡Pongámoslo a prueba con una\n"
+    .string "battalla!$"
+	
+Vin_MensajeDerrota: 
+	.string "Aterrizados antes de tiempo...$"
+	
+Vin_DespuesDeBatalla:
+	.string "¡Gracias por tan buena batalla!\p"
+
+	.string "Gane o pierda, una batalla Pokémon\n"
+    .string "en los aires siempre me hace sentir\l"
+     .string "mucho más feliz.$"
 
 GymSanty2_Text_Sign:
 	.string "ENCIENDE LOS CUATRO FAROLES\n"

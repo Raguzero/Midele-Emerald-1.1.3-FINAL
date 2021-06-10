@@ -293,9 +293,15 @@ Fiery_Path_Text_KrubDefeat:
 	.string "Pues eso. Ahora te cuento.$"
 
 Fiery_Path_Text_KrubPostBattle: 
-	.string "Dicen que han visto a la puta\n"
-	.string "madre de KADERETE en el polígono y\l"
-	.string "parece que tiene muchos clientes.$"
+	.string "Mejor me dedico al cultivo de una\n"
+	.string "granja de setas.\p"
+
+	.string "Ni te imaginas lo nutritivas que son.\p"
+
+	.string "Por cierto, dicen que han visto a\n"
+	.string "la puta madre de KADERETE en el\l"
+	.string "polígono y parece que tiene\l"
+	.string "muchos clientes$"
 	
 Fiery_Path_EventScript_DobleC::  
 	trainerbattle_single TRAINER_FIERYPATH_DOBLEC, Fiery_Path_Text_DobleCIntro, Fiery_Path_Text_DobleCDefeat

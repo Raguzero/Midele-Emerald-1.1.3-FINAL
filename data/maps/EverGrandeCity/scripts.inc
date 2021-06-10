@@ -17,11 +17,35 @@ EverGrandeCity_EventScript_CitySign:: @ 81E7D34
 EverGrandeCity_EventScript_PokemonLeagueSign:: @ 81E7D3D
 	msgbox EverGrandeCity_Text_EnteringPokemonLeague, MSGBOX_SIGN
 	end
+	
+EverGrandeCity_EventScript_Kaisser::
+	trainerbattle_single TRAINER_KAISSER, Kaisser_AntesBatalla, Kaisser_MensajeDerrota
+	msgbox Kaisser_DespuesDeBatalla, MSGBOX_AUTOCLOSE
+	end
 
 EverGrandeCity_EventScript_SetVisitedEverGrande:: @ 81E7D46
 	setflag FLAG_VISITED_EVER_GRANDE_CITY
 	setvar VAR_TEMP_1, 1
 	end
+	
+Kaisser_AntesBatalla: 
+    .string "Acabo de meterme en el google\n"
+	.string "eart para ver si habia alguien\l"
+	.string "pescando en el pantano, pues hoy hace\l" 
+	.string "mucho viento y no me apetecia ir a\l"
+	.string "lo tonto.\p"
+    
+	.string "Hasta que has venido a tocar los\n"
+	.string "huevos, asi que vamos a luchar pirata.$"
+	
+Kaisser_MensajeDerrota: 
+    .string "Huehuehue$"
+	
+Kaisser_DespuesDeBatalla:
+    .string "Vendo Opel Corsa.\p"
+
+    .string "Siempre en garje, usado por persona\n"
+	.string "mayor.$"
 
 EverGrandeCity_Text_EnteringVictoryRoad: @ 81E7D4F
 	.string "ENTERING VICTORY ROAD$"

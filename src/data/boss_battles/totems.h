@@ -59,7 +59,7 @@ const struct TotemMon gTotemMons[] =
     [TOTEM_MEGA_GLALIE] =
     {
         .species = SPECIES_MEGA_GLALIE,
-        .minLevel = 90,
+        .minLevel = 85,
         .moves = {MOVE_BLIZZARD, MOVE_EARTHQUAKE, MOVE_SUPER_FANG, MOVE_CRUNCH},
         .item = ITEM_LEFTOVERS,
         .nature = NATURE_QUIET,
@@ -114,7 +114,7 @@ const struct TotemMon gTotemMons[] =
     [TOTEM_TYRANITAR] =
     {
         .species = SPECIES_TYRANITAR,
-        .minLevel = 80,
+        .minLevel = 90,
         .moves = {MOVE_CRUNCH, MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_FIRE_BLAST},
         .item = ITEM_LEFTOVERS,
         .nature = NATURE_BRAVE,

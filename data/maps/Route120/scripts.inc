@@ -416,6 +416,11 @@ Route120_EventScript_ATRAS::
 	releaseall
 	end
 	
+Route120_EventScript_Maestro_Arena::
+	trainerbattle_single TRAINER_MAESTRO_ARENA_2, Route120_Text_Maestro_ArenaIntro, Route120_Text_Maestro_ArenaDefeat
+	msgbox Route120_Text_Maestro_ArenaPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
 Route120_Text_BlockSin6Medalla: @ 81F5ADE
 	.string "Como fan del gran MASUDA,\n"
 	.string "cerrar rutas es lo mejor que podemos\l" 
@@ -499,3 +504,46 @@ Route120_Text_RouteSignFortree: @ 81F5DCB
 Route120_Text_RouteSign121: @ 81F5DE4
 	.string "{RIGHT_ARROW} ROUTE 121\n"
 	.string "{LEFT_ARROW} ROUTE 120$"
+	
+Route120_Text_Maestro_ArenaIntro: 
+	.string "Hola, permitame presentarme.\p"
+	
+	.string "Yo soy MAESTRO ARENA, el entrenador\n"
+	.string "de los POKéMON del desierto.\p"
+	
+	.string "Supongo que habrá llegado a tus\n"
+	.string "oidos lo poderoso que soy.\p"
+	
+	.string "¡Incluso gané un torneo NACIONAL de\n"
+	.string "POKéMON!\p"
+	
+	.string "Pero la pregunta es...\n"
+	.string "¿Qué hace un noob como tu por aquí?\p"
+	
+	.string "¡Jo Jo! ¡Vaya paliza te vas a llevar!$"
+
+Route120_Text_Maestro_ArenaDefeat:
+	.string "¡¡TRAMPOSO!! ¡¡HAX!! ToT\p"
+
+	.string "Me has pillado con mi equipo de\n" 
+	.string "exploración, ¡No se vale!\p" 
+	
+	.string "¡La próxima vez te enseñaré porque\n"
+	.string "fuí CAMPEÓN NACIONAL DE DPP!$"
+ 
+Route120_Text_Maestro_ArenaPostBattle:
+	.string "Por cierto, justo al oeste de aquí\n"
+	.string "verás un roca gigantesca...\p"
+	
+	.string "Quizás contenga esas ruinas...\n" 
+	.string "legendarias en su interior.\l" 
+	.string "Pero... ¿dónde estará la entrada?\p"
+
+	.string "Bah, que más da.\p"
+	
+	.string "Esa roca gigantesca... es IMPOSIBLE\n" 
+	.string "que contenga nada importante.\p"
+	
+	.string "¡Si te lo dice, yo, el gran MAESTRO\n"
+	.string "ARENA, está clarisimo que es así!$"
+

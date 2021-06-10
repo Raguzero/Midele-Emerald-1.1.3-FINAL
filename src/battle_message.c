@@ -3093,7 +3093,7 @@ static const struct TrainerSlide sTrainerSlides[] =
     {TRAINER_GOLDIE, sText_GoldieEnviaUltimoPoke, sText_RedHPGoldie, sText_GoldiePierdePrimerPoke},
     {TRAINER_GRIM, sText_GrimEnviaUltimoPoke, NULL, sText_GrimPierdePrimerPoke},
     {TRAINER_MERUM, sText_MerumEnviaUltimoPoke, sText_RedHPMerum, sText_MerumPierdePrimerPoke},
-    {TRAINER_VIN, sText_MerumEnviaUltimoPoke, sText_RedHPMerum, sText_MerumPierdePrimerPoke},
+    {TRAINER_VIN, sText_VinEnviaUltimoPoke, sText_RedHPVin, sText_VinPierdePrimerPoke},
     {TRAINER_DARKI_BUENRO, sText_DarkibuenroEnviaUltimoPoke, sText_RedHPDarkibuenro, sText_DarkibuenroPierdePrimerPoke},
     {TRAINER_DARKI_MALRO, sText_DarkimalroEnviaUltimoPoke, sText_RedHPDarkimalro, sText_DarkimalroPierdePrimerPoke},
 };
