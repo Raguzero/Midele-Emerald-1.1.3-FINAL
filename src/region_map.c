@@ -1039,6 +1039,7 @@ static void RegionMap_InitializeStateBasedOnPlayerLocation(void)
             y = gSaveBlock1Ptr->dynamicWarp.y;
             break;
         case MAP_TYPE_INDOOR:
+        case MAP_TYPE_NO_CAPTURE_MONS:
             gRegionMap->mapSecId = gMapHeader.regionMapSectionId;
             if (gRegionMap->mapSecId != MAPSEC_DYNAMIC)
             {

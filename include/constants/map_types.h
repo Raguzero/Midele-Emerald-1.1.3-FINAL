@@ -11,6 +11,7 @@
 #define MAP_TYPE_UNUSED_2    7
 #define MAP_TYPE_INDOOR      8
 #define MAP_TYPE_SECRET_BASE 9
+#define MAP_TYPE_NO_CAPTURE_MONS 10
 
 #define MAP_BATTLE_SCENE_NORMAL       0
 #define MAP_BATTLE_SCENE_GYM          1

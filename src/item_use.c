@@ -40,6 +40,7 @@
 #include "constants/flags.h"
 #include "constants/item_effects.h"
 #include "constants/items.h"
+#include "constants/map_types.h"
 #include "constants/songs.h"
 #include "constants/vars.h"
 #include "event_obj_lock.h"
@@ -978,6 +979,13 @@ void ItemUseInBattle_PokeBall(u8 taskId)
         static const u8 sText_BallsCannotBeUsed[] = _("Poké Balls cannot be used\nright now!\p");
         DisplayItemMessage(taskId, 1, sText_BallsCannotBeUsed, BagMenu_InitListsMenu);        
     } //
+    // Don't allow capture of wild mons in MAP_TYPE_NO_CAPTURE_MONS,
+    // but allow throwing balls in scripted battles (BATTLE_TYPE_LEGENDARY, BATTLE_TYPE_REGI)
+    else if (GetCurrentMapType() == MAP_TYPE_NO_CAPTURE_MONS
+    && !(gBattleTypeFlags & BATTLE_TYPE_REGI || gBattleTypeFlags & BATTLE_TYPE_LEGENDARY)) {
+        static const u8 sText_MonBelongsToTrainer[] = _("The POKéMON already belongs\nto a TRAINER!\p");
+        DisplayItemMessage(taskId, 1, sText_MonBelongsToTrainer, BagMenu_InitListsMenu);
+    }
     else if (IsPlayerPartyAndPokemonStorageFull() == FALSE) // have room for mon?
     {
         RemoveBagItem(gSpecialVar_ItemId, 1);

@@ -1382,7 +1382,8 @@ bool8 Overworld_MapTypeAllowsTeleportAndFly(u8 mapType)
 bool8 IsMapTypeIndoors(u8 mapType)
 {
     if (mapType == MAP_TYPE_INDOOR
-     || mapType == MAP_TYPE_SECRET_BASE)
+     || mapType == MAP_TYPE_SECRET_BASE
+     || mapType == MAP_TYPE_NO_CAPTURE_MONS)
         return TRUE;
     else
         return FALSE;
@@ -3241,4 +3242,3 @@ u8 GetLastUsedWarpMapSectionId(void)
 {
     return Overworld_GetMapHeaderByGroupAndId(gLastUsedWarp.mapGroup, gLastUsedWarp.mapNum)->regionMapSectionId;
 }
-
