@@ -5,6 +5,7 @@ MicoloHideout_ExperimentRoom_MapScripts::
 	
 MicoloHideout_ExperimentRoom_OnResume:
 	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, MicoloHideout_ExperimentRoom_EventScript_TryRemoveMewtwo
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, MicoloHideout_ExperimentRoom_EventScript_TryRemoveRegieleki
 	end
 
 MicoloHideout_ExperimentRoom_EventScript_TryRemoveMewtwo::
@@ -14,13 +15,26 @@ MicoloHideout_ExperimentRoom_EventScript_TryRemoveMewtwo::
 	removeobject VAR_LAST_TALKED
 	return
 
+MicoloHideout_ExperimentRoom_EventScript_TryRemoveRegieleki::
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_CAUGHT
+	goto_if_ne Common_EventScript_NopReturn
+	removeobject VAR_LAST_TALKED
+	return
+
 MicoloHideout_ExperimentRoom_OnTransition:
 	call_if_unset FLAG_CAUGHT_MEWTWO, MicoloHideout_ExperimentRoom_EventScript_TryShowMewtwo
+	call_if_unset FLAG_CAUGHT_REGIELEKI, MicoloHideout_ExperimentRoom_EventScript_TryShowRegieleki
 	end
 
 MicoloHideout_ExperimentRoom_EventScript_TryShowMewtwo::
 	goto_if_set FLAG_DEFEATED_MEWTWO, Common_EventScript_NopReturn
 	clearflag FLAG_HIDE_MEWTWO
+	return
+
+MicoloHideout_ExperimentRoom_EventScript_TryShowRegieleki::
+	goto_if_set FLAG_DEFEATED_REGIELEKI, Common_EventScript_NopReturn
+	clearflag FLAG_HIDE_REGIELEKI
 	return
 	
 MicoloHideout_ExperimentRoom_EventScript_Mewtwo::
@@ -53,6 +67,39 @@ MicoloHideout_ExperimentRoom_EventScript_DefeatedMewtwo::
 
 MicoloHideout_ExperimentRoom_EventScript_RanFromMewtwo::
 	setvar VAR_0x8004, SPECIES_MEWTWO
+	goto Common_EventScript_LegendaryFlewAway
+	end
+
+MicoloHideout_ExperimentRoom_EventScript_Regieleki::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_REGIELEKI, 2
+	delay 40
+	waitmoncry
+	setwildbattle SPECIES_REGIELEKI, 90, ITEM_NONE
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special StartRegiBattle
+	waitstate
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq MicoloHideout_ExperimentRoom_EventScript_DefeatedRegieleki
+	compare VAR_RESULT, B_OUTCOME_RAN
+	goto_if_eq MicoloHideout_ExperimentRoom_EventScript_RanFromRegieleki
+	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
+	goto_if_eq MicoloHideout_ExperimentRoom_EventScript_RanFromRegieleki
+	setflag FLAG_CAUGHT_REGIELEKI
+	release
+	end
+
+MicoloHideout_ExperimentRoom_EventScript_DefeatedRegieleki::
+	setflag FLAG_DEFEATED_REGIELEKI
+	goto Common_EventScript_RemoveStaticPokemon
+	end
+
+MicoloHideout_ExperimentRoom_EventScript_RanFromRegieleki::
+	setvar VAR_0x8004, SPECIES_REGIELEKI
 	goto Common_EventScript_LegendaryFlewAway
 	end
 
