@@ -621,11 +621,12 @@ MicoloHideout_EventScript_Recepcionista::
 	return
 
 MicoloHideout_EventScript_Recepcionista_Text_0:
-	.string "Bienvenido al CASINO de MICOLANDIA,\n"
-	.string "{PLAYER}. Disfruta de tu merecida\l"
-	.string "recompensa tras haber derrotado a los\l"
-	.string "4 líderes de gimnasio de MICOLANDIA y\l"
-	.string "haber llegado al final del viaje.$"
+    .string "Te doy la bienvenida al CASINO de\n"
+	.string "MICOLANDIA, {PLAYER}. Disfruta de tu\l"
+	.string "merecida recompensa tras haber\l"
+	.string "derrotado a los 4 líderes de gimnasio\l"
+	.string "de MICOLANDIA y haber llegado al final\l"
+	.string "del viaje.$"
 
 MicoloHideout_EventScript_ViejoFichas::
 	lock
