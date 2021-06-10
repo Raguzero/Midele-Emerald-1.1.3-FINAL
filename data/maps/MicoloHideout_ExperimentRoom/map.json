@@ -32,7 +32,7 @@
     ],
     "id": "MAP_MICOLO_HIDEOUT_EXPERIMENT_ROOM",
     "layout": "LAYOUT_MICOLO_HIDEOUT_EXPERIMENT_ROOM",
-    "map_type": "MAP_TYPE_INDOOR",
+    "map_type": "MAP_TYPE_NO_CAPTURE_MONS",
     "music": "MUS_RG_DEOEYE",
     "name": "MicoloHideout_ExperimentRoom",
     "object_events": [
@@ -264,5 +264,5 @@
             "y": 1
         }
     ],
-    "weather": "WEATHER_SUNNY"
+    "weather": "WEATHER_NONE"
 }

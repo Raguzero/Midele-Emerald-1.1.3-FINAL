@@ -4605,6 +4605,75 @@
                     "map": "MAP_METEOR_FALLS_STEVENS_CAVE"
                 },
                 {
+                    "base_label": "gMicoloHideout_ExperimentRoom0",
+                    "land_mons": {
+                        "encounter_rate": 50,
+                        "mons": [
+                            {
+                                "max_level": 100,
+                                "min_level": 100,
+                                "species": "SPECIES_GROUDON"
+                            },
+                            {
+                                "max_level": 100,
+                                "min_level": 100,
+                                "species": "SPECIES_KYOGRE"
+                            },
+                            {
+                                "max_level": 100,
+                                "min_level": 100,
+                                "species": "SPECIES_RAYQUAZA"
+                            },
+                            {
+                                "max_level": 100,
+                                "min_level": 100,
+                                "species": "SPECIES_RAYQUAZA"
+                            },
+                            {
+                                "max_level": 100,
+                                "min_level": 100,
+                                "species": "SPECIES_MEW"
+                            },
+                            {
+                                "max_level": 100,
+                                "min_level": 100,
+                                "species": "SPECIES_MEW"
+                            },
+                            {
+                                "max_level": 100,
+                                "min_level": 100,
+                                "species": "SPECIES_BLISSEY"
+                            },
+                            {
+                                "max_level": 100,
+                                "min_level": 100,
+                                "species": "SPECIES_BLISSEY"
+                            },
+                            {
+                                "max_level": 100,
+                                "min_level": 100,
+                                "species": "SPECIES_BLISSEY"
+                            },
+                            {
+                                "max_level": 100,
+                                "min_level": 100,
+                                "species": "SPECIES_BLISSEY"
+                            },
+                            {
+                                "max_level": 100,
+                                "min_level": 100,
+                                "species": "SPECIES_BLISSEY"
+                            },
+                            {
+                                "max_level": 100,
+                                "min_level": 100,
+                                "species": "SPECIES_BLISSEY"
+                            }
+                        ]
+                    },
+                    "map": "MAP_MICOLO_HIDEOUT_EXPERIMENT_ROOM"
+                },
+                {
                     "base_label": "gMirageTower_1F",
                     "land_mons": {
                         "encounter_rate": 10,
