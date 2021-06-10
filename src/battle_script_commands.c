@@ -52,6 +52,7 @@
 #include "menu_specialized.h"
 #include "constants/rgb.h"
 #include "data.h"
+#include "boss_battles.h"
 #include "constants/boss_battles.h"
 #include "constants/party_menu.h"
 
@@ -7604,7 +7605,7 @@ static void Cmd_trymirrormove(void)
 
 static void Cmd_setrain(void)
 {
-    if (gBattleWeather & WEATHER_RAIN_ANY)
+    if (gBattleWeather & WEATHER_RAIN_ANY || (gBossBattleFlags != BATTLE_TYPE_NORMAL && gBossBattles[gBossBattleId].weather))
     {
         gMoveResultFlags |= MOVE_RESULT_MISSED;
         gBattleCommunication[MULTISTRING_CHOOSER] = 2;
@@ -8531,7 +8532,7 @@ static void Cmd_damagetohalftargethp(void) // super fang
 
 static void Cmd_setsandstorm(void)
 {
-    if (gBattleWeather & WEATHER_SANDSTORM_ANY)
+    if (gBattleWeather & WEATHER_SANDSTORM_ANY || (gBossBattleFlags != BATTLE_TYPE_NORMAL && gBossBattles[gBossBattleId].weather))
     {
         gMoveResultFlags |= MOVE_RESULT_MISSED;
         gBattleCommunication[MULTISTRING_CHOOSER] = 2;
@@ -9696,7 +9697,7 @@ static void Cmd_jumpifnopursuitswitchdmg(void)
 
 static void Cmd_setsunny(void)
 {
-    if (gBattleWeather & WEATHER_SUN_ANY)
+    if (gBattleWeather & WEATHER_SUN_ANY || (gBossBattleFlags != BATTLE_TYPE_NORMAL && gBossBattles[gBossBattleId].weather))
     {
         gMoveResultFlags |= MOVE_RESULT_MISSED;
         gBattleCommunication[MULTISTRING_CHOOSER] = 2;
@@ -9986,7 +9987,7 @@ static void Cmd_setminimize(void)
 
 static void Cmd_sethail(void)
 {
-    if (gBattleWeather & WEATHER_HAIL_ANY)
+    if (gBattleWeather & WEATHER_HAIL_ANY || (gBossBattleFlags != BATTLE_TYPE_NORMAL && gBossBattles[gBossBattleId].weather))
     {
         gMoveResultFlags |= MOVE_RESULT_MISSED;
         gBattleCommunication[MULTISTRING_CHOOSER] = 2;
