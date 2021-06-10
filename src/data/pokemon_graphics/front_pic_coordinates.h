@@ -2230,7 +2230,7 @@ const struct MonCoords gMonFrontPicCoords[] =
     [SPECIES_CURSOLA] =
     {
         .size = 0x65,
-        .y_offset = 0x0c,
+        .y_offset = 0x02,
     },
     [SPECIES_GALAR_PONYTA] =
     {
