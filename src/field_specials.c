@@ -4704,3 +4704,40 @@ bool8 SleepMons(void)
 {
     return CauseStatusToMons(2, TryToSleepMon, SE_W173);
 }
+
+void PCBatallaGivePrize(void)
+{
+    static const u16 PC_Batalla_Items[][7] = {
+        {TRAINER_BROCK, 4, ITEM_EVERSTONE, ITEM_HARD_STONE, ITEM_MOON_STONE, ITEM_SILK_SCARF},
+        {TRAINER_MISTY, 4, ITEM_MYSTIC_WATER, ITEM_WATER_STONE, ITEM_SEA_INCENSE, ITEM_HEART_SCALE},
+        {TRAINER_LTSURGE, 4, ITEM_MAGNET, ITEM_THUNDER_STONE, ITEM_LIGHT_BALL, ITEM_SHINY_STONE},
+        {TRAINER_ERIKA, 4, ITEM_MIRACLE_SEED, ITEM_LEAF_STONE, ITEM_PINK_PETAL, ITEM_SOOTHE_BELL},
+        {TRAINER_SABRINA, 3, ITEM_TWISTED_SPOON, ITEM_CLEANSE_TAG, ITEM_SHELL_BELL},
+        {TRAINER_KOGA, 5, ITEM_POISON_BARB, ITEM_BRIGHT_POWDER, ITEM_LAX_INCENSE, ITEM_SILVER_POWDER, ITEM_SMOKE_BALL},
+        {TRAINER_BLAINE, 3, ITEM_CHARCOAL, ITEM_FIRE_STONE, ITEM_SUN_STONE},
+        {TRAINER_GIOVANNI, 4, ITEM_SOFT_SAND, ITEM_QUICK_CLAW, ITEM_FOCUS_BAND, ITEM_DAWN_STONE},
+        {TRAINER_LORELEI, 3, ITEM_NEVER_MELT_ICE, ITEM_ICE_STONE, ITEM_PP_MAX},
+        {TRAINER_BRUNO, 3, ITEM_BLACK_BELT, ITEM_LUCKY_PUNCH, ITEM_PP_MAX},
+        {TRAINER_AGATHA, 4, ITEM_SPELL_TAG, ITEM_BLACK_GLASSES, ITEM_DUSK_STONE, ITEM_PP_MAX},
+        {TRAINER_LANCE, 4, ITEM_DRAGON_FANG, ITEM_SHARP_BEAK, ITEM_LEFTOVERS, ITEM_PP_MAX},
+        {TRAINER_BLUE, 5, ITEM_LUCKY_EGG, ITEM_AMULET_COIN, ITEM_EXP_SHARE, ITEM_NUGGET, ITEM_MACHO_BRACE},
+        {TRAINER_RED, 5, ITEM_LUCKY_EGG, ITEM_AMULET_COIN, ITEM_EXP_SHARE, ITEM_NUGGET, ITEM_MACHO_BRACE},
+        {TRAINER_LEAF, 5, ITEM_LUCKY_EGG, ITEM_AMULET_COIN, ITEM_EXP_SHARE, ITEM_NUGGET, ITEM_MACHO_BRACE},								
+        {0}
+    };
+
+    s32 trainer;
+    extern const u16 gTrainerBattleOpponent_A;
+
+    for (trainer = 0; PC_Batalla_Items[trainer][0] != 0; trainer++)
+        if (PC_Batalla_Items[trainer][0] == gTrainerBattleOpponent_A)
+        {
+            s32 num_items = PC_Batalla_Items[trainer][1];
+            u16 item = PC_Batalla_Items[trainer][2 + (Random() % num_items)];
+
+            gSpecialVar_Result = item;
+            return;
+        }
+ 
+    gSpecialVar_Result = 0;
+}

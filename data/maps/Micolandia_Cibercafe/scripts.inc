@@ -263,11 +263,23 @@ PC_Roto::
 	end
 
 PC_BatallaFinWIN::
-	special HealPlayerParty
-	msgbox PC_Enhorabuena
-	closemessage
-	release
-	end
+    special HealPlayerParty
+    msgbox PC_Enhorabuena
+    special PCBatallaGivePrize
+    compare VAR_RESULT, 0
+    goto_if_eq PC_BatallaFin_FinRandomPrize
+    giveitem VAR_RESULT
+    compare VAR_RESULT, FALSE
+    call_if_eq PC_Batalla_Script_RandomPrize1_BagFull
+    closemessage
+PC_BatallaFin_FinRandomPrize::
+    release
+    end
+
+PC_Batalla_Script_RandomPrize1_BagFull::
+    call Common_EventScript_BagIsFull
+    msgbox Script_RandomPrize1_Text_NoRoomForThis, MSGBOX_DEFAULT
+    return
 	
 PC_BatallaFinLOSS::
 	special HealPlayerParty

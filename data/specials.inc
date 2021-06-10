@@ -565,3 +565,4 @@ gSpecials:: @ 81DBA64
 	def_special ParalisisMons
 	def_special BurnMons
 	def_special SleepMons
+	def_special PCBatallaGivePrize
