@@ -27,6 +27,26 @@ MicoloHideout_GameCorner_OpenMicoloHideoutEntrance:
 	setmetatile 7, 2, METATILE_MauvilleGameCorner_NoShadowRedFloor, 0
 	return
 
+MicoloHideout_GameCorner_EventScript_PacochefJugando::
+	lock
+	msgbox MicoloHideout_GameCorner_EventScript_PacochefJugando_Text_0, MSGBOX_DEFAULT
+	faceplayer
+	msgbox MicoloHideout_GameCorner_EventScript_PacochefJugando_Text_1, MSGBOX_DEFAULT
+    closemessage 
+	applymovement 10, Common_Movement_FaceOriginalDirection
+	return
+
+
+MicoloHideout_GameCorner_EventScript_PacochefJugando_Text_0:
+	.string "PACOCHEF: MUERE, MUERE, MUERE. PUTAS\n"
+	.string "TRAGAPERRAS AMAÑADAS.$"
+
+MicoloHideout_GameCorner_EventScript_PacochefJugando_Text_1:
+	.string "...ah, eres tú. Dame un segundo,\n"
+	.string "¿quieres? En seguida estoy contigo.\l"
+	.string "¿¡CÓMO QUE PIERDES TU MONOCICLO,\l"
+	.string "JUEGO INFERNAL?!$"
+
 MicoloHideout_Sign_LaPapelera::
 	lockall
 	compare VAR_STATE_MICOLANDIA, 1
@@ -123,13 +143,16 @@ MicoloHideout_Sign_LaPapelera_Text_0:
 	.string "papelera...$"
 
 MicoloHideout_Sign_LaPapelera_Text_1:
-	.string "TEXTO MUEVE EL CULETE$"
+    .string "PACOCHEF: Hey, sí, estoy tranquilo,\n"
+	.string "déjame esa papelera un momento.$"
 
 MicoloHideout_Sign_LaPapelera_Text_2:
-	.string "TEXTO PATADA SALTO$"
+    .string "UAAAAAAAAAGH ME CAGO EN SUS MUERTOS.\n"
+	.string "MUDAMUDAMUDAMUDAMUDAMUDA.\l"
+	.string "PACOPATADA$"
 
 MicoloHideout_Sign_LaPapelera_Text_3:
-	.string "TEXTO CHAU$"
+	.string "...no debí beber tanto.$"
 
 MicoloHideout_Sign_LaPapelera_Text_4:
 	.string "La papelera ha quedado destruida...$"
