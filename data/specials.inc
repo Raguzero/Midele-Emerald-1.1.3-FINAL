@@ -541,7 +541,7 @@ gSpecials:: @ 81DBA64
 	def_special MideleChangeSelectedMonNature
 	def_special CreateBossBattleMon
 	def_special BattleSetup_StartBossBattle
-	def_special CheckFiveRegi
+	def_special CheckThreeRegi
 	def_special MideleResetSelectedMonEVs
 	def_special StartLegendDogsBattle
 	def_special ResetLastRepelSteps

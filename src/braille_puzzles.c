@@ -486,7 +486,7 @@ bool8 ShouldDoBrailleRegicePuzzle(void)
     return FALSE;
 }
 
-bool8 CheckFiveRegi(void)
+bool8 CheckThreeRegi(void)
 {
     u8 i;
     bool8 hasRegirock = FALSE;

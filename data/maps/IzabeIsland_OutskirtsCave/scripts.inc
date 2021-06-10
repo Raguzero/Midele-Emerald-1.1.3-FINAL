@@ -12,7 +12,7 @@ IzabeIsland_OutskirtsCave_OnTransition::
 	end
 
 IzabeIsland_OutskirtsCave_OnLoad::
-	call_if_unset FLAG_SYS_BRAILLE_SHOWN_FIVE_REGI, IzabeIsland_OutskirtsCave_EventScript_CloseRegiEntrance
+	call_if_unset FLAG_SYS_BRAILLE_SHOWN_THREE_REGI, IzabeIsland_OutskirtsCave_EventScript_CloseRegiEntrance
 	end
 
 IzabeIsland_OutskirtsCave_OnResume::
@@ -124,17 +124,17 @@ IzabeIsland_OutskirtsCave_EventScript_Braille_ThreeRegi::
 
 IzabeIsland_OutskirtsCave_EventScript_InnerRoomEntranceWall::
 	lockall
-	goto_if_set FLAG_SYS_BRAILLE_SHOWN_FIVE_REGI, SealedChamber_OuterRoom_EventScript_HoleInWall
+	goto_if_set FLAG_SYS_BRAILLE_SHOWN_THREE_REGI, SealedChamber_OuterRoom_EventScript_HoleInWall
 	call IzabeIsland_OutskirtsCave_EventScript_TryOpenWall
 	releaseall
 	end
 
 IzabeIsland_OutskirtsCave_EventScript_TryOpenWall:
-	braillemessage IzabeIsland_OutskirtsCave_Braille_FiveRegi
+	braillemessage IzabeIsland_OutskirtsCave_Braille_ThreeRegi
 	waitbuttonpress
 	closebraillemessage
-	goto_if_set FLAG_SYS_BRAILLE_SHOWN_FIVE_REGI, IzabeIsland_OutskirtsCave_EventScript_NoEffect
-	specialvar VAR_RESULT, CheckFiveRegi
+	goto_if_set FLAG_SYS_BRAILLE_SHOWN_THREE_REGI, IzabeIsland_OutskirtsCave_EventScript_NoEffect
+	specialvar VAR_RESULT, CheckThreeRegi
 	compare VAR_RESULT, FALSE
 	goto_if_eq IzabeIsland_OutskirtsCave_EventScript_NoEffect
 	fadeoutbgm 0
@@ -159,7 +159,7 @@ IzabeIsland_OutskirtsCave_EventScript_TryOpenWall:
 	msgbox IzabeIsland_OutskirtsCave_Text_DoorOpen, MSGBOX_DEFAULT
 	closemessage
 	fadeinbgm 0
-	setflag FLAG_SYS_BRAILLE_SHOWN_FIVE_REGI
+	setflag FLAG_SYS_BRAILLE_SHOWN_THREE_REGI
 	return
 
 IzabeIsland_OutskirtsCave_EventScript_NoEffect::
