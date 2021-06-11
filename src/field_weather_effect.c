@@ -5,6 +5,8 @@
 #include "overworld.h"
 #include "random.h"
 #include "script.h"
+#include "day_night.h"
+#include "constants/day_night.h"
 #include "constants/weather.h"
 #include "constants/songs.h"
 #include "sound.h"
@@ -176,6 +178,9 @@ static void CreateCloudSprites(void)
     u16 i;
     u8 spriteId;
     struct Sprite *sprite;
+	
+    if (GetCurrentTimeOfDay() == TIME_NIGHT)
+        return;
 
     if (gWeatherPtr->cloudSpritesCreated == TRUE)
         return;
