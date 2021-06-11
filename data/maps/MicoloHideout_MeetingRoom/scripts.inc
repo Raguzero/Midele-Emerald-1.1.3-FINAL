@@ -197,7 +197,7 @@ MicoloHideout_MeetingRoom_PCHeal_Text_0:
 MicoloHideout_MeetingRoom_MauvilleMewVader::
 	lock
 	faceplayer
-	playmoncry SPECIES_MEWTWO, 2
+	playmoncry SPECIES_MEW, 2
 	waitmoncry
 	msgbox MicoloHideout_MeetingRoom_MauvilleMewVader_Text_0, MSGBOX_DEFAULT
 	release

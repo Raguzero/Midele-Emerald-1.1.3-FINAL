@@ -859,7 +859,7 @@ MicoloHideout_Text_NotEnoughMoney: @ 82205F1
 	.string "Not enough money…$"
 
 MicoloHideout_Text_DecidedAgainstBuyingDrink: @ 8220603
-	.string "Decided against buying a drink.$"
+	.string "Decided against buying a can.$"
 	
 MicoloHideout_VentaTickets_Text:
 	.string "¡¡¡Eh, pringao!!\n"
