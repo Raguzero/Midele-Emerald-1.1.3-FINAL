@@ -427,6 +427,15 @@
             "var_value": "0",
             "x": 22,
             "y": 13
+        },
+        {
+            "elevation": 0,
+            "script": "GymGooses_EventScript_Primera_Casilla_Prueba",
+            "type": "trigger",
+            "var": "VAR_TEMP_1",
+            "var_value": "0",
+            "x": 4,
+            "y": 34
         }
     ],
     "id": "MAP_GYM_GOOSES",

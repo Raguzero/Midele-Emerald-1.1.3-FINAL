@@ -991,6 +991,41 @@ GymGooses_EventScript_GoosesDefeated::
 	delay 30
 	release
 	end
+	
+GymGooses_EventScript_Primera_Casilla_Prueba::
+	lockall
+	goto_if_set FLAG_DEFEATED_GOOSES_GYM, GymGooses_EventScript_GymComplete
+	msgbox GymGooses_Text_Comienza, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq GymGooses_EventScript_Comienza2
+	applymovement EVENT_OBJ_ID_PLAYER, GymGoosesNOComienzPrueba
+	waitmovement 0
+	releaseall
+	end
+GymGooses_EventScript_Comienza2::
+	msgbox GymGooses_Text_Curacion, MSGBOX_DEFAULT
+	special HealPlayerParty
+	applymovement EVENT_OBJ_ID_PLAYER, GymGoosesComienzPrueba
+	waitmovement 0
+	releaseall
+	end
+	
+GymGooses_EventScript_GymComplete::
+	msgbox GymGooses_Text_Jugardenuevo, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq GymGooses_EventScript_Comienza2
+	applymovement EVENT_OBJ_ID_PLAYER, GymGoosesNOComienzPrueba
+	waitmovement 0
+	releaseall
+	end
+	
+GymGoosesComienzPrueba:
+	walk_up
+	step_end
+	
+GymGoosesNOComienzPrueba:
+	walk_down
+	step_end
 
 GymGoosesTirarDado_Text:
 	.string "Casilla Dado: ¡Tira el dado!$"
@@ -1259,3 +1294,22 @@ GymGooses_Text_Totemaparece:
 	
 GymGooses_Text_Totemderrotado:
 	.string "M-GLALIE disappeared...$"
+	
+GymGooses_Text_Comienza:
+	.string "¿Estás preparado para comenzar\n"
+	.string "la prueba del GYM?$"
+	
+GymGooses_Text_Jugardenuevo:
+	.string "Debido a que has completado el GYM,\n" 
+	.string "ahora podrás jugar la prueba del\l"
+	.string "tablero todas las veces que quieras,\l"
+	.string "pero sin ningún premio a conseguir.\p"
+	
+	.string "¿Estás preparado para comenzar\n"
+	.string "la prueba?$"
+	
+GymGooses_Text_Curacion:
+	.string "Antes de comenzar la prueba,\n"
+	.string "tu equipo será curado.\p"
+	
+	.string "¡ADELANTE!$"
