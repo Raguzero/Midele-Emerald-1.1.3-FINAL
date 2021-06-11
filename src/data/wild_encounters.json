@@ -4674,6 +4674,75 @@
                     "map": "MAP_MICOLO_HIDEOUT_EXPERIMENT_ROOM"
                 },
                 {
+                    "base_label": "gMicoloHideout_LavaRoom0",
+                    "land_mons": {
+                        "encounter_rate": 15,
+                        "mons": [
+                            {
+                                "max_level": 100,
+                                "min_level": 100,
+                                "species": "SPECIES_MAGCARGO"
+                            },
+                            {
+                                "max_level": 100,
+                                "min_level": 100,
+                                "species": "SPECIES_FLAREON"
+                            },
+                            {
+                                "max_level": 100,
+                                "min_level": 100,
+                                "species": "SPECIES_MAGMORTAR"
+                            },
+                            {
+                                "max_level": 100,
+                                "min_level": 100,
+                                "species": "SPECIES_CHARIZARD"
+                            },
+                            {
+                                "max_level": 100,
+                                "min_level": 100,
+                                "species": "SPECIES_INFERNAPE"
+                            },
+                            {
+                                "max_level": 100,
+                                "min_level": 100,
+                                "species": "SPECIES_TYPHLOSION"
+                            },
+                            {
+                                "max_level": 100,
+                                "min_level": 100,
+                                "species": "SPECIES_MEGA_HOUNDOOM"
+                            },
+                            {
+                                "max_level": 100,
+                                "min_level": 100,
+                                "species": "SPECIES_MEGA_HOUNDOOM"
+                            },
+                            {
+                                "max_level": 100,
+                                "min_level": 100,
+                                "species": "SPECIES_CENTISKORCH"
+                            },
+                            {
+                                "max_level": 100,
+                                "min_level": 100,
+                                "species": "SPECIES_CENTISKORCH"
+                            },
+                            {
+                                "max_level": 100,
+                                "min_level": 100,
+                                "species": "SPECIES_CENTISKORCH"
+                            },
+                            {
+                                "max_level": 100,
+                                "min_level": 100,
+                                "species": "SPECIES_CENTISKORCH"
+                            }
+                        ]
+                    },
+                    "map": "MAP_MICOLO_HIDEOUT_LAVA_ROOM"
+                },
+                {
                     "base_label": "gMirageTower_1F",
                     "land_mons": {
                         "encounter_rate": 10,

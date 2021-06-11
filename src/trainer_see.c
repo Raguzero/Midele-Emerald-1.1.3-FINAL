@@ -8,6 +8,7 @@
 #include "script.h"
 #include "script_movement.h"
 #include "sprite.h"
+#include "string_util.h"
 #include "task.h"
 #include "trainer_see.h"
 #include "trainer_hill.h"
@@ -169,6 +170,15 @@ static const struct SpriteTemplate sSpriteTemplate_HeartIcon =
     .images = sSpriteImageTable_HeartIcon,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SpriteCB_TrainerIcons
+};
+
+// From include/constants/opponents.h
+static const u16 sMicoloHideoutTrainerFlags[] = {
+    TRAINER_MERUM,
+    TRAINER_GOLDIE,
+    TRAINER_UTALAWEA,
+    TRAINER_JAVISITO_POSTGAME,
+    TRAINER_EEVEETO
 };
 
 // code
@@ -790,4 +800,29 @@ void PlayerFaceTrainerAfterBattle(void)
     }
 
     SetMovingNpcId(EVENT_OBJ_ID_PLAYER);
+}
+
+void HasDefeatedAllMicoloHideoutTrainers(void)
+{
+    u8 defeatedTrainersCount = 0;
+    u8 i;
+    for (i = 0; i < ARRAY_COUNT(sMicoloHideoutTrainerFlags); i++)
+    {
+        if (HasTrainerBeenFought(sMicoloHideoutTrainerFlags[i]))
+        {
+            defeatedTrainersCount++;
+        }
+    }
+    
+    if (defeatedTrainersCount == ARRAY_COUNT(sMicoloHideoutTrainerFlags))
+    {
+        gSpecialVar_Result = TRUE;
+    }
+    else
+    {
+        gSpecialVar_Result = FALSE;
+    }
+
+    ConvertUIntToDecimalStringN(gStringVar1, defeatedTrainersCount, STR_CONV_MODE_LEFT_ALIGN, 2);
+    ConvertUIntToDecimalStringN(gStringVar2, ARRAY_COUNT(sMicoloHideoutTrainerFlags), STR_CONV_MODE_LEFT_ALIGN, 2);
 }

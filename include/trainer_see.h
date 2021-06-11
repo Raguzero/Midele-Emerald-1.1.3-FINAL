@@ -26,5 +26,6 @@ u8 FldEff_HeartIcon(void);
 u8 GetCurrentApproachingTrainerEventObjectId(void);
 u8 GetChosenApproachingTrainerEventObjectId(u8 arrayId);
 void PlayerFaceTrainerAfterBattle(void);
+void HasDefeatedAllMicoloHideoutTrainers(void);
 
 #endif // GUARD_TRAINER_SEE_H

@@ -566,3 +566,4 @@ gSpecials:: @ 81DBA64
 	def_special BurnMons
 	def_special SleepMons
 	def_special PCBatallaGivePrize
+	def_special HasDefeatedAllMicoloHideoutTrainers
