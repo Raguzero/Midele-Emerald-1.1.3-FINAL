@@ -445,14 +445,33 @@ static s16 GetSearchWindowY(void)
     return (GetWindowAttribute(sDexNavSearchDataPtr->windowId, WINDOW_TILEMAP_TOP) * 8);
 }
 
+
 #define SPECIES_ICON_X 28
 static void DrawDexNavSearchMonIcon(u16 species, u8 *dst, bool8 owned)
 {
     u8 spriteId;
 	u16 formId = species;
 
-    LoadMonIconPalette(species);
+    u8 forcePaletteSlot;
+
+	if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE111) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE111) && sDexNavSearchDataPtr->environment != ENCOUNTER_TYPE_WATER)
+        forcePaletteSlot = 0;
+    else if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE120) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE120) && FlagGet(FLAG_RECEIVED_DEVON_SCOPE))
+        forcePaletteSlot = 11;
+    else
+        forcePaletteSlot = 13;
+
+
+    if (forcePaletteSlot)
+		LoadPalette(GetValidMonIconPalettePtr(species), forcePaletteSlot * 16 + 0x100, 32);
+    else
+        LoadMonIconPalette(species);
+
     spriteId = CreateMonIcon(species, SpriteCB_MonIcon, SPECIES_ICON_X - 6, GetSearchWindowY() + 8, 0, 0xFFFFFFFF, formId);
+
+    if (forcePaletteSlot)
+    gSprites[spriteId].oam.paletteNum = forcePaletteSlot;
+
     gSprites[spriteId].oam.priority = 0;
     *dst = spriteId;
     

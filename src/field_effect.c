@@ -931,8 +931,21 @@ u8 CreateMonSprite_PicBox(u16 species, s16 x, s16 y, u8 subpriority)
 u8 CreateMonSprite_FieldMove(u16 species, u32 d, u32 g, s16 x, s16 y, u8 subpriority)
 {
     const struct CompressedSpritePalette *spritePalette = GetMonSpritePalStructFromOtIdPersonality(species, d, g);
-    u16 spriteId = CreateMonPicSprite_HandleDeoxys(species, d, g, 1, x, y, 0, spritePalette->tag);
-    PreservePaletteInWeather(IndexOfSpritePaletteTag(spritePalette->tag) + 0x10);
+    u16 spriteId;
+    u8 index = IndexOfSpritePaletteTag(0xFFFF);
+
+    // Si no hay espacio para la paleta, utiliza el slot reservado para la paleta de la tormenta de arena y las nubes
+    // (en los lugares con tormenta de arena o nubes, no es posible que no haya espacio)
+    if (index == 0xFF)
+    {
+        spriteId = CreateMonPicSprite_HandleDeoxys(species, d, g, 1, x, y, 13, 0xFFFF);
+        PreservePaletteInWeather(13 + 0x10);
+    }
+    else
+    {
+        spriteId = CreateMonPicSprite_HandleDeoxys(species, d, g, 1, x, y, 0, spritePalette->tag);
+        PreservePaletteInWeather(IndexOfSpritePaletteTag(spritePalette->tag) + 0x10);
+    }
     if (spriteId == 0xFFFF)
         return MAX_SPRITES;
     else
