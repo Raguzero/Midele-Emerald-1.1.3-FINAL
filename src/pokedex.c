@@ -4547,7 +4547,6 @@ static void PrintMonInfo(u32 natNum, u32 value, u32 owned, u32 newEntry)
         value = num;
     ConvertIntToDecimalStringN(StringCopy(str, gText_NumberClear01), value, STR_CONV_MODE_LEADING_ZEROS, 3);
     PrintInfoScreenTextWhite(str, 123, 17); //HGSS_Ui
-    natNum = NationalPokedexNumToSpecies(num);
     if (natNum)
         text = gSpeciesNames[natNum];
     else
