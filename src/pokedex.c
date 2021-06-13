@@ -4309,6 +4309,40 @@ u8 CreateDexDisplayMonDataTask(u16 species, u32 trainerId, u32 personality)
     return taskId;
 }
 
+// different from pokemon_summary_screen
+#define TYPE_ICON_PAL_NUM_0     13
+#define TYPE_ICON_PAL_NUM_1     14
+#define TYPE_ICON_PAL_NUM_2     15
+static const u8 sMoveTypeToOamPaletteNum[NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT] =
+{
+    [TYPE_NORMAL] = TYPE_ICON_PAL_NUM_0,
+    [TYPE_FIGHTING] = TYPE_ICON_PAL_NUM_0,
+    [TYPE_FLYING] = TYPE_ICON_PAL_NUM_1,
+    [TYPE_POISON] = TYPE_ICON_PAL_NUM_1,
+    [TYPE_GROUND] = TYPE_ICON_PAL_NUM_0,
+    [TYPE_ROCK] = TYPE_ICON_PAL_NUM_0,
+    [TYPE_BUG] = TYPE_ICON_PAL_NUM_2,
+    [TYPE_GHOST] = TYPE_ICON_PAL_NUM_1,
+    [TYPE_STEEL] = TYPE_ICON_PAL_NUM_0,
+    [TYPE_MYSTERY] = TYPE_ICON_PAL_NUM_2,
+    [TYPE_FIRE] = TYPE_ICON_PAL_NUM_0,
+    [TYPE_WATER] = TYPE_ICON_PAL_NUM_1,
+    [TYPE_GRASS] = TYPE_ICON_PAL_NUM_2,
+    [TYPE_ELECTRIC] = TYPE_ICON_PAL_NUM_0,
+    [TYPE_PSYCHIC] = TYPE_ICON_PAL_NUM_1,
+    [TYPE_ICE] = TYPE_ICON_PAL_NUM_1,
+    [TYPE_DRAGON] = TYPE_ICON_PAL_NUM_2,
+    [TYPE_DARK] = TYPE_ICON_PAL_NUM_0,
+    [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_COOL] = TYPE_ICON_PAL_NUM_0,
+    [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_BEAUTY] = TYPE_ICON_PAL_NUM_1,
+    [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_CUTE] = TYPE_ICON_PAL_NUM_1,
+    [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_SMART] = TYPE_ICON_PAL_NUM_2,
+    [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_TOUGH] = TYPE_ICON_PAL_NUM_0,
+    [TYPE_FAIRY] = TYPE_ICON_PAL_NUM_1, //based on battle_engine
+};
+
+#define NewMonDataTypeIconSpriteId0 gTasks[taskId].data[4]
+#define NewMonDataTypeIconSpriteId1 gTasks[taskId].data[5]
 static void Task_DisplayNewMonData(u8 taskId)
 {
     u8 spriteId;
@@ -4346,10 +4380,37 @@ static void Task_DisplayNewMonData(u8 taskId)
             gTasks[taskId].data[0]++;
             break;
         case 2:
+            LoadCompressedSpriteSheet(&sSpriteSheet_MoveTypes);
+            LoadCompressedPalette(gMoveTypes_Pal, 0x1D0, 0x60);
+            NewMonDataTypeIconSpriteId0 = CreateSprite(&sSpriteTemplate_MoveTypes, 10, 10, 2);
+            NewMonDataTypeIconSpriteId1 = CreateSprite(&sSpriteTemplate_MoveTypes, 10, 10, 2);
+            gSprites[NewMonDataTypeIconSpriteId0].invisible = gSprites[NewMonDataTypeIconSpriteId1].invisible = TRUE;
             gTasks[taskId].data[0]++;
             break;
         case 3:
             PrintMonInfo(species, IsNationalPokedexEnabled(), 1, 1);
+			
+            {
+                u8 type1 = gBaseStats[species].type1;
+                u8 type2 = gBaseStats[species].type2;
+
+                struct Sprite *sprite = &gSprites[NewMonDataTypeIconSpriteId0];
+                StartSpriteAnim(sprite, type1);
+                sprite->oam.paletteNum = sMoveTypeToOamPaletteNum[type1];
+                sprite->pos1.x = 147 + 16;
+                sprite->pos1.y = 48 + 8;
+                sprite->invisible = FALSE;
+                if (type1 != type2)
+                {
+                    struct Sprite *sprite = &gSprites[NewMonDataTypeIconSpriteId1];
+                    StartSpriteAnim(sprite, type2);
+                    sprite->oam.paletteNum = sMoveTypeToOamPaletteNum[type2];
+                    sprite->pos1.x = 147 + 33 + 16;
+                    sprite->pos1.y = 48 + 8;
+                    sprite->invisible = FALSE;
+                }
+            }
+			
             CopyWindowToVram(WIN_INFO, 3);
 			CopyBgTilemapBufferToVram(1);
             CopyBgTilemapBufferToVram(2);
@@ -4388,7 +4449,12 @@ void sub_80C0088(u8 taskId)
 {
     if (gMain.newKeys & (A_BUTTON | B_BUTTON))
     {
-        BeginNormalPaletteFade(0x0000FFFF, 0, 0, 16, RGB_BLACK);
+		u32 fadingPalettes = 0x0000FFFF;
+
+        fadingPalettes |= (1 << (gSprites[NewMonDataTypeIconSpriteId0].oam.paletteNum + 16));
+        if (gSprites[NewMonDataTypeIconSpriteId1].invisible == FALSE)
+            fadingPalettes |= (1 << (gSprites[NewMonDataTypeIconSpriteId1].oam.paletteNum + 16));
+        BeginNormalPaletteFade(fadingPalettes, 0, 0, 16, RGB_BLACK);
         gSprites[gTasks[taskId].data[3]].callback = sub_80C01CC;
         gTasks[taskId].func = blockset_load_palette_to_gpu;
     }
@@ -4422,6 +4488,8 @@ void blockset_load_palette_to_gpu(u8 taskId)
         if (buffer)
             Free(buffer);
 
+	    DestroySprite(&gSprites[NewMonDataTypeIconSpriteId0]);
+        DestroySprite(&gSprites[NewMonDataTypeIconSpriteId1]);
         species = gTasks[taskId].data[1];
         otId = ((u16)gTasks[taskId].data[13] << 16) | (u16)gTasks[taskId].data[12];
         personality = ((u16)gTasks[taskId].data[15] << 16) | (u16)gTasks[taskId].data[14];
@@ -4450,37 +4518,7 @@ static void SetSpriteInvisibility(u8 spriteArrayId, bool8 invisible)
 {
     gSprites[sPokedexView->typeIconSpriteIds[spriteArrayId]].invisible = invisible;
 }
-// different from pokemon_summary_screen
-#define TYPE_ICON_PAL_NUM_0     13
-#define TYPE_ICON_PAL_NUM_1     14
-#define TYPE_ICON_PAL_NUM_2     15
-static const u8 sMoveTypeToOamPaletteNum[NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT] =
-{
-    [TYPE_NORMAL] = TYPE_ICON_PAL_NUM_0,
-    [TYPE_FIGHTING] = TYPE_ICON_PAL_NUM_0,
-    [TYPE_FLYING] = TYPE_ICON_PAL_NUM_1,
-    [TYPE_POISON] = TYPE_ICON_PAL_NUM_1,
-    [TYPE_GROUND] = TYPE_ICON_PAL_NUM_0,
-    [TYPE_ROCK] = TYPE_ICON_PAL_NUM_0,
-    [TYPE_BUG] = TYPE_ICON_PAL_NUM_2,
-    [TYPE_GHOST] = TYPE_ICON_PAL_NUM_1,
-    [TYPE_STEEL] = TYPE_ICON_PAL_NUM_0,
-    [TYPE_MYSTERY] = TYPE_ICON_PAL_NUM_2,
-    [TYPE_FIRE] = TYPE_ICON_PAL_NUM_0,
-    [TYPE_WATER] = TYPE_ICON_PAL_NUM_1,
-    [TYPE_GRASS] = TYPE_ICON_PAL_NUM_2,
-    [TYPE_ELECTRIC] = TYPE_ICON_PAL_NUM_0,
-    [TYPE_PSYCHIC] = TYPE_ICON_PAL_NUM_1,
-    [TYPE_ICE] = TYPE_ICON_PAL_NUM_1,
-    [TYPE_DRAGON] = TYPE_ICON_PAL_NUM_2,
-    [TYPE_DARK] = TYPE_ICON_PAL_NUM_0,
-    [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_COOL] = TYPE_ICON_PAL_NUM_0,
-    [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_BEAUTY] = TYPE_ICON_PAL_NUM_1,
-    [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_CUTE] = TYPE_ICON_PAL_NUM_1,
-    [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_SMART] = TYPE_ICON_PAL_NUM_2,
-    [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_TOUGH] = TYPE_ICON_PAL_NUM_0,
-    [TYPE_FAIRY] = TYPE_ICON_PAL_NUM_1, //based on battle_engine
-};
+
 static void SetTypeIconPosAndPal(u8 typeId, u8 x, u8 y, u8 spriteArrayId)
 {
     struct Sprite *sprite;
