@@ -77,7 +77,7 @@
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
             "x": 3,
-            "y": 9
+            "y": 10
         },
         {
             "elevation": 3,
@@ -90,7 +90,7 @@
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
             "x": 24,
-            "y": 9
+            "y": 10
         },
         {
             "elevation": 3,
@@ -103,7 +103,7 @@
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
             "x": 26,
-            "y": 9
+            "y": 10
         },
         {
             "elevation": 3,
@@ -112,7 +112,7 @@
             "movement_range_x": 0,
             "movement_range_y": 0,
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "script": "NULL",
+            "script": "MicoloLeagueLobby_EventScript_GuardCheck",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
             "x": 9,
@@ -129,7 +129,7 @@
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
             "x": 29,
-            "y": 11
+            "y": 12
         },
         {
             "elevation": 3,
@@ -138,7 +138,7 @@
             "movement_range_x": 0,
             "movement_range_y": 0,
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "script": "NULL",
+            "script": "MicoloLeagueLobby_EventScript_GuardCheck",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
             "x": 10,
@@ -155,7 +155,98 @@
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
             "x": 0,
-            "y": 8
+            "y": 9
+        },
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_WOMAN_2",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+            "script": "VerdanturfTown_FriendshipRatersHouse_EventScript_FriendshipRater",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 22,
+            "y": 11
+        },
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_HOT_SPRINGS_OLD_WOMAN",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_UP",
+            "script": "FortreeCity_House2_EventScript_Midele_HiddenPowerTypeChange",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 20,
+            "y": 12
+        },
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_CONTEST_JUDGE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+            "script": "BattleFrontier_Lounge5_EventScript_Midele_NatureChanger2",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 19,
+            "y": 11
+        },
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_ARTIST",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+            "script": "BattleFrontier_Lounge5_EventScript_Midele_NatureChanger1",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 19,
+            "y": 10
+        },
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_BARD",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_UP",
+            "script": "SootopolisCity_MysteryEventsHouse_1F_EventScript_MideleEVReducer",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 21,
+            "y": 12
+        },
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_OLD_MAN",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_UP",
+            "script": "MicoloLeagueLobby_EventScript_ExitOldMan",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 5,
+            "y": 6
+        },
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_DUSCLOPS",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_UP",
+            "script": "MicoloLeagueLobby_EventScript_Dusclops",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 6,
+            "y": 6
         }
     ],
     "region_map_section": "MAPSEC_MICOLANDIA",
@@ -167,14 +258,35 @@
             "dest_warp_id": 1,
             "elevation": 0,
             "x": 9,
-            "y": 11
+            "y": 12
         },
         {
             "dest_map": "MAP_MICOLO_HIDEOUT_LAVA_ROOM",
             "dest_warp_id": 1,
             "elevation": 0,
             "x": 10,
-            "y": 11
+            "y": 12
+        },
+        {
+            "dest_map": "MAP_MICOLANDIA_POKEMON_CENTER1F",
+            "dest_warp_id": 2,
+            "elevation": 0,
+            "x": 1,
+            "y": 5
+        },
+        {
+            "dest_map": "MAP_MICOLO_LEAGUE_LOBBY",
+            "dest_warp_id": 0,
+            "elevation": 0,
+            "x": 10,
+            "y": 1
+        },
+        {
+            "dest_map": "MAP_MICOLO_LEAGUE_LOBBY",
+            "dest_warp_id": 0,
+            "elevation": 0,
+            "x": 9,
+            "y": 1
         }
     ],
     "weather": "WEATHER_NONE"

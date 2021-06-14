@@ -6,7 +6,26 @@ MicoloLeagueLobby_MapScripts:: @ 82295D2
 MicoloLeagueLobby_PokemonCenter_OnTransition:
 	setrespawn HEAL_LOCATION_MICOLANDIA // CAMBIARLO LUEGO
 	call Common_EventScript_UpdateBrineyLocation
+	compare VAR_STATE_MICOLANDIA, 3
+	call_if_eq MicoloLeagueLobby_EventScript_SetGuardUnblockingDoor
+   	compare VAR_STATE_MICOLANDIA, 3
+	call_if_ne MicoloLeagueLobby_EventScript_SetGuardBlockingDoor
 	end
+
+MicoloLeagueLobby_EventScript_SetGuardUnblockingDoor::
+	setobjectxyperm 8, 8, 2 
+	setobjectmovementtype 8, MOVEMENT_TYPE_FACE_DOWN
+	setobjectxyperm 10, 11, 2 
+	setobjectmovementtype 10, MOVEMENT_TYPE_FACE_DOWN
+	return
+
+MicoloLeagueLobby_EventScript_SetGuardBlockingDoor::
+	setobjectxyperm 8, 9, 2
+	setobjectxyperm 10, 10, 2
+	setobjectmovementtype 10, MOVEMENT_TYPE_FACE_DOWN
+	setobjectmovementtype 10, MOVEMENT_TYPE_FACE_DOWN
+	return
+
 
 @ VAR_0x800B is the Nurse's object event id
 MicoloLeagueLobby_PokemonCenter_EventScript_Nurse::
@@ -140,6 +159,63 @@ MicoloLeagueLobby_Pokemart2: // YA SE CAMBIARAN LOS OBJETOS
 	.2byte ITEM_NONE
 	release
 	end
+
+MicoloLeagueLobby_EventScript_ExitOldMan::
+	msgbox MicoloLeagueLobby_EventScript_ExitOldMan_Text_0, MSGBOX_NPC
+	return
+
+MicoloLeagueLobby_EventScript_ExitOldMan_Text_0:
+	.string "Esas escaleras de la izquierda te\n"
+	.string "llevarán de vuelta a MICOLANDIA.\p"
+	.string "Es una suerte que sean escaleras\n"
+	.string "automáticas...$"
+
+MicoloLeagueLobby_EventScript_Dusclops::
+    lock
+    faceplayer 
+    waitse
+    playmoncry SPECIES_DUSCLOPS, 0
+    msgbox MicoloLeagueLobby_Text_Dusclops, MSGBOX_DEFAULT
+    waitmoncry
+    release
+    end
+
+MicoloLeagueLobby_Text_Dusclops:
+    .string "DUSCLOPS: Cloooops...$"
+    
+MicoloLeagueLobby_EventScript_GuardCheck::
+	lockall
+	compare VAR_STATE_MICOLANDIA, 3
+	goto_if_eq MicoloLeagueLobby_EventScript_GuardCheck_2
+	msgbox MicoloLeagueLobby_EventScript_GuardCheck_Text_1, MSGBOX_NPC
+	applymovement 8, MicoloLeagueLobby_Movement_Guard1
+	applymovement 10, MicoloLeagueLobby_Movement_Guard2
+	waitmovement 0
+	setvar VAR_STATE_MICOLANDIA, 3
+MicoloLeagueLobby_EventScript_GuardCheck_1:
+	releaseall
+	return
+
+MicoloLeagueLobby_EventScript_GuardCheck_2:
+	msgbox MicoloLeagueLobby_EventScript_GuardCheck_Text_0, MSGBOX_NPC
+	goto MicoloLeagueLobby_EventScript_GuardCheck_1
+
+
+MicoloLeagueLobby_Movement_Guard1:
+	walk_left
+    face_down
+	step_end
+
+MicoloLeagueLobby_Movement_Guard2:
+	walk_right
+    face_down
+	step_end
+
+MicoloLeagueLobby_EventScript_GuardCheck_Text_0:
+	.string "TEXT YA PUEDES PASAR$"
+
+MicoloLeagueLobby_EventScript_GuardCheck_Text_1:
+	.string "TEXTO COMPROBANDO SI PUEDES PASAR$"
 
 MicoloLeagueLobby_Text_1:
 	.string "¡La Liga Pokémon Oficial de HOENN es\n" 

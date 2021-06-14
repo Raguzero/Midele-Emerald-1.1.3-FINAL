@@ -39,6 +39,19 @@
             "trainer_type": "0",
             "x": 15,
             "y": 2
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_HIDE_LAVAROOM_GIRATINAMASTER",
+            "graphics_id": "EVENT_OBJ_GFX_MYSTERY_GIFT_MAN",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+            "script": "Micolandia_PokemonCenter1F_EventScript_LeagueGuard",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 2,
+            "y": 6
         }
     ],
     "region_map_section": "MAPSEC_MICOLANDIA",
@@ -60,8 +73,8 @@
             "y": 8
         },
         {
-            "dest_map": "MAP_MICOLANDIA_POKEMON_CENTER2F",
-            "dest_warp_id": 0,
+            "dest_map": "MAP_MICOLO_LEAGUE_LOBBY",
+            "dest_warp_id": 2,
             "elevation": 0,
             "x": 1,
             "y": 6

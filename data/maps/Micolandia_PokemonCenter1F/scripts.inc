@@ -16,3 +16,14 @@ Micolandia_PokemonCenter1F_EventScript_Nurse:: @ 820DAD3
 	waitbuttonpress
 	release
 	end
+
+Micolandia_PokemonCenter1F_EventScript_LeagueGuard::
+	msgbox Micolandia_PokemonCenter1F_EventScript_LeagueGuard_Text_0, MSGBOX_NPC
+	return
+
+
+Micolandia_PokemonCenter1F_EventScript_LeagueGuard_Text_0:
+	.string "Lo siento, no puedes pasar por aquí.\p"
+	.string "Sin embargo, entrenador... no te rindas.\n"
+	.string "Algún día podrás.$"
+
