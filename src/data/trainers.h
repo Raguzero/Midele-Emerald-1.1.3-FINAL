@@ -13312,32 +13312,44 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_Mobu),
         .party = {.ItemCustomMidele = sParty_Mobu},
     },
-// INCOMPLETOS
     [TRAINER_ESBIRRO_DARKI_5] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PSYCHIC,
+        .trainerClass = TRAINER_CLASS_LASS,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
-        .trainerPic = TRAINER_PIC_PSYCHIC_M,
-        .trainerName = _("TOBU"),
+        .trainerPic = TRAINER_PIC_LASS,
+        .trainerName = _("ROXY"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
-        .partySize = ARRAY_COUNT(sParty_Mobu),
-        .party = {.ItemCustomMidele = sParty_Mobu},
+        .partySize = ARRAY_COUNT(sParty_Roxy),
+        .party = {.ItemCustomMidele = sParty_Roxy},
     },
-    [TRAINER_ESBIRRO_DARKI_6] =
+// ESBIRROS DE DARKI
+    [TRAINER_ANTHONYPXP] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PSYCHIC,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
-        .trainerPic = TRAINER_PIC_PSYCHIC_M,
-        .trainerName = _("MOBU"),
+        .trainerPic = TRAINER_PIC_POKEMON_RANGER_M,
+        .trainerName = _("ANTHONY"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
-        .partySize = ARRAY_COUNT(sParty_Mobu),
-        .party = {.ItemCustomMidele = sParty_Mobu},
+        .partySize = ARRAY_COUNT(sParty_Anthonypxp),
+        .party = {.ItemCustomMidele = sParty_Anthonypxp},
+    },
+    [TRAINER_DRANIX] =
+    {
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_BUG_MANIAC,
+        .trainerName = _("DRANIX"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
+        .partySize = ARRAY_COUNT(sParty_Dranix),
+        .party = {.ItemCustomMidele = sParty_Dranix},
     }
-// ESBIRROS DE DARKI
 };

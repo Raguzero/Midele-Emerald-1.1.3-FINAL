@@ -84,6 +84,283 @@ Darkigym_EventScript_Teleport_Si::
 	waitstate
 	release
 	end
+	
+Darkigym_EventScript_RedSecretaria::
+	trainerbattle_single TRAINER_ESBIRRO_DARKI_1, Darkigym_Text_RedSecretariaIntro, Darkigym_Text_RedSecretariaDefeat
+	msgbox Darkigym_Text_RedSecretariaPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+Darkigym_EventScript_Kizarde::
+	trainerbattle_single TRAINER_ESBIRRO_DARKI_2, Darkigym_Text_KizardeIntro, Darkigym_Text_KizardeDefeat
+	msgbox Darkigym_Text_KizardePostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+Darkigym_EventScript_Espi::
+	trainerbattle_single TRAINER_ESBIRRO_DARKI_3, Darkigym_Text_EspiIntro, Darkigym_Text_EspiDefeat
+	msgbox Darkigym_Text_EspiPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+Darkigym_EventScript_Mobu::
+	trainerbattle_single TRAINER_ESBIRRO_DARKI_4, Darkigym_Text_MobuIntro, Darkigym_Text_MobuDefeat
+	msgbox Darkigym_Text_MobuPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+Darkigym_EventScript_Roxy::
+	trainerbattle_single TRAINER_ESBIRRO_DARKI_5, Darkigym_Text_RoxyIntro, Darkigym_Text_RoxyDefeat
+	msgbox Darkigym_Text_RoxyPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+Darkigym_EventScript_Anthony::
+	trainerbattle_single TRAINER_ANTHONYPXP, Darkigym_Text_AnthonyIntro, Darkigym_Text_AnthonyDefeat
+	msgbox Darkigym_Text_AnthonyPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+Darkigym_EventScript_Dranix::
+	trainerbattle_single TRAINER_DRANIX, Darkigym_Text_DranixIntro, Darkigym_Text_DranixDefeat
+	msgbox Darkigym_Text_DranixPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+Darkigym_Text_RedSecretariaIntro: 
+	.string "¿Espera eres un humano?\p"
+
+	.string "No se supone que los humanos\n" 
+	.string "corrientes puedan rondar en este\l"
+	.string "pedazo del inframundo.\p"
+
+	.string "Supongo que tienes una cita o algo\n" 
+	.string "coon mi señor...\p"
+
+	.string "¿Que no la tienes?\p"
+
+	.string "Bueno espero que vinieras aquí buscando\n" 
+	.string "una muerte horrible.\p"
+
+	.string "Por que nadie ve a mi jefe el mal rollo\n" 
+	.string "sin una cita previa.$" 
+	
+Darkigym_Text_RedSecretariaDefeat: 
+	.string "¿Pero que mier...?$"
+
+Darkigym_Text_RedSecretariaPostBattle:
+	.string "¿Como me has... ganado?\p"
+
+	.string "Tsk...Malditas sean las reglas de\n"
+	.string "este mundo.\p"
+
+	.string "Te habría llenado todos los esfinteres\n" 
+	.string "con granadas y volado en mil pedazos,\l" 
+	.string "si no fuera por este asqueroso y\l"
+	.string "opresor ambiente family friendly.\p"
+
+	.string "Prosigue, ya avise a mi amo de que vas\n" 
+	.string "en camino.\p"
+
+	.string "No tiene fe de que llegues ante el,\n"
+	.string "pero si eres tan gilipollas como para\l" 
+	.string "haber llegado hasta aquí solo\l" 
+	.string "te resta avanzar.$"
+	
+Darkigym_Text_KizardeIntro: 
+	.string "¡Alto Ahí! pequeña ardilla\n"
+	.string "como osas entrar en la guarída\l"
+	.string "del gran cientifico loco\l"
+	.string "D. Kizarde.\p"
+
+	.string "Fu wa ja ja ja ja ja ja ja ja ja$"
+
+Darkigym_Text_KizardeDefeat:
+	.string "Oh no! ¡debes ser un agente enviado\n" 
+	.string "la organización!\p"
+
+	.string "¡Vienen tras mi ultimo invento!$"
+
+Darkigym_Text_KizardePostBattle:
+	.string "Maravillate pequeña ardilla,\n"
+	.string "ante la maquina de viaje espacio\l"
+	.string "temporal.\p"
+
+	.string "¿Sin ella, como crees que nuestros jefes\n" 
+	.string "pueden viajar a tantos mundos?\p"
+
+	.string "Solo un genio como yo,\n"
+	.string "el miembro numero uno del laboratorio\l"
+	.string "de inventos subterraneos.\p"
+
+	.string "El cientifico loco D. Kizarde,\n"
+	.string "podría haber inventado tan\l" 
+	.string "impresionante máquina. Mua ja ja\p"
+
+	.string "Ya que me ganaste te contaré un\n"
+	.string "secreto.\p"
+
+	.string "Esta máquina la cree con el fin de\n" 
+	.string "evitar la tercera guerra\l" 
+	.string "interdimensional.\p"
+
+	.string "En la que Gooses junto a las brujas\n" 
+	.string "del destino, busca oprimir a toda la\l"
+	.string "humanidad con su ejercito de\l" 
+	.string "lolis waifus.\p"
+
+	.string "Siendo el detonante... un tal Masuda.\p"
+
+	.string "El cual dio a luz a Lilie para controlar\n"
+	.string "las mentes de todos aquellos niños que\l" 
+	.string "segun el no tienen tiempo para jugar\l"
+	.string "más que juegos cortitos de movil...\p"
+
+	.string "Sabes, veo en ti el poder de cambiar\n"
+	.string "el futuro.\p"
+
+	.string "Vamos, sigue adelante y demuestrale a\n"
+	.string "nuestro jefe, que puedes hacerlo, y\l" 
+	.string "salvarnos a todos de tan\l" 
+	.string "aciago destino.$"
+	
+Darkigym_Text_EspiIntro: 
+	.string "Hola intruso.\n"
+	.string "¿quieres jugar conmigo?$"
+
+Darkigym_Text_EspiDefeat: 
+	.string "Repampanos, se acabo el juego.$"
+
+Darkigym_Text_EspiPostBattle:
+	.string "Es una lastima, yo quería seguir jugando\n"
+	.string "si te ganaba y mataba.\p"
+
+	.string "Podría haberte añadido a mi colección\n" 
+	.string "de cadaveres.\p"
+
+	.string "Y de hecho tengo bastante repetida a\n" 
+	.string "cierta niña rubia.\p"
+
+	.string "¿Que? ¿te creias que todas estas tumbas\n" 
+	.string "son de adorno?\p"
+
+	.string "Nope... son todas de los enemigos de mi\n" 
+	.string "señor que me ha mandado a despedazar\l" 
+	.string "con mi guadaña, jia jajajajaja$"
+	
+Darkigym_Text_MobuIntro: 
+	.string "...............$"
+
+Darkigym_Text_MobuDefeat: 
+	.string "Ah.. ¿Eh? ¿Que ha pasado?$"
+
+Darkigym_Text_MobuPostBattle:
+	.string "Ah... disculpa, creo que me volvi a\n" 
+	.string "descontrolar durante mi entrenamiento.\p"
+
+	.string "Aún no logro dominar mi estado 100%...\p"
+
+	.string "Aunque mi maestro el buen rollo, dice\n" 
+	.string "que ya logro hacer muchas cosas sin\l" 
+	.string "necesidad de usar mis poderes\l" 
+	.string "psiquicos.\p"
+
+	.string "Como sea... siento una gran fuerza en\n" 
+	.string "ti ¿que buscas aquí?\p"
+
+	.string "¿Dices que estas buscando la medalla\n" 
+	.string "del gymnasio?\p"
+
+	.string "¿Que no te da miedo el lider?\p"
+
+	.string "I-increible, ojala pudiera ser tan\n" 
+	.string "valiente como tu.\p"
+
+	.string "Bueno, mucha suerte entrenador,\n" 
+	.string "te animare desde aquí.$"
+	
+Darkigym_Text_RoxyIntro: 
+	.string "Vaya, así que eres tu el que ha\n" 
+	.string "montado tanto revuelo.\p"
+
+	.string "....\p"
+
+	.string "No pareces la gran cosa.\p"
+
+	.string "No se por que los demás se han\n" 
+	.string "dejado vencer por ti.\p"
+
+	.string "Oh bueno, supongo que deberé\n" 
+	.string "pararte ahora.\p"
+
+	.string "Peleare por el honor del inframundo y la\n"
+	.string "felicidad de mis hermanos, por lo que ni\l" 
+	.string "de coña puedo permitirme perder.\p" 
+
+	.string "¿Estás preparado?$" 
+	
+Darkigym_Text_RoxyDefeat: 
+	.string "Lo siento... malro y buenro...$"
+
+Darkigym_Text_RoxyPostBattle:
+	.string "Rayos.\p"
+
+	.string "Ahora entiendo por que has llegado\n" 
+	.string "hasta aquí.\p"
+
+	.string "Por lo que veo tambien dominas el\n" 
+	.string "poder de la determinación.\p"
+
+	.string "Supongo que entonces no necesito usar\n" 
+	.string "toda mi fuerza, así que puedes pasar.\p"
+
+	.string "Quien sabe, con algo de suerte lograras\n" 
+	.string "tranquilizar al mal rollo.\p"
+
+	.string "No lo entiendo muy bien, pero, eso de\n" 
+	.string "jugar con las lineas del tiempo,\l" 
+	.string "no me mola.\p"
+
+	.string "Adelante humano y recuerda:\p"
+
+	.string "Por horrible y oscuro que se torne\n"
+	.string "tu camino, nunca dejes de caminar.$"
+	
+Darkigym_Text_AnthonyIntro:
+	.string "No hay nada mejor que los taladros.\p"
+	
+	.string "¿Quieres saber por que?\n"
+	.string "Pues...\p"
+	
+	.string "Preparate para mi...\n"
+	.string "GIGA\l" 
+	.string "DRILL\l" 
+	.string "BREAKEEEEEEEEEEEEEEEEEEEEEEEEER.$"
+
+Darkigym_Text_AnthonyDefeat: 
+	.string "¡Taladro roto!$"
+
+Darkigym_Text_AnthonyPostBattle:
+	.string "Mirate Tengen Toppa Gurren-Lagann.\p"
+	
+	.string "Solo así sabrás el verdadero\n"
+	.string "significado de los taladros y de mi\l"
+	.string "técnica definitiva:\p"
+	
+	.string "Giga Drill Breaker.$"
+	
+Darkigym_Text_DranixIntro:
+	.string "Espero que hayas traido Autan.\p"
+	
+	.string "¡Porque vas a ser acribillado a\n"
+	.string "picaduras de mi ejercito definitivo\l"
+	.string "de BEEDRILLs!$"
+
+Darkigym_Text_DranixDefeat: 
+	.string "¡Noooo! Mis preciosos BEEDRILLs...$"
+
+Darkigym_Text_DranixPostBattle:
+	.string "¡Pero Beedrill tiene que ser un\n"
+	.string "OVERUSED como sea!\p"
+	
+	.string "¡Necesitamos mas gente llevando\n"
+	.string "a BEEDRILL en su equipo!\p"
+	
+	.string "Mmm... mejor actualizaré la Tier List\n"
+	.string "para que se así sea.$"
 
 Darkigym_Text_MalroIntro: 
 	.string "Así que lograste llegar hasta aquí.\p"

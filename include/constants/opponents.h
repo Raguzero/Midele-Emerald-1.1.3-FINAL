@@ -957,11 +957,12 @@
 #define TRAINER_ESBIRRO_DARKI_3 953
 #define TRAINER_ESBIRRO_DARKI_4 954
 #define TRAINER_ESBIRRO_DARKI_5 955
-#define TRAINER_ESBIRRO_DARKI_6 956
+#define TRAINER_ANTHONYPXP 956
+#define TRAINER_DRANIX 957
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or [changing how trainer flags are handled] --> HECHO ESTO
-#define TRAINERS_COUNT                      957 // NUEVO: aumentar para añadir nuevos entrenadores
-#define MAX_TRAINERS_COUNT                  958
+#define TRAINERS_COUNT                      958 // NUEVO: aumentar para añadir nuevos entrenadores
+#define MAX_TRAINERS_COUNT                  959
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

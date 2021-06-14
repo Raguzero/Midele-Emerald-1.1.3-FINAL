@@ -24583,7 +24583,7 @@ static const struct TrainerMonCustomMidele sParty_Maestro_Arena2[] = {
 static const struct TrainerMonCustomMidele sParty_Red_Secretaria[] = {
     {
     .iv = 31,  
-    .lvl = 80, 
+    .lvl = 85, 
     .species = SPECIES_BEWEAR,
 	.heldItem = ITEM_LEFTOVERS,
 	.nature = NATURE_ADAMANT, 
@@ -24595,7 +24595,7 @@ static const struct TrainerMonCustomMidele sParty_Red_Secretaria[] = {
     },
     {
     .iv = 31,  
-    .lvl = 80, 
+    .lvl = 85, 
     .species = SPECIES_PRIMEAPE,
 	.heldItem = ITEM_CHOICE_BAND,
 	.nature = NATURE_JOLLY,
@@ -24606,7 +24606,7 @@ static const struct TrainerMonCustomMidele sParty_Red_Secretaria[] = {
     },
 	{
     .iv = 31,  
-    .lvl = 80, 
+    .lvl = 85, 
     .species = SPECIES_DRAGAPULT,
 	.heldItem = ITEM_FOCUS_SASH,
 	.nature = NATURE_TIMID, 
@@ -24618,7 +24618,7 @@ static const struct TrainerMonCustomMidele sParty_Red_Secretaria[] = {
 static const struct TrainerMonCustomMidele sParty_Loco_Kizarde[] = {
     {
     .iv = 31,  
-    .lvl = 80,
+    .lvl = 87,
     .species = SPECIES_XATU,
 	.heldItem = ITEM_FOCUS_SASH,
 	.nature = NATURE_TIMID,
@@ -24628,7 +24628,7 @@ static const struct TrainerMonCustomMidele sParty_Loco_Kizarde[] = {
     },
     {
     .iv = 31, 
-    .lvl = 80,
+    .lvl = 87,
     .species = SPECIES_ABSOL,
 	.heldItem = ITEM_CHOICE_SCARF,
 	.nature = NATURE_ADAMANT,
@@ -24639,7 +24639,7 @@ static const struct TrainerMonCustomMidele sParty_Loco_Kizarde[] = {
     },
 	{
     .iv = 31,  
-    .lvl = 80,
+    .lvl = 85,
     .species = SPECIES_HO_OH,
 	.heldItem = ITEM_LEFTOVERS,
 	.nature = NATURE_TIMID,
@@ -24651,7 +24651,7 @@ static const struct TrainerMonCustomMidele sParty_Loco_Kizarde[] = {
 static const struct TrainerMonCustomMidele sParty_Espi[] = {
     {
     .iv = 31,  
-    .lvl = 80,
+    .lvl = 86,
     .species = SPECIES_MEGA_ABSOL,
 	.heldItem = ITEM_CHOICE_SPECS,
 	.nature = NATURE_TIMID,
@@ -24662,7 +24662,7 @@ static const struct TrainerMonCustomMidele sParty_Espi[] = {
     },
 	{
     .iv = 31,  
-    .lvl = 80,
+    .lvl = 87,
     .species = SPECIES_MEGA_SABLEYE,
 	.heldItem = ITEM_LEFTOVERS,
 	.nature = NATURE_IMPISH,
@@ -24674,7 +24674,7 @@ static const struct TrainerMonCustomMidele sParty_Espi[] = {
 static const struct TrainerMonCustomMidele sParty_Mobu[] = {
     {
     .iv = 31,  
-    .lvl = 80, 
+    .lvl = 86, 
     .species = SPECIES_TOGEKISS,
 	.heldItem = ITEM_PINK_PETAL,
 	.nature = NATURE_ADAMANT, 
@@ -24685,7 +24685,7 @@ static const struct TrainerMonCustomMidele sParty_Mobu[] = {
     },
 	{
     .iv = 31,  
-    .lvl = 80,
+    .lvl = 85,
     .species = SPECIES_METAGROSS,
 	.heldItem = ITEM_LUM_BERRY,
 	.nature = NATURE_NAIVE,
@@ -24695,12 +24695,121 @@ static const struct TrainerMonCustomMidele sParty_Mobu[] = {
     },
     {
     .iv = 31,  
-    .lvl = 80,
+    .lvl = 86,
     .species = SPECIES_REUNICLUS,
 	.heldItem = ITEM_LEFTOVERS,
 	.nature = NATURE_BOLD,
 	.evs = {252, 0, 6, 252, 0, 0}, 
 	.ability = 0, // OVERCOAT
     .moves = {MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_RECOVER, MOVE_FIRE_PUNCH}
+    }
+};
+static const struct TrainerMonCustomMidele sParty_Roxy[] = {
+    {
+    .iv = 31,
+    .lvl = 87, 
+    .species = SPECIES_UMBREON,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_BOLD,
+	.evs = {252, 0, 252, 6, 0, 0},  
+	.ability = 1, // INNER FOCUS
+	.shiny = 1,  
+    .moves = {MOVE_TOXIC, MOVE_DOUBLE_TEAM, MOVE_MOONLIGHT, MOVE_DARK_PULSE}
+    },
+    {
+    .iv = 31,  
+    .lvl = 88, 
+    .species = SPECIES_GRIMMSNARL,
+	.heldItem = ITEM_BLACK_GLASSES,
+	.nature = NATURE_QUIET,
+	.evs = {252, 6, 0, 252, 0, 0},  
+	.ability = 0, // FRISK
+    .moves = {MOVE_DARK_PULSE, MOVE_DAZZLING_GLEAM, MOVE_SUPERPOWER, MOVE_FIRE_PUNCH}
+    },
+    {
+    .iv = 31,  
+    .lvl = 86,
+    .species = SPECIES_TOXICROAK,
+	.heldItem = ITEM_FOCUS_SASH,
+	.nature = NATURE_JOLLY,
+	.evs = {0, 252, 6, 0, 0, 252}, 
+	.ability = 0, // DRY SKIN
+    .moves = {MOVE_SWORDS_DANCE, MOVE_CROSS_CHOP, MOVE_SLUDGE_BOMB, MOVE_EARTHQUAKE}
+    },
+    {
+    .iv = 31,  
+    .lvl = 87, 
+    .species = SPECIES_PANGORO,
+	.heldItem = ITEM_CHOICE_BAND,
+	.nature = NATURE_ADAMANT,
+	.evs = {0, 252, 0, 0, 0, 252},  
+	.ability = 1, // SCRAPPY
+	.shiny = 1,
+    .moves = {MOVE_EARTHQUAKE, MOVE_STONE_EDGE, MOVE_SKY_UPPERCUT, MOVE_SLUDGE_BOMB}
+    }
+};
+static const struct TrainerMonCustomMidele sParty_Anthonypxp[] = {
+    {
+    .iv = 31,  
+    .lvl = 87, 
+    .species = SPECIES_TYRANITAR,
+	.heldItem = ITEM_BLACK_GLASSES,
+	.nature = NATURE_JOLLY,
+	.evs = {0, 128, 0, 128, 0, 252},  
+	.ability = 0,
+    .moves = {MOVE_THUNDER_WAVE, MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_DARK_PULSE}
+    },
+    {
+    .iv = 31,  
+    .lvl = 87,
+    .species = SPECIES_EXCADRILL,
+	.heldItem = ITEM_FOCUS_SASH,
+	.nature = NATURE_JOLLY,
+	.evs = {0, 252, 6, 0, 0, 252}, 
+	.ability = 0,
+    .moves = {MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_IRON_HEAD, MOVE_HORN_DRILL}
+    }
+};
+static const struct TrainerMonCustomMidele sParty_Dranix[] = {
+    {
+    .iv = 31,  
+    .lvl = 88, 
+    .species = SPECIES_BEEDRILL,
+	.heldItem = ITEM_POWER_HERB,
+	.nature = NATURE_JOLLY,
+	.evs = {6, 0, 0, 252, 0, 252},  
+	.ability = 1,
+    .moves = {MOVE_SOLAR_BEAM, MOVE_KNOCK_OFF, MOVE_TWINEEDLE, MOVE_SLUDGE_BOMB}
+    },
+    {
+    .iv = 31,  
+    .lvl = 87, 
+    .species = SPECIES_BEEDRILL,
+	.heldItem = ITEM_CHOICE_SCARF,
+	.nature = NATURE_ADAMANT,
+	.evs = {6, 252, 0, 0, 0, 252},  
+	.ability = 1,
+    .moves = {MOVE_BRICK_BREAK, MOVE_DRILL_RUN, MOVE_X_SCISSOR, MOVE_SLUDGE_BOMB}
+    },
+	{
+    .iv = 31,  
+    .lvl = 86, 
+    .species = SPECIES_BEEDRILL,
+	.heldItem = ITEM_FOCUS_SASH,
+	.nature = NATURE_JOLLY,
+	.evs = {6, 252, 0, 0, 0, 252},  
+	.ability = 0,
+	.shiny = 1,
+    .moves = {MOVE_SWORDS_DANCE, MOVE_DRILL_RUN, MOVE_PIN_MISSILE, MOVE_SLUDGE_BOMB}
+    },
+    {
+    .iv = 31,  
+    .lvl = 85, 
+    .species = SPECIES_MEGA_BEEDRILL,
+	.heldItem = ITEM_SILVER_POWDER,
+	.nature = NATURE_ADAMANT,
+	.evs = {6, 252, 0, 0, 0, 252},  
+	.ability = 1,
+    .moves = {MOVE_BRICK_BREAK, MOVE_DRILL_RUN, MOVE_X_SCISSOR, MOVE_SLUDGE_BOMB}
     }
 };
