@@ -2969,8 +2969,8 @@ static const u8 sCapLevels[] =
     15,  // 0 medallas
     20,  // 1 medalla
     30,  // 2 medallas
-    40,  // 3 medallas
-    40,  // 4 medallas
+    35,  // 3 medallas
+    35,  // 4 medallas
     45,  // 5 medallas
     50,  // 6 medallas
     55,  // 7 medallas
@@ -2978,7 +2978,7 @@ static const u8 sCapLevels[] =
     70,  // Campeón
     80,  // Gym 1
     90,  // Gym 2
-    90,  // Gym 3
+    95,  // Gym 3
     100, // Gym 4
 };
 // NUEVO PARA LEVEL CAP BADGE

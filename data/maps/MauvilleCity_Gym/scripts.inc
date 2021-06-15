@@ -365,8 +365,12 @@ MauvilleCity_Gym_Text_ReceivedDynamoBadge: @ 820E77F
 	.string "from WATTSON.$"
 
 MauvilleCity_Gym_Text_ExplainDynamoBadgeTakeThis: @ 820E7AA
-	.string "With the DYNAMO BADGE, POKéMON can\n"
-	.string "use ROCK SMASH out of battle.\p"
+	.string "With the DYNAMO BADGE, POKéMON\n"
+	.string "up to Level 35, even those you get in\l"
+	.string "trades, obey without question.\p"
+
+	.string "Also enables your POKéMON to use\n"
+	.string "ROCK SMASH out of battle.\p"
 	.string "Hmm…\n"
 	.string "You should take this, too!$"
 

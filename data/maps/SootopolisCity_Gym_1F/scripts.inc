@@ -243,9 +243,10 @@ SootopolisCity_Gym_1F_Text_ReceivedRainBadge: @ 8225598
 	.string "from JUAN.$"
 
 SootopolisCity_Gym_1F_Text_ExplainRainBadgeTakeThis: @ 82255BE
-	.string "Having the RAIN BADGE shall assure you\n"
-	.string "the full obedience of all your POKéMON\l"
-	.string "to your every command.\p"
+	.string "Having the RAIN BADGE makes all POKéMON\n"
+	.string "up to Level 65, even those you get in\l"
+	.string "trades, obey without question.\p"
+
 	.string "The RAIN BADGE also allows the use\n"
 	.string "of the HM move WATERFALL to scale\l"
 	.string "walls of cascading water.\p"

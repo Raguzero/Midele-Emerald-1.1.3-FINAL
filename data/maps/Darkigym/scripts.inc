@@ -573,6 +573,12 @@ Darkigym_Text_ExplainBadgeTakeThis:
 	.string "ahora mismo, tus POKÉMON no tienen\l"
 	.string "ninguna limitación para subir hasta\l"
 	.string "el nivel 100.\p"
+	
+	.string "Ahora todo POKEMON intercambiado\n"
+	.string "obedecerá todas tus ordenes, incluso\l"
+	.string "aunque sean moralmente reprochables.\p"
+	
+	.string "¡Je! ¡patético!\p"
 
 	.string "Y debido a que ya tienes la última\n"
 	.string "medalla, podrás participar en\l"
