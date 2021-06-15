@@ -567,7 +567,13 @@
         "GymSanty",
         "GymSanty2",
         "GymGooses",
-        "Darkigym"
+        "Darkigym",
+        "MicoloLeague_MainRoom",
+        "MicoloLeague_VaderRoom",
+        "MicoloLeague_LavenderRoom",
+        "MicoloLeague_RaguRoom",
+        "MicoloLeague_PacoRoom",
+        "MicoloLeague_FinalRoom"
     ],
     "gMapGroup4": [
         "LavaridgeTown_HerbShop",

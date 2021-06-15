@@ -634,6 +634,12 @@
 #define MAP_GYM_SANTY2                           (37 | (34 << 8))
 #define MAP_GYM_GOOSES                           (38 | (34 << 8))
 #define MAP_DARKIGYM                             (39 | (34 << 8))
+#define MAP_MICOLO_LEAGUE_MAIN_ROOM              (40 | (34 << 8))
+#define MAP_MICOLO_LEAGUE_VADER_ROOM             (41 | (34 << 8))
+#define MAP_MICOLO_LEAGUE_LAVENDER_ROOM          (42 | (34 << 8))
+#define MAP_MICOLO_LEAGUE_RAGU_ROOM              (43 | (34 << 8))
+#define MAP_MICOLO_LEAGUE_PACO_ROOM              (44 | (34 << 8))
+#define MAP_MICOLO_LEAGUE_FINAL_ROOM             (45 | (34 << 8))
 
 #define MAP_GROUPS_COUNT 35
 

@@ -1161,3 +1161,15 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/LilycoveCity_MelkorHouse/scripts.inc"
 
 	.include "data/maps/Darkigym/scripts.inc"
+
+	.include "data/maps/MicoloLeague_MainRoom/scripts.inc"
+
+	.include "data/maps/MicoloLeague_VaderRoom/scripts.inc"
+
+	.include "data/maps/MicoloLeague_LavenderRoom/scripts.inc"
+
+	.include "data/maps/MicoloLeague_RaguRoom/scripts.inc"
+
+	.include "data/maps/MicoloLeague_PacoRoom/scripts.inc"
+
+	.include "data/maps/MicoloLeague_FinalRoom/scripts.inc"
