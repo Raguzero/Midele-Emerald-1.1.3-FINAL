@@ -478,6 +478,28 @@ bool8 IsMoveSignificantlyAffectedByStatDrops(u16 move)
     s32 i;
     u8 type = gBattleMoves[move].type;
     u8 power = gBattleMoves[move].power;
+
+    if (move == MOVE_HIDDEN_POWER)
+    {
+        struct Pokemon *monAttacker;
+        if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
+            monAttacker = &gPlayerParty[gBattlerPartyIndexes[gActiveBattler]];
+        else
+            monAttacker = &gEnemyParty[gBattlerPartyIndexes[gActiveBattler]];
+
+        type = monAttacker->box.hpType;
+    }
+    else if (move == MOVE_WEATHER_BALL && WEATHER_HAS_EFFECT)
+    {
+        if (gBattleWeather & WEATHER_RAIN_ANY)
+            type = TYPE_WATER;
+        else if (gBattleWeather & WEATHER_SANDSTORM_ANY)
+            type = TYPE_ROCK;
+        else if (gBattleWeather & WEATHER_SUN_ANY)
+            type = TYPE_FIRE;
+        else if (gBattleWeather & WEATHER_HAIL_ANY)
+            type = TYPE_ICE;
+    }
     if (power == 0)
         return FALSE; // Mov de estado; en general no se ve afectado (hay excepciones como Nature Power, Metronome, Mirror Move...)
     for (i = 0; sDamagingMovesMostlyUnaffectedByStatDrops[i] != 0xFFFF; i++)

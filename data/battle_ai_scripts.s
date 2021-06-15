@@ -298,6 +298,7 @@ AI_CBM_AttackUp: @ 82DC348
 
 AI_CBM_DefenseUp: @ 82DC351
 	if_stat_level_equal AI_USER, STAT_DEF, 12, Score_Minus10
+	if_next_turn_target_might_use_move_with_effect EFFECT_ROAR, AI_CBM_Minus8IfAICanBePhazed
 	end
 
 AI_CBM_SpeedUp: @ 82DC35A
@@ -310,6 +311,7 @@ AI_CBM_SpAtkUp: @ 82DC363
 
 AI_CBM_SpDefUp: @ 82DC36C
 	if_stat_level_equal AI_USER, STAT_SPDEF, 12, Score_Minus10
+	if_next_turn_target_might_use_move_with_effect EFFECT_ROAR, AI_CBM_Minus8IfAICanBePhazed
 	end
 
 AI_CBM_AccUp: @ 82DC375
@@ -318,6 +320,7 @@ AI_CBM_AccUp: @ 82DC375
 
 AI_CBM_EvasionUp: @ 82DC37E
 	if_stat_level_equal AI_USER, STAT_EVASION, 12, Score_Minus10
+	if_next_turn_target_might_use_move_with_effect EFFECT_ROAR, AI_CBM_Minus8IfAICanBePhazed
 	end
 
 AI_CBM_AttackDown: @ 82DC387
@@ -512,9 +515,17 @@ AI_CBM_Paralyze_Synchronize:
     goto AI_CBM_Paralyze_End
 
 AI_CBM_Substitute: @ 82DC568
-	if_status2 AI_USER, STATUS2_SUBSTITUTE, Score_Minus8
-	if_hp_less_than AI_USER, 26, Score_Minus10
-	end
+    if_hp_less_than AI_USER, 26, Score_Minus10
+    if_status2 AI_USER, STATUS2_SUBSTITUTE, Score_Minus8
+    if_next_turn_target_might_use_move_with_effect EFFECT_ROAR, AI_CBM_Minus8IfAICanBePhazed
+    end
+
+AI_CBM_Minus8IfAICanBePhazed:
+    count_usable_party_mons AI_USER
+    if_equal 0, AI_Ret
+    if_ability AI_USER, ABILITY_SUCTION_CUPS, AI_Ret
+    if_status3 AI_USER, STATUS3_ROOTED, AI_Ret
+    goto Score_Minus8
 
 AI_CBM_LeechSeed: @ 82DC57A
 	if_ability_might_be AI_TARGET, ABILITY_LIQUID_OOZE, Score_Minus10
@@ -731,6 +742,7 @@ AI_CBM_Tickle: @ 82DC729
 AI_CBM_CosmicPower: @ 82DC73A
 	if_stat_level_equal AI_USER, STAT_DEF, 12, Score_Minus10
 	if_stat_level_equal AI_USER, STAT_SPDEF, 12, Score_Minus8
+	if_next_turn_target_might_use_move_with_effect EFFECT_ROAR, AI_CBM_Minus8IfAICanBePhazed
 	end
 
 AI_CBM_BulkUp: @ 82DC74B
@@ -1697,16 +1709,27 @@ AI_CV_Bide_End:
 	end
 
 AI_CV_Roar:
-	if_stat_level_more_than AI_TARGET, STAT_ATK, 8, AI_CV_Roar2
-	if_stat_level_more_than AI_TARGET, STAT_DEF, 8, AI_CV_Roar2
-	if_stat_level_more_than AI_TARGET, STAT_SPATK, 8, AI_CV_Roar2
-	if_stat_level_more_than AI_TARGET, STAT_SPDEF, 8, AI_CV_Roar2
-	if_stat_level_more_than AI_TARGET, STAT_EVASION, 8, AI_CV_Roar2
+	if_stat_level_more_than AI_TARGET, STAT_ATK, 7, AI_CV_Roar3
+	if_stat_level_more_than AI_TARGET, STAT_DEF, 8, AI_CV_Roar3
+	if_stat_level_more_than AI_TARGET, STAT_SPATK, 7, AI_CV_Roar3
+	if_stat_level_more_than AI_TARGET, STAT_SPDEF, 8, AI_CV_Roar3
+	if_stat_level_more_than AI_TARGET, STAT_EVASION, 8, AI_CV_Roar3
+	if_stat_level_more_than AI_TARGET, STAT_ATK, 6, AI_CV_Roar2_CheckSpeedForPossibleDragonDance
+	if_stat_level_more_than AI_TARGET, STAT_DEF, 7, AI_CV_Roar2
+	if_stat_level_more_than AI_TARGET, STAT_SPATK, 6, AI_CV_Roar2
+	if_stat_level_more_than AI_TARGET, STAT_SPDEF, 7, AI_CV_Roar2
+	if_stat_level_more_than AI_TARGET, STAT_EVASION, 7, AI_CV_Roar2
 	score -3
 	goto AI_CV_Roar_End
 
+AI_CV_Roar2_CheckSpeedForPossibleDragonDance:
+    if_stat_level_more_than AI_TARGET, STAT_SPEED, 6, AI_CV_Roar3
 AI_CV_Roar2:
 	if_random_less_than 128, AI_CV_Roar_End
+	score +2
+	goto AI_CV_Roar_End	
+	
+AI_CV_Roar3:
 	score +2
 
 AI_CV_Roar_End:
@@ -3352,7 +3375,14 @@ AI_TryToFaint_ScoreUp2:
     score +1
 AI_TryToFaint_ScoreUp1:
     score +1
+    if_user_faster AI_TryToFaint_End
+    if_has_a_50_percent_hp_recovery_move AI_TARGET, AI_TryToFaint_GiveBonusToMostDamagingAttack
+    if_has_move_with_effect AI_TARGET, EFFECT_REST, AI_TryToFaint_GiveBonusToMostDamagingAttack
+    goto AI_TryToFaint_End
 
+AI_TryToFaint_GiveBonusToMostDamagingAttack:
+    get_how_powerful_move_is
+    if_equal MOVE_MOST_POWERFUL, Score_Plus2
 AI_TryToFaint_End:
 	end
 
