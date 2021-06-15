@@ -187,7 +187,7 @@ MicoloLeagueLobby_EventScript_GuardCheck::
 	lockall
 	compare VAR_STATE_MICOLANDIA, 3
 	goto_if_eq MicoloLeagueLobby_EventScript_GuardCheck_2
-	msgbox MicoloLeagueLobby_EventScript_GuardCheck_Text_1, MSGBOX_NPC
+	msgbox MicoloLeagueLobby_EventScript_GuardCheck_Text_0, MSGBOX_NPC
 	applymovement 8, MicoloLeagueLobby_Movement_Guard1
 	applymovement 10, MicoloLeagueLobby_Movement_Guard2
 	waitmovement 0
@@ -212,10 +212,20 @@ MicoloLeagueLobby_Movement_Guard2:
 	step_end
 
 MicoloLeagueLobby_EventScript_GuardCheck_Text_0:
-	.string "TEXT YA PUEDES PASAR$"
-
-MicoloLeagueLobby_EventScript_GuardCheck_Text_1:
-	.string "TEXTO COMPROBANDO SI PUEDES PASAR$"
+    .string "Se acerca el final de tu viaje. Llegó la\n"
+	.string "hora de que demuestres que eres el\l"
+	.string "mejor entrenador de MICOLANDIA, y para\l"
+	.string "ello tendrás que vencer a la ELITE FOUR\l"
+	.string "entera de la MICOLIGA, que lo\l"
+	.string "conforman los 5 entrenadores más\l"
+	.string "fuertes que jamás hayas visto.\p"
+	.string "Ten en cuenta que una vez que entres,\n"
+	.string "no podrás salir hasta proclamarte\l"
+	.string "CAMPEÓN... o perder.\p"
+	.string "Si estás preparado, entra por esa\n"
+	.string "puerta, pero si no eres mas que otro\l"
+	.string "cobarde, llora, y vuelve a casa con tu\l"
+	.string "mamá.$"
 
 MicoloLeagueLobby_Text_1:
 	.string "¡La Liga Pokémon Oficial de HOENN es\n" 
