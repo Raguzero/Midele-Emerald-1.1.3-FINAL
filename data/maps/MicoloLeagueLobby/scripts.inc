@@ -4,7 +4,7 @@ MicoloLeagueLobby_MapScripts:: @ 82295D2
 	.byte 0
 	
 MicoloLeagueLobby_PokemonCenter_OnTransition:
-	setrespawn HEAL_LOCATION_MICOLANDIA // CAMBIARLO LUEGO
+	setrespawn HEAL_LOCATION_MICOLANDIA
 	call Common_EventScript_UpdateBrineyLocation
 	compare VAR_STATE_MICOLANDIA, 3
 	call_if_eq MicoloLeagueLobby_EventScript_SetGuardUnblockingDoor
