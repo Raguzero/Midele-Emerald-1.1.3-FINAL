@@ -24813,3 +24813,119 @@ static const struct TrainerMonCustomMidele sParty_Dranix[] = {
     .moves = {MOVE_BRICK_BREAK, MOVE_DRILL_RUN, MOVE_X_SCISSOR, MOVE_SLUDGE_BOMB}
     }
 };
+static const struct TrainerMonCustomMidele sParty_Umbreon123[] = {
+    {
+    .iv = 31,  
+    .lvl = 85, 
+    .species = SPECIES_UMBREON,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_CALM,
+	.evs = {252, 0, 6, 0, 252, 0},  
+	.shiny = 1,
+    .moves = {MOVE_DOUBLE_TEAM, MOVE_CRUNCH, MOVE_MOONLIGHT, MOVE_CONFUSE_RAY}
+    },
+    {
+    .iv = 31,  
+    .lvl = 86, 
+    .species = SPECIES_UMBREON,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_BOLD,
+	.evs = {252, 0, 252, 0, 6, 0},  
+	.ability = 1,
+    .moves = {MOVE_WISH, MOVE_TOXIC, MOVE_PROTECT, MOVE_CRUNCH}
+    }
+};
+static const struct TrainerMonCustomMidele sParty_Phent[] = {
+// FALTA FRASES Y LOCALIZACIÓN
+    {
+    .iv = 31,  
+    .lvl = 96, 
+    .species = SPECIES_ALOLAN_MUK,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_QUIET,
+	.evs = {0, 252, 0, 252, 6, 0},  
+    .moves = {MOVE_SLUDGE_BOMB, MOVE_TOXIC, MOVE_PROTECT, MOVE_KNOCK_OFF}
+    },
+    {
+    .iv = 31,  
+    .lvl = 96, 
+    .species = SPECIES_MUK,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_QUIET,
+	.evs = {0, 252, 0, 252, 6, 0},  
+    .moves = {MOVE_SLUDGE_BOMB, MOVE_TOXIC, MOVE_FIRE_BLAST, MOVE_SHADOW_BALL}
+    },
+    {
+    .iv = 31,  
+    .lvl = 97, 
+    .species = SPECIES_DARK_PIKACHU,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_MODEST,
+	.evs = {252, 0, 0, 0, 6, 252},  
+    .moves = {MOVE_GLARE, MOVE_THUNDERBOLT, MOVE_PROTECT, MOVE_CRUNCH}
+    },
+    {
+    .iv = 31,  
+    .lvl = 98, 
+    .species = SPECIES_DARK_PIKACHU,
+	.heldItem = ITEM_CHOICE_BAND,
+	.nature = NATURE_ADAMANT,
+	.evs = {6, 252, 0, 0, 0, 252},  
+	.ability = 1,
+	.friendship = 0,
+    .moves = {MOVE_BRICK_BREAK, MOVE_EXTREME_SPEED, MOVE_IRON_TAIL, MOVE_FRUSTRATION}
+    },
+    {
+    .iv = 31,  
+    .lvl = 99, 
+    .species = SPECIES_DARK_PIKACHU,
+	.heldItem = ITEM_CHESTO_BERRY,
+	.nature = NATURE_CAREFUL,
+	.evs = {252, 0, 6, 0, 252, 0},  
+	.ability = 1,
+    .moves = {MOVE_CURSE, MOVE_REST, MOVE_EXTREME_SPEED, MOVE_BRICK_BREAK}
+    },
+    {
+    .iv = 31,  
+    .lvl = 100, 
+    .species = SPECIES_DARK_PIKACHU,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_BOLD,
+	.evs = {252, 0, 252, 0, 6, 0},  
+	.ability = 1,
+	.shiny = 1,
+    .moves = {MOVE_DARK_THUNDER, MOVE_MIDELE_POWER, MOVE_NONE, MOVE_NONE}
+    }
+};
+static const struct TrainerMonCustomMidele sParty_UltraMagic[] = {
+// FALTA FRASES
+    {
+    .iv = 31,  
+    .lvl = 85, 
+    .species = SPECIES_GENGAR,
+	.heldItem = ITEM_FOCUS_SASH,
+	.nature = NATURE_MODEST,
+	.evs = {6, 0, 0, 252, 0, 252},  
+	.shiny = 1,
+    .moves = {MOVE_THUNDERBOLT, MOVE_ICE_PUNCH, MOVE_FIRE_PUNCH, MOVE_DESTINY_BOND}
+    },
+    {
+    .iv = 31,  
+    .lvl = 87, 
+    .species = SPECIES_TYRANITAR,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_JOLLY,
+	.evs = {6, 252, 0, 0, 0, 252},  
+    .moves = {MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_BRICK_BREAK}
+    },
+    {
+    .iv = 31,  
+    .lvl = 86, 
+    .species = SPECIES_BLISSEY,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_BOLD,
+	.evs = {252, 0, 252, 0, 6, 0},  
+	.ability = 1,
+    .moves = {MOVE_SOFT_BOILED, MOVE_TOXIC, MOVE_ICE_BEAM, MOVE_SEISMIC_TOSS}
+    }
+};

@@ -240,7 +240,7 @@ GymSanty_Text_ExplainBadgeTakeThis:
 	
 	.string "Incluso te obedecerá sin rechistar todo\n"
 	.string "POKéMON intercambiado que no sea superior\l"
-	.string "a ese nivel\p"
+	.string "a ese nivel.\p"
 	
 	.string "También estarás capacitado para el\n"
 	.string "reto del siguiente GYM.\p"

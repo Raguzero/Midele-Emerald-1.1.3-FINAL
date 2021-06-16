@@ -120,6 +120,16 @@ Darkigym_EventScript_Dranix::
 	msgbox Darkigym_Text_DranixPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
+Darkigym_EventScript_Umbreon123::
+	trainerbattle_single TRAINER_UMBREON123, Darkigym_Text_Umbreon123Intro, Darkigym_Text_Umbreon123Defeat
+	msgbox Darkigym_Text_Umbreon123PostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+Darkigym_EventScript_Ultramagic::
+	trainerbattle_single TRAINER_ULTRA_MAGIC, Darkigym_Text_UltramagicIntro, Darkigym_Text_UltramagicDefeat
+	msgbox Darkigym_Text_UltramagicPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
 Darkigym_Text_RedSecretariaIntro: 
 	.string "¿Espera eres un humano?\p"
 
@@ -361,6 +371,38 @@ Darkigym_Text_DranixPostBattle:
 	
 	.string "Mmm... mejor actualizaré la Tier List\n"
 	.string "para que se así sea.$"
+	
+Darkigym_Text_Umbreon123Intro:
+	.string "Meeeelkor... maaaaaldito...\n"
+	.string "Meeeelkor.\p"
+	
+	.string "Meeeelkor, me baneaaaaste, me\n"
+	.string "cambiaaaaste el texto personal y firma.\p"
+	
+	.string "Pusiste que soy un troll sin gracia y\n"
+	.string "que me gusta el flood y el spam.\p"
+	
+	.string "Y me diste -100 Karma... como a ningún\n"
+	.string "otro usuario.\p"
+	
+	.string "Meeeelkor, me humillaaaaaste.\p"
+	
+	.string "Meeeelkor.........$"
+
+Darkigym_Text_Umbreon123Defeat: 
+	.string "Maaaaaaldito...$"
+
+Darkigym_Text_Umbreon123PostBattle:
+	.string "Meeeeelkor, me vengareeeeeeeee.$"
+	
+Darkigym_Text_UltramagicIntro:
+	.string "FRASES$"
+
+Darkigym_Text_UltramagicDefeat: 
+	.string "FRASES$"
+
+Darkigym_Text_UltramagicPostBattle:
+	.string "FRASES$"
 
 Darkigym_Text_MalroIntro: 
 	.string "Así que lograste llegar hasta aquí.\p"

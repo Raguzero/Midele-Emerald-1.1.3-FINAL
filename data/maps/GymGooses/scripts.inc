@@ -1285,7 +1285,7 @@ GymGooses_Text_ExplainBadgeTakeThis:
 	
 	.string "Incluso te obedecerá sin rechistar todo\n"
 	.string "POKéMON intercambiado que no sea superior\l"
-	.string "a ese nivel\p"
+	.string "a ese nivel.\p"
 	
 	.string "Además, con esta medalla también estás\n"
 	.string "capacitado para afrontar el reto de\l" 
