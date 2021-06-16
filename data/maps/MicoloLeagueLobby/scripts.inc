@@ -192,6 +192,9 @@ MicoloLeagueLobby_EventScript_GuardCheck::
 	applymovement 10, MicoloLeagueLobby_Movement_Guard2
 	waitmovement 0
 	setvar VAR_STATE_MICOLANDIA, 3
+    setobjectxyperm 8, 8, 2
+	setobjectxyperm 10, 11, 2
+	
 MicoloLeagueLobby_EventScript_GuardCheck_1:
 	releaseall
 	return
