@@ -167,7 +167,7 @@ GymSanty_Text_GymGuidePostVictory:
 	.string "¡WOW! ¡Así que venciste a SANTYGRASS!$"
 
 GymSanty_Text_SantyShifteo0Intro:
-    .string "Bienvenido a mi gimnasio.\p" 
+    .string "Bienvenido a mi gymnasio.\p" 
     .string "Espero que te agrade el aroma que\n"
 	.string "hay aquí.\p"
 
@@ -186,7 +186,7 @@ GymSanty_Text_SantyShifteo0Defeat:
     .string "“Celebi usa un extraño poder”$"
 
 GymSanty_Text_SantyShifteo1Intro:
-    .string "Bienvenido a mi gimnasio.\p" 
+    .string "Bienvenido a mi gymnasio.\p" 
     .string "Espero que te agrade el aroma que\n"
 	.string "hay aquí.\p"
     .string "¿La medalla?\p"
@@ -210,14 +210,14 @@ GymSanty_Text_SantyShifteo1Defeat:
     .string "“Celebi usa un extraño poder”$"
 
 GymSanty_Text_SantyShifteo2Intro:
-    .string "Bienvenido a mi gimnasio.\p" 
+    .string "Bienvenido a mi gymnasio.\p" 
     .string "Espero que te agrade el aroma que\n"
 	.string "hay aquí.\p"
 	
     .string "No hay nada mejor que cuando las\n"
 	.string "plantas arden.\p"
 
-    .string "Parece que sabes sobre mi SHIFTeo\p"
+    .string "Parece que sabes sobre mi SHIFTeo.\p"
     .string "Así que ya es momento de silenciarte.\p"
     .string "El olor a hierba quemada es lo mejor\n"
     .string "para una batalla definitiva.$"
@@ -239,8 +239,8 @@ GymSanty_Text_ExplainBadgeTakeThis:
 	.string "el nivel 80.\p"
 	
 	.string "Incluso te obedecerá sin rechistar todo\n"
-	.string "POKéMON intercambiado que no sea superior\l"
-	.string "a ese nivel.\p"
+	.string "POKéMON intercambiado que no sea\l"
+	.string "superior a ese nivel.\p"
 	
 	.string "También estarás capacitado para el\n"
 	.string "reto del siguiente GYM.\p"
@@ -248,7 +248,14 @@ GymSanty_Text_ExplainBadgeTakeThis:
 	.string "SAPPH te estará esperando allí.$"
 
 GymSanty_Text_SantyPostBattle:
-	.string "FRASES$"
+	.string "A ti aún te quedan muchos entrenadores\n"
+	.string "por vencer.\p"
+	
+	.string "Mientras que a mi, aún me quedan\n"
+	.string "muchas hierbas por quemar.\p"
+	
+	.string "¡No hay nada mejor que el olor a\n"
+	.string "hierba quemada!$"
 
 GymSanty_Text_GymStatue:
 	.string "POKEMON GYM Nº1\n"

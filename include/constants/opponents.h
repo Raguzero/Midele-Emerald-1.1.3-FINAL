@@ -962,10 +962,11 @@
 #define TRAINER_UMBREON123 958
 #define TRAINER_PHENT 959
 #define TRAINER_ULTRA_MAGIC 960
+#define TRAINER_CHARZ 961
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or [changing how trainer flags are handled] --> HECHO ESTO
-#define TRAINERS_COUNT                      961 // NUEVO: aumentar para añadir nuevos entrenadores
-#define MAX_TRAINERS_COUNT                  962
+#define TRAINERS_COUNT                      962 // NUEVO: aumentar para añadir nuevos entrenadores
+#define MAX_TRAINERS_COUNT                  963
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

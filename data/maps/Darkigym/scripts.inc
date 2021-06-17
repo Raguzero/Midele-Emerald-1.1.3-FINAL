@@ -130,6 +130,11 @@ Darkigym_EventScript_Ultramagic::
 	msgbox Darkigym_Text_UltramagicPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
+Darkigym_EventScript_Charz::
+	trainerbattle_single TRAINER_CHARZ, Darkigym_Text_CharzIntro, Darkigym_Text_CharzDefeat
+	msgbox Darkigym_Text_CharzPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
 Darkigym_Text_RedSecretariaIntro: 
 	.string "¿Espera eres un humano?\p"
 
@@ -403,6 +408,71 @@ Darkigym_Text_UltramagicDefeat:
 
 Darkigym_Text_UltramagicPostBattle:
 	.string "FRASES$"
+	
+Darkigym_Text_CharzIntro:
+	.string "Humanos fuertes...\p"
+
+	.string "Humanos débiles...\p"
+	
+	.string "Esa es la visión egoista que rige\n" 
+	.string "nuestro mundo.\p"
+	
+	.string "¿Pero acaso hay algún problema\n"
+	.string "con ello?\p"
+	
+	.string "¡Por supuesto que NO!\p"
+	
+	.string "Los seres humanos somos egoístas por\n"
+	.string "naturaleza, aunque vivamos en una\l"
+	.string "sociedad con unas reglas autoimpuestas\l"
+	.string "que evitan que los verdaderos...\l"
+	.string "superhumanos, lo más fuertes, como yo,\l"
+	.string "triunfemos siempre.\p"
+
+	.string "Un humano débil no sirve para nada,\n"
+	.string "solo nos hace a todos más\l"
+	.string "manipulables".\p"
+	
+	.string "Pero...\p"
+	
+	.string "Si pudiesemos tirar abajo este maldito\n"
+	.string "sistema caduco que ya está apunto\l" 
+	.string "de explotar...\p"
+
+	.string "La humanidad por fin conseguiría\n" 
+	.string "alcanzar su mayor plenitud porque\l" 
+	.string "solo sobreviviríamos los más fuertes\l" 
+	.string "de todos.\p"
+	
+	.string "Por ello, debo eliminar a todos los\n"
+	.string "débiles como tu.\p" 
+	.string "Selección Natural lo llamo.$"
+
+Darkigym_Text_CharzDefeat: 
+	.string "¿SELECCIÓN NATURAL?\p"
+	
+	.string "¡¡¡NOOOOOOOOOOOOOOOOO!!!$"
+
+Darkigym_Text_CharzPostBattle:
+	.string "Eres bastante poderoso...\p"
+	
+	.string "Deberías unirte a nosotros, podríamos\n"
+	.string "conseguir grandes cosas contigo a\l"
+	.string "nuestro lado.\p"
+	
+	.string "...\p"
+	
+	.string "Oh, venga, ¡Vamos! ¡Unete!\p"
+	
+	.string "¡Humanos fuertes vivirán!\p"
+
+	.string "¡Humanos débiles morirán!\p"
+	
+	.string "¡Tenemos que romper este sistema\n"
+	.string "caduco!\p"
+	
+	.string "¡Debemos demostrar al mundo que solo\n"
+	.string "lo más fuertes deben sobrevivir!$"
 
 Darkigym_Text_MalroIntro: 
 	.string "Así que lograste llegar hasta aquí.\p"

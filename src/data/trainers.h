@@ -11982,7 +11982,6 @@ const struct Trainer gTrainers[] = {
         .trainerClass = TRAINER_CLASS_DEBUG,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR,
         .battleMusic = SASAGEYO,
-        .battleWeather = WEATHER_SNOW,
         .trainerPic = TRAINER_PIC_LEAF,
         .trainerName = _("MIDELE"),
         .items = {},
@@ -13390,5 +13389,18 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
         .partySize = ARRAY_COUNT(sParty_UltraMagic),
         .party = {.ItemCustomMidele = sParty_UltraMagic},
-    }
+    },
+    [TRAINER_CHARZ] =
+    {
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
+        .trainerPic = TRAINER_PIC_BLACK_BELT,
+        .trainerName = _("CHARZ"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
+        .partySize = ARRAY_COUNT(sParty_Charz),
+        .party = {.ItemCustomMidele = sParty_Charz},
+    },
 };

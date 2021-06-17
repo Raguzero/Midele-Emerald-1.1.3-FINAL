@@ -89,6 +89,11 @@ MicoloHideout_LavaRoom_EventScript_GiratinaMaster_Text_1:
 	.string "lock: lock: lock: lock: lock: lock: lock:\l"
 	.string "lock: lock: lock: lock: lock:$"
 
+MicoloHideout_LavaRoom_EventScript_Phent::
+	trainerbattle_single TRAINER_PHENT, MicoloHideout_LavaRoom_Text_PhentIntro, MicoloHideout_LavaRoom_Text_PhentDefeat
+	msgbox MicoloHideout_LavaRoom_Text_PhentPostBattle, MSGBOX_AUTOCLOSE
+	end	
+	
 MicoloHideout_LavaRoom_EventScript_EEVEETO::
 	trainerbattle_double TRAINER_EEVEETO, MicoloHideout_LavaRoom_Text_EEVEETOIntro, MicoloHideout_LavaRoom_Text_EEVEETODefeat, MicoloHideout_LavaRoom_EEVEETO_MasdeunPokemon
 	msgbox MicoloHideout_LavaRoom_Text_EEVEETOPostBattle, MSGBOX_AUTOCLOSE
@@ -119,3 +124,40 @@ MicoloHideout_LavaRoom_Text_EEVEETOPostBattle:
 	.string "No importa, usaré esta derrota\n"
 	.string "como pretexto para que el cabrón\l"
 	.string "de Shiyo haga Midele Platinum.$"
+	
+MicoloHideout_LavaRoom_Text_PhentIntro:
+	.string "Existe una teoría que relata que\n"
+	.string "los DITTOS son los desechos expulsados\l"
+	.string "por el POKéMON legendario MEW.\p"
+	
+	.string "Se cree, por ello, que por eso DITTO\n"
+	.string "es el único POKéMON aparte de MEW, que\l" 
+	.string "sabe TRANSFORM de forma natural, y que\l" 
+	.string "por eso hay DITTOs pululando por los\l"
+	.string "alrededores de un laboratorio en KANTO,\l"
+	.string "donde el TEAM ROCKET hizo experimentos\l"
+	.string "con MEW para poder crear a MEWTWO.\p"
+
+	.string "Me encomendaron la tarea de examinar\n"
+	.string "los excrementos de MEW y de varios POKéMON,\l"
+	.string "pero ahora mismo estoy en un punto muerto\l"
+	.string "ya que no he descubierto nada sorprendente.\p"
+	
+	.string "Nada tan sorprendente como mi mayor experimento\n"
+	.string "de todos:\p"
+	
+	.string "¡EL PIKACHU OSCURO DEL TRUENO DE LA OSCURIDAD!$"
+
+MicoloHideout_LavaRoom_Text_PhentDefeat: 
+	.string "¡Vaya trabajo de mierda!$"
+
+MicoloHideout_LavaRoom_Text_PhentPostBattle:
+	.string "Este trabajo es... literalmente ¡mierda!\p"
+
+	.string "Mmm... tal vez pueda investigar porque\n"
+	.string "existen REGIELEKI y REGIDRAGO.\p"
+	
+	.string "Si los REGIS originales siempre fueron\n"
+	.string "REGICE, REGIROCK y REGISTEEL...\p"
+	
+	.string "¿Por qué GF sacó los otros dos?$"
