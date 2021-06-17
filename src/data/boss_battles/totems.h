@@ -67,15 +67,15 @@ const struct TotemMon gTotemMons[] =
         .statBoosts = {6, 8, 12, 6, 8, 12, 6, 6}, // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
         .evs = {252, 252, 252, 252, 252, 252},
     },
-    [TOTEM_TYPHLOSION] =
+	[TOTEM_MEGA_CAMERUPT] =
     {
-        .species = SPECIES_TYPHLOSION,
+        .species = SPECIES_MEGA_CAMERUPT,
         .minLevel = 70,
-        .moves = {MOVE_SOLAR_BEAM, MOVE_EARTHQUAKE, MOVE_FLAMETHROWER, MOVE_WILL_O_WISP},
+        .moves = {MOVE_SOLAR_BEAM, MOVE_EARTHQUAKE, MOVE_FIRE_BLAST, MOVE_WILL_O_WISP},
         .item = ITEM_CHARCOAL,
-        .nature = NATURE_MODEST,
-        .abilityNumber = 0, // BLAZE
-        .statBoosts = {6, 8, 12, 6, 6, 12, 6, 6}, // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
+        .nature = NATURE_QUIET,
+        .abilityNumber = 0, // SHEER_FORCE
+        .statBoosts = {6, 6, 12, 6, 6, 12, 6, 6}, // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
         .evs = {252, 252, 252, 252, 252, 252},
     },
     [TOTEM_MEGA_ABSOL] =

@@ -113,11 +113,11 @@ GymSanty2_EventScript_FarolesEncendidos::
     @ Combate contra totem.
 GymSanty2_EventScript_Totem::
 	lockall
-	playmoncry SPECIES_TYPHLOSION, 2
+	playmoncry SPECIES_MEGA_CAMERUPT, 2
 	delay 40
 	waitmoncry
 	msgbox GymSanty2_Text_Totemaparece, MSGBOX_DEFAULT
-    setvar VAR_0x8004, BOSS_BATTLE_TOTEM_TYPHLOSION
+    setvar VAR_0x8004, BOSS_BATTLE_TOTEM_MEGA_CAMERUPT
     special CreateBossBattleMon
     special BattleSetup_StartBossBattle
     waitstate
@@ -245,8 +245,8 @@ GymSanty2_Text_CaminoAbierto:
 	.string "ha sido desbloqueado.$"
 	
 GymSanty2_Text_Totemaparece:
-	.string "TYPHLOSION, the Totem Pokémon\n"
+	.string "M-CAMERUPT, the Totem Pokémon\n"
 	.string "has appeared!$"
 	
 GymSanty2_Text_Totemderrotado:
-	.string "TYPHLOSION disappeared...$"
+	.string "M-CAMERUPT disappeared...$"
