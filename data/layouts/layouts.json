@@ -4853,11 +4853,11 @@
         {
             "blockdata_filepath": "data/layouts/MicoloLeague_VaderRoom/map.bin",
             "border_filepath": "data/layouts/MicoloLeague_VaderRoom/border.bin",
-            "height": 20,
+            "height": 38,
             "id": "LAYOUT_MICOLO_LEAGUE_VADER_ROOM",
             "name": "MicoloLeague_VaderRoom_Layout",
-            "primary_tileset": "gTileset_Building",
-            "secondary_tileset": "gTileset_Facility",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_Fortree",
             "width": 20
         },
         {
