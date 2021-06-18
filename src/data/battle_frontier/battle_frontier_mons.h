@@ -14356,7 +14356,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
 
     [FRONTIER_MON_MANDIBUZZ_1] = {
         .species = SPECIES_MANDIBUZZ,
-        .moves = {MOVE_KNOCK_OFF, MOVE_TOXIC, MOVE_FLY, MOVE_PROTECT},
+        .moves = {MOVE_KNOCK_OFF, MOVE_TOXIC, MOVE_FLY, MOVE_RECOVER},
         .itemTableId = BATTLE_FRONTIER_ITEM_LEFTOVERS,
         .evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_HP | F_EV_SPREAD_DEFENSE,
         .nature = NATURE_SASSY
@@ -14364,7 +14364,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
 
     [FRONTIER_MON_MANDIBUZZ_2] = {
         .species = SPECIES_MANDIBUZZ,
-        .moves = {MOVE_KNOCK_OFF, MOVE_TOXIC, MOVE_IRON_DEFENSE, MOVE_REST},
+        .moves = {MOVE_KNOCK_OFF, MOVE_TOXIC, MOVE_IRON_DEFENSE, MOVE_RECOVER},
         .itemTableId = BATTLE_FRONTIER_ITEM_LEFTOVERS,
         .evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_HP,
         .nature = NATURE_CALM
@@ -14380,7 +14380,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
 
     [FRONTIER_MON_MANDIBUZZ_4] = {
         .species = SPECIES_MANDIBUZZ,
-        .moves = {MOVE_KNOCK_OFF, MOVE_NASTY_PLOT, MOVE_TOXIC, MOVE_HEAT_WAVE},
+        .moves = {MOVE_KNOCK_OFF, MOVE_NASTY_PLOT, MOVE_RECOVER, MOVE_HEAT_WAVE},
         .itemTableId = BATTLE_FRONTIER_ITEM_LEFTOVERS,
         .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_HP,
         .nature = NATURE_MODEST
