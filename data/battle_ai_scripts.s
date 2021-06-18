@@ -467,6 +467,7 @@ AI_CBM_Mist: @ 82DC507
 	end
 
 AI_CBM_FocusEnergy: @ 82DC512
+	if_this_attack_might_be_the_last Score_Minus5
 	if_status2 AI_USER, STATUS2_FOCUS_ENERGY, Score_Minus10
 	end
 
@@ -776,13 +777,17 @@ AI_CBM_LockOn:
 	if_ability_might_be AI_TARGET, ABILITY_NO_GUARD, Score_Minus10
 	if_ability AI_USER, ABILITY_NO_GUARD, Score_Minus10
 	end
-	
+
 AI_CBM_HealBell:
-	if_status AI_USER, STATUS1_ANY, AI_CBM_HealBell_End
-	if_status_in_party AI_USER, STATUS1_ANY, AI_CBM_HealBell_End
-	score -5
-AI_CBM_HealBell_End:
+	if_move MOVE_HEAL_BELL, AI_CBM_HealBell2
+AI_CBM_HealBellEnd:
 	end
+@ Don't use Heal Bell to heal a partner that has Soundproof
+AI_CBM_HealBell2:
+	if_status AI_USER, STATUS1_ANY, AI_CBM_HealBellEnd
+	if_not_status AI_USER_PARTNER, STATUS1_ANY, AI_CBM_HealBellEnd
+	if_ability AI_USER_PARTNER, ABILITY_SOUNDPROOF, Score_Minus3
+	goto AI_CBM_HealBellEnd
 	
 AI_CBM_Taunt:
 	if_ability_might_be AI_TARGET, ABILITY_OBLIVIOUS, Score_Minus10
@@ -1205,11 +1210,7 @@ AI_CV_Rollout3:
 
 AI_CV_AttackUp: @ 82DCBBC
 	call AI_CheckFreeSetup
-    calculate_nhko AI_TARGET
-    if_equal 1, Score_Minus5
-    if_more_than 2, AI_CV_AttackUp_ProbablyNotSuicidal
-    if_target_faster Score_Minus5
-AI_CV_AttackUp_ProbablyNotSuicidal:
+	if_this_attack_might_be_the_last Score_Minus5
 	if_stat_level_less_than AI_USER, STAT_ATK, 9, AI_CV_AttackUp2
 	if_random_less_than 100, AI_CV_AttackUp3
 	score -1
@@ -1301,11 +1302,7 @@ AI_CheckFreeSetup_AssumeTargetIsSlowerAfterSetup:
 
 AI_CV_SpAtkUp: @ 82DCC73
 	call AI_CheckFreeSetup
-    calculate_nhko AI_TARGET
-    if_equal 1, Score_Minus5
-    if_more_than 2, AI_CV_SpAtkUp_ProbablyNotSuicidal
-    if_target_faster Score_Minus5
-AI_CV_SpAtkUp_ProbablyNotSuicidal:
+    if_this_attack_might_be_the_last Score_Minus5
 	if_stat_level_less_than AI_USER, STAT_SPATK, 9, AI_CV_SpAtkUp2
 	if_random_less_than 100, AI_CV_SpAtkUp3
 	score -1
@@ -2293,6 +2290,7 @@ AI_CV_Snore:
 	end
 
 AI_CV_LockOn:
+	if_this_attack_might_be_the_last Score_Minus5
 	if_random_less_than 128, AI_CV_LockOn_End
 	score +2
 
@@ -2350,17 +2348,13 @@ AI_CV_Flail_ScoreDown1:
 
 AI_CV_Flail_End:
 	end
-
+	
 AI_CV_HealBell:
-	if_move MOVE_HEAL_BELL, AI_CV_HealBell2
-AI_CV_HealBellEnd:
-	end
-@ Don't use Heal Bell to heal a partner that has Soundproof
-AI_CV_HealBell2:
-	if_status AI_USER, STATUS1_ANY, AI_CV_HealBellEnd
-	if_not_status AI_USER_PARTNER, STATUS1_ANY, AI_CV_HealBellEnd
-	if_ability AI_USER_PARTNER, ABILITY_SOUNDPROOF, Score_Minus3
-	goto AI_CV_HealBellEnd
+    if_status_in_party AI_USER, STATUS1_ANY, AI_CV_HealBell_End
+    if_not_status AI_USER, STATUS1_ANY, Score_Minus5
+    if_this_attack_might_be_the_last Score_Minus5
+AI_CV_HealBell_End:
+    end
 
 AI_CV_Thief:
 	get_hold_effect AI_TARGET
@@ -3383,6 +3377,7 @@ AI_TryToFaint_ScoreUp1:
 AI_TryToFaint_GiveBonusToMostDamagingAttack:
     get_how_powerful_move_is
     if_equal MOVE_MOST_POWERFUL, Score_Plus2
+	if_effect EFFECT_QUICK_ATTACK, Score_Plus1
 AI_TryToFaint_End:
 	end
 

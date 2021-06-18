@@ -689,3 +689,11 @@
     if_has_move_with_effect \battler, EFFECT_SHORE_UP, \ptr
     if_has_move_with_effect \battler, EFFECT_SYNTHESIS, \ptr
     .endm
+	
+	.macro if_this_attack_might_be_the_last ptr:req
+    calculate_nhko AI_TARGET
+    if_equal 1, \ptr
+    if_more_than 2, .AI_attack_is_probably_not_the_last_\@
+    if_target_faster \ptr
+	.AI_attack_is_probably_not_the_last_\@:
+    .endm

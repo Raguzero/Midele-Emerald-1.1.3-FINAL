@@ -1806,12 +1806,15 @@ static void Cmd_nullsub_33(void)
 {
 }
 
+// Comprueba si hay pokémon en el equipo del pokémon indicado
+// con el status indicado, excluyendo al propio pokémon indicado
 static void Cmd_if_status_in_party(void)
 {
     struct Pokemon *party;
     s32 i;
     u32 statusToCompareTo;
     u8 battlerId;
+	u8 battlerOnField;
 
     switch (gAIScriptPtr[1])
     {
@@ -1824,6 +1827,7 @@ static void Cmd_if_status_in_party(void)
     }
 
     party = (GetBattlerSide(battlerId) == B_SIDE_PLAYER) ? gPlayerParty : gEnemyParty;
+	battlerOnField = gBattlerPartyIndexes[battlerId];
 
     statusToCompareTo = T1_READ_32(gAIScriptPtr + 2);
 
@@ -1833,7 +1837,7 @@ static void Cmd_if_status_in_party(void)
         u16 hp = GetMonData(&party[i], MON_DATA_HP);
         u32 status = GetMonData(&party[i], MON_DATA_STATUS);
 
-        if (species != SPECIES_NONE && species != SPECIES_EGG && hp != 0 && status == statusToCompareTo)
+		if (i != battlerOnField && species != SPECIES_NONE && species != SPECIES_EGG && hp != 0 && (status & statusToCompareTo))
         {
             gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 6);
             return;
@@ -1849,6 +1853,7 @@ static void Cmd_if_status_not_in_party(void)
     s32 i;
     u32 statusToCompareTo;
     u8 battlerId;
+	u8 battlerOnField;
 
     switch(gAIScriptPtr[1])
     {
@@ -1861,6 +1866,7 @@ static void Cmd_if_status_not_in_party(void)
     }
 
     party = (GetBattlerSide(battlerId) == B_SIDE_PLAYER) ? gPlayerParty : gEnemyParty;
+	battlerOnField = gBattlerPartyIndexes[battlerId];
 
     statusToCompareTo = T1_READ_32(gAIScriptPtr + 2);
 
@@ -1870,7 +1876,7 @@ static void Cmd_if_status_not_in_party(void)
         u16 hp = GetMonData(&party[i], MON_DATA_HP);
         u32 status = GetMonData(&party[i], MON_DATA_STATUS);
 
-        if (species != SPECIES_NONE && species != SPECIES_EGG && hp != 0 && status == statusToCompareTo)
+		if (i != battlerOnField && species != SPECIES_NONE && species != SPECIES_EGG && hp != 0 && (status & statusToCompareTo))
         {
             gAIScriptPtr += 10;
             return;
