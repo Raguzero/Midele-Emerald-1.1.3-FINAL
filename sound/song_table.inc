@@ -645,6 +645,7 @@ gSongTable:: @ 86B49F0
 	song swordshieldwild, 0, 0
 	song shum, 0, 0
 	song finalbossbreathfire2, 0, 0
+	song Jackroom, 0, 0 // CIRCUS DELTARUNE
 
 	.align 2
 dummy_song_header: @ 86B5D00

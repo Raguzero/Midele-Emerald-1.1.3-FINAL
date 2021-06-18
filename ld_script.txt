@@ -1263,6 +1263,7 @@ SECTIONS {
 		sound/songs/midi/swordshieldwild.o(.rodata);
 		sound/songs/midi/shum.o(.rodata);
 		sound/songs/finalbossbreathfire2.o(.rodata);
+		sound/songs/Jackroom.o(.rodata);
     } =0
 
     lib_rodata :

@@ -569,6 +569,7 @@
 #define SWORDSHIELDWILD 641
 #define SHUM 642
 #define FINALBOSSBREATHFIRE2 643
+#define JACKROOM 644
 
 #define MUS_ROUTE_118 0x7FFF  // map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 
