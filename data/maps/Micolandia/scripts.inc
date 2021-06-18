@@ -6,8 +6,8 @@ Micolandia_OnTransition:
 	setflag FLAG_VISITED_MICOLANDIA
 	compare VAR_STATE_MICOLANDIA, 0
 	call_if_eq Micolandia_EventScript_SetGuardBlockingDoor
-	compare VAR_STATE_MICOLANDIA, 1
-	call_if_eq Micolandia_EventScript_SetGuardUnblockingDoor
+	compare VAR_STATE_MICOLANDIA, 0
+	call_if_ne Micolandia_EventScript_SetGuardUnblockingDoor
 	end
 	
 Micolandia_EventScript_SetGuardBlockingDoor::
@@ -123,8 +123,8 @@ Micolandia_EventScript_BirchsHouseFemale::
 Micolandia_EventScript_TopoVigilante::
 	lock
 	faceplayer
-	compare VAR_STATE_MICOLANDIA, 1
-	call_if_eq Micolandia_EventScript_TopoVigilante2
+	compare VAR_STATE_MICOLANDIA, 0
+	call_if_ne Micolandia_EventScript_TopoVigilante2
 	goto_if_set FLAG_DEFEATED_DARKI_GYM, Micolandia_EventScript_TopoCombate
 	msgbox Micolandia_Text_TopoVigilante, MSGBOX_DEFAULT
 	release
