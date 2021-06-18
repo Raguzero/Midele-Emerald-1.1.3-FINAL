@@ -4893,7 +4893,7 @@
         {
             "blockdata_filepath": "data/layouts/MicoloLeague_FinalRoom/map.bin",
             "border_filepath": "data/layouts/MicoloLeague_FinalRoom/border.bin",
-            "height": 20,
+            "height": 33,
             "id": "LAYOUT_MICOLO_LEAGUE_FINAL_ROOM",
             "name": "MicoloLeague_FinalRoom_Layout",
             "primary_tileset": "gTileset_Building",
