@@ -4213,6 +4213,9 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         spAttack /= 2;
     if (defender->ability == ABILITY_ICE_SCALES && IS_TYPE_SPECIAL(type))
         spAttack /= 2;
+    if (gBattleMovePower <= 60 && attacker->ability == ABILITY_TECHNICIAN
+        && !(attacker == defender && move == MOVE_POUND)) // no es autodaño por confusión
+        gBattleMovePower = (150 * gBattleMovePower) / 100;
     if (defender->ability == ABILITY_FLUFFY && (type == TYPE_FIRE))
         gBattleMovePower = (200 * gBattleMovePower) / 100;
     if (defender->ability == ABILITY_FLUFFY && ((gBattleMoves[move].flags & FLAG_MAKES_CONTACT)))
@@ -4276,8 +4279,6 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         gBattleMovePower = (150 * gBattleMovePower) / 100;
     if (gBattleMoves[gCurrentMove].effect == EFFECT_EXPLOSION)
         defense /= 2;
-	if (gBattleMovePower <= 60 && attacker->ability == ABILITY_TECHNICIAN)
-        gBattleMovePower = (150 * gBattleMovePower) / 100;
 	if (gCurrentMove == MOVE_KNOCK_OFF && defender->item && !gWishFutureKnock.knockedOffMons[gBattlerTarget])
 		spAttack = (spAttack * 3) / 2;
 
