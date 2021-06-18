@@ -11,7 +11,7 @@
     "id": "MAP_MICOLO_LEAGUE_FINAL_ROOM",
     "layout": "LAYOUT_MICOLO_LEAGUE_FINAL_ROOM",
     "map_type": "MAP_TYPE_INDOOR",
-    "music": "CRUELANGELSTHESIS",
+    "music": "MUS_NONE",
     "name": "MicoloLeague_FinalRoom",
     "object_events": [
         {
