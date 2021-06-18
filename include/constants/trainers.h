@@ -130,6 +130,7 @@
 #define TRAINER_PIC_ENTROPIA          111
 #define TRAINER_PIC_SCIENTISH_FRLG          112
 #define TRAINER_PIC_MICOLO          113
+#define TRAINER_PIC_CHANNELER          114
 
 #define TRAINER_BACK_PIC_BRENDAN                0
 #define TRAINER_BACK_PIC_MAY                    1

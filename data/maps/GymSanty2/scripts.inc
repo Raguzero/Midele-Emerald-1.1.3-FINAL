@@ -145,6 +145,11 @@ GymSanty2_EventScript_Vin::
 	msgbox Vin_DespuesDeBatalla, MSGBOX_AUTOCLOSE
 	end
 	
+GymSanty2_EventScript_Ghaddar::
+	trainerbattle_single TRAINER_GHADDAR_2, Ghaddar_AntesBatalla, Ghaddar_MensajeDerrota
+	msgbox Ghaddar_DespuesDeBatalla, MSGBOX_AUTOCLOSE
+	end
+	
 Entropia_AntesBatalla: 
 	.string "Amore, ¿sabías que estamos en la\n"
     .string "piscis season?\p"
@@ -224,6 +229,29 @@ Vin_DespuesDeBatalla:
 	.string "Gane o pierda, una batalla Pokémon\n"
     .string "en los aires siempre me hace sentir\l"
      .string "mucho más feliz.$"
+	 
+Ghaddar_AntesBatalla: 
+	.string "SNIFF SNIFF\n"
+	.string "Huelo...A alguien...\l"
+	.string "¡¡A ALGUIEN QUE JUEGA GACHAS!!$"
+	
+Ghaddar_MensajeDerrota: 
+	.string "Los Gachas...Han ganado...\n"
+	.string "Sword&Shield...Pokémon Go...\p"
+
+	.string "Es el futuro que nos espera...$"
+	
+Ghaddar_DespuesDeBatalla:
+	.string "Está claro que has pagado extra\n"
+	.string "para tener esos Pokémon.\p"
+
+	.string "Mis Pokémon han sido entrenados\n"
+	.string "con CARIÑO y ESFUERZO.\p"
+
+	.string "Nada de evs ni ivs ni tonterías\n"
+	.string "Puro AMOR.\p"
+
+	.string "¡HACHA AL GACHA!$"	
 
 GymSanty2_Text_Sign:
 	.string "ENCIENDE LOS CUATRO FAROLES\n"

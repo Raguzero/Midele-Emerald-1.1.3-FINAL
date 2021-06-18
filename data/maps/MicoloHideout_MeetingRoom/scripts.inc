@@ -11,6 +11,11 @@ MicoloHideout_MeetingRoom_EventScript_Merum::
 	msgbox Merum_DespuesDeBatalla, MSGBOX_AUTOCLOSE
 	end
 	
+MicoloHideout_MeetingRoom_EventScript_Kaderete::  
+	trainerbattle_single TRAINER_KADERETE_2, MicoloHideout_MeetingRoom_Text_KadereteIntro, MicoloHideout_MeetingRoom_Text_KadereteDefeat
+	msgbox MicoloHideout_MeetingRoom_Text_KaderetePostBattle, MSGBOX_AUTOCLOSE
+	end
+	
 Goldie_MasdeunPokemon: // BATALLA DOBLE
 	.string "Pero si no llevas más de un\n"
 	.string "POKÉMON con vida...\p"
@@ -69,6 +74,23 @@ Merum_DespuesDeBatalla:
     .string "es que quizás deberías ampliar tus\l"
     .string "temas de conversación. Dicho eso,\l"
     .string "¿qué opinas de mi GRAN MOÁI?$"
+	
+MicoloHideout_MeetingRoom_Text_KadereteIntro: 
+	.string "¿Cómo puedo haber acabado yo aquí?\p"
+
+    .string "O sea, mira a toda esta gente.\n"
+    .string "Está todo lleno de putos frikazos...\p"
+
+    .string "En fin, ya me has enfadado.\n"
+    .string "¡¡¡A poquemonear!!!$"
+
+MicoloHideout_MeetingRoom_Text_KadereteDefeat: 
+	.string "NOOOOOOOO$"
+
+MicoloHideout_MeetingRoom_Text_KaderetePostBattle: 
+	.string "En fin, tampoco le había echado ganas.\p"
+
+    .string "Vete antes de que te parta la cara.$"
 
 MicoloHideout_MeetingRoom_Showcase_Monociclo::
 	msgbox MicoloHideout_MeetingRoom_Showcase_Monociclo_Text_0, MSGBOX_SIGN

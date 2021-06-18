@@ -139,20 +139,23 @@ MicoloHideout_LavaRoom_Text_PhentIntro:
 	.string "con MEW para poder crear a MEWTWO.\p"
 
 	.string "Me encomendaron la tarea de examinar\n"
-	.string "los excrementos de MEW y de varios POKéMON,\l"
-	.string "pero ahora mismo estoy en un punto muerto\l"
-	.string "ya que no he descubierto nada sorprendente.\p"
+	.string "los excrementos de MEW y varios POKéMON,\l"
+	.string "pero ahora mismo estoy en un punto\l"
+	.string "muerto, ya que no he descubierto\l" 
+	.string "nada sorprendente.\p"
 	
-	.string "Nada tan sorprendente como mi mayor experimento\n"
-	.string "de todos:\p"
+	.string "Nada tan sorprendente como mi mayor\n"
+	.string "experimento de todos:\p"
 	
-	.string "¡EL PIKACHU OSCURO DEL TRUENO DE LA OSCURIDAD!$"
+	.string "¡EL PIKACHU OSCURO DEL TRUENO DE\n" 
+	.string "LA OSCURIDAD!$"
 
 MicoloHideout_LavaRoom_Text_PhentDefeat: 
 	.string "¡Vaya trabajo de mierda!$"
 
 MicoloHideout_LavaRoom_Text_PhentPostBattle:
-	.string "Este trabajo es... literalmente ¡mierda!\p"
+	.string "Este trabajo es... literalmente...\n"
+	.string "¡MIERDA!\p"
 
 	.string "Mmm... tal vez pueda investigar porque\n"
 	.string "existen REGIELEKI y REGIDRAGO.\p"

@@ -584,6 +584,14 @@ static const u8 sText_RedHPDarkibuenro[] = _("Diantres.\n No contaba con que no 
 static const u8 sText_DarkimalroPierdePrimerPoke[] = _("Tsk, eso fue un golpe de suerte, si ese pinguino\n no me hubiera atado a la normas de este mundo...\p");
 static const u8 sText_DarkimalroEnviaUltimoPoke[] = _("¿Que? ¡esto es imposible! pulga molesta te aplastare...\p");
 static const u8 sText_RedHPDarkimalro[] = _("Mi odio me hara prevalecer. ¡Ya lo veras!\p");
+static const u8 sText_GhaddarPierdePrimerPoke[] = _("¿No ves que te manipulan para jugarlos?\n¡Es una adicción!\l ¡No caigas en la tentación!\p");
+static const u8 sText_GhaddarEnviaUltimoPoke[] = _("Incluso Pokémon...Con los ivs...\nSus mecánicas...Son Gacha...\p");
+static const u8 sText_RedHPGhaddar[] = _("¡¡NOOOO EL RNG!!\p");
+static const u8 sText_KaderetePierdePrimerPoke[] = _("Esto estaba calculado...\p");
+static const u8 sText_KadereteEnviaUltimoPoke[] = _("Esto es un problema más gordo\nque la madre de Krub.\p");
+static const u8 sText_RedHPKaderete[] = _("Vamos acabando que las bombas\n no se ponen solas.\p");
+
+
 
 static const u8 frase0[] = _("Esh el vecino\nel que elige al alcalde\py esh el alcalde\nel que quiere\lque shean\llosh vecinosh\lel alcalde.\p");
 static const u8 frase1[] = _("Eshpaña esh una gran nación\ny losh eshpañolesh\lmuy eshpañolesh\ly mucho eshpañolesh.\p");
@@ -3096,6 +3104,9 @@ static const struct TrainerSlide sTrainerSlides[] =
     {TRAINER_VIN, sText_VinEnviaUltimoPoke, sText_RedHPVin, sText_VinPierdePrimerPoke},
     {TRAINER_DARKI_BUENRO, sText_DarkibuenroEnviaUltimoPoke, sText_RedHPDarkibuenro, sText_DarkibuenroPierdePrimerPoke},
     {TRAINER_DARKI_MALRO, sText_DarkimalroEnviaUltimoPoke, sText_RedHPDarkimalro, sText_DarkimalroPierdePrimerPoke},
+    {TRAINER_GHADDAR, sText_GhaddarEnviaUltimoPoke, sText_RedHPGhaddar, sText_GhaddarPierdePrimerPoke},  
+    {TRAINER_GHADDAR_2, sText_GhaddarEnviaUltimoPoke, sText_RedHPGhaddar, sText_GhaddarPierdePrimerPoke},  
+	{TRAINER_KADERETE_2, sText_KadereteEnviaUltimoPoke, sText_RedHPKaderete, sText_KaderetePierdePrimerPoke},
 };
 
 static u32 GetEnemyMonCount(bool32 onlyAlive)

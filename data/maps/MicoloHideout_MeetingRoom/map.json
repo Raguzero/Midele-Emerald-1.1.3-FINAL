@@ -203,13 +203,13 @@
         {
             "elevation": 3,
             "flag": "0",
-            "graphics_id": "EVENT_OBJ_GFX_CONTEST_JUDGE",
+            "graphics_id": "EVENT_OBJ_GFX_MAN_4",
             "movement_range_x": 0,
             "movement_range_y": 0,
             "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
-            "script": "NULL",
-            "trainer_sight_or_berry_tree_id": "0",
-            "trainer_type": "0",
+            "script": "MicoloHideout_MeetingRoom_EventScript_Kaderete",
+            "trainer_sight_or_berry_tree_id": "1",
+            "trainer_type": "1",
             "x": 11,
             "y": 10
         },

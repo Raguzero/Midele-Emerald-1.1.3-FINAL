@@ -431,7 +431,7 @@ Darkigym_Text_CharzIntro:
 
 	.string "Un humano débil no sirve para nada,\n"
 	.string "solo nos hace a todos más\l"
-	.string "manipulables".\p"
+	.string "manipulables.\p"
 	
 	.string "Pero...\p"
 	
@@ -722,3 +722,4 @@ Darkigym_Text_Totemaparece:
 	
 Darkigym_Text_Totemderrotado:
 	.string "TYRANITAR disappeared...$"
+

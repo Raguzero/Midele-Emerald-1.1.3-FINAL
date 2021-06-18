@@ -24998,7 +24998,6 @@ static const struct TrainerMonCustomMidele sParty_UltraMagic[] = {
     }
 };
 static const struct TrainerMonCustomMidele sParty_Charz[] = {
-// FALTA LOCALIZACIÓN Y FRASES
     {
     .iv = 31,  
     .lvl = 86, 
@@ -25030,5 +25029,131 @@ static const struct TrainerMonCustomMidele sParty_Charz[] = {
 	.hpType = TYPE_GHOST,
 	.ability = 1,
     .moves = {MOVE_SKY_UPPERCUT, MOVE_MACH_PUNCH, MOVE_DIZZY_PUNCH, MOVE_HIDDEN_POWER}
+    }
+};
+static const struct TrainerMonCustomMidele sParty_Ghaddar2[] = {
+    { //NORWAY STRONK
+    .iv = 31,
+    .lvl = 72,
+    .species = SPECIES_MEGA_ABOMASNOW,
+	.heldItem = ITEM_WHITE_HERB,
+	.nature = NATURE_QUIET,
+	.evs = {252, 6, 0, 252, 0, 0},
+	.ability = 1, // SNOW WARNING
+    .moves = {MOVE_LEAF_STORM, MOVE_BLIZZARD, MOVE_EARTHQUAKE, MOVE_SYNTHESIS}
+    },
+    {
+    .iv = 31, 
+    .lvl = 73,
+    .species = SPECIES_TOXICROAK,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_JOLLY,
+	.evs = {6, 252, 0, 0, 0, 252},
+	.ability = 0, // DRY SKIN
+    .moves = {MOVE_GUNK_SHOT, MOVE_SUBSTITUTE, MOVE_SWORDS_DANCE, MOVE_CROSS_CHOP}
+    },
+    {
+    .iv = 31, 
+    .lvl = 72,
+    .species = SPECIES_MANDIBUZZ,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_HASTY,
+	.evs = {252, 6, 0, 0, 0, 252},
+	.ability = 0, // OVERCOAT
+    .moves = {MOVE_TOXIC, MOVE_KNOCK_OFF, MOVE_DARK_PULSE, MOVE_BRAVE_BIRD}
+    },
+    { //GACHA ADDICT
+    .iv = 31, 
+    .lvl = 79,
+    .species = SPECIES_ALOLAN_PERSIAN,
+	.heldItem = ITEM_CHOICE_BAND,
+	.nature = NATURE_ADAMANT,
+	.evs = {6, 252, 0, 0, 0, 252},
+	.ability = 1, // TECHNICIAN
+    .moves = {MOVE_PAY_DAY, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .iv = 31, 
+    .lvl = 73,
+    .species = SPECIES_HIPPOWDON,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_IMPISH,
+	.evs = {252, 6, 0, 0, 252, 0},
+	.ability = 0, // SAND STREAM
+    .moves = {MOVE_EARTHQUAKE, MOVE_SLACK_OFF, MOVE_CURSE, MOVE_ROCK_SLIDE}
+    },
+    {
+    .iv = 31, 
+    .lvl = 74,
+    .species = SPECIES_ALOLAN_MAROWAK,
+	.heldItem = ITEM_THICK_CLUB,
+	.nature = NATURE_BRAVE,
+	.evs = {252, 252, 0, 0, 6, 0},
+	.ability = 1, // LIGHTNING ROD
+    .moves = {MOVE_EARTHQUAKE, MOVE_SHADOW_BALL, MOVE_STONE_EDGE, MOVE_FIRE_BLAST}
+    },
+};
+static const struct TrainerMonCustomMidele sParty_Kaderete2[] = {
+    {
+    .iv = 31,
+    .lvl = 98,
+    .species = SPECIES_MANDIBUZZ,
+    .heldItem = ITEM_LEFTOVERS,
+    .nature = NATURE_CAREFUL,
+    .evs = {252, 0, 128, 0, 128, 0},
+    .ability = 0, // OVERCOAT
+    .moves = {MOVE_TOXIC, MOVE_RECOVER, MOVE_KNOCK_OFF, MOVE_PROTECT}
+    },
+    {
+    .iv = 31,
+    .lvl = 98,
+    .species = SPECIES_MILOTIC,
+    .heldItem = ITEM_LEFTOVERS,
+    .nature = NATURE_CALM,
+    .evs = {252, 0, 0, 6, 252, 0},
+    .ability = 0, // MARVEL SCALE
+    .shiny = 1,
+    .moves = {MOVE_RECOVER, MOVE_SURF, MOVE_ICE_BEAM, MOVE_TOXIC}
+    },
+    {
+    .iv = 31,
+    .lvl = 97,
+    .species = SPECIES_METAGROSS,
+    .heldItem = ITEM_LEFTOVERS,
+    .nature = NATURE_ADAMANT,
+    .evs = {0, 252, 6, 0, 0, 252},
+    .ability = 0, // CLEAR BODY
+    .shiny = 1,
+    .moves = {MOVE_EARTHQUAKE, MOVE_IRON_HEAD, MOVE_BRICK_BREAK, MOVE_SHADOW_BALL}
+    },
+    {
+    .iv = 31,
+    .lvl = 98,
+    .species = SPECIES_MAGMORTAR,
+    .heldItem = ITEM_CHOICE_SCARF,
+    .nature = NATURE_MODEST,
+    .evs = {0, 0, 0, 252, 6, 252},
+    .hpType = TYPE_GRASS,
+    .ability = 0, // FLAME BODY
+    .moves = {MOVE_FLAMETHROWER, MOVE_THUNDERBOLT, MOVE_PSYCHIC, MOVE_HIDDEN_POWER}
+    },
+    {
+    .iv = 31,
+    .lvl = 97,
+    .species = SPECIES_GENGAR,
+    .heldItem = ITEM_LEFTOVERS,
+    .nature = NATURE_MODEST,
+    .evs = {0, 0, 6, 252, 0, 252},
+    .ability = 0, // LEVITATE
+    .moves = {MOVE_FIRE_PUNCH, MOVE_ICE_PUNCH, MOVE_THUNDERBOLT, MOVE_PSYCHIC}
+    },
+    {
+    .iv = 31,
+    .lvl = 100,
+    .species = SPECIES_ELECTRODE,
+    .nature = NATURE_ADAMANT,
+    .evs = {0, 252, 6, 0, 0, 252},
+    .ability = 1, // STATIC
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 };
