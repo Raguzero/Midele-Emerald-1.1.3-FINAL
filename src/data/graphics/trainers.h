@@ -341,7 +341,7 @@ const u32 gTrainerFrontPic_Micolo[] = INCBIN_U32("graphics/trainers/front_pics/m
 const u32 gTrainerPalette_Micolo[] = INCBIN_U32("graphics/trainers/palettes/micolo.gbapal.lz");
 
 const u32 gTrainerFrontPic_Channeler[] = INCBIN_U32("graphics/trainers/front_pics/channeler_front_pic.4bpp.lz");
-const u32 gTrainerPalette_Channeler[] = INCBIN_U32("graphics/trainers/palettes/Channeler.gbapal.lz");
+const u32 gTrainerPalette_Channeler[] = INCBIN_U32("graphics/trainers/palettes/channeler.gbapal.lz");
 
 const u8 gTrainerBackPic_Brendan[] = INCBIN_U8("graphics/trainers/back_pics/brendan_back_pic.4bpp");
 const u8 gTrainerBackPic_May[] = INCBIN_U8("graphics/trainers/back_pics/may_back_pic.4bpp");
