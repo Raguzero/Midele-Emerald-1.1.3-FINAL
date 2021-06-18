@@ -1088,5 +1088,6 @@ void DoApplyrangemovementLastStep(void)
         default:
             dir = DIR_NONE;
     }
+	gPlayerAvatar.runningState = MOVING;
     PlayerGoSpeed1(dir);
 }
