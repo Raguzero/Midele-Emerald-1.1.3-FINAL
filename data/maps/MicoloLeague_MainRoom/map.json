@@ -11,7 +11,7 @@
     "id": "MAP_MICOLO_LEAGUE_MAIN_ROOM",
     "layout": "LAYOUT_MICOLO_LEAGUE_MAIN_ROOM",
     "map_type": "MAP_TYPE_INDOOR",
-    "music": "MUS_DAN02",
+    "music": "MUS_RG_CHAMP_R",
     "name": "MicoloLeague_MainRoom",
     "object_events": [
         {
@@ -24,7 +24,7 @@
             "script": "NULL",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
-            "x": 9,
+            "x": 7,
             "y": 2
         },
         {
@@ -49,49 +49,49 @@
             "dest_map": "MAP_MICOLO_LEAGUE_MAIN_ROOM",
             "dest_warp_id": 0,
             "elevation": 0,
-            "x": 9,
-            "y": 13
+            "x": 8,
+            "y": 8
         },
         {
             "dest_map": "MAP_MICOLO_LEAGUE_LAVENDER_ROOM",
             "dest_warp_id": 0,
             "elevation": 0,
-            "x": 5,
-            "y": 8
+            "x": 6,
+            "y": 9
         },
         {
             "dest_map": "MAP_MICOLO_LEAGUE_VADER_ROOM",
             "dest_warp_id": 0,
             "elevation": 0,
-            "x": 5,
-            "y": 4
+            "x": 6,
+            "y": 5
         },
         {
             "dest_map": "MAP_MICOLO_LEAGUE_PACO_ROOM",
             "dest_warp_id": 0,
             "elevation": 0,
-            "x": 14,
-            "y": 8
+            "x": 11,
+            "y": 9
         },
         {
             "dest_map": "MAP_MICOLO_LEAGUE_RAGU_ROOM",
             "dest_warp_id": 0,
             "elevation": 0,
-            "x": 14,
-            "y": 4
+            "x": 11,
+            "y": 5
         },
         {
             "dest_map": "MAP_MICOLO_LEAGUE_FINAL_ROOM",
             "dest_warp_id": 0,
             "elevation": 0,
-            "x": 10,
+            "x": 9,
             "y": 1
         },
         {
             "dest_map": "MAP_MICOLO_LEAGUE_FINAL_ROOM",
             "dest_warp_id": 0,
             "elevation": 0,
-            "x": 9,
+            "x": 8,
             "y": 1
         }
     ],
