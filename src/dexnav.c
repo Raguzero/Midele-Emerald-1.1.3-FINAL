@@ -2076,20 +2076,6 @@ static void DrawSpeciesIcons(void)
         y = ROW_WATER_ICON_Y;
         TryDrawIconInSlot(species, x, y);
     }
-    
-    for (i = 0; i < HIDDEN_WILD_COUNT; i++)
-    {
-        species = sDexNavUiDataPtr->hiddenSpecies[i];
-		formId = species;
-        x = ROW_HIDDEN_ICON_X + 24 * i;
-        y = ROW_HIDDEN_ICON_Y;
-        if (FlagGet(FLAG_SYS_DETECTOR_MODE))
-            TryDrawIconInSlot(species, x, y);
-       else if (species == SPECIES_NONE || species > NUM_SPECIES)
-            CreateNoDataIcon(x, y);
-        else
-            CreateMonIcon(SPECIES_NONE, SpriteCB_MonIcon, x, y, 0, 0xFFFFFFFF, formId); //question mark if detector mode inactive
-    }
 }
 
 static u16 DexNavGetSpecies(void)
@@ -2411,11 +2397,7 @@ static void Task_DexNavMain(u8 taskId)
     else if (JOY_NEW(DPAD_UP))
     {
         if (sDexNavUiDataPtr->cursorRow == ROW_WATER)
-        {
-            sDexNavUiDataPtr->cursorRow = ROW_HIDDEN;
-            if (sDexNavUiDataPtr->cursorCol >= COL_HIDDEN_COUNT)
-                sDexNavUiDataPtr->cursorCol = COL_HIDDEN_MAX;
-        }
+			sDexNavUiDataPtr->cursorRow = ROW_LAND_BOT;
         else
         {
             if (sDexNavUiDataPtr->cursorRow == ROW_LAND_TOP && sDexNavUiDataPtr->cursorCol == COL_LAND_MAX)
@@ -2429,16 +2411,12 @@ static void Task_DexNavMain(u8 taskId)
     }
     else if (JOY_NEW(DPAD_DOWN))
     {
-        if (sDexNavUiDataPtr->cursorRow == ROW_HIDDEN)
+		if (sDexNavUiDataPtr->cursorRow == ROW_LAND_BOT)
         {
+            if (sDexNavUiDataPtr->cursorCol == COL_LAND_MAX)
+                sDexNavUiDataPtr->cursorCol = COL_WATER_MAX; 
+			
             sDexNavUiDataPtr->cursorRow = ROW_WATER;
-        }
-        else if (sDexNavUiDataPtr->cursorRow == ROW_LAND_BOT)
-        {
-            if (sDexNavUiDataPtr->cursorCol >= COL_HIDDEN_COUNT)
-                sDexNavUiDataPtr->cursorCol = COL_HIDDEN_MAX;
-            
-            sDexNavUiDataPtr->cursorRow++;
         }
         else
         {
