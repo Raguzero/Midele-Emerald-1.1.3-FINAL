@@ -685,3 +685,9 @@ $(EVENTOBJGFXDIR)/pokemon/mewtwo.4bpp: %.4bpp: %.png
 	
 $(EVENTOBJGFXDIR)/pokemon/celebi.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 2
+	
+$(EVENTOBJGFXDIR)/pics/misc/fuegoencendido.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
+	
+$(EVENTOBJGFXDIR)/pics/misc/fuegoapagado.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4

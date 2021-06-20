@@ -2273,4 +2273,10 @@ const struct SpriteFrameImage gEventObjectPicTable_Celebi[] = {
     overworld_frame(gEventObjectPic_Celebi, 2, 2, 0),
 };
 
+const struct SpriteFrameImage gEventObjectPicTable_FireOn[] = {
+    obj_frame_tiles(gEventObjectPic_FireOn),
+};
 
+const struct SpriteFrameImage gEventObjectPicTable_FireOff[] = {
+    obj_frame_tiles(gEventObjectPic_FireOff),
+};

@@ -442,6 +442,8 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define EVENT_OBJ_PAL_TAG_40 0x1129 // SUICUNE
 #define EVENT_OBJ_PAL_TAG_41 0x112A // MEWTWO
 #define EVENT_OBJ_PAL_TAG_42 0x112B // CELEBI
+#define EVENT_OBJ_PAL_TAG_43 0x112C // FIRE ON
+#define EVENT_OBJ_PAL_TAG_44 0x112D // FIRE OFF
 #define EVENT_OBJ_PAL_TAG_NONE 0x11FF
 
 #include "data/field_event_obj/event_object_graphics_info_pointers.h"
@@ -496,6 +498,8 @@ const struct SpritePalette sEventObjectSpritePalettes[] = {
     {gEventObjectPalette40, EVENT_OBJ_PAL_TAG_40},	// SUICUNE                                     // SUICUNE
     {gEventObjectPalette41, EVENT_OBJ_PAL_TAG_41}, // MEWTWO
     {gEventObjectPalette42, EVENT_OBJ_PAL_TAG_42}, // CELEBI
+    {gEventObjectPalette_FireOn, EVENT_OBJ_PAL_TAG_43}, // FIRE ON
+    {gEventObjectPalette_FireOff, EVENT_OBJ_PAL_TAG_44}, // FIRE OFF
     {NULL,                  0x0000},
 };
 
