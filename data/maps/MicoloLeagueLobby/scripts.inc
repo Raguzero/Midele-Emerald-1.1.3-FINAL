@@ -70,8 +70,6 @@ MicoloLeagueLobby_EventScript_ResetTrainerYES:
 	//cleartrainerflag TRAINER_ISMAPKM_1 ???
 	cleartrainerflag TRAINER_GOLDIE
 	//cleartrainerflag TRAINER_JOSITO ???
-	//cleartrainerflag TRAINER_GHADDAR ??
-	//cleartrainerflag TRAINER_HYPEANTONIO ??
 	//cleartrainerflag TRAINER_VLADILAND ??
 	cleartrainerflag TRAINER_KEFKY
 	cleartrainerflag TRAINER_ELPRINCIPE
@@ -92,13 +90,29 @@ MicoloLeagueLobby_EventScript_ResetTrainerYES:
 	cleartrainerflag TRAINER_FELIPEX88 
 	//cleartrainerflag TRAINER_GOOSES ???
 	cleartrainerflag TRAINER_RED_KROW 
-	//cleartrainerflag TRAINER_TOPO ??
 	cleartrainerflag TRAINER_GRIM 
 	cleartrainerflag TRAINER_MAESTRO_ARENA 
 	cleartrainerflag TRAINER_MANEC 
 	cleartrainerflag TRAINER_ALPHA 
 	cleartrainerflag TRAINER_JPROGAMER 
 	cleartrainerflag TRAINER_SLOWBRO
+	cleartrainerflag TRAINER_BOTONES
+	///cleartrainerflag TRAINER_HYPEANTONIO_2 ???
+	//cleartrainerflag TRAINER_DARKI_BUENRO ???
+	cleartrainerflag TRAINER_VIN
+	//cleartrainerflag TRAINER_ESBIRRO_DARKI_1 ???
+	//cleartrainerflag TRAINER_ESBIRRO_DARKI_2 ???
+	//cleartrainerflag TRAINER_ESBIRRO_DARKI_3 ???
+	//cleartrainerflag TRAINER_ESBIRRO_DARKI_4 ???
+	//cleartrainerflag TRAINER_ESBIRRO_DARKI_5 ???
+	cleartrainerflag TRAINER_ANTHONYPXP
+	cleartrainerflag TRAINER_DRANIX
+	cleartrainerflag TRAINER_UMBREON123
+	cleartrainerflag TRAINER_PHENT
+	cleartrainerflag TRAINER_ULTRA_MAGIC
+	cleartrainerflag TRAINER_CHARZ
+	cleartrainerflag TRAINER_GHADDAR_2
+	cleartrainerflag TRAINER_KADERETE_2
 	// Etc
 	release
 	end
@@ -114,14 +128,17 @@ MicoloLeagueLobby_Mart_EventScript_Clerk::
 	end
 
 	.align 2
-MicoloLeagueLobby_Pokemart: // YA SE CAMBIARAN LOS OBJETOS
+MicoloLeagueLobby_Pokemart:
 	.2byte ITEM_ULTRA_BALL
 	.2byte ITEM_HYPER_POTION
 	.2byte ITEM_MAX_POTION
 	.2byte ITEM_FULL_RESTORE
 	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_ETHER
+	.2byte ITEM_MAX_ETHER
+	.2byte ITEM_ELIXIR
+	.2byte ITEM_MAX_ELIXIR
 	.2byte ITEM_REVIVE
-	.2byte ITEM_MAX_REPEL
 	.2byte ITEM_NONE
 	release
 	end
@@ -137,25 +154,19 @@ MicoloLeagueLobby_Mart_EventScript_Clerk2::
 	end
 
 	.align 2
-MicoloLeagueLobby_Pokemart2: // YA SE CAMBIARAN LOS OBJETOS
-	.2byte ITEM_ULTRA_BALL
-	.2byte ITEM_HYPER_POTION
-	.2byte ITEM_MAX_POTION
-	.2byte ITEM_FULL_RESTORE
-	.2byte ITEM_FULL_HEAL
-	.2byte ITEM_REVIVE
-	.2byte ITEM_MAX_REPEL
-	.2byte ITEM_PROTEIN
-	.2byte ITEM_CALCIUM
-	.2byte ITEM_IRON
-	.2byte ITEM_ZINC
-	.2byte ITEM_CARBOS
-	.2byte ITEM_HP_UP
-	.2byte ITEM_SALAC_BERRY
+MicoloLeagueLobby_Pokemart2:
+	.2byte ITEM_WHITE_HERB
+	.2byte ITEM_POWER_HERB
+	.2byte ITEM_MENTAL_HERB
+	.2byte ITEM_FOCUS_SASH
+	.2byte ITEM_FOCUS_BAND
+	.2byte ITEM_LIECHI_BERRY
 	.2byte ITEM_GANLON_BERRY
 	.2byte ITEM_PETAYA_BERRY
 	.2byte ITEM_APICOT_BERRY
-	.2byte ITEM_LIECHI_BERRY
+	.2byte ITEM_SALAC_BERRY
+	.2byte ITEM_PP_UP
+	.2byte ITEM_PP_MAX
 	.2byte ITEM_NONE
 	release
 	end

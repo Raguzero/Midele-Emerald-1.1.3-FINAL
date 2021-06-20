@@ -2995,6 +2995,7 @@ static void task05_08033660(u8 taskId)
             sub_805B258(gActiveBattler, FALSE);
             gActiveBattler ^= BIT_FLANK;
         }
+		PlaySE12WithPanning(SE_NAGERU, 0);
         gBattlerControllerFuncs[gActiveBattler] = sub_8058B40;
         gActiveBattler = savedActiveBattler;
         DestroyTask(taskId);

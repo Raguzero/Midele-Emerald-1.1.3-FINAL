@@ -178,7 +178,9 @@ static const u16 sMicoloHideoutTrainerFlags[] = {
     TRAINER_GOLDIE,
     TRAINER_UTALAWEA,
     TRAINER_JAVISITO_POSTGAME,
-    TRAINER_EEVEETO
+    TRAINER_EEVEETO,
+    TRAINER_KADERETE_2,
+    TRAINER_PHENT
 };
 
 // code
