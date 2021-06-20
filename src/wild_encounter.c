@@ -18,6 +18,7 @@
 #include "battle_pyramid.h"
 #include "day_night.h"
 #include "item.h"
+#include "dexnav.h"
 #include "constants/abilities.h"
 #include "constants/game_stat.h"
 #include "constants/items.h"
@@ -913,16 +914,14 @@ bool8 UpdateRepelCounter(void)
         VarSet(VAR_REPEL_STEP_COUNT, steps);
         if (steps == 0)
         {
+			InterruptDexNavSearch();
             if (CheckBagHasItem(VarGet(VAR_LAST_USED_REPEL), 1))
-            {
+
                 ScriptContext1_SetupScript(EventScript_ReuseRepel);
-                return TRUE;
-            }
             else
-            {
                 ScriptContext1_SetupScript(EventScript_RepelWoreOff);
-                return TRUE;
-            }
+
+            return TRUE;
         }
     }
     return FALSE;

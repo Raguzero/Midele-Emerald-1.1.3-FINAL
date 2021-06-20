@@ -127,6 +127,7 @@ void TryIncrementSpeciesSearchLevel(u16 dexNum);
 void ResetDexNavSearch(void);
 bool8 TryFindHiddenPokemon(void);
 bool8 DexNavTryMakeShinyMon(void);
+bool8 InterruptDexNavSearch(void);
 
 //ewram
 extern u8 gCurrentDexNavChain;

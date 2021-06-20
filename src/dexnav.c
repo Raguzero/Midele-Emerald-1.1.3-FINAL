@@ -1014,6 +1014,30 @@ bool8 TryStartDexnavSearch(void)
     return FALSE;   //we dont actually want to enable the script context
 }
 
+bool8 InterruptDexNavSearch(void)
+{
+    if (sDexNavSearchDataPtr == NULL)
+        return FALSE; // no había búsqueda en marcha
+
+    // Impide que el juego asuma que está en marcha (por ejemplo, para modificar el efecto de pulsar A)
+    // Se mantienen sDexNavSearchDataPtr, que contiene los datos de la búsqueda,
+    // y la task que controla la búsqueda (que se paraliza)
+    FlagClear(FLAG_SYS_DEXNAV_SEARCH);
+
+    RemoveDexNavWindowAndGfx();
+    return TRUE;
+}
+
+bool8 RestoreDexNavSearch(void)
+{
+    if (sDexNavSearchDataPtr == NULL)
+        return FALSE; // no había búsqueda en marcha
+
+    FlagSet(FLAG_SYS_DEXNAV_SEARCH);
+    DexNavDrawIcons();
+    return TRUE;
+}
+
 void EndDexNavSearch(u8 taskId)
 {
     FlagClear(FLAG_SYS_DEXNAV_SEARCH);
@@ -1090,6 +1114,18 @@ static void Task_DexNavSearch(u8 taskId)
     u16 species;
     s16 x, y;
     struct Task *task = &gTasks[taskId];
+	
+    if (!FlagGet(FLAG_SYS_DEXNAV_SEARCH))
+    {
+        if (ScriptContext2_IsEnabled())
+            return;   // búsqueda suspendida
+        else if (!RestoreDexNavSearch()) // Intenta restaurar la búsqueda
+        {
+            // No debería pasar, pero por si acaso limpiamos la búsqueda
+            EndDexNavSearch(taskId);
+            return;
+        }
+    }
     
     if (sDexNavSearchDataPtr->proximity > MAX_PROXIMITY)
     { // out of range
