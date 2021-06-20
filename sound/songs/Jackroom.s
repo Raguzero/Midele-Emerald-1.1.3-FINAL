@@ -1,6 +1,6 @@
 	.include "MPlayDef.s"
 
-	.equ	Jackroom_grp, voicegroup115
+	.equ	Jackroom_grp, voicegroup012
 	.equ	Jackroom_pri, 0
 	.equ	Jackroom_rev, 0
 	.equ	Jackroom_mvl, 87

@@ -1,6 +1,6 @@
 	.include "MPlayDef.s"
 
-	.equ	Jenova_grp, voicegroup000
+	.equ	Jenova_grp, voicegroup115
 	.equ	Jenova_pri, 0
 	.equ	Jenova_rev, 0
 	.equ	Jenova_mvl, 87
