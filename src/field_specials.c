@@ -4528,16 +4528,22 @@ void SetGiftEggMove (void)
 
 u16 CheckJirachiMewinTeam(void)
 {
+    bool8 hasJirachi = FALSE;
+    bool8 hasMew = FALSE;
+
     u8 i;
     for (i = 0; i < PARTY_SIZE; i++)
-        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2) == SPECIES_MEW)
+        switch (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2))
         {
-            for (i = 0; i < PARTY_SIZE; i++)
-                if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2) == SPECIES_JIRACHI)
-                    return TRUE;
-            return FALSE; // Mew pero no Jirachi
+            case SPECIES_MEW:
+                hasMew = TRUE;
+                break;
+            case SPECIES_JIRACHI:
+                hasJirachi = TRUE;
+                break;
         }
-    return FALSE;
+
+   return hasJirachi && hasMew;
 }
 
 u16 PokedexRatingPrize(void)
