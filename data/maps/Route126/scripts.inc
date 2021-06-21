@@ -63,3 +63,14 @@ Route126_EventScript_RematchPablo:: @ 81F69C2
 	msgbox Route126_Text_PabloPostRematch, MSGBOX_AUTOCLOSE
 	end
 
+Route126_Sign_MicoloSign::
+	lockall
+	msgbox Route126_Sign_MicoloSign_Text_0, MSGBOX_SIGN
+	releaseall
+	return
+
+
+Route126_Sign_MicoloSign_Text_0:
+	.string "Hay algo garabateado en el cartel...\p"
+	.string "“Micolo estuvo aquí n.n”$"
+

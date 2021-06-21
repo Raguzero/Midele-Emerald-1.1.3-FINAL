@@ -18,7 +18,7 @@ const struct Item gItems[] =
     {
         .name = _("MASTER BALL"),
         .itemId = ITEM_MASTER_BALL,
-        .price = 0,
+        .price = 10000,
         .description = sMasterBallDesc,
         .pocket = POCKET_POKE_BALLS,
         .type = 0,
@@ -640,7 +640,7 @@ const struct Item gItems[] =
     {
         .name = _("SACRED ASH"),
         .itemId = ITEM_SACRED_ASH,
-        .price = 200,
+        .price = 10000,
         .description = sSacredAshDesc,
         .pocket = POCKET_ITEMS,
         .type = 1,
@@ -1871,7 +1871,7 @@ const struct Item gItems[] =
     {
         .name = _("LUM BERRY"),
         .itemId = ITEM_LUM_BERRY,
-        .price = 20,
+        .price = 2000,
         .holdEffect = HOLD_EFFECT_CURE_STATUS,
         .description = sLumBerryDesc,
         .pocket = POCKET_BERRIES,
@@ -1886,7 +1886,7 @@ const struct Item gItems[] =
     {
         .name = _("SITRUS BERRY"),
         .itemId = ITEM_SITRUS_BERRY,
-        .price = 20,
+        .price = 2500,
         .holdEffect = HOLD_EFFECT_RESTORE_PCT_HP,
         .holdEffectParam = 25,
         .description = sSitrusBerryDesc,
@@ -2402,7 +2402,7 @@ const struct Item gItems[] =
     {
         .name = _("EXP. SHARE"),
         .itemId = ITEM_EXP_SHARE,
-        .price = 3000,
+        .price = 10000,
         .holdEffect = HOLD_EFFECT_EXP_SHARE,
         .description = sExpShareDesc,
         .pocket = POCKET_ITEMS,
@@ -2602,7 +2602,7 @@ const struct Item gItems[] =
     {
         .name = _("LUCKY EGG"),
         .itemId = ITEM_LUCKY_EGG,
-        .price = 200,
+        .price = 15000,
         .holdEffect = HOLD_EFFECT_LUCKY_EGG,
         .description = sLuckyEggDesc,
         .pocket = POCKET_ITEMS,

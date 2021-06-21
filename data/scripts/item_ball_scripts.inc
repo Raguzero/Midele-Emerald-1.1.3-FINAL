@@ -186,16 +186,16 @@ Route119_EventScript_ItemHyperPotion2:: @ 8290F2E
 	finditem ITEM_HYPER_POTION
 	end
 
-Route119_EventScript_ItemElixir2:: @ 8290F3B
-	finditem ITEM_ELIXIR
+Route119_EventScript_ItemUpgrade:: @ 8290F3B
+	finditem ITEM_UP_GRADE
 	end
 
 Route120_EventScript_ItemNugget:: @ 8290F48
 	finditem ITEM_NUGGET
 	end
 
-Route120_EventScript_ItemFullHeal:: @ 8290F55
-	finditem ITEM_FULL_HEAL
+Route120_EventScript_ItemRareCandy:: @ 8290F55
+	finditem ITEM_RARE_CANDY
 	end
 
 Route120_EventScript_ItemHyperPotion:: @ 8290F62
@@ -222,8 +222,8 @@ Route121_EventScript_ItemZinc:: @ 8290FA3
 	finditem ITEM_ZINC
 	end
 
-Route123_EventScript_ItemCalcium:: @ 8290FB0
-	finditem ITEM_CALCIUM
+Route123_EventScript_ItemGCalcium:: @ 8290FB0
+	finditem ITEM_G_CALCIUM
 	end
 
 Route123_EventScript_ItemUltraBall:: @ 8290FBD
@@ -258,8 +258,8 @@ Route125_EventScript_ItemBigPearl:: @ 8291018
 	finditem ITEM_BIG_PEARL
 	end
 
-Route126_EventScript_ItemGreenShard:: @ 8291025
-	finditem ITEM_GREEN_SHARD
+Route126_EventScript_ItemAbilityCapsule:: @ 8291025
+	finditem ITEM_ABILITY_CAPSULE
 	end
 
 Route127_EventScript_ItemZinc:: @ 8291032
@@ -278,8 +278,8 @@ Route132_EventScript_ItemRareCandy:: @ 8291059
 	finditem ITEM_RARE_CANDY
 	end
 
-Route132_EventScript_ItemProtein:: @ 8291066
-	finditem ITEM_PROTEIN
+Route132_EventScript_ItemRareCandy2:: @ 8291066
+	finditem ITEM_RARE_CANDY
 	end
 
 Route133_EventScript_ItemBigPearl:: @ 8291073
@@ -294,8 +294,8 @@ Route133_EventScript_ItemMaxRevive:: @ 829108D
 	finditem ITEM_MAX_REVIVE
 	end
 
-Route134_EventScript_ItemCarbos:: @ 829109A
-	finditem ITEM_CARBOS
+Route134_EventScript_ItemGCarbos:: @ 829109A
+	finditem ITEM_G_CARBOS
 	end
 
 Route134_EventScript_ItemStarPiece:: @ 82910A7
@@ -306,8 +306,8 @@ PetalburgCity_EventScript_ItemMaxRevive:: @ 82910B4
 	finditem ITEM_MAX_REVIVE
 	end
 
-PetalburgCity_EventScript_ItemEther:: @ 82910C1
-	finditem ITEM_ETHER
+PetalburgCity_EventScript_ItemRareCandy:: @ 82910C1
+	finditem ITEM_RARE_CANDY
 	end
 
 MauvilleCity_EventScript_ItemXSpeed:: @ 82910CE
@@ -390,8 +390,8 @@ MeteorFalls_1F_1R_EventScript_ItemMoonStone:: @ 82911C5
 	finditem ITEM_MOON_STONE
 	end
 
-MeteorFalls_1F_1R_EventScript_ItemPPUP:: @ 82911D2
-	finditem ITEM_PP_UP
+MeteorFalls_1F_1R_EventScript_ItemGIron:: @ 82911D2
+	finditem ITEM_G_IRON
 	end
 
 MeteorFalls_B1F_2R_EventScript_ItemTM02:: @ 82911DF
@@ -442,8 +442,8 @@ AbandonedShip_CaptainsOffice_EventScript_ItemStorageKey:: @ 829126E
 	finditem ITEM_STORAGE_KEY
 	end
 
-AbandonedShip_HiddenFloorRooms_EventScript_ItemLuxuryBall:: @ 829127B
-	finditem ITEM_LUXURY_BALL
+AbandonedShip_HiddenFloorRooms_EventScript_ItemGHPUp:: @ 829127B
+	finditem ITEM_G_HP_UP
 	end
 
 AbandonedShip_HiddenFloorRooms_EventScript_ItemScanner:: @ 8291288
@@ -482,8 +482,8 @@ SafariZone_Southeast_EventScript_ItemBigPearl:: @ 82912F0
 	finditem ITEM_BIG_PEARL
 	end
 
-MtPyre_2F_EventScript_ItemUltraBall:: @ 82912FD
-	finditem ITEM_ULTRA_BALL
+MtPyre_2F_EventScript_ItemSweetHeart:: @ 82912FD
+	finditem ITEM_SWEET_HEART
 	end
 
 MtPyre_3F_EventScript_ItemSuperRepel:: @ 829130A
@@ -614,12 +614,12 @@ VictoryRoad_B1F_EventScript_ItemTM29:: @ 829149D
 	finditem ITEM_TM29
 	end
 
-VictoryRoad_B1F_EventScript_ItemFullRestore:: @ 82914AA
-	finditem ITEM_FULL_RESTORE
+VictoryRoad_B1F_EventScript_ItemGProtein:: @ 82914AA
+	finditem ITEM_G_PROTEIN
 	end
 
-VictoryRoad_B2F_EventScript_ItemFullHeal:: @ 82914B7
-	finditem ITEM_FULL_HEAL
+VictoryRoad_B2F_EventScript_ItemGZinc:: @ 82914B7
+	finditem ITEM_G_ZINC
 	end
 
 ArtisanCave_B1F_EventScript_ItemHPUp:: @ 82914C4
@@ -677,3 +677,15 @@ ScorchedSlab_B2F_EventScript_Item2::
 ScorchedSlab_B2F_EventScript_ItemTM35::
 	finditem ITEM_TM35
 	end
+
+EventScript_SecretPotion::
+    finditem ITEM_SECRET_POTION
+    end
+
+EventScript_SecondSoulDew::
+    finditem ITEM_SOUL_DEW
+    end
+
+EventScript_GoldenCandy::
+    finditem ITEM_GOLDEN_CANDY
+    end

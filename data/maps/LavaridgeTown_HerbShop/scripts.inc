@@ -23,6 +23,8 @@ LavaridgeTown_HerbShop_Pokemart: @ 81FE4F0
 	.2byte ITEM_WIKI_BERRY
 	.2byte ITEM_MAGO_BERRY
 	.2byte ITEM_AGUAV_BERRY
+	.2byte ITEM_SITRUS_BERRY
+	.2byte ITEM_LUM_BERRY
 	.2byte ITEM_NONE
 	release
 	end

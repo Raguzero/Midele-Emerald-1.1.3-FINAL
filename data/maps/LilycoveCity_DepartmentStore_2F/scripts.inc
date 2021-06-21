@@ -57,6 +57,11 @@ LilycoveCity_DepartmentStore_2F_Pokemart2: @ 821FB94
 	.2byte ITEM_HYPER_POTION
 	.2byte ITEM_MAX_POTION
 	.2byte ITEM_REVIVE
+	.2byte ITEM_MAX_REVIVE
+	.2byte ITEM_ETHER
+	.2byte ITEM_MAX_ETHER
+	.2byte ITEM_ELIXIR
+	.2byte ITEM_MAX_ELIXIR
 	.2byte ITEM_REPEL
 	.2byte ITEM_SUPER_REPEL
 	.2byte ITEM_MAX_REPEL
@@ -77,4 +82,3 @@ LilycoveCity_DepartmentStore_2F_Text_GoodGiftForHusband: @ 821FBDF
 LilycoveCity_DepartmentStore_2F_Text_StockUpOnItems: @ 821FC23
 	.string "I'm leaving on a long journey soon.\n"
 	.string "I need to stock up on items.$"
-

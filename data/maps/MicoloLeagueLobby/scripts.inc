@@ -130,6 +130,7 @@ MicoloLeagueLobby_Mart_EventScript_Clerk::
 	.align 2
 MicoloLeagueLobby_Pokemart:
 	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_MASTER_BALL
 	.2byte ITEM_HYPER_POTION
 	.2byte ITEM_MAX_POTION
 	.2byte ITEM_FULL_RESTORE
@@ -139,6 +140,8 @@ MicoloLeagueLobby_Pokemart:
 	.2byte ITEM_ELIXIR
 	.2byte ITEM_MAX_ELIXIR
 	.2byte ITEM_REVIVE
+	.2byte ITEM_MAX_REVIVE
+	.2byte ITEM_SACRED_ASH
 	.2byte ITEM_NONE
 	release
 	end
@@ -160,6 +163,8 @@ MicoloLeagueLobby_Pokemart2:
 	.2byte ITEM_MENTAL_HERB
 	.2byte ITEM_FOCUS_SASH
 	.2byte ITEM_FOCUS_BAND
+	.2byte ITEM_SITRUS_BERRY
+	.2byte ITEM_LUM_BERRY
 	.2byte ITEM_LIECHI_BERRY
 	.2byte ITEM_GANLON_BERRY
 	.2byte ITEM_PETAYA_BERRY

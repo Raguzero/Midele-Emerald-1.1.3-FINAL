@@ -14,7 +14,7 @@ Route117_PokemonDayCare_EventScript_Vladiland::
 	trainerbattle_no_intro TRAINER_VLADILAND, Route117_PokemonDayCare_Text_Vladiland_Defeated
 	msgbox Route117_PokemonDayCare_Text_Vladiland_AfterBattle, MSGBOX_DEFAULT
 	setvar VAR_TEMP_1, SPECIES_DITTO
-	givecustommon SPECIES_DITTO, 20, ITEM_EVERSTONE, ITEM_MASTER_BALL, NATURE_HARDY, 1, 0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, MOVE_TRANSFORM, MOVE_NONE, MOVE_NONE, MOVE_NONE, TRUE
+	givecustommon SPECIES_DITTO, 20, ITEM_METAL_POWDER, ITEM_MASTER_BALL, NATURE_HARDY, 1, 0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, MOVE_TRANSFORM, MOVE_NONE, MOVE_NONE, MOVE_NONE, TRUE
 	compare VAR_RESULT, 0
 	goto_if_eq Route117_PokemonDayCare_EventScript_Vladiland_ReceiveDittoParty
 	compare VAR_RESULT, 1

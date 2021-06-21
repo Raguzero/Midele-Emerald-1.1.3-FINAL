@@ -25,6 +25,8 @@ IzabeIsland_Mart_Pokemart_Basic: @ 8207D8C
 	.2byte ITEM_LUXURY_BALL
 	.2byte ITEM_GREAT_BALL
 	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_ETHER
+	.2byte ITEM_MAX_ETHER
 	.2byte ITEM_BERRY_JUICE
 	.2byte ITEM_MOOMOO_MILK
 	.2byte ITEM_LAVA_COOKIE

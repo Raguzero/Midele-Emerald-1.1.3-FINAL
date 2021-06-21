@@ -4,6 +4,14 @@
     "allow_running": true,
     "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
     "bg_events": [
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "Route126_Sign_MicoloSign",
+            "type": "sign",
+            "x": 13,
+            "y": 0
+        }
     ],
     "connections": [
         {
@@ -84,12 +92,12 @@
         },
         {
             "elevation": 3,
-            "flag": "FLAG_ITEM_ROUTE_126_GREEN_SHARD",
-            "graphics_id": "EVENT_OBJ_GFX_ITEM_BALL",
+            "flag": "FLAG_ITEM_ROUTE_126_ABILITY_CAPSULE",
+            "graphics_id": "EVENT_OBJ_GFX_TM_BALL",
             "movement_range_x": 1,
             "movement_range_y": 1,
             "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-            "script": "Route126_EventScript_ItemGreenShard",
+            "script": "Route126_EventScript_ItemAbilityCapsule",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
             "x": 14,
