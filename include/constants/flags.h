@@ -79,7 +79,7 @@
 #define FLAG_FAROL2_GYM_SANTY    0x43 // Previously unused Flag
 #define FLAG_FAROL3_GYM_SANTY    0x44 // Previously unused Flag
 #define FLAG_FAROL4_GYM_SANTY    0x45 // Previously unused Flag
-#define FLAG_UNUSED_0x046    0x46 // Unused Flag
+#define FLAG_COMPLETE_FORBIDDEN_FOREST    0x46 // Previously Unused Flag
 #define FLAG_UNUSED_0x047    0x47 // Unused Flag
 #define FLAG_UNUSED_0x048    0x48 // Unused Flag
 #define FLAG_UNUSED_0x049    0x49 // Unused Flag

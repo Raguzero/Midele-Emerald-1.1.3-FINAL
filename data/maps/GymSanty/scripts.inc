@@ -179,11 +179,11 @@ GymSanty_Text_SantyShifteo0Intro:
 
 GymSanty_Text_SantyShifteo0Defeat:
     .string "Ya veo, con que esa es tu estrategia...\p"
-    .string "Eh? Acaso crees que ya ha terminado\n"
+    .string "¿Eh? ¿Acaso crees que ya ha terminado\n"
 	.string "la pelea?\p"
 
     .string "¡Esto solo ha sido el inicio!\p"
-    .string "“Celebi usa un extraño poder”$"
+    .string "“CELEBI usa un extraño poder”$"
 
 GymSanty_Text_SantyShifteo1Intro:
     .string "Bienvenido a mi gymnasio.\p" 
@@ -192,7 +192,7 @@ GymSanty_Text_SantyShifteo1Intro:
     .string "¿La medalla?\p"
     .string "Lo siento, pero a mí jamás me ganaste,\n"
     .string "aunque parece que ya viste el poder\l"
-	.string "de mi Celebi.\p"
+	.string "de mi CELEBI.\p"
 
     .string "¡Si quieres te puedo hacer\n"
 	.string "otra demostración!$"
@@ -206,8 +206,8 @@ GymSanty_Text_SantyShifteo1Defeat:
 	.string "viajar en el tiempo e ir a una línea\l"
 	.string "temporal en donde no me hayas ganado.\p"
 
-    .string "¡Celebi, es hora de SHIFTear!\p"
-    .string "“Celebi usa un extraño poder”$"
+    .string "¡CELEBI, es hora de SHIFTear!\p"
+    .string "“CELEBI usa un extraño poder”$"
 
 GymSanty_Text_SantyShifteo2Intro:
     .string "Bienvenido a mi gymnasio.\p" 

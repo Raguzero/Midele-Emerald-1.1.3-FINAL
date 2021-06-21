@@ -10,11 +10,11 @@ FallarborTown_MoveRelearnersHouse_EventScript_MoveRelearner::
 FallarborTown_MoveRelearnersHouse_EventScript_TryGiveEgg::
 	checkitem ITEM_HEART_SCALE, 5
 	compare VAR_RESULT, TRUE
-	call_if_eq FallarborTown_MoveRelearnersHouse_EventScript_ReceivedTogepi
+	call_if_eq FallarborTown_MoveRelearnersHouse_EventScript_ReceivedMon
 	goto FallarborTown_EventScript_No5HeartScale
 	end
 
-FallarborTown_MoveRelearnersHouse_EventScript_ReceivedTogepi::
+FallarborTown_MoveRelearnersHouse_EventScript_ReceivedMon::
 	msgbox FallarborTown_MoveRelearnersHouse_Text_HaveEggWillYouTakeIt, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq FallarborTown_MoveRelearnersHouse_EventScript_DeclineEgg

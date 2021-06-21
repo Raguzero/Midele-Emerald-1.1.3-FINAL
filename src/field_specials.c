@@ -4530,12 +4530,13 @@ u16 CheckJirachiMewinTeam(void)
 {
     u8 i;
     for (i = 0; i < PARTY_SIZE; i++)
-    {
-         if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_MEW && SPECIES_JIRACHI)
-         {
-             return TRUE;
-         }
-    }
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2) == SPECIES_MEW)
+        {
+            for (i = 0; i < PARTY_SIZE; i++)
+                if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2) == SPECIES_JIRACHI)
+                    return TRUE;
+            return FALSE; // Mew pero no Jirachi
+        }
     return FALSE;
 }
 

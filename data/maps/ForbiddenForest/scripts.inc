@@ -19,13 +19,28 @@ ForbiddenForest_OnLoad:
 	
 ForbiddenForest_EventScript_Celebi_Sign::
 	lockall
+	goto_if_set FLAG_FORBIDDEN_FOREST_CELEBI_ENTRANCE, ForbiddenForest_EventScript_Celebi_Sign3	
 	msgbox ForbiddenForest_Text_Celebi, MSGBOX_SIGN
 	specialvar VAR_RESULT, CheckJirachiMewinTeam
 	compare VAR_RESULT, TRUE
 	goto_if_eq ForbiddenForest_EventScript_Celebi_Sign2
 	end
+	
+ForbiddenForest_EventScript_Celebi_Sign3::
+	lock
+	msgbox ForbiddenForest_Text_Celebi, MSGBOX_SIGN
+	release
+	end
 
 ForbiddenForest_EventScript_Celebi_Sign2::
+	waitse
+	playmoncry SPECIES_MEW, 2
+	delay 40
+	waitmoncry
+	waitse
+	playmoncry SPECIES_JIRACHI, 2
+	delay 40
+	waitmoncry
 	setmetatile 19, 12, METATILE_General_Grass, 0
 	setmetatile 19, 13, METATILE_General_Grass, 0
 	setmetatile 19, 14, METATILE_General_Grass, 0
@@ -153,17 +168,56 @@ ForbiddenForest_EventScript_JProgamer::
 	msgbox JProgamer_DespuesDeBatalla, MSGBOX_AUTOCLOSE
 	end
 	
-ForbiddenForest_Text_Celebi:
-	.string "El cartel se ha deteriorado\n"
-	.string "por el paso del tiempo y solo\l"
-	.string "se puede leer lo siguiente:\p"
+ForbiddenForest_EventScript_Santygrass::
+	lockall
+	msgbox ForbiddenForest_Text_Santygrass_TalkToHimself, MSGBOX_DEFAULT
+	faceplayer
+	playse SE_PIN
+	applymovement 12, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox ForbiddenForest_Text_Santygrass_Talks, MSGBOX_NPC
+	setflag FLAG_COMPLETE_FORBIDDEN_FOREST
+	applymovement 12, ForbiddenForest_Movement_SantygrassSpin
+	waitmovement 0
+	playse SE_W100
+	applymovement 12, ForbiddenForest_Movement_SantygrassJumpaway
+	waitmovement 0
+	removeobject 12
+	releaseall
+	end
 	
-	.string "El ca..no sol. s. .br.r.\n"
-	.string "c.n l.s mi.tic.s M.W y\p"
-	.string "JI...HI\n$"
+ForbiddenForest_Movement_SantygrassSpin:
+	face_up
+	delay_4
+	face_left
+	delay_4
+	face_down
+	delay_4
+	face_right
+	delay_4
+	step_end
+
+ForbiddenForest_Movement_SantygrassJumpaway:
+	face_up
+	disable_anim
+	slide_up
+	slide_up
+	slide_up
+	slide_up
+	slide_up
+	slide_up
+	step_end
+	
+ForbiddenForest_Text_Celebi:
+	.string "EL CAMINO HACIA EL VIAJERO DEL\n"
+	.string "TIEMPO SOLO SE ABRIRÁ CON LA\l"
+	.string "LLAMADA DEL POKÉMON QUE CONTIENE\l"
+	.string "EL ADN DE TODOS Y DEL POKÉMON QUE\l"
+	.string "PUEDE CONCEDER CUALQUIER DESEO$"
 	
 ForbiddenForest_Text_Celebi2:
-	.string "El camino se ha abierto.$"
+	.string "EL CAMINO SE HA ABIERTO\n"
+	.string "EL VIAJERO DEL TIEMPO QUIERE VERTE$"
 
 ForbiddenForest_Text_EzecuterIntro: 
 	.string "Dicen que por aquí se esconde.\n"
@@ -511,3 +565,34 @@ JProgamer_DespuesDeBatalla:
 	.string "borregos es lo mismo que perder\l" 
 	.string "el tiempo, todas las fuentes\l"
 	.string "están trucadas!$"
+	
+ForbiddenForest_Text_Santygrass_TalkToHimself:
+	.string "Que extraño es este bosque...\p"
+
+	.string "Por mucho que lo intente quemar...\n"
+	.string "¡Las llamas se vuelven a apagar!\p"
+	
+	.string "Siento como si el mismísimo TIEMPO\n"
+	.string "volviese hacia atrás cada vez que\l"
+	.string "lo intento.\p"
+
+	.string "¿Debe ser que el CELEBI de este mundo\n"
+	.string "es el protector de este bosque?$"
+
+ForbiddenForest_Text_Santygrass_Talks:
+	.string "¡Oh! ¡No me dí cuenta de que estabas\n"
+	.string "ahí!\p"
+
+	.string "Así que eres {PLAYER} ¿eh?\n"
+	.string "He oido cosas impresionantes de tí.\p"
+	
+	.string "Yo soy SANTYGRASS, uno de los cuatro\n"
+	.string "lideres de GYM de MICOLANDIA.\l"
+	.string "¿Me estabas buscando?\p"
+	
+	.string "De acuerdo, ahora mismo vuelvo a mi\n"
+	.string "GYMNASIO para esperar tu desafío.\l"
+	.string "¡No te lo pondré fácil!\p"
+
+	.string "Y recuerda: ¡No hay nada mejor\n"
+	.string "que el olor a hierba quemada!$"
