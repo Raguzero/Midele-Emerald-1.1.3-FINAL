@@ -14,9 +14,9 @@ static EWRAM_DATA u16 sOtIdDigit = 0;
 
 static const u16 sLotteryPrizes[] =
 {
-    ITEM_PP_UP,
+    ITEM_HEART_SCALE,
     ITEM_EXP_SHARE,
-    ITEM_MAX_REVIVE,
+    ITEM_LUCKY_EGG,
     ITEM_MASTER_BALL,
 };
 

@@ -37,3 +37,43 @@ SSTidalLowerDeck_Text_LeonardPostBattle: @ 823C98E
 	.string "The old one dumps the detergent,\n"
 	.string "and the young one does the scrubbing!$"
 
+SSTidalLowerDeck_EventScript_CollectorVendor::
+	lockall
+	faceplayer
+	msgbox SSTidalLowerDeck_EventScript_CollectorVendor_Text_0, MSGBOX_DEFAULT
+	waitmessage
+    pokemart SSTidalLowerDeck_Mart
+	msgbox SSTidalLowerDeck_EventScript_CollectorVendor_Text_1, MSGBOX_DEFAULT
+	releaseall
+	end
+
+
+SSTidalLowerDeck_EventScript_CollectorVendor_Text_0:
+	.string "¡Oh! Hola...\p"
+	.string "¿Tú también eres uno de los míos? ¿Un...\n"
+	.string "COLECCIONISTA?\p"
+	.string "Si es así, tengo algo que te interesará.\n"
+	.string "¡Pero no te saldrá gratis!$"
+
+SSTidalLowerDeck_EventScript_CollectorVendor_Text_1:
+	.string "Estaré aquí si me necesitas...$"
+
+    .align 2
+SSTidalLowerDeck_Mart::
+    .2byte ITEM_PEARL
+    .2byte ITEM_BIG_PEARL 
+    .2byte ITEM_STARDUST 
+    .2byte ITEM_STAR_PIECE
+    .2byte ITEM_NUGGET
+    .2byte ITEM_TINY_MUSHROOM
+    .2byte ITEM_BIG_MUSHROOM
+    .2byte ITEM_HEART_SCALE
+    .2byte ITEM_RED_SHARD
+    .2byte ITEM_YELLOW_SHARD
+    .2byte ITEM_BLUE_SHARD
+    .2byte ITEM_GREEN_SHARD
+    .2byte ITEM_EXP_SHARE
+    .2byte ITEM_LUCKY_EGG
+    .2byte ITEM_NONE
+    release
+    end 

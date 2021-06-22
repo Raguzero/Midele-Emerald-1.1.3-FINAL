@@ -367,10 +367,12 @@ BattleFrontier_ExchangeServiceCorner_EventScript_ChooseHoldItem:: @ 825F602
 	case 3, BattleFrontier_ExchangeServiceCorner_EventScript_MentalHerb
 	case 4, BattleFrontier_ExchangeServiceCorner_EventScript_Brightpowder
 	case 5, BattleFrontier_ExchangeServiceCorner_EventScript_ChoiceBand
-	case 6, BattleFrontier_ExchangeServiceCorner_EventScript_KingsRock
-	case 7, BattleFrontier_ExchangeServiceCorner_EventScript_FocusBand
-	case 8, BattleFrontier_ExchangeServiceCorner_EventScript_ScopeLens
-	case 9, BattleFrontier_ExchangeServiceCorner_EventScript_ClerkGoodbye
+	case 6, BattleFrontier_ExchangeServiceCorner_EventScript_ChoiceScarf
+	case 7, BattleFrontier_ExchangeServiceCorner_EventScript_ChoiceSpecs
+	case 8, BattleFrontier_ExchangeServiceCorner_EventScript_KingsRock
+	case 9, BattleFrontier_ExchangeServiceCorner_EventScript_FocusBand
+	case 10, BattleFrontier_ExchangeServiceCorner_EventScript_ScopeLens
+	case 11, BattleFrontier_ExchangeServiceCorner_EventScript_ClerkGoodbye
 	case MULTI_B_PRESSED, BattleFrontier_ExchangeServiceCorner_EventScript_ClerkGoodbye
 	end
 
@@ -425,6 +427,24 @@ BattleFrontier_ExchangeServiceCorner_EventScript_ChoiceBand:: @ 825F73F
 	goto_if_eq BattleFrontier_ExchangeServiceCorner_EventScript_ChooseHoldItem
 	setvar VAR_0x8008, 12
 	setvar VAR_0x8009, ITEM_CHOICE_BAND
+	goto BattleFrontier_ExchangeServiceCorner_EventScript_TryPurchasePrize
+	end
+
+BattleFrontier_ExchangeServiceCorner_EventScript_ChoiceScarf:: @ 825F73F
+	msgbox BattleFrontier_ExchangeServiceCorner_Text_ConfirmChoiceScarf, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq BattleFrontier_ExchangeServiceCorner_EventScript_ChooseHoldItem
+	setvar VAR_0x8008, 12
+	setvar VAR_0x8009, ITEM_CHOICE_SCARF
+	goto BattleFrontier_ExchangeServiceCorner_EventScript_TryPurchasePrize
+	end
+
+BattleFrontier_ExchangeServiceCorner_EventScript_ChoiceSpecs:: @ 825F73F
+	msgbox BattleFrontier_ExchangeServiceCorner_Text_ConfirmChoiceSpecs, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq BattleFrontier_ExchangeServiceCorner_EventScript_ChooseHoldItem
+	setvar VAR_0x8008, 12
+	setvar VAR_0x8009, ITEM_CHOICE_SPECS
 	goto BattleFrontier_ExchangeServiceCorner_EventScript_TryPurchasePrize
 	end
 
@@ -631,6 +651,14 @@ BattleFrontier_ExchangeServiceCorner_Text_ConfirmChoiceBand: @ 825FD59
 	.string "You've chosen the CHOICE BAND.\n"
 	.string "Is that correct?$"
 
+BattleFrontier_ExchangeServiceCorner_Text_ConfirmChoiceScarf: @ 825FD59
+	.string "You've chosen the CHOICE SCARF.\n"
+	.string "Is that correct?$"
+
+BattleFrontier_ExchangeServiceCorner_Text_ConfirmChoiceSpecs: @ 825FD59
+	.string "You've chosen the CHOICE SPECS.\n"
+	.string "Is that correct?$"
+
 BattleFrontier_ExchangeServiceCorner_Text_ConfirmKingsRock: @ 825FD89
 	.string "You've chosen the KING'S ROCK.\n"
 	.string "Is that correct?$"
@@ -791,8 +819,16 @@ BattleFrontier_ExchangeServiceCorner_Text_BrightpowderDesc:: @ 8260542
 	.string "reduce accuracy.$"
 
 BattleFrontier_ExchangeServiceCorner_Text_ChoiceBandDesc:: @ 8260575
-	.string "Raises a move's power, but permits\n"
-	.string "only that move.$"
+	.string "Boosts ATTACK, but allows the use of\n"
+	.string "only one move.$"
+
+BattleFrontier_ExchangeServiceCorner_Text_ChoiceScarfDesc:: @ 8260575
+	.string "Boosts SPEED, but allows the use of\n"
+	.string "only one move.$"
+
+BattleFrontier_ExchangeServiceCorner_Text_ChoiceSpecsDesc:: @ 8260575
+	.string "Boosts SP.ATK, but allows the use of\n"
+	.string "only one move.$"
 
 BattleFrontier_ExchangeServiceCorner_Text_KingsRockDesc:: @ 82605A8
 	.string "A hold item that may cause flinching\n"
