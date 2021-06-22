@@ -85,6 +85,34 @@ Darkigym_EventScript_Teleport_Si::
 	release
 	end
 	
+Darkigym_CabezaLylie_Sign::
+	msgbox Darkigym_Text_CabezaLylie_Sign, MSGBOX_SIGN
+	end
+
+Darkigym_PCDarki_Sign::
+	msgbox Darkigym_Text_PCDarki_Sign, MSGBOX_SIGN
+	end
+	
+Darkigym_CartaMagma1_Sign::
+	msgbox Darkigym_Text_CartaMagma1_Sign, MSGBOX_SIGN
+	end
+	
+Darkigym_CartaMagma2_Sign::
+	msgbox Darkigym_Text_CartaMagma2_Sign, MSGBOX_SIGN
+	end
+	
+Darkigym_MaquinaMeteorito_Sign::
+	msgbox Darkigym_Text_MaquinaMeteorito_Sign, MSGBOX_SIGN
+	end
+	
+Darkigym_VitrinaIzquierda_Sign::
+	msgbox Darkigym_Text_VitrinaIzquierda_Sign, MSGBOX_SIGN
+	end
+	
+Darkigym_VitrinaDerecha_Sign::
+	msgbox Darkigym_Text_VitrinaDerecha_Sign, MSGBOX_SIGN
+	end
+	
 Darkigym_EventScript_RedSecretaria::
 	trainerbattle_single TRAINER_ESBIRRO_DARKI_1, Darkigym_Text_RedSecretariaIntro, Darkigym_Text_RedSecretariaDefeat
 	msgbox Darkigym_Text_RedSecretariaPostBattle, MSGBOX_AUTOCLOSE
@@ -133,6 +161,16 @@ Darkigym_EventScript_Ultramagic::
 Darkigym_EventScript_Charz::
 	trainerbattle_single TRAINER_CHARZ, Darkigym_Text_CharzIntro, Darkigym_Text_CharzDefeat
 	msgbox Darkigym_Text_CharzPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+Darkigym_EventScript_FurryTrainerdelpasado::
+	trainerbattle_single TRAINER_FURRY, Darkigym_Text_FurryIntro, Darkigym_Text_FurryDefeat
+	msgbox Darkigym_Text_FurryPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+Darkigym_EventScript_DarkMelkorOtraDimension::
+	trainerbattle_single TRAINER_DARK_MELKOR, Darkigym_Text_DarkMelkorIntro, Darkigym_Text_DarkMelkorDefeat
+	msgbox Darkigym_Text_DarkMelkorPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
 Darkigym_Text_RedSecretariaIntro: 
@@ -401,13 +439,28 @@ Darkigym_Text_Umbreon123PostBattle:
 	.string "Meeeeelkor, me vengareeeeeeeee.$"
 	
 Darkigym_Text_UltramagicIntro:
-	.string "FRASES$"
+	.string "¡Ey DOOD!\n"
+	.string "¿Conoces a LAVENDER?\p"
+
+	.string "¡La POLICIA de JOHTO lo está\n" 
+	.string "buscando! ¡Y a mi también, DOOD!\p"
+	
+	.string "¡Un momento, esto no son las carataras\n"
+	.string "TOHJO!\p"
+
+	.string "¡Todo esto es muy raro! ¿¡QUÉ ESTÁ\n"
+	.string "PASANDO AQUÍ, DOOD?!$"
 
 Darkigym_Text_UltramagicDefeat: 
-	.string "FRASES$"
+    .string "You are all DOOD!$"
 
 Darkigym_Text_UltramagicPostBattle:
-	.string "FRASES$"
+	.string "¡Hey DOOD! ¡Era broma!\n"
+	.string "Yo soy una personal normal.\p"
+
+	.string "¿Conoces a LAVENDER también?\n"
+	.string "Uy, ehm... yo no conozco a NACHO.\l"
+	.string ":dood:$"
 	
 Darkigym_Text_CharzIntro:
 	.string "Humanos fuertes...\p"
@@ -473,6 +526,115 @@ Darkigym_Text_CharzPostBattle:
 	
 	.string "¡Debemos demostrar al mundo que solo\n"
 	.string "lo más fuertes deben sobrevivir!$"
+	
+Darkigym_Text_FurryIntro:
+	.string "Sniff... sniff...\n"
+	.string "¡Este lugar apesta a hacks!\p"
+	
+	.string "Estaba tan tranquilo en la ROUTE 46\n"
+	.string "de JOHTO, cuando de pronto ví abrirse\l"
+	.string "una especie de portal que me absorbió\l"
+	.string "y me trajo a este lugar tan oscuro.\p"
+	
+	.string "¡Alguien debe haber usado POKEHEX para\n"
+	.string "cambiar las coordenadas de mi\l" 
+	.string "localización!\p" 
+
+	.string "¡ESTO ES UN HACKEO PELIGROSO!\n" 
+	.string "¿ME OYES?\p"
+	
+	.string "...\p"
+	
+	.string "Sniff... Sniff...\n"
+	.string "¡Tu también hueles a hacks...!\p" 
+
+	.string "¡Malditos Hackers! ¡Os vais a enterar!\p"
+	
+	.string "Mandaré un aviso a NOENTIENDO para que\n" 
+	.string "os baneen para siempre.$"
+
+Darkigym_Text_FurryDefeat: 
+	.string "Voy a llamar a NOENTIENDO ¡YA!\p"
+	
+	.string "En cuanto consiga cobertura...$"
+
+Darkigym_Text_FurryPostBattle:
+	.string "La gente aquí debe tener hackeado\n"
+	.string "el cerebro.\p"
+	
+	.string "¿Te puedes creer que el FURRY que\n"
+	.string "conocen se corrompió ante los HACKs,\l"
+	.string "se unió al bando de MICOLO y toda esa\l"
+	.string "chusma, y se fué de JOHTO para luego\l"
+	.string "convertirse en un PIRATA?\p"
+	
+	.string "¡Están mintiendo!\n" 
+	.string "¡Yo nunca caería tan bajo!$"
+	
+Darkigym_Text_DarkMelkorIntro:
+	.string "¡DARKNESS! ¡DARKNESS! ¡DARKNESS!\p"
+
+	.string "Interesante... ¡Qué interesante es\n"
+	.string "este mundo!\p"
+	
+	.string "Vengo de un mundo en el que dejé atrás\n"
+	.string "parte de mi humanidad para converger\l"
+	.string "junto a la oscuridad.\p"
+	
+	.string "¡SÍ! ¡DARKNESS! ¡DARKNESS! ¡DARKNESS!\p"
+
+	.string "¡Y claro, que valió la pena!\p"
+
+	.string "¡Aplasté con mis propias manos a ese...\n" 
+	.string "maldito webmaster de SEREBII!\p"
+	
+	.string "¡Nunca le perdoné que fastidiase mi\n"
+	.string "gran exclusiva de los nombres POKéMON\l" 
+	.string "de 5ªGENERACIÓN!\p"
+	
+	.string "...\p"
+	
+	.string "¡Ahora debo convencer al MELKOR de\n"
+	.string "este mundo para que se una a mí para\l"
+	.string "salvar la SAGA POKÉMON de las garras\l"
+	.string "de MASUDA!\p"
+	
+	.string "¡Tenemos que impedir que borre toda la\n"
+	.string "POKéDEX!\p"
+	
+	.string "Pero antes, debo librarme de ti.$"
+
+Darkigym_Text_DarkMelkorDefeat: 
+	.string "¡DARKNESS! ¡DARKNESS! ¡DARKNESS!\p"
+	
+	.string "Aunque lo parezca, no soy un producto\n" 
+	.string "de NOMURA.$"
+
+Darkigym_Text_DarkMelkorPostBattle:
+	.string "¡DARKNESS! ¡DARKNESS! ¡DARKNESS!\p"
+
+	.string "Mmm... ese portal del que vine me\n" 
+	.string "ha hecho perder a la mitad del equipo,\l"
+	.string "pero parece que ya no puedo volver.\p"
+	
+	.string "...\p"
+	
+	.string "¿Qué es ese portal, dices?\p"
+
+	.string "No te sabría decir, pero parece ser\n"
+	.string "que alguien está alterando el equilibrio\l"
+	.string "del espacio-tiempo, lo que está\l"
+	.string "provocando la apertura de portales\l"
+	.string "dimensionales que está trayendo a\l" 
+	.string "gentes de otros mundos.\p"
+	
+	.string "¡Un invento maravilloso!\n" 
+	.string "¡Tal vez tengamos una oportunidad para\l"
+	.string "abatir el futuro mal que se cierne\l"
+	.string "sobre nosotros!\p"
+	
+	.string "¡SALVEMOS LA SAGA POKéMON DE LAS GARRAS\n"
+	.string "DE MASUDA!$"
 
 Darkigym_Text_MalroIntro: 
 	.string "Así que lograste llegar hasta aquí.\p"
@@ -722,4 +884,59 @@ Darkigym_Text_Totemaparece:
 	
 Darkigym_Text_Totemderrotado:
 	.string "TYRANITAR disappeared...$"
+	
+Darkigym_Text_CabezaLylie_Sign:
+	.string "Parece la cabeza disecada de una niña\n" 
+	.string "rubia y de ojos verdes, una expresion\l" 
+	.string "de agonia eterna deforma su cara...$"
+
+Darkigym_Text_PCDarki_Sign:
+	.string "Aquí hay un correo: Operación Hades en\n" 
+	.string "proceso, se necesitan grandes dosis de\l" 
+	.string "autismo, la máquina del tiempo, entre\l" 
+	.string "otras herramientas han facilitado\l" 
+	.string "la obtencion de efectivos para\l" 
+	.string "enfrentarnos a un gran mal que se ciñe\l" 
+	.string "sobre todos nostros, si todo sale bien\l" 
+	.string "lograremos reunir suficiente autismo de\l" 
+	.string "este mundo como para evitarlo.\p"
+	
+	.string "Micolo y El pinguino no tienen por que\n" 
+	.string "sospechar nada... $"
+	
+Darkigym_Text_MaquinaMeteorito_Sign:
+	.string "Una máquina que parece micro-ondas, con\n"
+	.string "una placa que dice:\p"
+
+	.string "Invento futurista numero X.Y22 máquina\n" 
+	.string "de saltos temporales nombre sujeto\l" 
+	.string "a revisión.$"
+	
+Darkigym_Text_CartaMagma1_Sign:
+	.string "Es una invitación de un tal Micolo a\n"
+	.string "distintas personas para que defiendan\l" 
+	.string "su guarida como lideres de Gymnasio.\p"
+	
+	.string "El final está marcado con una pata\n" 
+	.string "de pinguino...$"
+	
+Darkigym_Text_CartaMagma2_Sign:
+	.string "Querido Señor Micolo, Yo y mi hermano\n" 
+	.string "malro estaremos complacidos de ser\l" 
+	.string "lideres de gymnasio de su liga autista.\p"
+	
+	.string "Malro esta especialmente emocionado,\n" 
+	.string "dice algo que todo entra en sus planes,\l" 
+	.string "pero no le haga mucho caso, simplemente\l" 
+	.string "le gusta mucho fingir que es un villano,\l" 
+	.string "por lo que puede contar con nosotros.$"
+	
+Darkigym_Text_VitrinaIzquierda_Sign:
+	.string "Se ve una lanza color púrpura oscuro\n" 
+	.string "con un ojo ensangrentado que te\l" 
+	.string "mira fijamente.$"
+	
+Darkigym_Text_VitrinaDerecha_Sign:
+	.string "Una pila de huesos en una caja que tiene\n" 
+	.string "escrito a un lado: buenos recuerdos$"
 

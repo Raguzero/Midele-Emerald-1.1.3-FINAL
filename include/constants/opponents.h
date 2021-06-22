@@ -965,10 +965,12 @@
 #define TRAINER_CHARZ 961
 #define TRAINER_GHADDAR_2 962
 #define TRAINER_KADERETE_2 963
+#define TRAINER_FURRY 964
+#define TRAINER_DARK_MELKOR 965
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or [changing how trainer flags are handled] --> HECHO ESTO
-#define TRAINERS_COUNT                      964 // NUEVO: aumentar para añadir nuevos entrenadores
-#define MAX_TRAINERS_COUNT                  965
+#define TRAINERS_COUNT                      966 // NUEVO: aumentar para añadir nuevos entrenadores
+#define MAX_TRAINERS_COUNT                  967
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H
