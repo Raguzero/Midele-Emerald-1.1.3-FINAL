@@ -235,6 +235,11 @@ BattleFrontier_OutsideEast_EventScript_Camper:: @ 8242E08
 	msgbox BattleFrontier_OutsideEast_Text_StickyMonWithLongTail, MSGBOX_NPC
 	end
 
+BattleFrontier_OutsideEast_Masuda::
+	msgbox BattleFrontier_OutsideEast_Masuda_Text_0, MSGBOX_NPC
+	releaseall
+	return
+
 BattleFrontier_OutsideEast_Text_BattleTowerSign: @ 8242E11
 	.string "This is the BATTLE TOWER!\n"
 	.string "Keep the win streak as the toughest\l"
@@ -439,3 +444,32 @@ BattleFrontier_OutsideEast_Text_StickyMonWithLongTail: @ 8243D0B
 	.string "with a long tail up ahead!\p"
 	.string "It was hiding under a boulder, and\n"
 	.string "it kept staring at me!$"
+
+BattleFrontier_OutsideEast_Masuda_Text_0:
+	.string "MASUDA: ¿Quieres pasar...? MELASUDA\p"
+	.string "Creo que no sabes quién soy; soy\n"
+	.string "MASUDA, el director del segundo\l"
+	.string "videojuego de POKéMON más vendido de\l"
+	.string "la historia, POKéMON ESPADA y ESCUDO.\p"
+	.string "¿Que por qué estoy bloqueando este\n"
+	.string "edificio? Déjame explicarte...\p"
+	.string "Los niños de hoy en día son más\n"
+	.string "impacientes, más inquietos. Cambian de\l"
+	.string "juego a juego cual abeja se mueve de\l"
+	.string "flor en flor. Estos niños ya no tienen\l"
+	.string "tiempo para cosas tediosas como\l"
+	.string "explorar, tener retos o pasárselo bien.\p"
+	.string "Por eso, en GAME FREAK creemos que\n"
+	.string "cosas como el FRENTE BATALLA sobran,\l"
+	.string "son reliquias del pasado.\p"
+	.string "Nuestro proyecto de destrucción del\n"
+	.string "FRENTE BATALLA ya ha comenzado, y es\l"
+	.string "por eso que este edificio ya no está\l"
+	.string "disponible.\p"
+	.string "Quién sabe, quizás en un futuro muy\n"
+	.string "lejano... o en otra dimensión, lo que\l"
+	.string "quede del FRENTE BATALLA no sea más\l"
+	.string "que una triste maqueta.\p"
+	.string "Por cierto, compra los DLC de ESPADA Y\n"
+	.string "ESCUDO, no te arrepentirás.$"
+
