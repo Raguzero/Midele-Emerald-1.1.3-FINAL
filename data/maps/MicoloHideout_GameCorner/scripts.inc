@@ -279,11 +279,20 @@ MicoloHideout_GameCorner_EventScript_WINTASS_Confirm:
 
 MicoloHideout_GameCorner_EventScript_CATERMANO_Confirm:
 	setvar VAR_TEMP_1, 3
-  bufferspeciesname 0, SPECIES_CATERPIE
-	goto MicoloHideout_GameCorner_EventScript_MonConfirm
+	goto MicoloHideout_GameCorner_EventScript_MonConfirmCatermano
 
 MicoloHideout_GameCorner_EventScript_MonConfirm:
 	msgbox MicoloHideout_GameCorner_Text_SoYourChoiceIsX, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq MicoloHideout_GameCorner_EventScript_CancelDollSelect
+	switch VAR_TEMP_1
+	case 1, MicoloHideout_GameCorner_EventScript_DARK_PIKA
+	case 2, MicoloHideout_GameCorner_EventScript_WINTASS
+	case 3, MicoloHideout_GameCorner_EventScript_CATERMANO
+	end
+
+MicoloHideout_GameCorner_EventScript_MonConfirmCatermano:
+	msgbox MicoloHideout_GameCorner_Text_SoYourChoiceIsCatermano, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq MicoloHideout_GameCorner_EventScript_CancelDollSelect
 	switch VAR_TEMP_1
@@ -354,14 +363,10 @@ MicoloHideout_GameCorner_EventScript_CATERMANO:
   waitse
 	playfanfare MUS_FANFA4
 	bufferspeciesname 0, SPECIES_CATERPIE
-	message MicoloHideout_GameCorner_Text_GetMon
+	message MicoloHideout_GameCorner_Text_GetCatermano
 	waitfanfare
 	waitmessage
-	givecustommon SPECIES_CATERPIE, 100, ITEM_NONE, ITEM_MASTER_BALL, NATURE_NAIVE, 0, 252, 252, 252, 252, 252, 252, 31, 31, 31, 31, 31, 31, MOVE_HORN_DRILL, MOVE_FISSURE, MOVE_MEGAHORN, MOVE_MIDELE_POWER, TRUE
-	bufferspeciesname 1, SPECIES_CATERPIE
-	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq Common_EventScript_NameReceivedPartyMon
+	givecustommon SPECIES_CATERPIE, 100, ITEM_NONE, ITEM_MASTER_BALL, NATURE_NAIVE, 0, 252, 252, 252, 252, 252, 252, 31, 31, 31, 31, 31, 31, MOVE_HORN_DRILL, MOVE_FISSURE, MOVE_MEGAHORN, MOVE_MIDELE_POWER, TRUE, NICKNAME_CATERMANO
   goto MicoloHideout_GameCorner_EventScript_MonPrizesFirst
 
 MicoloHideout_GameCorner_EventScript_NoRoom:
@@ -823,6 +828,9 @@ MicoloHideout_GameCorner_Text_DontNeedCoinsThen: @ 821059A
 MicoloHideout_GameCorner_Text_GetMon::
 	.string "{PLAYER} received {STR_VAR_1}!$"
 
+MicoloHideout_GameCorner_Text_GetCatermano::
+	.string "{PLAYER} received CATERMANO!$"
+
 MicoloHideout_GameCorner_Text_NoRoom::
     .string "No hay sitio en tu equipo.$"
 
@@ -833,6 +841,9 @@ MicoloHideout_GameCorner_Text_OhIsThatSo: @ 82106BF
 
 MicoloHideout_GameCorner_Text_SoYourChoiceIsX: @ 8210705
 	.string "¿Así que quieres un {STR_VAR_1}?$"
+
+MicoloHideout_GameCorner_Text_SoYourChoiceIsCatermano: @ 8210705
+	.string "¿Así que quieres un CATERMANO?$"
 
 MicoloHideout_GameCorner_Text_WhichPrize: @ 821060D
 	.string "¿Qué premio te gustaría comprar?$"
