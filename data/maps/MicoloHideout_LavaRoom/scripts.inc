@@ -139,9 +139,9 @@ MicoloHideout_LavaRoom_Text_PhentIntro:
 	.string "con MEW para poder crear a MEWTWO.\p"
 
 	.string "Me encomendaron la tarea de examinar\n"
-	.string "los excrementos de MEW y varios POKéMON,\l"
-	.string "pero ahora mismo estoy en un punto\l"
-	.string "muerto, ya que no he descubierto\l" 
+	.string "los excrementos de MEW y de varios\l"
+	.string "POKéMON, pero ahora mismo estoy en un\l"
+	.string "punto muerto, ya que no he descubierto\l" 
 	.string "nada sorprendente.\p"
 	
 	.string "Nada tan sorprendente como mi mayor\n"

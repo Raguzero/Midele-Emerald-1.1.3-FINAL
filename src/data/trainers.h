@@ -12676,7 +12676,7 @@ const struct Trainer gTrainers[] = {
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
 		.battleMusic = JACKROOM,
-        .trainerPic = TRAINER_PIC_POKEMANIAC,
+        .trainerPic = TRAINER_PIC_CHANNELER,
         .trainerName = _("GHADDAR"),
         .items = {},
         .doubleBattle = FALSE,
@@ -12848,7 +12848,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_PUFFU] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
+        .trainerClass = TRAINER_CLASS_TUBER_M,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_TUBER_M,
         .trainerName = _("PUFFU FAN"),
@@ -13242,7 +13242,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_DARKI_BUENRO] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_LEADER,
+        .trainerClass = TRAINER_CLASS_LEADER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .battleMusic = BONETROUSLEUNDERTALE,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
@@ -13453,7 +13453,7 @@ const struct Trainer gTrainers[] = {
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .trainerPic = TRAINER_PIC_POKEFAN_M,
         .trainerName = _("FURRY"),
         .items = {},
@@ -13474,5 +13474,44 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
         .partySize = ARRAY_COUNT(sParty_DarkMelkor),
         .party = {.ItemCustomMidele = sParty_DarkMelkor},
+    },
+    [TRAINER_FANBOY_KALOS] =
+    {
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
+        .trainerClass = TRAINER_CLASS_POKEFAN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
+        .trainerPic = TRAINER_PIC_SWIMMER_M,
+        .trainerName = _("FANBOYKALOS"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
+        .partySize = ARRAY_COUNT(sParty_FanboyKalos),
+        .party = {.ItemCustomMidele = sParty_FanboyKalos},
+    },
+    [TRAINER_ANGELFS] =
+    {
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
+        .trainerPic = TRAINER_PIC_TUBER_M,
+        .trainerName = _("ANGELFS"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
+        .partySize = ARRAY_COUNT(sParty_AngelFS),
+        .party = {.ItemCustomMidele = sParty_AngelFS},
+    },
+    [TRAINER_TILO_ALOLA] =
+    {
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
+        .trainerPic = TRAINER_PIC_SWIMMER_M,
+        .trainerName = _("TILO"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
+        .partySize = ARRAY_COUNT(sParty_Tilo),
+        .party = {.ItemCustomMidele = sParty_Tilo},
     },
 };

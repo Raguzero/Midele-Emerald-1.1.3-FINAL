@@ -38,6 +38,7 @@ Darkigym_EventScript_GymStatue::
 	end
 	
 Darkigym_EventScript_Buenro::
+	goto_if_set FLAG_DEFEATED_DARKIBUENRO_GYM, Darkigym_EventScript_BuenroDefeated2
 	trainerbattle_single TRAINER_DARKI_BUENRO, Darkigym_Text_BuenroIntro, Darkigym_Text_BuenroDefeat, Darkigym_EventScript_BuenroDefeated, NO_MUSIC
 	release
 	end
@@ -71,6 +72,23 @@ Darkigym_EventScript_Darki_Derrotado::
 Darkigym_EventScript_BuenroDefeated::
 	msgbox Darkigym_Text_BuenroPostBattle, MSGBOX_DEFAULT
 	special HealPlayerParty
+	setflag FLAG_DEFEATED_DARKIBUENRO_GYM
+	release
+	end
+	
+Darkigym_EventScript_BuenroDefeated2::
+	goto_if_set FLAG_DEFEATED_DARKI_GYM, Darkigym_EventScript_Buenro_DarkiDerrotado
+	faceplayer
+	lock
+	msgbox Darkigym_Text_BuenroPostBattle2, MSGBOX_DEFAULT
+	special HealPlayerParty
+	release
+	end
+	
+Darkigym_EventScript_Buenro_DarkiDerrotado::
+	faceplayer
+	lock
+	msgbox Darkigym_Text_BuenroPostBattle3, MSGBOX_DEFAULT
 	release
 	end
 	
@@ -171,6 +189,36 @@ Darkigym_EventScript_FurryTrainerdelpasado::
 Darkigym_EventScript_DarkMelkorOtraDimension::
 	trainerbattle_single TRAINER_DARK_MELKOR, Darkigym_Text_DarkMelkorIntro, Darkigym_Text_DarkMelkorDefeat
 	msgbox Darkigym_Text_DarkMelkorPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+Darkigym_EventScript_FanboyKalos_DimensionZ::
+	trainerbattle_single TRAINER_FANBOY_KALOS, Darkigym_Text_FanboyKalosIntro, Darkigym_Text_FanboyKalosDefeat
+	msgbox Darkigym_Text_FanboyKalosPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+Darkigym_EventScript_AngelFS::
+	trainerbattle_single TRAINER_ANGELFS, Darkigym_Text_AngelFSIntro, Darkigym_Text_AngelFSDefeat
+	msgbox Darkigym_Text_AngelFSPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+Darkigym_EventScript_TiloAlola::
+	trainerbattle_single TRAINER_TILO_ALOLA, Darkigym_Text_TiloAlolaIntro, Darkigym_Text_TiloAlolaDefeat
+	goto_if_set FLAG_DEFEATED_TILO, Darkigym_EventScript_Tilo_Derrotado
+	msgbox Darkigym_Text_TiloAlolaPostBattle, MSGBOX_AUTOCLOSE
+	setflag FLAG_DEFEATED_TILO
+	giveitem ITEM_REVIVE, 10
+	compare VAR_RESULT, FALSE
+	call_if_eq Darkigym_EventScript_BagFull
+	closemessage
+	end
+	
+Darkigym_EventScript_BagFull::
+	call Common_EventScript_BagIsFull
+	return
+	
+Darkigym_EventScript_Tilo_Derrotado::
+	msgbox Darkigym_Text_TiloAlolaPostBattle2, MSGBOX_NPC
+	release
 	end
 	
 Darkigym_Text_RedSecretariaIntro: 
@@ -635,6 +683,140 @@ Darkigym_Text_DarkMelkorPostBattle:
 	
 	.string "¡SALVEMOS LA SAGA POKéMON DE LAS GARRAS\n"
 	.string "DE MASUDA!$"
+	
+Darkigym_Text_FanboyKalosIntro:
+	.string "No tengo ni la más remota idea de donde\n"
+	.string "estoy, ¡pero que importa!\l"
+	.string "¡VIVA LA 6ªGEN! ¡VIVA POKEMON Z!\p"
+
+	.string "¿CÓMO? ¿QUÉ ES POKEMON Z?\p"
+	
+	.string "¡PERO COMO PUEDES NO SABERLO! ¡SI ES EL\n"
+	.string "MEJOR JUEGO QUE HA SACADO GAMEFREAK\l"
+	.string "EN TODOS ESTOS AÑOS!\p"
+	
+	.string "¿HAS ESTADO VIVIENDO EN UNA CUEVA\n" 
+	.string "O QUÉ?\p"
+	
+	.string "¡EJEM!\n"
+	.string "Déjame explicarte las maravillas de\l" 
+	.string "POKéMON Z.\p"
+	
+	.string "Se trata de la secuela de POKÉMON XY,\n"
+	.string "y tiene lugar 3 años después, en la\l"
+	.string "región de KALOS, pero esta vez todo\l" 
+	.string "toma lugar en KALOS SUR.\p"
+	
+	.string "LYSSON sobrevivió, y vuelve a ser\n" 
+	.string "nuestro mayor enemigo, con un plan B:\l" 
+	.string "Ha conseguido fusionar a todos los\l" 
+	.string "ZYGARDES 1% en uno solo, formando el\l"
+	.string "ZYGARDE FORMA COMPLETA 100%.\p"
+	
+	.string "También hace su aparición VOLCANION,\n" 
+	.string "y el juego tiene un contenido POSTGAME\l" 
+	.string "fabuloso e inmenso.\p"
+	
+	.string "El único pero, es que no tiene ningún\n"
+	.string "FRENTE BATALLA.\p"
+	
+	.string "...\p"
+
+	.string "¿¡PERO QUE DICES?!\n" 
+	.string "¿¡CÓMO QUÉ NI POKéMON Z, NI KALOS\l" 
+	.string "SUR EXISTEN?!\p"
+
+	.string "¡YA ME HE CANSADO DE QUE TE BURLES\n" 
+	.string "DE MI!$"
+
+Darkigym_Text_FanboyKalosDefeat: 
+	.string "¿PERO QUÉ...?\p"
+	
+	.string "¿Por qué mi MAWILE no puede...\n"
+	.string "megaevolucionar con su Megapiedra\l"
+	.string "usando mi Megaanillo?$"
+
+Darkigym_Text_FanboyKalosPostBattle:
+	.string "¡Espera! ¿Este no es mi mundo?\n"
+	.string "¿Aqui no hay POKeMON Z...?\l"
+	.string "¿Tampoco KALOS SUR...?\p"
+	
+	.string "Pero entonces... ¿Que hay aquí\n"
+	.string "después de POKéMON XY?\p"
+	
+	.string "¿REMAKES DE RSE SIN FRENTE?\n"
+	.string "¿POKéMON SOL y LUNA?\l"
+	.string "¿ALOLA? ¿ROTOMDEX?\l"
+	.string "¿POKéMON LETS GO PIKACHU y EEVEE?\l"
+	.string "¿POKéMON ESPADA y ESCUDO con la\l"
+	.string "eliminación de la mitad de la Dex?\l"
+	.string "¿DINAMAX? ¿GIGAMAX?\l"
+	.string "¿DLC a 30 euros y POKÉMON HOME cuatro\l"
+	.string "veces más caro que POKéBANCO?\p"
+
+	.string "¡ESTE MUNDO ES UNA MIERDA!$"
+	
+Darkigym_Text_AngelFSIntro:
+	.string "Mire estoy en 1 de secundaria y las\n" 
+	.string "16 niñas de mi salon me tratan como\l"
+	.string "alfombre osea me aserco y se alejan\l" 
+	.string "o gritan: AAAAAA quitate!!!\p"
+
+	.string "y con todas es igual.\n" 
+	.string "Que demonios hago!!$"
+
+Darkigym_Text_AngelFSDefeat: 
+    .string "Ahora las niñas gritarían:\n" 
+	.string "AAAAAA quitate!!!$"
+
+Darkigym_Text_AngelFSPostBattle:
+	.string "¡Las niñas ya no están!\p"
+
+	.string "No me volverán a tratar como\n"
+	.string "alfombre. :)$"
+	
+Darkigym_Text_TiloAlolaIntro:
+	.string "¡Alola, entrenador!\p"
+
+	.string "Que agradable clima hoy...\p"
+
+	.string "Pero no tanto como mi querida y\n" 
+	.string "natal ALOLA con toda esa alegría,\l"
+	.string "felicidad, sol y buen clima...\p"
+
+	.string "¿Quieres que comparta mi entusiasmo\n" 
+	.string "contigo con un par de buenas\l" 
+	.string "malasadas?\p"
+
+	.string "Porque sabes, las malasadas son el mejor\n" 
+	.string "manjar del mundo, riquisimas,\l" 
+	.string "impedirbles.\p"
+
+	.string "Ven ven, combatamos un poquito, cuando\n" 
+	.string "me ganes, te regalare 10 revivires.$"
+
+Darkigym_Text_TiloAlolaDefeat: 
+	.string "¡Wow, eres super fuerte, grandioso,\n" 
+	.string "maravilloso, todo un maquina, nunca\l" 
+	.string "tuve una oportunidad...!$"
+
+Darkigym_Text_TiloAlolaPostBattle:
+	.string "¡Quién diría que me encontraría con\n" 
+	.string "una persona tan increíble como tu!\p"
+	
+	.string "¿Que nos acabamos de conocer? da igual,\n" 
+	.string "soy tu mas grande admira-\l" 
+	.string "AAAAAAAAAAARG!!!!\p"
+
+	.string "¡NO NO PERDONEME SEÑOR MALROLLO!\n" 
+	.string "¡NOOOOOOOOO!\p"
+	
+	.string "................................\p"
+	
+	.string "(Coges los 10 REVIVE que te iba a dar)$"
+	
+Darkigym_Text_TiloAlolaPostBattle2:
+	.string "................................$"
 
 Darkigym_Text_MalroIntro: 
 	.string "Así que lograste llegar hasta aquí.\p"
@@ -671,7 +853,7 @@ Darkigym_Text_MalroPostBattle:
 	.string "¿Es que no lo entiendes?\p"
 
 	.string "Todo esto de viajar en el tiempo fue\n" 
-	.string "para matar al imbecil de masuda.\p"
+	.string "para matar al imbecil de MASUDA.\p"
 	
 	.string "¡En este punto de la historia él es\n"
 	.string "quien se convierte en el dios de tu\l" 
@@ -697,7 +879,7 @@ Darkigym_Text_MalroPostBattle:
 	.string "Aún no es tarde, incluso un torpe como\n" 
 	.string "tu me puede ser útil, si.\p"
 	
-	.string "Encuentra a masuda y partele la boca\n"
+	.string "Encuentra a Masuda y partele la boca\n"
 	.string "por mi.\p"
 
 	.string "Si un insignificante ser como tu, pudo\n" 
@@ -733,7 +915,7 @@ Darkigym_Text_MalroPostBattle2:
 
     .string ".....\p"
 
-    .string "Demonios, eso también me\n"
+    .string "¡Demonios, eso también me\n"
 	.string "lo prohibieron!\p"
 
     .string "Bueno... te dejaré usar una cuerda huida\n"
@@ -784,15 +966,16 @@ Darkigym_Text_BuenroPostBattle:
 	.string "malro, pero bueno, como decía.\p"
 
 	.string "Para un amante de los puzzles como yo,\n"
-	.string "no podría contentarme con hacer solo un\l" 
-	.string "pasillo simplon en el que se avanzara\l" 
-	.string "muy lentamente.\p"
+	.string "no podría contentarme con hacer solo\l" 
+	.string "un pasillo simplon en el que se\l" 
+	.string "avanzara muy lentamente.\p"
 
-	.string "Así que hice un pasillo en el que avanzas\n" 
-	.string "muy lentamente, te puedes extraviar para\l"
-	.string "siempre y te asalten todo tipo de trampas\l" 
-	.string "mortales meticulozamente colocadas para\l" 
-	.string "enviarte directo a un CENTRO POKEMON\p"
+	.string "Así que hice un pasillo en el que\n" 
+	.string "avanzas muy lentamente, te puedes\l"
+	.string "extraviar para siempre y te asalten\l" 
+	.string "todo tipo de trampas mortales\l" 
+	.string "meticulozamente colocadas para\l" 
+	.string "enviarte directo a un CENTRO POKéMON.\p"
 	
 	.string "Nyeh heh heh.\p"
 
@@ -813,7 +996,7 @@ Darkigym_Text_BuenroPostBattle:
 
 	.string "¡Ánimo y mucha suerte!\p"
 
-	.string "Te advierto, te enfrentaras con el rey\n" 
+	.string "Te advierto, te enfrentarás con el rey\n" 
 	.string "del inframundo y gobernante de todos\l" 
 	.string "los monstruos.\p"
 
@@ -830,13 +1013,28 @@ Darkigym_Text_BuenroPostBattle:
 	.string "Estoy seguro que te agradará.\p" 
 	
 	.string "Nyeh heh heh\p"
-//si los pokemon estan dañados
+
 	.string "Oh, veo que tu equipo esta decaido.\p"
 	
 	.string "(Fuiste curado de las heridas)\p"
 
 	.string "Tanto mejor, sigue adelante humano,\n" 
 	.string "no pierdas la determinación.$"
+
+Darkigym_Text_BuenroPostBattle2:	
+	.string "Oh, veo que tu equipo esta decaido.\p"
+	
+	.string "(Fuiste curado de las heridas)\p"
+
+	.string "Tanto mejor, sigue adelante humano,\n" 
+	.string "no pierdas la determinación.$"
+	
+Darkigym_Text_BuenroPostBattle3:
+	.string "Así que nos derrotaste a ambos, a\n"
+	.string "buenro, osea yo, y a malro, es decir,\l"
+	.string "mi hermano.\p"
+	
+	.string "Nyeh heh heh$"
 
 Darkigym_Text_ReceivedBadge:
 	.string "{PLAYER} recibió la MEDALLA\n"

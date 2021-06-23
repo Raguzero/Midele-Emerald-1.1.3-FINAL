@@ -52,6 +52,10 @@ MicoloLeague_RaguRoom_TumbaSign::
 	msgbox MicoloLeague_RaguRoom_Text_TumbaSign, MSGBOX_SIGN
 	end
 	
+MicoloLeague_RaguRoom_PCSign::
+	msgbox MicoloLeague_RaguRoom_Text_PCSign, MSGBOX_SIGN
+	end
+	
 MicoloLeague_RaguRoom_Text_EsclavoSign:
 	.string "¡ATENCIÓN!\p" 
 	
@@ -122,6 +126,34 @@ MicoloLeague_RaguRoom_Text_NPCmirandoTV:
 	.string "¡JODEEEEEEEEEEEEER!\n"
 	.string "¡EEVEETO HA GANADO EL NUZLOCKE!\p"
 	.string "¡VAYA MIERDA!$"
+	
+MicoloLeague_RaguRoom_Text_PCSign:
+	.string "Parecen notas sobre un MIDELE\n"
+	.string "PLATINUM cancelado:\p"
+	
+	.string "Justo después de lo ocurrido en\n"
+	.string "MIDELE EMERALD.\p"
+	
+	.string "Una nueva y gran amenaza se cierne\n"
+	.string "sobre SINNOH que afectará a todo\l"
+	.string "el MUNDO POKéMON.\p"
+	
+	.string "MICOLO ha sido engañado y capturado\n"
+	.string "por DARKI MALRO y sus esbirros, y se\l"
+	.string "ha llevado todos los experimentos,\l"
+	.string "incluyendo el PODER MIDELAR.\p"
+	
+	.string "DARKI MALRO ha conseguido un ejercito\n"
+	.string "de esbirros de otros mundos gracias\l" 
+	.string "al uso de una máquina con un\l"
+	.string "desmesurado poder que ha desequilibrado\l"
+	.string "las estructuras del espacio-tiempo.\p"
+	
+	.string "El MT. CORONA de SINNOH ha sido\n"
+	.string "eliminado completamente.\p"
+	
+	.string "¿Aparecerá alguien capaz de\n" 
+	.string "hacerle FRENTE?$"
 	
 MicoloLeague_RaguRoom_Text_RaguIntro: 
 	.string "FRASES$"
