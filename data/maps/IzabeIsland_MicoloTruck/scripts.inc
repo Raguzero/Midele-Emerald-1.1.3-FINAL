@@ -12,3 +12,7 @@ IzabeIsland_MicoloTruck_EventScript_ItemChoiceBand::
 IzabeIsland_MicoloTruck_EventScript_ItemChoiceScarf::
 	finditem ITEM_CHOICE_SCARF
 	end
+
+IzabeIsland_MicoloTruck_EventScript_ItemGCalcium::
+	finditem ITEM_G_CALCIUM
+	end

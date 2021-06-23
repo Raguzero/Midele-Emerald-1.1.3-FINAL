@@ -222,8 +222,8 @@ Route121_EventScript_ItemZinc:: @ 8290FA3
 	finditem ITEM_ZINC
 	end
 
-Route123_EventScript_ItemGCalcium:: @ 8290FB0
-	finditem ITEM_G_CALCIUM
+Route123_EventScript_ItemGSweetHeart:: @ 8290FB0
+	finditem ITEM_SWEET_HEART
 	end
 
 Route123_EventScript_ItemUltraBall:: @ 8290FBD
@@ -482,8 +482,8 @@ SafariZone_Southeast_EventScript_ItemBigPearl:: @ 82912F0
 	finditem ITEM_BIG_PEARL
 	end
 
-MtPyre_2F_EventScript_ItemSweetHeart:: @ 82912FD
-	finditem ITEM_SWEET_HEART
+MtPyre_2F_EventScript_ItemRareCandy:: @ 82912FD
+	finditem ITEM_RARE_CANDY
 	end
 
 MtPyre_3F_EventScript_ItemSuperRepel:: @ 829130A

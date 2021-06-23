@@ -52,6 +52,19 @@
             "trainer_type": "0",
             "x": 2,
             "y": 1
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_ITEM_IZABE_TRUCK_G_CALCIUM",
+            "graphics_id": "EVENT_OBJ_GFX_TM_BALL",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "IzabeIsland_MicoloTruck_EventScript_ItemGCalcium",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 0,
+            "y": 1
         }
     ],
     "region_map_section": "MAPSEC_IZABE_ISLAND",

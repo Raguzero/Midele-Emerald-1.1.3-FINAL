@@ -82,7 +82,7 @@
 #define FLAG_COMPLETE_FORBIDDEN_FOREST    0x46 // Previously Unused Flag
 #define FLAG_DEFEATED_DARKIBUENRO_GYM    0x47 // Previously Unused Flag
 #define FLAG_DEFEATED_TILO    0x48 // Previously Unused Flag
-#define FLAG_UNUSED_0x049    0x49 // Unused Flag
+#define FLAG_ITEM_IZABE_TRUCK_G_CALCIUM   0x49 // Previously Unused Flag
 #define FLAG_UNUSED_0x04A    0x4A // Unused Flag
 #define FLAG_UNUSED_0x04B    0x4B // Unused Flag
 #define FLAG_UNUSED_0x04C    0x4C // Unused Flag
@@ -1076,7 +1076,7 @@
 #define FLAG_ITEM_ROUTE_119_HYPER_POTION_1                          0x405
 #define FLAG_ITEM_ROUTE_120_NUGGET                                  0x406
 #define FLAG_ITEM_ROUTE_120_RARE_CANDY                               0x407
-#define FLAG_ITEM_ROUTE_123_G_CALCIUM                                 0x408
+#define FLAG_ITEM_ROUTE_123_SWEET_HEART                                 0x408
 
 #define FLAG_ITEM_IZABE_ISLAND_TOWN_SUN_STONE                    0x409 // Previously unused Flag
 
@@ -1177,7 +1177,7 @@
 #define FLAG_ITEM_IZABE_ISLAND_SECRET_HOUSE_LIGHT_BALL                       0x467 // Previously unused Flag
 #define FLAG_ITEM_IZABE_ISLAND_UNDERWATER_CAVE_1                    0x468 // Previously unused Flag
 
-#define FLAG_ITEM_MT_PYRE_2F_SWEET_HEART                            0x469
+#define FLAG_ITEM_MT_PYRE_2F_RARE_CANDY                            0x469
 #define FLAG_ITEM_MT_PYRE_4F_SEA_INCENSE                            0x46A
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_WEST_MAX_REVIVE                 0x46B
 #define FLAG_ITEM_AQUA_HIDEOUT_B1F_NUGGET                           0x46C
