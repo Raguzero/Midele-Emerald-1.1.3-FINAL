@@ -25,11 +25,13 @@
 #include "script.h"
 #include "script_menu.h"
 #include "sprite.h"
+#include "strings.h"
 #include "string_util.h"
 #include "tv.h"
 #include "constants/abilities.h"
 #include "constants/event_objects.h"
 #include "constants/items.h"
+#include "constants/nicknames.h"
 #include "constants/species.h"
 #include "constants/tv.h"
 #include "constants/vars.h"
@@ -41,6 +43,10 @@ extern const u16 gEventObjectPalette33[];
 extern const u16 gEventObjectPalette34[];
 
 static const u8 gUnknown_0858D8EC[] = { 3, 4, 5, 14 };
+
+static const u8* const gNicknames[] = {
+    [NICKNAME_CATERMANO] = gText_Nickname_Catermano
+};
 
 static void Task_ShowContestEntryMonPic(u8 taskId);
 static void Task_LinkContestWaitForConnection(u8 taskId);
@@ -782,7 +788,7 @@ void ReducePlayerPartyToSelectedMons(void)
     CalculatePlayerPartyCount();
 }
 
-u8 ScriptGiveCustomMon(u16 species, u8 level, u16 item, u8 ball, u8 nature, u8 abilityNum, u8 *evs, u8 *ivs, u16 *moves, bool8 isShiny)
+u8 ScriptGiveCustomMon(u16 species, u8 level, u16 item, u8 ball, u8 nature, u8 abilityNum, u8 *evs, u8 *ivs, u16 *moves, bool8 isShiny, u8 nickname)
 {
     u16 nationalDexNum;
     int sentToPc;
@@ -849,6 +855,13 @@ u8 ScriptGiveCustomMon(u16 species, u8 level, u16 item, u8 ball, u8 nature, u8 a
     //sentToPc = GiveMonToPlayer(&mon);
     SetMonData(&mon, MON_DATA_OT_NAME, gSaveBlock2Ptr->playerName);
     SetMonData(&mon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
+
+    // Set nickname
+    if (nickname != NICKNAME_NONE) 
+    {
+        SetMonData(&mon, MON_DATA_NICKNAME, gNicknames[nickname]);
+    }
+
     for (i = 0; i < PARTY_SIZE; i++)
     {
         if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == SPECIES_NONE)
@@ -890,5 +903,5 @@ u8 GiveMonWithLevelAndAbilityNum(u16 species, u8 level, u16 item, u8 abilityNum)
   u16 moves[4] = {0, 0, 0, 0}; // creo que se ponen los de la especie
   bool8 isShiny = FALSE;  // podría ser shiny, con la probabilidad normal
 
-  return ScriptGiveCustomMon(species, level, item, ball, nature, abilityNum, evs, ivs, moves, isShiny);
+  return ScriptGiveCustomMon(species, level, item, ball, nature, abilityNum, evs, ivs, moves, isShiny, NICKNAME_NONE);
 }

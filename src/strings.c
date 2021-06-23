@@ -2104,3 +2104,6 @@ const u8 gQuizDC[] =  _("DARK PLUSLE");
 
 // SHINY STAR
 const u8 gText_ShinyStar[] = _("{STAR}");
+
+// NICKNAMES
+const u8 gText_Nickname_Catermano[] = _("CATERMANO");

@@ -3224,4 +3224,7 @@ extern const u8 gQuizDC[];
 // SHINY STAR
 extern const u8 gText_ShinyStar[];
 
+// NICKNAMES
+extern const u8 gText_Nickname_Catermano[];
+
 #endif // GUARD_STRINGS_H

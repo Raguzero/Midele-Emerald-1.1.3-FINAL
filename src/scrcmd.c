@@ -2364,12 +2364,13 @@ bool8 ScrCmd_givecustommon(struct ScriptContext *ctx)
     u16 move3 = ScriptReadHalfword(ctx);
     u16 move4 = ScriptReadHalfword(ctx);
     bool8 isShiny = ScriptReadByte(ctx);
+    u8 nickname = ScriptReadByte(ctx);
 
     u8 evs[NUM_STATS] = {hpEv, atkEv, defEv, spAtkEv, spDefEv, speedEv};
     u8 ivs[NUM_STATS] = {hpIv, atkIv, defIv, spAtkIv, spDefIv, speedIv};
     u16 moves[4] = {move1, move2, move3, move4};
 
-    gSpecialVar_Result = ScriptGiveCustomMon(species, level, item, ball, nature, abilityNum, evs, ivs, moves, isShiny);
+    gSpecialVar_Result = ScriptGiveCustomMon(species, level, item, ball, nature, abilityNum, evs, ivs, moves, isShiny, nickname);
     return FALSE;
 }
 
