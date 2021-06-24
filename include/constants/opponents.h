@@ -970,10 +970,11 @@
 #define TRAINER_FANBOY_KALOS 966
 #define TRAINER_ANGELFS 967
 #define TRAINER_TILO_ALOLA 968
+#define TRAINER_YUME 969
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or [changing how trainer flags are handled] --> HECHO ESTO
-#define TRAINERS_COUNT                      969 // NUEVO: aumentar para añadir nuevos entrenadores
-#define MAX_TRAINERS_COUNT                  970
+#define TRAINERS_COUNT                      970 // NUEVO: aumentar para añadir nuevos entrenadores
+#define MAX_TRAINERS_COUNT                  971
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

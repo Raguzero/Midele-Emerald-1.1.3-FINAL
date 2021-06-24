@@ -25315,3 +25315,43 @@ static const struct TrainerMonCustomMidele sParty_Tilo[] = {
     .moves = {MOVE_LEAF_STORM, MOVE_BRAVE_BIRD, MOVE_SHADOW_SNEAK, MOVE_SWORDS_DANCE}
     }
 };
+static const struct TrainerMonCustomMidele sParty_Yume[] = {
+    {
+    .iv = 31,
+    .lvl = 85,
+    .species = SPECIES_SNORLAX,
+    .heldItem = ITEM_POWER_HERB,
+    .nature = NATURE_ADAMANT,
+    .evs = {128, 128, 128, 0, 126, 0},
+    .moves = {MOVE_REST, MOVE_METRONOME, MOVE_SKULL_BASH, MOVE_EARTHQUAKE}
+    },
+	{
+    .iv = 31,
+    .lvl = 86,
+    .species = SPECIES_PALOSSAND,
+    .heldItem = ITEM_SALAC_BERRY,
+    .nature = NATURE_JOLLY,
+    .evs = {0, 252, 6, 0, 0, 252},
+    .moves = {MOVE_ROCK_POLISH, MOVE_EARTHQUAKE, MOVE_SHADOW_BALL, MOVE_DESTINY_BOND}
+    },
+	{
+    .iv = 31,
+    .lvl = 86,
+    .species = SPECIES_MANDIBUZZ,
+    .heldItem = ITEM_LEFTOVERS,
+    .nature = NATURE_TIMID,
+    .evs = {128, 0, 0, 0, 128, 252},
+    .moves = {MOVE_TAUNT, MOVE_KNOCK_OFF, MOVE_ATTRACT, MOVE_FAKE_TEARS}
+    },
+	{
+    .iv = 31,
+    .lvl = 88,
+    .species = SPECIES_SCYTHER,
+    .heldItem = ITEM_SPELL_TAG,
+    .nature = NATURE_JOLLY,
+    .evs = {6, 252, 0, 0, 0, 252},
+	.hpType = TYPE_ROCK,
+    .ability = 1,
+    .moves = {MOVE_COUNTER, MOVE_AERIAL_ACE, MOVE_FURY_CUTTER, MOVE_HIDDEN_POWER}
+    }
+};

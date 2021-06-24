@@ -37,9 +37,36 @@ Darkigym_EventScript_GymStatue::
 	releaseall
 	end
 	
+Darkigym_EventScript_Darkibuenro_Trigger1::
+	call_if_defeated TRAINER_DARKI_BUENRO, Darkigym_TriggerFIN
+	lockall
+	applymovement 2, Common_Movement_ExclamationMark
+	waitmovement 0
+	playse SE_PIN
+	applymovement EVENT_OBJ_ID_PLAYER, Common_Movement_WalkInPlaceFastestUp
+	waitmovement 0
+	msgbox Darkigym_Text_BuenroIntro, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Darkigym_EventScript_Buenro
+	goto Darkigym_EventScript_Darkibuenro_Trigger1continue
+	end
+	
+Darkigym_EventScript_Darkibuenro_Trigger1continue::
+	applymovement EVENT_OBJ_ID_PLAYER, Darkigym_Movement_Prota
+	waitmovement 0
+	releaseall
+	end
+	
+Darkigym_TriggerFIN:
+	end
+	
+Darkigym_Movement_Prota:
+	walk_down
+	step_end
+	
 Darkigym_EventScript_Buenro::
 	goto_if_set FLAG_DEFEATED_DARKIBUENRO_GYM, Darkigym_EventScript_BuenroDefeated2
-	trainerbattle_single TRAINER_DARKI_BUENRO, Darkigym_Text_BuenroIntro, Darkigym_Text_BuenroDefeat, Darkigym_EventScript_BuenroDefeated, NO_MUSIC
+	trainerbattle_single TRAINER_DARKI_BUENRO, Darkigym_Text_BuenroIntro2, Darkigym_Text_BuenroDefeat, Darkigym_EventScript_BuenroDefeated, NO_MUSIC
 	release
 	end
 	
@@ -199,6 +226,11 @@ Darkigym_EventScript_FanboyKalos_DimensionZ::
 Darkigym_EventScript_AngelFS::
 	trainerbattle_single TRAINER_ANGELFS, Darkigym_Text_AngelFSIntro, Darkigym_Text_AngelFSDefeat
 	msgbox Darkigym_Text_AngelFSPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+Darkigym_EventScript_Yume::
+	trainerbattle_single TRAINER_YUME, Darkigym_Text_YumeIntro, Darkigym_Text_YumeDefeat
+	msgbox Darkigym_Text_YumePostBattle, MSGBOX_AUTOCLOSE
 	end
 	
 Darkigym_EventScript_TiloAlola::
@@ -775,6 +807,25 @@ Darkigym_Text_AngelFSPostBattle:
 	.string "No me volverán a tratar como\n"
 	.string "alfombre. :)$"
 	
+Darkigym_Text_YumeIntro:
+	.string "Ahora eres mi nuevo Onichan y estás\n" 
+	.string "para untarle al pan.\p" 
+	
+	.string "¡ji ji ji!$"
+
+Darkigym_Text_YumeDefeat: 
+	.string "Vamos, anda, déjame darte una\n" 
+	.string "mordidita, no seas malo.\p"
+
+	.string "¡Waaaaaaaaaaaa!$" 
+
+Darkigym_Text_YumePostBattle:
+	.string "Bueno, tendré que buscar a un nuevo\n" 
+	.string "Onichan, estarás contento, ojalá que\l" 
+	.string "el señor malro te aplaste.\p" 
+	
+	.string "¡ji ji ji!$"
+	
 Darkigym_Text_TiloAlolaIntro:
 	.string "¡Alola, entrenador!\p"
 
@@ -936,8 +987,10 @@ Darkigym_Text_BuenroIntro:
 	.string "alguien igual de genialoso como yo\l"
 	.string "podría atravesarlo y salir indemne.\p"
 	
-	.string "¿Insistes en seguir?\p"
+	.string "¿Insistes en seguir? ¿Estás preparado\n"
+	.string "para hacerme frente en un combate?$"
 	
+Darkigym_Text_BuenroIntro2:
 	.string "Bueno, supongo que YO el GRAN Darkizard,\n" 
 	.string "el todo poderoso buen rollo,\l" 
 	.string "Capitan de la guardía imperial del\l" 
