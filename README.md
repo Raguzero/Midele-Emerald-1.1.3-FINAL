@@ -12,16 +12,20 @@ Para instalar el repositorio, ver [INSTALL.md](INSTALL.md).
 - Muchas mecánicas y movimientos adaptadas a últimas generaciones.
 - Nuevas zonas y entrenadores.
 
-## Colaboradores
+## Colaboradores principales
 
 - [Ragu](https://github.com/Raguzero)
 - [Lavender](https://github.com/LavenderG)
 - [Manectric-Rang](https://github.com/Manectric-Rang)
-- [Eeveeto] (Todos los sets modificados y nuevos del Frente Batalla y Random Battles, además de ordenar por tiers para Fabrica Batalla))
 
+## Otros colaboradores
+- [Eeveeto] (Ideas interesantes en cuanto a adición de nuevos Pokémon, en el buff a ciertos Pokémon, y en trabajar en sets modificados y nuevos del Frente Batalla y Random Battles, además de ordenar por tiers para Fabrica Batalla))
+- [Pacochef] (Ideas interesantes y aporte de un mapa creado por él)
+- [Darkizard] (Aporte de un mapa creado por él)
+- [Sapph] (Creación del sprite del MonoCiclo)
+- [MerúM] (Correción de instrumentos de algunas músicas, y ayuda con sprites)
 
-## Créditos al resto de personas cuyo código/ayuda hemos utilizado:
-- Sapph (Sprite Monito)
+## Créditos al resto de personas cuyo código hemos utilizado:
 - Robinlukke https://www.pokecommunity.com/showthread.php?t=435076
 - TheXaman y AsparagusEduardo (Script Pokedex HGSS Style https://github.com/TheXaman/pokeemerald/commit/abf5d238c2a5fe020123544a72fe432c27191153#)
 - Ryuhouji ( Random Battle script --> https://github.com/Ryuhouji/Emerald-Enhanced/commit/467909ab2df0ca674501b164e3915b5fc4871add )
