@@ -39,6 +39,9 @@ GymSanty2_EventScript_FarolEncendida:
 	msgbox GymSanty2_Text_FarolEncendida, MSGBOX_DEFAULT
 	addvar VAR_FUEGO_GYM_SANTY, 1
 	setflag FLAG_FAROL1_GYM_SANTY
+	removeobject 10
+	addobject 14
+	clearflag FLAG_HIDE_FIREON_1_GYM_SANTY
 	compare VAR_FUEGO_GYM_SANTY, 4
 	goto_if_eq GymSanty2_EventScript_FarolesEncendidos
 	release
@@ -57,6 +60,9 @@ GymSanty2_EventScript_Farol2Encendida:
 	msgbox GymSanty2_Text_FarolEncendida, MSGBOX_DEFAULT
 	addvar VAR_FUEGO_GYM_SANTY, 1
 	setflag FLAG_FAROL2_GYM_SANTY
+	removeobject 12
+	addobject 16
+	clearflag FLAG_HIDE_FIREON_2_GYM_SANTY
 	compare VAR_FUEGO_GYM_SANTY, 4
 	goto_if_eq GymSanty2_EventScript_FarolesEncendidos
 	release
@@ -74,6 +80,9 @@ GymSanty2_EventScript_Farol3::
 GymSanty2_EventScript_Farol3Encendida:
 	msgbox GymSanty2_Text_FarolEncendida, MSGBOX_DEFAULT
 	addvar VAR_FUEGO_GYM_SANTY, 1
+	removeobject 11
+	addobject 15
+	clearflag FLAG_HIDE_FIREON_3_GYM_SANTY
 	setflag FLAG_FAROL3_GYM_SANTY
 	compare VAR_FUEGO_GYM_SANTY, 4
 	goto_if_eq GymSanty2_EventScript_FarolesEncendidos
@@ -92,6 +101,9 @@ GymSanty2_EventScript_Farol4::
 GymSanty2_EventScript_Farol4Encendida:
 	msgbox GymSanty2_Text_FarolEncendida, MSGBOX_DEFAULT
 	addvar VAR_FUEGO_GYM_SANTY, 1
+	removeobject 13
+	addobject 17
+	clearflag FLAG_HIDE_FIREON_4_GYM_SANTY
 	setflag FLAG_FAROL4_GYM_SANTY
 	compare VAR_FUEGO_GYM_SANTY, 4
 	goto_if_eq GymSanty2_EventScript_FarolesEncendidos

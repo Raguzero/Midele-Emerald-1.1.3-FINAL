@@ -118,8 +118,8 @@
             "script": "GymSanty2_EventScript_Ghaddar",
             "trainer_sight_or_berry_tree_id": "2",
             "trainer_type": "1",
-            "x": 4,
-            "y": 17
+            "x": 3,
+            "y": 18
         },
         {
             "elevation": 3,
@@ -149,7 +149,7 @@
         },
         {
             "elevation": 3,
-            "flag": "0",
+            "flag": "FLAG_FAROL1_GYM_SANTY",
             "graphics_id": "EVENT_OBJ_GFX_FIRE_OFF",
             "movement_range_x": 0,
             "movement_range_y": 0,
@@ -162,8 +162,8 @@
         },
         {
             "elevation": 3,
-            "flag": "0",
-            "graphics_id": "EVENT_OBJ_GFX_FIRE_ON",
+            "flag": "FLAG_FAROL3_GYM_SANTY",
+            "graphics_id": "EVENT_OBJ_GFX_FIRE_OFF",
             "movement_range_x": 0,
             "movement_range_y": 0,
             "movement_type": "MOVEMENT_TYPE_NONE",
@@ -175,7 +175,7 @@
         },
         {
             "elevation": 3,
-            "flag": "0",
+            "flag": "FLAG_FAROL2_GYM_SANTY",
             "graphics_id": "EVENT_OBJ_GFX_FIRE_OFF",
             "movement_range_x": 0,
             "movement_range_y": 0,
@@ -188,8 +188,60 @@
         },
         {
             "elevation": 3,
-            "flag": "0",
+            "flag": "FLAG_FAROL4_GYM_SANTY",
             "graphics_id": "EVENT_OBJ_GFX_FIRE_OFF",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "GymSanty2_EventScript_Farol4",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 54,
+            "y": 40
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_HIDE_FIREON_1_GYM_SANTY",
+            "graphics_id": "EVENT_OBJ_GFX_FIRE_ON",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "GymSanty2_EventScript_Farol1",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 3,
+            "y": 9
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_HIDE_FIREON_3_GYM_SANTY",
+            "graphics_id": "EVENT_OBJ_GFX_FIRE_ON",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "GymSanty2_EventScript_Farol3",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 5,
+            "y": 42
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_HIDE_FIREON_2_GYM_SANTY",
+            "graphics_id": "EVENT_OBJ_GFX_FIRE_ON",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "GymSanty2_EventScript_Farol2",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 54,
+            "y": 12
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_HIDE_FIREON_4_GYM_SANTY",
+            "graphics_id": "EVENT_OBJ_GFX_FIRE_ON",
             "movement_range_x": 0,
             "movement_range_y": 0,
             "movement_type": "MOVEMENT_TYPE_NONE",

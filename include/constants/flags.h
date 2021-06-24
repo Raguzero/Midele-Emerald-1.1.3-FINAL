@@ -694,10 +694,10 @@
 #define FLAG_TOTEM_GRANITECAVE  0x28D // Previously unused Flag
 #define FLAG_TOTEM_SCORCHEDSLAB  0x28E // Previously unused Flag
 #define FLAG_ITEM_SCORCHED_SLAB_B2F_TM35  0x28F // Previously unused Flag
-#define FLAG_UNUSED_0x290  0x290 // Unused Flag
-#define FLAG_UNUSED_0x291  0x291 // Unused Flag
-#define FLAG_UNUSED_0x292  0x292 // Unused Flag
-#define FLAG_UNUSED_0x293  0x293 // Unused Flag
+#define FLAG_HIDE_FIREON_1_GYM_SANTY  0x290 // Previously Unused Flag
+#define FLAG_HIDE_FIREON_2_GYM_SANTY  0x291 // Previously Unused Flag
+#define FLAG_HIDE_FIREON_3_GYM_SANTY  0x292 // Previously Unused Flag
+#define FLAG_HIDE_FIREON_4_GYM_SANTY  0x293 // Previously Unused Flag
 #define FLAG_UNUSED_0x294  0x294 // Unused Flag
 #define FLAG_UNUSED_0x295  0x295 // Unused Flag
 #define FLAG_UNUSED_0x296  0x296 // Unused Flag
