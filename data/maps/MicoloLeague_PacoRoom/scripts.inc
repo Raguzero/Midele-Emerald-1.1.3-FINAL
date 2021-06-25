@@ -1,5 +1,10 @@
 MicoloLeague_PacoRoom_MapScripts::
+    map_script MAP_SCRIPT_ON_LOAD, MicoloLeague_PacoRoom_OnLoad
 	.byte 0
+
+MicoloLeague_PacoRoom_OnLoad::
+    setflag FLAG_TEMP_3
+    end
 
 MicoloLeague_PacoRoom_Piba1::
 	lock
@@ -83,9 +88,36 @@ MicoloLeague_PacoRoom_Suicune::
 	playmoncry SPECIES_SUICUNE, 0
 	msgbox MicoloLeague_PacoRoom_Suicune_Text_0, MSGBOX_DEFAULT
 	waitmoncry
+    warp MAP_MICOLO_LEAGUE_MAIN_ROOM, 0, 0, 0
+    waitstate
 	release
 	return
 
+MicoloLeague_PacoRoom_Paco::
+	lockall
+    faceplayer
+	checktrainerflag TRAINER_PACOCHEF_MICOLANDIA
+	goto_if 1, MicoloLeague_PacoRoom_Paco_2
+	msgbox MicoloLeague_PacoRoom_Paco_Text_1, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_PACOCHEF_MICOLANDIA, MicoloLeague_PacoRoom_Paco_Text_2
+	clearflag FLAG_TEMP_3
+MicoloLeague_PacoRoom_Paco_1:
+	releaseall
+	return
+
+MicoloLeague_PacoRoom_Paco_2:
+	msgbox MicoloLeague_PacoRoom_Paco_Text_0, MSGBOX_DEFAULT
+	goto MicoloLeague_PacoRoom_Paco_1
+
+
+MicoloLeague_PacoRoom_Paco_Text_0:
+	.string "TEXTO PACO POSTBATTLE$"
+
+MicoloLeague_PacoRoom_Paco_Text_1:
+	.string "TEXTO PACO INTRO$"
+
+MicoloLeague_PacoRoom_Paco_Text_2:
+	.string "TEXTO PACO DEFEAT$"
 
 MicoloLeague_PacoRoom_Piba1_Text_0:
 	.string "Bienvenido a la estancia de Paquito el\n"

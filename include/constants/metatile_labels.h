@@ -150,6 +150,7 @@
 
 // gTileset_Facility
 #define METATILE_Facility_DataPad                       0x3E4
+#define METATILE_Facility_FacilityWarp                  0x2DF
 #define METATILE_Facility_NewMauvilleDoor_Closed_Tile0  0x314
 #define METATILE_Facility_NewMauvilleDoor_Closed_Tile1  0x315
 #define METATILE_Facility_NewMauvilleDoor_Closed_Tile2  0x316
