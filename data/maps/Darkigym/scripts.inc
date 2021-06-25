@@ -1,6 +1,63 @@
 Darkigym_MapScripts::
 	.byte 0
 	
+Darkigym_EventScript_ParedInvisible1::
+	lock
+	faceplayer
+	special HasDefeatedAllDarkiGymTrainersZone1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Darkigym_EventScript_ParedInvisible1_Parte2
+	msgbox Darkigym_EventScript_ParedInvisible_Text_1, MSGBOX_DEFAULT
+Darkigym_EventScript_ParedInvisible1_Parte1:
+	release
+	return
+
+Darkigym_EventScript_ParedInvisible1_Parte2:
+	msgbox Darkigym_EventScript_ParedInvisible_Text_0, MSGBOX_DEFAULT
+    removeobject 35
+    removeobject 36
+	setflag FLAG_HIDE_PAREDINVISIBLE_1_DARKI_GYM
+	goto Darkigym_EventScript_ParedInvisible1_Parte1
+
+Darkigym_EventScript_ParedInvisible2::
+	lock
+	faceplayer
+	special HasDefeatedAllDarkiGymTrainersZone2
+	compare VAR_RESULT, TRUE
+	goto_if_eq Darkigym_EventScript_ParedInvisible2_Parte2
+	msgbox Darkigym_EventScript_ParedInvisible_Text_1, MSGBOX_DEFAULT
+Darkigym_EventScript_ParedInvisible2_Parte1:
+	release
+	return
+
+Darkigym_EventScript_ParedInvisible2_Parte2:
+	msgbox Darkigym_EventScript_ParedInvisible_Text_0, MSGBOX_DEFAULT
+    removeobject 37
+    removeobject 38
+    removeobject 39
+    removeobject 40
+	setflag FLAG_HIDE_PAREDINVISIBLE_2_DARKI_GYM
+	goto Darkigym_EventScript_ParedInvisible2_Parte1
+	
+Darkigym_EventScript_ParedInvisible3::
+	lock
+	faceplayer
+	special HasDefeatedAllDarkiGymTrainersZoneFinal
+	compare VAR_RESULT, TRUE
+	goto_if_eq Darkigym_EventScript_ParedInvisible3_Parte2
+	msgbox Darkigym_EventScript_ParedInvisible_Text_1, MSGBOX_DEFAULT
+Darkigym_EventScript_ParedInvisible3_Parte1:
+	release
+	return
+
+Darkigym_EventScript_ParedInvisible3_Parte2:
+	msgbox Darkigym_EventScript_ParedInvisible_Text_0, MSGBOX_DEFAULT
+    removeobject 41
+    removeobject 42
+    removeobject 43
+	setflag FLAG_HIDE_PAREDINVISIBLE_3_DARKI_GYM
+	goto Darkigym_EventScript_ParedInvisible3_Parte1
+
     @ Combate contra totem.
 Darkigym_EventScript_Totem::
 	lockall
@@ -303,25 +360,25 @@ Darkigym_Text_KizardeIntro:
 
 Darkigym_Text_KizardeDefeat:
 	.string "Oh no! ¡debes ser un agente enviado\n" 
-	.string "la organización!\p"
+	.string "de la organización!\p"
 
-	.string "¡Vienen tras mi ultimo invento!$"
+	.string "¡Vienen tras mi último invento!$"
 
 Darkigym_Text_KizardePostBattle:
 	.string "Maravillate pequeña ardilla,\n"
-	.string "ante la maquina de viaje espacio\l"
+	.string "ante la máquina de viaje espacio\l"
 	.string "temporal.\p"
 
 	.string "¿Sin ella, como crees que nuestros jefes\n" 
 	.string "pueden viajar a tantos mundos?\p"
 
 	.string "Solo un genio como yo,\n"
-	.string "el miembro numero uno del laboratorio\l"
-	.string "de inventos subterraneos.\p"
+	.string "el miembro número uno del laboratorio\l"
+	.string "de inventos subterráneos.\p"
 
 	.string "El cientifico loco D. Kizarde,\n"
 	.string "podría haber inventado tan\l" 
-	.string "impresionante máquina. Mua ja ja\p"
+	.string "impresionante máquina. ¡Mua ja ja!\p"
 
 	.string "Ya que me ganaste te contaré un\n"
 	.string "secreto.\p"
@@ -337,15 +394,15 @@ Darkigym_Text_KizardePostBattle:
 
 	.string "Siendo el detonante... un tal Masuda.\p"
 
-	.string "El cual dio a luz a Lilie para controlar\n"
+	.string "El cual dií a luz a Lilie para controlar\n"
 	.string "las mentes de todos aquellos niños que\l" 
-	.string "segun el no tienen tiempo para jugar\l"
+	.string "según él, no tienen tiempo para jugar\l"
 	.string "más que juegos cortitos de movil...\p"
 
-	.string "Sabes, veo en ti el poder de cambiar\n"
-	.string "el futuro.\p"
+	.string "¿Sabes?, veo en tí el poder de\n"
+	.string "cambiar el futuro.\p"
 
-	.string "Vamos, sigue adelante y demuestrale a\n"
+	.string "Vamos, sigue adelante y demuéstrale a\n"
 	.string "nuestro jefe, que puedes hacerlo, y\l" 
 	.string "salvarnos a todos de tan\l" 
 	.string "aciago destino.$"
@@ -355,19 +412,19 @@ Darkigym_Text_EspiIntro:
 	.string "¿quieres jugar conmigo?$"
 
 Darkigym_Text_EspiDefeat: 
-	.string "Repampanos, se acabo el juego.$"
+	.string "Repámpanos, se acabó el juego.$"
 
 Darkigym_Text_EspiPostBattle:
-	.string "Es una lastima, yo quería seguir jugando\n"
+	.string "Es una lástima, yo quería seguir jugando\n"
 	.string "si te ganaba y mataba.\p"
 
 	.string "Podría haberte añadido a mi colección\n" 
-	.string "de cadaveres.\p"
+	.string "de cadáveres.\p"
 
 	.string "Y de hecho tengo bastante repetida a\n" 
 	.string "cierta niña rubia.\p"
 
-	.string "¿Que? ¿te creias que todas estas tumbas\n" 
+	.string "¿Qué? ¿te creías que todas estas tumbas\n" 
 	.string "son de adorno?\p"
 
 	.string "Nope... son todas de los enemigos de mi\n" 
@@ -394,16 +451,16 @@ Darkigym_Text_MobuPostBattle:
 	.string "Como sea... siento una gran fuerza en\n" 
 	.string "ti ¿que buscas aquí?\p"
 
-	.string "¿Dices que estas buscando la medalla\n" 
+	.string "¿Dices que estás buscando la medalla\n" 
 	.string "del gymnasio?\p"
 
 	.string "¿Que no te da miedo el lider?\p"
 
-	.string "I-increible, ojala pudiera ser tan\n" 
+	.string "I-increible, ojalá pudiera ser tan\n" 
 	.string "valiente como tu.\p"
 
 	.string "Bueno, mucha suerte entrenador,\n" 
-	.string "te animare desde aquí.$"
+	.string "te animaré desde aquí.$"
 	
 Darkigym_Text_RoxyIntro: 
 	.string "Vaya, así que eres tu el que ha\n" 
@@ -413,13 +470,13 @@ Darkigym_Text_RoxyIntro:
 
 	.string "No pareces la gran cosa.\p"
 
-	.string "No se por que los demás se han\n" 
+	.string "No sé por que los demás se han\n" 
 	.string "dejado vencer por ti.\p"
 
 	.string "Oh bueno, supongo que deberé\n" 
 	.string "pararte ahora.\p"
 
-	.string "Peleare por el honor del inframundo y la\n"
+	.string "Pelearé por el honor del inframundo y la\n"
 	.string "felicidad de mis hermanos, por lo que ni\l" 
 	.string "de coña puedo permitirme perder.\p" 
 
@@ -434,17 +491,17 @@ Darkigym_Text_RoxyPostBattle:
 	.string "Ahora entiendo por que has llegado\n" 
 	.string "hasta aquí.\p"
 
-	.string "Por lo que veo tambien dominas el\n" 
+	.string "Por lo que veo también dominas el\n" 
 	.string "poder de la determinación.\p"
 
 	.string "Supongo que entonces no necesito usar\n" 
 	.string "toda mi fuerza, así que puedes pasar.\p"
 
-	.string "Quien sabe, con algo de suerte lograras\n" 
+	.string "Quien sabe, con algo de suerte lograrás\n" 
 	.string "tranquilizar al mal rollo.\p"
 
 	.string "No lo entiendo muy bien, pero, eso de\n" 
-	.string "jugar con las lineas del tiempo,\l" 
+	.string "jugar con las líneas del tiempo,\l" 
 	.string "no me mola.\p"
 
 	.string "Adelante humano y recuerda:\p"
@@ -1190,4 +1247,12 @@ Darkigym_Text_VitrinaIzquierda_Sign:
 Darkigym_Text_VitrinaDerecha_Sign:
 	.string "Una pila de huesos en una caja que tiene\n" 
 	.string "escrito a un lado: buenos recuerdos$"
+	
+Darkigym_EventScript_ParedInvisible_Text_0:
+	.string "Has vencido a todos los entrenadores\n"
+	.string "de esta zona, puedes pasar.$"
+
+Darkigym_EventScript_ParedInvisible_Text_1:
+	.string "Debes vencer a todos los entrenadores\n"
+	.string "de esta zona, para poder seguir adelante.$"
 

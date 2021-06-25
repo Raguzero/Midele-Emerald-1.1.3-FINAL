@@ -567,3 +567,6 @@ gSpecials:: @ 81DBA64
 	def_special SleepMons
 	def_special PCBatallaGivePrize
 	def_special HasDefeatedAllMicoloHideoutTrainers
+	def_special HasDefeatedAllDarkiGymTrainersZone1
+	def_special HasDefeatedAllDarkiGymTrainersZone2
+	def_special HasDefeatedAllDarkiGymTrainersZoneFinal

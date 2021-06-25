@@ -27,5 +27,8 @@ u8 GetCurrentApproachingTrainerEventObjectId(void);
 u8 GetChosenApproachingTrainerEventObjectId(u8 arrayId);
 void PlayerFaceTrainerAfterBattle(void);
 void HasDefeatedAllMicoloHideoutTrainers(void);
+void HasDefeatedAllDarkiGymTrainersZone1(void);
+void HasDefeatedAllDarkiGymTrainersZone2(void);
+void HasDefeatedAllDarkiGymTrainersZoneFinal(void);
 
 #endif // GUARD_TRAINER_SEE_H

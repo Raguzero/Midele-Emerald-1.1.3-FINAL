@@ -183,6 +183,28 @@ static const u16 sMicoloHideoutTrainerFlags[] = {
     TRAINER_PHENT
 };
 
+static const u16 sDarkiGymTrainersZone1Flags[] = {
+    TRAINER_ANTHONYPXP,
+    TRAINER_DRANIX,
+    TRAINER_CHARZ
+};
+
+static const u16 sDarkiGymTrainersZone2Flags[] = {
+    TRAINER_UMBREON123,
+    TRAINER_ULTRA_MAGIC,
+    TRAINER_FURRY,
+    TRAINER_DARK_MELKOR,
+    TRAINER_YUME
+};
+
+static const u16 sDarkiGymTrainersZoneFinalFlags[] = {
+	TRAINER_ESBIRRO_DARKI_1,
+	TRAINER_ESBIRRO_DARKI_2,
+	TRAINER_ESBIRRO_DARKI_3,
+	TRAINER_ESBIRRO_DARKI_4,
+	TRAINER_ESBIRRO_DARKI_5
+};
+
 // code
 bool8 CheckForTrainersWantingBattle(void)
 {
@@ -827,4 +849,79 @@ void HasDefeatedAllMicoloHideoutTrainers(void)
 
     ConvertUIntToDecimalStringN(gStringVar1, defeatedTrainersCount, STR_CONV_MODE_LEFT_ALIGN, 2);
     ConvertUIntToDecimalStringN(gStringVar2, ARRAY_COUNT(sMicoloHideoutTrainerFlags), STR_CONV_MODE_LEFT_ALIGN, 2);
+}
+
+void HasDefeatedAllDarkiGymTrainersZone1(void)
+{
+    u8 defeatedTrainersCount = 0;
+    u8 i;
+    for (i = 0; i < ARRAY_COUNT(sDarkiGymTrainersZone1Flags); i++)
+    {
+        if (HasTrainerBeenFought(sDarkiGymTrainersZone1Flags[i]))
+        {
+            defeatedTrainersCount++;
+        }
+    }
+    
+    if (defeatedTrainersCount == ARRAY_COUNT(sDarkiGymTrainersZone1Flags))
+    {
+        gSpecialVar_Result = TRUE;
+    }
+    else
+    {
+        gSpecialVar_Result = FALSE;
+    }
+
+    ConvertUIntToDecimalStringN(gStringVar1, defeatedTrainersCount, STR_CONV_MODE_LEFT_ALIGN, 2);
+    ConvertUIntToDecimalStringN(gStringVar2, ARRAY_COUNT(sDarkiGymTrainersZone1Flags), STR_CONV_MODE_LEFT_ALIGN, 2);
+}
+
+void HasDefeatedAllDarkiGymTrainersZone2(void)
+{
+    u8 defeatedTrainersCount = 0;
+    u8 i;
+    for (i = 0; i < ARRAY_COUNT(sDarkiGymTrainersZone2Flags); i++)
+    {
+        if (HasTrainerBeenFought(sDarkiGymTrainersZone2Flags[i]))
+        {
+            defeatedTrainersCount++;
+        }
+    }
+    
+    if (defeatedTrainersCount == ARRAY_COUNT(sDarkiGymTrainersZone2Flags))
+    {
+        gSpecialVar_Result = TRUE;
+    }
+    else
+    {
+        gSpecialVar_Result = FALSE;
+    }
+
+    ConvertUIntToDecimalStringN(gStringVar1, defeatedTrainersCount, STR_CONV_MODE_LEFT_ALIGN, 2);
+    ConvertUIntToDecimalStringN(gStringVar2, ARRAY_COUNT(sDarkiGymTrainersZone2Flags), STR_CONV_MODE_LEFT_ALIGN, 2);
+}
+
+void HasDefeatedAllDarkiGymTrainersZoneFinal(void)
+{
+    u8 defeatedTrainersCount = 0;
+    u8 i;
+    for (i = 0; i < ARRAY_COUNT(sDarkiGymTrainersZoneFinalFlags); i++)
+    {
+        if (HasTrainerBeenFought(sDarkiGymTrainersZoneFinalFlags[i]))
+        {
+            defeatedTrainersCount++;
+        }
+    }
+    
+    if (defeatedTrainersCount == ARRAY_COUNT(sDarkiGymTrainersZoneFinalFlags))
+    {
+        gSpecialVar_Result = TRUE;
+    }
+    else
+    {
+        gSpecialVar_Result = FALSE;
+    }
+
+    ConvertUIntToDecimalStringN(gStringVar1, defeatedTrainersCount, STR_CONV_MODE_LEFT_ALIGN, 2);
+    ConvertUIntToDecimalStringN(gStringVar2, ARRAY_COUNT(sDarkiGymTrainersZoneFinalFlags), STR_CONV_MODE_LEFT_ALIGN, 2);
 }

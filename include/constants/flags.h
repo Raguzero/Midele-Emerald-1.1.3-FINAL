@@ -698,9 +698,9 @@
 #define FLAG_HIDE_FIREON_2_GYM_SANTY  0x291 // Previously Unused Flag
 #define FLAG_HIDE_FIREON_3_GYM_SANTY  0x292 // Previously Unused Flag
 #define FLAG_HIDE_FIREON_4_GYM_SANTY  0x293 // Previously Unused Flag
-#define FLAG_UNUSED_0x294  0x294 // Unused Flag
-#define FLAG_UNUSED_0x295  0x295 // Unused Flag
-#define FLAG_UNUSED_0x296  0x296 // Unused Flag
+#define FLAG_HIDE_PAREDINVISIBLE_1_DARKI_GYM  0x294 // Unused Flag
+#define FLAG_HIDE_PAREDINVISIBLE_2_DARKI_GYM  0x295 // Unused Flag
+#define FLAG_HIDE_PAREDINVISIBLE_3_DARKI_GYM  0x296 // Unused Flag
 #define FLAG_UNUSED_0x297  0x297 // Unused Flag
 #define FLAG_UNUSED_0x298  0x298 // Unused Flag
 #define FLAG_UNUSED_0x299  0x299 // Unused Flag
