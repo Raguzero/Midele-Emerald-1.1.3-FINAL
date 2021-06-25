@@ -7,6 +7,10 @@ MicoloLeague_MainRoom_OnLoad::
     call_if_eq MicoloLeague_MainRoom_BlockPacochefRoom
     checktrainerflag TRAINER_AVADER_MICOLANDIA
     call_if_eq MicoloLeague_MainRoom_BlockVaderRoom
+    checktrainerflag TRAINER_LAVENDER_MICOLANDIA
+    call_if_eq MicoloLeague_MainRoom_BlockLavenderRoom
+    checktrainerflag TRAINER_RAGU
+    call_if_eq MicoloLeague_MainRoom_BlockRaguRoom
 
     call MicoloLeague_MainRoom_TryBlockFinalRoom
     end
@@ -17,6 +21,14 @@ MicoloLeague_MainRoom_BlockPacochefRoom:
 
 MicoloLeague_MainRoom_BlockVaderRoom:
     setmetatile 6, 5, 0x380,  0
+    return
+
+MicoloLeague_MainRoom_BlockLavenderRoom:
+    setmetatile 6, 9, 0x380,  0
+    return
+    
+MicoloLeague_MainRoom_BlockRaguRoom:
+    setmetatile 11, 5, 0x380,  0
     return
 
 MicoloLeague_MainRoom_TryBlockFinalRoom::
