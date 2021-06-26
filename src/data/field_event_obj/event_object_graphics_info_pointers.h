@@ -255,6 +255,7 @@ const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_Celebi;
 const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_TMBall;
 const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_FireOn;
 const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_FireOff;
+const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_Slowbro;
 
 const struct EventObjectGraphicsInfo *const gEventObjectGraphicsInfoPointers[] = {
     [EVENT_OBJ_GFX_BRENDAN_NORMAL] =           &gEventObjectGraphicsInfo_BrendanNormal,
@@ -507,6 +508,7 @@ const struct EventObjectGraphicsInfo *const gEventObjectGraphicsInfoPointers[] =
     [EVENT_OBJ_GFX_TM_BALL] =               &gEventObjectGraphicsInfo_TMBall,
     [EVENT_OBJ_GFX_FIRE_ON] =               &gEventObjectGraphicsInfo_FireOn,
     [EVENT_OBJ_GFX_FIRE_OFF] =               &gEventObjectGraphicsInfo_FireOff,
+    [EVENT_OBJ_GFX_SLOWBRO] =               &gEventObjectGraphicsInfo_Slowbro,
 };
 
 const struct EventObjectGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

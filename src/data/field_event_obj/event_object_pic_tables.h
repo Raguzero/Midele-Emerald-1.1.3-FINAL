@@ -2280,3 +2280,15 @@ const struct SpriteFrameImage gEventObjectPicTable_FireOn[] = {
 const struct SpriteFrameImage gEventObjectPicTable_FireOff[] = {
     obj_frame_tiles(gEventObjectPic_FireOff),
 };
+
+const struct SpriteFrameImage gEventObjectPicTable_Slowbro[] = {
+    overworld_frame(gEventObjectPic_Slowbro, 2, 2, 0),
+    overworld_frame(gEventObjectPic_Slowbro, 2, 2, 1),
+    overworld_frame(gEventObjectPic_Slowbro, 2, 2, 2),
+    overworld_frame(gEventObjectPic_Slowbro, 2, 2, 0),
+    overworld_frame(gEventObjectPic_Slowbro, 2, 2, 0),
+    overworld_frame(gEventObjectPic_Slowbro, 2, 2, 1),
+    overworld_frame(gEventObjectPic_Slowbro, 2, 2, 1),
+    overworld_frame(gEventObjectPic_Slowbro, 2, 2, 2),
+    overworld_frame(gEventObjectPic_Slowbro, 2, 2, 2),
+};

@@ -691,3 +691,6 @@ $(EVENTOBJGFXDIR)/pics/misc/fuegoencendido.4bpp: %.4bpp: %.png
 	
 $(EVENTOBJGFXDIR)/pics/misc/fuegoapagado.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
+	
+$(EVENTOBJGFXDIR)/pokemon/slowbro.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 2
