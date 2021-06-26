@@ -10901,7 +10901,8 @@ static void Cmd_handleballthrow(void)
                 break;
             case ITEM_TIMER_BALL:
                 ballMultiplier = gBattleResults.battleTurnCounter + 10;
-                if (ballMultiplier > 40)
+                // overflow en el u8 ballMultiplier si el número de turnos supera los 245
+                if (gBattleResults.battleTurnCounter > 30)
                     ballMultiplier = 40;
                 break;
             case ITEM_LUXURY_BALL:
