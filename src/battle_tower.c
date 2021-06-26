@@ -40,6 +40,7 @@
 
 extern const u8 MossdeepCity_SpaceCenter_2F_EventScript_MaxieTrainer[];
 extern const u8 MossdeepCity_SpaceCenter_2F_EventScript_TabithaTrainer[];
+extern EWRAM_DATA const u8 *sTrainerADefeatSpeech;
 
 // EWRAM vars.
 EWRAM_DATA const struct BattleFrontierTrainer *gFacilityTrainers = NULL;
@@ -920,6 +921,9 @@ static const u16 sRecordTrainerSpeechLost[] =
 {
     EC_WORD_TOO, EC_WORD_BAD, EC_WORD_ELLIPSIS, EC_WORD_WE, EC_WORD_LOST, EC_WORD_ELLIPSIS
 };
+
+static const u8 frasederrota[] = _("GG$");
+static const u8 frase_red[] = _("…$");
 
 // code
 void CallBattleTowerFunc(void)
@@ -2191,9 +2195,11 @@ void DoSpecialTrainerBattle(void)
 		  if (FlagGet(FLAG_RANDOMBATTLE_GYMGOOSES) == TRUE)
 			{
 			gTrainerBattleOpponent_A = TRAINER_RANDOM_PARTY_GYM;
+			sTrainerADefeatSpeech = frasederrota;
 			}
 		  else
 	    gTrainerBattleOpponent_A = TRAINER_RANDOM_PARTY;
+		sTrainerADefeatSpeech = frasederrota;
 		break;
 		case SPECIAL_RANDOM_BATTLE_2:
         gBattleTypeFlags = BATTLE_TYPE_TRAINER;
@@ -2201,9 +2207,13 @@ void DoSpecialTrainerBattle(void)
         PlayMapChosenOrBattleBGM(509);
         BattleTransition_StartOnField(sub_80B100C(6));
 		gTrainerBattleOpponent_A = TRAINER_RANDOM_PARTY_2;
+		sTrainerADefeatSpeech = frasederrota;
 		break;
 		case SPECIAL_CIBERCAFE:
         gBattleTypeFlags = BATTLE_TYPE_TRAINER;
+		sTrainerADefeatSpeech = frasederrota;
+		if (gTrainerBattleOpponent_A == TRAINER_RED2)
+        sTrainerADefeatSpeech = frase_red;
 		CreateTask(Task_StartBattleAfterTransition, 1);
         PlayMapChosenOrBattleBGM(0);
         BattleTransition_StartOnField(sub_80B100C(13));
