@@ -13203,15 +13203,15 @@ const struct Trainer gTrainers[] = {
     [TRAINER_SLOWBRO] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE, // AÑADIR NUEVA CLASE EN PLAN, EXPERIMENTO FALLIDO
+        .trainerClass = TRAINER_CLASS_CURSED,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
-        .trainerPic = TRAINER_PIC_POKEMANIAC, // AÑADIR PIC PARA SLOWBRO
+        .trainerPic = TRAINER_PIC_CURSED_SLOWBRO,
         .trainerName = _("SLOWBRO"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
-        .partySize = ARRAY_COUNT(sParty_JProgamer),
-        .party = {.ItemCustomMidele = sParty_JProgamer},
+        .partySize = ARRAY_COUNT(sParty_Slowbro),
+        .party = {.ItemCustomMidele = sParty_Slowbro},
     },
     [TRAINER_BOTONES] =
     {
@@ -13456,7 +13456,7 @@ const struct Trainer gTrainers[] = {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
-        .trainerPic = TRAINER_PIC_POKEFAN_M,
+        .trainerPic = TRAINER_PIC_COLLECTOR,
         .trainerName = _("FURRY"),
         .items = {},
         .doubleBattle = FALSE,

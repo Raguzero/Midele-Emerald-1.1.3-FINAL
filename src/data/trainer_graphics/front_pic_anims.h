@@ -458,6 +458,10 @@ static const union AnimCmd *const sAnims_Channeler[] ={
     sAnim_GeneralFrame0,
 };
 
+static const union AnimCmd *const sAnims_CursedSlowbro[] ={
+    sAnim_GeneralFrame0,
+};
+
 const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
 {
     [TRAINER_PIC_HIKER] = sAnims_Hiker,
@@ -575,4 +579,5 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_SCIENTISH_FRLG] = sAnims_scientish_frlg,
     [TRAINER_PIC_MICOLO] = sAnims_Micolo,
     [TRAINER_PIC_CHANNELER] = sAnims_Channeler,
+    [TRAINER_PIC_CURSED_SLOWBRO] = sAnims_CursedSlowbro,
 };

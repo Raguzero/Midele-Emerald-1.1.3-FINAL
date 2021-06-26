@@ -131,6 +131,7 @@
 #define TRAINER_PIC_SCIENTISH_FRLG          112
 #define TRAINER_PIC_MICOLO          113
 #define TRAINER_PIC_CHANNELER          114
+#define TRAINER_PIC_CURSED_SLOWBRO          115
 
 #define TRAINER_BACK_PIC_BRENDAN                0
 #define TRAINER_BACK_PIC_MAY                    1
@@ -377,6 +378,7 @@
 #define TRAINER_CLASS_LEADER_MIDELE        0x44
 #define TRAINER_CLASS_ELITE_FOUR_MIDELE        0x45
 #define TRAINER_CLASS_SCIENTISH        0x46
+#define TRAINER_CLASS_CURSED        0x47
 
 #define TRAINER_ENCOUNTER_MUSIC_MALE         0 // standard male encounter music
 #define TRAINER_ENCOUNTER_MUSIC_FEMALE       1 // standard female encounter music

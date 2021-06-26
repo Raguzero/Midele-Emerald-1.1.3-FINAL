@@ -590,6 +590,9 @@ static const u8 sText_RedHPGhaddar[] = _("¡¡NOOOO EL RNG!!\p");
 static const u8 sText_KaderetePierdePrimerPoke[] = _("Esto estaba calculado...\p");
 static const u8 sText_KadereteEnviaUltimoPoke[] = _("Esto es un problema más gordo\nque la madre de Krub.\p");
 static const u8 sText_RedHPKaderete[] = _("Vamos acabando que las bombas\n no se ponen solas.\p");
+static const u8 sText_CursedSlowbroPierdePrimerPoke[] = _("El valiente tiene miedo del contrario;\n el cobarde, de su propio temor.\p");
+static const u8 sText_CursedSlowbroEnviaUltimoPoke[] = _("Con pocos, pero doctos libros juntos,\nvivo en conversación con los difuntos\l y con mis ojos oigo hablar a los muertos\p");
+static const u8 sText_RedHPCursedSlowbro[] = _("¡¡¡KILL ME, PLEASE!!!\p");
 
 
 
@@ -3107,6 +3110,7 @@ static const struct TrainerSlide sTrainerSlides[] =
     {TRAINER_GHADDAR, sText_GhaddarEnviaUltimoPoke, sText_RedHPGhaddar, sText_GhaddarPierdePrimerPoke},  
     {TRAINER_GHADDAR_2, sText_GhaddarEnviaUltimoPoke, sText_RedHPGhaddar, sText_GhaddarPierdePrimerPoke},  
 	{TRAINER_KADERETE_2, sText_KadereteEnviaUltimoPoke, sText_RedHPKaderete, sText_KaderetePierdePrimerPoke},
+    {TRAINER_SLOWBRO, sText_CursedSlowbroEnviaUltimoPoke, sText_RedHPCursedSlowbro, sText_CursedSlowbroPierdePrimerPoke},
 };
 
 static u32 GetEnemyMonCount(bool32 onlyAlive)

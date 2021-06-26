@@ -148,6 +148,67 @@ MicoloHideout_ExperimentRoom_EventScript_Uta::
 	trainerbattle_single TRAINER_UTALAWEA, MicoloHideout_ExperimentRoom_Text_UtaIntro, MicoloHideout_ExperimentRoom_Text_UtaDefeat
 	msgbox MicoloHideout_ExperimentRoom_Text_UtaPostBattle, MSGBOX_AUTOCLOSE
 	end
+	
+MicoloHideout_ExperimentRoom_EventScript_CursedSlowbro::  
+	trainerbattle_single TRAINER_SLOWBRO, MicoloHideout_ExperimentRoom_Text_CursedSlowbroIntro, MicoloHideout_ExperimentRoom_Text_CursedSlowbroDefeat
+	msgbox MicoloHideout_ExperimentRoom_Text_CursedSlowbroPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+MicoloHideout_ExperimentRoom_Text_CursedSlowbroIntro: 
+	.string "Ser... O no ser...\n"
+	.string "Esa es la cuestión.\p"
+
+	.string "Soy un SLOWBRO y al mismo tiempo\n"
+	.string "no soy un SLOWBRO.\p"
+	
+	.string "No soy un ENTE, pero tampoco\n"
+	.string "soy un ULTRAENTE.\p"
+
+	.string "Solo soy un experimento fallido de\n"
+	.string "MICOLO que vaga sin rumbo por este\l"
+	.string "lugar sin tener un rumbo\l" 
+	.string "por donde vagar.\p"
+
+	.string "Por lo que soy un maldito ERROR que\n"
+	.string "no debería existir por ser\l" 
+	.string "un maldito ERROR.\p"
+
+	.string "Los conceptos en si mismos no tienen\n"
+	.string "significado, la intención que imprimes\l" 
+	.string "en el concepto, le da significado.\p"
+
+	.string "Las contradicciones... no existen.\n" 
+	.string "La coherencia... no existe.\p"
+
+	.string "Puede ser verdad, puede ser mentira.\n"
+    .string "El tiempo dirá lo que es o lo que no es.\p"
+	
+	.string "Nada tiene sentido, y al mismo tiempo\n"
+	.string "todo puede tener sentido.\p"
+	
+    .string "Al estar en desventaja soy una victima,\n"
+	.string "pero al mostrar poder...\l" 
+	.string "¡Te convierto en victima!$"	
+
+MicoloHideout_ExperimentRoom_Text_CursedSlowbroDefeat: 
+	.string "¡Mejor vida es morir que vivir muerto!\p"
+
+	.string "¡¡¡KILL ME, PLEASE!!!$"
+
+MicoloHideout_ExperimentRoom_Text_CursedSlowbroPostBattle: 
+	.string "He sufrido mucho, y cada día sufro más,\n" 
+	.string "ni te imaginas cuanto más puedo sufrir.\p"
+
+	.string "Mas esto ya no es necesario,\n" 
+	.string "me voy de este lugar.\p"
+	
+	.string "Antes de irme si debo decir\n" 
+	.string "que la mayoría son idiotas,\l" 
+	.string "y que los idiotas son mayoría.\p"
+
+	.string "Me han atacado, y cuando yo ataco\n"
+	.string "me quieren sancionar, siendo que\l" 
+	.string "al resto no han sancionado.$"
 
 MicoloHideout_ExperimentRoom_Text_Javisoto2Intro: 
 	.string "Buenas, ¿cuando haran el evento de\n" 
