@@ -1075,15 +1075,17 @@ static bool32 BerryTreeGrow(struct BerryTree *tree)
     case BERRY_STAGE_TALLER:
         tree->stage++;
         break;
-    case BERRY_STAGE_BERRIES:
+// Eliminadas para que se evite tanto que vuelva a brote como que, después de muchos reinicios, desaparezca la planta
+  /*  case BERRY_STAGE_BERRIES:
         tree->watered1 = 0;
         tree->watered2 = 0;
         tree->watered3 = 0;
         tree->watered4 = 0;
         tree->berryYield = 0;
-        tree->stage = BERRY_STAGE_BERRIES;
-        ++tree->regrowthCount;
-        break;
+        tree->stage = BERRY_STAGE_SPROUTED;
+        if (++tree->regrowthCount == 10)
+            *tree = gBlankBerryTree;
+        break; */
     }
     return TRUE;
 }
