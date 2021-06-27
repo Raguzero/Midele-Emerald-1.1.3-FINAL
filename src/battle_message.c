@@ -555,9 +555,9 @@ static const u8 sText_RedHPJZombie[] = _("Esto pasa... aaaah... por\n estar luch
 static const u8 sText_EeveetoPierdePrimerPoke[] = _("Todo va según el plan, este sacrificio\n fue necesario.\p");
 static const u8 sText_EeveetoEnviaUltimoPoke[] = _("Mi equipo está débil, pero el tuyo tiene\n hipotermia a estas alturas.\p");
 static const u8 sText_RedHPJEeveeto[] = _("Estás a esto de ganar, pero el frio\n te lo va a impedir.\p");
-static const u8 sText_PacoFieryPierdePrimerPoke[] = _("Uuuuuuh no está mal,\n SHOW ME YOUR BOOBS.\p");
-static const u8 sText_PacoFieryEnviaUltimoPoke[] = _("Carallo neno, te tomas a pecho esto.\p");
-static const u8 sText_RedHPPacoFiery[] = _("Yeee haw, a darlo todel.\p");
+static const u8 sText_PacoPierdePrimerPoke[] = _("Uuuuuuh no está mal,\n SHOW ME YOUR BOOBS.\p");
+static const u8 sText_PacoEnviaUltimoPoke[] = _("Carallo neno, te tomas a pecho esto.\p");
+static const u8 sText_RedHPPaco[] = _("Yeee haw, a darlo todel.\p");
 static const u8 sText_EntropiaPierdePrimerPoke[] = _("Espera un momento...\n ¿Qué esto va en serio?\p O sea, ¿no era para hacer el paripé\n y enseñarnos las pokebolas?\p");
 static const u8 sText_EntropiaEnviaUltimoPoke[] = _("Ni se te ocurra usar un ataque más\n o te juro que hago ragequit.\p");
 static const u8 sText_RedHPEntropia[] = _("Jo nene, esperaba que entre nosotros\n todo fluyese mejor pero veo que\l eres acuario y eso si que doesn't sit\l right with me\p");
@@ -593,6 +593,9 @@ static const u8 sText_RedHPKaderete[] = _("Vamos acabando que las bombas\n no se
 static const u8 sText_CursedSlowbroPierdePrimerPoke[] = _("El valiente tiene miedo del contrario;\n el cobarde, de su propio temor.\p");
 static const u8 sText_CursedSlowbroEnviaUltimoPoke[] = _("Con pocos, pero doctos libros juntos,\nvivo en conversación con los difuntos\l y con mis ojos oigo hablar a los muertos\p");
 static const u8 sText_RedHPCursedSlowbro[] = _("¡¡¡KILL ME, PLEASE!!!\p");
+static const u8 sText_VaderMicolandiaPierdePrimerPoke[] = _("Mine is the one true mewnado,\ninstrument of destruction\land rebirth!\p");
+static const u8 sText_VaderMicolandiaEnviaUltimoPoke[] = _("Did you...\pNo, how can you still have visions?!\nHow can you read my movements?!\p");
+static const u8 sText_RedHPVaderMicolandia[] = _("Impossible!\pHow can such power dwell within you?\nI AM A GOD!!!\p");
 
 static const u8 frase0[] = _("Te voy a contar la historia del\nPrimer Nacional Español\ltodas las veces que pueda.\p");
 static const u8 frase1[] = _("En primer lugar dar las gracias\n a mis 6 Pokemon\p(me arriesgué a usar 1 solo equipo\nen tooooodo el torneo, y el equipo\lme respondió bien, demostrando ser un\lgran equipo bastante equilibrado, y\l poderoso tanto en ataque\l como en defensa).\p¡Gracias Hippowdon! ¡Gracias Skarmory!\n¡Gracias Tentacruel!¡Gracias Cradily!\l¡Gracias Spiritomb! ¡Gracias Garchomp!\p");
@@ -3107,7 +3110,7 @@ static const struct TrainerSlide sTrainerSlides[] =
     {TRAINER_GRANITECAVE_JZOMBIE, sText_JZombieEnviaUltimoPoke, sText_RedHPJZombie, sText_JZombiePierdePrimerPoke},
     {TRAINER_JZOMBIE2, sText_JZombieEnviaUltimoPoke, sText_RedHPJZombie, sText_JZombiePierdePrimerPoke},
     {TRAINER_EEVEETO, sText_EeveetoEnviaUltimoPoke, sText_RedHPJEeveeto, sText_EeveetoPierdePrimerPoke},
-    {TRAINER_FIERYPATH_PACOCHEF, sText_PacoFieryEnviaUltimoPoke, sText_RedHPPacoFiery, sText_PacoFieryPierdePrimerPoke},
+    {TRAINER_FIERYPATH_PACOCHEF, sText_PacoEnviaUltimoPoke, sText_RedHPPaco, sText_PacoPierdePrimerPoke},
     {TRAINER_ENTROPIA, sText_EntropiaEnviaUltimoPoke, sText_RedHPEntropia, sText_EntropiaPierdePrimerPoke},
     {TRAINER_UTALAWEA, sText_UtaEnviaUltimoPoke, sText_RedHPUta, sText_UtaPierdePrimerPoke},
     {TRAINER_RED_KROW, sText_RedKrowEnviaUltimoPoke, sText_RedHPRedKrow, sText_RedKrowPierdePrimerPoke},
@@ -3121,6 +3124,8 @@ static const struct TrainerSlide sTrainerSlides[] =
     {TRAINER_GHADDAR_2, sText_GhaddarEnviaUltimoPoke, sText_RedHPGhaddar, sText_GhaddarPierdePrimerPoke},  
 	{TRAINER_KADERETE_2, sText_KadereteEnviaUltimoPoke, sText_RedHPKaderete, sText_KaderetePierdePrimerPoke},
     {TRAINER_SLOWBRO, sText_CursedSlowbroEnviaUltimoPoke, sText_RedHPCursedSlowbro, sText_CursedSlowbroPierdePrimerPoke},
+    {TRAINER_PACOCHEF_MICOLANDIA, sText_PacoEnviaUltimoPoke, sText_RedHPPaco, sText_PacoPierdePrimerPoke},
+    {TRAINER_AVADER_MICOLANDIA, sText_VaderMicolandiaEnviaUltimoPoke, sText_RedHPVaderMicolandia, sText_VaderMicolandiaPierdePrimerPoke},
 };
 
 static u32 GetEnemyMonCount(bool32 onlyAlive)
