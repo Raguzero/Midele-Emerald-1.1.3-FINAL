@@ -1101,12 +1101,13 @@ void BerryTreeTimeUpdate(s32 minutes)
 
         if (tree->berry && tree->stage && !tree->growthSparkle)
         {
-            if (minutes >= GetStageDurationByBerryType(tree->berry) * 71)
+// Eliminadas para que después de muchos reinicios, desaparezca la planta
+           /* if (minutes >= GetStageDurationByBerryType(tree->berry) * 71)
             {
                 *tree = gBlankBerryTree;
             }
             else
-            {
+            {*/
                 s32 time = minutes;
 
                 while (time != 0)
@@ -1120,10 +1121,12 @@ void BerryTreeTimeUpdate(s32 minutes)
                     tree->minutesUntilNextStage = GetStageDurationByBerryType(tree->berry);
                     if (!BerryTreeGrow(tree))
                         break;
-                    if (tree->stage == BERRY_STAGE_BERRIES)
-                        tree->minutesUntilNextStage *= 4;
+// Eliminadas para que después de muchos reinicios, desaparezca la planta
+               /*     if (tree->stage == BERRY_STAGE_BERRIES)
+                        tree->minutesUntilNextStage *= 4;*/
                 }
-            }
+// Eliminada para que después de muchos reinicios, desaparezca la planta
+          //  }
         }
     }
 }
