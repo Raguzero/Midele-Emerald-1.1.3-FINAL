@@ -83,7 +83,7 @@
 #define FLAG_DEFEATED_DARKIBUENRO_GYM    0x47 // Previously Unused Flag
 #define FLAG_DEFEATED_TILO    0x48 // Previously Unused Flag
 #define FLAG_ITEM_IZABE_TRUCK_G_CALCIUM   0x49 // Previously Unused Flag
-#define FLAG_UNUSED_0x04A    0x4A // Unused Flag
+#define FLAG_TOTEM_SEAFLOOR_CAVERN_OUTSIDE    0x4A // Previously Unused Flag
 #define FLAG_UNUSED_0x04B    0x4B // Unused Flag
 #define FLAG_UNUSED_0x04C    0x4C // Unused Flag
 #define FLAG_UNUSED_0x04D    0x4D // Unused Flag

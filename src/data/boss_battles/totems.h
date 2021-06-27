@@ -121,5 +121,27 @@ const struct TotemMon gTotemMons[] =
         .abilityNumber = 0, // SANDS STREAM
         .statBoosts = {6, 6, 8, 12, 8, 8, 8, 6}, // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
         .evs = {252, 252, 252, 252, 252, 252},
+    },
+    [TOTEM_PRIMARINA] =
+    {
+        .species = SPECIES_PRIMARINA,
+        .minLevel = 45,
+        .moves = {MOVE_WHIRLPOOL, MOVE_DAZZLING_GLEAM, MOVE_TOXIC, MOVE_ENERGY_BALL},
+        .item = ITEM_LEFTOVERS,
+        .nature = NATURE_CALM,
+        .abilityNumber = 1, // CUTE CHARM
+        .statBoosts = {6, 6, 8, 6, 6, 8, 6, 6},  // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
+        .evs = {252, 0, 252, 0, 252, 0},
+    },
+    [TOTEM_LANTURN] =
+    {
+        .species = SPECIES_LANTURN,
+        .minLevel = 75,
+        .moves = {MOVE_THUNDER, MOVE_SURF, MOVE_ICE_BEAM, MOVE_THUNDER_WAVE},
+        .item = ITEM_LEFTOVERS,
+        .nature = NATURE_MODEST,
+        .abilityNumber = 0, // VOLT ABSORB
+        .statBoosts = {6, 6, 12, 6, 8, 12, 6, 6}, // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
+        .evs = {252, 252, 252, 252, 252, 252},
     }
 };

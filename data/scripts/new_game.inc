@@ -251,5 +251,6 @@ EventScript_ResetAllMapFlags:: @ 82715DE
 	setflag FLAG_HIDE_FIREON_2_GYM_SANTY
 	setflag FLAG_HIDE_FIREON_3_GYM_SANTY
 	setflag FLAG_HIDE_FIREON_4_GYM_SANTY
+	setflag FLAG_TOTEM_SEAFLOOR_CAVERN_OUTSIDE
 	call EventScript_ResetAllBerries
 	end
