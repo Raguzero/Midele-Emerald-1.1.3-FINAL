@@ -2197,7 +2197,7 @@ static const struct TrainerMonCustomMidele sParty_Roxanne1[] = {
     .iv = 31,
     .lvl = 10,
     .species = SPECIES_LILEEP,
-    .heldItem = ITEM_ORAN_BERRY,
+    .heldItem = ITEM_SPELL_TAG,
     .moves = {MOVE_ASTONISH, MOVE_ACID, MOVE_ROCK_TOMB, MOVE_PROTECT}
 	},
     {
@@ -2257,7 +2257,7 @@ static const struct TrainerMonCustomMidele sParty_Brawly1[] = {
     .species = SPECIES_MACHOP,
   	.evs = {0, 24, 0, 0, 0, 0},
     .heldItem = ITEM_MENTAL_HERB,
-    .moves = {MOVE_KARATE_CHOP, MOVE_FIRE_BLAST, MOVE_SEISMIC_TOSS, MOVE_BULK_UP},
+    .moves = {MOVE_KARATE_CHOP, MOVE_FIRE_PUNCH, MOVE_SEISMIC_TOSS, MOVE_BULK_UP},
     .ability = 1},
     {
     .iv = 31,
@@ -6352,7 +6352,7 @@ static const struct TrainerMonCustomMidele sParty_Dawson[] = {
     .species = SPECIES_HOOTHOOT,
     .heldItem = ITEM_LUM_BERRY,
 	.evs = {0, 48, 0, 0, 0, 0},
-    .moves = {MOVE_TACKLE, MOVE_FORESIGHT, MOVE_AIR_CUTTER, MOVE_GROWL}
+    .moves = {MOVE_CONFUSION, MOVE_FORESIGHT, MOVE_AIR_CUTTER, MOVE_FEATHER_DANCE}
     }
 };
 
@@ -21134,7 +21134,7 @@ static const struct TrainerMonCustomMidele sParty_Davian[] = {
     .species = SPECIES_DUNSPARCE,
 	.heldItem = ITEM_SILK_SCARF,
 	.evs = {40, 0, 0, 0, 0, 0},
-    .moves = {MOVE_GLARE, MOVE_RAGE, MOVE_BITE, MOVE_COIL}
+    .moves = {MOVE_GLARE, MOVE_RAGE, MOVE_BITE, MOVE_SPITE}
     }
 };
 // GRANITE CAVE (POKEMON ORAS)

@@ -93,11 +93,11 @@ const struct TotemMon gTotemMons[] =
     {
         .species = SPECIES_PROBOPASS,
         .minLevel = 13,
-        .moves = {MOVE_SPARK, MOVE_ROCK_BLAST, MOVE_SANDSTORM, MOVE_MUD_SLAP},
-        .item = ITEM_BERRY_JUICE,
-        .nature = NATURE_BRAVE,
+        .moves = {MOVE_TAUNT, MOVE_ROCK_THROW, MOVE_SANDSTORM, MOVE_MUD_SLAP},
+        .item = ITEM_NONE,
+        .nature = NATURE_HARDY,
         .abilityNumber = 0, // STURDY
-        .statBoosts = {6, 6, 8, 6, 6, 8, 6, 6}, // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
+        .statBoosts = {6, 6, 6, 6, 6, 6, 6, 6}, // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
         .evs = {252, 0, 0, 0, 0, 0},
     },
     [TOTEM_RHYPERIOR] =
