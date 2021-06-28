@@ -15,6 +15,7 @@
 #include "sprite.h"
 #include "task.h"
 #include "constants/songs.h"
+#include "constants/maps.h"
 #include "constants/map_types.h"
 
 // structures
@@ -41,6 +42,7 @@ static void DoEnterCaveTransition(void);
 static void Task_EnterCaveTransition1(u8 taskId);
 static void Task_EnterCaveTransition3(u8 taskId);
 static void Task_EnterCaveTransition4(u8 taskId);
+static bool8 CanUseFlashInMap(void);
 
 // rodata
 static const struct FlashStruct sTransitionTypes[] =
@@ -77,7 +79,11 @@ bool8 SetUpFieldMove_Flash(void)
 {
     // In Ruby and Sapphire, Registeel's tomb is opened by using Fly. In Emerald,
     // Flash is used instead.
-    if (ShouldDoBrailleRegisteelEffect())
+    if(!CanUseFlashInMap())
+    {
+        return FALSE;
+    }
+    else if (ShouldDoBrailleRegisteelEffect())
     {
         gSpecialVar_Result = GetCursorSelectionMonId();
         gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
@@ -92,6 +98,10 @@ bool8 SetUpFieldMove_Flash(void)
     }
 
     return FALSE;
+}
+
+static bool8 CanUseFlashInMap(void) {
+    return !(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(DARKIGYM) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(DARKIGYM));
 }
 
 static void FieldCallback_Flash(void)
