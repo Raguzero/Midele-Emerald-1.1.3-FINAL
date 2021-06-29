@@ -148,11 +148,6 @@ ForbiddenForest_EventScript_Merciboku::
 	msgbox ForbiddenForest_Text_MercibokuPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
-ForbiddenForest_EventScript_Felipex88::
-	trainerbattle_double TRAINER_FELIPEX88, Felipex88_AntesBatalla, Felipex88_MensajeDerrota, Felipex88_Text_MasdeunPokemon
-	msgbox Felipex88_DespuesDeBatalla, MSGBOX_AUTOCLOSE
-	end
-	
 ForbiddenForest_EventScript_Tenshinhan::
 	trainerbattle_single TRAINER_TENSHINHAN, Tenshinhan_AntesBatalla, Tenshinhan_MensajeDerrota
 	msgbox Tenshinhan_DespuesDeBatalla, MSGBOX_AUTOCLOSE
@@ -173,16 +168,16 @@ ForbiddenForest_EventScript_Santygrass::
 	msgbox ForbiddenForest_Text_Santygrass_TalkToHimself, MSGBOX_DEFAULT
 	faceplayer
 	playse SE_PIN
-	applymovement 12, Common_Movement_ExclamationMark
+	applymovement 11, Common_Movement_ExclamationMark
 	waitmovement 0
 	msgbox ForbiddenForest_Text_Santygrass_Talks, MSGBOX_NPC
 	setflag FLAG_COMPLETE_FORBIDDEN_FOREST
-	applymovement 12, ForbiddenForest_Movement_SantygrassSpin
+	applymovement 11, ForbiddenForest_Movement_SantygrassSpin
 	waitmovement 0
 	playse SE_W100
-	applymovement 12, ForbiddenForest_Movement_SantygrassJumpaway
+	applymovement 11, ForbiddenForest_Movement_SantygrassJumpaway
 	waitmovement 0
-	removeobject 12
+	removeobject 11
 	releaseall
 	end
 	
@@ -381,55 +376,6 @@ CharizardFan_DespuesDeBatalla:
 	
 	.string "¿O tal vez una Forma Regional de tipo\n"
 	.string "Dragon/Fuego?$"
-	
-Felipex88_AntesBatalla: 
-	.string "Hola, soy Felipex88, y me gusta hacer\n"
-	.string "cachitos mi lengua.\p"
-
-	.string "Los mexicanos en si son feos, chicos\n"
-	.string "y negros, más aún los k juegan pokemon,\l" 
-	.string "no salva ninguno pu viejo, e visto fotos\l" 
-	.string "y son todos unos troles, llegan a dar\l" 
-	.string "miedo y pena, para lo único k sirven es\l" 
-	.string "para sentarse a jugar mierdas\l"
-	.string "como estas.\p"
-	
-	.string "Los de este foro tampoco se salvan,\n" 
-	.string "dan pena ver que siempre están\l"
-	.string "introducidos en el mundo virtual\l"
-	.string "desperdiciando sus jóvenes vidas.\p"
-	
-	.string "Empezando por las mujeres y terminando\n" 
-	.string "por el mas feo del foro del k hay k\l" 
-	.string "estar eligiendo con pinzas cual es el\l"
-	.string "mas ogro, da pena meterse al foro a\l" 
-	.string "preguntar algo y que te respondan los\l" 
-	.string "mismos sin vida de siempre, de verdad\l" 
-	.string "es penosa la situación y el idiota k\l"
-	.string "cree sentirse de acero jugando a un\l" 
-	.string "juego random donde el 70% es pura\l" 
-	.string "suerte entre criticals, fallidas, y\l" 
-	.string "evasiones y solo el 30 de forma\l"
-	.string "normal, esta mas que perdido.$"
-
-Felipex88_MensajeDerrota: 
-	.string "¡Hora de cortarse la lengua!\n"
-	.string ":video: :video:\l"
-	.string "ghhghfghgghghghggh$"
- 
-Felipex88_DespuesDeBatalla:
-	.string "Comog podeig gegui guando a gesta wea.\p"
-
-	.string "Soig gunos fragasagos, salig a gugar\n" 
-	.string "a gosas mas agultas con viogentas\l"
-	.string "y sangggre... muga sangggreee ghghghgh\p"
-	
-	.string "¡GHAMA A GUNA GAMBUGANCIA!$"
-	
-Felipex88_Text_MasdeunPokemon: // BATALLA DOBLE
-	.string "¿Así que solo llevas un Pokémon?\p"
-	.string "Prefiero cortarme la lengua que usar\n"
-	.string "mi equipo en BATALLA INDIVIDUAL.$"
 	
 Tenshinhan_AntesBatalla: 
 	.string "Bueno, novato, veamos que puedes hacer\n" 

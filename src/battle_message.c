@@ -3158,7 +3158,7 @@ bool32 ShouldDoTrainerSlide(u32 battlerId, u32 trainerId, u32 which)
 
     if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER) || GetBattlerSide(battlerId) != B_SIDE_OPPONENT)
         return FALSE;
-	if (trainerId == TRAINER_DEBUG && which == TRAINER_SLIDE_LAST_LOW_HP) {
+	if (trainerId == TRAINER_MAESTRO_ARENA && which == TRAINER_SLIDE_LAST_LOW_HP) {
 		gBattleStruct->trainerSlideMsg = arena[gBattleResults.battleTurnCounter % 18];
         return TRUE;
     }

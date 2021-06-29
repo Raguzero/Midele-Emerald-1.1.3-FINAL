@@ -162,6 +162,11 @@ GymSanty2_EventScript_Ghaddar::
 	msgbox Ghaddar_DespuesDeBatalla, MSGBOX_AUTOCLOSE
 	end
 	
+GymSanty2_EventScript_Felipex88::
+	trainerbattle_double TRAINER_FELIPEX88, Felipex88_AntesBatalla, Felipex88_MensajeDerrota, Felipex88_Text_MasdeunPokemon
+	msgbox Felipex88_DespuesDeBatalla, MSGBOX_AUTOCLOSE
+	end
+	
 Entropia_AntesBatalla: 
 	.string "Amore, ¿sabías que estamos en la\n"
     .string "piscis season?\p"
@@ -263,7 +268,56 @@ Ghaddar_DespuesDeBatalla:
 	.string "Nada de evs ni ivs ni tonterías\n"
 	.string "Puro AMOR.\p"
 
-	.string "¡HACHA AL GACHA!$"	
+	.string "¡HACHA AL GACHA!$"
+
+Felipex88_AntesBatalla: 
+	.string "Hola, soy Felipex88, y me gusta hacer\n"
+	.string "cachitos mi lengua.\p"
+
+	.string "Los mexicanos en si son feos, chicos\n"
+	.string "y negros, más aún los k juegan pokemon,\l" 
+	.string "no salva ninguno pu viejo, e visto fotos\l" 
+	.string "y son todos unos troles, llegan a dar\l" 
+	.string "miedo y pena, para lo único k sirven es\l" 
+	.string "para sentarse a jugar mierdas\l"
+	.string "como estas.\p"
+	
+	.string "Los de este foro tampoco se salvan,\n" 
+	.string "dan pena ver que siempre están\l"
+	.string "introducidos en el mundo virtual\l"
+	.string "desperdiciando sus jóvenes vidas.\p"
+	
+	.string "Empezando por las mujeres y terminando\n" 
+	.string "por el mas feo del foro del k hay k\l" 
+	.string "estar eligiendo con pinzas cual es el\l"
+	.string "mas ogro, da pena meterse al foro a\l" 
+	.string "preguntar algo y que te respondan los\l" 
+	.string "mismos sin vida de siempre, de verdad\l" 
+	.string "es penosa la situación y el idiota k\l"
+	.string "cree sentirse de acero jugando a un\l" 
+	.string "juego random donde el 70% es pura\l" 
+	.string "suerte entre criticals, fallidas, y\l" 
+	.string "evasiones y solo el 30 de forma\l"
+	.string "normal, esta mas que perdido.$"
+
+Felipex88_MensajeDerrota: 
+	.string "¡Hora de cortarse la lengua!\n"
+	.string ":video: :video:\l"
+	.string "ghhghfghgghghghggh$"
+ 
+Felipex88_DespuesDeBatalla:
+	.string "Comog podeig gegui guando a gesta wea.\p"
+
+	.string "Soig gunos fragasagos, salig a gugar\n" 
+	.string "a gosas mas agultas con viogentas\l"
+	.string "y sangggre... muga sangggreee ghghghgh\p"
+	
+	.string "¡GHAMA A GUNA GAMBUGANCIA!$"
+	
+Felipex88_Text_MasdeunPokemon: // BATALLA DOBLE
+	.string "¿Así que solo llevas un Pokémon?\p"
+	.string "Prefiero cortarme la lengua que usar\n"
+	.string "mi equipo en BATALLA INDIVIDUAL.$"	
 
 GymSanty2_Text_Sign:
 	.string "ENCIENDE LOS CUATRO FAROLES\n"

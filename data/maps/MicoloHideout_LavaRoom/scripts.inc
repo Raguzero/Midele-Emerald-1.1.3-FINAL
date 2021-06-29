@@ -55,22 +55,7 @@ MicoloHideout_LavaRoom_EventScript_GiratinaMaster_Text_1:
 	.string ":lock: :lock: :lock: :lock: :lock: :lock:\n"
 	.string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
 	.string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
-	.string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
-	.string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
-	.string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
-	.string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
-	.string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
-	.string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
-	.string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
-	.string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
-	.string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
-	.string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
-	.string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
-	.string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
-	.string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
-	.string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
-	.string ":lock: :lock: :lock: :lock: :lock: :lock:\l"
-	.string ":lock: :lock: :lock: :lock:\p"
+	.string ":lock: :lock: :lock: :lock: :lock: :lock:\p"
 	.string "soy mod, pero te dejaré pasar si\n"
 	.string "derrotas a todos los entrenadores de\l"
 	.string "la GUARIDA.\p"
@@ -92,7 +77,17 @@ MicoloHideout_LavaRoom_EventScript_GiratinaMaster_Text_1:
 MicoloHideout_LavaRoom_EventScript_Phent::
 	trainerbattle_single TRAINER_PHENT, MicoloHideout_LavaRoom_Text_PhentIntro, MicoloHideout_LavaRoom_Text_PhentDefeat
 	msgbox MicoloHideout_LavaRoom_Text_PhentPostBattle, MSGBOX_AUTOCLOSE
-	end	
+	end
+	
+MicoloHideout_LavaRoom_EventScript_MDragon::
+	trainerbattle_single TRAINER_MDRAGON, MicoloHideout_LavaRoom_Text_MDragonIntro, MicoloHideout_LavaRoom_Text_MDragonDefeat
+	msgbox MicoloHideout_LavaRoom_Text_MDragonPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+MicoloHideout_LavaRoom_EventScript_MaestroArena::
+	trainerbattle_single TRAINER_MAESTRO_ARENA, MicoloHideout_LavaRoom_Text_MaestroArenaIntro, MicoloHideout_LavaRoom_Text_MaestroArenaDefeat
+	msgbox MicoloHideout_LavaRoom_Text_MaestroArenaPostBattle, MSGBOX_AUTOCLOSE
+	end
 	
 MicoloHideout_LavaRoom_EventScript_EEVEETO::
 	trainerbattle_double TRAINER_EEVEETO, MicoloHideout_LavaRoom_Text_EEVEETOIntro, MicoloHideout_LavaRoom_Text_EEVEETODefeat, MicoloHideout_LavaRoom_EEVEETO_MasdeunPokemon
@@ -164,3 +159,87 @@ MicoloHideout_LavaRoom_Text_PhentPostBattle:
 	.string "REGICE, REGIROCK y REGISTEEL...\p"
 	
 	.string "¿Por qué GF sacó los otros dos?$"
+	
+MicoloHideout_LavaRoom_Text_MDragonIntro:
+	.string "Hola, soy MDRAGON, uno de los más\n" 
+	.string "fuertes entrenadores de todos los\l" 
+	.string "tiempos, ganador de una gran cantidad\l" 
+	.string "de torneos en SMOGON, POKEXPERTO,\l" 
+	.string "POKESPAIN en todas las regiones y en\l"
+	.string "todos los formatos AG, UBER, OU, UU,\l"
+	.string "RU, NU, PU, FU, ZU...\p"
+
+	.string "Estoy seguro de que has oido\n" 
+	.string "hablar de mi.\p"
+
+	.string "Así que me he estado preparando a\n"
+	.string "conciencia para este momento.\l"
+	.string "Yo seré el CAMPEÓN de la LIGA POKéMON\l"
+	.string "MICOLANDIA.\p"
+	
+	.string "Por eso he llegado hasta aquí, porque\n"
+	.string "solo llegan los mejores entrenadores.\p"
+
+	.string "He superado todos los obstaculos que\n"
+	.string "se me han puesto por delante y\l"
+	.string "ya solo me queda uno más para poder\l"
+	.string "alcanzar la LIGA POKéMON, y ese\l"
+	.string "es nada mas y nada menos que...\p"
+	
+	.string "¡A quien tengo delante!$"
+
+MicoloHideout_LavaRoom_Text_MDragonDefeat: 
+	.string "¡MALDITA SEA!$"
+
+MicoloHideout_LavaRoom_Text_MDragonPostBattle:
+	.string "¡ME EQUIVOQUÉ DE GYARADOS OTRA VEZ!\p"
+	
+	.string "Iba a usar al GYARADOS defensivo\n"
+	.string "en vez del ofensivo...$"
+
+MicoloHideout_LavaRoom_Text_MaestroArenaIntro:
+	.string "Hola, ¿me recuerdas?\n"
+	.string "Soy MAESTRO ARENA, el poderoso\l"
+	.string "entrenador de los POKéMON del\l"
+	.string "desierto.\p"
+	
+	.string "También tengo un buen olfato para\n"
+	.string "mis predicciones:\l" 
+	.string "¡España ganará la EUROCOPA!\p"
+	
+	.string "Por otra parte...\p"
+
+	.string "¿Tu también has superado todos estos\n"
+	.string "desafíos de los lideres?\l"
+	.string "¡Qué interesante! ¡Muy interesante!\p"
+	
+	.string "¡He venido a desafiar a esta LIGA\n"
+	.string "POKéMON, y me proclamaré vencedor\l"
+	.string "como hice en el PRIMER NACIONAL\l"
+	.string "ESPAÑOL de DP! x)\p"
+
+	.string "Me vendrás bien como saco de boxeo,\n"
+	.string "solo espero que no lleves a ningún\l"
+	.string "POKéMON gato.\p"
+	
+	.string "¡ODIO A LOS GATOS, SIEMPRE SE MEAN\n"
+	.string "EN ARENA! ToT$"
+
+MicoloHideout_LavaRoom_Text_MaestroArenaDefeat:
+	.string "¡NO VALE! ¡HAX! ¡TRAMPOSO! ToT$"
+
+MicoloHideout_LavaRoom_Text_MaestroArenaPostBattle:
+	.string "¿Pero por qué? ¿Como yo, el grandioso\n"
+	.string "MAESTRO ARENA ha sido derrotado?\p"
+
+	.string "¿Por qué mi estrategia TSS no funcionó\n"
+	.string "contra ti?\p"
+	
+	.string "Por si no lo sabes, TSS significa\n"
+	.string "TOXIC, SPIKES y SANDSTORM.\p"
+	
+	.string "Es una estrategia que desespera a\n"
+	.string "cualquier tipo de rival que no esté\l"
+	.string "preparado, porque irá perdiendo mas\l"
+	.string "y mas puntos de salud casi sin darse\l"
+	.string "cuenta ¡JAJAJAJAJAJAJA!$"
