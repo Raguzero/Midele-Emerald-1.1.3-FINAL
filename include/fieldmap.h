@@ -48,6 +48,8 @@ void SpriteCB_PokeballGlow(struct Sprite *);
 void SpriteCB_PokecenterMonitor(struct Sprite *);
 void SpriteCB_HallOfFameMonitor(struct Sprite *);
 
+bool8 IsDarkiMap(void);
+
 // field_region_map.c
 void FieldInitRegionMap(MainCallback callback);
 void sub_8088B94(int x, int y, int a2);

@@ -15,6 +15,7 @@
 #include "secret_base.h"
 #include "trainer_hill.h"
 #include "tv.h"
+#include "constants/maps.h"
 #include "constants/rgb.h"
 
 struct ConnectionFlags
@@ -1045,4 +1046,9 @@ void apply_map_tileset1_tileset2_palette(struct MapLayout const *mapLayout)
         apply_map_tileset1_palette(mapLayout);
         apply_map_tileset2_palette(mapLayout);
     }
+}
+
+bool8 IsDarkiMap(void)
+{
+    return gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(DARKIGYM) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(DARKIGYM);
 }

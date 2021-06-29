@@ -3801,7 +3801,11 @@ static void Task_CancelAfterAorBPress(u8 taskId)
 
 static void DisplayCantUseFlashMessage(void)
 {
-    if (FlagGet(FLAG_SYS_USE_FLASH) == TRUE)
+    if (IsDarkiMap())
+    {
+        DisplayPartyMenuStdMessage(PARTY_MSG_FLASH_DARKI);
+    }
+    else if (FlagGet(FLAG_SYS_USE_FLASH) == TRUE)
         DisplayPartyMenuStdMessage(PARTY_MSG_ALREADY_IN_USE);
     else
         DisplayPartyMenuStdMessage(PARTY_MSG_CANT_USE_HERE);

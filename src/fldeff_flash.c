@@ -3,6 +3,7 @@
 #include "event_data.h"
 #include "event_scripts.h"
 #include "field_effect.h"
+#include "fieldmap.h"
 #include "fldeff.h"
 #include "gpu_regs.h"
 #include "main.h"
@@ -101,7 +102,7 @@ bool8 SetUpFieldMove_Flash(void)
 }
 
 static bool8 CanUseFlashInMap(void) {
-    return !(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(DARKIGYM) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(DARKIGYM));
+    return !IsDarkiMap();
 }
 
 static void FieldCallback_Flash(void)

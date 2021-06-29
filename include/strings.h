@@ -2153,6 +2153,7 @@ extern const u8 gText_OtherTrainersPkmnCantBeTraded[];
 extern const u8 gText_EggCantBeTradedNow[];
 extern const u8 gText_OtherTrainerCantAcceptPkmn[];
 extern const u8 gText_CantTradeWithTrainer[];
+extern const u8 gText_FlashDarki[];
 
 // trade
 extern const u8 gText_XWillBeSentToY[];
