@@ -1,6 +1,15 @@
 Darkigym_MapScripts::
+    map_script MAP_SCRIPT_ON_LOAD, Darkigym_Onload
 	.byte 0
 	
+Darkigym_Onload::
+    call_if_defeated TRAINER_DARKI_BUENRO, Darkigym_DisableBuenroTrigger
+    end
+
+Darkigym_DisableBuenroTrigger:
+    setvar VAR_TEMP_0, 1
+    return
+
 Darkigym_EventScript_ParedInvisible1::
 	lock
 	faceplayer
@@ -95,13 +104,13 @@ Darkigym_EventScript_GymStatue::
 	end
 	
 Darkigym_EventScript_Darkibuenro_Trigger1::
-	call_if_defeated TRAINER_DARKI_BUENRO, Darkigym_TriggerFIN
 	lockall
 	applymovement 2, Common_Movement_ExclamationMark
 	waitmovement 0
 	playse SE_PIN
-	applymovement EVENT_OBJ_ID_PLAYER, Common_Movement_WalkInPlaceFastestUp
-	waitmovement 0
+    @ Estas instrucciones hacen que el jugador mire arriba. Al activarlas, ocurre un bug que hace que el jugador mire abajo al llegar a la instruccion trainerbattle_single de Darkigym_EventScript_Buenro
+    @applymovement EVENT_OBJ_ID_PLAYER, Common_Movement_FaceUp
+    @waitmovement 0
 	msgbox Darkigym_Text_BuenroIntro, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq Darkigym_EventScript_Buenro
@@ -114,9 +123,6 @@ Darkigym_EventScript_Darkibuenro_Trigger1continue::
 	releaseall
 	end
 	
-Darkigym_TriggerFIN:
-	end
-	
 Darkigym_Movement_Prota:
 	walk_down
 	step_end
@@ -124,7 +130,7 @@ Darkigym_Movement_Prota:
 Darkigym_EventScript_Buenro::
 	goto_if_set FLAG_DEFEATED_DARKIBUENRO_GYM, Darkigym_EventScript_BuenroDefeated2
 	trainerbattle_single TRAINER_DARKI_BUENRO, Darkigym_Text_BuenroIntro2, Darkigym_Text_BuenroDefeat, Darkigym_EventScript_BuenroDefeated, NO_MUSIC
-	release
+	releaseall
 	end
 	
 Darkigym_EventScript_Malro::
@@ -157,21 +163,22 @@ Darkigym_EventScript_BuenroDefeated::
 	msgbox Darkigym_Text_BuenroPostBattle, MSGBOX_DEFAULT
 	special HealPlayerParty
 	setflag FLAG_DEFEATED_DARKIBUENRO_GYM
-	release
+    setvar VAR_TEMP_0, 1
+	releaseall
 	end
 	
 Darkigym_EventScript_BuenroDefeated2::
 	goto_if_set FLAG_DEFEATED_DARKI_GYM, Darkigym_EventScript_Buenro_DarkiDerrotado
-	faceplayer
 	lock
+	faceplayer
 	msgbox Darkigym_Text_BuenroPostBattle2, MSGBOX_DEFAULT
 	special HealPlayerParty
 	release
 	end
 	
 Darkigym_EventScript_Buenro_DarkiDerrotado::
-	faceplayer
 	lock
+	faceplayer
 	msgbox Darkigym_Text_BuenroPostBattle3, MSGBOX_DEFAULT
 	release
 	end
