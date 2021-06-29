@@ -31,6 +31,13 @@ MtPyre_6F_EventScript_Cedric:: @ 8231D9D
     @ Combate contra totem.
 MtPyre_6F_EventScript_Totem::
 	lockall
+	msgbox DesafiarTotem_Text, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq MtPyre_6F_EventScript_Totem2
+	releaseall
+	end		
+
+MtPyre_6F_EventScript_Totem2::	
 	playmoncry SPECIES_MEGA_ABSOL, 2
 	delay 40
 	waitmoncry

@@ -955,9 +955,16 @@ GymGoosesStatus_Freeze_Script::
 
 // Cuarta Sala
     @ Combate contra totem.
-GymGooses_EventScript_Totem:: @ 8237725
+GymGooses_EventScript_Totem::
 	lockall
 	clearflag FLAG_HIDE_GYMGOOSES_TELEPORTBOY
+	msgbox DesafiarTotem_Text, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq GymGooses_EventScript_Totem2
+	releaseall
+	end	
+
+GymGooses_EventScript_Totem2::	
 	playmoncry SPECIES_MEGA_GLALIE, 2
 	delay 40
 	waitmoncry

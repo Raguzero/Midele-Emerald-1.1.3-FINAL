@@ -41,7 +41,7 @@
         {
             "elevation": 3,
             "flag": "FLAG_DEFEATED_IZABE_TOTEM",
-            "graphics_id": "EVENT_OBJ_GFX_QUINTY_PLUMP",
+            "graphics_id": "EVENT_OBJ_GFX_TRICK_HOUSE_STATUE",
             "movement_range_x": 0,
             "movement_range_y": 0,
             "movement_type": "MOVEMENT_TYPE_FACE_DOWN",

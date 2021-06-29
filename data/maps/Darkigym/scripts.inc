@@ -70,6 +70,13 @@ Darkigym_EventScript_ParedInvisible3_Parte2:
     @ Combate contra totem.
 Darkigym_EventScript_Totem::
 	lockall
+	msgbox DesafiarTotem_Text, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Darkigym_EventScript_Totem2
+	releaseall
+	end
+
+Darkigym_EventScript_Totem2::
 	playmoncry SPECIES_TYRANITAR, 2
 	delay 40
 	waitmoncry

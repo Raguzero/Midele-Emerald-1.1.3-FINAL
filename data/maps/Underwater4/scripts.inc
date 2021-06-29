@@ -4,6 +4,13 @@ Underwater4_MapScripts:: @ 81F7730
     @ Combate contra totem.
 Underwater4_EventScript_Totem::
 	lockall
+	msgbox DesafiarTotem_Text, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Underwater4_EventScript_Totem2
+	releaseall
+	end	
+
+Underwater4_EventScript_Totem2::
 	playmoncry SPECIES_PRIMARINA, 2
 	delay 40
 	waitmoncry

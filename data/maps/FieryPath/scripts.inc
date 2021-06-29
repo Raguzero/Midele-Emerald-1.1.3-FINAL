@@ -19,8 +19,15 @@ FieryPath_OnLoad: @ 81F2561
 	end
 	
     @ Combate contra totem.
-Fiery_Path_EventScript_Totem:: @ 8237725
+Fiery_Path_EventScript_Totem::
 	lockall
+	msgbox DesafiarTotem_Text, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Fiery_Path_EventScript_Totem2
+	releaseall
+	end	
+
+Fiery_Path_EventScript_Totem2::
 	playmoncry SPECIES_CENTISKORCH, 2
 	delay 40
 	waitmoncry

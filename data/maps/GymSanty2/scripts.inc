@@ -125,6 +125,13 @@ GymSanty2_EventScript_FarolesEncendidos::
     @ Combate contra totem.
 GymSanty2_EventScript_Totem::
 	lockall
+	msgbox DesafiarTotem_Text, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq GymSanty2_EventScript_Totem2
+	releaseall
+	end		
+
+GymSanty2_EventScript_Totem2::
 	playmoncry SPECIES_MEGA_CAMERUPT, 2
 	delay 40
 	waitmoncry

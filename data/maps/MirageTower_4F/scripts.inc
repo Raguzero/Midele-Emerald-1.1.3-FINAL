@@ -55,8 +55,15 @@ MirageTower_4F_EventScript_CollapseMirageTower:: @ 823ADCA
 	end
 
     @ Combate contra totem.
-MirageTower_4F_EventScript_Totem:: @ 8237725
+MirageTower_4F_EventScript_Totem::
 	lockall
+	msgbox DesafiarTotem_Text, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq MirageTower_4F_EventScript_Totem2
+	releaseall
+	end	
+
+MirageTower_4F_EventScript_Totem2::	
 	playmoncry SPECIES_COFAGRIGUS, 2
 	delay 40
 	waitmoncry

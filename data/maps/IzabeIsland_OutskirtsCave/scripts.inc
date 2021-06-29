@@ -95,6 +95,13 @@ IzabeIsland_OutskirtsCave_EventScript_HideLavender::
 
 IzabeIsland_OutskirtsCave_EventScript_Totem::
 	lockall
+	msgbox DesafiarTotem_Text, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq IzabeIsland_OutskirtsCave_EventScript_Totem2
+	releaseall
+	end	
+	
+IzabeIsland_OutskirtsCave_EventScript_Totem2::	
 	playmoncry SPECIES_WINTASS, 2
 	delay 40
 	waitmoncry

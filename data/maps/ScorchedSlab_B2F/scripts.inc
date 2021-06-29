@@ -9,6 +9,13 @@ ScorchedSlab_B2F_OnLoad:
     @ Combate contra totem.
 ScorchedSlab_B2F_EventScript_Totem::
 	lockall
+	msgbox DesafiarTotem_Text, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq ScorchedSlab_B2F_EventScript_Totem2
+	releaseall
+	end	
+
+ScorchedSlab_B2F_EventScript_Totem2::
 	playmoncry SPECIES_RHYPERIOR, 2
 	delay 40
 	waitmoncry

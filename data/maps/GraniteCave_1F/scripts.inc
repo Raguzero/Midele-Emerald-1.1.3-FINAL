@@ -25,6 +25,13 @@ GraniteCave_EventScript_JZombie::
     @ Combate contra totem.
 GraniteCave_1F_EventScript_Totem::
 	lockall
+	msgbox DesafiarTotem_Text, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq GraniteCave_1F_EventScript_Totem2
+	releaseall
+	end
+
+GraniteCave_1F_EventScript_Totem2::
 	playmoncry SPECIES_PROBOPASS, 2
 	delay 40
 	waitmoncry
@@ -100,4 +107,11 @@ GraniteCave_1F_Text_Totemaparece:
 	
 GraniteCave_1F_Text_Totemderrotado:
 	.string "PROBOPASS disappeared...$"
+	
+DesafiarTotem_Text:
+	.string "Una extraña estatua bloquea el paso, si\n"
+	.string "la tocas, se convertirá en un POKéMON\l"
+	.string "muy poderoso que se adecuará al máximo\l"
+	.string "nivel de tu equipo.\p"
+	.string "¿Todo listo para este desafio?$"
 
