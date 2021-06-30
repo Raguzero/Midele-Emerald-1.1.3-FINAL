@@ -632,7 +632,7 @@ gSongTable:: @ 86B49F0
 	song liyuebattlethemeimain, 0, 0
 	song bonetrousleundertale, 0, 0
 	song wallybattletheme, 0, 0
-	song Xenoblade_Chronicles_2_Roaming_the_Wastes, 0, 0
+	song mus_bloody_stream, 0, 0
 	song song12, 0, 0 // star wars battle hero
 	song Strainer, 0, 0 // GSC BATTLE TRAINER
 	song MirorBColo, 0, 0

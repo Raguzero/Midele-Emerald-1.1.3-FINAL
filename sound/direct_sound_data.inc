@@ -4822,3 +4822,11 @@ DirectSoundWaveData_1164cd9::
 	.align 2
 DirectSoundWaveData_1165b49::
 	.incbin "sound/direct_sound_samples/1165b49.bin"
+
+	.align 2
+altosax72::
+	.incbin "sound/direct_sound_samples/altosax72.bin"
+
+	.align 2
+ridecymbal::
+	.incbin "sound/direct_sound_samples/ridecymbal.bin"

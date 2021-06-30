@@ -1329,3 +1329,6 @@ $(MID_SUBDIR)/swordshieldwild.s: %.s: %.mid
 $(MID_SUBDIR)/shum.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -V110
 	
+$(MID_SUBDIR)/mus_bloody_stream.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G303 -V80
+	
