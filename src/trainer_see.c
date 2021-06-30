@@ -180,7 +180,9 @@ static const u16 sMicoloHideoutTrainerFlags[] = {
     TRAINER_JAVISITO_POSTGAME,
     TRAINER_EEVEETO,
     TRAINER_KADERETE_2,
-    TRAINER_PHENT
+    TRAINER_PHENT,
+    TRAINER_MAESTRO_ARENA,
+    TRAINER_MDRAGON
 };
 
 static const u16 sDarkiGymTrainersZone1Flags[] = {

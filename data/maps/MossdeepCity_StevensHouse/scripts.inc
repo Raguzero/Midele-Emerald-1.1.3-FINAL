@@ -47,7 +47,6 @@ MossdeepCity_StevensHouse_EventScript_StevenGivesDive:: @ 82227CA
 	applymovement 1, MossdeepCity_StevensHouse_Movement_StevenReturn
 	waitmovement 0
 	setflag FLAG_HIDE_MOSSDEEP_CITY_SCOTT
-	clearflag FLAG_TOTEM_SEAFLOOR_CAVERN_OUTSIDE
 	setflag FLAG_HIDE_SEAFLOOR_CAVERN_ENTRANCE_AQUA_GRUNT
 	setvar VAR_STEVENS_HOUSE_STATE, 2
 	releaseall
