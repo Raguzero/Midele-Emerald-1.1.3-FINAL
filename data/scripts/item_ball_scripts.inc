@@ -689,3 +689,15 @@ EventScript_SecondSoulDew::
 EventScript_GoldenCandy::
     finditem ITEM_GOLDEN_CANDY
     end
+	
+Desert_Underpass_EventScript_ThickClub::
+	finditem ITEM_THICK_CLUB
+	end
+	
+Desert_Underpass_EventScript_Shiny_Stone::
+	finditem ITEM_SHINY_STONE
+	end
+	
+Desert_Underpass_EventScript_Yellow_Shard::
+	finditem ITEM_YELLOW_SHARD
+	end

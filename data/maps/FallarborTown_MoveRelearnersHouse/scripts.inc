@@ -8,10 +8,10 @@ FallarborTown_MoveRelearnersHouse_EventScript_MoveRelearner::
 	goto FallarborTown_MoveRelearnersHouse_EventScript_TryGiveEgg
 
 FallarborTown_MoveRelearnersHouse_EventScript_TryGiveEgg::
-	checkitem ITEM_HEART_SCALE, 5
+	checkitem ITEM_HEART_SCALE, 3
 	compare VAR_RESULT, TRUE
 	call_if_eq FallarborTown_MoveRelearnersHouse_EventScript_ReceivedMon
-	goto FallarborTown_EventScript_No5HeartScale
+	goto FallarborTown_EventScript_No3HeartScale
 	end
 
 FallarborTown_MoveRelearnersHouse_EventScript_ReceivedMon::
@@ -22,7 +22,7 @@ FallarborTown_MoveRelearnersHouse_EventScript_ReceivedMon::
 	compare VAR_0x8006, PARTY_SIZE
 	goto_if_eq FallarborTown_MoveRelearnersHouse_EventScript_NoRoomForEgg
 	msgbox FallarborTown_MoveRelearnersHouse_Text_ThankYou, MSGBOX_DEFAULT
-	removeitem ITEM_HEART_SCALE, 5
+	removeitem ITEM_HEART_SCALE, 3
 	setflag FLAG_DAILY_RECEIVED_EGG
 	playfanfare MUS_FANFA4
 	message FallarborTown_MoveRelearnersHouse_Text_ReceivedTheEgg
@@ -48,8 +48,8 @@ FallarborTown_MoveRelearnersHouse_EventScript_DeclineEgg::
 	release
 	end
 	
-FallarborTown_EventScript_No5HeartScale:: @ 8270F57
-	msgbox FallarborTown_MoveRelearnersHouse_Text_YouHaventGotFiveHS, MSGBOX_DEFAULT
+FallarborTown_EventScript_No3HeartScale:: @ 8270F57
+	msgbox FallarborTown_MoveRelearnersHouse_Text_YouHaventGotThreeHS, MSGBOX_DEFAULT
 	release
 	end
 
@@ -58,7 +58,7 @@ FallarborTown_MoveRelearnersHouse_Text_HaveEggWillYouTakeIt:
 	.string "That's a HEART SCALE!\l" 
 	.string "I'm looking for those!\p"
 	.string "Oh, man, you've got to trade\n"
-	.string "5 HEART SCALE with me!\l"
+	.string "3 HEART SCALE with me!\l"
 	.string "I'll give you an EGG.\p"
 	.string "Would you be interested\n"
 	.string "in taking it?$"
@@ -87,5 +87,5 @@ FallarborTown_MoveRelearnersHouse_Text_SometimesEggFoundAtDayCare:
 	.string "more HEART SCALE.\p"
 	.string "In return I'll give you another egg.$"
 	
-FallarborTown_MoveRelearnersHouse_Text_YouHaventGotFiveHS: @ 8271027
-	.string "You haven't got five HEART SCALE.$"
+FallarborTown_MoveRelearnersHouse_Text_YouHaventGotThreeHS: @ 8271027
+	.string "You haven't got three HEART SCALE.$"

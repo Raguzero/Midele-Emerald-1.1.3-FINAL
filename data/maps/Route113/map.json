@@ -53,8 +53,8 @@
         },
         {
             "elevation": 3,
-            "flag": "FLAG_HIDDEN_ITEM_ROUTE_113_TM_32",
-            "item": "ITEM_TM32",
+            "flag": "FLAG_HIDDEN_ITEM_ROUTE_113_FIRE_STONE",
+            "item": "ITEM_FIRE_STONE",
             "type": "hidden_item",
             "x": 22,
             "y": 5

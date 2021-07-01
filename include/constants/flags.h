@@ -84,10 +84,10 @@
 #define FLAG_DEFEATED_TILO    0x48 // Previously Unused Flag
 #define FLAG_ITEM_IZABE_TRUCK_G_CALCIUM   0x49 // Previously Unused Flag
 #define FLAG_TOTEM_SEAFLOOR_CAVERN_OUTSIDE    0x4A // Previously Unused Flag
-#define FLAG_UNUSED_0x04B    0x4B // Unused Flag
-#define FLAG_UNUSED_0x04C    0x4C // Unused Flag
-#define FLAG_UNUSED_0x04D    0x4D // Unused Flag
-#define FLAG_UNUSED_0x04E    0x4E // Unused Flag
+#define FLAG_ITEM_DESERTUNDERPASS_HEART_SCALE    0x4B // Previously Unused Flag
+#define FLAG_ITEM_DESERTUNDERPASS_THICK_CLUB    0x4C // Previously Unused Flag
+#define FLAG_ITEM_DESERTUNDERPASS_SHINY_STONE    0x4D // Previously Unused Flag
+#define FLAG_ITEM_DESERTUNDERPASS_YELLOW_SHARD    0x4E // Previously Unused Flag
 #define FLAG_UNUSED_0x04F    0x4F // Unused Flag
 
 // Scripts
@@ -619,7 +619,7 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_111_PROTEIN                   (FLAG_HIDDEN_ITEMS_START + 0x38)
 #define FLAG_HIDDEN_ITEM_ROUTE_111_RARE_CANDY                (FLAG_HIDDEN_ITEMS_START + 0x39)
 #define FLAG_HIDDEN_ITEM_ROUTE_113_ETHER                     (FLAG_HIDDEN_ITEMS_START + 0x03)
-#define FLAG_HIDDEN_ITEM_ROUTE_113_TM_32                     (FLAG_HIDDEN_ITEMS_START + 0x1E)
+#define FLAG_HIDDEN_ITEM_ROUTE_113_FIRE_STONE                (FLAG_HIDDEN_ITEMS_START + 0x1E)
 #define FLAG_HIDDEN_ITEM_ROUTE_113_NUGGET                    (FLAG_HIDDEN_ITEMS_START + 0x62)
 #define FLAG_HIDDEN_ITEM_ROUTE_114_CARBOS                    (FLAG_HIDDEN_ITEMS_START + 0x04)
 #define FLAG_HIDDEN_ITEM_ROUTE_113_REVIVE                    (FLAG_HIDDEN_ITEMS_START + 0x2A)

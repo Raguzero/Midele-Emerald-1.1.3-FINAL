@@ -6,31 +6,17 @@ DesertUnderpass_OnTransition: @ 823AF3D
 	setflag FLAG_LANDMARK_DESERT_UNDERPASS
 	end
 
-DesertUnderpass_EventScript_Fossil:: @ 823AF41
-	lock
-	faceplayer
-	goto_if_set FLAG_CHOSE_ROOT_FOSSIL, DesertUnderpass_EventScript_GiveClawFossil
-	goto_if_set FLAG_CHOSE_CLAW_FOSSIL, DesertUnderpass_EventScript_GiveRootFossil
+Desert_Underpass_EventScript_HeartScale::
+	giveitem ITEM_HEART_SCALE, 3
+	compare VAR_RESULT, FALSE
+	call_if_eq Desert_Underpass_BagFull
+	closemessage
+	removeobject 4
+	setflag FLAG_ITEM_DESERTUNDERPASS_HEART_SCALE
+	end
+	
+Desert_Underpass_BagFull::
+	call Common_EventScript_BagIsFull
+	closemessage
 	release
 	end
-
-DesertUnderpass_EventScript_GiveClawFossil:: @ 823AF57
-	giveitem ITEM_CLAW_FOSSIL
-	removeobject 1
-	release
-	end
-
-DesertUnderpass_EventScript_GiveRootFossil:: @ 823AF68
-	giveitem ITEM_ROOT_FOSSIL
-	removeobject 1
-	release
-	end
-
-@ Unused
-DesertUnderpass_Text_FoundRootFossil:: @ 823AF79
-	.string "{PLAYER} found the ROOT FOSSIL.$"
-
-@ Unused
-DesertUnderpass_Text_FoundClawFossil:: @ 823AF93
-	.string "{PLAYER} found the CLAW FOSSIL.$"
-
