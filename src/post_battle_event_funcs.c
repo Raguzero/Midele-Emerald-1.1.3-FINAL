@@ -107,8 +107,7 @@ void SavePostMicolo(void)
         struct Pokemon *mon = &gPlayerParty[i];
 
         if (GetMonData(mon, MON_DATA_SANITY_HAS_SPECIES)
-         && !GetMonData(mon, MON_DATA_SANITY_IS_EGG)
-         && !GetMonData(mon, MON_DATA_CHAMPION_RIBBON))
+         && !GetMonData(mon, MON_DATA_SANITY_IS_EGG))
         {
             for (j = 0; j < NUMBER_OF_GIFT_RIBBONS; j++)
             {
