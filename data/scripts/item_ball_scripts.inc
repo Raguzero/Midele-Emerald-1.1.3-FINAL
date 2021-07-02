@@ -62,8 +62,8 @@ Route111_EventScript_ItemTM37:: @ 8290D9B
 	finditem ITEM_TM37
 	end
 
-Route111_EventScript_ItemStardust:: @ 8290DA8
-	finditem ITEM_STARDUST
+Route111_EventScript_ItemSunStone:: @ 8290DA8
+	finditem ITEM_SUN_STONE
 	end
 
 Route111_EventScript_ItemHPUp:: @ 8290DB5
@@ -98,8 +98,8 @@ Route114_EventScript_ItemProtein:: @ 8290E10
 	finditem ITEM_PROTEIN
 	end
 
-Route114_EventScript_ItemEnergyPowder:: @ 8290E1D
-	finditem ITEM_ENERGY_POWDER
+Route114_EventScript_ItemLeafStone:: @ 8290E1D
+	finditem ITEM_LEAF_STONE
 	end
 
 Route115_EventScript_ItemSuperPotion:: @ 8290E2A
@@ -114,8 +114,8 @@ Route115_EventScript_ItemIron:: @ 8290E44
 	finditem ITEM_IRON
 	end
 
-Route115_EventScript_ItemGreatBall:: @ 8290E51
-	finditem ITEM_GREAT_BALL
+Route115_EventScript_ItemWaterStone:: @ 8290E51
+	finditem ITEM_WATER_STONE
 	end
 
 Route115_EventScript_ItemHealPowder:: @ 8290E5E
@@ -700,4 +700,8 @@ Desert_Underpass_EventScript_Shiny_Stone::
 	
 Desert_Underpass_EventScript_Yellow_Shard::
 	finditem ITEM_YELLOW_SHARD
+	end
+	
+ScorchedSlab_B2F_EventScript_Item3::
+	finditem ITEM_OLD_AMBER
 	end

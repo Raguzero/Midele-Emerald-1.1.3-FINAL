@@ -10,7 +10,14 @@ Route117_PokemonDayCare_EventScript_Vladiland::
 	lock
 	faceplayer
 	goto_if_set FLAG_DAYCARE_DITTO_RECEIVED, Route117_PokemonDayCare_EventScript_ExplainDitto
-	msgbox Route117_PokemonDayCare_Text_Vladiland_BeforeBattle, MSGBOX_NPC
+	msgbox Route117_PokemonDayCare_Text_Vladiland_BeforeBattle, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Route117_PokemonDayCare_EventScript_Vladiland2
+	release
+	end
+
+Route117_PokemonDayCare_EventScript_Vladiland2::
+	msgbox Route117_PokemonDayCare_Text_Vladiland_BeforeBattle2, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_VLADILAND, Route117_PokemonDayCare_Text_Vladiland_Defeated
 	msgbox Route117_PokemonDayCare_Text_Vladiland_AfterBattle, MSGBOX_DEFAULT
 	setvar VAR_TEMP_1, SPECIES_DITTO
@@ -81,8 +88,14 @@ Route117_PokemonDayCare_Text_Vladiland_BeforeBattle:
 	.string "Mjmjmjmjmjmjmjmjjmjmjm...\p"
 	
 	.string "Bien, te explicaré en qué consiste,\n"
-	.string "así que para ello deja que primero\l" 
-	.string "te hipnotice y te quite la ropa.$"
+	.string "pero primero...\l"
+	.string "¿hacemos un combate POKÉMON?$"
+	
+Route117_PokemonDayCare_Text_Vladiland_BeforeBattle2:
+	.string "¡¡¡Jejejejejeje!!!\p"
+	
+	.string "Bien, deja que primero te hipnotice\n" 
+	.string "y te quite la ropa.$"
 
 Route117_PokemonDayCare_Text_Vladiland_Defeated:
 	.string "Vale... vale... ¿pero al menos\n"

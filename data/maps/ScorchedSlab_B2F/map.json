@@ -50,8 +50,8 @@
             "script": "ScorchedSlab_B2F_EventScript_Item1",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
-            "x": 28,
-            "y": 6
+            "x": 33,
+            "y": 17
         },
         {
             "elevation": 3,
@@ -117,6 +117,19 @@
             "trainer_type": "1",
             "x": 3,
             "y": 20
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_ITEM_SCORCHED_SLAB_B2F_ITEM3",
+            "graphics_id": "EVENT_OBJ_GFX_ITEM_BALL",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "ScorchedSlab_B2F_EventScript_Item3",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 30,
+            "y": 6
         }
     ],
     "region_map_section": "MAPSEC_SCORCHED_SLAB",

@@ -166,7 +166,6 @@ SlateportCity_EventScript_FossilShop:: @ 81DD16A
 SlateportCity_PokemartFossil: @ 81DD184
 	.2byte ITEM_HELIX_FOSSIL
 	.2byte ITEM_DOME_FOSSIL
-	.2byte ITEM_OLD_AMBER
 	.2byte ITEM_NONE
 	release
 	end
