@@ -72,13 +72,13 @@ const u8 *const gGiftRibbonDescriptionPointers[][2] =
     {gGiftRibbonDescriptionPart1_2005RegionalTourney,   gGiftRibbonDescriptionPart2_RunnerUp},
     {gGiftRibbonDescriptionPart1_2005NationalTourney,   gGiftRibbonDescriptionPart2_RunnerUp},
     {gGiftRibbonDescriptionPart1_2005GlobalCup,         gGiftRibbonDescriptionPart2_RunnerUp},
-    {gGiftRibbonDescriptionPart1_2005RegionalTourney,   gGiftRibbonDescriptionPart2_Semifinalist},
-    {gGiftRibbonDescriptionPart1_2005NationalTourney,   gGiftRibbonDescriptionPart2_Semifinalist},
-    {gGiftRibbonDescriptionPart1_2005GlobalCup,         gGiftRibbonDescriptionPart2_Semifinalist},
-    {gGiftRibbonDescriptionPart1_PokemonBattleCup,      gGiftRibbonDescriptionPart2_Champion},
-    {gGiftRibbonDescriptionPart1_PokemonBattleCup,      gGiftRibbonDescriptionPart2_RunnerUp},
-    {gGiftRibbonDescriptionPart1_PokemonBattleCup,      gGiftRibbonDescriptionPart2_Semifinalist},
-    {gGiftRibbonDescriptionPart1_PokemonBattleCup,      gGiftRibbonDescriptionPart2_Participation},
+    {gGiftRibbonDescriptionPart1_ClearingAllChallenges, gGiftRibbonDescriptionPart2_ClearingAllChallenges},
+    {gGiftRibbonDescriptionPart1_ClearingAllChallenges, gGiftRibbonDescriptionPart2_ClearingAllChallenges},
+    {gGiftRibbonDescriptionPart1_ClearingAllChallenges, gGiftRibbonDescriptionPart2_ClearingAllChallenges},
+    {gGiftRibbonDescriptionPart1_ClearingAllChallenges, gGiftRibbonDescriptionPart2_ClearingAllChallenges},
+    {gGiftRibbonDescriptionPart1_ClearingAllChallenges, gGiftRibbonDescriptionPart2_ClearingAllChallenges},
+    {gGiftRibbonDescriptionPart1_ClearingAllChallenges, gGiftRibbonDescriptionPart2_ClearingAllChallenges},
+    {gGiftRibbonDescriptionPart1_ClearingAllChallenges, gGiftRibbonDescriptionPart2_ClearingAllChallenges},
     {gGiftRibbonDescriptionPart1_PokemonLeague,         gGiftRibbonDescriptionPart2_Champion},
     {gGiftRibbonDescriptionPart1_PokemonLeague,         gGiftRibbonDescriptionPart2_RunnerUp},
     {gGiftRibbonDescriptionPart1_PokemonLeague,         gGiftRibbonDescriptionPart2_Semifinalist},
@@ -112,4 +112,11 @@ const u8 *const gGiftRibbonDescriptionPointers[][2] =
     {gGiftRibbonDescriptionPart1_FullOfEnergy,          gGiftRibbonDescriptionPart2_EmptyString},
     {gGiftRibbonDescriptionPart1_LovedPokemon,          gGiftRibbonDescriptionPart2_LovedPokemon},
     {gGiftRibbonDescriptionPart1_LoveForPokemon,        gGiftRibbonDescriptionPart2_LoveForPokemon}
+};
+
+const u8 gGiftRibbonsMonDataIds[] =
+{
+    MON_DATA_GIFT_RIBBON_1, MON_DATA_GIFT_RIBBON_2, MON_DATA_GIFT_RIBBON_3,
+    MON_DATA_GIFT_RIBBON_4, MON_DATA_GIFT_RIBBON_5, MON_DATA_GIFT_RIBBON_6,
+    MON_DATA_GIFT_RIBBON_7
 };

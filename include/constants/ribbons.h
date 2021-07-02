@@ -1,0 +1,1 @@
+#define NUMBER_OF_GIFT_RIBBONS 7

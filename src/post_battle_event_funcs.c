@@ -11,10 +11,13 @@
 #include "script_pokemon_util_80F87D8.h"
 #include "strings.h"
 #include "tv.h"
+#include "constants/ribbons.h"
 #include "constants/heal_locations.h"
 #include "constants/flags.h"
 #include "constants/songs.h"
 #include "constants/tv.h"
+
+extern const u8 gGiftRibbonsMonDataIds[];
 
 int GameClear(void)
 {
@@ -95,7 +98,28 @@ int GameClear(void)
 // Heals the party, sets the continue map to the player's house and saves the game showing the saving message
 void SavePostMicolo(void)
 {
+    u8 i, j;
     HealPlayerParty();
+
+    // Give all gift ribbons to the party
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        struct Pokemon *mon = &gPlayerParty[i];
+
+        if (GetMonData(mon, MON_DATA_SANITY_HAS_SPECIES)
+         && !GetMonData(mon, MON_DATA_SANITY_IS_EGG)
+         && !GetMonData(mon, MON_DATA_CHAMPION_RIBBON))
+        {
+            for (j = 0; j < NUMBER_OF_GIFT_RIBBONS; j++)
+            {
+                if (!GetMonData(mon, gGiftRibbonsMonDataIds[j]))
+                {
+                    u8 val[1] = {TRUE};
+                    SetMonData(mon, gGiftRibbonsMonDataIds[j], val);
+                }
+            }
+        }
+    }
 
     SetContinueGameWarpStatus();
 

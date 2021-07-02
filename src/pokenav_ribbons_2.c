@@ -777,9 +777,10 @@ void sub_81D0EFC(struct PokenavSub14 *structPtr)
     }
     else
     {
-        ribbonId = gSaveBlock1Ptr->giftRibbons[ribbonId - 25];
-        if (ribbonId == 0)
-            return;
+        // Not necessary: use default gift ribbon texts
+        // ribbonId = gSaveBlock1Ptr->giftRibbons[ribbonId - 25];
+        // if (ribbonId == 0)
+        //     return;
 
         ribbonId--;
         for (i = 0; i < 2; i++)
