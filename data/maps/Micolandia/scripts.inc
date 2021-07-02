@@ -56,6 +56,14 @@ Micolandia_EventScript_ForestSign::
 	msgbox Micolandia_Text_ForestSign, MSGBOX_SIGN
 	end
 	
+Micolandia_EventScript_Sign1::
+	msgbox Micolandia_Text_Sign1, MSGBOX_SIGN
+	end
+	
+Micolandia_EventScript_Sign2::
+	msgbox Micolandia_Text_Sign2, MSGBOX_SIGN
+	end
+	
 Micolandia_EventScript_GymSantySign::
 	lock
 	faceplayer
@@ -149,6 +157,27 @@ Micolandia_EventScript_TopoVigilante2::
 	lock
 	faceplayer
 	msgbox Micolandia_Text_TopoVigilante3, MSGBOX_DEFAULT
+	release
+	end
+	
+Micolandia_EventScript_Rotonda::
+	lock
+	faceplayer
+	msgbox Micolandia_Text_Rotonda, MSGBOX_DEFAULT
+	release
+	end
+	
+Micolandia_EventScript_Kraft::
+	lock
+	faceplayer
+	msgbox Micolandia_Text_Kraft, MSGBOX_DEFAULT
+	release
+	end
+	
+Micolandia_EventScript_Michoh::
+	lock
+	faceplayer
+	msgbox Micolandia_Text_Michoh, MSGBOX_DEFAULT
 	release
 	end
 	
@@ -260,9 +289,24 @@ Micolandia_CibercafeSign:
 	.string "CIBERCAFE BATALLA$"
 	
 Micolandia_Text_ForestSign:
-	.string "Entrada a Forbidden Forest.\p"
+	.string "Hacia la derecha, entrada a\n" 
+	.string "Forbidden Forest.\p"
 
 	.string "Entra bajo tu propio riesgo.$"
+	
+Micolandia_Text_Sign1:
+	.string "Hacia arriba: PRIMER GYM,\n"
+	.string "liderado por SANTY.\p"
+
+	.string "Hacia la izquierda: SEGUNDO GYM,\n"
+	.string "liderado por SAPPH$"
+	
+Micolandia_Text_Sign2:
+	.string "Hacia arriba: TERCER GYM,\n"
+	.string "liderado por GOOSES.\p"
+
+	.string "Hacia la izquierda: CUARTO GYM,\n"
+	.string "liderado por DARKIZARD$"
 	
 Micolandia_Text_GymSantySign:
 	.string "Estamos haciendo preparativos.\n"
@@ -299,3 +343,37 @@ Micolandia_Dueno_de_Kirlia_Text:
 	.string "a tu casa. ¡Es gratis!\p"
 	
 	.string "¿Quieres que te lleve a tu casa?$"
+	
+Micolandia_Text_Rotonda:
+	.string "¡Oye quitate de la rotonda que\n"
+	.string "espantas los clientes de esta señorita!\l"
+	.string "¡Estoy trabajando y esta es mi zona!\p"
+	
+	.string "...\p"
+	
+	.string "¡Qué pasa! ¿No te gusta mi aspecto?\n"
+	.string "¡No importa la gordura, lo que importa\l"
+	.string "es el interior!\p"
+
+	.string "Por cierto, si ves a mi hijo,\n"
+	.string "dile que le estoy buscando.$"
+	
+Micolandia_Text_Kraft:
+	.string "KRAFT: Jejeje, estas plantitas...\n"
+	.string "así de fumadas... fuuuuuuuuuu....\p"
+	
+	.string "Fuuuuuuuuuuuuuuuuuuuu...\p"
+	
+	.string "...............................\p"
+
+	.string "¡TREMENDA LOCURA! ¡ME HABLAN LOS GNOMOS!\n"
+	.string "¡JAJAJAJAJAJA!$"
+	
+Micolandia_Text_Michoh:
+	.string "MICHOH: Hola, yo soy el genuino creador\n"
+	.string "de los OOT, pero ya pasaron a mejor vida,\l"
+	.string "una pena: ¡Requiescat in pace!\p"
+	
+	.string "¡Qué tiempos aquellos de flood!\n"
+	.string "¡No los olvides, nunca!$"
+
