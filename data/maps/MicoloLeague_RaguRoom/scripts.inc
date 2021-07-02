@@ -2,7 +2,10 @@ MicoloLeague_RaguRoom_MapScripts::
 	.byte 0
 	
 MicoloLeague_RaguRoom_EventScript_Ragu::
-	//goto_if_set AÑADIR NUEVA FLAG PARA QUE NO LUCHE DE NUEVO, MicoloLeague_RaguRoom_EventScript_Ragu_Derrotado
+	lock
+	faceplayer
+	checktrainerflag TRAINER_RAGU
+	goto_if 1, MicoloLeague_RaguRoom_EventScript_Ragu_Derrotado
 	trainerbattle_single TRAINER_RAGU, MicoloLeague_RaguRoom_Text_RaguIntro, MicoloLeague_RaguRoom_Text_RaguDefeat, MicoloLeague_RaguRoom_EventScript_RaguDefeated, NO_MUSIC
 	release
 	end
@@ -10,13 +13,15 @@ MicoloLeague_RaguRoom_EventScript_Ragu::
 MicoloLeague_RaguRoom_EventScript_RaguDefeated::
 	msgbox MicoloLeague_RaguRoom_Text_RaguPostBattle, MSGBOX_DEFAULT
 	waitmessage
-	//setflag AÑADIR NUEVA FLAG PARA QUE NO LUCHE DE NUEVO
+	applymovement 2, MicoloLeague_RaguRoom_Movement_RaguUnblocksExit
+	applymovement 1, MicoloLeague_RaguRoom_Movement_RaguUnblocksExit
+	waitmovement 0
+	setobjectxyperm 2, 11, 6
+	setobjectxyperm 1, 10, 6
 	release
 	end
 	
 MicoloLeague_RaguRoom_EventScript_Ragu_Derrotado::
-	faceplayer
-	lock
 	msgbox MicoloLeague_RaguRoom_Text_RaguPostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -55,6 +60,10 @@ MicoloLeague_RaguRoom_TumbaSign::
 MicoloLeague_RaguRoom_PCSign::
 	msgbox MicoloLeague_RaguRoom_Text_PCSign, MSGBOX_SIGN
 	end
+
+MicoloLeague_RaguRoom_Movement_RaguUnblocksExit:
+	walk_right
+	step_end
 	
 MicoloLeague_RaguRoom_Text_EsclavoSign:
 	.string "¡ATENCIÓN!\p" 
