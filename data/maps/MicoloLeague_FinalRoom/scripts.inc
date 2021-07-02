@@ -15,7 +15,6 @@ MicoloLeague_FinalRoom_Micolo_Defeat::
 	compare VAR_RESULT, FALSE
 	goto_if_eq MicoloLeague_FinalRoom_Micolo_Defeat_2
 MicoloLeague_FinalRoom_Micolo_Defeat_1:
-	playbgm SASAGEYO, 0 @ TODO: cambiar por música apropiada para el final del juego
 	msgbox MicoloLeague_FinalRoom_Micolo_Defeat_Text_1, MSGBOX_DEFAULT
 	call MicoloLeague_FinalRoom_GameEndFlags
 	checkplayergender
@@ -23,8 +22,10 @@ MicoloLeague_FinalRoom_Micolo_Defeat_1:
 	goto_if_eq MicoloLeague_FinalRoom_Micolo_Defeat_5
 	setrespawn HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE_2F
 MicoloLeague_FinalRoom_Micolo_Defeat_4:
+	special SavePostMicolo @ Guarda partida
+	closemessage
 	fadescreenspeed FADE_TO_BLACK, 24
-	special GameClear @ TODO: no hacer que se registre en el HALL OF FAME
+	special ShowGameCredits @ Muestra créditos
 	waitstate
 	releaseall
 	return
@@ -59,4 +60,3 @@ MicoloLeague_FinalRoom_Micolo_Defeat_Text_0:
 
 MicoloLeague_FinalRoom_Micolo_Defeat_Text_1:
 	.string "TEXTO TE PASASTE EL JUEGO$"
-

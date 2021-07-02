@@ -1,14 +1,19 @@
 #include "global.h"
 #include "main.h"
+#include "menu.h"
 #include "credits.h"
 #include "event_data.h"
 #include "hall_of_fame.h"
 #include "load_save.h"
 #include "overworld.h"
+#include "save.h"
+#include "sound.h"
 #include "script_pokemon_util_80F87D8.h"
+#include "strings.h"
 #include "tv.h"
 #include "constants/heal_locations.h"
 #include "constants/flags.h"
+#include "constants/songs.h"
 #include "constants/tv.h"
 
 int GameClear(void)
@@ -85,6 +90,33 @@ int GameClear(void)
 
     SetMainCallback2(CB2_DoHallOfFameScreen);
     return 0;
+}
+
+// Heals the party, sets the continue map to the player's house and saves the game showing the saving message
+void SavePostMicolo(void)
+{
+    HealPlayerParty();
+
+    SetContinueGameWarpStatus();
+
+    if (gSaveBlock2Ptr->playerGender == MALE)
+        SetContinueGameWarpToHealLocation(HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F);
+    else
+        SetContinueGameWarpToHealLocation(HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE_2F);
+
+    DrawDialogueFrame(0, 0);
+    AddTextPrinterParameterized2(0, 1, gText_SavingDontTurnOffPower, 0, NULL, 2, 1, 3);
+    CopyWindowToVram(0, 3);
+
+    // If save fails, do no thing.
+    TrySavingData(SAVE_NORMAL);
+
+    PlaySE(SE_SAVE);
+}
+
+// Shows game credits
+void ShowGameCredits(void) {
+    SetMainCallback2(CB2_StartCreditsSequence);
 }
 
 bool8 SetCB2WhiteOut(void)
