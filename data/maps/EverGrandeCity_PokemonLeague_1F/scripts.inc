@@ -322,7 +322,7 @@ Script_RandomPrizes::
 	end
 
 Script_RandomPrize1::
-	giveitem ITEM_HP_UP, 4
+	giveitem ITEM_HEART_SCALE, 4
 	compare VAR_RESULT, FALSE
 	call_if_eq Script_RandomPrize1_BagFull
 	closemessage
@@ -330,7 +330,7 @@ Script_RandomPrize1::
 	end
 
 Script_RandomPrize2::
-	giveitem ITEM_PROTEIN, 4
+	giveitem ITEM_PP_MAX, 2
 	compare VAR_RESULT, FALSE
 	call_if_eq Script_RandomPrize1_BagFull
 	closemessage
@@ -338,7 +338,7 @@ Script_RandomPrize2::
 	end
 
 Script_RandomPrize3::
-	giveitem ITEM_IRON, 4
+	giveitem ITEM_LUCKY_EGG, 1
 	compare VAR_RESULT, FALSE
 	call_if_eq Script_RandomPrize1_BagFull
 	closemessage
@@ -346,7 +346,7 @@ Script_RandomPrize3::
 	end
 	
 Script_RandomPrize4::
-	giveitem ITEM_CALCIUM, 4
+	giveitem ITEM_LEFTOVERS, 1
 	compare VAR_RESULT, FALSE
 	call_if_eq Script_RandomPrize1_BagFull
 	closemessage
@@ -354,7 +354,7 @@ Script_RandomPrize4::
 	end
 
 Script_RandomPrize5::
-	giveitem ITEM_ZINC, 4
+	giveitem ITEM_BIG_PEARL, 4
 	compare VAR_RESULT, FALSE
 	call_if_eq Script_RandomPrize1_BagFull
 	closemessage
@@ -362,7 +362,7 @@ Script_RandomPrize5::
 	end
 
 Script_RandomPrize6::
-	giveitem ITEM_CARBOS, 4
+	giveitem ITEM_NUGGET, 4
 	compare VAR_RESULT, FALSE
 	call_if_eq Script_RandomPrize1_BagFull
 	closemessage
@@ -378,7 +378,7 @@ Script_RandomPrize7::
 	end
 
 Script_RandomPrize8::
-	giveitem ITEM_MOOMOO_MILK, 2
+	giveitem ITEM_RARE_CANDY, 4
 	compare VAR_RESULT, FALSE
 	call_if_eq Script_RandomPrize1_BagFull
 	closemessage
