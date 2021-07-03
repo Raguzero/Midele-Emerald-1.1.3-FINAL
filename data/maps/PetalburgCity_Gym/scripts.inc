@@ -1522,7 +1522,7 @@ PetalburgCity_Gym_Text_BerkeIntro: @ 8206BF4
 	.string "I'm not going to take it easy just\n"
 	.string "because you're our LEADER's kid.\p"
 	.string "I'll show you how horrid it is for\n"
-	.string "a POKéMON to take a critical hit!$"
+	.string "a POKéMON to take a ONE-HIT KO!$"
 
 PetalburgCity_Gym_Text_BerkeDefeat: @ 8206C7D
 	.string "Your power…\n"
