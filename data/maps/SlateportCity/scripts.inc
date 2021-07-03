@@ -542,21 +542,10 @@ SlateportCity_PokemartDecor: @ 81DD1B8
 	release
 	end
 
-SlateportCity_EventScript_PowerTMClerk:: @ 81DD1D8
+SlateportCity_EventScript_Masuda::
 	lock
 	faceplayer
-	message gText_HowMayIServeYou
-	waitmessage
-	pokemart SlateportCity_Pokemart_PowerTMs
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-	release
-	end
-
-	.align 2
-SlateportCity_Pokemart_PowerTMs: @ 81DD1F0
-	.2byte ITEM_TM10  @ Hidden Power
-	.2byte ITEM_TM43  @ Secret Power
-	.2byte ITEM_NONE
+	msgbox Text_Slateport_Masuda, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1376,3 +1365,46 @@ SlateportCity_Text_TakingBattleTentChallenge: @ 81DF28C
 	.string "After all, a tough TRAINER is\n"
 	.string "the perfect fit for the BATTLE TENT!\p"
 	.string "Give it your best effort!$"
+	
+Text_Slateport_Masuda:
+	.string "¿Quieres comprar algo? ¡MELASUDA!\p"
+    .string "MASUDA: mira, joven, soy MASUDA,\n"
+    .string "director de unos de los juegos de\l"
+    .string "POKéMON más exitosos de la saga,\l"
+    .string "POKéMON ESPADA y ESCUDO, y me\l"
+    .string "gustaría darte una lección de vida.\p"
+    .string "No sé por qué has hablado conmigo;\n"
+    .string "quizás querías comprar algún objeto.\l"
+    .string "MTs, por ejemplo. Pero yo no vendo MTs.\p"
+    .string "Las MTs consumibles son cosa del\n"
+    .string "pasado, eso creíamos en GAME FREAK.\l"
+    .string "Que fuesen de un solo uso resultaba en\l"
+    .string "que los jugadores nunca las utilizasen,\l"
+    .string "o que las malgastasen y les fuese muy\l"
+    .string "difícil volver a conseguirlas.\p"
+    .string "Por eso en GAME FREAK decidimos hacer\n"
+    .string "que las MTs tuviesen usos infinitos, y\l"
+    .string "fue algo que todo el mundo recibió con\l"
+    .string "los brazos abiertos.\p"
+    .string "Pero en GAME FREAK nos dimos cuenta de\n"
+    .string "algo... a los gamers de verdad les\l"
+    .string "gustan los retos, les gusta hacer\l"
+    .string "cosas como pasarse horas abriendo\l"
+    .string "huevos, pasarse horas buscando un\l"
+    .string "shiny con naturaleza desfavorable e\l"
+    .string "IVs a 0, o pasarse horas farmeando en\l"
+    .string "la TORRE BATALLA para que les haxeen a\l"
+    .string "tope y sus 90 victorias seguidas se\l"
+    .string "vayan a la basura.\p"
+    .string "A estos gamers les gusta el farmeo\n"
+    .string "intenso, y por eso, en GAME FREAK se\l"
+    .string "nos ocurrió la genial idea de crear las\l"
+    .string "DT.\p"
+    .string "Son como las MT viejas, se gastan, y\n"
+    .string "para conseguirlas vas a tener que\l"
+    .string "farmear más que un esclavo de MIDELE...\p"
+    .string "Pero no te preocupes, las DT todavía no\n"
+    .string "han llegado a HOENN. Todavía...\p"
+    .string "Por cierto, no compartas LEAKS de\n"
+    .string "nuestros videojuegos, o enviaré a mis\l"
+    .string "abogados.$"

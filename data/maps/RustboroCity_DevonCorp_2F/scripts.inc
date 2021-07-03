@@ -429,8 +429,10 @@ RustboroCity_DevonCorp_2F_EventScript_FinishReceivingAerodactyl:: @ 8211AD7
 	end
 
 RustboroCity_DevonCorp_2F_EventScript_ChooseFossil:: @ 8211B84
-	message RustboroCity_DevonCorp_2F_Text_TwoFossilsPickOne
+	message RustboroCity_DevonCorp_2F_Text_Fossil
 	waitmessage
+	waitbuttonpress
+	closemessage
 	multichoice 17, 6, MULTI_FOSSIL, 0
 	switch VAR_RESULT
 	case 0, RustboroCity_DevonCorp_2F_EventScript_ChooseClawFossil
@@ -563,9 +565,9 @@ RustboroCity_DevonCorp_2F_Text_OhIsThatSo: @ 8212046
 	.string "DEVON's technological expertise\n"
 	.string "is outstanding, I tell you.$"
 
-RustboroCity_DevonCorp_2F_Text_TwoFossilsPickOne: @ 8212092
+RustboroCity_DevonCorp_2F_Text_Fossil: @ 8212092
 	.string "Oh, now that's a surprise!\n"
-	.string "You have not one, but two, fossil?\p"
+	.string "You have a fossil?\p"
 	.string "Unfortunately, my machine can only\n"
 	.string "regenerate one POKéMON at a time.\p"
 	.string "Would you like to pick one of your\n"
