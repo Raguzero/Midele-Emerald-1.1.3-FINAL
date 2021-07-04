@@ -2806,7 +2806,7 @@ const struct MonCoords gMonFrontPicCoords[] =
     [SPECIES_TOXTRICITY] =
     {
         .size = 0x88,
-        .y_offset = 0x5,
+        .y_offset = 0x1,
     },
     [SPECIES_TOXTRICITY_LK] =
     {
