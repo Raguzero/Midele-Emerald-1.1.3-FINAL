@@ -570,3 +570,5 @@ gSpecials:: @ 81DBA64
 	def_special HasDefeatedAllDarkiGymTrainersZoneFinal
 	def_special ShowGameCredits
 	def_special SavePostMicolo
+	def_special UpdateRandomBattleVictories
+	def_special BufferRandomBattleVictories

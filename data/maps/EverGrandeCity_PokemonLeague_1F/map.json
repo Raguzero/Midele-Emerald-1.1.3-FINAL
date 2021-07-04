@@ -4,6 +4,22 @@
     "allow_running": false,
     "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
     "bg_events": [
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+            "script": "EverGrandeCity_PokemonLeague_1F_Sign_VictoriasNormal",
+            "type": "sign",
+            "x": 17,
+            "y": 8
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+            "script": "EverGrandeCity_PokemonLeague_1F_Sign_VictoriasCC",
+            "type": "sign",
+            "x": 18,
+            "y": 8
+        }
     ],
     "connections": null,
     "coord_events": [

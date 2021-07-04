@@ -148,6 +148,7 @@ RANDOMINDIVIDUAL::
 	msgbox StartingRandomBattleMsg
 	setvar VAR_0x8004, SPECIAL_RANDOM_BATTLE
     setvar VAR_0x8005, 0
+	setvar VAR_0x800B, UPDATE_VICTORIES_NORMAL_INDIVIDUAL
     special DoSpecialTrainerBattle
     waitstate
     compare VAR_RESULT, B_OUTCOME_DREW
@@ -169,6 +170,7 @@ RANDOMDOBLES::
 	msgbox StartingRandomBattleMsg
 	setvar VAR_0x8004, SPECIAL_RANDOM_BATTLE_2
     setvar VAR_0x8005, 0
+	setvar VAR_0x800B, UPDATE_VICTORIES_NORMAL_DOUBLES
     special DoSpecialTrainerBattle
     waitstate
     compare VAR_RESULT, B_OUTCOME_DREW
@@ -187,12 +189,16 @@ StartingRandomBattleMsg:
 BF_RandomBattleCleanupWIN::
 	special HealPlayerParty
 	clearflag FLAG_RYU_RANDOMBATTLE
+	setvar VAR_0x800A, UPDATE_VICTORIES_OP_INCREMENT
+	special UpdateRandomBattleVictories
 	msgbox Enhorabuena
 	goto Script_RandomPrizes
 	end
 
 BF_RandomBattleCleanupLOSS::
 	special HealPlayerParty
+	setvar VAR_0x800A, UPDATE_VICTORIES_OP_RESET
+	special UpdateRandomBattleVictories
 	msgbox BattleAgain
 	clearflag FLAG_RYU_RANDOMBATTLE
 	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
@@ -202,6 +208,8 @@ BF_RandomBattleCleanupLOSS::
 	
 BF_RandomBattleCleanupDRAW::
 	special HealPlayerParty
+	setvar VAR_0x800A, UPDATE_VICTORIES_OP_RESET
+	special UpdateRandomBattleVictories
 	msgbox Empate
 	clearflag FLAG_RYU_RANDOMBATTLE
 	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
@@ -243,6 +251,7 @@ RANDOMCCINDIVIDUAL::
 	msgbox StartingRandomBattleMsg
 	setvar VAR_0x8004, SPECIAL_RANDOM_BATTLE
     setvar VAR_0x8005, 0
+	setvar VAR_0x800B, UPDATE_VICTORIES_CC_INDIVIDUAL
     special DoSpecialTrainerBattle
     waitstate
     compare VAR_RESULT, B_OUTCOME_DREW
@@ -261,6 +270,7 @@ RANDOMCCDOBLES::
 	msgbox StartingRandomBattleMsg
 	setvar VAR_0x8004, SPECIAL_RANDOM_BATTLE_2
     setvar VAR_0x8005, 0
+	setvar VAR_0x800B, UPDATE_VICTORIES_CC_DOUBLES
     special DoSpecialTrainerBattle
     waitstate
     compare VAR_RESULT, B_OUTCOME_DREW
@@ -284,6 +294,8 @@ NoBattle::
 BF_RandomBattleCleanupWINCC::
 	special LoadPlayerParty
 	clearflag FLAG_RYU_RANDOMBATTLECC
+	setvar VAR_0x800A, UPDATE_VICTORIES_OP_INCREMENT
+	special UpdateRandomBattleVictories
 	msgbox Enhorabuena
 	goto Script_RandomPrizes
 	end
@@ -292,6 +304,8 @@ BF_RandomBattleCleanupLOSSCC::
 	special LoadPlayerParty
 	msgbox BattleAgain
 	clearflag FLAG_RYU_RANDOMBATTLECC
+	setvar VAR_0x800A, UPDATE_VICTORIES_OP_RESET
+	special UpdateRandomBattleVictories
 	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
 	release
@@ -301,6 +315,8 @@ BF_RandomBattleCleanupDRAWCC::
 	special LoadPlayerParty
 	msgbox Empate
 	clearflag FLAG_RYU_RANDOMBATTLECC
+	setvar VAR_0x800A, UPDATE_VICTORIES_OP_RESET
+	special UpdateRandomBattleVictories
 	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
 	release
@@ -395,6 +411,22 @@ Fin_RandomPrize::
 	waitmovement 0
 	release
 	end
+
+EverGrandeCity_PokemonLeague_1F_Sign_VictoriasNormal::
+	lock
+	setvar VAR_0x8008, SHOW_VICTORIES_NORMAL
+	special BufferRandomBattleVictories
+	msgbox EverGrandeCity_PokemonLeague_1F_Text_VictoriasNormal, MSGBOX_SIGN
+	release
+	end
+
+EverGrandeCity_PokemonLeague_1F_Sign_VictoriasCC::
+	lock
+	setvar VAR_0x8008, SHOW_VICTORIES_CC
+	special BufferRandomBattleVictories
+	msgbox EverGrandeCity_PokemonLeague_1F_Text_VictoriasCC, MSGBOX_SIGN
+	release
+	end
 	
 Script_RandomPrize1_Text_NoRoomForThis:
 	.string "¿Así que no tienes espacio para esto?\n"
@@ -474,3 +506,21 @@ EverGrandeCity_PokemonLeague_1F_Text_HaventObtainedAllBadges: @ 8229787
 EverGrandeCity_PokemonLeague_1F_Text_GoForth: @ 82297EF
 	.string "TRAINER! Believe in yourself and your\n"
 	.string "POKéMON, and go forth!$"
+
+EverGrandeCity_PokemonLeague_1F_Text_VictoriasNormal:
+	.string "---VICTORIAS BATALLAS NORMALES---\p"
+	.string "---INDIVIDUALES---\p"
+	.string "Racha actual: {STR_VAR_1}\n"
+	.string "Racha máxima: {STR_VAR_2}\p"
+	.string "---DOBLES---\p"
+	.string "Racha actual: {STR_VAR_3}\n"
+	.string "Racha máxima: {STR_VAR_5}$"
+
+EverGrandeCity_PokemonLeague_1F_Text_VictoriasCC:
+	.string "---VICTORIAS BATALLAS CC---\p"
+	.string "---INDIVIDUALES---\p"
+	.string "Racha actual: {STR_VAR_1}\n"
+	.string "Racha máxima: {STR_VAR_2}\p"
+	.string "---DOBLES---\p"
+	.string "Racha actual: {STR_VAR_3}\n"
+	.string "Racha máxima: {STR_VAR_5}$"
