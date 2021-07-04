@@ -6464,6 +6464,10 @@ if (gBattleOutcome == B_OUTCOME_WON)
             money += GetTrainerMoneyToGive(gTrainerBattleOpponent_B);
         AddMoney(&gSaveBlock1Ptr->money, money);
     }
+    else if (gTrainerBattleOpponent_A == TRAINER_RANDOM_PARTY || gTrainerBattleOpponent_A == TRAINER_RANDOM_PARTY_2)
+    {
+        money = 0;
+    }
     else
     {
         s32 i, count;
