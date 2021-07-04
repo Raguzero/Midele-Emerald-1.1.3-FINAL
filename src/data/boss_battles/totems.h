@@ -16,7 +16,7 @@ const struct TotemMon gTotemMons[] =
     {
         .species = SPECIES_TOXTRICITY_LK,
         .minLevel = 30,
-        .moves = {MOVE_OVERDRIVE, MOVE_HYPER_VOICE, MOVE_FIRE_PUNCH, MOVE_SLUDGE_BOMB},
+        .moves = {MOVE_THUNDERBOLT, MOVE_HYPER_VOICE, MOVE_FIRE_PUNCH, MOVE_SLUDGE_BOMB},
         .item = ITEM_LEFTOVERS,
         .nature = NATURE_NAIVE,
         .abilityNumber = 0, // PUNK ROCK
@@ -27,11 +27,11 @@ const struct TotemMon gTotemMons[] =
     {
         .species = SPECIES_COFAGRIGUS,
         .minLevel = 30,
-        .moves = {MOVE_SHADOW_BALL, MOVE_REVENGE, MOVE_PSYCHIC, MOVE_WILL_O_WISP},
+        .moves = {MOVE_SHADOW_BALL, MOVE_SPITE, MOVE_SHOCK_WAVE, MOVE_WILL_O_WISP},
         .item = ITEM_LEFTOVERS,
-        .nature = NATURE_BRAVE,
+        .nature = NATURE_QUIET,
         .abilityNumber = 0, // MUMMY
-        .statBoosts = {6, 8, 8, 6, 8, 8, 6, 6}, // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
+        .statBoosts = {6, 7, 6, 6, 7, 6, 6, 6}, // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
         .evs = {252, 100, 56, 100, 56, 56},
     },
 	[TOTEM_CENTISKORCH] =
@@ -43,18 +43,18 @@ const struct TotemMon gTotemMons[] =
         .nature = NATURE_QUIET,
         .abilityNumber = 0, // FLASH FIRE
         .statBoosts = {6, 6, 7, 6, 6, 7, 6, 6}, // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
-        .evs = {252, 100, 56, 100, 56, 56},
+        .evs = {252, 0, 56, 100, 56, 56},
     },
     [TOTEM_WINTASS] =
     {
         .species = SPECIES_WINTASS,
         .minLevel = 33,
-        .moves = {MOVE_BULK_UP, MOVE_MACH_PUNCH, MOVE_ROCK_BLAST, MOVE_MUD_SHOT},
+        .moves = {MOVE_BLIZZARD, MOVE_MACH_PUNCH, MOVE_ROCK_BLAST, MOVE_MUD_SHOT},
         .item = ITEM_LEFTOVERS,
         .nature = NATURE_ADAMANT,
         .abilityNumber = 1, // TECHNICIAN
         .statBoosts = {6, 6, 8, 6, 6, 8, 6, 6}, // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
-        .evs = {252, 152, 0, 0, 0, 106},
+        .evs = {252, 152, 56, 56, 56, 106},
     },
     [TOTEM_MEGA_GLALIE] =
     {

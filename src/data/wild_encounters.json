@@ -11807,9 +11807,9 @@
                         "encounter_rate": 4,
                         "mons": [
                             {
-                                "max_level": 35,
-                                "min_level": 30,
-                                "species": "SPECIES_TENTACRUEL"
+                                "max_level": 30,
+                                "min_level": 25,
+                                "species": "SPECIES_TENTACOOL"
                             },
                             {
                                 "max_level": 30,
