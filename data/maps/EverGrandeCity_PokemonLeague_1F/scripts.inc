@@ -45,7 +45,6 @@ EverGrandeCity_PokemonLeague_1F_Pokemart: @ 8229624
 	.2byte ITEM_REVIVE
 	.2byte ITEM_MAX_REVIVE
 	.2byte ITEM_MAX_REPEL
-	.2byte ITEM_RARE_CANDY
 	.2byte ITEM_NONE
 	release
 	end
