@@ -1603,26 +1603,6 @@ void TryInitBattleTowerAwardManEventObject(void)
     //TryInitLocalEventObject(6);
 }
 
-u16 GetDaysUntilPacifidlogTMAvailable(void)
-{
-    u16 tmReceivedDay = VarGet(VAR_PACIFIDLOG_TM_RECEIVED_DAY);
-    if (gLocalTime.days - tmReceivedDay >= 7)
-    {
-        return 0;
-    }
-    else if (gLocalTime.days < 0)
-    {
-        return 8;
-    }
-    return 7 - (gLocalTime.days - tmReceivedDay);
-}
-
-u16 SetPacifidlogTMReceivedDay(void)
-{
-    VarSet(VAR_PACIFIDLOG_TM_RECEIVED_DAY, gLocalTime.days);
-    return gLocalTime.days;
-}
-
 bool8 MonOTNameNotPlayer(void)
 {
     if (GetLanguage(&gPlayerParty[gSpecialVar_0x8004]) != GAME_LANGUAGE)

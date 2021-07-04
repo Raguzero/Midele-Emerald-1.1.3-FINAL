@@ -320,7 +320,7 @@
 #define FLAG_PETALBURG_MART_EXPANDED_ITEMS   0x128
 #define FLAG_RECEIVED_MIRACLE_SEED           0x129
 #define FLAG_RECEIVED_BELDUM                 0x12A
-#define FLAG_RECEIVED_FANCLUB_TM_THIS_WEEK   0x12B
+#define FLAG_NEW_UNUSED_0x12B                0x12B
 #define FLAG_MET_FANCLUB_YOUNGER_BROTHER     0x12C
 #define FLAG_RIVAL_LEFT_FOR_ROUTE103         0x12D
 #define FLAG_OMIT_DIVE_FROM_STEVEN_LETTER    0x12E
@@ -661,7 +661,7 @@
 #define FLAG_HIDE_REGIGIGAS                                  0x26C // Previously unused Flag
 #define FLAG_DEFEATED_IZABE_GIANT_2                          0x26D // Previously unused Flag
 #define FLAG_DAYCARE_DITTO_RECEIVED                                  0x26E // Previously unused Flag
-#define FLAG_UNUSED_0x26F  									 0x26F // Unused Flag
+#define FLAG_RECEIVED_TM21  									 0x26F // Previously Unused Flag
 #define FLAG_CAUGHT_REGIDRAGO  0x270 // Previously unused Flag
 #define FLAG_DEFEATED_REGIDRAGO  0x271 // Previously unused Flag
 #define FLAG_HIDE_REGIDRAGO  0x272 // Previously unused Flag
@@ -698,10 +698,10 @@
 #define FLAG_HIDE_FIREON_2_GYM_SANTY  0x291 // Previously Unused Flag
 #define FLAG_HIDE_FIREON_3_GYM_SANTY  0x292 // Previously Unused Flag
 #define FLAG_HIDE_FIREON_4_GYM_SANTY  0x293 // Previously Unused Flag
-#define FLAG_HIDE_PAREDINVISIBLE_1_DARKI_GYM  0x294 // Unused Flag
-#define FLAG_HIDE_PAREDINVISIBLE_2_DARKI_GYM  0x295 // Unused Flag
-#define FLAG_HIDE_PAREDINVISIBLE_3_DARKI_GYM  0x296 // Unused Flag
-#define FLAG_UNUSED_0x297  0x297 // Unused Flag
+#define FLAG_HIDE_PAREDINVISIBLE_1_DARKI_GYM  0x294 // Previously Unused Flag
+#define FLAG_HIDE_PAREDINVISIBLE_2_DARKI_GYM  0x295 // Previously Unused Flag
+#define FLAG_HIDE_PAREDINVISIBLE_3_DARKI_GYM  0x296 // Previously Unused Flag
+#define FLAG_RECEIVED_PP_MAX  0x297 // Previously Unused Flag
 #define FLAG_UNUSED_0x298  0x298 // Unused Flag
 #define FLAG_UNUSED_0x299  0x299 // Unused Flag
 #define FLAG_UNUSED_0x29A  0x29A // Unused Flag
