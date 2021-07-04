@@ -29,9 +29,10 @@
 #define AI_WEATHER_HAIL 3
 
 // get_how_powerful_move_is
-#define MOVE_POWER_DISCOURAGED  1
-#define MOVE_NOT_MOST_POWERFUL  2
-#define MOVE_MOST_POWERFUL      3
+#define MOVE_POWER_DISCOURAGED_AND_NOT_MOST_POWERFUL 1
+#define MOVE_NOT_MOST_POWERFUL                       2
+#define MOVE_POWER_DISCOURAGED                       3
+#define MOVE_MOST_POWERFUL                           4
 
 // script's table id to bit
 #define AI_SCRIPT_CHECK_BAD_MOVE (1 << 0)

@@ -306,7 +306,6 @@ static const u16 sDiscouragedPowerfulMoveEffects[] =
     EFFECT_SPIT_UP,
     EFFECT_FOCUS_PUNCH,
     EFFECT_SUPERPOWER,
-    EFFECT_ERUPTION,
     EFFECT_OVERHEAT,
     0xFFFF
 };
@@ -1431,10 +1430,14 @@ static void Cmd_get_how_powerful_move_is(void)
     s32 i, checkedMove;
     s32 moveDmgs[MAX_MON_MOVES];
 	bool8 isDiscouraged = FALSE;
+    u16 effect = gBattleMoves[AI_THINKING_STRUCT->moveConsidered].effect;
+
+    if (effect == EFFECT_SOLARBEAM && (gBattleWeather & WEATHER_SUN_ANY))
+        effect = EFFECT_HIT;   // Si hay sol, Rayo Solar se comporta como un movimiento estándar
 
     for (i = 0; sDiscouragedPowerfulMoveEffects[i] != 0xFFFF; i++)
     {
-	if (gBattleMoves[AI_THINKING_STRUCT->moveConsidered].effect == sDiscouragedPowerfulMoveEffects[i]) {
+	if (effect == sDiscouragedPowerfulMoveEffects[i]) {
             isDiscouraged = TRUE;
             break;
 	}
@@ -1450,9 +1453,13 @@ static void Cmd_get_how_powerful_move_is(void)
 
         for (checkedMove = 0; checkedMove < MAX_MON_MOVES; checkedMove++)
         {
+			     effect = gBattleMoves[gBattleMons[sBattler_AI].moves[checkedMove]].effect;
+            if (effect == EFFECT_SOLARBEAM && (gBattleWeather & WEATHER_SUN_ANY))
+                effect = EFFECT_HIT;   // Si hay sol, Rayo Solar se comporta como un movimiento estándar
+			
              for (i = 0; sDiscouragedPowerfulMoveEffects[i] != 0xFFFF; i++)
             {
-                if (gBattleMoves[gBattleMons[sBattler_AI].moves[checkedMove]].effect == sDiscouragedPowerfulMoveEffects[i])
+                if (effect == sDiscouragedPowerfulMoveEffects[i])
                     break;
             }
 
@@ -1481,7 +1488,7 @@ static void Cmd_get_how_powerful_move_is(void)
         if (checkedMove == MAX_MON_MOVES)
             AI_THINKING_STRUCT->funcResult = isDiscouraged ? MOVE_POWER_DISCOURAGED : MOVE_MOST_POWERFUL; // Is the most powerful.
         else
-            AI_THINKING_STRUCT->funcResult = MOVE_NOT_MOST_POWERFUL; // Not the most powerful.
+			AI_THINKING_STRUCT->funcResult = isDiscouraged ? MOVE_POWER_DISCOURAGED_AND_NOT_MOST_POWERFUL : MOVE_NOT_MOST_POWERFUL; // Not the most powerful.
     }
     else
     {

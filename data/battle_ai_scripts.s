@@ -51,6 +51,12 @@ AI_CheckBadMove:
 	if_move MOVE_HORN_DRILL, AI_CBM_CheckIfNegatesType
 	get_how_powerful_move_is
 	if_equal 0, AI_CheckBadMove_CheckSoundproof
+    if_equal MOVE_POWER_DISCOURAGED, AI_CheckBadMove_CheckSubstitute
+    if_equal MOVE_POWER_DISCOURAGED_AND_NOT_MOST_POWERFUL, AI_CheckBadMove_CheckSubstitute
+    goto AI_CBM_CheckIfNegatesType
+AI_CheckBadMove_CheckSubstitute:
+    if_not_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_CBM_CheckIfNegatesType
+    score -2
 
 AI_CBM_CheckIfNegatesType: @ 82DBF92
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
@@ -2856,6 +2862,7 @@ AI_SandstormResistantAbilities:
 AI_HailResistantAbilities:
 	.byte ABILITY_ICE_BODY
 	.byte ABILITY_SNOW_CLOAK
+	.byte ABILITY_SLUSH_RUSH
 	.byte ABILITY_OVERCOAT
 	.byte -1
 
@@ -3323,6 +3330,7 @@ AI_TryToFaint:
 AI_TryToFaint_SkipCanFaint:
 	get_how_powerful_move_is
 	if_equal MOVE_NOT_MOST_POWERFUL, Score_Minus1
+	if_equal MOVE_POWER_DISCOURAGED_AND_NOT_MOST_POWERFUL, Score_Minus2
 	if_equal 0, AI_Ret
 	if_type_effectiveness AI_EFFECTIVENESS_x4, AI_TryToFaint_DoubleSuperEffective
 	end
@@ -3580,6 +3588,7 @@ AI_DoubleBattleCheckUserStatus:
 AI_DoubleBattleCheckUserStatus2:
 	get_how_powerful_move_is
 	if_equal MOVE_POWER_DISCOURAGED, Score_Minus5
+	if_equal MOVE_POWER_DISCOURAGED_AND_NOT_MOST_POWERFUL, Score_Minus5
 	score +1
 	if_equal MOVE_MOST_POWERFUL, Score_Plus2
 	end
@@ -3900,6 +3909,7 @@ AI_HPAware_DiscouragedEffectsWhenLowHP: @ 82DE258
 	.byte EFFECT_SPECIAL_ATTACK_UP_3
 	.byte EFFECT_ATTACK_SPATK_UP
     .byte EFFECT_STOCKPILE
+    .byte EFFECT_CHARGE
     .byte -1
 
 AI_HPAware_DiscouragedEffectsWhenTargetHighHP: @ 82DE288
@@ -4013,6 +4023,7 @@ AI_HPAware_DiscouragedEffectsWhenTargetLowHP: @ 82DE2B1
 	.byte EFFECT_SPECIAL_ATTACK_UP_3
 	.byte EFFECT_ATTACK_SPATK_UP
     .byte EFFECT_STOCKPILE
+    .byte EFFECT_CHARGE
     .byte -1
 
 AI_Unknown:
