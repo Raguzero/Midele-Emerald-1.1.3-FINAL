@@ -2012,6 +2012,9 @@ s32 GetStringWidth(u8 fontId, const u8 *str, s16 letterSpacing)
                 case 0x4:
                     bufferPointer = gStringVar3;
                     break;
+                case 0x6:
+                    bufferPointer = gStringVar5;
+                    break;
                 default:
                     return 0;
             }
