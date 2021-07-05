@@ -3867,7 +3867,7 @@ static void Cmd_getexp(void)
                         gBattleMoveDamage += gExpShareExp;
                     if (holdEffect == HOLD_EFFECT_LUCKY_EGG)
                         gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
-                    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+                    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER || gBossBattleFlags == BATTLE_TYPE_TOTEM)
                         gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
 				// EXP GEN 5 STYLE
 				{
