@@ -1650,6 +1650,25 @@ void AI_CalcDmg(u8 attacker, u8 defender)
         gBattleMoveDamage = 0;
         return;
     }
+	
+ // Tiene en cuenta inmunidades por habilidades que no se evalúan en TypeCalc (a diferencia de las de Levitate y Wonder Guard)
+    // Lo siguiente puede adivinar la habilidad del objetivo, pero en general por el diseño de la IA esto no afecta a las decisiones de la IA
+    {
+        u16 ability = gBattleMons[defender].ability;
+        u8 type = gBattleStruct->dynamicMoveType & 0x80;
+        if (type == 0)
+            type = gBattleMoves[gCurrentMove].type;
+        if ((type == TYPE_ELECTRIC && (ability == ABILITY_VOLT_ABSORB || ability == ABILITY_LIGHTNING_ROD || ability == ABILITY_MOTOR_DRIVE))
+         || (type == TYPE_WATER && (ability == ABILITY_WATER_ABSORB || ability == ABILITY_DRY_SKIN))
+         || (type == TYPE_FIRE && ability == ABILITY_FLASH_FIRE)
+         || (ability == ABILITY_SOUNDPROOF && (gCurrentMove == MOVE_SNORE || gCurrentMove == MOVE_UPROAR || gCurrentMove == MOVE_HYPER_VOICE || gCurrentMove == MOVE_OVERDRIVE || gCurrentMove == MOVE_BOOMBURST))) 
+		 {
+            gBattleMoveDamage = 0;
+            return;
+        }
+    }
+	if (gBattleMoveDamage == 0)
+        gBattleMoveDamage = 1; // Salvo inmunidad, el daño siempre es al menos 1
 // Account for moves with special damage calculations
     switch (gBattleMoves[gCurrentMove].effect)
     {
@@ -1663,11 +1682,7 @@ void AI_CalcDmg(u8 attacker, u8 defender)
         gBattleMoveDamage = 20;
         break;
     case EFFECT_PSYWAVE:
-        {
-            u32 randDamage;
-                randDamage = (Random() % 11) * 10;
-            gBattleMoveDamage = gBattleMons[attacker].level * (randDamage + 50) / 100;
-        }
+        gBattleMoveDamage = gBattleMons[attacker].level * 80 / 100;
         break;
     case EFFECT_SUPER_FANG:
         gBattleMoveDamage = gBattleMons[defender].hp/2;
@@ -1685,7 +1700,8 @@ void AI_CalcDmg(u8 attacker, u8 defender)
     default:
         break;
     }
-
+    if (gBattleMoveDamage == 0)
+        gBattleMoveDamage = 1; // Salvo inmunidad, el daño siempre es al menos 1
     gBattleMoveDamage = gBattleMoveDamage * gCritMultiplier * gBattleScripting.dmgMultiplier;
     gBattleStruct->dynamicMoveType = 0;
 	gBattleScripting.dmgMultiplier = 1;

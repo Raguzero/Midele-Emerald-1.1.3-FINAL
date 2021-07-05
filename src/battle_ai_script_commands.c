@@ -519,8 +519,12 @@ void CalculategBattleMoveDamageFromgCurrentMove(u8 attackerId, u8 targetId, u8 s
     gCritMultiplier = 1;
     AI_CalcDmg(attackerId, targetId);
 
-    if (simulatedRng)
+	if (gBattleMoveDamage != 0 && simulatedRng)
+    {
         gBattleMoveDamage = gBattleMoveDamage * simulatedRng / 100;
+        if (gBattleMoveDamage == 0)
+            gBattleMoveDamage = 1; // Salvo inmunidad, el daño siempre es al menos 1
+    }
 }
 
 s32 CalculatenHKOFromgCurrentMove(u8 attackerId, u8 targetId, u8 simulatedRng, s32 best_nhko)
@@ -528,10 +532,6 @@ s32 CalculatenHKOFromgCurrentMove(u8 attackerId, u8 targetId, u8 simulatedRng, s
     s32 n;
 
     CalculategBattleMoveDamageFromgCurrentMove(attackerId, targetId, simulatedRng);
-
-    // Moves always do at least 1 damage.
-    if (gBattleMoveDamage == 0)
-        gBattleMoveDamage = 1;
 
     for (n = 1; n < best_nhko; n++)
         if (gBattleMons[targetId].hp <= n * gBattleMoveDamage)
@@ -1470,8 +1470,6 @@ static void Cmd_get_how_powerful_move_is(void)
                 gCurrentMove = gBattleMons[sBattler_AI].moves[checkedMove];
                 AI_CalcDmg(sBattler_AI, gBattlerTarget);
                 moveDmgs[checkedMove] = gBattleMoveDamage * AI_THINKING_STRUCT->simulatedRNG[checkedMove] / 100;
-                if (moveDmgs[checkedMove] == 0)
-                    moveDmgs[checkedMove] = 1;
             }
             else
             {
@@ -1485,7 +1483,7 @@ static void Cmd_get_how_powerful_move_is(void)
                 break;
         }
 
-        if (checkedMove == MAX_MON_MOVES)
+        if (checkedMove == MAX_MON_MOVES && moveDmgs[AI_THINKING_STRUCT->movesetIndex] > 0)
             AI_THINKING_STRUCT->funcResult = isDiscouraged ? MOVE_POWER_DISCOURAGED : MOVE_MOST_POWERFUL; // Is the most powerful.
         else
 			AI_THINKING_STRUCT->funcResult = isDiscouraged ? MOVE_POWER_DISCOURAGED_AND_NOT_MOST_POWERFUL : MOVE_NOT_MOST_POWERFUL; // Not the most powerful.
@@ -1994,10 +1992,6 @@ static void Cmd_if_can_faint(void)
     gCurrentMove = AI_THINKING_STRUCT->moveConsidered;
     CalculategBattleMoveDamageFromgCurrentMove(sBattler_AI, gBattlerTarget, AI_THINKING_STRUCT->simulatedRNG[AI_THINKING_STRUCT->movesetIndex]);
 
-    // Moves always do at least 1 damage.
-    if (gBattleMoveDamage == 0)
-        gBattleMoveDamage = 1;
-
     if (gBattleMons[gBattlerTarget].hp <= gBattleMoveDamage)
         gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 1);
     else
@@ -2014,8 +2008,6 @@ static void Cmd_if_cant_faint(void)
 
     gCurrentMove = AI_THINKING_STRUCT->moveConsidered;
     CalculategBattleMoveDamageFromgCurrentMove(sBattler_AI, gBattlerTarget, AI_THINKING_STRUCT->simulatedRNG[AI_THINKING_STRUCT->movesetIndex]);
-
-    // This macro is missing the damage 0 = 1 assumption.
 
     if (gBattleMons[gBattlerTarget].hp > gBattleMoveDamage)
         gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 1);
