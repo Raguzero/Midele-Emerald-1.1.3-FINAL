@@ -21366,15 +21366,15 @@ static const struct TrainerMonCustomMidele sParty_IzabeIsland_Hexmaniac[] = {
 static const struct TrainerMonCustomMidele sParty_IzabeIsland_Lavender[] = {
     {
     .iv = 31,
-    .lvl = 34,
+    .lvl = 32,
     .species = SPECIES_WOOLOO,
-	.heldItem = ITEM_LEFTOVERS,
+	.heldItem = ITEM_HARD_STONE,
     .ability = 1,
     .shiny = 1,
     .friendship = 255,
     .nature = NATURE_ADAMANT,
 	.evs = {0, 84, 0, 0, 0, 84},
-    .moves = {MOVE_HEADBUTT, MOVE_MILK_DRINK, MOVE_ROLLOUT, MOVE_THUNDER_WAVE}
+    .moves = {MOVE_HEADBUTT, MOVE_DOUBLE_KICK, MOVE_ROLLOUT, MOVE_THUNDER_WAVE}
     },
     {
     .iv = 31,
@@ -21386,19 +21386,19 @@ static const struct TrainerMonCustomMidele sParty_IzabeIsland_Lavender[] = {
     .friendship = 255,
     .nature = NATURE_MODEST,
 	.evs = {0, 0, 0, 84, 0, 84},
-    .moves = {MOVE_ICE_BEAM, MOVE_CALM_MIND, MOVE_REST, MOVE_DAZZLING_GLEAM}
+    .moves = {MOVE_AURORA_BEAM, MOVE_STUN_SPORE, MOVE_REST, MOVE_FAIRY_WIND}
     },
     {
     .iv = 31,
     .lvl = 33,
     .species = SPECIES_APPLETUN,
-	.heldItem = ITEM_LEFTOVERS,
+	.heldItem = ITEM_CHESTO_BERRY,
     .ability = 0,
     .shiny = 0,
     .friendship = 255,
-    .nature = NATURE_CALM,
+    .nature = NATURE_SASSY,
 	.evs = {84, 0, 0, 0, 84, 0},
-    .moves = {MOVE_REST, MOVE_SLEEP_TALK, MOVE_LEECH_SEED, MOVE_DRAGON_BREATH}
+    .moves = {MOVE_REST, MOVE_BODY_SLAM, MOVE_LEECH_SEED, MOVE_DRAGON_BREATH}
     },
     {
     .iv = 31,
@@ -21410,7 +21410,7 @@ static const struct TrainerMonCustomMidele sParty_IzabeIsland_Lavender[] = {
     .friendship = 255,
     .nature = NATURE_ADAMANT,
 	.evs = {0, 84, 0, 0, 0, 84},
-    .moves = {MOVE_DOUBLE_TEAM, MOVE_DRILL_PECK, MOVE_BULK_UP, MOVE_SWAGGER}
+    .moves = {MOVE_DOUBLE_TEAM, MOVE_DRILL_PECK, MOVE_REVENGE, MOVE_SWAGGER}
     },
     {
     .iv = 31,
@@ -21420,9 +21420,9 @@ static const struct TrainerMonCustomMidele sParty_IzabeIsland_Lavender[] = {
     .ability = 0,
     .shiny = 1,
     .friendship = 255,
-    .nature = NATURE_JOLLY,
+    .nature = NATURE_TIMID,
 	.evs = {0, 0, 0, 84, 0, 84},
-    .moves = {MOVE_THUNDERBOLT, MOVE_PSYCHIC, MOVE_ICE_BEAM, MOVE_AGILITY}
+    .moves = {MOVE_THUNDERBOLT, MOVE_PSYBEAM, MOVE_ICY_WIND, MOVE_AGILITY}
     },
     {
     .iv = 31,
