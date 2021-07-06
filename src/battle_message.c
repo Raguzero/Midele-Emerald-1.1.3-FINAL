@@ -596,6 +596,9 @@ static const u8 sText_RedHPCursedSlowbro[] = _("¡¡¡KILL ME, PLEASE!!!\p");
 static const u8 sText_VaderMicolandiaPierdePrimerPoke[] = _("Mine is the one true mewnado,\ninstrument of destruction\land rebirth!\p");
 static const u8 sText_VaderMicolandiaEnviaUltimoPoke[] = _("Did you...\pNo, how can you still have visions?!\nHow can you read my movements?!\p");
 static const u8 sText_RedHPVaderMicolandia[] = _("Impossible!\pHow can such power dwell within you?\nI AM A GOD!!!\p");
+static const u8 sText_AlbermausPierdePrimerPoke[] = _("Aaaaaaaaah\nHijo de la grandísima\p");
+static const u8 sText_AlbermausEnviaUltimoPoke[] = _("¿Te conté aquella vez que\ncasi quemo una fábrica?\p");
+static const u8 sText_RedHPAlbermaus[] = _("Bueno, esto aún puedo salvarlo.\nComo el PIR.\p");
 
 static const u8 frase0[] = _("Te voy a contar la historia del\nPrimer Nacional Español\ltodas las veces que pueda.\p");
 static const u8 frase1[] = _("En primer lugar dar las gracias\n a mis 6 Pokemon\p(me arriesgué a usar 1 solo equipo\nen tooooodo el torneo, y el equipo\lme respondió bien, demostrando ser un\lgran equipo bastante equilibrado, y\l poderoso tanto en ataque\lcomo en defensa).\p");
@@ -3136,6 +3139,7 @@ static const struct TrainerSlide sTrainerSlides[] =
     {TRAINER_SLOWBRO, sText_CursedSlowbroEnviaUltimoPoke, sText_RedHPCursedSlowbro, sText_CursedSlowbroPierdePrimerPoke},
     {TRAINER_PACOCHEF_MICOLANDIA, sText_PacoEnviaUltimoPoke, sText_RedHPPaco, sText_PacoPierdePrimerPoke},
     {TRAINER_AVADER_MICOLANDIA, sText_VaderMicolandiaEnviaUltimoPoke, sText_RedHPVaderMicolandia, sText_VaderMicolandiaPierdePrimerPoke},
+    {TRAINER_ALBERMAUS, sText_AlbermausEnviaUltimoPoke, sText_RedHPAlbermaus, sText_AlbermausPierdePrimerPoke},
 };
 
 static u32 GetEnemyMonCount(bool32 onlyAlive)

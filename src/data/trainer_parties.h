@@ -25441,3 +25441,66 @@ static const struct TrainerMonCustomMidele sParty_MDragon[] = {
     .moves = {MOVE_EARTHQUAKE, MOVE_BOOMBURST, MOVE_ROCK_SLIDE, MOVE_HIDDEN_POWER}
     }
 };
+static const struct TrainerMonCustomMidele sParty_Albermaus[] = {
+    {
+    .iv = 31,
+    .lvl = 75,
+    .species = SPECIES_WEEZING,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_RELAXED,
+	.evs = {252, 0, 252, 0, 6, 0},
+	.ability = 0,
+    .moves = {MOVE_WILL_O_WISP, MOVE_SLUDGE_BOMB, MOVE_FLAMETHROWER, MOVE_PAIN_SPLIT}
+    },
+    {
+    .iv = 31,
+    .lvl = 73,
+    .species = SPECIES_GENGAR,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_TIMID,
+	.evs = {6, 0, 0, 252, 0, 252},
+	.ability = 0,
+    .moves = {MOVE_WILL_O_WISP, MOVE_THUNDERBOLT, MOVE_ICE_PUNCH, MOVE_SUBSTITUTE}
+    },
+    {
+    .iv = 31,
+    .lvl = 73,
+    .species = SPECIES_JELLICENT,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_CALM,
+	.evs = {252, 0, 38, 0, 220, 0},
+    .ability = 0,  
+    .moves = {MOVE_WILL_O_WISP, MOVE_SURF, MOVE_RECOVER, MOVE_ICE_BEAM}
+    },
+    {
+    .iv = 31,
+    .lvl = 75,
+    .species = SPECIES_ALOLAN_MAROWAK,
+	.heldItem = ITEM_THICK_CLUB,
+	.nature = NATURE_ADAMANT,
+	.evs = {252, 252, 0, 0, 0, 6},
+	.ability = 1,
+	.shiny = 1,
+    .moves = {MOVE_WILL_O_WISP, MOVE_DOUBLE_EDGE, MOVE_SHADOW_BALL, MOVE_EARTHQUAKE}
+    },
+    {
+    .iv = 31,
+    .lvl = 74,
+    .species = SPECIES_MEGA_BANETTE,
+	.heldItem = ITEM_FOCUS_SASH,
+	.nature = NATURE_JOLLY,
+	.evs = {0, 252, 0, 0, 0, 252},
+	.ability = 1,
+    .moves = {MOVE_DESTINY_BOND, MOVE_WILL_O_WISP, MOVE_SHADOW_BALL, MOVE_TAUNT}
+    },
+    {
+    .iv = 31,
+    .lvl = 75,
+    .species = SPECIES_CENTISKORCH,
+	.heldItem = ITEM_SITRUS_BERRY,
+	.nature = NATURE_LONELY,
+	.evs = {0, 220, 0, 156, 0, 132},
+	.ability = 0,
+    .moves = {MOVE_WILL_O_WISP, MOVE_FLAMETHROWER, MOVE_LEECH_LIFE, MOVE_KNOCK_OFF}
+    }
+};

@@ -174,6 +174,23 @@ GymSanty2_EventScript_Felipex88::
 	msgbox Felipex88_DespuesDeBatalla, MSGBOX_AUTOCLOSE
 	end
 	
+GymSanty2_EventScript_Albermaus::
+	trainerbattle_single TRAINER_ALBERMAUS, Albermaus_AntesBatalla, Albermaus_MensajeDerrota
+	msgbox Albermaus_DespuesDeBatalla, MSGBOX_AUTOCLOSE
+	end
+	
+Albermaus_AntesBatalla: 
+	.string "Tú no serás psicoanalísta,\n"
+	.string "¿verdad?$"
+	
+Albermaus_MensajeDerrota: 
+	.string "M-word$"
+	
+Albermaus_DespuesDeBatalla:
+	.string "No sé cuál fue mi peor decisión:\n"
+	.string "empezar a prepararme el PIR\l" 
+	.string "o moderar PxP$"
+	
 Entropia_AntesBatalla: 
 	.string "Amore, ¿sabías que estamos en la\n"
     .string "piscis season?\p"

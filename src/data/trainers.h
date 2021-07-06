@@ -13544,4 +13544,17 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_MDragon),
         .party = {.ItemCustomMidele = sParty_MDragon},
     },
+    [TRAINER_ALBERMAUS] =
+    {
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
+        .trainerPic = TRAINER_PIC_KINDLER,
+        .trainerName = _("ALBERMAUS"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
+        .partySize = ARRAY_COUNT(sParty_Albermaus),
+        .party = {.ItemCustomMidele = sParty_Albermaus},
+    },
 };
