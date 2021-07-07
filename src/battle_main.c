@@ -570,6 +570,7 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_ELITE_FOUR_MIDELE, 25},
     {TRAINER_CLASS_SCIENTISH, 10},
     {TRAINER_CLASS_CURSED, 15},
+    {TRAINER_CLASS_RANDOM, 15},
     {0xFF, 5},
 };
 

@@ -71,4 +71,5 @@ const u8 gTrainerClassNames[][13] = {
     [TRAINER_CLASS_ELITE_FOUR_MIDELE] = _("ELITE FOUR"),
     [TRAINER_CLASS_SCIENTISH] = _("SCIENTISH"),
     [TRAINER_CLASS_CURSED] = _("CURSED"),
+    [TRAINER_CLASS_RANDOM] = _("RANDOM"),
 };

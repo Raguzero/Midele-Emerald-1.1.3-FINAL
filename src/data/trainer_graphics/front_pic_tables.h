@@ -116,6 +116,8 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     [TRAINER_PIC_MICOLO] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_CHANNELER] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_CURSED_SLOWBRO] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_RANDOM] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_OFFICER] = {.size = 8, .y_offset = 1},
 };
 
 const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
@@ -236,6 +238,8 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(MICOLO, gTrainerFrontPic_Micolo, 0x800),
     TRAINER_SPRITE(CHANNELER, gTrainerFrontPic_Channeler, 0x800),
     TRAINER_SPRITE(CURSED_SLOWBRO, gTrainerFrontPic_CursedSlowbro, 0x800),
+    TRAINER_SPRITE(RANDOM, gTrainerFrontPic_RandomBot, 0x800),
+	TRAINER_SPRITE(OFFICER, gTrainerFrontPic_Officer, 0x800),
 };
 
 const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
@@ -356,4 +360,6 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(MICOLO, gTrainerPalette_Micolo),
     TRAINER_PAL(CHANNELER, gTrainerPalette_Channeler),
     TRAINER_PAL(CURSED_SLOWBRO, gTrainerPalette_CursedSlowbro),
+    TRAINER_PAL(RANDOM, gTrainerPalette_RandomBot),
+    TRAINER_PAL(OFFICER, gTrainerPalette_Officer),
 };
