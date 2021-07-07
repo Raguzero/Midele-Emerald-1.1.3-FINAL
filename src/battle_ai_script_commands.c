@@ -453,7 +453,7 @@ u8 BattleAI_ChooseMoveOrAction(void)
 
 bool32 IsTruantMonVulnerable(u32 battlerAI, u32 opposingBattler)
 {
-    int i;
+    s32 i;
 
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
@@ -538,6 +538,89 @@ s32 CalculatenHKOFromgCurrentMove(u8 attackerId, u8 targetId, u8 simulatedRng, s
             return n;
 
     return best_nhko;
+}
+
+// Asume que el poke de la IA es un Shedinja
+bool32 OurShedinjaIsVulnerable(u32 battlerAI, u32 opposingBattler, u16 consideredMove)
+{
+    s32 i, j, known_moves = 0;
+    u8 moveLimitations = CheckMoveLimitations(opposingBattler, 0, MOVE_LIMITATION_CHOICE-1);
+
+    // Si Shedinja elige protegerse, no hace falta huir
+    if (gBattleMoves[consideredMove].effect == EFFECT_PROTECT)
+        return FALSE;
+
+    // Si Shedinja es más rápido y hace KO con el ataque elegido, no hace falta huir
+    if (GetWhoStrikesFirst(battlerAI, opposingBattler, TRUE) == 0)
+    {
+        gCurrentMove = consideredMove;
+        if (CalculatenHKOFromgCurrentMove(battlerAI, opposingBattler, 85, 5) == 1)
+            return FALSE;
+    }
+
+    // Si el oponente va a escoger Struggle, Shedinja tiene que huir, pues será dañado
+    if (moveLimitations == 0xF)
+        return TRUE;
+
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        gCurrentMove = gBattleResources->battleHistory->usedMoves[opposingBattler].moves[i];
+
+        if (!gCurrentMove)
+            continue;
+
+        known_moves += 1;
+
+        // Comprueba que puede usar el movimiento
+        for (j = 0; j < MAX_MON_MOVES; j++)
+            if (gCurrentMove == gBattleMons[opposingBattler].moves[j] && !(gBitTable[j] & moveLimitations))
+                break;
+        if (j == MAX_MON_MOVES)
+            continue; // No puede usar el movimiento por el momento; se ignora
+
+		// Si le hace daño a Shedinja, hora de huir
+        if (gBattleMoves[gCurrentMove].power > 1)
+        {
+            CalculategBattleMoveDamageFromgCurrentMove(opposingBattler, battlerAI, 0);
+            if (gBattleMoveDamage > 0)
+                return TRUE;
+        }
+			
+// Los siguientes movimientos también requieren huir
+        switch (gBattleMoves[gCurrentMove].effect)
+        {
+            case EFFECT_TOXIC:
+            case EFFECT_POISON:
+			case EFFECT_CONFUSE:
+			case EFFECT_TEETER_DANCE:
+			case EFFECT_SWAGGER:
+			case EFFECT_FLATTER:
+		    case EFFECT_LEECH_SEED:
+            case EFFECT_WILL_O_WISP:
+                return TRUE;
+        }
+    }
+
+    if (known_moves < 4)
+    {
+        u8 opponent_types[2] = {gBattleMons[opposingBattler].type1, gBattleMons[opposingBattler].type2};
+        if (gBattleMons[battlerAI].ability != ABILITY_WONDER_GUARD)
+            return TRUE; // probablemente pueda atacar a Shedinja con cualquier cosa
+
+        // Comprueba si alguno de los STAB del rival es muy eficaz. Asume que no le ha cambiado el tipo a Shedinja
+        for (i = 0; i < 2; i++)
+            switch (opponent_types[i])
+            {
+                case TYPE_FIRE:
+                case TYPE_FLYING:
+                case TYPE_ROCK:
+                case TYPE_GHOST:
+                case TYPE_DARK:
+                    return TRUE;
+            }
+    }
+
+    return FALSE;
 }
 
 bool8 AICanSwitchAssumingEnoughPokemon(void)
@@ -654,6 +737,15 @@ static u8 ChooseMoveOrAction_Singles(void)
         if (IsMoveSignificantlyAffectedByStatDrops(move)
 			&& currentMoveArray[0] <= 101 // no cambia si el movimiento alcanza los 102 puntos (probable KO)
 			&& AICanSwitchAssumingEnoughPokemon())
+            if (GetMostSuitableMonToSwitchInto() != PARTY_SIZE)
+            {
+                AI_THINKING_STRUCT->switchMon = TRUE;
+                return AI_CHOICE_SWITCH;
+            }
+		// Si nuestro Shedinja es vulnerable, a salir por patas
+        if (gBattleMons[sBattler_AI].species == SPECIES_SHEDINJA
+            && OurShedinjaIsVulnerable(sBattler_AI, gBattlerTarget, move)
+            && AICanSwitchAssumingEnoughPokemon())
             if (GetMostSuitableMonToSwitchInto() != PARTY_SIZE)
             {
                 AI_THINKING_STRUCT->switchMon = TRUE;
