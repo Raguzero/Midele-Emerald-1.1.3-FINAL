@@ -2150,7 +2150,7 @@ const struct MonCoords gMonFrontPicCoords[] =
     [SPECIES_ALOLAN_MAROWAK] =
     {
         .size = 0x76,
-        .y_offset = 0x8,
+        .y_offset = 0x2,
     },
 	[SPECIES_MEGA_BEEDRILL] =
     {
@@ -2165,7 +2165,7 @@ const struct MonCoords gMonFrontPicCoords[] =
     [SPECIES_MEGA_BANETTE] =
     {
         .size = 0x65,
-        .y_offset = 0x0c,
+        .y_offset = 0x01,
     },
     [SPECIES_MEGA_SHARPEDO] =
     {
@@ -2946,12 +2946,12 @@ const struct MonCoords gMonFrontPicCoords[] =
     [SPECIES_LYCANROC_NIGHT] =
     {
         .size = 0x45,
-        .y_offset = 0x06,
+        .y_offset = 0x02,
     },
     [SPECIES_LYCANROC_DUSK] =
     {
         .size = 0x45,
-        .y_offset = 0x06,
+        .y_offset = 0x03,
     },
     [SPECIES_REGIGIGAS] =
     {
