@@ -239,7 +239,7 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_HEAL_PULSE, Score_Minus5
 	if_effect EFFECT_MIDELE_POWER Score_Plus10
 	if_effect EFFECT_YAWN, AI_CBM_Sleep
-	if_effect EFFECT_MIMIC, AI_CMB_Mimic
+	if_effect EFFECT_MIMIC, AI_CBM_Mimic
 	if_effect EFFECT_TEETER_DANCE, AI_CBM_Confuse
 	if_effect EFFECT_WISH, AI_CBM_Wish
 	if_effect EFFECT_FOLLOW_ME, AI_CBM_FollowMe
@@ -470,6 +470,7 @@ AI_CBM_HighRiskForDamage_End: @ 82DC506
 
 AI_CBM_Mist: @ 82DC507
 	if_side_affecting AI_USER, SIDE_STATUS_MIST, Score_Minus8
+	if_this_attack_might_be_the_last Score_Minus5
 	end
 
 AI_CBM_FocusEnergy: @ 82DC512
@@ -722,6 +723,7 @@ AI_CBM_Trick: @ 82DC6EB
 
 AI_CBM_Ingrain: @ 82DC6F4
 	if_status3 AI_USER, STATUS3_ROOTED, Score_Minus10
+	if_this_attack_might_be_the_last Score_Minus5
 	end
 
 AI_CBM_Recycle: @ 82DC6FF
@@ -814,8 +816,9 @@ AI_CBM_Coil:
 	if_stat_level_equal AI_USER, STAT_ACC, 12, Score_Minus10
 	end
 	
-AI_CMB_Mimic:
+AI_CBM_Mimic:
     if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
+	if_this_attack_might_be_the_last Score_Minus5
 	end
 	
 AI_CBM_Wish:
@@ -1706,6 +1709,7 @@ AI_CV_Haze_End:
 
 AI_CV_Bide:
 	if_hp_more_than AI_USER, 90, AI_CV_Bide_End
+	if_this_attack_might_be_the_last Score_Minus5
 	score -2
 
 AI_CV_Bide_End:
@@ -1888,6 +1892,7 @@ AI_CV_OneHitKO:
 	end
 
 AI_CV_Trap:
+	if_this_attack_might_be_the_last Score_Minus5
 	if_status AI_TARGET, STATUS1_TOXIC_POISON, AI_CV_Trap2
 	if_status2 AI_TARGET, STATUS2_CURSED, AI_CV_Trap2
 	if_status3 AI_TARGET, STATUS3_PERISH_SONG, AI_CV_Trap2
@@ -3059,6 +3064,7 @@ AI_CV_Superpower_End:
 	end
 
 AI_CV_MagicCoat:
+	if_this_attack_might_be_the_last Score_Minus5
 	if_hp_more_than AI_TARGET, 30, AI_CV_MagicCoat2
 	if_random_less_than 100, AI_CV_MagicCoat2
 	score -1
@@ -3081,6 +3087,7 @@ AI_CV_MagicCoat_End:
 	end
 
 AI_CV_Recycle:
+    if_this_attack_might_be_the_last Score_Minus5
 	get_used_held_item AI_USER
 	if_not_in_bytes AI_CV_Recycle_ItemsToEncourage, AI_CV_Recycle_ScoreDown2
 	if_random_less_than 50, AI_CV_Recycle_End
@@ -3179,6 +3186,7 @@ AI_CV_Eruption_End:
 	end
 
 AI_CV_Imprison:
+    if_this_attack_might_be_the_last Score_Minus5
 	is_first_turn_for AI_USER
 	if_more_than 0, AI_CV_Imprison_End
 	if_random_less_than 100, AI_CV_Imprison_End
@@ -3188,8 +3196,9 @@ AI_CV_Imprison_End:
 	end
 
 AI_CV_Refresh:
-	if_status AI_USER, STATUS1_ANY, Score_Plus3
-	goto Score_Minus8
+    if_not_status AI_USER, STATUS1_ANY, Score_Minus8
+    if_this_attack_might_be_the_last Score_Minus5
+    goto Score_Plus3
 
 AI_CV_Snatch:
 	is_first_turn_for AI_USER
@@ -3199,6 +3208,7 @@ AI_CV_Snatch:
 	if_hp_not_equal AI_USER, 100, AI_CV_Snatch5
 	if_hp_less_than AI_TARGET, 70, AI_CV_Snatch5
 	if_random_less_than 60, AI_CV_Snatch_End
+    if_this_attack_might_be_the_last Score_Minus5
 	goto AI_CV_Snatch5
 
 AI_CV_Snatch2:
