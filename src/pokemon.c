@@ -3065,7 +3065,7 @@ void CreateMonMidele(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, con
 
     do
     {
-        personality = (Random32() & 0xFFFFFF80) | genderValue;
+        personality = (Random32() & 0xFFFFFF00) | genderValue;
     }
     while (nature != GetNatureFromPersonality(personality));
 
