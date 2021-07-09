@@ -11,7 +11,7 @@
     "id": "MAP_MICOLO_LEAGUE_PACO_ROOM",
     "layout": "LAYOUT_MICOLO_LEAGUE_PACO_ROOM",
     "map_type": "MAP_TYPE_INDOOR",
-    "music": "MUS_DAIGO",
+    "music": "MUS_BLOODY_STREAM",
     "name": "MicoloLeague_PacoRoom",
     "object_events": [
         {
