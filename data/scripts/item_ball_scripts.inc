@@ -705,3 +705,8 @@ Desert_Underpass_EventScript_Yellow_Shard::
 ScorchedSlab_B2F_EventScript_Item3::
 	finditem ITEM_OLD_AMBER
 	end
+
+MicoloHideout_LavaRoom_Nuggets::
+    finditem ITEM_NUGGET, 99
+    end
+
