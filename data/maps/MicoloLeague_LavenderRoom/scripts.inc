@@ -134,7 +134,7 @@ MicoloLeague_LavenderRoom_DefeatedLavender::
 	msgbox MicoloLeague_LavenderRoom_DefeatedLavender_Text_0, MSGBOX_NPC
 	applymovement 1, MicoloLeague_LavenderRoom_Movement_LavenderGoesBack
 	waitmovement 0
-	setobjectxyperm 2, 4, 15
+	setobjectxyperm 2, 3, 15
 	release
 	return
 
@@ -207,29 +207,96 @@ MicoloLeague_LavenderRoom_Movement_LavenderGoesBack:
 	step_end
 
 MicoloLeague_LavenderRoom_Recepcionist_Text_0:
-	.string "TEXTO DERROTASTE A LAVENDER$"
+	.string "Felicidades por tu victoria. ¿La salida?\n"
+	.string "Está en la puerta del noreste, al lado\l"
+	.string "de las gradas.$"
 
 MicoloLeague_LavenderRoom_Recepcionist_Text_1:
-	.string "TEXTO LUCHAR CONTRA LAVENDER?$"
+    .string "Te doy la bienvenida... aquí podrás\n"
+	.string "enfrentarte a uno de los miembros del\l"
+	.string "ALTO MANDO. ¿A quién? Eso deberás\l"
+	.string "averiguarlo por tu cuenta, pero te\l"
+	.string "aseguro que el combate no será fácil...\p"
+	.string "¿Tienes todo preparado para el\n"
+	.string "combate?$"
 
 MicoloLeague_LavenderRoom_Recepcionist_Text_2:
-	.string "TEXTO VUELVE CUANDO QUIERAS$"
+	.string "Cuando esté todo listo habla conmigo.\n"
+	.string "Tienes todo el tiempo del mundo...$"
 
 MicoloLeague_LavenderRoom_FightLavender_Text_0:
-	.string "TEXTO PRESENTAR A PLAYER$"
+	.string "Señores y señoras, damas y caballeros,\n"
+	.string "niños y niñas... ¡una vez más, seremos\l"
+	.string "presentes de un apasionante combate\l"
+	.string "de la MICOLIGA!\p"
+	.string "Hoy, tenemos con nosotros a la persona\n"
+	.string "que derrotó al CAMPEÓN de HOENN y se\l"
+	.string "hizo con el título, a la persona que\l"
+	.string "logró desbaratar los planes del EQUIPO\l"
+	.string "AQUA y MAGMA, a la persona que\l"
+	.string "consiguió vencer en los cuatro\l"
+	.string "MICOGIMNASIOS... les presento...\p"
+	.string "¡a {PLAYER}!$"
 
 MicoloLeague_LavenderRoom_FightLavender_Text_1:
-	.string "TEXTO PRESENTAR A LAVENDER$"
+	.string "Y por otra parte tenemos a nuestro\n"
+	.string "favorito invicto, una de las mentes que\l"
+	.string "ayudó en la construcción de la\l"
+	.string "mismísima MICOLIGA, el entrenador por\l"
+	.string "el que todos estáis aquí...\p"
+	.string "¡Dejémonos de misterios y que aparezca\n"
+	.string "de una vez!\p"
+	.string "¡Con vosotros... LAVENDER!$"
 
 MicoloLeague_LavenderRoom_FightLavender_Text_2:
-	.string "TEXTO COMBATAMOS$"
+	.string "LAVENDER: Hola, ¿me recuerdas? Nos\n"
+	.string "vimos en IZABE ISLAND. En cuanto te vi,\l"
+	.string "supe que serías capaz de llegar hasta\l"
+	.string "aquí...\p"
+	.string "Nah, en realidad no. Solo era un diálogo\n"
+	.string "para hacerme el interesante. Ya sabes.\p"
+	.string "Sea como sea, te agradezco que hallas\n"
+	.string "llegado hasta aquí. Probablemente\l"
+	.string "haya habido momentos en los que has\l"
+	.string "querido dejarlo, abandonar. Momentos\l"
+	.string "en los que has pensado “Puto Midele, es\l"
+	.string "demasiado difícil. Qué pereza farmear”.\l"
+	.string "Pero conseguiste darlo todo, superar\l"
+	.string "todos los retos y adversidades, y\l"
+	.string "llegaste aquí.\p"
+	.string "O igual no. Tal vez usaste hacks. Quién\n"
+	.string "sabe.\p"
+	.string "De todas formas, me gustaría luchar\n"
+	.string "contra ti. Quizás mi combate te resulte\l"
+	.string "muy sencillo. Quizás se te haga\l"
+	.string "complicado y tengas que probar varias\l"
+	.string "veces hasta que me derrotes. Pero no\l"
+	.string "te rindas. Ya estás ahí, a punto de\l"
+	.string "llegar al final. A punto de coronarte\l"
+	.string "como el CAMPEÓN de la MICOLIGA.\p"
+	.string "Por ti, por tus POKéMON y por todas las\n"
+	.string "personas con las que te has\l"
+	.string "encontrado para llegar hasta aquí...\l"
+	.string "esfuérzate al máximo.\p"
+	.string "Vamos, {PLAYER} ¡Es hora de combatir!$"
 
 MicoloLeague_LavenderRoom_FightLavender_Text_3:
-	.string "TEXTO DERROTA$"
+	.string "¿He perdido otra vez? Como diría GARM:\n"
+	.string "pues oc.$"
 
 MicoloLeague_LavenderRoom_DefeatedLavender_Text_0:
-	.string "TEXTO ME DERROTASTE$"
+ 	.string "LAVENDER: Has ganado... la verdad es que\n"
+	.string "estoy satisfecho. No sé cuántos\l"
+	.string "miembros de ALTO MANDO te quedan por\l"
+	.string "derrotar. Puede que yo haya sido el\l"
+	.string "primero, o puede que haya sido el\l"
+	.string "último... pero es un hecho que he\l"
+	.string "perdido.\p"
+	.string "Ánimo, ya estás casi al final. Puedes\n"
+	.string "continuar.$"
 
 MicoloLeague_LavenderRoom_Reporter_Text_0:
-	.string "TEXTO BUEN COMBATE$"
+	.string "¡Un combate nunca visto! ¡Has vencido!\n"
+	.string "¡En todos mis años como presentador\l"
+	.string "nunca había visto nada igual!$"
 
