@@ -611,11 +611,11 @@ static bool8 ShouldSwitch(void)
         return TRUE;
     if (ShouldSwitchIfForcedToUseStruggle())
         return TRUE;
-    if (FindMonThatAbsorbsOpponentsMove())
-        return TRUE;
+/*    if (FindMonThatAbsorbsOpponentsMove())
+        return TRUE; */
     if (ShouldSwitchIfNaturalCure())
         return TRUE;
-	if (gBattleMons[gActiveBattler].species == SPECIES_REGIGIGAS)
+/*	if (gBattleMons[gActiveBattler].species == SPECIES_REGIGIGAS)
 		return FALSE;
     if (HasSuperEffectiveMoveAgainstOpponents(FALSE))
         return FALSE;
@@ -623,7 +623,7 @@ static bool8 ShouldSwitch(void)
         return FALSE;
     if (FindMonWithFlagsAndSuperEffective(MOVE_RESULT_DOESNT_AFFECT_FOE, 2)
         || FindMonWithFlagsAndSuperEffective(MOVE_RESULT_NOT_VERY_EFFECTIVE, 3))
-        return TRUE;
+        return TRUE; */
 
     return FALSE;
 }
