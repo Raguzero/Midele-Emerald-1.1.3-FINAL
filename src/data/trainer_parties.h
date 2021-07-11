@@ -21431,7 +21431,7 @@ static const struct TrainerMonCustomMidele sParty_IzabeIsland_Lavender[] = {
     .species = SPECIES_ZWEILOUS,
 	.heldItem = ITEM_FOCUS_BAND,
     .ability = 0,
-    .shiny = 1,
+    .shiny = 0,
     .friendship = 255,
     .nature = NATURE_LONELY,
 	.evs = {0, 42, 0, 42, 0, 84},
@@ -24237,14 +24237,65 @@ static const struct TrainerMonCustomMidele sParty_Lavender2[] = {
 // FALTA FRASES Y LOCALIZACIÓN
 	{
 	.iv = 31,
-	.lvl = 10, 
-	.species = SPECIES_BULBASAUR, 
-	.heldItem = ITEM_MENTAL_HERB,  
-	.nature = NATURE_JOLLY,
-	.evs = {252, 0, 6, 0, 0, 252},
-	.ability = 1,
-	.moves = {MOVE_SPIKES, MOVE_WHIRLWIND, MOVE_DRILL_PECK, MOVE_IRON_HEAD} 
-	}
+	.lvl = 100,
+	.species = SPECIES_GRIMMSNARL,
+	.heldItem = ITEM_LEFTOVERS,
+	.ability = 0,
+	.nature = NATURE_MODEST,
+	.evs = {6, 0, 0, 252, 0, 252},
+	.moves = {MOVE_CRUNCH, MOVE_DAZZLING_GLEAM, MOVE_NASTY_PLOT, MOVE_THUNDER_WAVE},
+    .shiny = 1,
+	},
+    {
+    .iv = 31,
+    .lvl = 100,
+    .species = SPECIES_MEGA_MAWILE,
+	.heldItem = ITEM_LEFTOVERS,
+    .ability = 0,
+    .nature = NATURE_ADAMANT,
+	.evs = {94, 252, 0, 0, 0, 164},
+    .moves = {MOVE_SWORDS_DANCE, MOVE_IRON_HEAD, MOVE_SHADOW_BALL, MOVE_BRICK_BREAK}
+    },
+    {
+    .iv = 31,
+    .lvl = 100,
+    .species = SPECIES_APPLETUN,
+	.heldItem = ITEM_LEFTOVERS,
+    .ability = 0,
+    .nature = NATURE_CALM,
+	.evs = {252, 0, 0, 6, 252, 0},
+    .moves = {MOVE_LEECH_SEED, MOVE_RECOVER, MOVE_APPLE_ACID, MOVE_TOXIC}
+    },
+    {
+    .iv = 31,
+    .lvl = 100,
+    .species = SPECIES_PORYGON_Z,
+	.heldItem = ITEM_CHOICE_SPECS,
+    .ability = 0,
+    .nature = NATURE_TIMID,
+	.evs = {6, 0, 0, 252, 0, 252},
+    .moves = {MOVE_PSYCHIC, MOVE_THUNDERBOLT, MOVE_ICE_BEAM, MOVE_DARK_PULSE},
+    .shiny = 1,
+    },
+    {
+    .iv = 31,
+    .lvl = 100,
+    .species = SPECIES_HYDREIGON,
+	.heldItem = ITEM_LEFTOVERS,
+    .nature = NATURE_HASTY, // ¿Otra natu mejor?
+	.evs = {0, 126, 0, 132, 0, 252},
+    .moves = {MOVE_FLAMETHROWER, MOVE_EARTHQUAKE, MOVE_DRAGON_DANCE, MOVE_CRUNCH}
+    },
+    {
+    .iv = 31,
+    .lvl = 100,
+    .species = SPECIES_LUGIA,
+	.heldItem = ITEM_LEFTOVERS,
+    .ability = 0,
+    .nature = NATURE_CALM,
+	.evs = {6, 0, 0, 0, 252, 252}, // ¿Darle HP en vez de SPEED?
+    .moves = {MOVE_CALM_MIND, MOVE_PSYCHIC, MOVE_RECOVER, MOVE_THUNDERBOLT}
+    }
 };
 static const struct TrainerMonCustomMidele sParty_Micolo3[] = { 
 // FALTA FRASES
