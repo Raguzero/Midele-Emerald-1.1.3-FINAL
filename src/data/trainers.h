@@ -13562,6 +13562,7 @@ const struct Trainer gTrainers[] = {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
+        .battleMusic = MUS_ENCOUNTER_CYNTHIA,
         .trainerPic = TRAINER_PIC_JUGON,
         .trainerName = _("HATHAR"),
         .items = {},

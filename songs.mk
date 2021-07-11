@@ -1311,8 +1311,8 @@ $(MID_SUBDIR)/sasageyo.s: %.s: %.mid
 $(MID_SUBDIR)/musicavegagoldy.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -v100
 	
-$(MID_SUBDIR)/vssusiedeltarune.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -v100
+$(MID_SUBDIR)/mus_encounter_cynthia.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G304 -v70
 	
 $(MID_SUBDIR)/zanzatheme.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -v100

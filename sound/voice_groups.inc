@@ -22689,4 +22689,5 @@ voicegroup999::
 .include "sound/voicegroups/voicegroup300.inc"
 .include "sound/voicegroups/voicegroup301.inc"
 .include "sound/voicegroups/voicegroup302.inc"
-.include "sound/voicegroups/voicegroupjojo.inc"
+.include "sound/voicegroups/voicegroupjojo.inc" @ 303
+.include "sound/voicegroups/voicegroupcintiaencounter.inc" @ 304
