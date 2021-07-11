@@ -16,6 +16,11 @@ MicoloHideout_MeetingRoom_EventScript_Kaderete::
 	msgbox MicoloHideout_MeetingRoom_Text_KaderetePostBattle, MSGBOX_AUTOCLOSE
 	end
 	
+MicoloHideout_MeetingRoom_EventScript_Hathar::  
+	trainerbattle_single TRAINER_HATHAR, MicoloHideout_MeetingRoom_Text_HatharIntro, MicoloHideout_MeetingRoom_Text_HatharDefeat
+	msgbox MicoloHideout_MeetingRoom_Text_HatharPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
 Goldie_MasdeunPokemon: // BATALLA DOBLE
 	.string "Pero si no llevas más de un\n"
 	.string "POKÉMON con vida...\p"
@@ -74,6 +79,17 @@ Merum_DespuesDeBatalla:
     .string "es que quizás deberías ampliar tus\l"
     .string "temas de conversación. Dicho eso,\l"
     .string "¿qué opinas de mi GRAN MOÁI?$"
+	
+MicoloHideout_MeetingRoom_Text_HatharIntro: 
+    .string "Te voy a banear.$"
+
+MicoloHideout_MeetingRoom_Text_HatharDefeat: 
+    .string "¡Ay! ¡Mi apendice!$"
+ 
+MicoloHideout_MeetingRoom_Text_HatharPostBattle:
+    .string "Podría haberte ganado,\n"
+    .string "si no estuviese recuperandome\l" 
+	.string "de mi vesicula.$"
 	
 MicoloHideout_MeetingRoom_Text_KadereteIntro: 
 	.string "¿Cómo puedo haber acabado yo aquí?\p"

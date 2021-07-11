@@ -135,6 +135,8 @@
 #define TRAINER_PIC_RANDOM          116
 #define TRAINER_PIC_OFFICER          117
 #define TRAINER_PIC_TAMER          118
+#define TRAINER_PIC_JUGON          119
+#define TRAINER_PIC_VIN          120
 
 #define TRAINER_BACK_PIC_BRENDAN                0
 #define TRAINER_BACK_PIC_MAY                    1

@@ -24062,7 +24062,7 @@ static const struct TrainerMonCustomMidele sParty_Maestro_Arena[] = {
 	}
 };
 static const struct TrainerMonCustomMidele sParty_Manec[] = { 
-// FALTA EQUIPO, FRASES Y LOCALIZACIÓN
+// FALTA EQUIPO Y FRASES
 	{
 	.iv = 31,
 	.lvl = 10, 
@@ -24216,7 +24216,6 @@ static const struct TrainerMonCustomMidele sParty_Avader2[] = {
     }
 };
 static const struct TrainerMonCustomMidele sParty_Lavender2[] = { 
-// FALTA FRASES Y LOCALIZACIÓN
 	{
 	.iv = 31,
 	.lvl = 100,
@@ -24337,17 +24336,69 @@ static const struct TrainerMonCustomMidele sParty_Micolo3[] = {
 	}
 };
 static const struct TrainerMonCustomMidele sParty_Alpha[] = {
-// FALTA EQUIPO, FRASES Y LOCALIZACIÓN
-	{
-	.iv = 31,
-	.lvl = 10, 
-	.species = SPECIES_BULBASAUR, 
-	.heldItem = ITEM_MENTAL_HERB,  
-	.nature = NATURE_JOLLY,
-	.evs = {252, 0, 6, 0, 0, 252},
-	.ability = 1,
-	.moves = {MOVE_SPIKES, MOVE_WHIRLWIND, MOVE_DRILL_PECK, MOVE_IRON_HEAD} 
-	}
+// FALTA FRASES
+    {
+    .iv = 31,
+    .lvl = 74,
+    .species = SPECIES_TYRANITAR,
+    .heldItem = ITEM_LEFTOVERS, 
+    .nature = NATURE_ADAMANT,
+    .evs = {248, 80, 0, 0, 0, 180},
+    .hpType = TYPE_BUG,
+    .ability = 0, // SANDS STREAM
+    .moves = {MOVE_DRAGON_DANCE, MOVE_HIDDEN_POWER, MOVE_ROCK_SLIDE, MOVE_EARTHQUAKE}
+    },
+    {
+    .iv = 31,
+	.lvl = 73,
+    .species = SPECIES_SKARMORY,
+    .heldItem = ITEM_LEFTOVERS, 
+    .nature = NATURE_CAREFUL, 
+    .evs = {252, 0, 0, 252, 0, 4},
+    .ability = 0, // KEEN EYE
+    .moves = {MOVE_SPIKES, MOVE_WHIRLWIND, MOVE_TOXIC, MOVE_PROTECT}
+    },
+    {
+    .iv = 31,
+    .lvl = 75,
+    .species = SPECIES_TORTERRA,
+    .heldItem = ITEM_LEFTOVERS, 
+    .nature = NATURE_ADAMANT, 
+    .evs = {248, 252, 0, 0, 0, 8},
+    .ability = 1, // SHELL ARMOR
+    .moves = {MOVE_SUBSTITUTE, MOVE_EARTHQUAKE, MOVE_IRON_HEAD, MOVE_LEECH_SEED}
+    },
+    {
+    .iv = 31,
+    .lvl = 72,
+    .species = SPECIES_REUNICLUS,
+    .heldItem = ITEM_LEFTOVERS, 
+    .nature = NATURE_BOLD, 
+    .evs = {252, 0, 252, 0, 4, 0},
+    .ability = 0, // OVERCOAT
+    .moves = {MOVE_THUNDER_PUNCH, MOVE_RECOVER, MOVE_PSYCHIC, MOVE_FIRE_PUNCH}
+    },
+    {
+    .iv = 31,
+    .lvl = 71,
+    .species = SPECIES_AERODACTYL,
+    .heldItem = ITEM_CHOICE_BAND, 
+    .nature = NATURE_JOLLY, 
+    .evs = {0, 252, 0, 0, 4, 252},
+    .hpType = TYPE_FLYING,
+    .ability = 0, // ROCK HEAD
+    .moves = {MOVE_ROCK_SLIDE, MOVE_HIDDEN_POWER, MOVE_DOUBLE_EDGE, MOVE_EARTHQUAKE}
+    },
+    {
+    .iv = 31,
+    .lvl = 73, 
+    .species = SPECIES_CLOYSTER,
+    .heldItem = ITEM_LEFTOVERS, 
+    .nature = NATURE_MILD,
+    .evs = {248, 0, 0, 0, 78, 184},
+    .ability = 1, // OVERCOAT
+    .moves = {MOVE_SURF, MOVE_ICE_BEAM, MOVE_RAPID_SPIN, MOVE_EXPLOSION}
+    }
 };
 static const struct TrainerMonCustomMidele sParty_JProgamer[] = {
 	{
@@ -25535,5 +25586,68 @@ static const struct TrainerMonCustomMidele sParty_Albermaus[] = {
 	.evs = {0, 220, 0, 156, 0, 132},
 	.ability = 0,
     .moves = {MOVE_WILL_O_WISP, MOVE_FLAMETHROWER, MOVE_LEECH_LIFE, MOVE_KNOCK_OFF}
+    }
+};
+static const struct TrainerMonCustomMidele sParty_Hathar[] = {
+    {
+    .iv = 31,
+    .lvl = 97,
+    .species = SPECIES_VENUSAUR,
+    .heldItem = ITEM_LEFTOVERS,
+    .nature = NATURE_SASSY,
+    .evs = {252, 0, 84, 20, 152, 0},
+    .ability = 0, // OVERGROW
+    .moves = {MOVE_SLUDGE_BOMB, MOVE_SLEEP_POWDER, MOVE_LEECH_SEED, MOVE_GIGA_DRAIN}
+    },
+    {
+    .iv = 31,
+    .lvl = 95, 
+    .species = SPECIES_AERODACTYL,
+    .heldItem = ITEM_FOCUS_SASH, 
+    .nature = NATURE_JOLLY, 
+    .evs = {0, 252, 0, 0, 4, 252},
+    .ability = 0, // ROCK HEAD
+    .moves = {MOVE_STONE_EDGE, MOVE_EARTHQUAKE, MOVE_DOUBLE_EDGE, MOVE_DRAGON_DANCE}
+    },
+    {
+    .iv = 31,
+    .lvl = 96, 
+    .species = SPECIES_INFERNAPE,
+    .heldItem = ITEM_FOCUS_SASH, 
+    .nature = NATURE_HASTY, 
+    .evs = {0, 252, 0, 6, 0, 252},
+    .ability = 0, // BLAZE
+    .moves = {MOVE_OVERHEAT, MOVE_BRICK_BREAK, MOVE_STONE_EDGE, MOVE_IRON_TAIL}
+    },
+    {
+    .iv = 31,
+    .lvl = 97, 
+    .species = SPECIES_MAGNEZONE,
+    .heldItem = ITEM_LEFTOVERS, 
+    .nature = NATURE_BOLD,
+    .evs = {248, 0, 252, 8, 0, 0},
+    .hpType = TYPE_FIRE,
+    .ability = 0, // MAGNET PULL
+    .moves = {MOVE_THUNDERBOLT, MOVE_HIDDEN_POWER, MOVE_THUNDER_WAVE, MOVE_SUBSTITUTE}
+    },
+    {
+    .iv = 31,
+    .lvl = 96, 
+    .species = SPECIES_UMBREON,
+    .heldItem = ITEM_LEFTOVERS, 
+    .nature = NATURE_CALM, 
+    .evs = {252, 0, 6, 0, 252, 0},
+    .ability = 0, // SYNCHRONIZE
+    .moves = {MOVE_WISH, MOVE_DARK_PULSE, MOVE_PROTECT, MOVE_TOXIC}
+    },
+    {
+    .iv = 31,
+    .lvl = 98, 
+    .species = SPECIES_KINGDRA,
+    .heldItem = ITEM_LEFTOVERS, 
+    .nature = NATURE_HASTY, 
+    .evs = {0, 6, 0, 252, 0, 252},
+    .ability = 1, // SNIPER
+    .moves = {MOVE_SURF, MOVE_ICE_BEAM, MOVE_IRON_HEAD, MOVE_OUTRAGE}
     }
 };

@@ -89,6 +89,11 @@ MicoloHideout_LavaRoom_EventScript_MaestroArena::
 	msgbox MicoloHideout_LavaRoom_Text_MaestroArenaPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
+MicoloHideout_LavaRoom_EventScript_Manec::
+	trainerbattle_single TRAINER_MANEC, MicoloHideout_LavaRoom_Text_ManecIntro, MicoloHideout_LavaRoom_Text_ManecDefeat
+	msgbox MicoloHideout_LavaRoom_Text_ManecPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
 MicoloHideout_LavaRoom_EventScript_EEVEETO::
 	trainerbattle_double TRAINER_EEVEETO, MicoloHideout_LavaRoom_Text_EEVEETOIntro, MicoloHideout_LavaRoom_Text_EEVEETODefeat, MicoloHideout_LavaRoom_EEVEETO_MasdeunPokemon
 	msgbox MicoloHideout_LavaRoom_Text_EEVEETOPostBattle, MSGBOX_AUTOCLOSE
@@ -243,3 +248,12 @@ MicoloHideout_LavaRoom_Text_MaestroArenaPostBattle:
 	.string "preparado, porque irá perdiendo mas\l"
 	.string "y mas puntos de salud casi sin darse\l"
 	.string "cuenta ¡JAJAJAJAJAJAJA!$"
+	
+MicoloHideout_LavaRoom_Text_ManecIntro:
+	.string "FRASES$"
+
+MicoloHideout_LavaRoom_Text_ManecDefeat: 
+	.string "FRASES$"
+
+MicoloHideout_LavaRoom_Text_ManecPostBattle:
+	.string "FRASES$"

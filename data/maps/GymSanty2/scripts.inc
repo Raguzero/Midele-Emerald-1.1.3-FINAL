@@ -179,6 +179,11 @@ GymSanty2_EventScript_Albermaus::
 	msgbox Albermaus_DespuesDeBatalla, MSGBOX_AUTOCLOSE
 	end
 	
+GymSanty2_EventScript_Alpha::
+	trainerbattle_single TRAINER_ALPHA, Alpha_AntesBatalla, Alpha_MensajeDerrota
+	msgbox Alpha_DespuesDeBatalla, MSGBOX_AUTOCLOSE
+	end
+	
 Albermaus_AntesBatalla: 
 	.string "Tú no serás psicoanalísta,\n"
 	.string "¿verdad?$"
@@ -342,6 +347,15 @@ Felipex88_Text_MasdeunPokemon: // BATALLA DOBLE
 	.string "¿Así que solo llevas un Pokémon?\p"
 	.string "Prefiero cortarme la lengua que usar\n"
 	.string "mi equipo en BATALLA INDIVIDUAL.$"	
+	
+Alpha_AntesBatalla: 
+	.string "FRASES$"
+	
+Alpha_MensajeDerrota: 
+	.string "FRASES$"
+	
+Alpha_DespuesDeBatalla:
+	.string "FRASES$"
 
 GymSanty2_Text_Sign:
 	.string "ENCIENDE LOS CUATRO FAROLES\n"

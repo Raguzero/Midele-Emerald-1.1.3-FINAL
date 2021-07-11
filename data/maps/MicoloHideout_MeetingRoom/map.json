@@ -190,15 +190,15 @@
         {
             "elevation": 5,
             "flag": "0",
-            "graphics_id": "EVENT_OBJ_GFX_GENTLEMAN",
+            "graphics_id": "EVENT_OBJ_GFX_BOY_3",
             "movement_range_x": 0,
             "movement_range_y": 0,
             "movement_type": "MOVEMENT_TYPE_FACE_DOWN_UP_AND_RIGHT",
-            "script": "NULL",
-            "trainer_sight_or_berry_tree_id": "0",
-            "trainer_type": "0",
+            "script": "MicoloHideout_MeetingRoom_EventScript_Hathar",
+            "trainer_sight_or_berry_tree_id": "3",
+            "trainer_type": "1",
             "x": 1,
-            "y": 5
+            "y": 7
         },
         {
             "elevation": 3,
