@@ -24217,6 +24217,16 @@ static const struct TrainerMonCustomMidele sParty_Avader2[] = {
 };
 static const struct TrainerMonCustomMidele sParty_Lavender2[] = { 
 	{
+    .iv = 31,
+    .lvl = 100,
+    .species = SPECIES_DEOXYS_ATTACK,
+	.heldItem = ITEM_FOCUS_SASH,
+    .ability = 0,
+    .nature = NATURE_LONELY,
+	.evs = {0, 252, 0, 6, 0, 252},
+    .moves = {MOVE_SUPERPOWER, MOVE_PSYCHO_BOOST, MOVE_SHADOW_BALL, MOVE_FIRE_PUNCH}
+    },
+    {
 	.iv = 31,
 	.lvl = 100,
 	.species = SPECIES_GRIMMSNARL,
@@ -24267,16 +24277,6 @@ static const struct TrainerMonCustomMidele sParty_Lavender2[] = {
 	.evs = {0, 126, 0, 132, 0, 252},
     .moves = {MOVE_FLAMETHROWER, MOVE_EARTHQUAKE, MOVE_DRAGON_DANCE, MOVE_CRUNCH}
     },
-    {
-    .iv = 31,
-    .lvl = 100,
-    .species = SPECIES_LUGIA,
-	.heldItem = ITEM_LEFTOVERS,
-    .ability = 0,
-    .nature = NATURE_CALM,
-	.evs = {6, 0, 0, 0, 252, 252}, // ¿Darle HP en vez de SPEED?
-    .moves = {MOVE_CALM_MIND, MOVE_PSYCHIC, MOVE_RECOVER, MOVE_THUNDERBOLT}
-    }
 };
 static const struct TrainerMonCustomMidele sParty_Micolo3[] = { 
 // FALTA FRASES
