@@ -2900,18 +2900,18 @@ static bool32 GetMentalHerbEffect(u8 battlerId)
         ret = TRUE;
     }
     // check taunt
-    if (gDisableStructs[gBattlerTarget].tauntTimer != 0)
+    if (gDisableStructs[battlerId].tauntTimer != 0)
     {
-        gDisableStructs[gBattlerTarget].tauntTimer = gDisableStructs[gBattlerTarget].tauntTimer2 = 0;
+        gDisableStructs[battlerId].tauntTimer = gDisableStructs[battlerId].tauntTimer2 = 0;
         gBattleCommunication[MULTISTRING_CHOOSER] = MULTI_CURETAUNT;
         PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_TAUNT);
         ret = TRUE;
     }
     // check encore
-    if (gDisableStructs[gBattlerTarget].encoreTimer != 0)
+    if (gDisableStructs[battlerId].encoreTimer != 0)
     {
-        gDisableStructs[gBattlerTarget].encoredMove = 0;
-        gDisableStructs[gBattlerTarget].encoreTimerStartValue = gDisableStructs[gBattlerTarget].encoreTimer = 0;
+        gDisableStructs[battlerId].encoredMove = 0;
+        gDisableStructs[battlerId].encoreTimerStartValue = gDisableStructs[battlerId].encoreTimer = 0;
         gBattleCommunication[MULTISTRING_CHOOSER] = MULTI_CUREENCORE;   //STRINGID_PKMNENCOREENDED
         ret = TRUE;
     }
@@ -2923,10 +2923,10 @@ static bool32 GetMentalHerbEffect(u8 battlerId)
         ret = TRUE;
     }
     // disable
-    if (gDisableStructs[gBattlerTarget].disableTimer != 0)
+    if (gDisableStructs[battlerId].disableTimer != 0)
     {
-        gDisableStructs[gBattlerTarget].disableTimer = gDisableStructs[gBattlerTarget].disableTimerStartValue = 0;
-        gDisableStructs[gBattlerTarget].disabledMove = 0;
+        gDisableStructs[battlerId].disableTimer = gDisableStructs[battlerId].disableTimerStartValue = 0;
+        gDisableStructs[battlerId].disabledMove = 0;
         gBattleCommunication[MULTISTRING_CHOOSER] = MULTI_CUREDISABLE;
         ret = TRUE;
     }
