@@ -1549,6 +1549,9 @@ void SetUpTrainerEncounterMusic(void)
         case TRAINER_ENCOUNTER_MUSIC_RICH:
             music = MUS_TEST;
             break;
+        case TRAINER_ENCOUNTER_PACOCHEF_FIERY_PATH:
+            music = MUS_BLOODY_STREAM;
+            break;
         default:
             music = MUS_AYASII;
         }

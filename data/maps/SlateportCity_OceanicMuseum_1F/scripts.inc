@@ -207,6 +207,8 @@ SlateportCity_OceanicMuseum_1F_EventScript_FamiliarGruntExited:: @ 820AFAA
 SlateportCity_OceanicMuseum_1F_EventScript_PacochefWest::
 	lock
 	playse SE_KAIDAN
+	waitse
+	playbgm MUS_BLOODY_STREAM, 1
 	addobject 15
 	applymovement 15, SlateportCity_OceanicMuseum_1F_Movement_PacochefWest
 	waitmovement 0
@@ -217,6 +219,8 @@ SlateportCity_OceanicMuseum_1F_EventScript_PacochefWest::
 SlateportCity_OceanicMuseum_1F_EventScript_PacochefEast::
 	lock
 	playse SE_KAIDAN
+	waitse
+	playbgm MUS_BLOODY_STREAM, 1
 	addobject 15
 	applymovement 15, SlateportCity_OceanicMuseum_1F_Movement_PacochefEast
 	waitmovement 0
@@ -230,6 +234,7 @@ SlateportCity_OceanicMuseum_1F_EventScript_Pacochef::
 	waitmovement 0
 	playse SE_KAIDAN
 	removeobject 15
+	playbgm MUS_FUNE_KAN, 1
 	setvar VAR_PACOCHEF_STATE, 2
 	setvar VAR_TEMP_0, 0
 	return
