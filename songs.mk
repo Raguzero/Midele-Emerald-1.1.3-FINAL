@@ -1279,7 +1279,7 @@ $(MID_SUBDIR)/xywildbattle.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -v100 -P5
 	
 $(MID_SUBDIR)/smwildbattle.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100
+	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v80
 	
 $(MID_SUBDIR)/themeofencounter.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100 -P5
@@ -1291,7 +1291,7 @@ $(MID_SUBDIR)/dialgapalkiabattle.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -v100
 
 $(MID_SUBDIR)/undertalemegalovania.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100 -P5
+	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v65
 	
 $(MID_SUBDIR)/cruelangelsthesis.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100
@@ -1300,7 +1300,7 @@ $(MID_SUBDIR)/liyuebattlethemeimain.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100 -P5
 	
 $(MID_SUBDIR)/bonetrousleundertale.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100
+	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -V55
 
 $(MID_SUBDIR)/wallybattletheme.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -v100
@@ -1321,7 +1321,7 @@ $(MID_SUBDIR)/incomingx2.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -v100
 	
 $(MID_SUBDIR)/deltarunchaosk.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100
+	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v70
 	
 $(MID_SUBDIR)/swordshieldwild.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100
