@@ -13170,28 +13170,28 @@
                         "encounter_rate": 4,
                         "mons": [
                             {
-                                "max_level": 40,
-                                "min_level": 35,
+                                "max_level": 45,
+                                "min_level": 40,
                                 "species": "SPECIES_TENTACOOL"
                             },
                             {
-                                "max_level": 40,
-                                "min_level": 35,
+                                "max_level": 45,
+                                "min_level": 40,
                                 "species": "SPECIES_ZUBAT"
                             },
                             {
-                                "max_level": 40,
-                                "min_level": 35,
+                                "max_level": 45,
+                                "min_level": 40,
                                 "species": "SPECIES_ZUBAT"
                             },
                             {
-                                "max_level": 35,
-                                "min_level": 35,
+                                "max_level": 45,
+                                "min_level": 40,
                                 "species": "SPECIES_GOLBAT"
                             },
                             {
-                                "max_level": 35,
-                                "min_level": 35,
+                                "max_level": 45,
+                                "min_level": 40,
                                 "species": "SPECIES_GOLBAT"
                             }
                         ]
@@ -13203,63 +13203,63 @@
                         "encounter_rate": 4,
                         "mons": [
                             {
-                                "max_level": 38,
-                                "min_level": 35,
+                                "max_level": 43,
+                                "min_level": 39,
                                 "species": "SPECIES_GOLBAT"
                             },
                             {
-                                "max_level": 40,
-                                "min_level": 37,
+                                "max_level": 45,
+                                "min_level": 41,
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 39,
-                                "min_level": 36,
+                                "max_level": 43,
+                                "min_level": 39,
                                 "species": "SPECIES_CROBAT"
                             },
                             {
-                                "max_level": 40,
-                                "min_level": 37,
+                                "max_level": 45,
+                                "min_level": 42,
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 41,
-                                "min_level": 38,
+                                "max_level": 45,
+                                "min_level": 43,
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 40,
+                                "max_level": 43,
                                 "min_level": 39,
                                 "species": "SPECIES_EELEKTRIK"
                             },
                             {
-                                "max_level": 37,
-                                "min_level": 34,
+                                "max_level": 43,
+                                "min_level": 39,
                                 "species": "SPECIES_SLOWKING"
                             },
                             {
-                                "max_level": 38,
-                                "min_level": 35,
+                                "max_level": 44,
+                                "min_level": 40,
                                 "species": "SPECIES_SLOWKING"
                             },
                             {
-                                "max_level": 40,
+                                "max_level": 44,
                                 "min_level": 40,
                                 "species": "SPECIES_OMASTAR"
                             },
                             {
-                                "max_level": 40,
+                                "max_level": 44,
                                 "min_level": 40,
                                 "species": "SPECIES_KABUTOPS"
                             },
                             {
-                                "max_level": 43,
-                                "min_level": 40,
+                                "max_level": 45,
+                                "min_level": 45,
                                 "species": "SPECIES_OMASTAR"
                             },
                             {
-                                "max_level": 43,
-                                "min_level": 40,
+                                "max_level": 45,
+                                "min_level": 45,
                                 "species": "SPECIES_KABUTOPS"
                             }
                         ]
@@ -13272,63 +13272,63 @@
                         "encounter_rate": 4,
                         "mons": [
                             {
-                                "max_level": 38,
-                                "min_level": 35,
+                                "max_level": 43,
+                                "min_level": 39,
                                 "species": "SPECIES_GOLBAT"
                             },
                             {
-                                "max_level": 40,
-                                "min_level": 37,
+                                "max_level": 45,
+                                "min_level": 41,
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 39,
-                                "min_level": 36,
+                                "max_level": 43,
+                                "min_level": 39,
                                 "species": "SPECIES_CROBAT"
                             },
                             {
-                                "max_level": 40,
-                                "min_level": 37,
+                                "max_level": 45,
+                                "min_level": 42,
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 41,
-                                "min_level": 38,
+                                "max_level": 45,
+                                "min_level": 43,
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 40,
+                                "max_level": 43,
                                 "min_level": 39,
                                 "species": "SPECIES_EELEKTRIK"
                             },
                             {
-                                "max_level": 37,
-                                "min_level": 34,
+                                "max_level": 43,
+                                "min_level": 39,
                                 "species": "SPECIES_SLOWKING"
                             },
                             {
-                                "max_level": 38,
-                                "min_level": 35,
+                                "max_level": 44,
+                                "min_level": 40,
                                 "species": "SPECIES_SLOWKING"
                             },
                             {
-                                "max_level": 40,
+                                "max_level": 44,
                                 "min_level": 40,
                                 "species": "SPECIES_OMASTAR"
                             },
                             {
-                                "max_level": 40,
+                                "max_level": 44,
                                 "min_level": 40,
                                 "species": "SPECIES_KABUTOPS"
                             },
                             {
-                                "max_level": 43,
-                                "min_level": 40,
+                                "max_level": 45,
+                                "min_level": 45,
                                 "species": "SPECIES_OMASTAR"
                             },
                             {
-                                "max_level": 43,
-                                "min_level": 40,
+                                "max_level": 45,
+                                "min_level": 45,
                                 "species": "SPECIES_KABUTOPS"
                             }
                         ]
@@ -13341,63 +13341,63 @@
                         "encounter_rate": 4,
                         "mons": [
                             {
-                                "max_level": 38,
-                                "min_level": 35,
+                                "max_level": 43,
+                                "min_level": 39,
                                 "species": "SPECIES_GOLBAT"
                             },
                             {
-                                "max_level": 40,
-                                "min_level": 37,
+                                "max_level": 45,
+                                "min_level": 41,
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 39,
-                                "min_level": 36,
+                                "max_level": 43,
+                                "min_level": 39,
                                 "species": "SPECIES_CROBAT"
                             },
                             {
-                                "max_level": 40,
-                                "min_level": 37,
+                                "max_level": 45,
+                                "min_level": 42,
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 41,
-                                "min_level": 38,
+                                "max_level": 45,
+                                "min_level": 43,
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 40,
+                                "max_level": 43,
                                 "min_level": 39,
                                 "species": "SPECIES_EELEKTRIK"
                             },
                             {
-                                "max_level": 37,
-                                "min_level": 34,
+                                "max_level": 43,
+                                "min_level": 39,
                                 "species": "SPECIES_SLOWKING"
                             },
                             {
-                                "max_level": 38,
-                                "min_level": 35,
+                                "max_level": 44,
+                                "min_level": 40,
                                 "species": "SPECIES_SLOWKING"
                             },
                             {
-                                "max_level": 40,
+                                "max_level": 44,
                                 "min_level": 40,
                                 "species": "SPECIES_OMASTAR"
                             },
                             {
-                                "max_level": 40,
+                                "max_level": 44,
                                 "min_level": 40,
                                 "species": "SPECIES_KABUTOPS"
                             },
                             {
-                                "max_level": 43,
-                                "min_level": 40,
+                                "max_level": 45,
+                                "min_level": 45,
                                 "species": "SPECIES_OMASTAR"
                             },
                             {
-                                "max_level": 43,
-                                "min_level": 40,
+                                "max_level": 45,
+                                "min_level": 45,
                                 "species": "SPECIES_KABUTOPS"
                             }
                         ]
@@ -13410,63 +13410,63 @@
                         "encounter_rate": 4,
                         "mons": [
                             {
-                                "max_level": 38,
-                                "min_level": 35,
+                                "max_level": 43,
+                                "min_level": 39,
                                 "species": "SPECIES_GOLBAT"
                             },
                             {
-                                "max_level": 40,
-                                "min_level": 37,
+                                "max_level": 45,
+                                "min_level": 41,
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 39,
-                                "min_level": 36,
+                                "max_level": 43,
+                                "min_level": 39,
                                 "species": "SPECIES_CROBAT"
                             },
                             {
-                                "max_level": 40,
-                                "min_level": 37,
+                                "max_level": 45,
+                                "min_level": 42,
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 41,
-                                "min_level": 38,
+                                "max_level": 45,
+                                "min_level": 43,
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 40,
+                                "max_level": 43,
                                 "min_level": 39,
                                 "species": "SPECIES_EELEKTRIK"
                             },
                             {
-                                "max_level": 37,
-                                "min_level": 34,
+                                "max_level": 43,
+                                "min_level": 39,
                                 "species": "SPECIES_SLOWKING"
                             },
                             {
-                                "max_level": 38,
-                                "min_level": 35,
+                                "max_level": 44,
+                                "min_level": 40,
                                 "species": "SPECIES_SLOWKING"
                             },
                             {
-                                "max_level": 40,
+                                "max_level": 44,
                                 "min_level": 40,
                                 "species": "SPECIES_OMASTAR"
                             },
                             {
-                                "max_level": 40,
+                                "max_level": 44,
                                 "min_level": 40,
                                 "species": "SPECIES_KABUTOPS"
                             },
                             {
-                                "max_level": 43,
-                                "min_level": 40,
+                                "max_level": 45,
+                                "min_level": 45,
                                 "species": "SPECIES_OMASTAR"
                             },
                             {
-                                "max_level": 43,
-                                "min_level": 40,
+                                "max_level": 45,
+                                "min_level": 45,
                                 "species": "SPECIES_KABUTOPS"
                             }
                         ]
@@ -13479,63 +13479,63 @@
                         "encounter_rate": 4,
                         "mons": [
                             {
-                                "max_level": 38,
-                                "min_level": 35,
+                                "max_level": 43,
+                                "min_level": 39,
                                 "species": "SPECIES_GOLBAT"
                             },
                             {
-                                "max_level": 40,
-                                "min_level": 37,
+                                "max_level": 45,
+                                "min_level": 41,
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 39,
-                                "min_level": 36,
+                                "max_level": 43,
+                                "min_level": 39,
                                 "species": "SPECIES_CROBAT"
                             },
                             {
-                                "max_level": 40,
-                                "min_level": 37,
+                                "max_level": 45,
+                                "min_level": 42,
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 41,
-                                "min_level": 38,
+                                "max_level": 45,
+                                "min_level": 43,
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 40,
+                                "max_level": 43,
                                 "min_level": 39,
                                 "species": "SPECIES_EELEKTRIK"
                             },
                             {
-                                "max_level": 37,
-                                "min_level": 34,
+                                "max_level": 43,
+                                "min_level": 39,
                                 "species": "SPECIES_SLOWKING"
                             },
                             {
-                                "max_level": 38,
-                                "min_level": 35,
+                                "max_level": 44,
+                                "min_level": 40,
                                 "species": "SPECIES_SLOWKING"
                             },
                             {
-                                "max_level": 40,
+                                "max_level": 44,
                                 "min_level": 40,
                                 "species": "SPECIES_OMASTAR"
                             },
                             {
-                                "max_level": 40,
+                                "max_level": 44,
                                 "min_level": 40,
                                 "species": "SPECIES_KABUTOPS"
                             },
                             {
-                                "max_level": 43,
-                                "min_level": 40,
+                                "max_level": 45,
+                                "min_level": 45,
                                 "species": "SPECIES_OMASTAR"
                             },
                             {
-                                "max_level": 43,
-                                "min_level": 40,
+                                "max_level": 45,
+                                "min_level": 45,
                                 "species": "SPECIES_KABUTOPS"
                             }
                         ]
@@ -13603,63 +13603,63 @@
                         "encounter_rate": 4,
                         "mons": [
                             {
-                                "max_level": 38,
-                                "min_level": 35,
+                                "max_level": 43,
+                                "min_level": 39,
                                 "species": "SPECIES_GOLBAT"
                             },
                             {
-                                "max_level": 40,
-                                "min_level": 37,
+                                "max_level": 45,
+                                "min_level": 41,
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 39,
-                                "min_level": 36,
+                                "max_level": 43,
+                                "min_level": 39,
                                 "species": "SPECIES_CROBAT"
                             },
                             {
-                                "max_level": 40,
-                                "min_level": 37,
+                                "max_level": 45,
+                                "min_level": 42,
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 41,
-                                "min_level": 38,
+                                "max_level": 45,
+                                "min_level": 43,
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 40,
+                                "max_level": 43,
                                 "min_level": 39,
                                 "species": "SPECIES_EELEKTRIK"
                             },
                             {
-                                "max_level": 37,
-                                "min_level": 34,
+                                "max_level": 43,
+                                "min_level": 39,
                                 "species": "SPECIES_SLOWKING"
                             },
                             {
-                                "max_level": 38,
-                                "min_level": 35,
+                                "max_level": 44,
+                                "min_level": 40,
                                 "species": "SPECIES_SLOWKING"
                             },
                             {
-                                "max_level": 40,
+                                "max_level": 44,
                                 "min_level": 40,
                                 "species": "SPECIES_OMASTAR"
                             },
                             {
-                                "max_level": 40,
+                                "max_level": 44,
                                 "min_level": 40,
                                 "species": "SPECIES_KABUTOPS"
                             },
                             {
-                                "max_level": 43,
-                                "min_level": 40,
+                                "max_level": 45,
+                                "min_level": 45,
                                 "species": "SPECIES_OMASTAR"
                             },
                             {
-                                "max_level": 43,
-                                "min_level": 40,
+                                "max_level": 45,
+                                "min_level": 45,
                                 "species": "SPECIES_KABUTOPS"
                             }
                         ]
@@ -13669,28 +13669,28 @@
                         "encounter_rate": 4,
                         "mons": [
                             {
-                                "max_level": 40,
-                                "min_level": 35,
+                                "max_level": 45,
+                                "min_level": 40,
                                 "species": "SPECIES_TENTACOOL"
                             },
                             {
-                                "max_level": 40,
-                                "min_level": 35,
+                                "max_level": 45,
+                                "min_level": 40,
                                 "species": "SPECIES_ZUBAT"
                             },
                             {
-                                "max_level": 40,
-                                "min_level": 35,
+                                "max_level": 45,
+                                "min_level": 40,
                                 "species": "SPECIES_ZUBAT"
                             },
                             {
-                                "max_level": 35,
-                                "min_level": 35,
+                                "max_level": 45,
+                                "min_level": 40,
                                 "species": "SPECIES_GOLBAT"
                             },
                             {
-                                "max_level": 35,
-                                "min_level": 35,
+                                "max_level": 45,
+                                "min_level": 40,
                                 "species": "SPECIES_GOLBAT"
                             }
                         ]
@@ -13757,63 +13757,63 @@
                         "encounter_rate": 4,
                         "mons": [
                             {
-                                "max_level": 38,
-                                "min_level": 35,
+                                "max_level": 43,
+                                "min_level": 39,
                                 "species": "SPECIES_GOLBAT"
                             },
                             {
-                                "max_level": 40,
-                                "min_level": 37,
+                                "max_level": 45,
+                                "min_level": 41,
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 39,
-                                "min_level": 36,
+                                "max_level": 43,
+                                "min_level": 39,
                                 "species": "SPECIES_CROBAT"
                             },
                             {
-                                "max_level": 40,
-                                "min_level": 37,
+                                "max_level": 45,
+                                "min_level": 42,
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 41,
-                                "min_level": 38,
+                                "max_level": 45,
+                                "min_level": 43,
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 40,
+                                "max_level": 43,
                                 "min_level": 39,
                                 "species": "SPECIES_EELEKTRIK"
                             },
                             {
-                                "max_level": 37,
-                                "min_level": 34,
+                                "max_level": 43,
+                                "min_level": 39,
                                 "species": "SPECIES_SLOWKING"
                             },
                             {
-                                "max_level": 38,
-                                "min_level": 35,
+                                "max_level": 44,
+                                "min_level": 40,
                                 "species": "SPECIES_SLOWKING"
                             },
                             {
-                                "max_level": 40,
+                                "max_level": 44,
                                 "min_level": 40,
                                 "species": "SPECIES_OMASTAR"
                             },
                             {
-                                "max_level": 40,
+                                "max_level": 44,
                                 "min_level": 40,
                                 "species": "SPECIES_KABUTOPS"
                             },
                             {
-                                "max_level": 43,
-                                "min_level": 40,
+                                "max_level": 45,
+                                "min_level": 45,
                                 "species": "SPECIES_OMASTAR"
                             },
                             {
-                                "max_level": 43,
-                                "min_level": 40,
+                                "max_level": 45,
+                                "min_level": 45,
                                 "species": "SPECIES_KABUTOPS"
                             }
                         ]
@@ -13823,28 +13823,28 @@
                         "encounter_rate": 4,
                         "mons": [
                             {
-                                "max_level": 40,
-                                "min_level": 35,
+                                "max_level": 45,
+                                "min_level": 40,
                                 "species": "SPECIES_TENTACOOL"
                             },
                             {
-                                "max_level": 40,
-                                "min_level": 35,
+                                "max_level": 45,
+                                "min_level": 40,
                                 "species": "SPECIES_ZUBAT"
                             },
                             {
-                                "max_level": 40,
-                                "min_level": 35,
+                                "max_level": 45,
+                                "min_level": 40,
                                 "species": "SPECIES_ZUBAT"
                             },
                             {
-                                "max_level": 35,
-                                "min_level": 35,
+                                "max_level": 45,
+                                "min_level": 40,
                                 "species": "SPECIES_GOLBAT"
                             },
                             {
-                                "max_level": 35,
-                                "min_level": 35,
+                                "max_level": 45,
+                                "min_level": 40,
                                 "species": "SPECIES_GOLBAT"
                             }
                         ]
@@ -13856,63 +13856,63 @@
                         "encounter_rate": 4,
                         "mons": [
                             {
-                                "max_level": 38,
-                                "min_level": 35,
+                                "max_level": 43,
+                                "min_level": 39,
                                 "species": "SPECIES_GOLBAT"
                             },
                             {
-                                "max_level": 40,
-                                "min_level": 37,
+                                "max_level": 45,
+                                "min_level": 41,
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 39,
-                                "min_level": 36,
+                                "max_level": 43,
+                                "min_level": 39,
                                 "species": "SPECIES_CROBAT"
                             },
                             {
-                                "max_level": 40,
-                                "min_level": 37,
+                                "max_level": 45,
+                                "min_level": 42,
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 41,
-                                "min_level": 38,
+                                "max_level": 45,
+                                "min_level": 43,
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 40,
+                                "max_level": 43,
                                 "min_level": 39,
                                 "species": "SPECIES_EELEKTRIK"
                             },
                             {
-                                "max_level": 37,
-                                "min_level": 34,
+                                "max_level": 43,
+                                "min_level": 39,
                                 "species": "SPECIES_SLOWKING"
                             },
                             {
-                                "max_level": 38,
-                                "min_level": 35,
+                                "max_level": 44,
+                                "min_level": 40,
                                 "species": "SPECIES_SLOWKING"
                             },
                             {
-                                "max_level": 40,
+                                "max_level": 44,
                                 "min_level": 40,
                                 "species": "SPECIES_OMASTAR"
                             },
                             {
-                                "max_level": 40,
+                                "max_level": 44,
                                 "min_level": 40,
                                 "species": "SPECIES_KABUTOPS"
                             },
                             {
-                                "max_level": 43,
-                                "min_level": 40,
+                                "max_level": 45,
+                                "min_level": 45,
                                 "species": "SPECIES_OMASTAR"
                             },
                             {
-                                "max_level": 43,
-                                "min_level": 40,
+                                "max_level": 45,
+                                "min_level": 45,
                                 "species": "SPECIES_KABUTOPS"
                             }
                         ]
