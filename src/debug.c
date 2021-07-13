@@ -69,6 +69,7 @@ enum { // Util
     DEBUG_UTIL_MENU_ITEM_TRAINER_NAME,
     DEBUG_UTIL_MENU_ITEM_TRAINER_GENDER,
     DEBUG_UTIL_MENU_ITEM_TRAINER_ID,
+    DEBUG_UTIL_MENU_ITEM_PLAY_SONG,
 };
 enum { // Flags
     DEBUG_FLAG_MENU_ITEM_FLAGS,
@@ -171,6 +172,8 @@ static void DebugAction_Util_WatchCredits(u8);
 static void DebugAction_Util_Trainer_Name(u8);
 static void DebugAction_Util_Trainer_Gender(u8);
 static void DebugAction_Util_Trainer_Id(u8);
+static void DebugAction_Util_PlayBGM(u8);
+static void DebugAction_Util_PlayBGM_SelectId(u8);
 
 static void DebugAction_Flags_Flags(u8 taskId);
 static void DebugAction_Flags_FlagsSelect(u8 taskId);
@@ -246,6 +249,7 @@ static const u8 gDebugText_Util_WatchCredits[] =            _("Watch Credits");
 static const u8 gDebugText_Util_Trainer_Name[] =            _("Trainer name");
 static const u8 gDebugText_Util_Trainer_Gender[] =          _("Toggle T. Gender");
 static const u8 gDebugText_Util_Trainer_Id[] =              _("New Trainer Id");
+static const u8 gDebugText_Util_PlaySong[] =                _("Play BGM");
 // Flags Menu
 static const u8 gDebugText_Flags_Flags[] =                _("Set Flag XXXX");
 static const u8 gDebugText_Flags_SetPokedexFlags[] =      _("All Pokédex Flags");
@@ -272,6 +276,7 @@ static const u8 gDebugText_VariableValueSet[] =      _("Var: {STR_VAR_1}        
 static const u8 gDebugText_Give_GiveItem[] =            _("Give item XXXX");
 static const u8 gDebugText_ItemQuantity[] =             _("Quantity:       \n{STR_VAR_1}    \n\n{STR_VAR_2}");
 static const u8 gDebugText_ItemID[] =                   _("Item Id: {STR_VAR_3}\n{STR_VAR_1}    \n\n{STR_VAR_2}");
+static const u8 gDebugText_SongID[] =                   _("Song Id: {STR_VAR_3}\n{STR_VAR_1}    \n\n{STR_VAR_2}");
 static const u8 gDebugText_Give_AllTMs[] =              _("Give all TMs");
 static const u8 gDebugText_Give_GivePokemonSimple[] =   _("Pkm(lvl)");
 static const u8 gDebugText_Give_GivePokemonComplex[] =  _("Pkm(l,s,n,a,IV,mov)");
@@ -350,6 +355,7 @@ static const struct ListMenuItem sDebugMenu_Items_Utilities[] =
     [DEBUG_UTIL_MENU_ITEM_TRAINER_NAME]     = {gDebugText_Util_Trainer_Name,     DEBUG_UTIL_MENU_ITEM_TRAINER_NAME},
     [DEBUG_UTIL_MENU_ITEM_TRAINER_GENDER]   = {gDebugText_Util_Trainer_Gender,   DEBUG_UTIL_MENU_ITEM_TRAINER_GENDER},
     [DEBUG_UTIL_MENU_ITEM_TRAINER_ID]       = {gDebugText_Util_Trainer_Id,       DEBUG_UTIL_MENU_ITEM_TRAINER_ID},
+    [DEBUG_UTIL_MENU_ITEM_PLAY_SONG]        = {gDebugText_Util_PlaySong, DEBUG_UTIL_MENU_ITEM_PLAY_SONG}
 };
 static const struct ListMenuItem sDebugMenu_Items_Flags[] =
 {
@@ -403,6 +409,7 @@ static void (*const sDebugMenu_Actions_Utilities[])(u8) =
     [DEBUG_UTIL_MENU_ITEM_TRAINER_NAME]     = DebugAction_Util_Trainer_Name,
     [DEBUG_UTIL_MENU_ITEM_TRAINER_GENDER]   = DebugAction_Util_Trainer_Gender,
     [DEBUG_UTIL_MENU_ITEM_TRAINER_ID]       = DebugAction_Util_Trainer_Id,
+    [DEBUG_UTIL_MENU_ITEM_PLAY_SONG]        = DebugAction_Util_PlayBGM,
 };
 static void (*const sDebugMenu_Actions_Flags[])(u8) =
 {
@@ -2393,5 +2400,89 @@ static void DebugTask_HandleMenuInput(u8 taskId, void (*HandleInput)(u8))
 }
 */
 
+
+static void DebugAction_Util_PlayBGM(u8 taskId)
+{
+    u8 windowId;
+
+    ClearStdWindowAndFrame(gTasks[taskId].data[1], TRUE);
+    RemoveWindow(gTasks[taskId].data[1]);
+
+    HideMapNamePopUpWindow();
+    sub_81973A4();
+    windowId = AddWindow(&sDebugNumberDisplayWindowTemplate);
+    DrawStdWindowFrame(windowId, FALSE);
+
+    CopyWindowToVram(windowId, 3);
+
+    //Display initial ID
+    StringCopy(gStringVar2, gText_DigitIndicator[0]);
+    ConvertIntToDecimalStringN(gStringVar3, 1, STR_CONV_MODE_LEADING_ZEROS, DEBUG_NUMBER_DIGITS_ITEMS);
+    StringCopyPadded(gStringVar1, gStringVar1, CHAR_SPACE, 15);
+    StringExpandPlaceholders(gStringVar4, gDebugText_SongID);
+    AddTextPrinterParameterized(windowId, 1, gStringVar4, 1, 1, 0, NULL);
+
+    gTasks[taskId].func = DebugAction_Util_PlayBGM_SelectId;
+    gTasks[taskId].data[2] = windowId;
+    gTasks[taskId].data[3] = 1;            //Current ID
+    gTasks[taskId].data[4] = 0;            //Digit Selected
+}
+static void DebugAction_Util_PlayBGM_SelectId(u8 taskId)
+{
+    if (gMain.newKeys & DPAD_ANY)
+    {
+        PlaySE(SE_SELECT);
+
+        if(gMain.newKeys & DPAD_UP)
+        {
+            gTasks[taskId].data[3] += sPowersOfTen[gTasks[taskId].data[4]];
+            if(gTasks[taskId].data[3] > MUS_COUNT)
+                gTasks[taskId].data[3] = MUS_COUNT;
+        }
+        if(gMain.newKeys & DPAD_DOWN)
+        {
+            gTasks[taskId].data[3] -= sPowersOfTen[gTasks[taskId].data[4]];
+            if(gTasks[taskId].data[3] < 1)
+                gTasks[taskId].data[3] = 1;
+        }
+        if(gMain.newKeys & DPAD_LEFT)
+        {
+            if(gTasks[taskId].data[4] > 0)
+                gTasks[taskId].data[4] -= 1;
+        }
+        if(gMain.newKeys & DPAD_RIGHT)
+        {
+            if(gTasks[taskId].data[4] < DEBUG_NUMBER_DIGITS_ITEMS-1)
+                gTasks[taskId].data[4] += 1;
+        }
+
+        StringCopy(gStringVar2, gText_DigitIndicator[gTasks[taskId].data[4]]);
+        StringCopyPadded(gStringVar1, gStringVar1, CHAR_SPACE, 15);
+        ConvertIntToDecimalStringN(gStringVar3, gTasks[taskId].data[3], STR_CONV_MODE_LEADING_ZEROS, DEBUG_NUMBER_DIGITS_ITEMS);
+        StringExpandPlaceholders(gStringVar4, gDebugText_SongID);
+        AddTextPrinterParameterized(gTasks[taskId].data[2], 1, gStringVar4, 1, 1, 0, NULL);
+    }
+
+    if (gMain.newKeys & A_BUTTON)
+    {
+        gTasks[taskId].data[5] = gTasks[taskId].data[3];
+        gTasks[taskId].data[3] = 1;
+        gTasks[taskId].data[4] = 0;
+
+        StringCopy(gStringVar2, gText_DigitIndicator[gTasks[taskId].data[4]]);
+        ConvertIntToDecimalStringN(gStringVar1, gTasks[taskId].data[3], STR_CONV_MODE_LEADING_ZEROS, DEBUG_NUMBER_DIGITS_ITEM_QUANTITY);
+        StringCopyPadded(gStringVar1, gStringVar1, CHAR_SPACE, 15);
+        StringExpandPlaceholders(gStringVar4, gDebugText_ItemQuantity);
+        AddTextPrinterParameterized(gTasks[taskId].data[2], 1, gStringVar4, 1, 1, 0, NULL);
+
+        PlayBGM(gTasks[taskId].data[5]);
+        DebugAction_DestroyExtraWindow(taskId);
+    }
+    else if (gMain.newKeys & B_BUTTON)
+    {
+        PlaySE(SE_SELECT);
+        DebugAction_DestroyExtraWindow(taskId);
+    }
+}
 
 #endif
