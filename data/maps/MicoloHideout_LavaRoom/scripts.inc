@@ -24,6 +24,21 @@ MicoloHideout_LavaRoom_EventScript_GiratinaMaster_2:
 MicoloHideout_LavaRoom_Movement_GiratinaMaster:
 	walk_up
 	step_end
+	
+MicoloHideout_LavaRoom_EventScript_Nugget::
+    giveitem ITEM_NUGGET, 99
+    compare VAR_RESULT, FALSE
+    call_if_eq MicoloHideout_LavaRoom_BagFull
+    closemessage
+    removeobject 8
+    setflag FLAG_ITEM_MICOLO_NUGGETS
+    end
+    
+MicoloHideout_LavaRoom_BagFull::
+    call Common_EventScript_BagIsFull
+    closemessage
+    release
+    end
 
 MicoloHideout_LavaRoom_EventScript_GiratinaMaster_Text_0:
 	.string "GIRATINA MASTER: ¿has derrotado a\n"
