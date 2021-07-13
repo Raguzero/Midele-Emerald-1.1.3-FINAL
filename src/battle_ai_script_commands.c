@@ -2821,7 +2821,10 @@ static void Cmd_calculate_nhko(void)
                     break;
             if (j == MAX_MON_MOVES)
                 continue; // No puede usar el movimiento por el momento; se ignora
-        }
+
+            if ((gBattleMons[attackerId].status2 & STATUS2_MULTIPLETURNS) && movePointer[i] != gLastMoves[gBattlerTarget])
+                continue; // Está en un ataque multiturno distinto de este; se ignora
+		}
 
         gCurrentMove = movePointer[i];
         best_nhko = CalculatenHKOFromgCurrentMove(attackerId, targetId, attacker_is_user ? AI_THINKING_STRUCT->simulatedRNG[AI_THINKING_STRUCT->movesetIndex] : 0, best_nhko);
