@@ -113,6 +113,12 @@ MicoloLeagueLobby_EventScript_ResetTrainerYES:
 	cleartrainerflag TRAINER_CHARZ
 	cleartrainerflag TRAINER_GHADDAR_2
 	cleartrainerflag TRAINER_KADERETE_2
+	cleartrainerflag TRAINER_FURRY
+	cleartrainerflag TRAINER_DARK_MELKOR
+	cleartrainerflag TRAINER_ANGELFS
+	cleartrainerflag TRAINER_MDRAGON
+	cleartrainerflag TRAINER_ALBERMAUS
+	cleartrainerflag TRAINER_HATHAR
 	// Etc
 	release
 	end

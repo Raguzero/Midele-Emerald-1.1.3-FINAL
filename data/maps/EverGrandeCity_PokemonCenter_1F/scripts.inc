@@ -47,6 +47,8 @@ EverGrandeCity_PokemonCenter_1F_Pokemart:
 	.2byte ITEM_FULL_HEAL
 	.2byte ITEM_REVIVE
 	.2byte ITEM_MAX_REPEL
+	.2byte ITEM_ESCAPE_ROPE
+	.2byte ITEM_ETHER
 	.2byte ITEM_METAL_COAT
 	.2byte ITEM_KINGS_ROCK
 	.2byte ITEM_DRAGON_SCALE
