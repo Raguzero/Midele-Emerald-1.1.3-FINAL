@@ -9216,7 +9216,7 @@ static void Cmd_trychoosesleeptalkmove(void)
 
     }
 
-    unusableMovesBits = CheckMoveLimitations(gBattlerAttacker, unusableMovesBits, ~(MOVE_LIMITATION_PP));
+    unusableMovesBits = CheckMoveLimitations(gBattlerAttacker, unusableMovesBits, (MOVE_LIMITATION_CHOICE-1) & (~(MOVE_LIMITATION_PP)));
     if (unusableMovesBits == 0xF) // all 4 moves cannot be chosen
     {
         gBattlescriptCurrInstr += 5;
