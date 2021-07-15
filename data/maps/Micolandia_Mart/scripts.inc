@@ -18,12 +18,74 @@ Micolandia_Mart_EventScript_Shop::
 	.align 2
 Micolandia_Mart_Pokemart_Shop:
 	.2byte ITEM_ULTRA_BALL
+    .2byte ITEM_NET_BALL
+    .2byte ITEM_DIVE_BALL
+    .2byte ITEM_NEST_BALL
+    .2byte ITEM_REPEAT_BALL
+    .2byte ITEM_TIMER_BALL
+    .2byte ITEM_LUXURY_BALL
+    .2byte ITEM_PREMIER_BALL
 	.2byte ITEM_HYPER_POTION
 	.2byte ITEM_MAX_POTION
 	.2byte ITEM_FULL_RESTORE
 	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_ETHER
+	.2byte ITEM_MAX_ETHER
 	.2byte ITEM_REVIVE
+	.2byte ITEM_MAX_REVIVE
 	.2byte ITEM_MAX_REPEL
+	.2byte ITEM_ESCAPE_ROPE
+	.2byte ITEM_NONE
+	release
+	end
+	
+Micolandia_Mart_EventScript_Shop2::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart Micolandia_Mart_Pokemart_Shop2
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Micolandia_Mart_Pokemart_Shop2:
+    .2byte ITEM_CHERI_BERRY
+    .2byte ITEM_CHESTO_BERRY
+    .2byte ITEM_PECHA_BERRY
+    .2byte ITEM_RAWST_BERRY
+    .2byte ITEM_ASPEAR_BERRY
+    .2byte ITEM_LEPPA_BERRY
+    .2byte ITEM_ORAN_BERRY
+    .2byte ITEM_PERSIM_BERRY
+    .2byte ITEM_LUM_BERRY
+    .2byte ITEM_SITRUS_BERRY
+    .2byte ITEM_FIGY_BERRY
+    .2byte ITEM_WIKI_BERRY
+    .2byte ITEM_MAGO_BERRY
+    .2byte ITEM_AGUAV_BERRY
+    .2byte ITEM_IAPAPA_BERRY
+    .2byte ITEM_RAZZ_BERRY
+    .2byte ITEM_BLUK_BERRY
+    .2byte ITEM_NANAB_BERRY
+    .2byte ITEM_WEPEAR_BERRY
+    .2byte ITEM_PINAP_BERRY
+    .2byte ITEM_POMEG_BERRY
+    .2byte ITEM_KELPSY_BERRY
+    .2byte ITEM_QUALOT_BERRY
+    .2byte ITEM_HONDEW_BERRY
+    .2byte ITEM_GREPA_BERRY
+    .2byte ITEM_TAMATO_BERRY
+    .2byte ITEM_CORNN_BERRY
+    .2byte ITEM_MAGOST_BERRY
+    .2byte ITEM_RABUTA_BERRY
+    .2byte ITEM_NOMEL_BERRY
+    .2byte ITEM_SPELON_BERRY
+    .2byte ITEM_PAMTRE_BERRY
+    .2byte ITEM_WATMEL_BERRY
+    .2byte ITEM_DURIN_BERRY
+    .2byte ITEM_BELUE_BERRY
 	.2byte ITEM_NONE
 	release
 	end	
