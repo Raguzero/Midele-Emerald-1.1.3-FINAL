@@ -176,7 +176,6 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_COUNTER, AI_CBM_HighRiskForDamage
 	if_effect EFFECT_ENCORE, AI_CBM_Encore
 	if_effect EFFECT_SNORE, AI_CBM_DamageDuringSleep
-	if_effect EFFECT_SLEEP_TALK, AI_CBM_DamageDuringSleep
 	if_effect EFFECT_FLAIL, AI_CBM_HighRiskForDamage
 	if_effect EFFECT_MEAN_LOOK, AI_CBM_CantEscape
 	if_effect EFFECT_NIGHTMARE, AI_CBM_Nightmare
@@ -1053,6 +1052,7 @@ AI_CheckViability_CheckEffects:
 	if_effect EFFECT_SANDSTORM, AI_CV_Sandstorm
 	if_effect EFFECT_QUICK_ATTACK, AI_CV_QuickAttack @ para FEAR, incluye ExtremeSpeed y Mach Punch
 	if_effect EFFECT_WILL_O_WISP, AI_CV_WillOWisp
+	if_effect EFFECT_RAPID_SPIN, AI_CV_RapidSpin
 	if_effect EFFECT_ROLLOUT, AI_CV_Rollout
 	end
 
@@ -1203,6 +1203,24 @@ AI_CV_WillOWisp:
     if_ability_might_be AI_TARGET, ABILITY_WONDER_GUARD, Score_Plus1
     end
 
+AI_CV_RapidSpin:
+    if_side_affecting AI_USER, SIDE_STATUS_SPIKES, AI_CV_RapidSpin_SpikesCount
+AI_CV_RapidSpin_SpikesAreIrrelevant:
+    if_status3 AI_USER, STATUS3_LEECHSEED, Score_Plus1
+    if_status2 AI_USER, STATUS2_WRAPPED, Score_Plus1
+    goto AI_CV_RapidSpin_End
+
+AI_CV_RapidSpin_SpikesCount:
+    count_usable_party_mons AI_USER
+    if_equal 0, AI_CV_RapidSpin_SpikesAreIrrelevant
+    get_hazards_count AI_USER, EFFECT_SPIKES
+    if_equal 3, Score_Plus3
+    if_equal 2, Score_Plus2
+    goto Score_Plus1        @ hay una fila de púas
+
+AI_CV_RapidSpin_End:
+    end
+	
 AI_CV_Rollout:
 	if_status AI_USER, STATUS1_ANY, Score_Minus10
 	if_status2 AI_USER, STATUS2_CONFUSION | STATUS2_INFATUATION, Score_Minus10
@@ -1307,6 +1325,7 @@ AI_CheckFreeSetup_AssumeTargetIsSlowerAfterSetup:
 	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_Ret
     if_ability AI_USER, ABILITY_STURDY, Score_Plus5
     if_holds_item AI_USER, ITEM_FOCUS_SASH, Score_Plus5
+	if_target_wont_attack_due_to_truant Score_Plus5
     end
 
 AI_CV_SpAtkUp: @ 82DCC73
@@ -2022,6 +2041,7 @@ AI_CV_VitalThrow_End:
 AI_CV_Substitute:
 	goto AI_IsHealingAbilityActive
 AI_CV_SubstituteStart:
+	if_target_wont_attack_due_to_truant AI_CV_SubstitutePlus3Continue
 	if_ability AI_USER, ABILITY_SPEED_BOOST, AI_CV_Substitute_SpeedBoost
 	if_not_status2 AI_TARGET, STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION, AI_CV_Substitute1
 	if_status3 AI_TARGET, STATUS3_PERISH_SONG, AI_CV_SubstitutePlus3Continue
@@ -2122,6 +2142,7 @@ AI_CV_Disable_End:
 	end
 
 AI_CV_Counter:
+	if_target_wont_attack_due_to_truant Score_Minus10
 	if_status AI_TARGET, STATUS1_SLEEP, AI_CV_Counter_ScoreDown1
 	if_status AI_TARGET, STATUS1_FREEZE, AI_CV_Counter_ScoreDown1
 	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_Counter_ScoreDown1
@@ -2279,19 +2300,19 @@ AI_CV_Encore_EncouragedMovesToEncore:
 
 AI_CV_PainSplit:
 	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
-	if_hp_less_than AI_TARGET, 80, AI_CV_PainSplit_ScoreDown1
+	if_hp_less_than AI_TARGET, 80, AI_CV_PainSplit_ScoreDown3
 	if_target_faster AI_CV_PainSplit2
-	if_hp_more_than AI_USER, 40, AI_CV_PainSplit_ScoreDown1
+	if_hp_more_than AI_USER, 40, AI_CV_PainSplit_ScoreDown3
 	score +1
 	goto AI_CV_PainSplit_End
 
 AI_CV_PainSplit2:
-	if_hp_more_than AI_USER, 60, AI_CV_PainSplit_ScoreDown1
+	if_hp_more_than AI_USER, 60, AI_CV_PainSplit_ScoreDown3
 	score +1
 	goto AI_CV_PainSplit_End
 
-AI_CV_PainSplit_ScoreDown1:
-	score -1
+AI_CV_PainSplit_ScoreDown3:
+	score -3
 
 AI_CV_PainSplit_End:
 	end
@@ -2309,9 +2330,30 @@ AI_CV_LockOn_End:
 	end
 
 AI_CV_SleepTalk:
-    if_not_expected_to_sleep Score_Minus5
+    if_not_expected_to_sleep AI_CV_SleepTalk_NotExpectedToSleep
     score +10
-	end
+AI_CV_SleepTalk_End:
+    end
+
+@ La IA no cambia para evitar tirar Sleep Talk excepto si está dormida a punto de despertar,
+@ con objeto elegido, en una situación en la que no recibe KO del rival y no siendo el último poke
+AI_CV_SleepTalk_NotExpectedToSleep:
+    if_not_status AI_USER, STATUS1_SLEEP, AI_CV_SleepTalk_Discourage
+    calculate_nhko AI_TARGET
+    if_equal 1, AI_CV_SleepTalk_Discourage
+    count_usable_party_mons AI_USER
+    if_equal 0, AI_CV_SleepTalk_Discourage
+    if_holds_item AI_USER, ITEM_CHOICE_BAND, AI_CV_SleepTalk_UseToWakeUpIfNecessary
+    if_holds_item AI_USER, ITEM_CHOICE_SPECS, AI_CV_SleepTalk_UseToWakeUpIfNecessary
+    if_holds_item AI_USER, ITEM_CHOICE_SCARF, AI_CV_SleepTalk_UseToWakeUpIfNecessary
+
+AI_CV_SleepTalk_Discourage:
+    goto Score_Minus8
+
+AI_CV_SleepTalk_UseToWakeUpIfNecessary:
+    if_random_less_than 128, AI_CV_SleepTalk_Discourage @ 50% de cambiar a pesar de que está a punto de despertar
+	score +1 @ Junto con el -5 en caso de choiced a los movs que no son de daño, 96: insuficiente para cambiar
+    goto AI_CV_SleepTalk_End
 
 AI_CV_DestinyBond:
 	score -1
@@ -2368,11 +2410,15 @@ AI_CV_HealBell_End:
     end
 
 AI_CV_Thief:
-	get_hold_effect AI_TARGET
-	if_in_bytes AI_CV_Thief_EncourageItemsToSteal, AI_CV_Thief_ScorePlus2
-	if_random_less_than 50, AI_CV_Thief_End
-	score +1
-	goto AI_CV_Thief_End
+    if_holds_item AI_USER, ITEM_NONE, AI_CV_Thief_UserHasNoItem
+    goto AI_CV_Thief_End
+AI_CV_Thief_UserHasNoItem:
+    @if_trick_fails_in_this_type_of_battle AI_CV_Thief_End @ ?????????????????? ¿esta funciona tal cual?
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_CV_Thief_End
+    if_ability_might_be AI_TARGET, ABILITY_STICKY_HOLD, AI_CV_Thief_End
+    get_hold_effect AI_TARGET
+    if_in_bytes AI_CV_Thief_EncourageItemsToSteal, AI_CV_Thief_ScorePlus2
+    goto AI_CV_Thief_End
 
 AI_CV_Thief_ScorePlus2:
 	score +2
@@ -2388,6 +2434,9 @@ AI_CV_Thief_EncourageItemsToSteal:
     .byte HOLD_EFFECT_LEFTOVERS
     .byte HOLD_EFFECT_LIGHT_BALL
     .byte HOLD_EFFECT_THICK_CLUB
+    .byte HOLD_EFFECT_CHOICE_BAND
+    .byte HOLD_EFFECT_CHOICE_SCARF
+    .byte HOLD_EFFECT_CHOICE_SPECS
     .byte -1
 
 AI_CV_Curse:
@@ -2427,6 +2476,29 @@ AI_CV_Protect:
     score +4
     goto AI_CV_Protect_End
 AI_CV_Protect_NoChanceToMessWithTruant:
+    if_not_status3 AI_TARGET, STATUS3_SEMI_INVULNERABLE, AI_CV_Protect_OpponentIsNotSemiInvulnerable
+    if_user_faster Score_Plus5  @ Si la IA es más rápida, no tiene sentido que ataque, mejor protegerse
+    calculate_nhko AI_TARGET    @ En caso contrario, conviene protegerse salvo si la IA recibe poco y puede hacer mucho
+    if_more_than 2, Score_Plus2 @ Si recibe 3HKO o menos daño, con este +2 preferirá ataques que hagan KO (por if_can_faint) antes que protegerse
+    goto Score_Plus5
+
+AI_CV_Protect_OpponentIsNotSemiInvulnerable:
+    if_not_status2 AI_TARGET, STATUS2_MULTIPLETURNS, AI_CV_Protect_OpponentIsNotSemiInvulnerableOrRecharge
+    if_target_faster AI_CV_Protect_FasterOpponentIsCharging
+
+@ La IA es más rápida: se protege si recibe OHKO y no puede meterlo antes
+    calculate_nhko AI_TARGET
+    if_equal 1, Score_Plus2
+    goto AI_CV_Protect_OpponentIsNotSemiInvulnerableOrRecharge
+
+@ La IA es más lenta: se protege si recibe OHKO o si recibe 2HKO y no puede meter OHKO
+AI_CV_Protect_FasterOpponentIsCharging:
+    calculate_nhko AI_TARGET
+    if_equal 1, Score_Plus5
+    if_equal 2, Score_Plus2
+    goto AI_CV_Protect_OpponentIsNotSemiInvulnerableOrRecharge
+    @ recibe 3HKO o menos daño: sigue por donde iba en la evaluación de Protect
+AI_CV_Protect_OpponentIsNotSemiInvulnerableOrRecharge:
 	if_ability AI_USER, ABILITY_SPEED_BOOST, AI_CV_Protect_Boost
 	if_status  AI_USER, STATUS1_PSN_ANY | STATUS1_BURN, AI_CV_ProtectUserStatused
 	if_status2 AI_USER, STATUS2_CURSED | STATUS2_INFATUATION, AI_CV_ProtectUserStatused
@@ -2444,7 +2516,6 @@ AI_CV_Protect_NoChanceToMessWithTruant:
 	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_Protect_ScoreUp2
 	if_status3 AI_TARGET, STATUS3_LEECHSEED, AI_CV_Protect_ScoreUp2
 	if_status3 AI_TARGET, STATUS3_YAWN, AI_CV_Protect_ScoreUp2
-	if_status3 AI_TARGET, STATUS3_SEMI_INVULNERABLE, AI_CV_Protect_ScoreUp2
 	get_last_used_bank_move AI_TARGET
 	get_move_effect_from_result
 	if_equal EFFECT_LOCK_ON, AI_CV_Protect_ScoreUp2
@@ -2517,6 +2588,11 @@ AI_CV_Foresight_End:
 	end
 
 AI_CV_Endure:
+	if_target_wont_attack_due_to_truant Score_Minus10
+	get_weather
+	if_equal AI_WEATHER_HAIL, AI_CV_EndureHail
+	if_equal AI_WEATHER_SANDSTORM, AI_CV_EndureSandstorm
+AI_CV_Endure_NoWeatherDamageExpected:
 	get_protect_count AI_USER
 	if_more_than 1, AI_CV_Endure2
 	if_hp_less_than AI_USER, 8, AI_CV_Endure2
@@ -2525,6 +2601,33 @@ AI_CV_Endure:
 	if_doesnt_have_move_with_effect AI_USER, EFFECT_FLAIL, AI_CV_Endure2
 	score +1
 	goto AI_CV_Endure_End
+	
+AI_CV_EndureHail:
+    get_ability AI_USER
+    if_equal ABILITY_OVERCOAT, AI_CV_Endure_NoWeatherDamageExpected
+	if_equal ABILITY_SLUSH_RUSH, AI_CV_Endure_NoWeatherDamageExpected
+	if_equal ABILITY_SNOW_CLOAK, AI_CV_Endure_NoWeatherDamageExpected
+	if_equal ABILITY_ICE_BODY, AI_CV_Endure_NoWeatherDamageExpected
+    get_user_type1
+    if_equal TYPE_ICE, AI_CV_Endure_NoWeatherDamageExpected
+    get_user_type2
+    if_equal TYPE_ICE, AI_CV_Endure_NoWeatherDamageExpected
+    goto AI_CV_Endure2
+	
+AI_CV_EndureSandstorm:
+	get_ability AI_USER
+	if_equal ABILITY_OVERCOAT, AI_CV_Endure_NoWeatherDamageExpected
+	if_equal ABILITY_SAND_VEIL, AI_CV_Endure_NoWeatherDamageExpected
+	if_equal ABILITY_SAND_RUSH, AI_CV_Endure_NoWeatherDamageExpected
+	get_user_type1
+	if_equal TYPE_ROCK, AI_CV_Endure_NoWeatherDamageExpected
+	if_equal TYPE_GROUND, AI_CV_Endure_NoWeatherDamageExpected
+	if_equal TYPE_STEEL, AI_CV_Endure_NoWeatherDamageExpected
+	get_user_type2
+	if_equal TYPE_ROCK, AI_CV_Endure_NoWeatherDamageExpected
+	if_equal TYPE_GROUND, AI_CV_Endure_NoWeatherDamageExpected
+	if_equal TYPE_STEEL, AI_CV_Endure_NoWeatherDamageExpected
+    goto AI_CV_Endure2
 
 AI_CV_Endure2:
 	score -3
@@ -2608,12 +2711,13 @@ AI_CV_Pursuit_End:
 	end
 
 AI_CV_RainDance:
-	if_user_faster AI_CV_RainDance2
 	get_ability AI_USER
 	if_equal ABILITY_FORECAST, AI_CV_RainDance3
-	if_equal ABILITY_SWIFT_SWIM, AI_CV_RainDance3
 	get_ability AI_USER_PARTNER
 	if_equal ABILITY_FORECAST, AI_CV_RainDance3
+	if_equal ABILITY_SWIFT_SWIM, AI_CV_RainDance3
+	if_user_faster AI_CV_RainDance2
+	get_ability AI_USER
 	if_equal ABILITY_SWIFT_SWIM, AI_CV_RainDance3
 
 AI_CV_RainDance2:
@@ -2638,12 +2742,13 @@ AI_CV_RainDance_End:
 	end
 
 AI_CV_SunnyDay:
-	if_user_faster AI_CV_SunnyDay2
 	get_ability AI_USER
 	if_equal ABILITY_FORECAST, AI_CV_SunnyDay3
-	if_equal ABILITY_CHLOROPHYLL, AI_CV_SunnyDay3
 	get_ability AI_USER_PARTNER
 	if_equal ABILITY_FORECAST, AI_CV_SunnyDay3
+	if_equal ABILITY_CHLOROPHYLL, AI_CV_SunnyDay3
+	if_user_faster AI_CV_SunnyDay2
+	get_ability AI_USER
 	if_equal ABILITY_CHLOROPHYLL, AI_CV_SunnyDay3
 
 AI_CV_SunnyDay2:
@@ -2705,6 +2810,7 @@ AI_CV_PsychUp_End:
 	end
 
 AI_CV_MirrorCoat:
+	if_target_wont_attack_due_to_truant Score_Minus10
 	if_status AI_TARGET, STATUS1_SLEEP, AI_CV_MirrorCoat_ScoreDown1
 	if_status AI_TARGET, STATUS1_FREEZE, AI_CV_MirrorCoat_ScoreDown1
 	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_MirrorCoat_ScoreDown1
@@ -2802,6 +2908,7 @@ AI_CV_SemiInvulnerable:
 	goto AI_CV_SemiInvulnerable_End
 
 AI_CV_SemiInvulnerable2:
+	get_hold_effect AI_USER
     if_equal HOLD_EFFECT_POWER_HERB, Score_Plus2
     if_no_ability AI_TARGET, ABILITY_TRUANT, AI_CV_SemiInvulnerable2_NoTruant
     if_target_faster AI_CV_SemiInvulnerable2_TruantTargetFaster
@@ -2893,12 +3000,13 @@ AI_CV_SpitUp_End:
 	end
 
 AI_CV_Hail:
-    if_user_faster AI_CV_Hail2
     get_ability AI_USER
     if_equal ABILITY_FORECAST, AI_CV_Hail3
-    if_equal ABILITY_SLUSH_RUSH, AI_CV_Hail3
 	get_ability AI_USER_PARTNER
     if_equal ABILITY_FORECAST, AI_CV_Hail3
+    if_equal ABILITY_SLUSH_RUSH, AI_CV_Hail3
+    if_user_faster AI_CV_Hail2
+    get_ability AI_USER
     if_equal ABILITY_SLUSH_RUSH, AI_CV_Hail3
 
 AI_CV_Hail2:
@@ -3064,6 +3172,7 @@ AI_CV_Superpower_End:
 	end
 
 AI_CV_MagicCoat:
+	if_target_wont_attack_due_to_truant Score_Minus10
 	if_this_attack_might_be_the_last Score_Minus5
 	if_hp_more_than AI_TARGET, 30, AI_CV_MagicCoat2
 	if_random_less_than 100, AI_CV_MagicCoat2
@@ -3201,6 +3310,7 @@ AI_CV_Refresh:
     goto Score_Plus3
 
 AI_CV_Snatch:
+	if_target_wont_attack_due_to_truant Score_Minus10
 	is_first_turn_for AI_USER
 	if_equal 1, AI_CV_Snatch3
 	if_random_less_than 30, AI_CV_Snatch_End
@@ -3365,10 +3475,31 @@ AI_TryToFaint_NotSolarBeamOnSun:
     if_effect EFFECT_RAZOR_WIND, AI_TryToFaint_End
     if_effect EFFECT_SKY_ATTACK, AI_TryToFaint_End
     if_effect EFFECT_SKULL_BASH, AI_TryToFaint_End
+    if_effect EFFECT_RECOIL_50, AI_TryToFaint_DiscourageRecoil50 @ LIGHT OF RUIN, HEAD SMASH
+    if_effect EFFECT_DOUBLE_EDGE, AI_TryToFaint_DiscourageRecoil33 @ DOUBLE EDGE, BRAVE BIRD, VOLT TACKLE
+    if_effect EFFECT_RECOIL, AI_TryToFaint_DiscourageRecoil25 @ TAKE DOWN, SUBMISION
 	if_effect EFFECT_EXPLOSION, AI_TryToFaint_EncourageExplosionIfOpponentHasOneMonLeft
 	if_not_effect EFFECT_QUICK_ATTACK, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
 	score +2
 	goto AI_TryToFaint_IncreaseScoreDependingOnAccuracy
+	
+AI_TryToFaint_DiscourageRecoil50:
+    if_hp_more_than AI_USER, 30, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
+    if_ability AI_USER, ABILITY_ROCK_HEAD, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
+    score -1  @ Recibirá un punto menos que un ataque de la misma precisión
+    goto AI_TryToFaint_IncreaseScoreDependingOnAccuracy
+	
+AI_TryToFaint_DiscourageRecoil33:
+    if_hp_more_than AI_USER, 20, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
+    if_ability AI_USER, ABILITY_ROCK_HEAD, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
+    score -1  @ Recibirá un punto menos que un ataque de la misma precisión
+    goto AI_TryToFaint_IncreaseScoreDependingOnAccuracy
+	
+AI_TryToFaint_DiscourageRecoil25:
+    if_hp_more_than AI_USER, 15, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
+    if_ability AI_USER, ABILITY_ROCK_HEAD, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
+    score -1  @ Recibirá un punto menos que un ataque de la misma precisión
+    goto AI_TryToFaint_IncreaseScoreDependingOnAccuracy
 
 AI_TryToFaint_EncourageExplosionIfOpponentHasOneMonLeft:
     count_usable_party_mons AI_TARGET
