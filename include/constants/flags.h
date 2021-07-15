@@ -703,10 +703,10 @@
 #define FLAG_HIDE_PAREDINVISIBLE_3_DARKI_GYM  0x296 // Previously Unused Flag
 #define FLAG_RECEIVED_PP_MAX  0x297 // Previously Unused Flag
 #define FLAG_UNUSED_0x298  0x298 // Unused Flag
-#define FLAG_UNUSED_0x299  0x299 // Unused Flag
-#define FLAG_UNUSED_0x29A  0x29A // Unused Flag
-#define FLAG_UNUSED_0x29B  0x29B // Unused Flag
-#define FLAG_UNUSED_0x29C  0x29C // Unused Flag
+#define FLAG_REMATCH_SAPPH  0x299 // Previously Unused Flag
+#define FLAG_REMATCH_GOOSES  0x29A // Previously Unused Flag
+#define FLAG_REMATCH_DARKIBUENRO  0x29B // Previously Unused Flag
+#define FLAG_REMATCH_DARKIMALRO  0x29C // Previously Unused Flag
 #define FLAG_UNUSED_0x29D  0x29D // Unused Flag
 #define FLAG_UNUSED_0x29E  0x29E // Unused Flag
 #define FLAG_UNUSED_0x29F  0x29F // Unused Flag

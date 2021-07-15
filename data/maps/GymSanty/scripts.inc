@@ -7,6 +7,7 @@ GymSanty_EventScript_Santy::
 	case 1, GymSanty_EventScript_Santy_Shifteo1
 	case 2, GymSanty_EventScript_Santy_Shifteo2
 	case 3, GymSanty_EventScript_Santy_Derrotado
+	case 4, GymSanty_EventScript_Santy_Rematch
 	end
 
 GymSanty_EventScript_Santy_Shifteo0::
@@ -26,6 +27,17 @@ GymSanty_EventScript_Santy_Shifteo2::
 	
 GymSanty_EventScript_Santy_Derrotado::
 	msgbox GymSanty_Text_SantyPostBattle, MSGBOX_DEFAULT
+	release
+	end
+	
+GymSanty_EventScript_Santy_Rematch::
+	trainerbattle_single TRAINER_SANTYGRASS_3, GymSanty_Text_SantyRematchIntro, GymSanty_Text_SantyRematchDefeat, GymSanty_EventScript_SantyRematchDefeated, NO_MUSIC
+	release
+	end
+	
+GymSanty_EventScript_SantyRematchDefeated::
+	msgbox GymSanty_Text_SantyPostBattle, MSGBOX_DEFAULT
+	setvar VAR_SHIFTEO_SANTY_GYM, 3
 	release
 	end
 
@@ -167,7 +179,7 @@ GymSanty_Text_GymGuidePostVictory:
 	.string "¡WOW! ¡Así que venciste a SANTYGRASS!$"
 
 GymSanty_Text_SantyShifteo0Intro:
-    .string "Bienvenido a mi gymnasio.\p" 
+    .string "Te doy la bienvenida a mi gymnasio.\p" 
     .string "Espero que te agrade el aroma que\n"
 	.string "hay aquí.\p"
 
@@ -186,7 +198,7 @@ GymSanty_Text_SantyShifteo0Defeat:
     .string "“CELEBI usa un extraño poder”$"
 
 GymSanty_Text_SantyShifteo1Intro:
-    .string "Bienvenido a mi gymnasio.\p" 
+    .string "Te doy la bienvenida a mi gymnasio.\p" 
     .string "Espero que te agrade el aroma que\n"
 	.string "hay aquí.\p"
     .string "¿La medalla?\p"
@@ -210,7 +222,7 @@ GymSanty_Text_SantyShifteo1Defeat:
     .string "“CELEBI usa un extraño poder”$"
 
 GymSanty_Text_SantyShifteo2Intro:
-    .string "Bienvenido a mi gymnasio.\p" 
+    .string "Te doy la bienvenida a mi gymnasio.\p" 
     .string "Espero que te agrade el aroma que\n"
 	.string "hay aquí.\p"
 	
@@ -269,4 +281,19 @@ GymSanty_Text_GymStatueCertified:
 
 	.string "SANTYGRASS'S CERTIFIED TRAINERS:\n"
 	.string "{PLAYER}$"
+	
+GymSanty_Text_SantyRematchIntro:
+    .string "Así que has venido de nuevo a\n"
+	.string "visitarme a mi gymnasio.\p"
+	
+    .string "Si es que no hay nada mejor que\n"
+	.string "cuando las plantas arden.\l"
+	.string "¡Todos son atraidos por este aroma!\p"
+
+    .string "Ha pasado tiempo desde nuestra batalla\n"
+    .string "quemada. ¡Te reto a una revancha!$"
+
+GymSanty_Text_SantyRematchDefeat:
+    .string "How Could this Happen\n"
+    .string "Even with the apocrypha!?$"
 

@@ -16,13 +16,13 @@ Darkigym_EventScript_ParedInvisible1::
 	special HasDefeatedAllDarkiGymTrainersZone1
 	compare VAR_RESULT, TRUE
 	goto_if_eq Darkigym_EventScript_ParedInvisible1_Parte2
-	msgbox Darkigym_EventScript_ParedInvisible_Text_1, MSGBOX_DEFAULT
+	msgbox Darkigym_ParedInvisible_Text_1, MSGBOX_DEFAULT
 Darkigym_EventScript_ParedInvisible1_Parte1:
 	release
 	return
 
 Darkigym_EventScript_ParedInvisible1_Parte2:
-	msgbox Darkigym_EventScript_ParedInvisible_Text_0, MSGBOX_DEFAULT
+	msgbox Darkigym_ParedInvisible_Text_0, MSGBOX_DEFAULT
     removeobject 35
     removeobject 36
 	setflag FLAG_HIDE_PAREDINVISIBLE_1_DARKI_GYM
@@ -34,13 +34,13 @@ Darkigym_EventScript_ParedInvisible2::
 	special HasDefeatedAllDarkiGymTrainersZone2
 	compare VAR_RESULT, TRUE
 	goto_if_eq Darkigym_EventScript_ParedInvisible2_Parte2
-	msgbox Darkigym_EventScript_ParedInvisible_Text_1, MSGBOX_DEFAULT
+	msgbox Darkigym_ParedInvisible_Text_1, MSGBOX_DEFAULT
 Darkigym_EventScript_ParedInvisible2_Parte1:
 	release
 	return
 
 Darkigym_EventScript_ParedInvisible2_Parte2:
-	msgbox Darkigym_EventScript_ParedInvisible_Text_0, MSGBOX_DEFAULT
+	msgbox Darkigym_ParedInvisible_Text_0, MSGBOX_DEFAULT
     removeobject 37
     removeobject 38
     removeobject 39
@@ -54,13 +54,13 @@ Darkigym_EventScript_ParedInvisible3::
 	special HasDefeatedAllDarkiGymTrainersZoneFinal
 	compare VAR_RESULT, TRUE
 	goto_if_eq Darkigym_EventScript_ParedInvisible3_Parte2
-	msgbox Darkigym_EventScript_ParedInvisible_Text_1, MSGBOX_DEFAULT
+	msgbox Darkigym_ParedInvisible_Text_1, MSGBOX_DEFAULT
 Darkigym_EventScript_ParedInvisible3_Parte1:
 	release
 	return
 
 Darkigym_EventScript_ParedInvisible3_Parte2:
-	msgbox Darkigym_EventScript_ParedInvisible_Text_0, MSGBOX_DEFAULT
+	msgbox Darkigym_ParedInvisible_Text_0, MSGBOX_DEFAULT
     removeobject 41
     removeobject 42
     removeobject 43
@@ -111,6 +111,7 @@ Darkigym_EventScript_GymStatue::
 	end
 	
 Darkigym_EventScript_Darkibuenro_Trigger1::
+	goto_if_set FLAG_DEFEATED_DARKIBUENRO_GYM, Darkigym_EventScript_Darkibuenro_Trigger1continue2
 	lockall
 	applymovement 2, Common_Movement_ExclamationMark
 	waitmovement 0
@@ -133,6 +134,10 @@ Darkigym_EventScript_Darkibuenro_Trigger1continue::
 Darkigym_Movement_Prota:
 	walk_down
 	step_end
+	
+Darkigym_EventScript_Darkibuenro_Trigger1continue2::
+	releaseall
+	end
 	
 Darkigym_EventScript_Buenro::
 	goto_if_set FLAG_DEFEATED_DARKIBUENRO_GYM, Darkigym_EventScript_BuenroDefeated2
@@ -160,12 +165,24 @@ Darkigym_EventScript_MalroDefeated::
 	end
 	
 Darkigym_EventScript_Darki_Derrotado::
+	goto_if_set FLAG_REMATCH_DARKIMALRO, Darkigym_EventScript_Malro_DarkiRematch
 	faceplayer
 	lock
 	msgbox Darkigym_Text_MalroPostBattle2, MSGBOX_DEFAULT
 	release
 	end
 	
+Darkigym_EventScript_Malro_DarkiRematch::
+	trainerbattle_single TRAINER_DARKI_MALRO, Darkigym_Text_DarkiMalroRematchIntro, Darkigym_Text_DarkiMalroRematchDefeat, Darkigym_EventScript_DarkiMalroRematchDefeated, NO_MUSIC
+	release
+	end
+	
+Darkigym_EventScript_DarkiMalroRematchDefeated::
+	msgbox Darkigym_Text_MalroPostBattle3, MSGBOX_DEFAULT
+	clearflag FLAG_REMATCH_DARKIMALRO
+	release
+	end
+
 Darkigym_EventScript_BuenroDefeated::
 	msgbox Darkigym_Text_BuenroPostBattle, MSGBOX_DEFAULT
 	special HealPlayerParty
@@ -184,14 +201,27 @@ Darkigym_EventScript_BuenroDefeated2::
 	end
 	
 Darkigym_EventScript_Buenro_DarkiDerrotado::
+	goto_if_set FLAG_REMATCH_DARKIBUENRO, Darkigym_EventScript_Buenro_DarkiRematch
 	lock
 	faceplayer
 	msgbox Darkigym_Text_BuenroPostBattle3, MSGBOX_DEFAULT
 	release
 	end
 	
+Darkigym_EventScript_Buenro_DarkiRematch::
+	trainerbattle_single TRAINER_DARKI_BUENRO, Darkigym_Text_DarkiBuenroRematchIntro, Darkigym_Text_DarkiBuenroRematchDefeat, Darkigym_EventScript_DarkiBuenroRematchDefeated, NO_MUSIC
+	release
+	end
+	
+Darkigym_EventScript_DarkiBuenroRematchDefeated::
+	msgbox Darkigym_Text_BuenroPostBattle3, MSGBOX_DEFAULT
+	clearflag FLAG_REMATCH_DARKIBUENRO
+	release
+	end
+	
 Darkigym_EventScript_Teleport_Entrada::
 	msgbox Darkigym_Text_Teleport_Entrada, MSGBOX_YESNO
+	compare VAR_RESULT, YES
 	goto_if_eq Darkigym_EventScript_Teleport_Si
 	release
 	end
@@ -1042,6 +1072,16 @@ Darkigym_Text_MalroPostBattle2:
 
     .string "Bueno... te dejaré usar una cuerda huida\n"
     .string "o algo, estarás agradecido...$"
+	
+Darkigym_Text_MalroPostBattle3:
+	.string "¿Sigues aquí?\p"
+
+	.string "¡Largo!, ve y dale una PALIZA a ese\n" 
+	.string "idiota de Masuda por los dos.\p"
+	
+	.string "Si lo metes dentro de un Victreebel o le\n" 
+	.string "estampes un Mimikyu en la cara.\l"
+	.string "Tanto mejor.$"
 
 Darkigym_Text_BuenroIntro:
 	.string "OH! Genialoso, un invitado!\p"
@@ -1157,7 +1197,8 @@ Darkigym_Text_BuenroPostBattle3:
 	.string "Así que nos derrotaste a ambos, a\n"
 	.string "buenro, osea yo, y a malro, es decir,\l"
 	.string "mi hermano.\p"
-	
+
+	.string "¡La próxima vez te venceré!\n"
 	.string "Nyeh heh heh$"
 
 Darkigym_Text_ReceivedBadge:
@@ -1262,11 +1303,45 @@ Darkigym_Text_VitrinaDerecha_Sign:
 	.string "Una pila de huesos en una caja que tiene\n" 
 	.string "escrito a un lado: buenos recuerdos$"
 	
-Darkigym_EventScript_ParedInvisible_Text_0:
+Darkigym_ParedInvisible_Text_0:
 	.string "Has vencido a todos los entrenadores\n"
 	.string "de esta zona, puedes pasar.$"
 
-Darkigym_EventScript_ParedInvisible_Text_1:
+Darkigym_ParedInvisible_Text_1:
 	.string "Debes vencer a todos los entrenadores\n"
 	.string "de esta zona, para poder seguir adelante.$"
+	
+Darkigym_Text_DarkiBuenroRematchIntro:
+    .string "¿Qué pasa? ¿Te dió la nostalgia\n"
+	.string "y quieres otra batalla contra mi?\p"
+
+	.string "Bueno, no te preocupes,\n"
+	.string "YO el GRAN Darkizard,\l" 
+	.string "el todo poderoso buen rollo,\l" 
+	.string "Capitan de la guardía imperial del\l" 
+	.string "inframundo y co-lider de este Gymnasio,\l"
+	.string "aceptará tu reto.\p"
+	
+	.string "Nyeh heh heh heh$" 
+
+Darkigym_Text_DarkiBuenroRematchDefeat:
+	.string "¡Muy divertido!\n"
+	.string "Nyeh heh heh heh$"
+	
+Darkigym_Text_DarkiMalroRematchIntro:
+    .string "¿Qué pasa? ¿Te dió instintos suicidas\n"
+	.string "y quieres otra batalla contra mi?\p"
+
+	.string "¡JAJAJAJAJAJAJA!\p"
+
+	.string "¡YO, Darkizard, el\n" 
+	.string "señor del inframundo, el buscador del\l" 
+	.string "caos, el hater definitivo, aquel que\l" 
+	.string "sumirá a este y todos los mundos que\l"
+	.string "osan molestarme con su estupidez en la\l" 
+	.string "mas angustiosa desesperación y horror,\l"
+	.string "hará realidad tu deseo!$" 
+
+Darkigym_Text_DarkiMalroRematchDefeat:
+	.string "¡Debemos derrotar juntos a MASUDA!$" 
 

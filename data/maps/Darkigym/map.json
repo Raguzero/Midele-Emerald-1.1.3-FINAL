@@ -67,7 +67,7 @@
             "elevation": 0,
             "script": "Darkigym_EventScript_Teleport_Entrada",
             "type": "trigger",
-            "var": "VAR_TEMP_0",
+            "var": "VAR_TEMP_1",
             "var_value": "0",
             "x": 4,
             "y": 2

@@ -83,12 +83,9 @@ MicoloLeagueLobby_EventScript_ResetTrainerYES:
 	//cleartrainerflag TRAINER_DUNK ??
 	cleartrainerflag TRAINER_EEVEETO 
 	cleartrainerflag TRAINER_UTALAWEA 
-	//cleartrainerflag TRAINER_SANTYGRASS_3  ???
-	//cleartrainerflag TRAINER_DARKI_MALRO ???
 	cleartrainerflag TRAINER_TENSHINHAN 
 	cleartrainerflag TRAINER_KAISSER 
 	cleartrainerflag TRAINER_FELIPEX88 
-	//cleartrainerflag TRAINER_GOOSES ???
 	cleartrainerflag TRAINER_RED_KROW 
 	cleartrainerflag TRAINER_GRIM 
 	cleartrainerflag TRAINER_MAESTRO_ARENA 
@@ -98,7 +95,6 @@ MicoloLeagueLobby_EventScript_ResetTrainerYES:
 	cleartrainerflag TRAINER_SLOWBRO
 	cleartrainerflag TRAINER_BOTONES
 	///cleartrainerflag TRAINER_HYPEANTONIO_2 ???
-	//cleartrainerflag TRAINER_DARKI_BUENRO ???
 	cleartrainerflag TRAINER_VIN
 	//cleartrainerflag TRAINER_ESBIRRO_DARKI_1 ???
 	//cleartrainerflag TRAINER_ESBIRRO_DARKI_2 ???
@@ -119,6 +115,16 @@ MicoloLeagueLobby_EventScript_ResetTrainerYES:
 	cleartrainerflag TRAINER_MDRAGON
 	cleartrainerflag TRAINER_ALBERMAUS
 	cleartrainerflag TRAINER_HATHAR
+	cleartrainerflag TRAINER_SANTYGRASS_3
+	setvar VAR_SHIFTEO_SANTY_GYM, 4
+	cleartrainerflag TRAINER_GOOSES
+	setflag FLAG_REMATCH_GOOSES
+	//cleartrainerflag TRAINER_SAPPH
+	//setflag FLAG_REMATCH_SAPPH
+	cleartrainerflag TRAINER_DARKI_BUENRO
+	cleartrainerflag TRAINER_DARKI_MALRO
+	setflag FLAG_REMATCH_DARKIBUENRO
+	setflag FLAG_REMATCH_DARKIMALRO
 	// Etc
 	release
 	end

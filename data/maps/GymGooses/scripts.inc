@@ -985,6 +985,7 @@ GymGooses_EventScript_Totem2::
 	
 // Quinta Sala
 GymGooses_EventScript_Gooses::
+	goto_if_set FLAG_DEFEATED_GOOSES_GYM, GymGooses_EventScript_Gooses_Derrotado
 	trainerbattle_single TRAINER_GOOSES, GymGooses_Text_GoosesIntro, GymGooses_Text_GoosesDefeat, GymGooses_EventScript_GoosesDefeated, NO_MUSIC
 	release
 	end
@@ -996,6 +997,23 @@ GymGooses_EventScript_GoosesDefeated::
 	msgbox GymGooses_Text_ExplainBadgeTakeThis, MSGBOX_DEFAULT
 	setflag FLAG_DEFEATED_GOOSES_GYM
 	delay 30
+	release
+	end
+	
+GymGooses_EventScript_Gooses_Derrotado::
+	goto_if_set FLAG_REMATCH_GOOSES, GymGooses_EventScript_Gooses_Rematch
+	msgbox GymGooses_Text_GoosesPostBattle, MSGBOX_DEFAULT
+	release
+	end
+	
+GymGooses_EventScript_Gooses_Rematch::
+	trainerbattle_single TRAINER_GOOSES, GymGooses_Text_GoosesRematchIntro, GymGooses_Text_GoosesRematchDefeat, GymGooses_EventScript_GoosesRematchDefeated, NO_MUSIC
+	release
+	end
+	
+GymGooses_EventScript_GoosesRematchDefeated::
+	msgbox GymGooses_Text_GoosesPostBattle, MSGBOX_DEFAULT
+	clearflag FLAG_REMATCH_GOOSES
 	release
 	end
 	
@@ -1273,13 +1291,19 @@ GymGooses_TeleportBoy2_Text:
 	.string "Sala del GYM?$"
 	
 GymGooses_Text_GoosesIntro:
-	.string "FRASES$"
+	.string "FRASES INTRO$"
 	
 GymGooses_Text_GoosesDefeat:
-	.string "FRASES$"
+	.string "FRASES DEFEAT$"
 	
 GymGooses_Text_GoosesPostBattle:
-	.string "FRASES$"
+	.string "FRASES POSTBATTLE$"
+	
+GymGooses_Text_GoosesRematchIntro:
+	.string "FRASES REMATCH$"
+
+GymGooses_Text_GoosesRematchDefeat:
+	.string "FRASES REMATCH DERROTADO$"
 	
 GymGooses_Text_ReceivedBadge:
 	.string "{PLAYER} recibió la MEDALLA FRÍO\n"
@@ -1291,8 +1315,8 @@ GymGooses_Text_ExplainBadgeTakeThis:
 	.string "el nivel 95.\p"
 	
 	.string "Incluso te obedecerá sin rechistar todo\n"
-	.string "POKéMON intercambiado que no sea superior\l"
-	.string "a ese nivel.\p"
+	.string "POKéMON intercambiado que no sea\l"
+	.string "superior a ese nivel.\p"
 	
 	.string "Además, con esta medalla también estás\n"
 	.string "capacitado para afrontar el reto de\l" 
