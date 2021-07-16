@@ -1,6 +1,6 @@
 	.include "MPlayDef.s"
 
-	.equ	ff6boss_grp, voicegroup000
+	.equ	ff6boss_grp, voicegroup115
 	.equ	ff6boss_pri, 0
 	.equ	ff6boss_rev, 0
 	.equ	ff6boss_mvl, 87

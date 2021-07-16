@@ -1282,7 +1282,7 @@ $(MID_SUBDIR)/smwildbattle.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v80
 	
 $(MID_SUBDIR)/themeofencounter.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100 -P5
+	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v80
 
 $(MID_SUBDIR)/cynthiabattle.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100 -P5	
@@ -1331,4 +1331,7 @@ $(MID_SUBDIR)/shum.s: %.s: %.mid
 	
 $(MID_SUBDIR)/mus_bloody_stream.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G303 -V80
+	
+$(MID_SUBDIR)/uminekononakukoro.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -V120
 	
