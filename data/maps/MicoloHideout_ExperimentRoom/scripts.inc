@@ -483,7 +483,7 @@ PC_NoBatallaTotem::
 PCBatallaTotem_Text:
 	.string "Este PC contiene un registro\n"
 	.string "de los TOTEM creados en este\l"
-	.string "laboratorio.\p
+	.string "laboratorio.\p"
 
 	.string "¿Quieres combatir contra un TOTEM?$"
 	
