@@ -24,6 +24,7 @@
 #include "menu.h"
 #include "menu_helpers.h"
 #include "metatile_behavior.h"
+#include "music_player.h"
 #include "overworld.h"
 #include "palette.h"
 #include "party_menu.h"
@@ -1169,7 +1170,7 @@ void ItemUseInBattle_EnigmaBerry(u8 taskId)
 
 void ItemUseOutOfBattle_CannotUse(u8 taskId)
 {
-    DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+   sItemUseOnFieldCB = StartMusicPlayer;
+   SetUpItemUseOnFieldCallback(taskId);
 }
-
 #undef tUsingRegisteredKeyItem

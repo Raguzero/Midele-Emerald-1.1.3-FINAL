@@ -1118,14 +1118,16 @@ const struct Item gItems[] =
         .secondaryId = 0,
     },
 
-    [ITEM_052] =
+    [ITEM_MUSIC_PLAYER] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
+        .name = _("MUSIC PLAYER"),
+        .itemId = ITEM_MUSIC_PLAYER,
         .price = 0,
-        .description = sDummyDesc,
-        .pocket = POCKET_ITEMS,
-        .type = 4,
+        .description = sMusicPlayer,
+        .importance = 1,
+        .unk19 = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = 2,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
     },
@@ -3438,7 +3440,7 @@ const struct Item gItems[] =
         .unk19 = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = 2,
-        .fieldUseFunc = ItemUseOutOfBattle_Itemfinder,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
     },
 
