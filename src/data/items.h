@@ -1128,7 +1128,7 @@ const struct Item gItems[] =
         .unk19 = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = 2,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .fieldUseFunc = ItemUseOutOfBattle_MusicPlayer,
         .secondaryId = 0,
     },
 
