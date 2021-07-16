@@ -37,5 +37,6 @@ u8 CheckIfItemIsTMHMOrEvolutionStone(u16 itemId);
 void ItemUseOutOfBattle_SootSack(u8);
 u16 GetAshCount(void);
 void ItemUseOutOfBattle_FormChange(u8);
+void ItemUseOutOfBattle_MusicPlayer(u8 taskId);
 
 #endif // GUARD_ITEM_USE_H

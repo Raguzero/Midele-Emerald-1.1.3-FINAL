@@ -113,6 +113,7 @@ LittlerootTown_DebugRoom_Script_ActivarTodo::
     giveitem ITEM_GOLDEN_CANDY, 1
     giveitem ITEM_SWEET_HEART, 1
 	giveitem ITEM_ABILITY_CAPSULE, 1
+    giveitem ITEM_MUSIC_PLAYER, 1
 	giveitem ITEM_MASTER_BALL, 99
 
     @ Entrar a Micocasino

@@ -24,6 +24,7 @@
 #include "menu.h"
 #include "menu_helpers.h"
 #include "metatile_behavior.h"
+#include "music_player.h"
 #include "overworld.h"
 #include "palette.h"
 #include "party_menu.h"
@@ -1172,4 +1173,9 @@ void ItemUseOutOfBattle_CannotUse(u8 taskId)
     DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
 }
 
+void ItemUseOutOfBattle_MusicPlayer(u8 taskId)
+{
+    sItemUseOnFieldCB = StartMusicPlayer;
+    SetUpItemUseOnFieldCallback(taskId);
+}
 #undef tUsingRegisteredKeyItem

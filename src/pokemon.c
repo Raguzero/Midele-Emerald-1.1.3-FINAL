@@ -20,6 +20,7 @@
 #include "main.h"
 #include "overworld.h"
 #include "m4a.h"
+#include "music_player.h"
 #include "party_menu.h"
 #include "pokedex.h"
 #include "pokeblock.h"
@@ -69,6 +70,7 @@ static bool8 ShouldSkipFriendshipChange(void);
 static void BossBattleToMon(struct Pokemon *mon, u16 battleBossId);
 static void BossToMon(struct Pokemon *mon, u16 battleBossId);
 static void TotemToMon(struct Pokemon *mon, u16 battleBossId);
+static u16 DoGetBattleBGM(void);
 
 // EWRAM vars
 EWRAM_DATA static u8 sLearningMoveTableID = 0;
@@ -7464,6 +7466,21 @@ void ClearBattleMonForms(void)
 
 u16 GetBattleBGM(void)
 {
+    u16 currentBGM = DoGetBattleBGM();
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+    {
+        return TryUseBattleBGM(currentBGM, &gTrainers[gTrainerBattleOpponent_A]);
+    }
+    else
+    {
+        return TryUseBattleBGM(currentBGM, NULL);
+    }
+    
+}
+
+static u16 DoGetBattleBGM(void)
+{
+    
     if (gBattleTypeFlags & BATTLE_TYPE_KYOGRE_GROUDON)
         return MUS_BATTLE34;
     else if (gBattleTypeFlags & BATTLE_TYPE_REGI)
