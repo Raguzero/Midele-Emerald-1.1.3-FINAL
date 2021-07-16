@@ -1170,7 +1170,12 @@ void ItemUseInBattle_EnigmaBerry(u8 taskId)
 
 void ItemUseOutOfBattle_CannotUse(u8 taskId)
 {
-   sItemUseOnFieldCB = StartMusicPlayer;
-   SetUpItemUseOnFieldCallback(taskId);
+    DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+}
+
+void ItemUseOutOfBattle_MusicPlayer(u8 taskId)
+{
+    sItemUseOnFieldCB = StartMusicPlayer;
+    SetUpItemUseOnFieldCallback(taskId);
 }
 #undef tUsingRegisteredKeyItem
