@@ -2108,3 +2108,17 @@ const u8 gText_ShinyStar[] = _("{STAR}");
 
 // NICKNAMES
 const u8 gText_Nickname_Catermano[] = _("CATERMANO");
+
+// TOTEM BATTLE LIST
+const u8 gTotem1[] =  _("PROBOPASS");
+const u8 gTotem2[] =  _("CENTISKORCH");
+const u8 gTotem3[] =  _("TOXTRICITY");  
+const u8 gTotem4[] =  _("COFAGRIGUS");  
+const u8 gTotem5[] =  _("WINTASS");  
+const u8 gTotem6[] =  _("RHYPERIOR");  
+const u8 gTotem7[] =  _("M-ABSOL");  
+const u8 gTotem8[] =  _("PRIMARINA");  
+const u8 gTotem9[] =  _("M-CAMERUPT");  
+const u8 gTotem10[] =  _("LANTURN");  
+const u8 gTotem11[] =  _("M-GLALIE");  
+const u8 gTotem12[] =  _("TYRANITAR");

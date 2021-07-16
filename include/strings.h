@@ -3228,4 +3228,18 @@ extern const u8 gText_ShinyStar[];
 // NICKNAMES
 extern const u8 gText_Nickname_Catermano[];
 
+// TOTEM BATTLE LIST
+extern const u8 gTotem1[];
+extern const u8 gTotem2[];
+extern const u8 gTotem3[];  
+extern const u8 gTotem4[];  
+extern const u8 gTotem5[];  
+extern const u8 gTotem6[];  
+extern const u8 gTotem7[];  
+extern const u8 gTotem8[];  
+extern const u8 gTotem9[];  
+extern const u8 gTotem10[];  
+extern const u8 gTotem11[];  
+extern const u8 gTotem12[];  
+
 #endif // GUARD_STRINGS_H

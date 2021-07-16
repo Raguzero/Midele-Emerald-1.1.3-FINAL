@@ -357,3 +357,140 @@ MicoloHideout_ExperimentRoom_Scientist3_Text_0:
     .string "Dicen que A.VADER se lo quitó en la cara\n"
 	.string "a un entrenador muy PALLASO.$"
 	
+PCBatallaTotem::
+	msgbox PCBatallaTotem_Text, MSGBOX_DEFAULT
+	msgbox PC_ChooseTotem, MSGBOX_DEFAULT
+	compare VAR_RESULT, NO
+	goto_if_eq PC_NoBatallaTotem
+	multichoicegrid 0, 0, MULTI_TOTEM_BATTLE_LIST, 3, 0
+	switch VAR_RESULT
+	case 0, PC_BatalllaTotem1
+	case 1, PC_BatalllaTotem2
+	case 2, PC_BatalllaTotem3
+	case 3, PC_BatalllaTotem4
+	case 4, PC_BatalllaTotem5
+	case 5, PC_BatalllaTotem6
+	case 6, PC_BatalllaTotem7
+	case 7, PC_BatalllaTotem8
+	case 8, PC_BatalllaTotem9
+	case 9, PC_BatalllaTotem10
+	case 10, PC_BatalllaTotem11
+	case 11, PC_BatalllaTotem12
+	case MULTI_B_PRESSED, PC_NoBatallaTotem
+	end
+	
+PC_BatalllaTotem1::	
+    setvar VAR_0x8004, BOSS_BATTLE_TOTEM_PROBOPASS
+    special CreateBossBattleMon
+    special BattleSetup_StartBossBattle
+    waitstate
+	releaseall
+	end
+	
+PC_BatalllaTotem2::	
+    setvar VAR_0x8004, BOSS_BATTLE_TOTEM_CENTISKORCH
+    special CreateBossBattleMon
+    special BattleSetup_StartBossBattle
+    waitstate
+	releaseall
+	end
+
+PC_BatalllaTotem3::	
+    setvar VAR_0x8004, BOSS_BATTLE_TOTEM_TOXTRICITY
+    special CreateBossBattleMon
+    special BattleSetup_StartBossBattle
+    waitstate
+	releaseall
+	end
+	
+PC_BatalllaTotem4::	
+    setvar VAR_0x8004, BOSS_BATTLE_TOTEM_COFAGRIGUS
+    special CreateBossBattleMon
+    special BattleSetup_StartBossBattle
+    waitstate
+	releaseall
+	end
+	
+PC_BatalllaTotem5::	
+    setvar VAR_0x8004, BOSS_BATTLE_TOTEM_WINTASS
+    special CreateBossBattleMon
+    special BattleSetup_StartBossBattle
+    waitstate
+	releaseall
+	end
+	
+PC_BatalllaTotem6::	
+    setvar VAR_0x8004, BOSS_BATTLE_TOTEM_RHYPERIOR
+    special CreateBossBattleMon
+    special BattleSetup_StartBossBattle
+    waitstate
+	releaseall
+	end
+	
+PC_BatalllaTotem7::	
+    setvar VAR_0x8004, BOSS_BATTLE_TOTEM_MEGA_ABSOL
+    special CreateBossBattleMon
+    special BattleSetup_StartBossBattle
+    waitstate
+	releaseall
+	end
+	
+PC_BatalllaTotem8::	
+    setvar VAR_0x8004, BOSS_BATTLE_TOTEM_PRIMARINA
+    special CreateBossBattleMon
+    special BattleSetup_StartBossBattle
+    waitstate
+	releaseall
+	end
+
+PC_BatalllaTotem9::	
+    setvar VAR_0x8004, BOSS_BATTLE_TOTEM_MEGA_CAMERUPT
+    special CreateBossBattleMon
+    special BattleSetup_StartBossBattle
+    waitstate
+	releaseall
+	end
+	
+PC_BatalllaTotem10::	
+    setvar VAR_0x8004, BOSS_BATTLE_TOTEM_MEGA_CAMERUPT // FALTA TOTEM, ¿LANTURN?
+    special CreateBossBattleMon
+    special BattleSetup_StartBossBattle
+    waitstate
+	releaseall
+	end
+	
+PC_BatalllaTotem11::	
+    setvar VAR_0x8004, BOSS_BATTLE_TOTEM_MEGA_GLALIE
+    special CreateBossBattleMon
+    special BattleSetup_StartBossBattle
+    waitstate
+	releaseall
+	end
+	
+PC_BatalllaTotem12::	
+    setvar VAR_0x8004, BOSS_BATTLE_TOTEM_TYRANITAR
+    special CreateBossBattleMon
+    special BattleSetup_StartBossBattle
+    waitstate
+	releaseall
+	end
+	
+PC_NoBatallaTotem::
+	msgbox PC_NoBatallaTotem_Text
+	release
+	end
+
+PCBatallaTotem_Text:
+	.string "Este PC contiene un registro\n"
+	.string "de los TOTEM creados en este\l"
+	.string "laboratorio.\p
+
+	.string "¿Quieres combatir contra un TOTEM?$"
+	
+PC_NoBatallaTotem_Text:
+	.string "Vuelve cuando quieras.$"
+	
+PC_ChooseTotem:
+	.string "Elige contra cual TOTEM quieres\n"
+	.string "combatir.$"
+	
