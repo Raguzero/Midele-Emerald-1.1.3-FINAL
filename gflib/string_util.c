@@ -772,3 +772,48 @@ void StripExtCtrlCodes(u8 *str)
     }
     str[destIndex] = EOS;
 }
+
+u8 *StringCopyMultilinePadded(u8 * dest, const u8 *src, u8 c, u16 n, u8 nLines)
+{
+    const u16 nCopy = n;
+    u8 i;
+    for (i = 0; i < nLines; i++)
+    {
+        while (*src != 0xFE)
+        {
+            *dest++ = *src++;
+
+            if (n)
+                n--;
+        }
+
+        n--;
+
+        while (n != (u16)-1)
+        {
+            *dest++ = c;
+            n--;
+        }
+
+        n = nCopy;
+    }
+
+    while (*src != EOS)
+    {
+        *dest++ = *src++;
+
+        if (n)
+            n--;
+    }
+
+    n--;
+
+    while (n != (u16)-1)
+    {
+        *dest++ = c;
+        n--;
+    }
+
+    *dest = EOS;
+    return dest;
+}

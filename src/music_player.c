@@ -136,7 +136,7 @@ static void MusicPlayer_SelectSong(u8 taskId)
         StringExpandPlaceholders(gStringVar4, gMusicPlayer_SongId);
         AddTextPrinterParameterized(gTasks[taskId].data[2], 1, gStringVar4, 1, 1, 0, NULL);
         // Rellenar con espacios para evitar solapar nombres anteriores
-        StringCopyPadded(gStringVar1, sMusicNames[musicTable[currentMusicTableId]], CHAR_SPACE, MUSIC_PLAYER_MAIN_MENU_WIDTH + MUSIC_PLAYER_DISPLAY_WIDTH + 4);
+        StringCopyMultilinePadded(gStringVar1, sMusicNames[musicTable[currentMusicTableId]], CHAR_SPACE, MUSIC_PLAYER_MAIN_MENU_WIDTH + MUSIC_PLAYER_DISPLAY_WIDTH + 4, 2);
         AddTextPrinterParameterized(gTasks[taskId].data[2], 1, gStringVar1, 1, 16, 0, NULL);
     }
 
