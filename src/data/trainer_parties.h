@@ -23807,17 +23807,66 @@ static const struct TrainerMonCustomMidele sParty_Felipex88[] = {
 };
 
 static const struct TrainerMonCustomMidele sParty_Gooses[] = {
-	// FALTA EQUIPO
+	// FALTAN FRASES
     {
     .iv = 31, 
-    .lvl = 75,
-    .species = SPECIES_CELEBI,
+    .lvl = 85,
+    .species = SPECIES_FROSLASS,
+    .heldItem = ITEM_MENTAL_HERB, 
+    .nature = NATURE_TIMID, 
+    .evs = {4, 0, 0, 252, 0, 252},
+    .ability = 1, // SNOW CLOAK
+    .moves = {MOVE_THUNDERBOLT, MOVE_SPIKES, MOVE_ATTRACT, MOVE_BLIZZARD}
+    },
+    {
+    .iv = 31, 
+    .lvl = 85,
+    .species = SPECIES_ALOLAN_NINETALES,
+    .heldItem = ITEM_BRIGHT_POWDER, 
+    .nature = NATURE_TIMID, 
+    .evs = {0, 0, 0, 252, 4, 252},
+    .ability = 1, // SNOW CLOAK
+    .moves = {MOVE_BLIZZARD, MOVE_NASTY_PLOT, MOVE_MOONBLAST, MOVE_EXTRASENSORY}
+    },
+    {
+    .iv = 31, 
+    .lvl = 85,
+    .species = SPECIES_KOMMO_O,
+    .heldItem = ITEM_WHITE_HERB, 
+    .nature = NATURE_JOLLY, 
+    .evs = {0, 252, 0, 0, 4, 252},
+    .ability = 1, // OVERCOAT
+    .moves = {MOVE_SWORDS_DANCE, MOVE_BOOMBURST, MOVE_SUPERPOWER, MOVE_EARTHQUAKE}
+    },
+    {
+    .iv = 31, 
+    .lvl = 85,
+    .species = SPECIES_ARTICUNO,
     .heldItem = ITEM_LEFTOVERS, 
-    .nature = NATURE_IMPISH, 
-    .evs = {4, 252, 0, 0, 0, 252},
-    .hpType = TYPE_FIGHTING,
-    .ability = 0,
-    .moves = {MOVE_SWORDS_DANCE, MOVE_HIDDEN_POWER, MOVE_SHADOW_BALL, MOVE_ANCIENT_POWER}
+    .nature = NATURE_TIMID, 
+    .evs = {4, 0, 0, 252, 0, 252},
+    .ability = 1, // SNOW CLOAK
+    .moves = {MOVE_DOUBLE_TEAM, MOVE_TOXIC, MOVE_PROTECT, MOVE_ICE_BEAM}
+    },
+    {
+    .iv = 31, 
+    .lvl = 85,
+    .species = SPECIES_WINTASS,
+    .heldItem = ITEM_SITRUS_BERRY, 
+    .nature = NATURE_ADAMANT, 
+    .evs = {4, 252, 0, 0, 252, 0},
+    .ability = 1, // TECHNICIAN
+    .moves = {MOVE_BULK_UP, MOVE_MACH_PUNCH, MOVE_ROCK_BLAST, MOVE_MUD_SHOT}
+    },
+    {
+    .iv = 31, 
+    .lvl = 85,
+    .species = SPECIES_WALREIN,
+    .heldItem = ITEM_LEFTOVERS, 
+    .nature = NATURE_BOLD, 
+    .evs = {0, 232, 252, 0, 24, 0},
+    .ability = 1, // ICE BODY
+    .moves = {MOVE_PROTECT, MOVE_SUBSTITUTE, MOVE_SUPER_FANG, MOVE_SURF}
     }
 };
 

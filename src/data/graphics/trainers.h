@@ -361,6 +361,12 @@ const u32 gTrainerPalette_Jugon[] = INCBIN_U32("graphics/trainers/palettes/jugon
 const u32 gTrainerFrontPic_Vin[] = INCBIN_U32("graphics/trainers/front_pics/vin_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Vin[] = INCBIN_U32("graphics/trainers/palettes/vin.gbapal.lz");
 
+const u32 gTrainerFrontPic_Gooses[] = INCBIN_U32("graphics/trainers/front_pics/gooses_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Gooses[] = INCBIN_U32("graphics/trainers/palettes/gooses.gbapal.lz");
+
+const u32 gTrainerFrontPic_Rocker[] = INCBIN_U32("graphics/trainers/front_pics/rocker_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Rocker[] = INCBIN_U32("graphics/trainers/palettes/rocker.gbapal.lz");
+
 const u8 gTrainerBackPic_Brendan[] = INCBIN_U8("graphics/trainers/back_pics/brendan_back_pic.4bpp");
 const u8 gTrainerBackPic_May[] = INCBIN_U8("graphics/trainers/back_pics/may_back_pic.4bpp");
 const u8 gTrainerBackPic_Red[] = INCBIN_U8("graphics/trainers/back_pics/red_back_pic.4bpp");
