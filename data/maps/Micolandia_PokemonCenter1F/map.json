@@ -11,7 +11,7 @@
     "id": "MAP_MICOLANDIA_POKEMON_CENTER1F",
     "layout": "LAYOUT_MICOLANDIA_POKEMON_CENTER1F",
     "map_type": "MAP_TYPE_INDOOR",
-    "music": "MUS_POKECEN",
+    "music": "MUS_PCC",
     "name": "Micolandia_PokemonCenter1F",
     "object_events": [
         {
