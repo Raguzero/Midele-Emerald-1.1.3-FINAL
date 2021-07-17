@@ -155,9 +155,9 @@ MauvilleCity_BikeShop_Text_ExplainBikesChooseWhichOne: @ 820EF32
 	.string "Oh, wait a second!\p"
 	.string "I forgot to tell you that there are\n"
 	.string "two kinds of BIKES!\p"
-	.string "They are the MACH BIKE and\n"
+	.string "They are the MONOCICLO and\n"
 	.string "the ACRO BIKE!\p"
-	.string "The MACH BIKE is for cyclists who want\n"
+	.string "The MONOCICLO is for cyclists who want\n"
 	.string "to feel the wind with their bodies!\p"
 	.string "And an ACRO BIKE is for those who\n"
 	.string "prefer technical rides!\p"
@@ -176,7 +176,7 @@ MauvilleCity_BikeShop_Text_HandbooksAreInBack: @ 820F3C3
 	.string "the back.$"
 
 MauvilleCity_BikeShop_Text_MachHandbookWhichPage: @ 820F445
-	.string "It's a handbook on the MACH BIKE.\p"
+	.string "It's a handbook on the MONOCICLO.\p"
 	.string "Which page do you want to read?$"
 
 MauvilleCity_BikeShop_Text_HowToRideMachBike: @ 820F487
@@ -188,7 +188,7 @@ MauvilleCity_BikeShop_Text_HowToRideMachBike: @ 820F487
 	.string "Want to read a different page?$"
 
 MauvilleCity_BikeShop_Text_HowToTurnMachBike: @ 820F550
-	.string "A MACH BIKE is speedy, but it can't\n"
+	.string "A MONOCICLO is speedy, but it can't\n"
 	.string "stop very quickly.\p"
 	.string "It gets a little tricky to get around\n"
 	.string "a corner.\p"
@@ -201,7 +201,7 @@ MauvilleCity_BikeShop_Text_SandySlopes: @ 820F61A
 	.string "throughout the HOENN region.\p"
 	.string "The loose, crumbly sand makes it\n"
 	.string "impossible to climb normally.\p"
-	.string "But if you have a MACH BIKE, you can\n"
+	.string "But if you have a MONOCICLO, you can\n"
 	.string "zip up a sandy slope.\p"
 	.string "Want to read a different page?$"
 
