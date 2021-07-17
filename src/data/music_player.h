@@ -1,5 +1,5 @@
 // Music player text
-static const u8 gMusicPlayer_SongId[] =                   _("Song Id: {STR_VAR_3}\n\n\n{STR_VAR_2}");
+static const u8 gMusicPlayer_SongId[] =                   _("Option ID: {STR_VAR_3}\n\n\n{STR_VAR_2}");
 static const u8 gMusicPlayer_SongName[] =                   _("{STR_VAR_1}");
 static const u8 gDebugText_Util_PlaySong[] =                _("SONG NAME");
 
@@ -13,6 +13,7 @@ static const u8 digitInidicator_1000000[] =         _("{LEFT_ARROW}+1000000{RIGH
 static const u8 digitInidicator_10000000[] =        _("{LEFT_ARROW}+10000000{RIGHT_ARROW} ");
 
 // Music names
+static const u8 gText_Music_NoMusic[] = _("POWER OFF MUSIC PLAYER");
 static const u8 gText_Music_Sasageyo[] = _("SASAGEYO");
 static const u8 gText_Music_BloodyStream[] = _("BLOODY STREAM");
 static const u8 gText_Music_TheReincarnation[] = _("THE REINCARNATION");
@@ -76,12 +77,14 @@ static const u8 sSpecialTrainerClasses[] = {
 // Tablas de músicas que controlan qué músicas están disponibles en el music player.
 
 static const u16 sMusicTableInitial[] = {
+    MUS_DUMMY, // Power off music player
     SASAGEYO,
     MUS_BLOODY_STREAM,
     CRUELANGELSTHESIS
 };
 
 static const u16 sMusicTableFinal[] = {
+    MUS_DUMMY, // Power off music player
     SASAGEYO,
     MUS_BLOODY_STREAM,
     THEREINCARNATION,
@@ -92,6 +95,7 @@ static const u16 sMusicTableFinal[] = {
 // Music name table
 // Asocia IDs de músicas con sus nombres
 const u8* const sMusicNames[] = {
+    [MUS_DUMMY] = gText_Music_NoMusic,
     [SASAGEYO] = gText_Music_Sasageyo,
     [MUS_BLOODY_STREAM] = gText_Music_BloodyStream,
     [THEREINCARNATION] = gText_Music_TheReincarnation,

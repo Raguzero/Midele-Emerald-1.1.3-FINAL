@@ -136,7 +136,7 @@ static void MusicPlayer_SelectSong(u8 taskId)
         StringExpandPlaceholders(gStringVar4, gMusicPlayer_SongId);
         AddTextPrinterParameterized(gTasks[taskId].data[2], 1, gStringVar4, 1, 1, 0, NULL);
         // Rellenar con espacios para evitar solapar nombres anteriores
-        StringCopyPadded(gStringVar1, sMusicNames[musicTable[currentMusicTableId]], CHAR_SPACE, MUSIC_PLAYER_MAIN_MENU_WIDTH + MUSIC_PLAYER_DISPLAY_WIDTH);
+        StringCopyPadded(gStringVar1, sMusicNames[musicTable[currentMusicTableId]], CHAR_SPACE, MUSIC_PLAYER_MAIN_MENU_WIDTH + MUSIC_PLAYER_DISPLAY_WIDTH + 4);
         AddTextPrinterParameterized(gTasks[taskId].data[2], 1, gStringVar1, 1, 16, 0, NULL);
     }
 
@@ -152,8 +152,20 @@ static void MusicPlayer_SelectSong(u8 taskId)
         StringCopyPadded(gStringVar1, gStringVar1, CHAR_SPACE, 15);
 
         // Cambiar BGM actual y actualizar gLastMusicPlayerSong
-        PlayBGM(musicTable[currentMusicTableId]);
-        gLastMusicPlayerSong = musicTable[currentMusicTableId];
+        if (musicTable[currentMusicTableId] == MUS_DUMMY)
+        {
+            // Si ya está sonando la música del mapa, no hace falta volver a reproducirla
+            if (gLastMusicPlayerSong != 0)
+            {
+                PlayBGM(GetCurrentMapMusic());
+                gLastMusicPlayerSong = 0;
+            }
+        }
+        else
+        {
+            PlayBGM(musicTable[currentMusicTableId]);
+            gLastMusicPlayerSong = musicTable[currentMusicTableId];
+        }
         gTasks[taskId].func = MusicPlayer_DestroyWindow;
     }
     else if (gMain.newKeys & B_BUTTON)
