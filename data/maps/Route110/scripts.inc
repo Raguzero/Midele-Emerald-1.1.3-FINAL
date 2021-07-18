@@ -855,9 +855,10 @@ Route110_Text_HairStreamsBehindMe: @ 81F0006
 	.string "I grew my hair out just for that.$"
 
 Route110_Text_YouGotBikeFromRydel: @ 81F006A
-	.string "Oh, hey, you got that BIKE from RYDEL!\p"
+	.string "Oh, hey, you got that MONOCYCLE\n" 
+	.string "from RYDEL!\p"
 	.string "Oh, it's glaringly obvious.\n"
-	.string "It says right on your bike…\p"
+	.string "It says right on your monocycle…\p"
 	.string "RYDEL, RYDEL, RYDEL, RYDEL, RYDEL,\n"
 	.string "RYDEL, RYDEL, RYDEL, RYDEL, RYDEL,\p"
 	.string "RYDEL, RYDEL, RYDEL, RYDEL, RYDEL,\n"
@@ -926,12 +927,12 @@ Route110_Text_ChallengeReactionWorst: @ 81F05CE
 	.string "You're perhaps not cut out for this\n"
 	.string "unfortunate cycling business.\p"
 	.string "You ought to give serious thought to\n"
-	.string "returning that BIKE to RYDEL.$"
+	.string "returning that MONOCYCLE to RYDEL.$"
 
 Route110_Text_RatedForNumberOfCollisions: @ 81F0661
 	.string "This is CYCLING ROAD.\p"
 	.string "If you were to ride from MAUVILLE to\n"
-	.string "SLATEPORT on a MONOCICLO, you would\l"
+	.string "SLATEPORT on a MACH CYCLE, you would\l"
 	.string "be rated for the number of collisions\l"
 	.string "and your total time.$"
 
@@ -942,9 +943,9 @@ Route110_Text_AlwaysAimHigher: @ 81F06FB
 
 Route110_Text_AcroBikesDoNotQualify: @ 81F0755
 	.string "On this CYCLING ROAD, those riding\n"
-	.string "MONOCICLOS are rated for their number\l"
+	.string "MACH CYCLES are rated for their number\l"
 	.string "of collisions and their total times.\p"
-	.string "ACRO BIKES do not qualify for rating.\n"
+	.string "ACRO CYCLES do not qualify for rating.\n"
 	.string "They are easy to turn, so it's not fair.$"
 
 Route110_Text_SlateportCitySign: @ 81F0812

@@ -591,7 +591,7 @@ Route119_Text_ScottWayToGoBeSeeingYou: @ 81F4E60
 	.string "SCOTT: Hahahah!\n"
 	.string "Way to go, {PLAYER}{KUN}!\p"
 	.string "I just passed by a TRAINER riding\n"
-	.string "a BIKE.\p"
+	.string "a MONOCYCLE.\p"
 	.string "You just beat that TRAINER, didn't you?\n"
 	.string "It was pretty obvious that you did.\p"
 	.string "The kid looked really upset with\n"

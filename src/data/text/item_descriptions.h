@@ -1072,7 +1072,7 @@ static const u8 sPinkPetalDesc[] = _(
 
 // Key items
 static const u8 sMachBikeDesc[] = _(
-    "A folding monociclo\n"
+    "A folding monocycle\n"
     "that doubles your\n"
     "speed or better.");
 
@@ -1131,7 +1131,7 @@ static const u8 sBasementKeyDesc[] = _(
     "MAUVILLE CITY.");
 
 static const u8 sAcroBikeDesc[] = _(
-    "A folding bicycle\n"
+    "A folding monocycle\n"
     "capable of jumps\n"
     "and wheelies.");
 

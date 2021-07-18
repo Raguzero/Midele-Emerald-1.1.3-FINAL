@@ -151,15 +151,15 @@ MauvilleCity_BikeShop_Text_ExplainBikesChooseWhichOne: @ 820EF32
 	.string "go anywhere easily while feeling the\l"
 	.string "gentle caress of the wind!\p"
 	.string "I'll tell you what!\n"
-	.string "I'll give you a BIKE!\p"
+	.string "I'll give you a MONOCYCLE!\p"
 	.string "Oh, wait a second!\p"
 	.string "I forgot to tell you that there are\n"
-	.string "two kinds of BIKES!\p"
-	.string "They are the MONOCICLO and\n"
-	.string "the ACRO BIKE!\p"
-	.string "The MONOCICLO is for cyclists who want\n"
+	.string "two kinds of MONOCYCLES!\p"
+	.string "They are the MACH CYCLE and\n"
+	.string "the ACRO CYCLE!\p"
+	.string "The MACH CYCLE is for cyclists who want\n"
 	.string "to feel the wind with their bodies!\p"
-	.string "And an ACRO BIKE is for those who\n"
+	.string "And an ACRO CYCLE is for those who\n"
 	.string "prefer technical rides!\p"
 	.string "I'm a real sweetheart, so you can\n"
 	.string "have both!$"
@@ -169,26 +169,26 @@ MauvilleCity_BikeShop_Text_HappyYouLikeIt: @ 820F2C4
 	.string "I'm happy that you like it!$"
 
 MauvilleCity_BikeShop_Text_HandbooksAreInBack: @ 820F3C3
-	.string "I'm learning about BIKES while\n"
+	.string "I'm learning about MONOCYCLES while\n"
 	.string "I work here.\p"
 	.string "If you need advice on how to ride your\n"
-	.string "BIKE, there're a couple handbooks in\l"
-	.string "the back.$"
+	.string "MONOCYCLE, there're a couple handbooks\l"
+	.string "in the back.$"
 
 MauvilleCity_BikeShop_Text_MachHandbookWhichPage: @ 820F445
-	.string "It's a handbook on the MONOCICLO.\p"
+	.string "It's a handbook on the MACH CYCLE.\p"
 	.string "Which page do you want to read?$"
 
 MauvilleCity_BikeShop_Text_HowToRideMachBike: @ 820F487
-	.string "A BIKE moves in the direction that\n"
+	.string "A MONOCYCLE moves in the direction that\n"
 	.string "the + Control Pad is pressed.\p"
 	.string "It will speed up once it gets rolling.\p"
 	.string "To stop, release the + Control Pad.\n"
-	.string "The BIKE will slow to a stop.\p"
+	.string "The MONOCYCLE will slow to a stop.\p"
 	.string "Want to read a different page?$"
 
 MauvilleCity_BikeShop_Text_HowToTurnMachBike: @ 820F550
-	.string "A MONOCICLO is speedy, but it can't\n"
+	.string "A MACH CYCLE is speedy, but it can't\n"
 	.string "stop very quickly.\p"
 	.string "It gets a little tricky to get around\n"
 	.string "a corner.\p"
@@ -201,12 +201,12 @@ MauvilleCity_BikeShop_Text_SandySlopes: @ 820F61A
 	.string "throughout the HOENN region.\p"
 	.string "The loose, crumbly sand makes it\n"
 	.string "impossible to climb normally.\p"
-	.string "But if you have a MONOCICLO, you can\n"
+	.string "But if you have a MACH CYCLE, you can\n"
 	.string "zip up a sandy slope.\p"
 	.string "Want to read a different page?$"
 
 MauvilleCity_BikeShop_Text_AcroHandbookWhichPage: @ 820F6ED
-	.string "It's a handbook on the ACRO BIKE.\p"
+	.string "It's a handbook on the ACRO CYCLE.\p"
 	.string "Which page do you want to read?$"
 
 MauvilleCity_BikeShop_Text_Wheelies: @ 820F72F
@@ -219,7 +219,7 @@ MauvilleCity_BikeShop_Text_Wheelies: @ 820F72F
 
 MauvilleCity_BikeShop_Text_BunnyHops: @ 820F7F5
 	.string "Keeping the B Button pressed,\n"
-	.string "your BIKE can hop on the spot.\p"
+	.string "your MONOCYCLE can hop on the spot.\p"
 	.string "This technique is called a bunny hop.\p"
 	.string "You can ride while hopping, too.\p"
 	.string "Want to read a different page?$"
@@ -229,6 +229,7 @@ MauvilleCity_BikeShop_Text_Jumps: @ 820F898
 	.string "Pad at the same time to jump.\p"
 	.string "Press the + Control Pad to the side\n"
 	.string "to jump sideways.\p"
-	.string "Press it backwards to make the BIKE\n"
-	.string "change directions while jumping.\p"
+	.string "Press it backwards to make the\n"
+	.string "MONOCYCLE change directions\l" 
+	.string "while jumping.\p"
 	.string "Want to read a different page?$"

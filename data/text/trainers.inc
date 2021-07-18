@@ -1014,7 +1014,7 @@ Route110_Text_JacobDefeated: @ 8297B77
 Route110_Text_JacobPostBattle: @ 8297B8F
 	.string "Flat tires and brake problems can\n"
 	.string "cause serious injury!\l"
-	.string "Inspect your BIKE for problems!$"
+	.string "Inspect your MONOCYCLE for problems!$"
 
 Route110_Text_AnthonyIntro: @ 8297BE7
 	.string "Yo, you!\n"
@@ -1028,7 +1028,8 @@ Route110_Text_AnthonyPostBattle: @ 8297C1F
 	.string "I need to reconsider this…$"
 
 Route110_Text_BenjaminIntro: @ 8297C63
-	.string "Don't panic if your BIKE's going fast!$"
+	.string "Don't panic if your MONOCYCLE's\n"
+	.string "going fast!$"
 
 Route110_Text_BenjaminDefeated: @ 8297C8A
 	.string "I shouldn't panic during POKéMON\n"
