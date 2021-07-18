@@ -165,7 +165,7 @@ static void Cmd_if_flash_fired(void);
 static void Cmd_if_holds_item(void);
 static void Cmd_get_hazards_count(void);
 static void Cmd_get_curr_dmg_hp_percent(void);
-static void Cmd_if_fear_hp_condition(void);
+static void Cmd_if_hp_condition(void);
 static void Cmd_if_accuracy_less_than(void);
 static void Cmd_if_not_expected_to_sleep(void);
 static void Cmd_if_receiving_wish(void);
@@ -173,6 +173,7 @@ static void Cmd_if_target_wont_attack_due_to_truant(void);
 static void Cmd_if_trick_fails_in_this_type_of_battle(void);
 static void Cmd_calculate_nhko(void);
 static void Cmd_if_next_turn_target_might_use_move_with_effect(void);
+static void Cmd_if_battler_absent(void);
 
 // ewram
 EWRAM_DATA const u8 *gAIScriptPtr = NULL;
@@ -284,7 +285,7 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_if_holds_item,                              // 0x62
     Cmd_get_hazards_count,                          // 0x63
     Cmd_get_curr_dmg_hp_percent,                    // 0x64
-    Cmd_if_fear_hp_condition,                       // 0x65
+    Cmd_if_hp_condition,                       // 0x65
 	Cmd_if_accuracy_less_than,                      // 0x66
 	Cmd_if_not_expected_to_sleep,                   // 0x67
     Cmd_if_receiving_wish,                          // 0x68
@@ -292,6 +293,7 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
 	Cmd_if_trick_fails_in_this_type_of_battle,        // 0x6A
 	Cmd_calculate_nhko,        // 0x6B
 	Cmd_if_next_turn_target_might_use_move_with_effect,        // 0x6C
+	Cmd_if_battler_absent,   // 0x6D
 };
 
 static const u16 sDiscouragedPowerfulMoveEffects[] =
@@ -304,7 +306,6 @@ static const u16 sDiscouragedPowerfulMoveEffects[] =
     EFFECT_SKULL_BASH,
     EFFECT_SOLARBEAM,
     EFFECT_SPIT_UP,
-    EFFECT_FOCUS_PUNCH,
     EFFECT_SUPERPOWER,
     EFFECT_OVERHEAT,
     0xFFFF
@@ -1037,18 +1038,30 @@ static void Cmd_score(void)
     gAIScriptPtr += 2; // AI return.
 }
 
-static void Cmd_if_fear_hp_condition(void)
+static void Cmd_if_hp_condition(void)
 {
     switch (gAIScriptPtr[1])
     {
-    case 0: // comprueba si el rival tiene 1 PS
+    case TARGET_HAS_1_HP: // comprueba si el rival tiene 1 PS
         if (gBattleMons[gBattlerTarget].hp == 1)
             gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
         else
             gAIScriptPtr += 6;
         break;
-    case 1: // comprueba si el rival tiene, como máximo, los PS que tiene el usuario más lo que el rival obtendría por Restos
+    case TARGET_WITH_LEFTIES_WONT_LOSE_HP_IF_WE_USE_ENDEAVOR: // comprueba si el rival tiene, como máximo, los PS que tiene el usuario más lo que el rival obtendría por Restos
         if (gBattleMons[gBattlerTarget].hp <= gBattleMons[sBattler_AI].hp + gBattleMons[gBattlerTarget].maxHP / 16)
+            gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
+        else
+            gAIScriptPtr += 6;
+        break;
+    case TARGET_CANNOT_USE_SUB: // comprueba si el rival no tiene PS como para usar Sustituto
+        if (gBattleMons[gBattlerTarget].hp <= gBattleMons[gBattlerTarget].maxHP / 4)
+            gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
+        else
+            gAIScriptPtr += 6;
+        break;
+    case USER_CANNOT_USE_SUB: // comprueba si la IA no tiene PS como para usar Sustituto
+        if (gBattleMons[sBattler_AI].hp <= gBattleMons[sBattler_AI].maxHP / 4)
             gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
         else
             gAIScriptPtr += 6;
@@ -2382,10 +2395,7 @@ static void Cmd_get_hold_effect(void)
     else
         battlerId = gBattlerTarget;
 
-    if (gActiveBattler != battlerId)
-        AI_THINKING_STRUCT->funcResult = ItemId_GetHoldEffect(BATTLE_HISTORY->itemEffects[battlerId]);
-    else
-        AI_THINKING_STRUCT->funcResult = ItemId_GetHoldEffect(gBattleMons[battlerId].item);
+    AI_THINKING_STRUCT->funcResult = ItemId_GetHoldEffect(gBattleMons[battlerId].item);
 
     gAIScriptPtr += 2;
 }
@@ -2929,4 +2939,14 @@ static void Cmd_if_next_turn_target_might_use_move_with_effect(void)
 
     if (i != MAX_MON_MOVES)
         gAIScriptPtr = T1_READ_PTR(gAIScriptPtr - 4);
+}
+
+static void Cmd_if_battler_absent(void)
+{
+    u32 battler = BattleAI_GetWantedBattler(gAIScriptPtr[1]);
+
+    if (!IsBattlerAlive(battler))
+        gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
+    else
+        gAIScriptPtr += 6;
 }

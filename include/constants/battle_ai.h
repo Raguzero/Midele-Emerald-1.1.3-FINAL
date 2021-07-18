@@ -35,6 +35,12 @@
 #define MOVE_POWER_DISCOURAGED                       3
 #define MOVE_MOST_POWERFUL                           4
 
+// if_hp_condition
+#define TARGET_HAS_1_HP                0
+#define TARGET_WITH_LEFTIES_WONT_LOSE_HP_IF_WE_USE_ENDEAVOR 1
+#define TARGET_CANNOT_USE_SUB          2
+#define USER_CANNOT_USE_SUB            3
+
 // script's table id to bit
 #define AI_SCRIPT_CHECK_BAD_MOVE (1 << 0)
 #define AI_SCRIPT_TRY_TO_FAINT (1 << 1)

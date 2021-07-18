@@ -561,7 +561,7 @@
 	.byte 0x64
 	.endm
 	
-	.macro if_fear_hp_condition param1:req, param2:req
+	.macro if_hp_condition param1:req, param2:req
 	.byte 0x65
 	.byte \param1
 	.4byte \param2
@@ -608,6 +608,12 @@
     .byte \effect
     .4byte \param
     .endm
+	
+	.macro if_battler_absent battler:req, ptr:req
+	.byte 0x6d
+	.byte \battler
+	.4byte \ptr
+	.endm
 
 @ useful script macros
 	.macro get_curr_move_type
@@ -696,4 +702,12 @@
     if_more_than 2, .AI_attack_is_probably_not_the_last_\@
     if_target_faster \ptr
 	.AI_attack_is_probably_not_the_last_\@:
+    .endm
+	
+	.macro if_target_might_have_a_sub_before_our_attack ptr:req
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, \ptr
+    if_user_faster .AI_target_not_expected_to_use_sub_\@
+    if_hp_condition TARGET_CANNOT_USE_SUB, .AI_target_not_expected_to_use_sub_\@
+    if_has_move_with_effect AI_TARGET, EFFECT_SUBSTITUTE, \ptr
+	.AI_target_not_expected_to_use_sub_\@:
     .endm
