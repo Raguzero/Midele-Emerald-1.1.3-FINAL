@@ -1244,7 +1244,7 @@ SECTIONS {
 		sound/songs/zinniatheme.o(.rodata);
 		sound/songs/midi/smwildbattle.o(.rodata);
 		sound/songs/midi/themeofencounter.o(.rodata);
-		sound/songs/midi/cynthiabattle.o(.rodata);
+		sound/songs/midi/einzug_der_gladiatoren.o(.rodata);
 		sound/songs/midi/dialgapalkiabattle.o(.rodata);
 		sound/songs/midi/undertalemegalovania.o(.rodata);
 		sound/songs/thatpersonsnameis.o(.rodata);

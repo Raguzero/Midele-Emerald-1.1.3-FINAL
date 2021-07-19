@@ -623,7 +623,7 @@ gSongTable:: @ 86B49F0
 	song Zinnia_Theme, 0, 0
 	song smwildbattle, 0, 0
 	song themeofencounter, 0, 0
-	song cynthiabattle, 0, 0
+	song einzug_der_gladiatoren, 0, 0
 	song dialgapalkiabattle, 0, 0
 	song undertalemegalovania, 0, 0
 	song that_persons_name_is, 0, 0

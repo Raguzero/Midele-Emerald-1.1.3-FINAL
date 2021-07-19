@@ -32,7 +32,7 @@ static const u8 gText_Music_XYWild[]                 = _("POKéMON XY           
 static const u8 gText_Music_ZinniaTheme[]            = _("POKéMON ORAS         \nZINNIA THEME");
 static const u8 gText_Music_SMWildBattle[]           = _("POKéMON SM           \nWILD BATTLE");
 static const u8 gText_Music_ThemeOfEncounter[]       = _("FIRE EMBLEM          \nTHEME OF ENCOUNTER");
-static const u8 gText_Music_CynthiaBattle[]          = _("POKéMON DPPt         \nCYNTHIA BATTLE");
+static const u8 gText_Music_EINZUG_DER_GLADIATOREN[] = _("FUCIK                \nEINZUG DER GLADIATOREN");
 static const u8 gText_Music_DialgaPalkia[]           = _("POKéMON DPPt         \nVS DIALGA AND PALKIA");
 static const u8 gText_Music_Megalovania[]            = _("UNDERTALE            \nMEGALOVANIA");
 static const u8 gText_Music_ThatPersonNameIs[]       = _("BRAVELY DEFAULT      \nTHAT PERSON NAME IS");
@@ -123,7 +123,7 @@ static const u16 sMusicTableInitial[] = {
     ZINNIATHEME, 
     SMWILDBATTLE, 
     THEMEOFENCOUNTER, 
-    CYNTHIABATTLE, 
+    EINZUG_DER_GLADIATOREN, 
     DIALGAPALKIABATTLE, 
     UNDERTALEMEGALOVANIA, 
     THATPERSONSNAMEIS, 
@@ -178,7 +178,7 @@ const u8* const sMusicNames[] = {
     [ZINNIATHEME] = gText_Music_ZinniaTheme,
     [SMWILDBATTLE] = gText_Music_SMWildBattle,
     [THEMEOFENCOUNTER] = gText_Music_ThemeOfEncounter,
-    [CYNTHIABATTLE] = gText_Music_CynthiaBattle,
+    [EINZUG_DER_GLADIATOREN] = gText_Music_EINZUG_DER_GLADIATOREN,
     [DIALGAPALKIABATTLE] = gText_Music_DialgaPalkia,
     [UNDERTALEMEGALOVANIA] = gText_Music_Megalovania,
     [THATPERSONSNAMEIS] = gText_Music_ThatPersonNameIs,

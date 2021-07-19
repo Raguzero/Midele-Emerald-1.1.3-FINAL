@@ -1284,8 +1284,8 @@ $(MID_SUBDIR)/smwildbattle.s: %.s: %.mid
 $(MID_SUBDIR)/themeofencounter.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v80
 
-$(MID_SUBDIR)/cynthiabattle.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100 -P5	
+$(MID_SUBDIR)/einzug_der_gladiatoren.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -V65
 
 $(MID_SUBDIR)/dialgapalkiabattle.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -v100
