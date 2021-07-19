@@ -355,7 +355,7 @@ Darkigym_EventScript_Tilo_Derrotado::
 	end
 	
 Darkigym_Text_RedSecretariaIntro: 
-	.string "¿Espera eres un humano?\p"
+	.string "¿Espera, eres un humano?\p"
 
 	.string "No se supone que los humanos\n" 
 	.string "corrientes puedan rondar en este\l"
@@ -366,50 +366,50 @@ Darkigym_Text_RedSecretariaIntro:
 
 	.string "¿Que no la tienes?\p"
 
-	.string "Bueno espero que vinieras aquí buscando\n" 
+	.string "Bueno, espero que vinieras aquí buscando\n" 
 	.string "una muerte horrible.\p"
 
-	.string "Por que nadie ve a mi jefe el mal rollo\n" 
+	.string "Porque nadie ve a mi jefe el mal rollo\n" 
 	.string "sin una cita previa.$" 
 	
 Darkigym_Text_RedSecretariaDefeat: 
-	.string "¿Pero que mier...?$"
+	.string "¿Pero qué mier...?$"
 
 Darkigym_Text_RedSecretariaPostBattle:
-	.string "¿Como me has... ganado?\p"
+	.string "¿Cómo me has... ganado?\p"
 
 	.string "Tsk...Malditas sean las reglas de\n"
 	.string "este mundo.\p"
 
-	.string "Te habría llenado todos los esfinteres\n" 
+	.string "Te habría llenado todos los esfínteres\n" 
 	.string "con granadas y volado en mil pedazos,\l" 
 	.string "si no fuera por este asqueroso y\l"
 	.string "opresor ambiente family friendly.\p"
 
-	.string "Prosigue, ya avise a mi amo de que vas\n" 
+	.string "Prosigue, ya avisé a mi amo de que vas\n" 
 	.string "en camino.\p"
 
-	.string "No tiene fe de que llegues ante el,\n"
+	.string "No tiene fe de que llegues ante él,\n"
 	.string "pero si eres tan gilipollas como para\l" 
-	.string "haber llegado hasta aquí solo\l" 
+	.string "haber llegado hasta aquí, solo\l" 
 	.string "te resta avanzar.$"
 	
 Darkigym_Text_KizardeIntro: 
-	.string "¡Alto Ahí! pequeña ardilla\n"
-	.string "como osas entrar en la guarída\l"
+	.string "¡Alto Ahí! Pequeña ardilla,\n"
+	.string "¿cómo osas entrar en la guarida\l"
 	.string "del gran cientifico loco\l"
-	.string "D. Kizarde.\p"
+	.string "D. Kizarde?\p"
 
 	.string "Fu wa ja ja ja ja ja ja ja ja ja$"
 
 Darkigym_Text_KizardeDefeat:
-	.string "Oh no! ¡debes ser un agente enviado\n" 
-	.string "de la organización!\p"
+	.string "¡Oh, no! ¡Debes de ser un agente enviado\n" 
+	.string "por la organización!\p"
 
 	.string "¡Vienen tras mi último invento!$"
 
 Darkigym_Text_KizardePostBattle:
-	.string "Maravillate pequeña ardilla,\n"
+	.string "Maravíllate, pequeña ardilla,\n"
 	.string "ante la máquina de viaje espacio\l"
 	.string "temporal.\p"
 
@@ -427,23 +427,23 @@ Darkigym_Text_KizardePostBattle:
 	.string "Ya que me ganaste te contaré un\n"
 	.string "secreto.\p"
 
-	.string "Esta máquina la cree con el fin de\n" 
+	.string "Esta máquina la creé con el fin de\n" 
 	.string "evitar la tercera guerra\l" 
 	.string "interdimensional.\p"
 
 	.string "En la que Gooses junto a las brujas\n" 
 	.string "del destino, busca oprimir a toda la\l"
-	.string "humanidad con su ejercito de\l" 
+	.string "humanidad con su ejército de\l" 
 	.string "lolis waifus.\p"
 
 	.string "Siendo el detonante... un tal Masuda.\p"
 
-	.string "El cual dií a luz a Lilie para controlar\n"
+	.string "El cual dio a luz a Lilie para controlar\n"
 	.string "las mentes de todos aquellos niños que\l" 
 	.string "según él, no tienen tiempo para jugar\l"
 	.string "más que juegos cortitos de movil...\p"
 
-	.string "¿Sabes?, veo en tí el poder de\n"
+	.string "¿Sabes? Veo en ti el poder de\n"
 	.string "cambiar el futuro.\p"
 
 	.string "Vamos, sigue adelante y demuéstrale a\n"
@@ -452,8 +452,8 @@ Darkigym_Text_KizardePostBattle:
 	.string "aciago destino.$"
 	
 Darkigym_Text_EspiIntro: 
-	.string "Hola intruso.\n"
-	.string "¿quieres jugar conmigo?$"
+	.string "Hola, intruso.\n"
+	.string "¿Wuieres jugar conmigo?$"
 
 Darkigym_Text_EspiDefeat: 
 	.string "Repámpanos, se acabó el juego.$"
@@ -468,7 +468,7 @@ Darkigym_Text_EspiPostBattle:
 	.string "Y de hecho tengo bastante repetida a\n" 
 	.string "cierta niña rubia.\p"
 
-	.string "¿Qué? ¿te creías que todas estas tumbas\n" 
+	.string "¿Qué? ¿Te creías que todas estas tumbas\n" 
 	.string "son de adorno?\p"
 
 	.string "Nope... son todas de los enemigos de mi\n" 
@@ -479,10 +479,10 @@ Darkigym_Text_MobuIntro:
 	.string "...............$"
 
 Darkigym_Text_MobuDefeat: 
-	.string "Ah.. ¿Eh? ¿Que ha pasado?$"
+	.string "Ah.. ¿Eh? ¿Qué ha pasado?$"
 
 Darkigym_Text_MobuPostBattle:
-	.string "Ah... disculpa, creo que me volvi a\n" 
+	.string "Ah... disculpa, creo que me volví a\n" 
 	.string "descontrolar durante mi entrenamiento.\p"
 
 	.string "Aún no logro dominar mi estado 100%...\p"
@@ -490,24 +490,24 @@ Darkigym_Text_MobuPostBattle:
 	.string "Aunque mi maestro el buen rollo, dice\n" 
 	.string "que ya logro hacer muchas cosas sin\l" 
 	.string "necesidad de usar mis poderes\l" 
-	.string "psiquicos.\p"
+	.string "psíquicos.\p"
 
 	.string "Como sea... siento una gran fuerza en\n" 
-	.string "ti ¿que buscas aquí?\p"
+	.string "ti ¿Qué buscas aquí?\p"
 
 	.string "¿Dices que estás buscando la medalla\n" 
-	.string "del gymnasio?\p"
+	.string "del gimnasio?\p"
 
-	.string "¿Que no te da miedo el lider?\p"
+	.string "¿Que no te da miedo el líder?\p"
 
-	.string "I-increible, ojalá pudiera ser tan\n" 
-	.string "valiente como tu.\p"
+	.string "I-increíble, ojalá pudiera ser tan\n" 
+	.string "valiente como tú.\p"
 
-	.string "Bueno, mucha suerte entrenador,\n" 
+	.string "Bueno, mucha suerte, entrenador,\n" 
 	.string "te animaré desde aquí.$"
 	
 Darkigym_Text_RoxyIntro: 
-	.string "Vaya, así que eres tu el que ha\n" 
+	.string "Vaya, así que eres tú el que ha\n" 
 	.string "montado tanto revuelo.\p"
 
 	.string "....\p"
@@ -517,7 +517,7 @@ Darkigym_Text_RoxyIntro:
 	.string "No sé por que los demás se han\n" 
 	.string "dejado vencer por ti.\p"
 
-	.string "Oh bueno, supongo que deberé\n" 
+	.string "Oh, bueno, supongo que deberé\n" 
 	.string "pararte ahora.\p"
 
 	.string "Pelearé por el honor del inframundo y la\n"
@@ -532,7 +532,7 @@ Darkigym_Text_RoxyDefeat:
 Darkigym_Text_RoxyPostBattle:
 	.string "Rayos.\p"
 
-	.string "Ahora entiendo por que has llegado\n" 
+	.string "Ahora entiendo por qué has llegado\n" 
 	.string "hasta aquí.\p"
 
 	.string "Por lo que veo también dominas el\n" 
@@ -541,14 +541,14 @@ Darkigym_Text_RoxyPostBattle:
 	.string "Supongo que entonces no necesito usar\n" 
 	.string "toda mi fuerza, así que puedes pasar.\p"
 
-	.string "Quien sabe, con algo de suerte lograrás\n" 
+	.string "Quién sabe, con algo de suerte lograrás\n" 
 	.string "tranquilizar al mal rollo.\p"
 
 	.string "No lo entiendo muy bien, pero, eso de\n" 
 	.string "jugar con las líneas del tiempo,\l" 
 	.string "no me mola.\p"
 
-	.string "Adelante humano y recuerda:\p"
+	.string "Adelante, humano, y recuerda:\p"
 
 	.string "Por horrible y oscuro que se torne\n"
 	.string "tu camino, nunca dejes de caminar.$"
@@ -556,7 +556,7 @@ Darkigym_Text_RoxyPostBattle:
 Darkigym_Text_AnthonyIntro:
 	.string "No hay nada mejor que los taladros.\p"
 	
-	.string "¿Quieres saber por que?\n"
+	.string "¿Quieres saber por qué?\n"
 	.string "Pues...\p"
 	
 	.string "Preparate para mi...\n"
@@ -568,7 +568,7 @@ Darkigym_Text_AnthonyDefeat:
 	.string "¡Taladro roto!$"
 
 Darkigym_Text_AnthonyPostBattle:
-	.string "Mirate Tengen Toppa Gurren-Lagann.\p"
+	.string "Mírate Tengen Toppa Gurren-Lagann.\p"
 	
 	.string "Solo así sabrás el verdadero\n"
 	.string "significado de los taladros y de mi\l"
@@ -590,7 +590,7 @@ Darkigym_Text_DranixPostBattle:
 	.string "¡Pero Beedrill tiene que ser un\n"
 	.string "OVERUSED como sea!\p"
 	
-	.string "¡Necesitamos mas gente llevando\n"
+	.string "¡Necesitamos más gente llevando\n"
 	.string "a BEEDRILL en su equipo!\p"
 	
 	.string "Mmm... mejor actualizaré la Tier List\n"
@@ -624,7 +624,7 @@ Darkigym_Text_UltramagicIntro:
 	.string "¿Conoces a LAVENDER?\p"
 
 	.string "¡La POLICIA de JOHTO lo está\n" 
-	.string "buscando! ¡Y a mi también, DOOD!\p"
+	.string "buscando! ¡Y a mí también, DOOD!\p"
 	
 	.string "¡Un momento, esto no son las carataras\n"
 	.string "TOHJO!\p"
@@ -648,7 +648,7 @@ Darkigym_Text_CharzIntro:
 
 	.string "Humanos débiles...\p"
 	
-	.string "Esa es la visión egoista que rige\n" 
+	.string "Esa es la visión egoísta que rige\n" 
 	.string "nuestro mundo.\p"
 	
 	.string "¿Pero acaso hay algún problema\n"
@@ -669,7 +669,7 @@ Darkigym_Text_CharzIntro:
 	
 	.string "Pero...\p"
 	
-	.string "Si pudiesemos tirar abajo este maldito\n"
+	.string "Si pudiésemos tirar abajo este maldito\n"
 	.string "sistema caduco que ya está apunto\l" 
 	.string "de explotar...\p"
 
@@ -680,7 +680,7 @@ Darkigym_Text_CharzIntro:
 	
 	.string "Por ello, debo eliminar a todos los\n"
 	.string "débiles como tu.\p" 
-	.string "Selección Natural lo llamo.$"
+	.string "Selección Natural, lo llamo.$"
 
 Darkigym_Text_CharzDefeat: 
 	.string "¿SELECCIÓN NATURAL?\p"
@@ -696,7 +696,7 @@ Darkigym_Text_CharzPostBattle:
 	
 	.string "...\p"
 	
-	.string "Oh, venga, ¡Vamos! ¡Unete!\p"
+	.string "Oh, venga, ¡Vamos! ¡Únete!\p"
 	
 	.string "¡Humanos fuertes vivirán!\p"
 
@@ -713,11 +713,11 @@ Darkigym_Text_FurryIntro:
 	.string "¡Este lugar apesta a hacks!\p"
 	
 	.string "Estaba tan tranquilo en la ROUTE 46\n"
-	.string "de JOHTO, cuando de pronto ví abrirse\l"
+	.string "de JOHTO, cuando de pronto vi abrirse\l"
 	.string "una especie de portal que me absorbió\l"
 	.string "y me trajo a este lugar tan oscuro.\p"
 	
-	.string "¡Alguien debe haber usado POKEHEX para\n"
+	.string "¡Alguien debe haber usado POKéHEX para\n"
 	.string "cambiar las coordenadas de mi\l" 
 	.string "localización!\p" 
 
@@ -746,7 +746,7 @@ Darkigym_Text_FurryPostBattle:
 	.string "¿Te puedes creer que el FURRY que\n"
 	.string "conocen se corrompió ante los HACKs,\l"
 	.string "se unió al bando de MICOLO y toda esa\l"
-	.string "chusma, y se fué de JOHTO para luego\l"
+	.string "chusma, y se fue de JOHTO para luego\l"
 	.string "convertirse en un PIRATA?\p"
 	
 	.string "¡Están mintiendo!\n" 
@@ -819,12 +819,12 @@ Darkigym_Text_DarkMelkorPostBattle:
 	
 Darkigym_Text_FanboyKalosIntro:
 	.string "No tengo ni la más remota idea de donde\n"
-	.string "estoy, ¡pero que importa!\l"
+	.string "estoy, ¡pero qué importa!\l"
 	.string "¡VIVA LA 6ªGEN! ¡VIVA POKEMON Z!\p"
 
 	.string "¿CÓMO? ¿QUÉ ES POKEMON Z?\p"
 	
-	.string "¡PERO COMO PUEDES NO SABERLO! ¡SI ES EL\n"
+	.string "¡PERO CÓMO PUEDES NO SABERLO! ¡SI ES EL\n"
 	.string "MEJOR JUEGO QUE HA SACADO GAMEFREAK\l"
 	.string "EN TODOS ESTOS AÑOS!\p"
 	
@@ -855,12 +855,12 @@ Darkigym_Text_FanboyKalosIntro:
 	
 	.string "...\p"
 
-	.string "¿¡PERO QUE DICES?!\n" 
+	.string "¿¡PERO QUÉ DICES?!\n" 
 	.string "¿¡CÓMO QUÉ NI POKéMON Z, NI KALOS\l" 
 	.string "SUR EXISTEN?!\p"
 
 	.string "¡YA ME HE CANSADO DE QUE TE BURLES\n" 
-	.string "DE MI!$"
+	.string "DE MÍ!$"
 
 Darkigym_Text_FanboyKalosDefeat: 
 	.string "¿PERO QUÉ...?\p"
@@ -871,10 +871,10 @@ Darkigym_Text_FanboyKalosDefeat:
 
 Darkigym_Text_FanboyKalosPostBattle:
 	.string "¡Espera! ¿Este no es mi mundo?\n"
-	.string "¿Aqui no hay POKeMON Z...?\l"
+	.string "¿Aquí no hay POKeMON Z...?\l"
 	.string "¿Tampoco KALOS SUR...?\p"
 	
-	.string "Pero entonces... ¿Que hay aquí\n"
+	.string "Pero entonces... ¿Qué hay aquí\n"
 	.string "después de POKéMON XY?\p"
 	
 	.string "¿REMAKES DE RSE SIN FRENTE?\n"
@@ -930,7 +930,7 @@ Darkigym_Text_YumePostBattle:
 Darkigym_Text_TiloAlolaIntro:
 	.string "¡Alola, entrenador!\p"
 
-	.string "Que agradable clima hoy...\p"
+	.string "Qué agradable clima hoy...\p"
 
 	.string "Pero no tanto como mi querida y\n" 
 	.string "natal ALOLA con toda esa alegría,\l"
@@ -941,26 +941,26 @@ Darkigym_Text_TiloAlolaIntro:
 	.string "malasadas?\p"
 
 	.string "Porque sabes, las malasadas son el mejor\n" 
-	.string "manjar del mundo, riquisimas,\l" 
+	.string "manjar del mundo, riquísimas,\l" 
 	.string "impedirbles.\p"
 
-	.string "Ven ven, combatamos un poquito, cuando\n" 
-	.string "me ganes, te regalare 10 revivires.$"
+	.string "Ven, ven, combatamos un poquito, cuando\n" 
+	.string "me ganes, te regalaré 10 revivires.$"
 
 Darkigym_Text_TiloAlolaDefeat: 
 	.string "¡Wow, eres super fuerte, grandioso,\n" 
-	.string "maravilloso, todo un maquina, nunca\l" 
+	.string "maravilloso, todo un máquina, nunca\l" 
 	.string "tuve una oportunidad...!$"
 
 Darkigym_Text_TiloAlolaPostBattle:
 	.string "¡Quién diría que me encontraría con\n" 
 	.string "una persona tan increíble como tu!\p"
 	
-	.string "¿Que nos acabamos de conocer? da igual,\n" 
-	.string "soy tu mas grande admira-\l" 
+	.string "¿Que nos acabamos de conocer? Da igual,\n" 
+	.string "soy tu más grande admira-\l" 
 	.string "AAAAAAAAAAARG!!!!\p"
 
-	.string "¡NO NO PERDONEME SEÑOR MALROLLO!\n" 
+	.string "¡NO, NO, PERDÓNEME, SEÑOR MALROLLO!\n" 
 	.string "¡NOOOOOOOOO!\p"
 	
 	.string "................................\p"
@@ -986,9 +986,9 @@ Darkigym_Text_MalroIntro:
 	.string "caos, el hater definitivo, aquel que\l" 
 	.string "sumirá a este y todos los mundos que\l"
 	.string "osan molestarme con su estupidez en la\l" 
-	.string "mas angustiosa desesperación y horror\l"
+	.string "más angustiosa desesperación y horror\l"
 	.string "¿Crees acaso que una pulga\l"
-	.string "insignificante como TU, por mas que sea\l"
+	.string "insignificante como TÚ, por más que sea\l"
 	.string "el protagonista podrá contra mi? ¡JA!\p"
 
 	.string "Creo que pronto verás la gravedad de\n" 
@@ -996,7 +996,7 @@ Darkigym_Text_MalroIntro:
 
 Darkigym_Text_MalroDefeat: 
 	.string "Me cago en tu vida y en tus muertos\n" 
-	.string "pulga, ¿como es esto siquiera posible?\p"
+	.string "pulga, ¿cómo es esto siquiera posible?\p"
 
 	.string "Derrotado por una criatura... todos\n" 
 	.string "mis planes, arruinados.$"
@@ -1005,7 +1005,7 @@ Darkigym_Text_MalroPostBattle:
 	.string "¿Es que no lo entiendes?\p"
 
 	.string "Todo esto de viajar en el tiempo fue\n" 
-	.string "para matar al imbecil de MASUDA.\p"
+	.string "para matar al imbécil de MASUDA.\p"
 	
 	.string "¡En este punto de la historia él es\n"
 	.string "quien se convierte en el dios de tu\l" 
@@ -1022,29 +1022,29 @@ Darkigym_Text_MalroPostBattle:
 	.string ".....\p"
 
 	.string "No... no le estoy hablando a esa carcasa\n" 
-	.string "vacia a la que controlas...\p"
+	.string "vacía a la que controlas...\p"
 
-	.string "Tu jugador... si, el imbecil que se\n" 
+	.string "Tu jugador... sí, el imbecil que se\n" 
 	.string "habrá gastado 40 horas de su vida o más\l"
-	.string "en jugar este Hackroom.\p"
+	.string "en jugar este Hackrom.\p"
 
 	.string "Aún no es tarde, incluso un torpe como\n" 
-	.string "tu me puede ser útil, si.\p"
+	.string "tu me puede ser útil, sí.\p"
 	
-	.string "Encuentra a Masuda y partele la boca\n"
-	.string "por mi.\p"
+	.string "Encuentra a Masuda y pártele la boca\n"
+	.string "por mí.\p"
 
-	.string "Si un insignificante ser como tu, pudo\n" 
-	.string "ganarme a mi, quizás tu suerte sea la\l" 
+	.string "Si un insignificante ser como tú, pudo\n" 
+	.string "ganarme a mí, quizás tu suerte sea la\l" 
 	.string "clave para destruir a ese dictador,\l"
-	.string "y quien sabe, hasta podrías invocar a\l" 
+	.string "y quién sabe, hasta podrías invocar a\l" 
 	.string "una leyenda y todo si tienes suerte\l"
 	.string "fu fu fu.\p"
 	
 	.string "Y antes que se me olvide, toma,\n" 
 	.string "la medalla Determinación, como prueba\l" 
 	.string "de que sabes usar el buen y el mal rollo\l" 
-	.string "para superar todos los obstaculos que\l" 
+	.string "para superar todos los obstáculos que\l" 
 	.string "se te presenten, lo necesitarás para\l" 
 	.string "vencer a ese capullo.$"
 
@@ -1062,7 +1062,7 @@ Darkigym_Text_MalroPostBattle2:
     .string "vuelta a la entrada?\p"
 
     .string "Pues te jodes, te devuelves a pie,\n" 
-    .string "tomalo como mi venganza por atreverte\l" 
+    .string "tómalo como mi venganza por atreverte\l" 
     .string "a ganarme fu fu fu.\p"
 
     .string ".....\p"
@@ -1084,9 +1084,9 @@ Darkigym_Text_MalroPostBattle3:
 	.string "Tanto mejor.$"
 
 Darkigym_Text_BuenroIntro:
-	.string "OH! Genialoso, un invitado!\p"
+	.string "¡OH! ¡Genialoso, un invitado!\p"
 
-	.string "Espera, esas ropas... tu no eres\n"
+	.string "Espera, esas ropas... tú no eres\n"
 	.string "un invitado, ¡eres EL humano!\p"
 
 	.string "Me han dicho que debo capturarte.\p"
@@ -1102,16 +1102,16 @@ Darkigym_Text_BuenroIntro:
 	.string "para hacerme frente en un combate?$"
 	
 Darkigym_Text_BuenroIntro2:
-	.string "Bueno, supongo que YO el GRAN Darkizard,\n" 
+	.string "Bueno, supongo que YO, el GRAN Darkizard,\n" 
 	.string "el todo poderoso buen rollo,\l" 
-	.string "Capitan de la guardía imperial del\l" 
-	.string "inframundo y co-lider de este Gymnasio,\l"
-	.string "tendre que detenerte aquí y ahora.\p"
+	.string "Capitán de la guardia imperial del\l" 
+	.string "inframundo y co-líder de este Gimnasio,\l"
+	.string "tendré que detenerte aquí y ahora.\p"
 
 	.string "Nyeh heh heh heh$" 
 	
 Darkigym_Text_BuenroDefeat:
-	.string "Vaya, si que eres fuerte,\n"
+	.string "Vaya, sí que eres fuerte,\n"
 	.string "tienes mi respeto.$"
 
 Darkigym_Text_BuenroPostBattle:
@@ -1126,30 +1126,30 @@ Darkigym_Text_BuenroPostBattle:
 
 	.string "Que son: Alola y Sinnoh.\p"
 
-	.string "Que para mi no estan TAAAAN mal como dice\n"
+	.string "Que para mí no estan TAAAAN mal como dice\n"
 	.string "malro, pero bueno, como decía.\p"
 
 	.string "Para un amante de los puzzles como yo,\n"
 	.string "no podría contentarme con hacer solo\l" 
-	.string "un pasillo simplon en el que se\l" 
+	.string "un pasillo simplón en el que se\l" 
 	.string "avanzara muy lentamente.\p"
 
 	.string "Así que hice un pasillo en el que\n" 
 	.string "avanzas muy lentamente, te puedes\l"
 	.string "extraviar para siempre y te asalten\l" 
 	.string "todo tipo de trampas mortales\l" 
-	.string "meticulozamente colocadas para\l" 
+	.string "meticulosamente colocadas para\l" 
 	.string "enviarte directo a un CENTRO POKéMON.\p"
 	
 	.string "Nyeh heh heh.\p"
 
 	.string "Te advierto, solo un verdadero amante\n" 
 	.string "de los Puzzles y las mazmorras con\l" 
-	.string "la mas ferrea de las voluntades podrá\l"
+	.string "la más férrea de las voluntades podrá\l"
 	.string "superarlo.\p"
 
 	.string "No te preocupes, si pudiste vencerme\n" 
-	.string "a mi, al GRAN DARKIZARD, esta mazmorra\l" 
+	.string "a mí, al GRAN DARKIZARD, esta mazmorra\l" 
 	.string "de la desesperación no sera nada\l"
 	.string "para ti.\p"
 
@@ -1171,26 +1171,26 @@ Darkigym_Text_BuenroPostBattle:
 	.string "operación que asegurará la salvación de\l" 
 	.string "esta rama de las lineas del mundo.\p"
 	
-	.string "¿A que es todo un cacho de pan\n"
+	.string "¿A que es todo un cacho de pan,\n"
 	.string "malrollo?\p"
 
 	.string "Estoy seguro que te agradará.\p" 
 	
 	.string "Nyeh heh heh\p"
 
-	.string "Oh, veo que tu equipo esta decaido.\p"
+	.string "Oh, veo que tu equipo está decaído.\p"
 	
 	.string "(Fuiste curado de las heridas)\p"
 
-	.string "Tanto mejor, sigue adelante humano,\n" 
+	.string "Tanto mejor, sigue adelante, humano,\n" 
 	.string "no pierdas la determinación.$"
 
 Darkigym_Text_BuenroPostBattle2:	
-	.string "Oh, veo que tu equipo esta decaido.\p"
+	.string "Oh, veo que tu equipo está decaído.\p"
 	
 	.string "(Fuiste curado de las heridas)\p"
 
-	.string "Tanto mejor, sigue adelante humano,\n" 
+	.string "Tanto mejor, sigue adelante, humano,\n" 
 	.string "no pierdas la determinación.$"
 	
 Darkigym_Text_BuenroPostBattle3:
@@ -1251,7 +1251,7 @@ Darkigym_Text_Totemderrotado:
 Darkigym_Text_CabezaLylie_Sign:
 	.string "Parece la cabeza disecada de una niña\n" 
 	.string "rubia y de ojos verdes, una expresion\l" 
-	.string "de agonia eterna deforma su cara...$"
+	.string "de agonía eterna deforma su cara...$"
 
 Darkigym_Text_PCDarki_Sign:
 	.string "Aquí hay un correo: Operación Hades en\n" 
@@ -1264,7 +1264,7 @@ Darkigym_Text_PCDarki_Sign:
 	.string "lograremos reunir suficiente autismo de\l" 
 	.string "este mundo como para evitarlo.\p"
 	
-	.string "Micolo y El pinguino no tienen por que\n" 
+	.string "Micolo y El pingüino no tienen por que\n" 
 	.string "sospechar nada... $"
 	
 Darkigym_Text_MaquinaMeteorito_Sign:
@@ -1278,7 +1278,7 @@ Darkigym_Text_MaquinaMeteorito_Sign:
 Darkigym_Text_CartaMagma1_Sign:
 	.string "Es una invitación de un tal Micolo a\n"
 	.string "distintas personas para que defiendan\l" 
-	.string "su guarida como lideres de Gymnasio.\p"
+	.string "su guarida como líderes de gimnasio.\p"
 	
 	.string "El final está marcado con una pata\n" 
 	.string "de pinguino...$"
@@ -1286,7 +1286,7 @@ Darkigym_Text_CartaMagma1_Sign:
 Darkigym_Text_CartaMagma2_Sign:
 	.string "Querido Señor Micolo, Yo y mi hermano\n" 
 	.string "malro estaremos complacidos de ser\l" 
-	.string "lideres de gymnasio de su liga autista.\p"
+	.string "líderes de gimnasio de su liga autista.\p"
 	
 	.string "Malro esta especialmente emocionado,\n" 
 	.string "dice algo que todo entra en sus planes,\l" 
@@ -1309,17 +1309,17 @@ Darkigym_ParedInvisible_Text_0:
 
 Darkigym_ParedInvisible_Text_1:
 	.string "Debes vencer a todos los entrenadores\n"
-	.string "de esta zona, para poder seguir adelante.$"
+	.string "de esta zona para poder seguir adelante.$"
 	
 Darkigym_Text_DarkiBuenroRematchIntro:
-    .string "¿Qué pasa? ¿Te dió la nostalgia\n"
+    .string "¿Qué pasa? ¿Te dio la nostalgia\n"
 	.string "y quieres otra batalla contra mi?\p"
 
 	.string "Bueno, no te preocupes,\n"
 	.string "YO el GRAN Darkizard,\l" 
 	.string "el todo poderoso buen rollo,\l" 
-	.string "Capitan de la guardía imperial del\l" 
-	.string "inframundo y co-lider de este Gymnasio,\l"
+	.string "Capitán de la guardia imperial del\l" 
+	.string "inframundo y co-líder de este gimnasio,\l"
 	.string "aceptará tu reto.\p"
 	
 	.string "Nyeh heh heh heh$" 
@@ -1329,7 +1329,7 @@ Darkigym_Text_DarkiBuenroRematchDefeat:
 	.string "Nyeh heh heh heh$"
 	
 Darkigym_Text_DarkiMalroRematchIntro:
-    .string "¿Qué pasa? ¿Te dió instintos suicidas\n"
+    .string "¿Qué pasa? ¿Te dio instintos suicidas\n"
 	.string "y quieres otra batalla contra mi?\p"
 
 	.string "¡JAJAJAJAJAJAJA!\p"
@@ -1344,4 +1344,3 @@ Darkigym_Text_DarkiMalroRematchIntro:
 
 Darkigym_Text_DarkiMalroRematchDefeat:
 	.string "¡Debemos derrotar juntos a MASUDA!$" 
-

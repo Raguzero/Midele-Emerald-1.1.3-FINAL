@@ -362,7 +362,7 @@ MeteorFalls_1F_1R_Text_Micolo:
 
 	.string "Si secan los mares, los\n"
 	.string "humanos nos quedamos sin agua\l"
-	.string "para poder sobrevivir.\p"
+	.string "para poder sobrevivir n.n\p"
 	
 	.string "Mientras que si aumentan el\n"
 	.string "nivel de mar...\p"
@@ -379,7 +379,7 @@ MeteorFalls_1F_1R_Text_Micolo:
 	.string "...\p"
 	
 	.string "¿Qué cómo lo sé?\n"
-	.string "Todo mico tiene sus secretos...\p"
+	.string "Todo mico tiene sus secretos n.n\p"
 
 	.string "xDDDDDDDDDDDDDDDDDD\p"
 	

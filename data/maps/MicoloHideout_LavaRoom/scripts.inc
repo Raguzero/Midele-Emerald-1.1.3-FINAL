@@ -189,8 +189,8 @@ MicoloHideout_LavaRoom_Text_MDragonIntro:
 	.string "todos los formatos AG, UBER, OU, UU,\l"
 	.string "RU, NU, PU, FU, ZU...\p"
 
-	.string "Estoy seguro de que has oido\n" 
-	.string "hablar de mi.\p"
+	.string "Estoy seguro de que has oído\n" 
+	.string "hablar de mí.\p"
 
 	.string "Así que me he estado preparando a\n"
 	.string "conciencia para este momento.\l"
@@ -200,7 +200,7 @@ MicoloHideout_LavaRoom_Text_MDragonIntro:
 	.string "Por eso he llegado hasta aquí, porque\n"
 	.string "solo llegan los mejores entrenadores.\p"
 
-	.string "He superado todos los obstaculos que\n"
+	.string "He superado todos los obstáculos que\n"
 	.string "se me han puesto por delante y\l"
 	.string "ya solo me queda uno más para poder\l"
 	.string "alcanzar la LIGA POKéMON, y ese\l"
@@ -229,8 +229,8 @@ MicoloHideout_LavaRoom_Text_MaestroArenaIntro:
 	
 	.string "Por otra parte...\p"
 
-	.string "¿Tu también has superado todos estos\n"
-	.string "desafíos de los lideres?\l"
+	.string "¿Tú también has superado todos estos\n"
+	.string "desafíos de los líderes?\l"
 	.string "¡Qué interesante! ¡Muy interesante!\p"
 	
 	.string "¡He venido a desafiar a esta LIGA\n"

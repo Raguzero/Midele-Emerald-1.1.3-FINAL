@@ -333,17 +333,17 @@ ElPrincipe_DespuesDeBatalla:
 	
 	.string "...\p"
 	
-	.string "¿Qué 4 climas en un equipo de BATALLA\n"
+	.string "¿Que 4 climas en un equipo de BATALLA\n"
 	.string "DOBLES es una estupidez?\p"
 	
 	.string "...\p"
 	
-	.string "¿Y qué no puedo depender solo de mi\n"
+	.string "¿Y que no puedo depender solo de mi\n"
 	.string "ROSERADE para que toda la estrategia\l" 
 	.string "funcione de forma óptima?\p"
 	
 	.string "¿Estás intentando decir que mi equipo es\n"
-	.string "es malisimo y que lo rehaga de 0?\p"
+	.string "malísimo y que lo rehaga de 0?\p"
 	
 	.string "¡No te mofes de mí, lo que pasa es que\n"
 	.string "no tienes imaginación!$"
@@ -479,7 +479,7 @@ JProgamer_AntesBatalla:
 	.string "Y los alimentos transgénicos y la leche\n"
 	.string "materna son claramente cancerígenas.\p"
 	
-	.string "¿Que será lo próximo? ¿Ponermos en fila\n"
+	.string "¿Qué será lo próximo? ¿Ponermos en fila\n"
 	.string "como borregos para que nos metan un\l"
 	.string "PCR por el culo?\p"
 	
@@ -535,7 +535,7 @@ Castillo_DespuesDeBatalla:
 	.string "serena no me haga nada por decir esto$" 
 	
 ForbiddenForest_Text_Santygrass_TalkToHimself:
-	.string "Que extraño es este bosque...\p"
+	.string "Qué extraño es este bosque...\p"
 
 	.string "Por mucho que lo intente quemar...\n"
 	.string "¡Las llamas se vuelven a apagar!\p"
@@ -548,18 +548,18 @@ ForbiddenForest_Text_Santygrass_TalkToHimself:
 	.string "es el protector de este bosque?$"
 
 ForbiddenForest_Text_Santygrass_Talks:
-	.string "¡Oh! ¡No me dí cuenta de que estabas\n"
+	.string "¡Oh! ¡No me di cuenta de que estabas\n"
 	.string "ahí!\p"
 
 	.string "Así que eres {PLAYER} ¿eh?\n"
 	.string "He oido cosas impresionantes de tí.\p"
 	
 	.string "Yo soy SANTYGRASS, uno de los cuatro\n"
-	.string "lideres de GYM de MICOLANDIA.\l"
+	.string "líderes de GYM de MICOLANDIA.\l"
 	.string "¿Me estabas buscando?\p"
 	
 	.string "De acuerdo, ahora mismo vuelvo a mi\n"
-	.string "GYMNASIO para esperar tu desafío.\l"
+	.string "GIMNASIO para esperar tu desafío.\l"
 	.string "¡No te lo pondré fácil!\p"
 
 	.string "Y recuerda: ¡No hay nada mejor\n"

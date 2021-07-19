@@ -152,7 +152,7 @@ Javisito_MensajeDerrota:
 Javisito_DespuesDeBatalla:
 	.string "Todo el STAFF estamos buscando\n"
 	.string "a MELKOR para que deje de hacer\l"
-	.string "el tonto con el POKÉMON GO y se\l"
+	.string "el tonto con el POKéMON GO y se\l"
 	.string "ponga a administrar PxP.\p"
 	
 	.string ":ph43r:$"
@@ -187,4 +187,3 @@ Route113_Text_TrainerTipsRegisterKeyItems: @ 81F2471
 Route113_Text_GlassWorkshopSign: @ 81F24F8
 	.string "GLASS WORKSHOP\n"
 	.string "“Turning Volcanic Ash into Glass Items”$"
-

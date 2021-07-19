@@ -30,13 +30,13 @@ EverGrandeCity_EventScript_SetVisitedEverGrande:: @ 81E7D46
 	
 Kaisser_AntesBatalla: 
     .string "Acabo de meterme en el google\n"
-	.string "eart para ver si habia alguien\l"
+	.string "earth para ver si había alguien\l"
 	.string "pescando en el pantano, pues hoy hace\l" 
-	.string "mucho viento y no me apetecia ir a\l"
+	.string "mucho viento y no me apetecía ir a\l"
 	.string "lo tonto.\p"
     
 	.string "Hasta que has venido a tocar los\n"
-	.string "huevos, asi que vamos a luchar pirata.$"
+	.string "huevos, así que vamos a luchar, pirata.$"
 	
 Kaisser_MensajeDerrota: 
     .string "Huehuehue$"
@@ -58,4 +58,3 @@ EverGrandeCity_Text_CitySign: @ 81E7D89
 	.string "EVER GRANDE CITY\p"
 	.string "“The paradise of flowers, the sea,\n"
 	.string "and POKéMON.”$"
-

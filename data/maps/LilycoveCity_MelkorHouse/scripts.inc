@@ -33,8 +33,7 @@ LilycoveCity_MelkorHouse_EventScript_Melkor_2:
 	playse SE_PIN
 	applymovement 5, Common_Movement_ExclamationMark
 	waitmovement 0
-	applymovement 5, Common_Movement_FaceDown
-	waitmovement 0
+	faceplayer
 	msgbox LilycoveCity_MelkorHouse_EventScript_Melkor_Text_1
 	msgbox LilycoveCity_MelkorHouse_EventScript_Melkor_Text_2, MSGBOX_YESNO
 	compare VAR_RESULT, 1

@@ -14,7 +14,7 @@ IzabeIsland_Lobby_EventScript_IceSample::
 	end
 	
 IzabeIsland_Lobby_Text_Receptionist::
-	.string "IZABE ISLAND se enorgullece de estar a la\n"
+	.string "IZABE se enorgullece de estar a la\n"
 	.string "última en investigación marina y naval.\p"
 	.string "Trabajamos junto a los ASTILLEROS y el\n"
 	.string "MUSEO OCEÁNICO de CIUDAD PORTUAL.$"

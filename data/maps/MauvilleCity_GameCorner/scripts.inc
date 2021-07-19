@@ -1027,7 +1027,7 @@ MauvilleCity_GameCorner_Text_Ghaddar:
 	.string "¡HACHA al GACHA!\n"
 	.string "¡Este lugar es una vergüenza!\p"
 
-	.string "¿Qué no entiendes por qué?\n"
+	.string "¿Que no entiendes por qué?\n"
 	.string "Deja que te lo explique.\p"
 
 	.string "El GACHA es un conjunto de\n"
@@ -1037,14 +1037,14 @@ MauvilleCity_GameCorner_Text_Ghaddar:
 	.string "en cosas superfluas cayendo directos\l"
 	.string "a una adicción.\p"
 
-	.string "Estas compañias sacan de forma\n"
+	.string "Estas compañías sacan de forma\n"
 	.string "gratuita estos juegos llenos\l"
 	.string "de gachas para así captar a sus\l"
-	.string "nuevas victimas.\p"
+	.string "nuevas víctimas.\p"
 	
-	.string "¡Pero todos vosotros no haceis\n"
-	.string "mas que normalizar el gacha hablando\l"
-	.string "de ello y haciendo que mas gente\l"
+	.string "¡Pero todos vosotros no hacéis\n"
+	.string "más que normalizar el gacha hablando\l"
+	.string "de ello y haciendo que más gente\l"
 	.string "caiga en el pozo inmundo de\l"
 	.string "los GACHAS!\p"
 	
@@ -1060,9 +1060,9 @@ MauvilleCity_GameCorner_Text_Ghaddar_ENCONTRA:
 	.string "Genshin Impact de los móviles!$"
 	
 MauvilleCity_GameCorner_Text_GhaddarIntro:
-	.string "Así que eres otra victima de la\n"
+	.string "Así que eres otra víctima de la\n"
 	.string "manipulación de cerebros que hacen\l"
-	.string "las compañias con los GACHAS...\p"
+	.string "las compañías con los GACHAS...\p"
 
 	.string "Si a pesar de mis argumentos, decides\n"
 	.string "jugar en este sitio...\p"
@@ -1080,7 +1080,7 @@ MauvilleCity_GameCorner_Text_GhaddarDefeat:
 	.string "bien mi nombre! :/$"
 
 MauvilleCity_GameCorner_Text_Ghaddar_FALTAEMPATIA:
-	.string "Bah, te falta empatia.\p"
+	.string "Bah, te falta empatía.\p"
 	
 	.string "Sabes que yo tengo razón.\p"
 	

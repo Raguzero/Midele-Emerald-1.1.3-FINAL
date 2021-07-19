@@ -220,8 +220,8 @@ Fiery_Path_EventScript_Chinpo::
 	end
 
 Fiery_Path_Text_ChinpoIntro: 
-	.string "PxP... quien te ha visto\n"
-	.string "y quien te ve...\p"
+	.string "PxP... quién te ha visto\n"
+	.string "y quién te ve...\p"
 	
 	.string "Quedarás en nuestros\n"
 	.string "recuerdos.\p"
@@ -230,14 +230,14 @@ Fiery_Path_Text_ChinpoIntro:
 	
 	.string "...\p"
 	
-	.string "¿EING? ¡Pero si tu no eres\n"
+	.string "¿EING? ¡Pero si tú no eres\n"
 	.string "de los nuestros!$"
 
 Fiery_Path_Text_ChinpoDefeat: 
 	.string "¿BULBASAUR? ¿Qué te ha pasado?$"
 
 Fiery_Path_Text_ChinpoPostBattle: 
-	.string "Parece que me he pasado dandole\n"
+	.string "Parece que me he pasado dándole\n"
     .string "las anfetavitaminas a mi BULBASAUR...\p"
     
     .string "¡Se le salen hasta los ojos de\n"
@@ -269,7 +269,7 @@ Fiery_Path_Text_KadereteIntro:
 	.string "Y por tanto tampoco somos ya la\n"
 	.string "Mafia PxP...\p"
 	
-	.string "¡Bah, que mas da! ¡Pelea!$"
+	.string "¡Bah, qué más da! ¡Pelea!$"
 
 Fiery_Path_Text_KadereteDefeat: 
 	.string "¿Cómo has resistido la HYPNOSIS\n"
@@ -351,4 +351,3 @@ Fiery_Path_Text_Totemaparece:
 	
 Fiery_Path_Text_Totemderrotado:
 	.string "CENTISKORCH disappeared...$"
-

@@ -61,6 +61,6 @@ IzabeIsland_Town_Text_Cameraman::
 	.string "LAPRAS.\p"
 	.string "¿Que cómo pueden vivir LAPRAS en un lago\n"
 	.string "tan pequeño?\p"
-	.string "Fácil: este lago es más profundo de lo\n"
+	.string "Pues... este lago es más profundo de lo\n"
 	.string "que parece, probablemente los LAPRAS\l"
 	.string "vivan en sus profundidades.$"

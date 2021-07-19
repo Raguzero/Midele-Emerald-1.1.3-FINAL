@@ -631,37 +631,37 @@ Route103_Text_AlteringCaveChoose:
 	.string "Elige Altering Cave.$"
 	
 Route103_Text_AlteringCaveNoChange:
-	.string "Vuelve cuando quieras$"
+	.string "Vuelve cuando quieras.$"
 	
 Route103_Text_AlteringCaveGen1:
-	.string "Altering Cave ahora es Gen 1$"
+	.string "Altering Cave ahora es Gen 1.$"
 
 Route103_Text_AlteringCaveGen2:
-	.string "Altering Cave ahora es Gen 2$"
+	.string "Altering Cave ahora es Gen 2.$"
 	
 Route103_Text_AlteringCaveGen3:
-	.string "Altering Cave ahora es Gen 3$"
+	.string "Altering Cave ahora es Gen 3.$"
 	
 Route103_Text_AlteringCaveGen4:
-	.string "Altering Cave ahora es Gen 4$"
+	.string "Altering Cave ahora es Gen 4.$"
 	
 Route103_Text_AlteringCaveGen5:
-	.string "Altering Cave ahora es Gen 5$"
+	.string "Altering Cave ahora es Gen 5.$"
 	
 Route103_Text_AlteringCaveGen6:
-	.string "Altering Cave ahora es Gen 6$"
+	.string "Altering Cave ahora es Gen 6.$"
 	
 Route103_Text_AlteringCaveGen7:
-	.string "Altering Cave ahora es Gen 7$"
+	.string "Altering Cave ahora es Gen 7.$"
 	
 Route103_Text_AlteringCaveGen8:
-	.string "Altering Cave ahora es Gen 8$"
+	.string "Altering Cave ahora es Gen 8.$"
 	
 Route103_Text_AlteringCaveNPC:
 	.string "¿Conoces esta cueva?\p"
 	.string "La llaman Altering Cave.\p"
 
-	.string "En ella salen pokemon especiales\n"
+	.string "En ella salen POKéMON especiales\n"
 	.string "que van cambiando cada día.\p"
 
 	.string "Eso puede ocasionar un problema\n"
@@ -669,10 +669,10 @@ Route103_Text_AlteringCaveNPC:
 	
 	.string "¡Pero no tienes de que preocuparte!\p"
 	
-	.string "Con mis poderes psiquicos, por un\n"
-	.string "módico precio de 20000, cambiaré\p"
+	.string "Con mis poderes psíquicos, por un\n"
+	.string "módico precio de 20000¥, cambiaré\p"
 	.string "la forma en que funciona esta cueva\n"
-	.string "para elegir que tipo de POKÉMON\p"
+	.string "para elegir que tipo de POKéMON\p"
 	.string "especiales quieres hacer aparecer.\p"
 	
 	.string "¿Qué te parece? ¿Aceptas el trato?$"
@@ -737,4 +737,3 @@ Route103_Text_Avader_NoDex:
 	.string "POKéDEX, y eso te hace un NOOB de\l"
 	.string "manual, así que mejor vete, que no\l"
 	.string "quiero que te vean comigo, jeje.$"
-

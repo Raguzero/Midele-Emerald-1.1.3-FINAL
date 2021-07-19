@@ -18,7 +18,7 @@ Micolandia_House2_Girl1_Text:
 	.string "¡Eso me encandiló! ¡Oooh!$"
 	
 Micolandia_House2_Girl2_Text:
-	.string "Pero a mi también me dijo lo\n"
+	.string "Pero a mí también me dijo lo\n"
 	.string "mismo...\p"
 
 	.string "¿MICOLO le dice lo mismo a todas?$"

@@ -222,7 +222,7 @@ IzabeIsland_OutskirtsCave_Text_Lavender_ExplainSituation::
 	.string "Solo había venido aquí a investigar,\n"
 	.string "supongo que me entretuve demasiado.\p"
 	.string "Por cierto, intuyo habrás visto a ese\n"
-	.string "gigante... tengo información sobre él.\p"
+	.string "TOTEM... tengo información sobre él.\p"
 	.string "¿Cómo? ¿Que quieres saberla? Bueno, si\n"
 	.string "me derrotas te la diré.$"
 
@@ -231,7 +231,7 @@ IzabeIsland_OutskirtsCave_Text_Lavender_BattleDefeated::
 	.string "Te odio.$"
 
 IzabeIsland_OutskirtsCave_Text_Lavender_TryGiveItem::
-	.string "Esos gigantes han sido creados por\n"
+	.string "Esos TOTEMS han sido creados por\n"
 	.string "MICOLO, el científico legendario.\p"
 	.string "MICOLO solía vivir en esta ISLA,\n"
 	.string "pero un día desapareció.\p"

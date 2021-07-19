@@ -1021,11 +1021,11 @@ Route104_EventScript_Josito::
 	
 Josito_AntesBatalla: 
 	.string "Empiezo por J,\n"
-	.string "termino por Osito."
+	.string "termino por Osito. "
 	.string "¿Quién soy?$"
 
 Josito_MensajeDerrota: 
-	.string "GGs, que vayan bien las próximas$"
+	.string "GGs, que vayan bien las próximas.$"
  
 Josito_DespuesDeBatalla:
 	.string "En realidad Psyduck no explota,\n"

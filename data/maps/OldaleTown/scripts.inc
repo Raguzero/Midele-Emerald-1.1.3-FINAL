@@ -378,16 +378,16 @@ OldaleTown_Text_MewBlocksPath: @ 81E9313
 	.string "Un raro POKéMON te bloquea el camino...\p"
 	.string "Tiene una nota con algo escrito:\n"
 	.string "“Si quieres que mi POKéMON te deje paso,\l"
-	.string " espera a que termine mi investigación\l"
-	.string " en la ROUTE 103.”\p"
+	.string "espera a que termine mi investigación\l"
+	.string "en la ROUTE 103.”\p"
 	.string "“Firmado, tu madre. Jeje.”$"
 
 OldaleTown_Text_MewHoldingNote: @ 81E939A
 	.string "Parece tratarse de un raro POKéMON...\p"
 	.string "Tiene una nota con algo escrito:\n"
 	.string "“Si quieres que mi POKéMON te deje paso,\l"
-	.string " espera a que termine mi investigación\l"
-	.string " en la ROUTE 103.”\p"
+	.string "espera a que termine mi investigación\l"
+	.string "en la ROUTE 103.”\p"
 	.string "“Firmado, tu madre. Jeje.”$"
 
 OldaleTown_Text_MewAbandoned: @ 81E93F8

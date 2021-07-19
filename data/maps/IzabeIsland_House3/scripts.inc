@@ -211,13 +211,13 @@ IzabeIsland_House3_Text_LabMon::
 	.string "Hay una POKé BALL junto a una nota.\n"
 	.string "“Dejo aquí a mi compañero más fiel. Él\l"
 	.string "se encargará de vigilar el LABORATORIO\l"
-	.string "en mi ausencia. Cuídate, amigo, volveré.$"
+	.string "en mi ausencia. Cuídate, amigo, volveré.”$"
 
 IzabeIsland_House3_Text_LabMonAfterReceived::
 	.string "Ya solo queda la nota en la mesa.\n"
 	.string "“Dejo aquí a mi compañero más fiel. Él\l"
 	.string "se encargará de vigilar el LABORATORIO\l"
-	.string "en mi ausencia. Cuídate, amigo, volveré.$"
+	.string "en mi ausencia. Cuídate, amigo, volveré.”$"
 
 IzabeIsland_House3_Text_ReceivedMon: @ 82706E8
 	.string "{PLAYER} received FLOETTE!$"

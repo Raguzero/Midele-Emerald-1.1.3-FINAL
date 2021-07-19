@@ -53,8 +53,8 @@ IzabeIsland_Outskirts_Text_YoungsterDefeat::
 	.string "Mis queridos roedores...$"
 
 IzabeIsland_Outskirts_Text_YoungsterPostBattle::
-	.string "Las ratas no necesitan bombillas, su\n"
-	.string "majestuosidad ilumina hasta la más\l"
+	.string "Las RATTATA no necesitan bombillas,\n"
+	.string "su majestuosidad ilumina hasta la más\l"
 	.string "profunda cueva.$"
 
 IzabeIsland_Outskirts_EventScript_Hiker::

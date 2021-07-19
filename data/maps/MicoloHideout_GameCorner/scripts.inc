@@ -888,11 +888,11 @@ MicoloHideout_VentaTickets_Text:
 	.string "¡Eso no es asunto tuyo!\p"
 	
 	.string "Bah, te los vendo por solo\n"
-	.string "50.000 Pokeyens.\l"
+	.string "50.000¥.\l"
 	.string "¿Trato hecho?$"
 
 MicoloHideoutTickets_Text_NotEnoughMoney:
-	.string "¿Me estas intentando\n"
+	.string "¿Me estás intentando\n"
 	.string "timar?$"
 	
 MicoloHideout_SiVendido_Text:

@@ -173,7 +173,7 @@ MicoloHideout_ExperimentRoom_Text_CursedSlowbroIntro:
 	.string "no debería existir por ser\l" 
 	.string "un maldito ERROR.\p"
 
-	.string "Los conceptos en si mismos no tienen\n"
+	.string "Los conceptos en sí mismos no tienen\n"
 	.string "significado, la intención que imprimes\l" 
 	.string "en el concepto, le da significado.\p"
 
@@ -186,9 +186,9 @@ MicoloHideout_ExperimentRoom_Text_CursedSlowbroIntro:
 	.string "Nada tiene sentido, y al mismo tiempo\n"
 	.string "todo puede tener sentido.\p"
 	
-    .string "Al estar en desventaja soy una victima,\n"
+    .string "Al estar en desventaja soy una víctima,\n"
 	.string "pero al mostrar poder...\l" 
-	.string "¡Te convierto en victima!$"	
+	.string "¡Te convierto en víctima!$"	
 
 MicoloHideout_ExperimentRoom_Text_CursedSlowbroDefeat: 
 	.string "¡Mejor vida es morir que vivir muerto!\p"
@@ -202,7 +202,7 @@ MicoloHideout_ExperimentRoom_Text_CursedSlowbroPostBattle:
 	.string "Mas esto ya no es necesario,\n" 
 	.string "me voy de este lugar.\p"
 	
-	.string "Antes de irme si debo decir\n" 
+	.string "Antes de irme sí debo decir\n" 
 	.string "que la mayoría son idiotas,\l" 
 	.string "y que los idiotas son mayoría.\p"
 
@@ -211,20 +211,20 @@ MicoloHideout_ExperimentRoom_Text_CursedSlowbroPostBattle:
 	.string "al resto no han sancionado.$"
 
 MicoloHideout_ExperimentRoom_Text_Javisoto2Intro: 
-	.string "Buenas, ¿cuando haran el evento de\n" 
+	.string "Buenas, ¿cuando harán el evento de\n" 
 	.string "la Flauta Azur y del Floette Eterno?\p" 
 	
-	.string "Aun estoy esperando estos eventos.$"
+	.string "Aún estoy esperando estos eventos.$"
 
 MicoloHideout_ExperimentRoom_Text_Javisoto2Defeat: 
-	.string "Y algo me dice que aun tengo que\n" 
+	.string "Y algo me dice que aún tengo que\n" 
 	.string "esperar mas.$"
 
 MicoloHideout_ExperimentRoom_Text_Javisoto2PostBattle: 
 	.string "Supongo que no puedo esperar mucho\n" 
-	.string "de aquellos que arruinaron Pokemon\l" 
+	.string "de aquellos que arruinaron POKéMON\l" 
 	.string "y monetizaron los shinys, y todos\l"
-	.string "sabemos que tambien arruinaran Sinnoh.$"
+	.string "sabemos que también arruinarán Sinnoh.$"
 	
 MicoloHideout_ExperimentRoom_Text_UtaIntro: 
 	.string "No deberías molestarte en combatir.\n"

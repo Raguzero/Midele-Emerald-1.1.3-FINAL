@@ -204,7 +204,7 @@ Micolandia_Text_TopoVigilante:
 	.string "Pero este lugar es exclusivo.\p"
 	
 	.string "Solo te puedo dejar pasar si has\n"
-	.string "conseguido la Medalla de los 4 lideres\l"
+	.string "conseguido la Medalla de los 4 líderes\l"
 	.string "de gym de MICOLANDIA.$"
 	
 Micolandia_Text_TopoVigilante2:
@@ -217,7 +217,7 @@ Micolandia_Text_TopoVigilante2:
 	.string "impresionante Micoliga.\p"
 	
 	.string "Ya me he enterado que has vencido a los\n"
-	.string "lideres gym de MICOLANDIA.\p"
+	.string "líderes gym de MICOLANDIA.\p"
 	
 	.string "Te has ganado el derecho a dejarte pasar\n"
 	.string "por esta puerta.\p"
@@ -258,15 +258,15 @@ Micolandia_Text_BienvenidaSign:
 	.string "Liga Pokemon Midelar.\p"
 	
 	.string "¡Deberás superar la prueba\n"
-	.string "de los cuatro lideres de Gymnasio\p"
+	.string "de los cuatro líderes de gimnasio\p"
 	.string "para participar en la nueva y\n"
 	.string "extraordinario Liga Pokemon Midelar!$"
 	
 Micolandia_Text_LigaSign:
-	.string "LIGA POKÉMON MIDELAR$"
+	.string "LIGA POKéMON MIDELAR$"
 	
 Micolandia_GymNoroesteSign:
-	.string "POKEMON GYM Nº1\n"
+	.string "POKéMON GYM Nº1\n"
 	.string "LEADER: SANTYGRASS\l"
 	.string "“TEMÁTICA: HIERBA QUEMADA”$"
 
@@ -276,17 +276,17 @@ Micolandia_GymSuroesteSign:
 	.string "“TEMÁTICA: ????”$"
 
 Micolandia_GymSuresteSign:
-	.string "POKEMON GYM Nº3\n"
+	.string "POKéMON GYM Nº3\n"
 	.string "LEADER: GOOSES\l"
 	.string "“TEMÁTICA: FRÍO INVERNAL”$"
 	
 Micolandia_GymNoresteSign:
-	.string "POKEMON GYM Nº4\n"
+	.string "POKéMON GYM Nº4\n"
 	.string "LEADER: DARKIZARD\l"
 	.string "“TEMÁTICA: BUENROLLO y MALROLLO”$"
 	
 Micolandia_CibercafeSign:
-	.string "CIBERCAFE BATALLA$"
+	.string "CIBERCAFÉ BATALLA$"
 	
 Micolandia_Text_ForestSign:
 	.string "Hacia la derecha, entrada a\n" 
@@ -345,7 +345,7 @@ Micolandia_Dueno_de_Kirlia_Text:
 	.string "¿Quieres que te lleve a tu casa?$"
 	
 Micolandia_Text_Rotonda:
-	.string "¡Oye quitate de la rotonda que\n"
+	.string "¡Oye, quítate de la rotonda que\n"
 	.string "espantas los clientes de esta señorita!\l"
 	.string "¡Estoy trabajando y esta es mi zona!\p"
 	
@@ -376,4 +376,3 @@ Micolandia_Text_Michoh:
 	
 	.string "¡Qué tiempos aquellos de flood!\n"
 	.string "¡No los olvides, nunca!$"
-

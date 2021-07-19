@@ -129,7 +129,7 @@ GymSanty_Text_GymGuideAdvice2:
 	.string "de MICOLANDIA, de forma ordenada.\p"
 	
 	.string "El entrenador que sea capaz de derrotar\n" 
-	.string "a los 4 LIDERES será invitado para\l" 
+	.string "a los 4 LÍDERES será invitado para\l" 
 	.string "participar en la maravillosa MICOLIGA.\p"
 	
 	.string "¿Qué es la MICOLIGA?\p"
@@ -179,7 +179,7 @@ GymSanty_Text_GymGuidePostVictory:
 	.string "¡WOW! ¡Así que venciste a SANTYGRASS!$"
 
 GymSanty_Text_SantyShifteo0Intro:
-    .string "Te doy la bienvenida a mi gymnasio.\p" 
+    .string "Te doy la bienvenida a mi gimnasio.\p" 
     .string "Espero que te agrade el aroma que\n"
 	.string "hay aquí.\p"
 
@@ -198,7 +198,7 @@ GymSanty_Text_SantyShifteo0Defeat:
     .string "“CELEBI usa un extraño poder”$"
 
 GymSanty_Text_SantyShifteo1Intro:
-    .string "Te doy la bienvenida a mi gymnasio.\p" 
+    .string "Te doy la bienvenida a mi gimnasio.\p" 
     .string "Espero que te agrade el aroma que\n"
 	.string "hay aquí.\p"
     .string "¿La medalla?\p"
@@ -222,7 +222,7 @@ GymSanty_Text_SantyShifteo1Defeat:
     .string "“CELEBI usa un extraño poder”$"
 
 GymSanty_Text_SantyShifteo2Intro:
-    .string "Te doy la bienvenida a mi gymnasio.\p" 
+    .string "Te doy la bienvenida a mi gimnasio.\p" 
     .string "Espero que te agrade el aroma que\n"
 	.string "hay aquí.\p"
 	
@@ -238,7 +238,7 @@ GymSanty_Text_SantyShifteo2Defeat:
     .string "How Could this Happen\n"
     .string "Even with the apocrypha!?\p"
     .string "Está bien, toma la medalla\n"
-    .string "y vete que ya me estas quemando.$"
+    .string "y vete que ya me estás quemando.$"
 
 GymSanty_Text_ReceivedBadge:
 	.string "{PLAYER} recibió la MEDALLA HIERBA\n"
@@ -284,11 +284,11 @@ GymSanty_Text_GymStatueCertified:
 	
 GymSanty_Text_SantyRematchIntro:
     .string "Así que has venido de nuevo a\n"
-	.string "visitarme a mi gymnasio.\p"
+	.string "visitarme a mi gimnasio.\p"
 	
     .string "Si es que no hay nada mejor que\n"
 	.string "cuando las plantas arden.\l"
-	.string "¡Todos son atraidos por este aroma!\p"
+	.string "¡Todos son atraídos por este aroma!\p"
 
     .string "Ha pasado tiempo desde nuestra batalla\n"
     .string "quemada. ¡Te reto a una revancha!$"
@@ -296,4 +296,3 @@ GymSanty_Text_SantyRematchIntro:
 GymSanty_Text_SantyRematchDefeat:
     .string "How Could this Happen\n"
     .string "Even with the apocrypha!?$"
-

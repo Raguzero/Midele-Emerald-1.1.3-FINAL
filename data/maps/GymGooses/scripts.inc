@@ -1074,19 +1074,19 @@ GymGoosesStatus_Text:
 	.string "un estado pernicioso!$"
 	
 GymGoosesStatus_Poison:
-	.string "¡ENVENENATE!$"
+	.string "¡ENVENÉNATE!$"
 	
 GymGoosesStatus_Toxic:
-	.string "¡INTOXICATE!$"
+	.string "¡INTOXÍCATE!$"
 	
 GymGoosesStatus_Slp:
-	.string "¡DUERMETE!$"
+	.string "¡DUÉRMETE!$"
 	
 GymGoosesStatus_Prz:
-	.string "¡PARALIZATE!$"
+	.string "¡PARALÍZATE!$"
 	
 GymGoosesStatus_Burn:
-	.string "¡QUEMATE!$"
+	.string "¡QUÉMATE!$"
 	
 GymGoosesStatus_Freeze:
 	.string "¡CONGÉLATE!$"
@@ -1113,7 +1113,7 @@ Quiz4_Text:
 	
 Quiz5_Text:
 	.string "¿Quién dijo la frase:\n"
-	.string "Arena, eres un mierdas?$"
+	.string "Maestro Arena, eres un mierdas?$"
 
 Quiz6_Text:
 	.string "¿Quién se considera el mayor\n" 
@@ -1235,7 +1235,7 @@ GymGooses_Text_GymGuideAdvice:
 
 GymGooses_Text_GymGuidePostVictory:
 	.string "¡Enhorabuena! ¡Has vencido a\n"
-	.string "todos los lideres de GYM!\p"
+	.string "todos los líderes de GYM!\p"
 
 	.string "¡Ya puedes participar\n"
 	.string "en la MICOLIGA!\p"
@@ -1273,7 +1273,7 @@ GymGooses_TeleportBoy_Text:
 
 	.string "Por cierto, si quieres salir\n"
 	.string "del GYM, te puedo regresar a la\l"
-	.string "entrada. Eso si, ahora podrás\l" 
+	.string "entrada. Eso sí, ahora podrás\l" 
 	.string "volver a esta misma sala con la\l"
 	.string "ayuda de mi otro compañero.\p"
 
@@ -1323,7 +1323,7 @@ GymGooses_Text_ExplainBadgeTakeThis:
 	.string "DARKIZARD, en el último GYM.\p"
 	
 	.string "El HATE sobre DPP que él desborda\n"
-	.string "lo ha transformado en GYMNASIO\p"
+	.string "lo ha transformado en GIMNASIO\p"
 	
 	.string "Mucha suerte, ¡La necesitarás!$"
 	

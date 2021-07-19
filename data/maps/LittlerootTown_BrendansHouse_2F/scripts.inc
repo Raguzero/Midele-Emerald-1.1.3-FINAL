@@ -376,7 +376,7 @@ LittlerootTown_PlayersHouse_2F_Text_JZombieIntro::
 	
 	.string "Soy JZOMBIE, al que venciste en\n"
 	.string "GRANITE CAVE hace tiempo y del que\l"
-	.string "te reiste de todas sus teorias de\l"
+	.string "te reiste de todas sus teorías de\l"
 	.string "la existencia de KALOS SUR.\p"
 	
 	.string "Te dije que cuando descubriese donde\n"

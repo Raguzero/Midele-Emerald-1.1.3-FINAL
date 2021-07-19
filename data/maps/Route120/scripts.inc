@@ -506,13 +506,13 @@ Route120_Text_RouteSign121: @ 81F5DE4
 	.string "{LEFT_ARROW} ROUTE 120$"
 	
 Route120_Text_Maestro_ArenaIntro: 
-	.string "Hola, permitame presentarme.\p"
+	.string "Hola, permítame presentarme.\p"
 	
 	.string "Yo soy MAESTRO ARENA, el entrenador\n"
 	.string "de los POKéMON del desierto.\p"
 	
 	.string "Supongo que habrá llegado a tus\n"
-	.string "oidos lo poderoso que soy.\p"
+	.string "oídos lo poderoso que soy.\p"
 	
 	.string "¡Incluso gané un torneo NACIONAL de\n"
 	.string "POKéMON!\p"
@@ -526,10 +526,10 @@ Route120_Text_Maestro_ArenaDefeat:
 	.string "¡¡TRAMPOSO!! ¡¡HAX!! ToT\p"
 
 	.string "Me has pillado con mi equipo de\n" 
-	.string "exploración, ¡No se vale!\p" 
+	.string "exploración, ¡no se vale!\p" 
 	
 	.string "¡La próxima vez te enseñaré porque\n"
-	.string "fuí CAMPEÓN NACIONAL DE DPP!$"
+	.string "fui CAMPEÓN NACIONAL DE DPP!$"
  
 Route120_Text_Maestro_ArenaPostBattle:
 	.string "Por cierto, justo al oeste de aquí\n"
@@ -545,5 +545,4 @@ Route120_Text_Maestro_ArenaPostBattle:
 	.string "que contenga nada importante.\p"
 	
 	.string "¡Si te lo dice, yo, el gran MAESTRO\n"
-	.string "ARENA, está clarisimo que es así!$"
-
+	.string "ARENA, está clarísimo que es así!$"

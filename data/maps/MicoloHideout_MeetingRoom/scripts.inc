@@ -28,7 +28,7 @@ MicoloHideout_MeetingRoom_EventScript_Addri::
 	
 Goldie_MasdeunPokemon: // BATALLA DOBLE
 	.string "Pero si no llevas más de un\n"
-	.string "POKÉMON con vida...\p"
+	.string "POKéMON con vida...\p"
 
 	.string "Mi equipo es solo para DOBLES,\n"
 	.string "así que vuelve cuando tengas\l"
@@ -143,12 +143,12 @@ MicoloHideout_MeetingRoom_Text_HatharIntro:
     .string "Te voy a banear.$"
 
 MicoloHideout_MeetingRoom_Text_HatharDefeat: 
-    .string "¡Ay! ¡Mi apendice!$"
+    .string "¡Ay! ¡Mi apéndice!$"
  
 MicoloHideout_MeetingRoom_Text_HatharPostBattle:
     .string "Podría haberte ganado,\n"
     .string "si no estuviese recuperandome\l" 
-	.string "de mi vesicula.$"
+	.string "de mi vesícula.$"
 	
 MicoloHideout_MeetingRoom_Text_KadereteIntro: 
 	.string "¿Cómo puedo haber acabado yo aquí?\p"
@@ -306,4 +306,3 @@ MicoloHideout_MeetingRoom_MauvilleMewVader_Text_0:
 	.string "“He ido a la RUTA 110 con tu PRIMA.\n"
 	.string "Si quieres pasar, ve a buscarme.\p"
 	.string "A.VADER”$"
-

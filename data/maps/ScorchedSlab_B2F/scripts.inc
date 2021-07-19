@@ -59,7 +59,7 @@ ScorchedSlab_B2F_Text_Totemderrotado:
 ScorchedSlab_B2F_Text_BotonesIntro: 
 	.string "En los pantallazos de CORO CORO\n"
 	.string "dicen que esta zona es especial\l"
-	.string "pero,¡¡¡yo no veo nada mas que\l"
+	.string "pero, ¡¡¡yo no veo nada más que\l"
 	.string "FIRE y SOLAR STONES!!!\p"
 
 	.string "¡Paren ya con los FAKES!$"
@@ -110,7 +110,7 @@ ScorchedSlab_B2F_Text_HypeantonioIntro:
 	.string "Y si pierdo, también.$"
 
 ScorchedSlab_B2F_Text_HypeantonioDefeat: 
-	.string "¡Ahora si que está claro, estos rayos\n" 
+	.string "¡Ahora sí que está claro, estos rayos\n" 
 	.string "de sol son cosa de ZYGARDE!$"
 
 ScorchedSlab_B2F_Text_HypeantonioPostBattle:
