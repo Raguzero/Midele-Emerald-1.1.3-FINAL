@@ -163,6 +163,11 @@ ForbiddenForest_EventScript_JProgamer::
 	msgbox JProgamer_DespuesDeBatalla, MSGBOX_AUTOCLOSE
 	end
 	
+ForbiddenForest_EventScript_Castillo::
+	trainerbattle_single TRAINER_CASTILLO, Castillo_AntesBatalla, Castillo_MensajeDerrota
+	msgbox Castillo_DespuesDeBatalla, MSGBOX_AUTOCLOSE
+	end
+	
 ForbiddenForest_EventScript_Santygrass::
 	lockall
 	msgbox ForbiddenForest_Text_Santygrass_TalkToHimself, MSGBOX_DEFAULT
@@ -511,6 +516,23 @@ JProgamer_DespuesDeBatalla:
 	.string "borregos es lo mismo que perder\l" 
 	.string "el tiempo, todas las fuentes\l"
 	.string "están trucadas!$"
+	
+Castillo_AntesBatalla: 
+	.string "veo a arceus arriba de mi casa en serio\n"
+	.string "lo juro$" 
+
+Castillo_MensajeDerrota: 
+	.string "es en serio que veo a arceus\n" 
+	.string "no estoy loco$"
+ 
+Castillo_DespuesDeBatalla:
+	.string "ablo muy enceio por que lo vi en la\n"
+	.string "vida real a arceus, lo juro\p"
+	
+	.string "por cierto\n"
+	.string "parece que ash tiene un crayon en el\l"
+	.string "cerebro como homero simpson, ojala que\l"
+	.string "serena no me haga nada por decir esto$" 
 	
 ForbiddenForest_Text_Santygrass_TalkToHimself:
 	.string "Que extraño es este bosque...\p"

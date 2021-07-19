@@ -599,6 +599,14 @@ static const u8 sText_RedHPVaderMicolandia[] = _("Impossible!\pHow can such powe
 static const u8 sText_AlbermausPierdePrimerPoke[] = _("Aaaaaaaaah\nHijo de la grandísima\p");
 static const u8 sText_AlbermausEnviaUltimoPoke[] = _("¿Te conté aquella vez que\ncasi quemo una fábrica?\p");
 static const u8 sText_RedHPAlbermaus[] = _("Bueno, esto aún puedo salvarlo.\nComo el PIR.\p");
+static const u8 sText_AddriPierdePrimerPoke[] = _("En cuanto a lo que estas haciendo\npodrías ir al Supermercado y comprarte\llas cuchillas Gillete para dejar\lde ser el Attention whore por\lprovocar pelea conmigo.\pno soy tan idiota como para que me\nbaneen por CUARTA vez, piensa un poco\p");
+static const u8 sText_AlphaPierdePrimerPoke[] = _("Ya sea en la contienda o en quirófano,\nesperar que todo marche como uno\ldesearía es cuanto menos... ingenuo.\lNo crea que este revés me\limpedirá triunfar.\p");
+static const u8 sText_AlphaEnviaUltimoPoke[] = _("Meu Deus!\nQue eu me vexa en tal tesitura...\lÉ tal a maestría da vosa mercé?\p");
+static const u8 sText_RedHPAlpha[] = _("Es mi sacro cometido seguir\nluchando hasta el último aliento.\p¿Vencerá lo sublime de mi talento o\llo impasible de su voluntad?\p");
+static const u8 sText_Josito2PierdePrimerPoke[] = _("¡Ahí va el pato!\p");
+static const u8 sText_Josito2EnviaUltimoPoke[] = _("A este todavía no\nlo conoces...\p");
+static const u8 sText_RedHPJosito2[] = _("El asunto está complicado...\p");
+
 
 static const u8 frase0[] = _("Entonces sustituí a Blissey por\nGarchomp; y como mi equipo sería un\lSandstorm team, cambié a Tangrowth por\lCradily).\p");
 static const u8 frase1[] = _("Te voy a contar la historia del\nPrimer Nacional Español\ltodas las veces que pueda.\p");
@@ -3140,6 +3148,9 @@ static const struct TrainerSlide sTrainerSlides[] =
     {TRAINER_PACOCHEF_MICOLANDIA, sText_PacoEnviaUltimoPoke, sText_RedHPPaco, sText_PacoPierdePrimerPoke},
     {TRAINER_AVADER_MICOLANDIA, sText_VaderMicolandiaEnviaUltimoPoke, sText_RedHPVaderMicolandia, sText_VaderMicolandiaPierdePrimerPoke},
     {TRAINER_ALBERMAUS, sText_AlbermausEnviaUltimoPoke, sText_RedHPAlbermaus, sText_AlbermausPierdePrimerPoke},
+    {TRAINER_ADDRI, NULL, NULL, sText_AddriPierdePrimerPoke},
+    {TRAINER_ALPHA, sText_AlphaEnviaUltimoPoke, sText_RedHPAlpha, sText_AlphaPierdePrimerPoke},
+    {TRAINER_JOSITO_2, sText_Josito2EnviaUltimoPoke, sText_RedHPJosito2, sText_Josito2EnviaUltimoPoke},
 };
 
 static u32 GetEnemyMonCount(bool32 onlyAlive)

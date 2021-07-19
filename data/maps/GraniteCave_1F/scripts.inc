@@ -22,6 +22,11 @@ GraniteCave_EventScript_JZombie::
 	msgbox GraniteCave_Text_JZombiePostBattle, MSGBOX_AUTOCLOSE
 	end
 	
+GraniteCave_EventScript_Addri::  
+	trainerbattle_single TRAINER_ADDRI, GraniteCave_Text_AddriIntro, GraniteCave_Text_AddriDefeat
+	msgbox GraniteCave_Text_AddriPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
     @ Combate contra totem.
 GraniteCave_1F_EventScript_Totem::
 	lockall
@@ -80,6 +85,17 @@ GraniteCave_Text_JZombiePostBattle:
 	.string "en tu entierro.\p"
 	
 	.string "¡TE VAS A CAGAR!$"
+	
+GraniteCave_Text_AddriIntro: 
+	.string "8D 8D 8D 8D 8D\n"
+	.string "¡Ya no tengo vigilado n.n!$"
+
+GraniteCave_Text_AddriDefeat: 
+	.string "boi a avlar con melcor de todo esto$"
+
+GraniteCave_Text_AddriPostBattle: 
+	.string "La MAFIA PxP se ha desintegrado.\n"
+	.string "¡Ya no volverán a hacerme chops! n.n$"
 
 GraniteCave_1F_Text_GetsDarkAheadHereYouGo: @ 822DA94
 	.string "Hey, you.\n"

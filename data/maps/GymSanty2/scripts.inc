@@ -184,6 +184,11 @@ GymSanty2_EventScript_Alpha::
 	msgbox Alpha_DespuesDeBatalla, MSGBOX_AUTOCLOSE
 	end
 	
+GymSanty2_EventScript_Fenan::
+	trainerbattle_single TRAINER_FENAN, Fenan_AntesBatalla, Fenan_MensajeDerrota
+	msgbox Fenan_DespuesDeBatalla, MSGBOX_AUTOCLOSE
+	end
+	
 Albermaus_AntesBatalla: 
 	.string "Tú no serás psicoanalísta,\n"
 	.string "¿verdad?$"
@@ -349,13 +354,44 @@ Felipex88_Text_MasdeunPokemon: // BATALLA DOBLE
 	.string "mi equipo en BATALLA INDIVIDUAL.$"	
 	
 Alpha_AntesBatalla: 
-	.string "FRASES$"
+	.string "En la batalla, así como en el ejercicio\n"
+	.string "de la medicina, solo acepto la\l"
+	.string "excelencia. ¿Será su merced capaz de,\l"
+	.string "al menos, entretenerme?$"
 	
 Alpha_MensajeDerrota: 
 	.string "FRASES$"
 	
 Alpha_DespuesDeBatalla:
 	.string "FRASES$"
+	
+Fenan_AntesBatalla: 
+	.string "los k usan pokesav son unos mamones\n"
+	.string "amargaos k no kieren jugar vien y eso\l"
+	.string "es de jilipollas y si no :nenemalo:\l"
+	.string ":nenemalo: :nenemalo: :nenemalo:\l"
+	.string ":nenemalo: :nenemalo: :nenemalo:\l"
+	.string ":nenemalo: :nenemalo: :nenemalo:\l"
+	.string ":nenemalo: :nenemalo:\p"
+	
+	.string "edit:tambien se le jode el juego\n" 
+	.string "por usarlo$"
+	
+Fenan_MensajeDerrota: 
+	.string "por lo k llo domino una enfermedad de mi\n"
+	.string "familia jilipollitis aguditis xD xD$"
+	
+Fenan_DespuesDeBatalla:
+	.string "...\p"
+	
+	.string "...\p"
+	
+	.string "...\p"
+
+	.string "k me as dicho ijo puta k es traampa y\n"
+	.string "callarse lla cerrar el tema y si te pillo\l"
+	.string "por la calle ijo puta t mato nadie me\l"
+	.string "insulta a mi padre si k es un jilipollas$"
 
 GymSanty2_Text_Sign:
 	.string "ENCIENDE LOS CUATRO FAROLES\n"

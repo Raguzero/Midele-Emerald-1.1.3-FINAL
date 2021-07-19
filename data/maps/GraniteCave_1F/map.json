@@ -65,6 +65,19 @@
             "trainer_type": "0",
             "x": 10,
             "y": 4
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_IS_CHAMPION",
+            "graphics_id": "EVENT_OBJ_GFX_NINJA_BOY",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+            "script": "GraniteCave_EventScript_Addri",
+            "trainer_sight_or_berry_tree_id": "1",
+            "trainer_type": "1",
+            "x": 24,
+            "y": 6
         }
     ],
     "region_map_section": "MAPSEC_GRANITE_CAVE",
