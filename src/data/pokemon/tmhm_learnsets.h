@@ -11992,6 +11992,7 @@ const u32 gTMHMLearnsets[][2] =
 								| TMHM(TM06_TOXIC)),
 
     [SPECIES_DRAGAPULT]     = TMHM_LEARNSET(TMHM(TM44_REST)
+								| TMHM(TM02_DRAGON_CLAW)
 								| TMHM(TM17_PROTECT)
 								| TMHM(TM45_ATTRACT)
 								| TMHM(TM42_FACADE)
