@@ -53,6 +53,8 @@
 #include "constants/species.h"
 #include "constants/maps.h"
 #include "constants/field_effects.h"
+#include "constants/metatile_behaviors.h"
+#include "constants/metatile_labels.h"
 #include "constants/items.h"
 #include "constants/songs.h"
 #include "constants/abilities.h"
@@ -454,9 +456,11 @@ static void DrawDexNavSearchMonIcon(u16 species, u8 *dst, bool8 owned)
 
     u8 forcePaletteSlot;
 
-	if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE111) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE111) && sDexNavSearchDataPtr->environment != ENCOUNTER_TYPE_WATER)
+    #define IS_MAP(MAP_ARG) (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ARG) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ARG))
+
+    if (IS_MAP(ROUTE111) && sDexNavSearchDataPtr->environment != ENCOUNTER_TYPE_WATER)
         forcePaletteSlot = 0;
-    else if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE120) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE120) && FlagGet(FLAG_RECEIVED_DEVON_SCOPE))
+    else if (IS_MAP(ROUTE120) && FlagGet(FLAG_RECEIVED_DEVON_SCOPE))
         forcePaletteSlot = 11;
     else
         forcePaletteSlot = 13;
@@ -741,6 +745,15 @@ static bool8 TryStartHiddenMonFieldEffect(u8 environment, u8 xSize, u8 ySize, bo
     {
         u8 metatileBehaviour = MapGridGetMetatileBehaviorAt(sDexNavSearchDataPtr->tileX, sDexNavSearchDataPtr->tileY);
 
+        if (MetatileBehavior_IsAshGrass(metatileBehaviour))
+        {
+            if (MapGridGetMetatileIdAt(sDexNavSearchDataPtr->tileX, sDexNavSearchDataPtr->tileY) == METATILE_ID(Fallarbor, AshGrass))
+                StartAshFieldEffect(sDexNavSearchDataPtr->tileX, sDexNavSearchDataPtr->tileY, METATILE_ID(Fallarbor, NormalGrass), 4);
+            else
+                StartAshFieldEffect(sDexNavSearchDataPtr->tileX, sDexNavSearchDataPtr->tileY, METATILE_ID(Lavaridge, NormalGrass), 4);
+
+            metatileBehaviour = MB_TALL_GRASS;
+        }
         switch (environment)
         {
         case ENCOUNTER_TYPE_LAND:
