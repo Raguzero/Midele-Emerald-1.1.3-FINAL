@@ -360,10 +360,29 @@ Alpha_AntesBatalla:
 	.string "al menos, entretenerme?$"
 	
 Alpha_MensajeDerrota: 
-	.string "FRASES$"
+	.string "¿En verdad he perdido?\n"
+	.string "...\p"
+	
+	.string "Me he cansado de esta pantomima.\p" 
+	
+	.string "Anda, toma la calderilla que me ha\n" 
+	.string "sobrado de comprar en Versace;\l" 
+	.string "a ver si dejas de usar esos harapos,\l"
+	.string "muerto de hambre.$"
 	
 Alpha_DespuesDeBatalla:
-	.string "FRASES$"
+	.string "¿En serio no tienes nada mejor que\n"
+	.string "hacer? Si en vez de farmear\l"
+	.string "experiencia y hacer shiny hunting,\l"
+	.string "hubieses estudiado 100 GB por\l"
+	.string "cuatrimestre, no estarías en paro y sin\l"
+	.string "un duro.\p"
+	
+	.string "¡Uy qué tarde! Me voy que van a\n"
+	.string "llegar pronto los jardineros y tengo\l"
+	.string "que decirles qué hacer... si es que los\l"
+	.string "de clase media no sabéis hacer nada\l"
+	.string "solos.$"
 	
 Fenan_AntesBatalla: 
 	.string "los k usan pokesav son unos mamones\n"

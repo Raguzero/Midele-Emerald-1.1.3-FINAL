@@ -139,6 +139,8 @@
 #define TRAINER_PIC_VIN          120
 #define TRAINER_PIC_ROCKER          121
 #define TRAINER_PIC_GOOSES          122
+#define TRAINER_PIC_DARKIMALRO          123
+#define TRAINER_PIC_DARKIBUENRO          124
 
 #define TRAINER_BACK_PIC_BRENDAN                0
 #define TRAINER_BACK_PIC_MAY                    1
