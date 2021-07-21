@@ -498,6 +498,18 @@ Route119_EventScript_ScottWonAtFortreeGymCall:: @ 81F49EC
 	releaseall
 	end
 	
+Musica_Acrobatica_Event::
+    savebgm EINZUG_DER_GLADIATOREN
+    special Overworld_PlaySpecialMapMusic
+    savebgm MUS_DUMMY
+    release
+    end
+    
+Musica_NO_Acrobatica_Event::
+    special Overworld_PlaySpecialMapMusic
+    release
+    end
+	
 Route119_EventScript_TryRemoveZapdos::
 	specialvar VAR_RESULT, GetBattleOutcome
 	compare VAR_RESULT, B_OUTCOME_CAUGHT

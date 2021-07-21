@@ -23,6 +23,42 @@
         }
     ],
     "coord_events": [
+        {
+            "elevation": 0,
+            "script": "Musica_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 20,
+            "y": 6
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 22,
+            "y": 4
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_NO_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 16,
+            "y": 7
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_NO_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 26,
+            "y": 3
+        }
     ],
     "id": "MAP_SAFARI_ZONE_SOUTH",
     "layout": "LAYOUT_SAFARI_ZONE_SOUTH",

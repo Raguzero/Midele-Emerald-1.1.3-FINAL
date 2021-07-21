@@ -329,6 +329,96 @@
             "weather": "COORD_EVENT_WEATHER_ROUTE119_CYCLE",
             "x": 34,
             "y": 13
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_NO_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 14,
+            "y": 18
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 6,
+            "y": 10
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 17,
+            "y": 17
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_NO_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 20,
+            "y": 16
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_NO_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 7,
+            "y": 5
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_NO_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 19,
+            "y": 7
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_NO_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 5,
+            "y": 6
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_NO_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 9,
+            "y": 16
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 10,
+            "y": 6
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 8,
+            "y": 10
         }
     ],
     "id": "MAP_ROUTE119",
