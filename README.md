@@ -23,7 +23,7 @@ Para instalar el repositorio, ver [INSTALL.md](INSTALL.md).
 - [Pacochef] (Ideas interesantes y aporte de un mapa creado por él)
 - [Darkizard] (Aporte de un mapa creado por él)
 - [Sapph] (Creación del sprite del MonoCiclo)
-- [MerúM] (Correción de instrumentos de algunas músicas, creación de nueva pantalla de título, cambiar sprite de bicicletas por monociclos, y ayuda con otros sprites)
+- [MerúM] (Correción de instrumentos de algunas músicas, creación de nueva pantalla de título, cambiar sprite de bicicletas por monociclos, creación de sprites de Wintass, Mejorado sprites de Probopass, y ayuda con otros sprites)
 
 ## Créditos al resto de personas cuyo código hemos utilizado:
 - Robinlukke https://www.pokecommunity.com/showthread.php?t=435076
@@ -57,3 +57,5 @@ Para instalar el repositorio, ver [INSTALL.md](INSTALL.md).
 - FL.Remix (Pokémon ΩRαS Vs. Wally [RSE/FRLG Remix] https://www.youtube.com/watch?v=ro5tRK9BwoE&lc=z12vjznz4rz0cnser231ivgw2pitcd0ct )
 - 8BitImp ( Butterfly - Digimon Adventure (GBA Pokemon soundfont) https://www.youtube.com/watch?v=ylyFsYxyt-8)
 - Luna de whackahack (sprite Revamp de Yasmina Johto Beta)
+- Julius Fucik, arreglo de Stefan Adams (musica de einzug_der_gladiatoren)
+- WiserVisor (creador de .s y archivos instrumentos compatibles para las musicas MUS_CYNTHIA_ENCOUNTER, MUS_BLOODY_STREAM, CHAMPION_BATTLE_HGSS, MUS_MOLGERA_WW)
