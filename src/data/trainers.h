@@ -13599,7 +13599,6 @@ const struct Trainer gTrainers[] = {
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .battleMusic = MUS_MOLGERA_WW,
         .trainerPic = TRAINER_PIC_KINDLER,
-        .battleMusic = MUS_RG_VS_TORE,
         .trainerName = _("ALBERMAUS"),
         .items = {},
         .doubleBattle = FALSE,

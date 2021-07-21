@@ -183,6 +183,8 @@ IzabeIsland_OutskirtsCave_EventScript_Lavender::
 	giveitem ITEM_HM02
 	setflag FLAG_RECEIVED_HM02
 	setvar VAR_IZABE_ISLAND_STATE, 2
+	msgbox IzabeIsland_OutskirtsCave_Text_Lavender_GiveMusicPlayer, MSGBOX_DEFAULT
+	setvar VAR_MUSIC_PLAYER, MUSIC_PLAYER_STATE_IZABE
 
 	applymovement 2, IzabeIsland_OutskirtsCave_Movement_LavenderSpin
 	waitmovement 0
@@ -250,3 +252,6 @@ IzabeIsland_OutskirtsCave_Text_TotemAppears:
 
 IzabeIsland_OutskirtsCave_Text_TotemDisappears:
 	.string "WINTASS disappeared...$"
+
+IzabeIsland_OutskirtsCave_Text_Lavender_GiveMusicPlayer:
+	.string "TEXTO$"

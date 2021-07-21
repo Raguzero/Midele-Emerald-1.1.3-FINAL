@@ -230,6 +230,9 @@ SlateportCity_OceanicMuseum_1F_EventScript_PacochefEast::
 
 SlateportCity_OceanicMuseum_1F_EventScript_Pacochef::
 	msgbox SlateportCity_OceanicMuseum_1F_Text_Pacochef, MSGBOX_NPC
+	giveitem ITEM_MUSIC_PLAYER
+	setvar VAR_MUSIC_PLAYER, MUSIC_PLAYER_STATE_INITIAL
+	msgbox SlateportCity_OceanicMuseum_1F_Text_PacochefMusicPlayer, MSGBOX_DEFAULT
 	applymovement 15, SlateportCity_OceanicMuseum_1F_Movement_PacochefLeave
 	waitmovement 0
 	playse SE_KAIDAN
@@ -464,3 +467,6 @@ SlateportCity_OceanicMuseum_1F_Text_Pacochef:
 	.string "con monstruos que quieran arrancarte\l"
 	.string "las pelotas. U ovarios, no juzgo.\p"
 	.string "Chau.$"
+
+SlateportCity_OceanicMuseum_1F_Text_PacochefMusicPlayer:
+	.string "TEXTOS$"

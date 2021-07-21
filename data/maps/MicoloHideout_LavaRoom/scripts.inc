@@ -14,6 +14,7 @@ MicoloHideout_LavaRoom_EventScript_GiratinaMaster_1:
 
 MicoloHideout_LavaRoom_EventScript_GiratinaMaster_2:
 	msgbox MicoloHideout_LavaRoom_EventScript_GiratinaMaster_Text_0, MSGBOX_DEFAULT
+	setvar VAR_MUSIC_PLAYER, MUSIC_PLAYER_STATE_FINAL
 	applymovement 6, MicoloHideout_LavaRoom_Movement_GiratinaMaster
 	waitmovement 0
     removeobject 6

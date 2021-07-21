@@ -15,8 +15,18 @@ static const u8 digitInidicator_10000000[] =        _("{LEFT_ARROW}+10000000{RIG
 // Music names
 static const u8 gText_Music_NoMusic[]                = _("POWER OFF \nTURN OFF MUSIC PLAYER");
 
+static const u8 gText_Music_AquaMagma[]                = _("POKéMON RSE \nVS AQUA/MAGMA");
+static const u8 gText_Music_GymLeader[]                = _("POKéMON RSE \nVS GYM LEADER");
+static const u8 gText_Music_VsChampion[]                = _("POKéMON RSE \nVS CHAMPION");
+static const u8 gText_Music_VsRival[]                = _("POKéMON RSE \nVS RIVAL");
+static const u8 gText_Music_VsEliteFour[]                = _("POKéMON RSE \nVS ELITE 4");
+static const u8 gText_Music_VsArchieMaxie[]                = _("POKéMON RSE \nVS ARCHIE/MAXIE");
 static const u8 gText_Music_VSFront[]                = _("POKéMON RSE \nVS FRONTIER BRAIN");
-static const u8 gText_Music_FRLG_VSChampion[]        = _("POKéMON FRLG \nVS FRLG CHAMPION");
+
+
+static const u8 gText_Music_FRLG_VSGym[]        = _("POKéMON FRLG \nVS GYM LEADER");
+static const u8 gText_Music_FRLG_VSTrainer[]        = _("POKéMON FRLG \nVS TRAINER");
+static const u8 gText_Music_FRLG_VSChampion[]        = _("POKéMON FRLG \nVS CHAMPION");
 
 static const u8 gText_Music_WildBW2Final[]           = _("POKéMON BW2          \nWILD BATTLE");
 static const u8 gText_Music_Wild[]                   = _("POKéMON GSC          \nWILD BATTLE");
@@ -53,6 +63,8 @@ static const u8 gText_Music_SwordShieldWild[]        = _("POKÉMON SWORD&SHIELD 
 static const u8 gText_Music_Shum[]                   = _("GO A                 \nSHUM");
 static const u8 gText_Music_BreathOfFire2FinalBoss[] = _("BREATH OF FIRE 2     \nFINAL BOSS");
 static const u8 gText_Music_JackRoom[]               = _("DELTARUNE            \nTHE CIRCUS");
+static const u8 gText_Music_Molgera[]                = _("ZELDA WIND WAKER     \nMOLGERA BATTLE");
+static const u8 gText_Music_ChampionHGSS[]           = _("POKéMON GSC          \nVS CHAMPION");
 
 
 // Digit indicators
@@ -111,57 +123,316 @@ static const u8 sSpecialTrainerClasses[] = {
 
 static const u16 sMusicTableInitial[] = {
     MUS_DUMMY,
-    WILDBW2_FINAL, 
-    WILD, 
-    FF6BOSS, 
-    JENOVA, 
-    SEQ_BA_POKE, 
-    BATTLE_TOWER_SWSH, 
-    BUTTERFLYWADAKOUJI, 
-    BATTLECYRUS, 
-    XYWILDBATTLE, 
-    ZINNIATHEME, 
-    SMWILDBATTLE, 
-    THEMEOFENCOUNTER, 
-    EINZUG_DER_GLADIATOREN, 
-    DIALGAPALKIABATTLE, 
-    UNDERTALEMEGALOVANIA, 
-    THATPERSONSNAMEIS, 
-    CRUELANGELSTHESIS, 
-    THEREINCARNATION, 
-    LIYUEBATTLETHEMEIMAIN, 
-    BONETROUSLEUNDERTALE, 
-    WALLYBATTLETHEME, 
-    MUS_BLOODY_STREAM, 
-    UMINEKONONAKUKORO, 
-    JOHTOTRAIN, 
-    MIRORBCOLO, 
-    INCOMINGX2,
-    SASAGEYO, 
-    MUSICAVEGAGOLDY, 
-    MUS_ENCOUNTER_CYNTHIA, 
-    ZANZATHEME, 
-    DELTARUNCHAOSK, 
-    SWORDSHIELDWILD, 
-    SHUM, 
-    FINALBOSSBREATHFIRE2, 
-    JACKROOM, 
+    // RSE
+    MUS_BATTLE35,
+    MUS_BATTLE31,
+    MUS_BATTLE32,
+    
+    // FRLG
+    MUS_RG_VS_TORE,
+    MUS_RG_VS_LAST,
+    
+    // GSC
+    WILD,
+    
+    // DPPT
+    SEQ_BA_POKE,
+    
+    // BW2
+    WILDBW2_FINAL,
+    
+    // XY
+    XYWILDBATTLE,
+    
+    // SM
+    SMWILDBATTLE,
+    
+    // SWSH
+    SWORDSHIELDWILD,
+    
+    // XENOBLADE
+    ZANZATHEME,
+    
+    BUTTERFLYWADAKOUJI,
+    
+    // MICOLO
+    THATPERSONSNAMEIS,
+    CRUELANGELSTHESIS,
+    
+    MUS_BLOODY_STREAM,
+};
+
+static const u16 sMusicTableIzabe[] = {
+    MUS_DUMMY,
+    // RSE
+    MUS_BATTLE35,
+    MUS_BATTLE31,
+    MUS_BATTLE32,
+    MUS_BATTLE30,
+    
+    // FRLG
+    MUS_RG_VS_TORE,
+    MUS_RG_VS_LAST,
+    
+    // GSC
+    WILD,
+    
+    // DPPT
+    SEQ_BA_POKE,
+    
+    // BW2
+    WILDBW2_FINAL,
+    
+    // XY
+    XYWILDBATTLE,
+    
+    // SM
+    SMWILDBATTLE,
+    
+    // SWSH
+    SWORDSHIELDWILD,
+    BATTLE_TOWER_SWSH,
+    
+    // XENOBLADE
+    ZANZATHEME,
+    
+    // UNDERTALE
+    UNDERTALEMEGALOVANIA,
+    JACKROOM,
+    
+    THEREINCARNATION,
+    
+    UMINEKONONAKUKORO,
+    
+    BUTTERFLYWADAKOUJI,
+    
+    // MICOLO
+    THATPERSONSNAMEIS,
+    CRUELANGELSTHESIS,
+    
+    MUS_BLOODY_STREAM,
+    
+    SASAGEYO,
+};
+
+static const u16 sMusicTableLilycove[] = {
+    MUS_DUMMY,
+    // RSE
+    MUS_BATTLE35,
+    MUS_BATTLE31,
+    MUS_BATTLE32,
+    MUS_BATTLE30,
+    MUS_BATTLE33,
+    MUS_VS_FRONT,
+    
+    // FRLG
+    MUS_RG_VS_TORE,
+    MUS_RG_VS_GYM,
+    MUS_RG_VS_LAST,
+    
+    // GSC
+    WILD,
+    
+    // DPPT
+    SEQ_BA_POKE,
+    
+    // BW2
+    WILDBW2_FINAL,
+    
+    // XY
+    XYWILDBATTLE,
+    
+    // SM
+    SMWILDBATTLE,
+    
+    // SWSH
+    SWORDSHIELDWILD,
+    BATTLE_TOWER_SWSH,
+    
+    // XENOBLADE
+    ZANZATHEME,
+    
+    // UNDERTALE
+    UNDERTALEMEGALOVANIA,
+    JACKROOM,
+    
+    THEREINCARNATION,
+    
+    UMINEKONONAKUKORO,
+    
+    BUTTERFLYWADAKOUJI,
+    
+    // MICOLO
+    THATPERSONSNAMEIS,
+    CRUELANGELSTHESIS,
+    
+    MUS_BLOODY_STREAM,
+    
+    SASAGEYO,
+};
+
+static const u16 sMusicTableBeforeMicoloHideout[] = {
+    MUS_DUMMY,
+    // RSE
+    MUS_BATTLE35,
+    MUS_BATTLE31,
+    MUS_BATTLE32,
+    MUS_BATTLE30,
+    MUS_BATTLE33,
+    MUS_VS_FRONT,
+    
+    // FRLG
+    MUS_RG_VS_TORE,
+    MUS_RG_VS_GYM,
+    MUS_RG_VS_LAST,
+    
+    // GSC
+    WILD,
+    MUS_CHAMPION_BATTLE_HGSS,
+    
+    // DPPT
+    SEQ_BA_POKE,
+    MUS_ENCOUNTER_CYNTHIA,
+    
+    // BW2
+    WILDBW2_FINAL,
+    
+    // XY/ORAS
+    XYWILDBATTLE,
+    ZINNIATHEME,
+    
+    // SM
+    SMWILDBATTLE,
+    
+    // SWSH
+    SWORDSHIELDWILD,
+    BATTLE_TOWER_SWSH,
+    
+    // XENOBLADE
+    ZANZATHEME,
+    
+    // UNDERTALE
+    BONETROUSLEUNDERTALE,
+    UNDERTALEMEGALOVANIA,
+    JACKROOM,
+    DELTARUNCHAOSK,
+    
+    // FINAL FANTASY
+    FF6BOSS,
+    JENOVA,
+    
+    FINALBOSSBREATHFIRE2,
+    
+    MUS_MOLGERA_WW,
+    
+    THEMEOFENCOUNTER,
+    
+    THEREINCARNATION,
+    
+    UMINEKONONAKUKORO,
+    
+    BUTTERFLYWADAKOUJI,
+    
+    // MICOLO
+    THATPERSONSNAMEIS,
+    CRUELANGELSTHESIS,
+    
+    MUS_BLOODY_STREAM,
+    
+    SASAGEYO,
 };
 
 static const u16 sMusicTableFinal[] = {
-    MUS_DUMMY, // Power off music player
-    SASAGEYO,
-    MUS_BLOODY_STREAM,
-    THEREINCARNATION,
+    MUS_DUMMY,
+    // RSE
+    MUS_BATTLE35,
+    MUS_BATTLE31,
+    MUS_BATTLE32,
+    MUS_BATTLE30,
+    MUS_BATTLE33,
     MUS_VS_FRONT,
-    MUS_RG_VS_LAST
+    
+    // FRLG
+    MUS_RG_VS_TORE,
+    MUS_RG_VS_GYM,
+    MUS_RG_VS_LAST,
+    
+    // GSC
+    WILD,
+    JOHTOTRAIN,
+    MUS_CHAMPION_BATTLE_HGSS,
+
+    // DPPT
+    SEQ_BA_POKE,
+    BATTLECYRUS,
+    DIALGAPALKIABATTLE,
+    MUS_ENCOUNTER_CYNTHIA,
+    
+    // BW2
+    WILDBW2_FINAL,
+    
+    // XY ORAS
+    XYWILDBATTLE,
+    ZINNIATHEME,
+    // SM
+    SMWILDBATTLE,
+    
+    // SWSH
+    SWORDSHIELDWILD,
+    BATTLE_TOWER_SWSH,
+    
+    MUSICAVEGAGOLDY,
+    
+    // XENOBLADE
+    ZANZATHEME,
+    INCOMINGX2,
+    
+    // UNDERTALE
+    BONETROUSLEUNDERTALE,
+    UNDERTALEMEGALOVANIA,
+    JACKROOM,
+    DELTARUNCHAOSK,
+    
+    // FINAL FANTASY
+    FF6BOSS,
+    JENOVA,
+    
+    FINALBOSSBREATHFIRE2,
+    
+    MUS_MOLGERA_WW,
+    
+    THEMEOFENCOUNTER,
+    
+    THEREINCARNATION,
+    
+    UMINEKONONAKUKORO,
+    
+    BUTTERFLYWADAKOUJI,
+    
+    // MICOLO
+    THATPERSONSNAMEIS,
+    CRUELANGELSTHESIS,
+    
+    MUS_BLOODY_STREAM,
+    
+    SASAGEYO,
+    
+    SHUM,
 };
 
 // Music name table
 // Asocia IDs de músicas con sus nombres
 const u8* const sMusicNames[] = {
     [MUS_DUMMY] = gText_Music_NoMusic,
+    [MUS_BATTLE31] = gText_Music_AquaMagma,
+    [MUS_BATTLE32] = gText_Music_GymLeader,
+    [MUS_BATTLE33] = gText_Music_VsChampion,
+    [MUS_BATTLE35] = gText_Music_VsRival,
+    [MUS_BATTLE38] = gText_Music_VsEliteFour,
+    [MUS_BATTLE30] = gText_Music_VsArchieMaxie,
     [MUS_VS_FRONT] = gText_Music_VSFront,
+    [MUS_RG_VS_GYM] = gText_Music_FRLG_VSGym,
+    [MUS_RG_VS_TORE] = gText_Music_FRLG_VSTrainer,
     [MUS_RG_VS_LAST] = gText_Music_FRLG_VSChampion,
 
     [WILDBW2_FINAL] = gText_Music_WildBW2Final,
@@ -199,4 +470,6 @@ const u8* const sMusicNames[] = {
     [SHUM] = gText_Music_Shum,
     [FINALBOSSBREATHFIRE2] = gText_Music_BreathOfFire2FinalBoss,
     [JACKROOM] = gText_Music_JackRoom,
+    [MUS_MOLGERA_WW] = gText_Music_Molgera,
+    [MUS_CHAMPION_BATTLE_HGSS] = gText_Music_ChampionHGSS,
 };

@@ -345,6 +345,8 @@ LilycoveCity_EventScript_DefeatedMay:: @ 81E2F3E
 	msgbox LilycoveCity_Text_MayGoingBackToLittleroot, MSGBOX_DEFAULT
 	clearflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_BEDROOM
 	clearflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_2F_PICHU_DOLL
+	msgbox LilycoveCity_Text_MayUpgradeMusicPlayer, MSGBOX_DEFAULT
+	setvar VAR_MUSIC_PLAYER, MUSIC_PLAYER_STATE_LILYCOVE
 	goto LilycoveCity_EventScript_RivalFlyAway
 	end
 
@@ -352,6 +354,8 @@ LilycoveCity_EventScript_DefeatedBrendan:: @ 81E2FAA
 	msgbox LilycoveCity_Text_BrendanGoingBackToLittleroot, MSGBOX_DEFAULT
 	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_BEDROOM
 	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F_SWABLU_DOLL
+	msgbox LilycoveCity_Text_BrendanUpgradeMusicPlayer, MSGBOX_DEFAULT
+	setvar VAR_MUSIC_PLAYER, MUSIC_PLAYER_STATE_LILYCOVE
 	goto LilycoveCity_EventScript_RivalFlyAway
 	end
 
@@ -666,3 +670,9 @@ LilycoveCity_Text_MelkorHouseSign:
 	.string "Hay algo garabateado en una esquina\n"
 	.string "del cartel...\p"
 	.string "“MELKOR, PAGA EL SERVER”$"
+
+LilycoveCity_Text_MayUpgradeMusicPlayer:
+	.string "TEXTO$"
+
+LilycoveCity_Text_BrendanUpgradeMusicPlayer:
+	.string "TEXTO$"

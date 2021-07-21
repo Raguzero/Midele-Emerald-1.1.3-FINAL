@@ -17,7 +17,10 @@
 
 // VAR_MUSIC_PLAYER states
 // Estados de la variable VAR_MUSIC_PLAYER que controlan qué músicas estarán disponibles en el music player.
-#define MUSIC_PLAYER_STATE_INITIAL 1
-#define MUSIC_PLAYER_STATE_FINAL   2
+#define MUSIC_PLAYER_STATE_INITIAL    1
+#define MUSIC_PLAYER_STATE_IZABE      2
+#define MUSIC_PLAYER_STATE_LILYCOVE   3
+#define MUSIC_PLAYER_STATE_PAPELERA   4
+#define MUSIC_PLAYER_STATE_FINAL      5
 
 #endif

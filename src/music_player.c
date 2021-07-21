@@ -195,6 +195,15 @@ static u16 GetCurrentMusicTable(const u16** musicTablePointer)
         case MUSIC_PLAYER_STATE_INITIAL:
             *musicTablePointer = sMusicTableInitial;
             return ARRAY_COUNT(sMusicTableInitial);
+        case MUSIC_PLAYER_STATE_IZABE:
+            *musicTablePointer = sMusicTableIzabe;
+            return ARRAY_COUNT(sMusicTableIzabe);
+        case MUSIC_PLAYER_STATE_LILYCOVE:
+            *musicTablePointer = sMusicTableLilycove;
+            return ARRAY_COUNT(sMusicTableLilycove);
+        case MUSIC_PLAYER_STATE_PAPELERA:
+            *musicTablePointer = sMusicTableBeforeMicoloHideout;
+            return ARRAY_COUNT(sMusicTableBeforeMicoloHideout);
         case MUSIC_PLAYER_STATE_FINAL:
             *musicTablePointer = sMusicTableFinal;
             return ARRAY_COUNT(sMusicTableFinal);

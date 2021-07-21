@@ -108,6 +108,8 @@ MicoloHideout_Sign_LaPapelera_2:
 	removeobject 10
 	waitse
 	setvar VAR_STATE_MICOLANDIA, 2
+	msgbox MicoloHideout_Sign_LaPapelera_Text_UpgradeMusicPlayer, MSGBOX_DEFAULT
+	setvar VAR_MUSIC_PLAYER, MUSIC_PLAYER_STATE_PAPELERA
 	goto MicoloHideout_Sign_LaPapelera_1
 
 
@@ -897,3 +899,6 @@ MicoloHideoutTickets_Text_NotEnoughMoney:
 	
 MicoloHideout_SiVendido_Text:
 	.string "¡¡Esto es un trato dabuten!!$"
+
+MicoloHideout_Sign_LaPapelera_Text_UpgradeMusicPlayer:
+	.string "TEXTOS$"

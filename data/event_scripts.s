@@ -40,6 +40,7 @@
 #include "constants/mauville_old_man.h"
 #include "constants/metatile_labels.h"
 #include "constants/moves.h"
+#include "constants/music_player.h"
 #include "constants/nicknames.h"
 #include "constants/party_menu.h"
 #include "constants/pokemon.h"
