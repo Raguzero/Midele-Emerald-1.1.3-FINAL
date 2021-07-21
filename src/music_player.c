@@ -25,6 +25,7 @@ static u16 GetCurrentMusicTable(const u16** musicTablePointer);
 #include "data/music_player.h"
 
 // EWRAM vars
+static EWRAM_DATA u8 sLastMusicPlayerOption = 0;
 EWRAM_DATA u16 gLastMusicPlayerSong = 0;
 
 // Functions
@@ -58,15 +59,15 @@ void StartMusicPlayer(u8 taskId)
 
     //Display initial song ID and name
     StringCopy(gStringVar2, gText_DigitIndicator2[0]);
-    ConvertIntToDecimalStringN(gStringVar3, 1, STR_CONV_MODE_LEADING_ZEROS, MUSIC_PLAYER_NUMBER_DIGITS_ITEMS);
+    ConvertIntToDecimalStringN(gStringVar3, sLastMusicPlayerOption + 1, STR_CONV_MODE_LEADING_ZEROS, MUSIC_PLAYER_NUMBER_DIGITS_ITEMS);
     StringCopyPadded(gStringVar1, gStringVar1, CHAR_SPACE, 15);
     StringExpandPlaceholders(gStringVar4, gMusicPlayer_SongId);
     AddTextPrinterParameterized(windowId, 1, gStringVar4, 1, 1, 0, NULL);
-    AddTextPrinterParameterized(windowId, 1, sMusicNames[musicTable[0]], 1, 16, 0, NULL);
+    AddTextPrinterParameterized(windowId, 1, sMusicNames[musicTable[sLastMusicPlayerOption]], 1, 16, 0, NULL);
 
     gTasks[taskId].func = MusicPlayer_SelectSong;
     gTasks[taskId].data[2] = windowId;
-    gTasks[taskId].data[3] = 1;            //Current ID
+    gTasks[taskId].data[3] = sLastMusicPlayerOption + 1; //Current ID
     gTasks[taskId].data[4] = 0;            //Digit Selected
 }
 
@@ -166,6 +167,9 @@ static void MusicPlayer_SelectSong(u8 taskId)
             PlayBGM(musicTable[currentMusicTableId]);
             gLastMusicPlayerSong = musicTable[currentMusicTableId];
         }
+        // Actualizar última opción seleccionada
+        sLastMusicPlayerOption = currentMusicTableId;
+
         gTasks[taskId].func = MusicPlayer_DestroyWindow;
     }
     else if (gMain.newKeys & B_BUTTON)
