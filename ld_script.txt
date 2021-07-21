@@ -1253,20 +1253,22 @@ SECTIONS {
 		sound/songs/midi/liyuebattlethemeimain.o(.rodata);
 		sound/songs/midi/bonetrousleundertale.o(.rodata);
 		sound/songs/midi/wallybattletheme.o(.rodata);
-		sound/songs/midi/mus_bloody_stream.o(.rodata);
+		sound/songs/mus_bloody_stream.o(.rodata);
 		sound/songs/midi/uminekononakukoro.o(.rodata);
 		sound/songs/Johtotrain.o(.rodata);
 		sound/songs/mirorbcolo.o(.rodata);
 		sound/songs/midi/incomingx2.o(.rodata);
 		sound/songs/midi/sasageyo.o(.rodata);
 		sound/songs/midi/musicavegagoldy.o(.rodata);
-		sound/songs/midi/mus_encounter_cynthia.o(.rodata);
+		sound/songs/mus_encounter_cynthia.o(.rodata);
 		sound/songs/midi/zanzatheme.o(.rodata);
 		sound/songs/midi/deltarunchaosk.o(.rodata);
 		sound/songs/midi/swordshieldwild.o(.rodata);
 		sound/songs/midi/shum.o(.rodata);
 		sound/songs/finalbossbreathfire2.o(.rodata);
 		sound/songs/Jackroom.o(.rodata);
+		sound/songs/mus_molgera_ww.o(.rodata);
+		sound/songs/mus_champion_battle_hgss.o(.rodata);		
     } =0
 
     lib_rodata :

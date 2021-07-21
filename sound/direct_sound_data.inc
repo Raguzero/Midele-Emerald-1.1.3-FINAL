@@ -4830,3 +4830,16 @@ altosax72::
 	.align 2
 ridecymbal::
 	.incbin "sound/direct_sound_samples/ridecymbal.bin"
+	
+	.align 2
+eggshaker::
+	.incbin "sound/direct_sound_samples/eggshaker.bin"
+
+	.align 2
+marimba60::
+	.incbin "sound/direct_sound_samples/marimba60.bin"
+
+	.align 2
+orchestrahit72::
+	.incbin "sound/direct_sound_samples/orchestrahit72.bin"
+

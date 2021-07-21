@@ -570,9 +570,11 @@
 #define SHUM 642
 #define FINALBOSSBREATHFIRE2 643
 #define JACKROOM 644
+#define MUS_MOLGERA_WW 645
+#define MUS_CHAMPION_BATTLE_HGSS 646
 
 // Número total de músicas. Normalmente es el mismo número que la última música.
-#define MUS_COUNT 644
+#define MUS_COUNT 646
 
 #define MUS_ROUTE_118 0x7FFF  // map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 

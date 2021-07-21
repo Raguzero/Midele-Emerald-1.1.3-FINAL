@@ -646,6 +646,8 @@ gSongTable:: @ 86B49F0
 	song shum, 0, 0
 	song finalbossbreathfire2, 0, 0
 	song Jackroom, 0, 0 // CIRCUS DELTARUNE
+	song mus_molgera_ww, 0, 0
+	song mus_champion_battle_hgss, 0, 0
 
 	.align 2
 dummy_song_header: @ 86B5D00

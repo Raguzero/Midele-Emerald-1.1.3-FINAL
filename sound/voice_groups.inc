@@ -105,14 +105,14 @@ voicegroup002:: @ 8676148
 	voice_directsound 60, 0, DirectSoundWaveData_unknown_wood_block_low, 255, 0, 255, 0  @ 8676184
 	voice_directsound 60, 0, DirectSoundWaveData_unknown_wood_block_high, 255, 0, 255, 0  @ 8676190
 	voice_directsound_no_resample 60, 64, DirectSoundWaveData_sc88_standard_kick, 255, 0, 255, 242  @ 867619C
-	voice_square_1 0, 2, 0, 0, 15, 0  @ 86761A8
+	voice_directsound 60, 64, eggshaker, 255, 235, 0, 165 @ cambiado para molgera wind waker
 	voice_directsound_no_resample 60, 64, DirectSoundWaveData_sc88_standard3_snare, 255, 0, 255, 242  @ 86761B4
 	voice_directsound_no_resample 60, 64, DirectSoundWaveData_sc88_standard_hand_clap, 255, 255, 255, 127  @ 86761C0
 	voice_directsound_no_resample 60, 64, DirectSoundWaveData_sc88_orchestra_snare, 255, 0, 255, 242  @ 86761CC
 	voice_directsound 48, 44, DirectSoundWaveData_unknown_tom, 255, 210, 77, 204  @ 86761D8
 	voice_directsound_no_resample 60, 79, DirectSoundWaveData_unknown_close_hihat, 255, 127, 0, 188  @ 86761E4
 	voice_directsound 51, 54, DirectSoundWaveData_unknown_tom, 255, 216, 77, 204  @ 86761F0
-	voice_directsound 60, 0, ridecymbal, 255, 235, 0, 165
+	voice_directsound 60, 0, ridecymbal, 255, 235, 0, 165 @ cambiado para JOJO
 	voice_directsound 54, 64, DirectSoundWaveData_unknown_tom, 255, 216, 77, 204  @ 8676208
 	voice_directsound_no_resample 60, 79, DirectSoundWaveData_unknown_open_hihat, 255, 242, 141, 0  @ 8676214
 	voice_directsound 57, 69, DirectSoundWaveData_unknown_tom, 255, 210, 77, 204  @ 8676220
@@ -22691,3 +22691,5 @@ voicegroup999::
 .include "sound/voicegroups/voicegroup302.inc"
 .include "sound/voicegroups/voicegroupjojo.inc" @ 303
 .include "sound/voicegroups/voicegroupcintiaencounter.inc" @ 304
+.include "sound/voicegroups/voicegroupwindwaker.inc" @ 305
+.include "sound/voicegroups/voicegrouphgsschamp.inc" @ 306
