@@ -6480,7 +6480,23 @@ if (gBattleOutcome == B_OUTCOME_WON)
             money += GetTrainerMoneyToGive(gTrainerBattleOpponent_B);
         AddMoney(&gSaveBlock1Ptr->money, money);
     }
-    else if (gTrainerBattleOpponent_A == TRAINER_RANDOM_PARTY || gTrainerBattleOpponent_A == TRAINER_RANDOM_PARTY_2)
+    else if (gTrainerBattleOpponent_A == TRAINER_RANDOM_PARTY || 
+			 gTrainerBattleOpponent_A == TRAINER_RANDOM_PARTY_2 ||
+			 gTrainerBattleOpponent_A == TRAINER_BROCK ||
+			 gTrainerBattleOpponent_A == TRAINER_MISTY ||	
+			 gTrainerBattleOpponent_A == TRAINER_LTSURGE ||	
+			 gTrainerBattleOpponent_A == TRAINER_ERIKA ||	
+			 gTrainerBattleOpponent_A == TRAINER_SABRINA ||	
+			 gTrainerBattleOpponent_A == TRAINER_KOGA ||	
+			 gTrainerBattleOpponent_A == TRAINER_BLAINE ||	
+			 gTrainerBattleOpponent_A == TRAINER_GIOVANNI ||	
+			 gTrainerBattleOpponent_A == TRAINER_LORELEI ||	
+			 gTrainerBattleOpponent_A == TRAINER_BRUNO ||
+			 gTrainerBattleOpponent_A == TRAINER_AGATHA ||	
+			 gTrainerBattleOpponent_A == TRAINER_LANCE ||	
+			 gTrainerBattleOpponent_A == TRAINER_BLUE ||	
+			 gTrainerBattleOpponent_A == TRAINER_RED ||	
+			 gTrainerBattleOpponent_A == TRAINER_LEAF)
     {
         money = 0;
     }

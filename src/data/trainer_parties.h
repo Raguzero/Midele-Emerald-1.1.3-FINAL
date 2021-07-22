@@ -23456,7 +23456,7 @@ static const struct TrainerMonCustomMidele sParty_Utalawea[] = {
 static const struct TrainerMonCustomMidele sParty_Santygrass1[] = {
     {
     .iv = 31, 
-    .lvl = 75,
+    .lvl = 73,
     .species = SPECIES_CELEBI,
     .heldItem = ITEM_LEFTOVERS, 
     .nature = NATURE_JOLLY, 

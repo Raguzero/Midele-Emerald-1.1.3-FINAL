@@ -59,3 +59,4 @@ Para instalar el repositorio, ver [INSTALL.md](INSTALL.md).
 - Luna de whackahack (sprite Revamp de Yasmina Johto Beta)
 - Julius Fucik, arreglo de Stefan Adams (musica de einzug_der_gladiatoren)
 - WiserVisor (creador de .s y archivos instrumentos compatibles para las musicas MUS_CYNTHIA_ENCOUNTER, MUS_BLOODY_STREAM, CHAMPION_BATTLE_HGSS, MUS_MOLGERA_WW)
+- Deepestsilence https://www.deviantart.com/deepestsilence (Sprite de Kagerou Project Sprites)

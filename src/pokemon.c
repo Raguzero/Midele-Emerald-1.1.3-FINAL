@@ -2977,8 +2977,8 @@ static const u8 sCapLevels[] =
     50,  // 6 medallas
     55,  // 7 medallas
     65,  // 8 medallas
-    70,  // Campeón
-    80,  // Gym 1
+    80,  // Campeón
+    85,  // Gym 1
     90,  // Gym 2
     95,  // Gym 3
     100, // Gym 4

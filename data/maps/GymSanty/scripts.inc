@@ -248,7 +248,7 @@ GymSanty_Text_ExplainBadgeTakeThis:
 	.string "Con esta MEDALLA en tu poder, desde\n"
 	.string "ahora mismo, tus POKÉMON no tienen\l"
 	.string "ninguna limitación para subir hasta\l"
-	.string "el nivel 80.\p"
+	.string "el nivel 85.\p"
 	
 	.string "Incluso te obedecerá sin rechistar todo\n"
 	.string "POKéMON intercambiado que no sea\l"
