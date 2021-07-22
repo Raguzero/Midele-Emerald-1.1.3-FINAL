@@ -373,6 +373,9 @@ const u32 gTrainerPalette_Darkimalro[] = INCBIN_U32("graphics/trainers/palettes/
 const u32 gTrainerFrontPic_Darkibuenro[] = INCBIN_U32("graphics/trainers/front_pics/darkibuenro_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Darkibuenro[] = INCBIN_U32("graphics/trainers/palettes/darkibuenro.gbapal.lz");
 
+const u32 gTrainerFrontPic_Santy[] = INCBIN_U32("graphics/trainers/front_pics/santy_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Santy[] = INCBIN_U32("graphics/trainers/palettes/santy.gbapal.lz");
+
 const u8 gTrainerBackPic_Brendan[] = INCBIN_U8("graphics/trainers/back_pics/brendan_back_pic.4bpp");
 const u8 gTrainerBackPic_May[] = INCBIN_U8("graphics/trainers/back_pics/may_back_pic.4bpp");
 const u8 gTrainerBackPic_Red[] = INCBIN_U8("graphics/trainers/back_pics/red_back_pic.4bpp");
