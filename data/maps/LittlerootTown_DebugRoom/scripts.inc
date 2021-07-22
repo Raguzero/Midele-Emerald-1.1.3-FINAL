@@ -199,7 +199,7 @@ LittlerootTown_DebugRoom_Script_Combate::
 @ Estatua es una boss battle.
 LittlerootTown_DebugRoom_Script_Boss::
     lockall
-    setvar VAR_0x8004, BOSS_BATTLE_CORONA
+    setvar VAR_0x8004, BOSS_BATTLE_MASUDA
     special CreateBossBattleMon
     special BattleSetup_StartBossBattle
     waitstate

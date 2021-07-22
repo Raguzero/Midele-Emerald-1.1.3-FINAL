@@ -31,5 +31,21 @@ const struct Boss gBosses[] =
         .ability = ABILITY_THICK_FAT,
         .type1 = TYPE_ICE,
         .type2 = TYPE_ICE,
+    },
+    [BOSS_MASUDA] =
+    {
+        .name = gBossNameMasuda,
+        .level = 50,
+        .hp = 230,
+        .attack = 170,
+        .defense = 180,
+        .spAttack = 10,
+        .spDefense = 200,
+        .speed = 10,
+        .item = ITEM_LEFTOVERS,
+        .moves = {MOVE_PAY_DAY, MOVE_SHADOW_BALL, MOVE_DOOM_DESIRE, MOVE_HAZE},
+        .ability = ABILITY_SHADOW_TAG,
+        .type1 = TYPE_NORMAL,
+        .type2 = TYPE_GHOST,
     }
 };

@@ -13,7 +13,10 @@ IzabeIsland_SecretHouseB1_EventScript_PC::
 
 IzabeIsland_SecretHouseB1_EventScript_Titan::
 	lockall
-	setvar VAR_0x8004, BOSS_BATTLE_CORONA
+	msgbox DesafiarMasuda_Text, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq IzabeIsland_SecretHouseB1_EventScript_TitanNoFight
+	setvar VAR_0x8004, BOSS_BATTLE_MASUDA
 	special CreateBossBattleMon
 	special BattleSetup_StartBossBattle
 	waitstate
@@ -21,6 +24,7 @@ IzabeIsland_SecretHouseB1_EventScript_Titan::
 	specialvar VAR_RESULT, GetBattleOutcome
 	compare VAR_RESULT, B_OUTCOME_WON
 	call_if_eq IzabeIsland_SecretHouseB1_EventScript_TitanDefeated
+IzabeIsland_SecretHouseB1_EventScript_TitanNoFight:
 	releaseall
 	end
 
@@ -43,3 +47,6 @@ IzabeIsland_SecretHouseB1_Text_PC::
 	.string "será la sequía casi total del mar.”\l"
 	.string "“Nadie me detendrá n.n”\l"
 	.string "“PD: Monociclo porque mono es uno.”$"
+
+DesafiarMasuda_Text:
+	.string "TEXTO MASUDA$"
