@@ -22,6 +22,8 @@ static const u8 gText_Music_VsRival[]                = _("POKéMON RSE \nVS RIVA
 static const u8 gText_Music_VsEliteFour[]                = _("POKéMON RSE \nVS ELITE 4");
 static const u8 gText_Music_VsArchieMaxie[]                = _("POKéMON RSE \nVS ARCHIE/MAXIE");
 static const u8 gText_Music_VSFront[]                = _("POKéMON RSE \nVS FRONTIER BRAIN");
+static const u8 gText_Music_VsRegi[]                = _("POKéMON RSE \nVS REGI");
+static const u8 gText_Music_VsLegendary[]                = _("POKéMON RSE \nVS LEGENDARY");
 
 
 static const u8 gText_Music_FRLG_VSGym[]        = _("POKéMON FRLG \nVS GYM LEADER");
@@ -223,6 +225,8 @@ static const u16 sMusicTableLilycove[] = {
     MUS_BATTLE32,
     MUS_BATTLE30,
     MUS_BATTLE33,
+    MUS_BATTLE36,
+    MUS_VS_REKKU,
     MUS_VS_FRONT,
     
     // FRLG
@@ -279,6 +283,8 @@ static const u16 sMusicTableBeforeMicoloHideout[] = {
     MUS_BATTLE32,
     MUS_BATTLE30,
     MUS_BATTLE33,
+    MUS_BATTLE36,
+    MUS_VS_REKKU,
     MUS_VS_FRONT,
     
     // FRLG
@@ -350,6 +356,8 @@ static const u16 sMusicTableFinal[] = {
     MUS_BATTLE32,
     MUS_BATTLE30,
     MUS_BATTLE33,
+    MUS_BATTLE36,
+    MUS_VS_REKKU,
     MUS_VS_FRONT,
     
     // FRLG
@@ -427,9 +435,11 @@ const u8* const sMusicNames[] = {
     [MUS_BATTLE31] = gText_Music_AquaMagma,
     [MUS_BATTLE32] = gText_Music_GymLeader,
     [MUS_BATTLE33] = gText_Music_VsChampion,
+    [MUS_BATTLE36] = gText_Music_VsRegi,
     [MUS_BATTLE35] = gText_Music_VsRival,
     [MUS_BATTLE38] = gText_Music_VsEliteFour,
     [MUS_BATTLE30] = gText_Music_VsArchieMaxie,
+    [MUS_VS_REKKU] = gText_Music_VsLegendary,
     [MUS_VS_FRONT] = gText_Music_VSFront,
     [MUS_RG_VS_GYM] = gText_Music_FRLG_VSGym,
     [MUS_RG_VS_TORE] = gText_Music_FRLG_VSTrainer,
