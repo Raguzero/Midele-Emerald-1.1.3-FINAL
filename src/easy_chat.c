@@ -1043,6 +1043,7 @@ const u8 *const gEasyChatGroupNamePointers[] = {
     [EC_GROUP_MOVE_2] = gEasyChatGroupName_Move2,
     [EC_GROUP_TRENDY_SAYING] = gEasyChatGroupName_TrendySaying,
     [EC_GROUP_POKEMON_2] = gEasyChatGroupName_Pokemon2,
+    [EC_GROUP_MOVE_3] = gEasyChatGroupName_Move3,
 };
 
 static const u16 sDefaultProfileWords[] = {
@@ -4819,6 +4820,7 @@ static bool8 IsEasyChatGroupUnlocked(u8 groupId)
     case EC_GROUP_EVENTS:
     case EC_GROUP_MOVE_1:
     case EC_GROUP_MOVE_2:
+    case EC_GROUP_MOVE_3:
         return FlagGet(FLAG_SYS_GAME_CLEAR);
     case EC_GROUP_POKEMON_2:
         return EasyChatIsNationalPokedexEnabled();
@@ -4860,6 +4862,7 @@ bool8 sub_811EAA4(u16 easyChatWord)
     case EC_GROUP_POKEMON_2:
     case EC_GROUP_MOVE_1:
     case EC_GROUP_MOVE_2:
+    case EC_GROUP_MOVE_3:
         list = gEasyChatGroups[groupId].wordData.valueList;
         for (i = 0; i < numWords; i++)
         {
@@ -4891,6 +4894,7 @@ bool8 ECWord_CheckIfOutsideOfValidRange(u16 easyChatWord)
         break;
     case EC_GROUP_MOVE_1:
     case EC_GROUP_MOVE_2:
+	case EC_GROUP_MOVE_3:
         numWordsInGroup = gUnknown_085FA1D4;
         break;
     default:
@@ -4913,6 +4917,7 @@ const u8 *GetEasyChatWord(u8 groupId, u16 index)
         return gSpeciesNames[index];
     case EC_GROUP_MOVE_1:
     case EC_GROUP_MOVE_2:
+    case EC_GROUP_MOVE_3:
         return gMoveNames[index];
     default:
         return gEasyChatGroups[groupId].wordData.words[index].text;
@@ -5062,7 +5067,8 @@ u16 GetRandomEasyChatWordFromGroup(u16 groupId)
     if (groupId == EC_GROUP_POKEMON
      || groupId == EC_GROUP_POKEMON_2
      || groupId == EC_GROUP_MOVE_1
-     || groupId == EC_GROUP_MOVE_2)
+     || groupId == EC_GROUP_MOVE_2
+     || groupId == EC_GROUP_MOVE_3)
     {
         index = gEasyChatGroups[groupId].wordData.valueList[index];
     }
@@ -5310,7 +5316,8 @@ static void sub_811F2D4(void)
         sUnknown_0203A120->unk2[sUnknown_0203A120->unk0++] = EC_GROUP_EVENTS;
         sUnknown_0203A120->unk2[sUnknown_0203A120->unk0++] = EC_GROUP_MOVE_1;
         sUnknown_0203A120->unk2[sUnknown_0203A120->unk0++] = EC_GROUP_MOVE_2;
-    }
+        sUnknown_0203A120->unk2[sUnknown_0203A120->unk0++] = EC_GROUP_MOVE_3;
+	}
 
     if (FlagGet(FLAG_SYS_HIPSTER_MEET))
         sUnknown_0203A120->unk2[sUnknown_0203A120->unk0++] = EC_GROUP_TRENDY_SAYING;
@@ -5438,7 +5445,7 @@ static u16 sub_811F5C4(u16 groupId)
     u16 numWords = gEasyChatGroups[groupId].numWords;
 
     if (groupId == EC_GROUP_POKEMON || groupId == EC_GROUP_POKEMON_2
-     || groupId == EC_GROUP_MOVE_1  || groupId == EC_GROUP_MOVE_2)
+     || groupId == EC_GROUP_MOVE_1  || groupId == EC_GROUP_MOVE_2 || groupId == EC_GROUP_MOVE_3)
     {
         list = gEasyChatGroups[groupId].wordData.valueList;
         for (i = 0, totalWords = 0; i < numWords; i++)
@@ -5498,6 +5505,7 @@ static bool8 sub_811F764(u16 wordIndex, u8 groupId)
         return TRUE;
     case EC_GROUP_MOVE_1:
     case EC_GROUP_MOVE_2:
+    case EC_GROUP_MOVE_3:
         return TRUE;
     case EC_GROUP_TRENDY_SAYING:
         return IsAdditionalPhraseUnlocked(wordIndex);

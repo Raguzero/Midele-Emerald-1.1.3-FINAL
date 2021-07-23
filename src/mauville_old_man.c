@@ -317,7 +317,8 @@ static void InitGiddyTaleList(void)
         {EC_GROUP_HOBBIES,   0},
         {EC_GROUP_MOVE_1,    0},
         {EC_GROUP_MOVE_2,    0},
-        {EC_GROUP_POKEMON_2, 0}
+        {EC_GROUP_POKEMON_2, 0},
+	    {EC_GROUP_MOVE_3,    0}
     };
     u16 i;
     u16 r10;

@@ -35,6 +35,7 @@ const struct BardSound *GetWordSounds(u16 word)
             break;
         case EC_GROUP_MOVE_1:
         case EC_GROUP_MOVE_2:
+        case EC_GROUP_MOVE_3:
             ptr = gBardSounds_Moves;
             break;
         default:

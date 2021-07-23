@@ -50,7 +50,8 @@
 #define EC_GROUP_MOVE_2         0x13
 #define EC_GROUP_TRENDY_SAYING  0x14
 #define EC_GROUP_POKEMON_2      0x15
-#define EC_NUM_GROUPS           0x16
+#define EC_GROUP_MOVE_3         0x16
+#define EC_NUM_GROUPS           0x17
 
 // TRAINER
 #define EC_WORD_I_CHOOSE_YOU  (EC_GROUP_TRAINER << 9) | 0x0
@@ -1109,6 +1110,7 @@
 #define EC_POKEMON2(mon) ((EC_GROUP_POKEMON_2 << 9) | SPECIES_##mon)
 #define EC_MOVE(move) ((EC_GROUP_MOVE_1 << 9) | MOVE_##move)
 #define EC_MOVE2(move) ((EC_GROUP_MOVE_2 << 9) | MOVE_##move)
+#define EC_MOVE3(move) ((EC_GROUP_MOVE_3 << 9) | MOVE_##move)
 
 #define EC_GROUP(word) ((word) >> 9)
 #define EC_INDEX(word) ((word) & 0x1FF)
