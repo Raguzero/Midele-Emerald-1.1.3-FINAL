@@ -1220,7 +1220,7 @@ u32 FldEff_BerryTreeGrowthSparkle(void)
         sprite->oam.paletteNum = 5;
         sprite->data[0] = FLDEFF_BERRY_TREE_GROWTH_SPARKLE;
     }
-    return 0;
+    return spriteId;
 }
 
 u32 ShowTreeDisguiseFieldEffect(void)
