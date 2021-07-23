@@ -44,7 +44,7 @@ static const u8 gText_Music_XYWild[]                 = _("POKéMON XY           
 static const u8 gText_Music_ZinniaTheme[]            = _("POKéMON ORAS         \nZINNIA THEME");
 static const u8 gText_Music_SMWildBattle[]           = _("POKéMON SM           \nWILD BATTLE");
 static const u8 gText_Music_ThemeOfEncounter[]       = _("FIRE EMBLEM          \nTHEME OF ENCOUNTER");
-static const u8 gText_Music_EINZUG_DER_GLADIATOREN[] = _("FUCIK                \nEINZUG DER GLADIATOREN");
+static const u8 gText_Music_EinzugDerGladiatoren[]   = _("FUCIK                \nEINZUG DER GLADIATOREN");
 static const u8 gText_Music_DialgaPalkia[]           = _("POKéMON DPPt         \nVS DIALGA AND PALKIA");
 static const u8 gText_Music_Megalovania[]            = _("UNDERTALE            \nMEGALOVANIA");
 static const u8 gText_Music_ThatPersonNameIs[]       = _("BRAVELY DEFAULT      \nTHAT PERSON NAME IS");
@@ -66,7 +66,7 @@ static const u8 gText_Music_Shum[]                   = _("GO A                 \
 static const u8 gText_Music_BreathOfFire2FinalBoss[] = _("BREATH OF FIRE 2     \nFINAL BOSS");
 static const u8 gText_Music_JackRoom[]               = _("DELTARUNE            \nTHE CIRCUS");
 static const u8 gText_Music_Molgera[]                = _("ZELDA WIND WAKER     \nMOLGERA BATTLE");
-static const u8 gText_Music_ChampionHGSS[]           = _("POKéMON GSC          \nVS CHAMPION");
+static const u8 gText_Music_ChampionHGSS[]           = _("POKéMON HGSS         \nVS CHAMPION");
 
 
 // Digit indicators
@@ -269,6 +269,7 @@ static const u16 sMusicTableLilycove[] = {
     // MICOLO
     THATPERSONSNAMEIS,
     CRUELANGELSTHESIS,
+    EINZUG_DER_GLADIATOREN,
     
     MUS_BLOODY_STREAM,
     
@@ -286,20 +287,22 @@ static const u16 sMusicTableBeforeMicoloHideout[] = {
     MUS_BATTLE36,
     MUS_VS_REKKU,
     MUS_VS_FRONT,
-    
+
     // FRLG
     MUS_RG_VS_TORE,
     MUS_RG_VS_GYM,
     MUS_RG_VS_LAST,
-    
+
     // GSC
     WILD,
-    MUS_CHAMPION_BATTLE_HGSS,
-    
+
     // DPPT
     SEQ_BA_POKE,
     MUS_ENCOUNTER_CYNTHIA,
-    
+
+    // HGSS
+    MUS_CHAMPION_BATTLE_HGSS,
+
     // BW2
     WILDBW2_FINAL,
     
@@ -309,42 +312,43 @@ static const u16 sMusicTableBeforeMicoloHideout[] = {
     
     // SM
     SMWILDBATTLE,
-    
+
     // SWSH
     SWORDSHIELDWILD,
     BATTLE_TOWER_SWSH,
-    
+
     // XENOBLADE
     ZANZATHEME,
-    
+
     // UNDERTALE
     BONETROUSLEUNDERTALE,
     UNDERTALEMEGALOVANIA,
     JACKROOM,
     DELTARUNCHAOSK,
-    
+
     // FINAL FANTASY
     FF6BOSS,
     JENOVA,
-    
+
     FINALBOSSBREATHFIRE2,
-    
+
     MUS_MOLGERA_WW,
-    
+
     THEMEOFENCOUNTER,
-    
+
     THEREINCARNATION,
-    
+
     UMINEKONONAKUKORO,
-    
+
     BUTTERFLYWADAKOUJI,
-    
+
     // MICOLO
     THATPERSONSNAMEIS,
     CRUELANGELSTHESIS,
-    
+    EINZUG_DER_GLADIATOREN,
+
     MUS_BLOODY_STREAM,
-    
+
     SASAGEYO,
 };
 
@@ -368,14 +372,16 @@ static const u16 sMusicTableFinal[] = {
     // GSC
     WILD,
     JOHTOTRAIN,
-    MUS_CHAMPION_BATTLE_HGSS,
 
     // DPPT
     SEQ_BA_POKE,
     BATTLECYRUS,
     DIALGAPALKIABATTLE,
     MUS_ENCOUNTER_CYNTHIA,
-    
+
+    // HGSS
+    MUS_CHAMPION_BATTLE_HGSS,
+
     // BW2
     WILDBW2_FINAL,
     
@@ -420,6 +426,7 @@ static const u16 sMusicTableFinal[] = {
     // MICOLO
     THATPERSONSNAMEIS,
     CRUELANGELSTHESIS,
+    EINZUG_DER_GLADIATOREN,
     
     MUS_BLOODY_STREAM,
     
@@ -459,7 +466,7 @@ const u8* const sMusicNames[] = {
     [ZINNIATHEME] = gText_Music_ZinniaTheme,
     [SMWILDBATTLE] = gText_Music_SMWildBattle,
     [THEMEOFENCOUNTER] = gText_Music_ThemeOfEncounter,
-    [EINZUG_DER_GLADIATOREN] = gText_Music_EINZUG_DER_GLADIATOREN,
+    [EINZUG_DER_GLADIATOREN] = gText_Music_EinzugDerGladiatoren,
     [DIALGAPALKIABATTLE] = gText_Music_DialgaPalkia,
     [UNDERTALEMEGALOVANIA] = gText_Music_Megalovania,
     [THATPERSONSNAMEIS] = gText_Music_ThatPersonNameIs,
