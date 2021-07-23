@@ -4452,7 +4452,11 @@ static void HandleTurnActionSelectionState(void)
                         *(gBattleStruct->moveTarget + gActiveBattler) = gBattleBufferB[gActiveBattler][3];
                         return;
                     }
-                    else if (gDisableStructs[gActiveBattler].encoredMove != 0)
+                    // No deja elegir ataque en Encore, excepto a la IA de entrenador (para que pueda evaluar la conveniencia de repetir ataque)
+                    else if (gDisableStructs[gActiveBattler].encoredMove != 0
+                             && !(gBattlerControllerFuncs[gActiveBattler] == OpponentBufferRunCommand
+                                  && !(gBattleTypeFlags & BATTLE_TYPE_PALACE)
+                                  && (gBattleTypeFlags & BATTLE_TYPE_TRAINER)))
                     {
                         gChosenMoveByBattler[gActiveBattler] = gDisableStructs[gActiveBattler].encoredMove;
                         *(gBattleStruct->chosenMovePositions + gActiveBattler) = gDisableStructs[gActiveBattler].encoredMovePos;

@@ -97,7 +97,6 @@ static void OpponentHandleResetActionMoveSelection(void);
 static void OpponentHandleCmd55(void);
 static void OpponentCmdEnd(void);
 
-static void OpponentBufferRunCommand(void);
 static void OpponentBufferExecCompleted(void);
 static void sub_805FC80(void);
 static u32 GetOpponentMonData(u8 monId, u8 *dst);
@@ -182,7 +181,7 @@ void SetControllerToOpponent(void)
     gBattlerControllerFuncs[gActiveBattler] = OpponentBufferRunCommand;
 }
 
-static void OpponentBufferRunCommand(void)
+void OpponentBufferRunCommand(void)
 {
     if (gBattleControllerExecFlags & gBitTable[gActiveBattler])
     {
