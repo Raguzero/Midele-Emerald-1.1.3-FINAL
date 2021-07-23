@@ -14,8 +14,9 @@ IzabeIsland_SecretHouseB1_EventScript_PC::
 IzabeIsland_SecretHouseB1_EventScript_Titan::
 	lockall
 	msgbox DesafiarMasuda_Text, MSGBOX_YESNO
-	compare VAR_RESULT, NO
+	compare VAR_RESULT, YES
 	goto_if_eq IzabeIsland_SecretHouseB1_EventScript_TitanNoFight
+	msgbox DesafiarMasuda_Text_Desacuerdo, MSGBOX_DEFAULT
 	setvar VAR_0x8004, BOSS_BATTLE_MASUDA
 	special CreateBossBattleMon
 	special BattleSetup_StartBossBattle
@@ -24,7 +25,11 @@ IzabeIsland_SecretHouseB1_EventScript_Titan::
 	specialvar VAR_RESULT, GetBattleOutcome
 	compare VAR_RESULT, B_OUTCOME_WON
 	call_if_eq IzabeIsland_SecretHouseB1_EventScript_TitanDefeated
+	releaseall
+	end
+
 IzabeIsland_SecretHouseB1_EventScript_TitanNoFight:
+	msgbox DesafiarMasuda_Text_DeAcuerdo, MSGBOX_DEFAULT
 	releaseall
 	end
 
@@ -49,4 +54,42 @@ IzabeIsland_SecretHouseB1_Text_PC::
 	.string "“PD: Monociclo porque mono es uno.”$"
 
 DesafiarMasuda_Text:
-	.string "TEXTO MASUDA$"
+	.string "MASUDA: ¿Pero qué mierdas pasa en este\n"
+	.string "lugar?\p"
+	.string "Sentí una perturbación en mi cuenta\n"
+	.string "bancaria y no me está llegando tanto\l"
+	.string "dinero de esta línea... ¿acaso alguien\l"
+	.string "osa desafiar mi perfecta visión de en\l"
+	.string "lo que se convertirá la saga?\p"
+	.string "Ah... ya entiendo... es ese Darkizard...\n"
+	.string "ese obsesivo que va de dimensión a\l"
+	.string "dimensión y hace que la gente exija más\l"
+	.string "calidad, mata Lilies indefensas, lanza\l"
+	.string "nukes a toda Sinnoh existente y me\l"
+	.string "hace perder millones en el proceso...\p"
+	.string "Arg... de verdad me da pereza... quizás ya\n"
+	.string "gano lo suficiente, e igual hay\l"
+	.string "suficientes idiotas que compran\l"
+	.string "cualquier cosa con POKéMON de nombre,\l"
+	.string "debería largarme y dejarlo a su bola...\p"
+	.string "Oye, tú, niño, seguro que me das la\n"
+	.string "razon... vosotros ya no tenéis tiempo\l"
+	.string "para esto, preferís vuestros móviles y\l"
+	.string "apenas tenéis dos neuronas para\l"
+	.string "juntar... ¿por qué querría la gente\l"
+	.string "tener un reto real? ¿Estás de acuerdo?$"
+
+DesafiarMasuda_Text_DeAcuerdo:
+	.string "MASUDA: Bueno, me alegro, en ese caso\n"
+	.string "creo que ni me molestaré en crear\l"
+	.string "BLANCO y NEGRO en esta línea\l"
+	.string "temporal... ¿que qué es eso? Nah, no te\l"
+	.string "preocupes, no es como si un juego de\l"
+	.string "mediana calidad te fuese a interesar...$"
+
+DesafiarMasuda_Text_Desacuerdo:
+	.string "MASUDA: ¿Cómo? MELASUDA.\p"
+	.string "Aunque, bueno... si piensas así tendré\n"
+	.string "que enseñarte por qué la dificultad no\l"
+	.string "vende, enano.\p"
+	.string "Prepárate para darme todo tu dinero.$"
