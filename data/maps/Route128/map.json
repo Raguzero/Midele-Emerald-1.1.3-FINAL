@@ -62,7 +62,7 @@
         {
             "elevation": 1,
             "flag": "0",
-            "graphics_id": "EVENT_OBJ_GFX_SWIMMER_M",
+            "graphics_id": "EVENT_OBJ_GFX_RUNNING_TRIATHLETE_M",
             "movement_range_x": 5,
             "movement_range_y": 5,
             "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -75,7 +75,7 @@
         {
             "elevation": 1,
             "flag": "0",
-            "graphics_id": "EVENT_OBJ_GFX_SWIMMER_F",
+            "graphics_id": "EVENT_OBJ_GFX_RUNNING_TRIATHLETE_F",
             "movement_range_x": 5,
             "movement_range_y": 0,
             "movement_type": "MOVEMENT_TYPE_WALK_RIGHT_AND_LEFT",
@@ -166,7 +166,7 @@
         {
             "elevation": 1,
             "flag": "0",
-            "graphics_id": "EVENT_OBJ_GFX_SWIMMER_F",
+            "graphics_id": "EVENT_OBJ_GFX_RUNNING_TRIATHLETE_F",
             "movement_range_x": 1,
             "movement_range_y": 3,
             "movement_type": "MOVEMENT_TYPE_WALK_UP_AND_DOWN",
@@ -179,7 +179,7 @@
         {
             "elevation": 1,
             "flag": "0",
-            "graphics_id": "EVENT_OBJ_GFX_SWIMMER_M",
+            "graphics_id": "EVENT_OBJ_GFX_RUNNING_TRIATHLETE_M",
             "movement_range_x": 1,
             "movement_range_y": 3,
             "movement_type": "MOVEMENT_TYPE_WALK_DOWN_AND_UP",
