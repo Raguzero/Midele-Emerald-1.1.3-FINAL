@@ -21317,7 +21317,7 @@ static const struct TrainerMonCustomMidele sParty_IzabeIsland_Pokemaniac[] = {
     }
 };
 
-static const struct TrainerMonCustomMidele sParty_IzabeIsland_Hexmaniac[] = {
+static const struct TrainerMonCustomMidele sParty_IzabeIsland_Gooses[] = {
     {
     .iv = 31,
     .lvl = 32,

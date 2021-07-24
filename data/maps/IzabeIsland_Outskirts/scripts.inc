@@ -73,20 +73,44 @@ IzabeIsland_Outskirts_Text_HikerPostBattle::
 	.string "Dicen que un POKéMON legendario habita\n"
 	.string "en la cueva del oeste.$"
 
-IzabeIsland_Outskirts_EventScript_HexManiac::
-	trainerbattle_single TRAINER_IZABE_HEXMANIAC, IzabeIsland_Outskirts_Text_HexManiacIntro, IzabeIsland_Outskirts_Text_HexManiacDefeat
-	msgbox IzabeIsland_Outskirts_Text_HexManiacPostBattle, MSGBOX_AUTOCLOSE
+IzabeIsland_Outskirts_EventScript_Gooses::
+	trainerbattle_single TRAINER_IZABE_GOOSES, IzabeIsland_Outskirts_Text_GoosesIntro, IzabeIsland_Outskirts_Text_GoosesDefeat
+	msgbox IzabeIsland_Outskirts_Text_GoosesPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-IzabeIsland_Outskirts_Text_HexManiacIntro::
-	.string "Prepárate para morir... ¡FLUX!$"
+IzabeIsland_Outskirts_Text_GoosesIntro::
+	.string "...Hola. Otra vez una criatura... Sí...\n"
+	.string "Tienes un aura parecida a aquella que\l"
+	.string "vi en Kanto. ¿O acaso sois el mismo ser?\p"
+	.string "Ah, que descortés, soy gooses, una\n"
+	.string "antigua bruja de gran poder...\p"
+	.string "Oh, qué interesante. ¿Quieres una\n"
+	.string "muestra de mi poder? Fufufu... Sí, en\l"
+	.string "verdad me interesas.\p"
+	.string "Pero seré yo quien te pruebe a ti.\p"
+	.string "Muéstrame tus convicciones, pero si\n"
+	.string "dudas... te helaré el corazón.$"
 
-IzabeIsland_Outskirts_Text_HexManiacDefeat::
-	.string "¡Sin PM!$"
+IzabeIsland_Outskirts_Text_GoosesDefeat::
+	.string "... Muy buen trabajo, te felicito, tienes\n"
+	.string "un espíritu fuerte... en verdad tienes\l"
+	.string "potencial.$"
 
-IzabeIsland_Outskirts_Text_HexManiacPostBattle::
-	.string "¿Que cómo hago para llevar esta ropa con\n"
-	.string "el frío que hace? Es magia.$"
+IzabeIsland_Outskirts_Text_GoosesPostBattle::
+	.string "Ha sido un buen combate, joven, pero no\n"
+	.string "creas que me has derrotado aún fufufu.\p"
+	.string "Has pasado una prueba... haz crecer tu\n"
+	.string "fuerza y tus convicciones y búscame en\l"
+	.string "mi gimnasio, allí te mostraré lo que es\l"
+	.string "sobrevivir al verdadero invierno.\p"
+	.string "Me pregunto si tendrás lo suficiente\n"
+	.string "para darme una respuesta final que me\l"
+	.string "agrade.\p"
+	.string "Por ahora continuaré mi investigación,\n"
+	.string "hay varios secretos del mundo que\l"
+	.string "estoy a punto de resolver... y tengo\l"
+	.string "varios planes en los que entrometerme\l"
+	.string "fufufu.$"
 
 IzabeIsland_Outskirts_EventScript_Fisherman::
 	trainerbattle_single TRAINER_IZABE_FISHERMAN, IzabeIsland_Outskirts_Text_FishermanIntro, IzabeIsland_Outskirts_Text_FishermanDefeat

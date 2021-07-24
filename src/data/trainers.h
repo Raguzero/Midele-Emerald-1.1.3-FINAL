@@ -12191,18 +12191,19 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_IzabeIsland_Pokemaniac),
         .party = {.ItemCustomMidele = sParty_IzabeIsland_Pokemaniac},
     },
-    [TRAINER_IZABE_HEXMANIAC] =
+    [TRAINER_IZABE_GOOSES] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_HEX_MANIAC,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .battleMusic = UMINEKONONAKUKORO,
         .trainerPic = TRAINER_PIC_HEX_MANIAC,
-        .trainerName = _("KARLA"),
+        .trainerName = _("GOOSES"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
-        .partySize = ARRAY_COUNT(sParty_IzabeIsland_Hexmaniac),
-        .party = {.ItemCustomMidele = sParty_IzabeIsland_Hexmaniac},
+        .partySize = ARRAY_COUNT(sParty_IzabeIsland_Gooses),
+        .party = {.ItemCustomMidele = sParty_IzabeIsland_Gooses},
     },
     [TRAINER_IZABE_LAVENDER] =
     {
