@@ -108,7 +108,13 @@ MicoloHideout_Sign_LaPapelera_2:
 	removeobject 10
 	waitse
 	setvar VAR_STATE_MICOLANDIA, 2
-	msgbox MicoloHideout_Sign_LaPapelera_Text_UpgradeMusicPlayer, MSGBOX_DEFAULT
+	applymovement EVENT_OBJ_ID_PLAYER, Movement_Player_AcercarPapelera
+	waitmovement 0
+	msgbox MicoloHideout_Sign_LaPapelera_Text_BuscarPapelera, MSGBOX_DEFAULT
+	playse SE_TK_KASYA
+	delay 10
+	playse MUS_FANFA4
+	msgbox MicoloHideout_Text_MusicPlayerUpgraded, MSGBOX_DEFAULT
 	setvar VAR_MUSIC_PLAYER, MUSIC_PLAYER_STATE_PAPELERA
 	goto MicoloHideout_Sign_LaPapelera_1
 
@@ -136,6 +142,11 @@ Movement_Paco_EmpujaJugador:
 Movement_Paco_Chau:
 	walk_right
 	walk_up
+	step_end
+
+Movement_Player_AcercarPapelera:
+	walk_right
+	face_up
 	step_end
 
 MicoloHideout_Sign_LaPapelera_Text_0:
@@ -900,5 +911,13 @@ MicoloHideoutTickets_Text_NotEnoughMoney:
 MicoloHideout_SiVendido_Text:
 	.string "¡¡Esto es un trato dabuten!!$"
 
-MicoloHideout_Sign_LaPapelera_Text_UpgradeMusicPlayer:
-	.string "TEXTOS$"
+MicoloHideout_Sign_LaPapelera_Text_BuscarPapelera:
+	.string "Examinas lo que habías visto en la\n"
+	.string "papelera...\p"
+	.string "¡Encuentras una TARJETA DE EXPANSIÓN\n"
+	.string "para tu MUSIC PLAYER!$"
+
+MicoloHideout_Text_MusicPlayerUpgraded::
+	.string "¡Tu MUSIC PLAYER ha sido mejorado!\p"
+	.string "Ahora podrás escuchar una mayor\n"
+	.string "variedad de canciones.$"
