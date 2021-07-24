@@ -2352,7 +2352,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
 				break;
             case ABILITY_COLOR_CHANGE:
                 if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
-                 && move != MOVE_STRUGGLE
+			     && (move != MOVE_STRUGGLE || move != MOVE_MIDELE_POWER)
                  && gBattleMoves[move].power != 0
                  && TARGET_TURN_DAMAGED
                  && !IS_BATTLER_OF_TYPE(battler, moveType)

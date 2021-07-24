@@ -1446,8 +1446,8 @@ static void Cmd_attackstring(void)
 {
     if (gBattleControllerExecFlags)
          return;
-	 
-		if (gBattleMons[gBattlerAttacker].ability == ABILITY_PROTEAN && gCurrentMove != MOVE_STRUGGLE)
+ 
+		if (gBattleMons[gBattlerAttacker].ability == ABILITY_PROTEAN && gCurrentMove != MOVE_STRUGGLE && gCurrentMove != MOVE_MIDELE_POWER)
 	{
 		u8 moveType = gBattleMoves[gCurrentMove].type;
 		if (gBattleStruct->dynamicMoveType & 0x3F)
