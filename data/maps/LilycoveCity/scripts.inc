@@ -359,9 +359,9 @@ LilycoveCity_EventScript_RivalGivesUpgradeAndFliesAway:
 	msgbox LilycoveCity_Text_RivalUpgradeMusicPlayer, MSGBOX_DEFAULT
 	playse SE_TK_KASYA
 	delay 10
-	playse MUS_FANFA4
+	playfanfare MUS_FANFA4
 	msgbox IzabeIsland_OutskirtsCave_Text_Lavender_MusicPlayerUpgraded, MSGBOX_DEFAULT
-	waitse
+	waitfanfare
 	setvar VAR_MUSIC_PLAYER, MUSIC_PLAYER_STATE_LILYCOVE
 	goto LilycoveCity_EventScript_RivalFlyAway
 	end

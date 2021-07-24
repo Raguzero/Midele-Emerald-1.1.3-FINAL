@@ -14,11 +14,17 @@ MicoloHideout_LavaRoom_EventScript_GiratinaMaster_1:
 
 MicoloHideout_LavaRoom_EventScript_GiratinaMaster_2:
 	msgbox MicoloHideout_LavaRoom_EventScript_GiratinaMaster_Text_0, MSGBOX_DEFAULT
-	setvar VAR_MUSIC_PLAYER, MUSIC_PLAYER_STATE_FINAL
 	applymovement 6, MicoloHideout_LavaRoom_Movement_GiratinaMaster
 	waitmovement 0
-    removeobject 6
+	removeobject 6
 	setflag FLAG_HIDE_LAVAROOM_GIRATINAMASTER
+	msgbox MicoloHideout_LavaRoom_Text_GiratinaMaster_MusicPlayerUpgrade, MSGBOX_DEFAULT
+	playse SE_TK_KASYA
+	delay 10
+	playfanfare MUS_FANFA4
+	waitfanfare
+	msgbox MicoloHideout_Text_MusicPlayerUpgraded, MSGBOX_DEFAULT
+	setvar VAR_MUSIC_PLAYER, MUSIC_PLAYER_STATE_FINAL
 	goto MicoloHideout_LavaRoom_EventScript_GiratinaMaster_1
 
 
@@ -264,6 +270,12 @@ MicoloHideout_LavaRoom_Text_MaestroArenaPostBattle:
 	.string "preparado, porque irá perdiendo mas\l"
 	.string "y mas puntos de salud casi sin darse\l"
 	.string "cuenta ¡JAJAJAJAJAJAJA!$"
+
+MicoloHideout_LavaRoom_Text_GiratinaMaster_MusicPlayerUpgrade:
+	.string "Parece que GIRATINA MASTER ha dejado\n"
+	.string "algo en el suelo...\p"
+	.string "¡Es la última TARJETA DE EXPANSIÓN para\n"
+	.string "tu MUSIC PLAYER!$"
 	
 MicoloHideout_LavaRoom_Text_ManecIntro:
 	.string "FRASES$"

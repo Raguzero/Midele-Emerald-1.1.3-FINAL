@@ -195,9 +195,9 @@ IzabeIsland_OutskirtsCave_EventScript_Lavender_AskFight:
 	setvar VAR_MUSIC_PLAYER, MUSIC_PLAYER_STATE_IZABE
 	playse SE_TK_KASYA
 	delay 10
-	playse MUS_FANFA4
+	playfanfare MUS_FANFA4
 	msgbox IzabeIsland_OutskirtsCave_Text_Lavender_MusicPlayerUpgraded, MSGBOX_DEFAULT
-	waitse
+	waitfanfare
 	msgbox IzabeIsland_OutskirtsCave_Text_Lavender_Bye, MSGBOX_DEFAULT
 
 	applymovement 2, IzabeIsland_OutskirtsCave_Movement_LavenderSpin
