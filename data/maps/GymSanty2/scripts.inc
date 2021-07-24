@@ -432,7 +432,7 @@ GymSanty2_Text_CaminoAbierto:
 	.string "ha sido desbloqueado.$"
 	
 GymSanty2_Text_Totemaparece:
-	.string "M-CAMERUPT, the Totem Pokémon\n"
+	.string "M-CAMERUPT, the TOTEM Pokémon\n"
 	.string "has appeared!$"
 	
 GymSanty2_Text_Totemderrotado:

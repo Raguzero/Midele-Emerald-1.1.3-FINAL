@@ -118,7 +118,7 @@ GraniteCave_1F_Text_ExplainFlash: @ 822DBB7
 	.string "from DEWFORD's POKéMON GYM.$"
 	
 GraniteCave_1F_Text_Totemaparece:
-	.string "PROBOPASS, the Totem Pokémon\n"
+	.string "PROBOPASS, the TOTEM Pokémon\n"
 	.string "has appeared!$"
 	
 GraniteCave_1F_Text_Totemderrotado:

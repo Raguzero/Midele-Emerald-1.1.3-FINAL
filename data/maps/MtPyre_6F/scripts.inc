@@ -96,7 +96,7 @@ MtPyre_6F_Text_CedricPostBattle: @ 8231F5C
 	.string "It's dirty and I won't try it again…$"
 	
 MtPyre_6F_Text_Totemaparece:
-	.string "MEGA ABSOL, the Totem Pokémon\n"
+	.string "MEGA ABSOL, the TOTEM Pokémon\n"
 	.string "has appeared!$"
 	
 MtPyre_6F_Text_Totemderrotado:

@@ -50,7 +50,7 @@ ScorchedSlab_B2F_EventScript_CloseEntei::
 	return
 
 ScorchedSlab_B2F_Text_Totemaparece:
-	.string "RHYPERIOR, the Totem Pokémon\n"
+	.string "RHYPERIOR, the TOTEM Pokémon\n"
 	.string "has appeared!$"
 
 ScorchedSlab_B2F_Text_Totemderrotado:

@@ -1328,7 +1328,7 @@ GymGooses_Text_ExplainBadgeTakeThis:
 	.string "Mucha suerte, ¡La necesitarás!$"
 	
 GymGooses_Text_Totemaparece:
-	.string "M-GLALIE, the Totem Pokémon\n"
+	.string "M-GLALIE, the TOTEM Pokémon\n"
 	.string "has appeared!$"
 	
 GymGooses_Text_Totemderrotado:

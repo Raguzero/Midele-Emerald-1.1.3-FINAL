@@ -58,7 +58,7 @@ MirageTower_4F_EventScript_Totem2::
     @ Combate contra totem.	
 	
 MirageTower_4F_Text_Totemaparece:
-	.string "COFAGRIGUS, the Totem Pokémon of\n" 
+	.string "COFAGRIGUS, the TOTEM Pokémon of\n" 
 	.string "Mirage Tower, has appeared!$"
 	
 MirageTower_4F_Text_Totemderrotado:

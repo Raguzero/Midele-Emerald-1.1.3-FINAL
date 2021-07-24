@@ -1242,7 +1242,7 @@ Darkigym_Text_Teleport_Entrada:
 	.string "¿Estás seguro que quieres usarla?$"
 
 Darkigym_Text_Totemaparece:
-	.string "TYRANITAR, the Totem Pokémon\n"
+	.string "TYRANITAR, the TOTEM Pokémon\n"
 	.string "has appeared!$"
 	
 Darkigym_Text_Totemderrotado:

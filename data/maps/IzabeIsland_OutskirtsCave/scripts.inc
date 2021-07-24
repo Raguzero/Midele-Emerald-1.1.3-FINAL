@@ -276,7 +276,7 @@ IzabeIsland_OutskirtsCave_Text_DoorOpen::
 	.string "Se ha abierto un agujero en la pared.$"
 
 IzabeIsland_OutskirtsCave_Text_TotemAppears:
-	.string "WINTASS, the Totem Pokémon of\n" 
+	.string "WINTASS, the TOTEM Pokémon of\n" 
 	.string "IZABE ISLAND, has appeared!$"
 
 IzabeIsland_OutskirtsCave_Text_TotemDisappears:

@@ -346,7 +346,7 @@ Fiery_Path_Text_DobleCPostBattle:
 	.string "a caer de culo, pedazo de NOOB!$"
 
 Fiery_Path_Text_Totemaparece:
-	.string "CENTISKORCH, the Totem Pokémon of\n" 
+	.string "CENTISKORCH, the TOTEM Pokémon of\n" 
 	.string "Fiery Path, has appeared!$"
 	
 Fiery_Path_Text_Totemderrotado:
