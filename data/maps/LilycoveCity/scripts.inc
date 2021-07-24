@@ -345,16 +345,23 @@ LilycoveCity_EventScript_DefeatedMay:: @ 81E2F3E
 	msgbox LilycoveCity_Text_MayGoingBackToLittleroot, MSGBOX_DEFAULT
 	clearflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_BEDROOM
 	clearflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_2F_PICHU_DOLL
-	msgbox LilycoveCity_Text_MayUpgradeMusicPlayer, MSGBOX_DEFAULT
-	setvar VAR_MUSIC_PLAYER, MUSIC_PLAYER_STATE_LILYCOVE
-	goto LilycoveCity_EventScript_RivalFlyAway
+	goto LilycoveCity_EventScript_RivalGivesUpgradeAndFliesAway
 	end
 
 LilycoveCity_EventScript_DefeatedBrendan:: @ 81E2FAA
 	msgbox LilycoveCity_Text_BrendanGoingBackToLittleroot, MSGBOX_DEFAULT
 	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_BEDROOM
 	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F_SWABLU_DOLL
-	msgbox LilycoveCity_Text_BrendanUpgradeMusicPlayer, MSGBOX_DEFAULT
+	goto LilycoveCity_EventScript_RivalGivesUpgradeAndFliesAway
+	end
+
+LilycoveCity_EventScript_RivalGivesUpgradeAndFliesAway:
+	msgbox LilycoveCity_Text_RivalUpgradeMusicPlayer, MSGBOX_DEFAULT
+	playse SE_TK_KASYA
+	delay 10
+	playse MUS_FANFA4
+	msgbox IzabeIsland_OutskirtsCave_Text_Lavender_MusicPlayerUpgraded, MSGBOX_DEFAULT
+	waitse
 	setvar VAR_MUSIC_PLAYER, MUSIC_PLAYER_STATE_LILYCOVE
 	goto LilycoveCity_EventScript_RivalFlyAway
 	end
@@ -671,8 +678,10 @@ LilycoveCity_Text_MelkorHouseSign:
 	.string "del cartel...\p"
 	.string "“MELKOR, PAGA EL SERVER”$"
 
-LilycoveCity_Text_MayUpgradeMusicPlayer:
-	.string "TEXTO$"
-
-LilycoveCity_Text_BrendanUpgradeMusicPlayer:
-	.string "TEXTO$"
+LilycoveCity_Text_RivalUpgradeMusicPlayer:
+	.string "By the way, {PLAYER}, have you been\n"
+	.string "using the ITEMFINDER I gave you?\p"
+	.string "I found an item on my way to LILYCOVE,\n"
+	.string "but I think it's useless.\p"
+	.string "Maybe you know how to use it, so take\n"
+	.string "it!$"
