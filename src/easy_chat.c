@@ -4860,9 +4860,11 @@ bool8 sub_811EAA4(u16 easyChatWord)
     numWords = gEasyChatGroups[groupId].numWords;
     switch (groupId)
     {
+    case EC_GROUP_POKEMON_3:
+        if (index < 300)
+            index |= 512;
     case EC_GROUP_POKEMON:
     case EC_GROUP_POKEMON_2:
-    case EC_GROUP_POKEMON_3:
     case EC_GROUP_MOVE_1:
     case EC_GROUP_MOVE_2:
     case EC_GROUP_MOVE_3:
@@ -4916,9 +4918,11 @@ const u8 *GetEasyChatWord(u8 groupId, u16 index)
 {
     switch (groupId)
     {
+    case EC_GROUP_POKEMON_3:
+        if (index < 300)
+            index |= 512;
     case EC_GROUP_POKEMON:
     case EC_GROUP_POKEMON_2:
-    case EC_GROUP_POKEMON_3:
         return gSpeciesNames[index];
     case EC_GROUP_MOVE_1:
     case EC_GROUP_MOVE_2:
@@ -5506,8 +5510,10 @@ static bool8 sub_811F764(u16 wordIndex, u8 groupId)
     {
     case EC_GROUP_POKEMON:
         return GetSetPokedexFlag(SpeciesToNationalPokedexNum(wordIndex), FLAG_GET_SEEN);
-    case EC_GROUP_POKEMON_2:
     case EC_GROUP_POKEMON_3:
+        if (wordIndex < 300)
+            wordIndex |= 512;
+	case EC_GROUP_POKEMON_2:
         if (sub_811F838(wordIndex))
             GetSetPokedexFlag(SpeciesToNationalPokedexNum(wordIndex), FLAG_GET_SEEN);
         return TRUE;
