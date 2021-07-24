@@ -176,15 +176,29 @@ IzabeIsland_OutskirtsCave_EventScript_NoEffect::
 IzabeIsland_OutskirtsCave_EventScript_Lavender::
 	lockall
 	faceplayer
+	compare VAR_TEMP_2, 1
+	goto_if_eq IzabeIsland_OutskirtsCave_EventScript_Lavender_AskFight
 	msgbox IzabeIsland_OutskirtsCave_Text_Lavender_ExplainSituation, MSGBOX_NPC
+	setvar VAR_TEMP_2, 1
+IzabeIsland_OutskirtsCave_EventScript_Lavender_AskFight:
+	msgbox IzabeIsland_OutskirtsCave_Text_Lavender_AskFight, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq IzabeIsland_OutskirtsCave_EventScript_Lavender_NoFight
+	msgbox IzabeIsland_OutskirtsCave_Text_Lavender_LetsFight, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_IZABE_LAVENDER, IzabeIsland_OutskirtsCave_Text_Lavender_BattleDefeated
 
 	msgbox IzabeIsland_OutskirtsCave_Text_Lavender_TryGiveItem, MSGBOX_DEFAULT
 	giveitem ITEM_HM02
 	setflag FLAG_RECEIVED_HM02
 	setvar VAR_IZABE_ISLAND_STATE, 2
-	msgbox IzabeIsland_OutskirtsCave_Text_Lavender_GiveMusicPlayer, MSGBOX_DEFAULT
+	msgbox IzabeIsland_OutskirtsCave_Text_Lavender_UpgradeMusicPlayer, MSGBOX_DEFAULT
 	setvar VAR_MUSIC_PLAYER, MUSIC_PLAYER_STATE_IZABE
+	playse SE_TK_KASYA
+	delay 10
+	playse MUS_FANFA4
+	msgbox IzabeIsland_OutskirtsCave_Text_Lavender_MusicPlayerUpgraded, MSGBOX_DEFAULT
+	waitse
+	msgbox IzabeIsland_OutskirtsCave_Text_Lavender_Bye, MSGBOX_DEFAULT
 
 	applymovement 2, IzabeIsland_OutskirtsCave_Movement_LavenderSpin
 	waitmovement 0
@@ -192,6 +206,11 @@ IzabeIsland_OutskirtsCave_EventScript_Lavender::
 	applymovement 2, IzabeIsland_OutskirtsCave_Movement_LavenderJumpAway
 	waitmovement 0
 	removeobject 2
+	releaseall
+	end
+
+IzabeIsland_OutskirtsCave_EventScript_Lavender_NoFight:
+	msgbox IzabeIsland_OutskirtsCave_Text_Lavender_NoFight, MSGBOX_DEFAULT
 	releaseall
 	end
 
@@ -228,20 +247,30 @@ IzabeIsland_OutskirtsCave_Text_Lavender_ExplainSituation::
 	.string "¿Cómo? ¿Que quieres saberla? Bueno, si\n"
 	.string "me derrotas te la diré.$"
 
+IzabeIsland_OutskirtsCave_Text_Lavender_AskFight:
+	.string "¿Estás listo para el combate?$"
+
+IzabeIsland_OutskirtsCave_Text_Lavender_LetsFight:
+	.string "¡Vamos a ello!$"
+
+IzabeIsland_OutskirtsCave_Text_Lavender_NoFight:
+	.string "¡Date prisa!\p"
+	.string "No me moveré de aquí hasta que me\n"
+	.string "hayas derrotado.$"
+
 IzabeIsland_OutskirtsCave_Text_Lavender_BattleDefeated::
 	.string "Vaya... buen hax...\n"
 	.string "Te odio.$"
 
 IzabeIsland_OutskirtsCave_Text_Lavender_TryGiveItem::
-	.string "Esos TOTEMS han sido creados por\n"
-	.string "MICOLO, el científico legendario.\p"
+	.string "LAVENDER: esos TOTEMS han sido creados\n"
+	.string "por MICOLO, el científico legendario.\p"
 	.string "MICOLO solía vivir en esta ISLA,\n"
 	.string "pero un día desapareció.\p"
 	.string "Sin embargo, parece que MICOLO ha vuelto\n"
 	.string "a la región. Deberías tener cuidado...\p"
 	.string "Cambiando de tema, gracias por ayudar a\n"
-	.string "GARM, te daré algo por las molestias.\p"
-	.string "¡Hasta la vista!$"
+	.string "GARM, te daré algo por las molestias.$"
 
 IzabeIsland_OutskirtsCave_Text_DoorOpen::
 	.string "Se ha abierto un agujero en la pared.$"
@@ -253,5 +282,19 @@ IzabeIsland_OutskirtsCave_Text_TotemAppears:
 IzabeIsland_OutskirtsCave_Text_TotemDisappears:
 	.string "WINTASS disappeared...$"
 
-IzabeIsland_OutskirtsCave_Text_Lavender_GiveMusicPlayer:
-	.string "TEXTO$"
+IzabeIsland_OutskirtsCave_Text_Lavender_UpgradeMusicPlayer:
+	.string "Oh, ¿tienes un MUSIC PLAYER? ¿Dónde lo\n"
+	.string "conseguiste?\p"
+	.string "Bueno, da igual. ¿Sabías que puede ser\n"
+	.string "actualizado con unos aparatos\l"
+	.string "llamados TARJETAS DE EXPANSIÓN? Y yo\l"
+	.string "tengo una justo aquí. Déjame que te lo\l"
+	.string "actualice.$"
+
+IzabeIsland_OutskirtsCave_Text_Lavender_Bye:
+	.string "LAVENDER: Ahora podrás escuchar una\n"
+	.string "mayor variedad de canciones, prúebalo.\p"
+	.string "Dicho esto... ¡hasta la vista!$"
+
+IzabeIsland_OutskirtsCave_Text_Lavender_MusicPlayerUpgraded::
+	.string "¡Tu MUSIC PLAYER ha sido mejorado!$"
