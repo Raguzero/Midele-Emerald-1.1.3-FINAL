@@ -2190,10 +2190,11 @@ void DoSpecialTrainerBattle(void)
 	    case SPECIAL_RANDOM_BATTLE:
         gBattleTypeFlags = BATTLE_TYPE_TRAINER;
 		CreateTask(Task_StartBattleAfterTransition, 1);
-        PlayMapChosenOrBattleBGM(509);
+        PlayMapChosenOrBattleBGM(471);
         BattleTransition_StartOnField(sub_80B100C(6));
 		  if (FlagGet(FLAG_RANDOMBATTLE_GYMGOOSES) == TRUE)
 			{
+			PlayMapChosenOrBattleBGM(0);
 			gTrainerBattleOpponent_A = TRAINER_RANDOM_PARTY_GYM;
 			sTrainerADefeatSpeech = frasederrota;
 			}
@@ -2204,7 +2205,7 @@ void DoSpecialTrainerBattle(void)
 		case SPECIAL_RANDOM_BATTLE_2:
         gBattleTypeFlags = BATTLE_TYPE_TRAINER;
 		CreateTask(Task_StartBattleAfterTransition, 1);
-        PlayMapChosenOrBattleBGM(509);
+        PlayMapChosenOrBattleBGM(471);
         BattleTransition_StartOnField(sub_80B100C(6));
 		gTrainerBattleOpponent_A = TRAINER_RANDOM_PARTY_2;
 		sTrainerADefeatSpeech = frasederrota;
