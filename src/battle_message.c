@@ -606,6 +606,9 @@ static const u8 sText_RedHPAlpha[] = _("Es mi sacro cometido seguir\nluchando ha
 static const u8 sText_Josito2PierdePrimerPoke[] = _("¡Ahí va el pato!\p");
 static const u8 sText_Josito2EnviaUltimoPoke[] = _("A este todavía no\nlo conoces...\p");
 static const u8 sText_RedHPJosito2[] = _("El asunto está complicado...\p");
+static const u8 sText_GoosesPierdePrimerPoke[] = _("Fufufufu, que divertido.\nPero ahora viene la ventisca, criatura.\p");
+static const u8 sText_GoosesEnviaUltimoPoke[] = _("Si, muy bien.\nMuéstrame tu determinación.\p");
+static const u8 sText_RedHPGooses[] = _("Ahahaha! Aún no he acabado.\n¡Soy la ejecutora, no cantes victoria\lhasta el final!\p");
 
 
 static const u8 frase0[] = _("Entonces sustituí a Blissey por\nGarchomp; y como mi equipo sería un\lSandstorm team, cambié a Tangrowth por\lCradily).\p");
@@ -3150,7 +3153,9 @@ static const struct TrainerSlide sTrainerSlides[] =
     {TRAINER_ALBERMAUS, sText_AlbermausEnviaUltimoPoke, sText_RedHPAlbermaus, sText_AlbermausPierdePrimerPoke},
     {TRAINER_ADDRI, NULL, NULL, sText_AddriPierdePrimerPoke},
     {TRAINER_ALPHA, sText_AlphaEnviaUltimoPoke, sText_RedHPAlpha, sText_AlphaPierdePrimerPoke},
-    {TRAINER_JOSITO_2, sText_Josito2EnviaUltimoPoke, sText_RedHPJosito2, sText_Josito2EnviaUltimoPoke},
+    {TRAINER_JOSITO_2, sText_Josito2EnviaUltimoPoke, sText_RedHPJosito2, sText_Josito2PierdePrimerPoke},
+    {TRAINER_IZABE_GOOSES, sText_GoosesEnviaUltimoPoke, sText_RedHPGooses, sText_GoosesPierdePrimerPoke},
+    {TRAINER_GOOSES, sText_GoosesEnviaUltimoPoke, sText_RedHPGooses, sText_GoosesPierdePrimerPoke},
 };
 
 static u32 GetEnemyMonCount(bool32 onlyAlive)

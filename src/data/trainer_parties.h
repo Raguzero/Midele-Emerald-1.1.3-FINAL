@@ -23808,7 +23808,6 @@ static const struct TrainerMonCustomMidele sParty_Felipex88[] = {
 };
 
 static const struct TrainerMonCustomMidele sParty_Gooses[] = {
-	// FALTAN FRASES
     {
     .iv = 31, 
     .lvl = 85,
