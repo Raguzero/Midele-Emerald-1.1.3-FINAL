@@ -231,6 +231,17 @@ Darkigym_EventScript_Teleport_Si::
 	release
 	end
 	
+Darkigym_EventScript_Teleport_Final::
+	goto_if_set FLAG_TOTEM_GYMDARKI, Darkigym_EventScript_Teleport_Final_Encendido
+	msgbox Darkigym_Text_Teleport_Final, MSGBOX_DEFAULT
+	release
+	end
+Darkigym_EventScript_Teleport_Final_Encendido::
+	warp MAP_DARKIGYM, 48, 0, 0
+	waitstate
+	release
+	end
+	
 Darkigym_CabezaLylie_Sign::
 	msgbox Darkigym_Text_CabezaLylie_Sign, MSGBOX_SIGN
 	end
@@ -1240,6 +1251,9 @@ Darkigym_Text_Teleport_Entrada:
 	.string "recorrer todo desde el principio.\p"
 	
 	.string "¿Estás seguro que quieres usarla?$"
+	
+Darkigym_Text_Teleport_Final:
+	.string "Parece que la baldosa no hace nada.$"
 
 Darkigym_Text_Totemaparece:
 	.string "TYRANITAR, the TOTEM Pokémon\n"

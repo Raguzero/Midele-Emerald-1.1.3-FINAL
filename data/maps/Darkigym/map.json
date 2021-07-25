@@ -80,6 +80,15 @@
             "var_value": "0",
             "x": 15,
             "y": 97
+        },
+        {
+            "elevation": 0,
+            "script": "Darkigym_EventScript_Teleport_Final",
+            "type": "trigger",
+            "var": "VAR_TEMP_2",
+            "var_value": "0",
+            "x": 18,
+            "y": 96
         }
     ],
     "id": "MAP_DARKIGYM",
@@ -987,6 +996,13 @@
             "elevation": 0,
             "x": 9,
             "y": 13
+        },
+        {
+            "dest_map": "MAP_DARKIGYM",
+            "dest_warp_id": 0,
+            "elevation": 0,
+            "x": 4,
+            "y": 3
         }
     ],
     "weather": "WEATHER_FOG_DIAGONAL"
