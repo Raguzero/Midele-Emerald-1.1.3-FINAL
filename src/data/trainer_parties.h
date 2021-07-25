@@ -21321,31 +21321,34 @@ static const struct TrainerMonCustomMidele sParty_IzabeIsland_Gooses[] = {
     {
     .iv = 31,
     .lvl = 32,
-    .species = SPECIES_LYCANROC_NIGHT,
-	.heldItem = ITEM_HARD_STONE,
+    .species = SPECIES_FROSLASS,
+	.heldItem = ITEM_BRIGHT_POWDER,
 	.ability = 1,
-	.nature = NATURE_ADAMANT,
-	.evs = {0, 168, 0, 0, 0, 0},
-    .moves = {MOVE_REVENGE, MOVE_ROCK_SLIDE, MOVE_CRUSH_CLAW, MOVE_ROCK_BLAST}
-    },
-    {
-    .iv = 31,
-    .lvl = 33,
-    .species = SPECIES_MISDREAVUS,
-	.heldItem = ITEM_LUM_BERRY,
 	.nature = NATURE_TIMID,
-	.evs = {0, 0, 0, 0, 0, 168},
-    .moves = {MOVE_CONFUSE_RAY, MOVE_WILL_O_WISP, MOVE_PSYBEAM, MOVE_DARK_PULSE}
+	.evs = {0, 0, 0, 84, 0, 84},
+    .moves = {MOVE_THUNDERBOLT, MOVE_SPIKES, MOVE_ATTRACT, MOVE_ICE_BEAM},
+    .shiny = 1,
     },
     {
     .iv = 31,
     .lvl = 33,
-    .species = SPECIES_CACTURNE,
-	.heldItem = ITEM_MIRACLE_SEED,
-	.nature = NATURE_QUIET,
+    .species = SPECIES_ALOLAN_NINETALES,
+    .ability = 1,
+	.heldItem = ITEM_FOCUS_SASH,
+	.nature = NATURE_TIMID,
+	.evs = {0, 0, 0, 84, 0, 84},
+    .moves = {MOVE_CONFUSE_RAY, MOVE_ICY_WIND, MOVE_EXTRASENSORY, MOVE_DAZZLING_GLEAM},
+    },
+    {
+    .iv = 31,
+    .lvl = 33,
+    .species = SPECIES_GLACEON,
+	.heldItem = ITEM_BRIGHT_POWDER,
+	.nature = NATURE_MODEST,
 	.ability = 1,
-	.evs = {0, 84, 0, 84, 0, 0},
-    .moves = {MOVE_NEEDLE_ARM, MOVE_REVENGE, MOVE_FAINT_ATTACK, MOVE_ENCORE}
+    .hpType = TYPE_WATER,
+	.evs = {0, 0, 84, 84, 0, 0},
+    .moves = {MOVE_BITE, MOVE_ICY_WIND, MOVE_MIRROR_COAT, MOVE_HIDDEN_POWER}
     }
 };
 
@@ -23814,7 +23817,8 @@ static const struct TrainerMonCustomMidele sParty_Gooses[] = {
     .nature = NATURE_TIMID, 
     .evs = {4, 0, 0, 252, 0, 252},
     .ability = 1, // SNOW CLOAK
-    .moves = {MOVE_THUNDERBOLT, MOVE_SPIKES, MOVE_ATTRACT, MOVE_BLIZZARD}
+    .moves = {MOVE_THUNDERBOLT, MOVE_SPIKES, MOVE_ATTRACT, MOVE_BLIZZARD},
+    .shiny = 1
     },
     {
     .iv = 31, 
