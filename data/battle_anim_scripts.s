@@ -6775,6 +6775,8 @@ Move_COTTON_SPORE:
 	monbgprio_28 ANIM_TARGET
 	loopsewithpan SE_W077, SOUND_PAN_TARGET, 18, 10
 	call CottonSpore1
+	createvisualtask AnimTask_SwayMon, 5, 0, 3, 3072, 8, ANIM_TARGET
+	createvisualtask AnimTask_SwayMon, 5, 0, 3, 3072, 8, ANIM_DEF_PARTNER
 	call CottonSpore1
 	call CottonSpore1
 	waitforvisualfinish
@@ -6782,11 +6784,11 @@ Move_COTTON_SPORE:
 	end
 
 CottonSpore1:
-	createsprite gSporeParticleSpriteTemplate, ANIM_ATTACKER, 2, 0, -20, 85, 80, 0
+	createsprite gSporeParticleSpriteTemplate, ANIM_ATTACKER, 2, -10, -20, 85, 80, 0
 	delay 12
-	createsprite gSporeParticleSpriteTemplate, ANIM_ATTACKER, 2, 0, -10, 170, 80, 0
+	createsprite gSporeParticleSpriteTemplate, ANIM_ATTACKER, 2, -10, -10, 170, 80, 0
 	delay 12
-	createsprite gSporeParticleSpriteTemplate, ANIM_ATTACKER, 2, 0, -15, 0, 80, 0
+	createsprite gSporeParticleSpriteTemplate, ANIM_ATTACKER, 2, -10, -15, 0, 80, 0
 	delay 12
 	return
 
@@ -7107,23 +7109,25 @@ Move_POISON_GAS:
 	monbgprio_29
 	setalpha 12, 8
 	delay 0
+	createvisualtask AnimTask_SwayMon, 5, 0, 3, 3072, 8, ANIM_TARGET
+	createvisualtask AnimTask_SwayMon, 5, 0, 3, 3072, 8, ANIM_DEF_PARTNER
 	playsewithpan SE_W054, SOUND_PAN_ATTACKER
-	createsprite gUnknown_08595C9C, ANIM_TARGET, 0, 64, 0, 0, -32, -6, 4192, 1072, 0
+	createsprite gUnknown_08595C9C, ANIM_TARGET, 0, 30, 0, 0, -32, -6, 4192, 1072, 0
 	delay 4
 	playsewithpan SE_W054, SOUND_PAN_ATTACKER
-	createsprite gUnknown_08595C9C, ANIM_TARGET, 0, 64, 0, 0, -32, -6, 4192, 1072, 0
+	createsprite gUnknown_08595C9C, ANIM_TARGET, 0, 30, 0, 0, -32, -6, 4192, 1072, 0
 	delay 4
 	playsewithpan SE_W054, SOUND_PAN_ATTACKER
-	createsprite gUnknown_08595C9C, ANIM_TARGET, 0, 64, 0, 0, -32, -6, 4192, 1072, 0
+	createsprite gUnknown_08595C9C, ANIM_TARGET, 0, 30, 0, 0, -32, -6, 4192, 1072, 0
 	delay 4
 	playsewithpan SE_W054, SOUND_PAN_ATTACKER
-	createsprite gUnknown_08595C9C, ANIM_TARGET, 0, 64, 0, 0, -32, -6, 4192, 1072, 0
+	createsprite gUnknown_08595C9C, ANIM_TARGET, 0, 30, 0, 0, -32, -6, 4192, 1072, 0
 	delay 4
 	playsewithpan SE_W054, SOUND_PAN_ATTACKER
-	createsprite gUnknown_08595C9C, ANIM_TARGET, 0, 64, 0, 0, -32, -6, 4192, 1072, 0
+	createsprite gUnknown_08595C9C, ANIM_TARGET, 0, 30, 0, 0, -32, -6, 4192, 1072, 0
 	delay 4
 	playsewithpan SE_W054, SOUND_PAN_ATTACKER
-	createsprite gUnknown_08595C9C, ANIM_TARGET, 0, 64, 0, 0, -32, -6, 4192, 1072, 0
+	createsprite gUnknown_08595C9C, ANIM_TARGET, 0, 30, 0, 0, -32, -6, 4192, 1072, 0
 	delay 40
 	loopsewithpan SE_W054, SOUND_PAN_TARGET, 28, 6
 	createvisualtask sub_8115A04, 2, 4, 6, 2, 0, 12, RGB(26, 0, 26)
