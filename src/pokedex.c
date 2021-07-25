@@ -306,6 +306,7 @@ static void SpriteCB_StatBars(struct Sprite *sprite);
 static void SpriteCB_StatBarsBg(struct Sprite *sprite);
 u16 CreateMonSpriteFromSpeciesNumber(u16 speciesNum, s16 x, s16 y, u16 paletteSlot, bool8 forceFemale);
 
+static const u8 sSelectFormGfx[] = INCBIN_U8("graphics/pokedex/select_form.4bpp");
 //Physical/Special Split from BE
  #define TAG_SPLIT_ICONS 30004
  static const u16 sSplitIcons_Pal[] = INCBIN_U16("graphics/interface/split_icons.gbapal");
@@ -1567,7 +1568,7 @@ void UpdateSpecies(bool8 resetForm)
         *species = NationalPokedexNumToSpecies(*dexNum);
 }
 
-bool8 TryToChangeForm(u8 taskId, TaskFunc task)
+s32 GetNextFormSpecies()
 {
     s32 sp;
     for (sp = 1 + sPokedexListItem->species; sp < NUM_SPECIES; sp++)
@@ -1577,6 +1578,12 @@ bool8 TryToChangeForm(u8 taskId, TaskFunc task)
         for (sp = 1; sp < sPokedexListItem->species; sp++)
             if (SpeciesToNationalPokedexNum(sp) == sPokedexListItem->dexNum)
                 break;
+		return sp;
+}
+
+bool8 TryToChangeForm(u8 taskId, TaskFunc task)
+{
+    s32 sp = GetNextFormSpecies();
     if (sp == sPokedexListItem->species)
         return FALSE;
 
@@ -3476,6 +3483,8 @@ void LoadInfoScreen(u8 taskId)
 		    sPokedexView->typeIconSpriteIds[0] = 0xFF;
 			sPokedexView->typeIconSpriteIds[1] = 0xFF;
 			CreateTypeIconSprites();
+            if (GetNextFormSpecies() != sPokedexListItem->species)
+            BlitBitmapToWindow(WIN_INFO, sSelectFormGfx, 14*8, 9*8 + 3, 32, 16);
             gMain.state++;
             break;
         case 4:
