@@ -611,7 +611,7 @@ gSongTable:: @ 86B49F0
 	song ph_nurse_blend, 2, 2
 	song ph_nurse_held, 2, 2
 	song ph_nurse_solo, 2, 2
-	song wildbw2_FINAL, 0, 0
+	song wildbw2_final, 0, 0
 	song Wild, 0, 0 // GSC WILD
 	song ff6boss, 0, 0
 	song Jenova, 0, 0

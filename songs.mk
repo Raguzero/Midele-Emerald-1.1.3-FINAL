@@ -1262,6 +1262,9 @@ $(MID_SUBDIR)/se_w043.s: %.s: %.mid
 
 $(MID_SUBDIR)/se_z_search.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G127 -v100 -P5
+	
+$(MID_SUBDIR)/wildbw2_final.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G000 -v90
 
 $(MID_SUBDIR)/seq_ba_poke.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v70
@@ -1288,7 +1291,7 @@ $(MID_SUBDIR)/einzug_der_gladiatoren.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -V65
 
 $(MID_SUBDIR)/dialgapalkiabattle.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -v100
+	$(MID) $< $@ -E -R$(STD_REVERB) -G158 -v95
 
 $(MID_SUBDIR)/undertalemegalovania.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v65
