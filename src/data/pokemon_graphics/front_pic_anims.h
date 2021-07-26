@@ -4930,9 +4930,11 @@ static const union AnimCmd sAnim_GALLADE_1[] =
 
 static const union AnimCmd sAnim_PROBOPASS_1[] =
 {
-    ANIMCMD_FRAME(0, 30),
-    ANIMCMD_FRAME(1, 30),
-    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_FRAME(0, 33),
+    ANIMCMD_FRAME(1, 33),
+    ANIMCMD_FRAME(0, 33),
+    ANIMCMD_FRAME(1, 33),
+    ANIMCMD_FRAME(0, 11),
     ANIMCMD_END,
 };
 
