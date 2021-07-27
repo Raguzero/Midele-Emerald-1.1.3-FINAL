@@ -37,6 +37,7 @@
 
 #define AI_THINKING_STRUCT ((struct AI_ThinkingStruct *)(gBattleResources->ai))
 #define BATTLE_HISTORY ((struct BattleHistory *)(gBattleResources->battleHistory))
+#define AI_CAN_ESTIMATE_DAMAGE(move) (gBattleMoves[move].power > 1 || (gBattleMoves[move].power == 1 && gBattleMoves[move].effect != EFFECT_OHKO && move != MOVE_COUNTER && move != MOVE_MIRROR_COAT && move != MOVE_BIDE))
 
 // AI states
 enum
@@ -307,6 +308,7 @@ static const u16 sDiscouragedPowerfulMoveEffects[] =
     EFFECT_SOLARBEAM,
     EFFECT_SPIT_UP,
     EFFECT_SUPERPOWER,
+    EFFECT_PRESENT,
     EFFECT_OVERHEAT,
     0xFFFF
 };
@@ -580,7 +582,7 @@ bool32 OurShedinjaIsVulnerable(u32 battlerAI, u32 opposingBattler, u16 considere
             continue; // No puede usar el movimiento por el momento; se ignora
 
 		// Si le hace daño a Shedinja, hora de huir
-        if (gBattleMoves[gCurrentMove].power > 1)
+        if (AI_CAN_ESTIMATE_DAMAGE(gCurrentMove))
         {
             CalculategBattleMoveDamageFromgCurrentMove(opposingBattler, battlerAI, 0);
             if (gBattleMoveDamage > 0)
@@ -1548,7 +1550,7 @@ static void Cmd_get_how_powerful_move_is(void)
 	}
     }
 
-    if (gBattleMoves[AI_THINKING_STRUCT->moveConsidered].power > 1)
+    if (AI_CAN_ESTIMATE_DAMAGE(AI_THINKING_STRUCT->moveConsidered))
     {
         gDynamicBasePower = 0;
         *(&gBattleStruct->dynamicMoveType) = 0;
@@ -1570,7 +1572,7 @@ static void Cmd_get_how_powerful_move_is(void)
 
             if (gBattleMons[sBattler_AI].moves[checkedMove] != MOVE_NONE
                 && (sDiscouragedPowerfulMoveEffects[i] == 0xFFFF || checkedMove == AI_THINKING_STRUCT->movesetIndex)
-                && gBattleMoves[gBattleMons[sBattler_AI].moves[checkedMove]].power > 1)
+                && AI_CAN_ESTIMATE_DAMAGE(gBattleMons[sBattler_AI].moves[checkedMove]))
             {
                 gCurrentMove = gBattleMons[sBattler_AI].moves[checkedMove];
                 AI_CalcDmg(sBattler_AI, gBattlerTarget);
@@ -2090,7 +2092,7 @@ static void Cmd_if_stat_level_not_equal(void)
 
 static void Cmd_if_can_faint(void)
 {
-    if (gBattleMoves[AI_THINKING_STRUCT->moveConsidered].power < 2)
+    if (!AI_CAN_ESTIMATE_DAMAGE(AI_THINKING_STRUCT->moveConsidered))
     {
         gAIScriptPtr += 5;
         return;
@@ -2107,7 +2109,7 @@ static void Cmd_if_can_faint(void)
 
 static void Cmd_if_cant_faint(void)
 {
-    if (gBattleMoves[AI_THINKING_STRUCT->moveConsidered].power < 2)
+    if (!AI_CAN_ESTIMATE_DAMAGE(AI_THINKING_STRUCT->moveConsidered))
     {
         gAIScriptPtr += 5;
         return;
@@ -2821,7 +2823,7 @@ static void Cmd_calculate_nhko(void)
     
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
-        if (!movePointer[i] || gBattleMoves[movePointer[i]].power < 2)
+        if (!movePointer[i] || !AI_CAN_ESTIMATE_DAMAGE(movePointer[i]))
             continue;  // se ignora el movimiento
 
         if (!attacker_is_user)

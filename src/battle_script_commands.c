@@ -1581,9 +1581,41 @@ static void Cmd_damagecalc(void)
     gBattlescriptCurrInstr++;
 }
 
+u16 CalculateWeightDamagePower(u8 battler)
+{
+    s32 i;
+    s32 weight = GetPokedexHeightWeight(SpeciesToNationalPokedexNum(gBattleMons[battler].species), 1);
+
+   if (gBattleMons[battler].ability == ABILITY_LIGHT_METAL)
+        weight /= 2;
+
+    for (i = 0; sWeightToDamageTable[i] != 0xFFFF; i += 2)
+        if (sWeightToDamageTable[i] > weight)
+            break;
+
+    if (sWeightToDamageTable[i] != 0xFFFF)
+        return sWeightToDamageTable[i + 1];
+
+    return 120;
+}
+
+u16 CalculateFlailPower(u8 battler)
+{
+    s32 i;
+    s32 hpFraction = GetScaledHPFraction(gBattleMons[battler].hp, gBattleMons[battler].maxHP, 48);
+
+    for (i = 0; i < (s32) sizeof(sFlailHpScaleToPowerTable); i += 2)
+    {
+        if (hpFraction <= sFlailHpScaleToPowerTable[i])
+            break;
+    }
+
+    return sFlailHpScaleToPowerTable[i + 1];
+}
+
 // Ajusta el tipo y la potencia del movimiento para que AI_CalcDmg estime correctamente el daño
 // (el tipo lo reconoce bien sin esto, pero no la categoría del movimiento, e.g. sin esto Hidden Power siempre lo lee físico)
-void PrepareDynamicMoveTypeAndDamageForAI_CalcDmg(u8 attacker)
+void PrepareDynamicMoveTypeAndDamageForAI_CalcDmg(u8 attacker, u8 defender)
 {
     u8 *dynamicMoveType = &gBattleStruct->dynamicMoveType;
 
@@ -1631,13 +1663,25 @@ void PrepareDynamicMoveTypeAndDamageForAI_CalcDmg(u8 attacker)
         if (gBattleMons[attacker].status1 & (STATUS1_POISON | STATUS1_BURN | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON))
             gBattleScripting.dmgMultiplier = 2;
     }
+	else if (gCurrentMove == MOVE_LOW_KICK)
+        gDynamicBasePower = CalculateWeightDamagePower(defender);
+    else if (gCurrentMove == MOVE_RETURN)
+        gDynamicBasePower = 10 * (gBattleMons[attacker].friendship) / 25;
+    else if (gCurrentMove == MOVE_FRUSTRATION)
+        gDynamicBasePower = 10 * (255 - gBattleMons[attacker].friendship) / 25;
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_FLAIL)
+        gDynamicBasePower = CalculateFlailPower(attacker);
+    else if (gCurrentMove == MOVE_PRESENT)
+        gDynamicBasePower = 60;   // potencia mediana, sin tener en cuenta que puede no hacer daño
+    else if (gCurrentMove == MOVE_MAGNITUDE)
+        gDynamicBasePower = 71;   // potencia promedio de Magnitud
 }
 
 void AI_CalcDmg(u8 attacker, u8 defender)
 {
     u16 sideStatus = gSideStatuses[GET_BATTLER_SIDE(defender)];
 	u8 flags;
-	PrepareDynamicMoveTypeAndDamageForAI_CalcDmg(attacker);
+	PrepareDynamicMoveTypeAndDamageForAI_CalcDmg(attacker, defender);
 	if (gBattleMons[defender].ability == ABILITY_BATTLE_ARMOR || gBattleMons[defender].ability == ABILITY_SHELL_ARMOR || (gStatuses3[attacker] & STATUS3_CANT_SCORE_A_CRIT))
         gCritMultiplier = 1;
 
@@ -9281,16 +9325,7 @@ static void Cmd_trysetdestinybondtohappen(void)
 
 static void Cmd_remaininghptopower(void)
 {
-    s32 i;
-    s32 hpFraction = GetScaledHPFraction(gBattleMons[gBattlerAttacker].hp, gBattleMons[gBattlerAttacker].maxHP, 48);
-
-    for (i = 0; i < (s32) sizeof(sFlailHpScaleToPowerTable); i += 2)
-    {
-        if (hpFraction <= sFlailHpScaleToPowerTable[i])
-            break;
-    }
-
-    gDynamicBasePower = sFlailHpScaleToPowerTable[i + 1];
+    gDynamicBasePower = CalculateFlailPower(gBattlerAttacker);
     gBattlescriptCurrInstr++;
 }
 
@@ -10436,22 +10471,7 @@ static void Cmd_trysetgrudge(void)
 
 static void Cmd_weightdamagecalculation(void)
 {
-    s32 i;
-	s32 weight = GetPokedexHeightWeight(SpeciesToNationalPokedexNum(gBattleMons[gBattlerTarget].species), 1);
-   
-   if (gBattleMons[gBattlerTarget].ability == ABILITY_LIGHT_METAL)
-        weight /= 2;
-	for (i = 0; sWeightToDamageTable[i] != 0xFFFF; i += 2)
-    {
-        if (sWeightToDamageTable[i] > weight)
-            break;
-    }
-
-    if (sWeightToDamageTable[i] != 0xFFFF)
-        gDynamicBasePower = sWeightToDamageTable[i + 1];
-    else
-        gDynamicBasePower = 120;
-
+    gDynamicBasePower = CalculateWeightDamagePower(gBattlerTarget);
     gBattlescriptCurrInstr++;
 }
 

@@ -801,6 +801,12 @@ AI_CBM_HealBell2:
 AI_CBM_Taunt:
 	if_ability_might_be AI_TARGET, ABILITY_OBLIVIOUS, Score_Minus10
 	if_target_taunted Score_Minus10
+    is_first_turn_for AI_USER
+    if_equal 1, AI_CBM_TauntFast
+	goto AI_CBM_Taunt_End
+AI_CBM_TauntFast:
+	if_user_faster Score_Plus1
+AI_CBM_Taunt_End:
 	end
 	
 AI_CBM_Protect:
@@ -850,6 +856,7 @@ AI_CBM_JumpKick_ProtectedOnce:
 AI_ChoiceDamage:
 	get_considered_move_power
 	if_equal 0, Score_Minus5
+	if_effect EFFECT_OHKO, AI_ChoiceDamage_End
     calculate_nhko
     if_less_than 3, AI_ChoiceDamage_End
     if_equal 3, AI_ChoiceDamage_3HKO
@@ -2607,6 +2614,9 @@ AI_CV_Foresight_End:
 
 AI_CV_Endure:
 	if_target_wont_attack_due_to_truant Score_Minus10
+	if_status  AI_USER, STATUS1_PSN_ANY | STATUS1_BURN, AI_CV_EndureUserStatused
+	if_status2 AI_USER, STATUS2_CURSED | STATUS2_INFATUATION, AI_CV_EndureUserStatused
+	if_status3 AI_USER, STATUS3_PERISH_SONG | STATUS3_LEECHSEED | STATUS3_YAWN, AI_CV_EndureUserStatused
 	get_weather
 	if_equal AI_WEATHER_HAIL, AI_CV_EndureHail
 	if_equal AI_WEATHER_SANDSTORM, AI_CV_EndureSandstorm
@@ -2619,6 +2629,10 @@ AI_CV_Endure_NoWeatherDamageExpected:
 	if_doesnt_have_move_with_effect AI_USER, EFFECT_FLAIL, AI_CV_Endure2
 	score +1
 	goto AI_CV_Endure_End
+	
+AI_CV_EndureUserStatused:
+	score -2
+	goto AI_CV_Endure4
 	
 AI_CV_EndureHail:
     get_ability AI_USER
@@ -2905,7 +2919,7 @@ AI_CV_ChargeUpMove_NotSolarBeamOnSun:
 	if_equal HOLD_EFFECT_POWER_HERB, AI_CV_ChargeUpMove_ScoreUp2
 	if_type_effectiveness AI_EFFECTIVENESS_x0_25, AI_CV_ChargeUpMove_ScoreDown2
 	if_type_effectiveness AI_EFFECTIVENESS_x0_5, AI_CV_ChargeUpMove_ScoreDown2
-	if_has_move_with_effect AI_TARGET, EFFECT_PROTECT, AI_CV_ChargeUpMove_ScoreDown2
+	if_has_move_with_effect AI_TARGET, EFFECT_PROTECT, Score_Minus5
 	if_hp_more_than AI_USER, 38, AI_CV_ChargeUpMove_End
 	score -1
 	goto AI_CV_ChargeUpMove_End
@@ -2922,7 +2936,7 @@ AI_CV_ChargeUpMove_ScoreUp2:
 
 AI_CV_SemiInvulnerable:
 	if_doesnt_have_move_with_effect AI_TARGET, EFFECT_PROTECT, AI_CV_SemiInvulnerable2
-	score -1
+	score -5
 	goto AI_CV_SemiInvulnerable_End
 
 AI_CV_SemiInvulnerable2:
@@ -4118,6 +4132,7 @@ AI_HPAware_DiscouragedEffectsWhenLowHP: @ 82DE258
 	.byte EFFECT_ATTACK_SPATK_UP
     .byte EFFECT_STOCKPILE
     .byte EFFECT_CHARGE
+    .byte EFFECT_CURSE
     .byte -1
 
 AI_HPAware_DiscouragedEffectsWhenTargetHighHP: @ 82DE288
@@ -4232,6 +4247,7 @@ AI_HPAware_DiscouragedEffectsWhenTargetLowHP: @ 82DE2B1
 	.byte EFFECT_ATTACK_SPATK_UP
     .byte EFFECT_STOCKPILE
     .byte EFFECT_CHARGE
+    .byte EFFECT_CURSE
     .byte -1
 
 AI_Unknown:
