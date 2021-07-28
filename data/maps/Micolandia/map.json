@@ -138,6 +138,11 @@
             "direction": "right",
             "map": "MAP_FORBIDDEN_FOREST",
             "offset": -118
+        },
+        {
+            "direction": "left",
+            "map": "MAP_MONOCYCLE_ROUTE",
+            "offset": -22
         }
     ],
     "coord_events": [

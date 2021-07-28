@@ -1176,3 +1176,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/MicoloLeague_PacoRoom/scripts.inc"
 
 	.include "data/maps/MicoloLeague_FinalRoom/scripts.inc"
+
+	.include "data/maps/MonocycleRoute/scripts.inc"

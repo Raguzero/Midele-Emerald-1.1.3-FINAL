@@ -573,7 +573,8 @@
         "MicoloLeague_LavenderRoom",
         "MicoloLeague_RaguRoom",
         "MicoloLeague_PacoRoom",
-        "MicoloLeague_FinalRoom"
+        "MicoloLeague_FinalRoom",
+        "MonocycleRoute"
     ],
     "gMapGroup4": [
         "LavaridgeTown_HerbShop",

@@ -640,6 +640,7 @@
 #define MAP_MICOLO_LEAGUE_RAGU_ROOM              (43 | (34 << 8))
 #define MAP_MICOLO_LEAGUE_PACO_ROOM              (44 | (34 << 8))
 #define MAP_MICOLO_LEAGUE_FINAL_ROOM             (45 | (34 << 8))
+#define MAP_MONOCYCLE_ROUTE                      (46 | (34 << 8))
 
 #define MAP_GROUPS_COUNT 35
 
