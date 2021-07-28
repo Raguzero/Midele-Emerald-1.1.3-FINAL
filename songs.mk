@@ -1288,7 +1288,7 @@ $(MID_SUBDIR)/themeofencounter.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v80
 
 $(MID_SUBDIR)/einzug_der_gladiatoren.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -V65
+	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -V60
 
 $(MID_SUBDIR)/dialgapalkiabattle.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G158 -v95
