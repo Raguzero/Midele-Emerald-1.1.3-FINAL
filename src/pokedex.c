@@ -3533,19 +3533,19 @@ void LoadInfoScreen(u8 taskId)
             if (!gPaletteFade.active)
             {
                 gMain.state++;
-             /*   if (gTasks[taskId].data[3] == 0)
+                if (gTasks[taskId].data[3] == 0)
                 {
                     StopCryAndClearCrySongs();
-                    PlayCry2(NationalPokedexNumToSpecies(sPokedexListItem->dexNum), 0, 0x7D, 0xA);
+                    PlayCry2(sPokedexListItem->species, 0, 0x7D, 0xA);
                 }
                 else
                 {
                     gMain.state++;
-                } */
+                } 
             }
             break;
         case 9:
-            //if (!IsCryPlayingOrClearCrySongs())
+            if (!IsCryPlayingOrClearCrySongs())
                 gMain.state++;
             break;
         case 10:
