@@ -466,7 +466,15 @@ SlateportCity_OceanicMuseum_1F_Text_Pacochef:
 	.string "En fin, ten cuidado, tal vez te topes\n"
 	.string "con monstruos que quieran arrancarte\l"
 	.string "las pelotas. U ovarios, no juzgo.\p"
-	.string "Chau.$"
+	.string "Chau.\p"
+	.string "...espera, se me olvida algo. AH, la mierda\n"
+	.string "esa. Como me has caído bien, toma. No,\l"
+	.string "no son drogas.$"
 
 SlateportCity_OceanicMuseum_1F_Text_PacochefMusicPlayer:
-	.string "TEXTOS$"
+	.string "Esto es uh, un reproductor de música. Ya\n"
+	.string "sabes, para los TEMASOS. Con unas\l"
+	.string "tarjetitas tan bonitas como las que\l"
+	.string "usa Albert Rivera, podrás conseguir\l"
+	.string "más canciones para escuchar. Ahora\l"
+	.string "sí... Chau.$"
