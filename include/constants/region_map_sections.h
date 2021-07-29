@@ -221,7 +221,8 @@
 #define MAPSEC_MAUVILLE_RUINS             	0xD9
 #define MAPSEC_IZABE_CAVE                   0xDA
 #define MAPSEC_MICOLO_HIDEOUT               0xDB
-#define MAPSEC_NONE                         0xDC
+#define MAPSEC_MONOCYCLE_ROUTE              0xDC
+#define MAPSEC_NONE                         0xDD
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE

@@ -205,6 +205,7 @@ static const u8 sMapName_MicoloHideout[] = _("MICOLO HIDEOUT");
 static const u8 sMapName_OldaleRuins[] = _("OLDALE RUINS");
 static const u8 sMapName_ForbiddenForest[] = _("FORBIDDEN FOREST");
 static const u8 sMapName_MauvilleRuins[] = _("MAUVILLE RUINS");
+static const u8 sMapName_MonocycleRoute[] = _("MONOCYCLE ROAD");
 
 const struct RegionMapLocation gRegionMapEntries[] = {
     [MAPSEC_ABANDONED_SHIP]            = {6, 14, 1, 1, sMapName_AbandonedShip},
@@ -276,7 +277,8 @@ const struct RegionMapLocation gRegionMapEntries[] = {
     [MAPSEC_MIRAGE_ISLAND]             = {17, 10, 1, 1, sMapName_MirageIsland},
     [MAPSEC_MIRAGE_TOWER]              = {8, 2, 1, 1, sMapName_MirageTower},
     [MAPSEC_MONEAN_CHAMBER]            = {0, 0, 1, 1, sMapName_MoneanChamber},
-    [MAPSEC_MOSSDEEP_CITY]             = {24, 5, 2, 1, sMapName_MossdeepCity},
+    [MAPSEC_MONOCYCLE_ROUTE]            = {17, 12, 1, 1, sMapName_MonocycleRoute},
+	[MAPSEC_MOSSDEEP_CITY]             = {24, 5, 2, 1, sMapName_MossdeepCity},
     [MAPSEC_MT_CHIMNEY]                = {6, 2, 1, 1, sMapName_MtChimney},
     [MAPSEC_MT_EMBER]                  = {0, 0, 1, 1, sMapName_MtEmber},
     [MAPSEC_MT_MOON]                   = {0, 0, 1, 1, sMapName_MtMoon},

@@ -21,7 +21,7 @@
     "name": "MonocycleRoute",
     "object_events": [
     ],
-    "region_map_section": "MAPSEC_MICOLANDIA",
+    "region_map_section": "MAPSEC_MONOCYCLE_ROUTE",
     "requires_flash": false,
     "show_map_name": true,
     "warp_events": [
