@@ -282,7 +282,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_MICOLO_1] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .battleMusic = CRUELANGELSTHESIS,
         .trainerPic = TRAINER_PIC_MICOLO,
@@ -297,7 +297,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_MICOLO_2] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .battleMusic = CRUELANGELSTHESIS,
         .trainerPic = TRAINER_PIC_MICOLO,
@@ -13189,7 +13189,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_MICOLO_MICOLANDIA] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_ELITE_FOUR_MIDELE,
+        .trainerClass = TRAINER_CLASS_CHAMPION_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .battleMusic = CRUELANGELSTHESIS,
         .trainerPic = TRAINER_PIC_MICOLO,
@@ -13553,7 +13553,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_TILO_ALOLA] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_SWIMMER_M,
         .battleMusic = MUS_RG_VS_TORE,
