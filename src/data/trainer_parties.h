@@ -25876,7 +25876,6 @@ static const struct TrainerMonCustomMidele sParty_Josito2[] = {
     }
 };
 static const struct TrainerMonCustomMidele sParty_Mrzero[] = {
-// FALTAN FRASES Y LOCALIZACIÓN
     {
     .iv = 31,
     .lvl = 83,
@@ -25897,7 +25896,6 @@ static const struct TrainerMonCustomMidele sParty_Mrzero[] = {
     }
 };
 static const struct TrainerMonCustomMidele sParty_Zzz[] = {
-// FALTAN FRASES Y LOCALIZACIÓN
     {
     .iv = 31,
     .lvl = 83,
@@ -26030,4 +26028,124 @@ static const struct TrainerMonCustomMidele sParty_Addri2[] = {
     .evs = {6, 252, 0, 0, 0, 252},
     .moves = {MOVE_EARTHQUAKE, MOVE_CRUNCH, MOVE_METEOR_MASH, MOVE_BRICK_BREAK}
     },
+};
+static const struct TrainerMonCustomMidele sParty_PoisonMastahhhh[] = {
+    {
+    .iv = 31,
+    .lvl = 85,
+    .species = SPECIES_DRAPION,
+    .heldItem = ITEM_STARF_BERRY,
+    .nature = NATURE_JOLLY,
+	.ability = 1,
+    .evs = {6, 252, 0, 0, 0, 252},
+    .moves = {MOVE_RAIN_DANCE, MOVE_SLUDGE_BOMB, MOVE_CONFUSE_RAY, MOVE_EARTHQUAKE}
+    },
+	{
+    .iv = 31,
+    .lvl = 85,
+    .species = SPECIES_TOXICROAK,
+    .heldItem = ITEM_LEFTOVERS,
+    .nature = NATURE_JOLLY,
+    .evs = {252, 0, 0, 0, 0, 252},
+    .moves = {MOVE_SUBSTITUTE, MOVE_SLUDGE_BOMB, MOVE_BULK_UP, MOVE_LOW_KICK}
+    }
+};
+static const struct TrainerMonCustomMidele sParty_BlueandYellow[] = {
+    {
+    .iv = 31,
+    .lvl = 85,
+    .species = SPECIES_GLACEON,
+    .heldItem = ITEM_LEFTOVERS,
+    .nature = NATURE_MODEST,
+    .evs = {128, 0, 128, 252, 0, 0},
+    .moves = {MOVE_ICY_WIND, MOVE_BLIZZARD, MOVE_WATER_PULSE, MOVE_PROTECT}
+    },
+	{
+    .iv = 31,
+    .lvl = 85,
+    .species = SPECIES_SMEARGLE,
+    .heldItem = ITEM_FOCUS_SASH,
+    .nature = NATURE_JOLLY,
+	.ability = 1,
+    .evs = {6, 252, 0, 0, 0, 252},
+    .moves = {MOVE_SPORE, MOVE_ENDEAVOR, MOVE_EXTREME_SPEED, MOVE_SHADOW_SNEAK}
+    },
+    {
+    .iv = 31,
+    .lvl = 85,
+    .species = SPECIES_LEAFEON,
+    .heldItem = ITEM_MIRACLE_SEED,
+    .nature = NATURE_QUIET,
+	.hpType = TYPE_FIRE,
+    .evs = {6, 128, 0, 128, 0, 252},
+    .moves = {MOVE_GROWTH, MOVE_SHADOW_BALL, MOVE_LEAF_BLADE, MOVE_HIDDEN_POWER}
+    },
+    {
+    .iv = 31,
+    .lvl = 85,
+    .species = SPECIES_RAICHU,
+    .heldItem = ITEM_PERSIM_BERRY,
+    .nature = NATURE_TIMID,
+	.ability = 1,
+    .evs = {6, 0, 0, 252, 0, 252},
+    .moves = {MOVE_CHARM, MOVE_FAKE_OUT, MOVE_THUNDERBOLT, MOVE_PETAL_DANCE}
+    }
+};
+static const struct TrainerMonCustomMidele sParty_Dunk2[] = {
+// FALTAN FRASES Y LOCALIZACIÓN
+  {
+    .iv = 31,
+    .lvl = 78,
+    .species = SPECIES_G_BUTTERFREE,
+	.ability = 0,
+    .heldItem = ITEM_MENTAL_HERB,
+    .nature = NATURE_TIMID,
+    .evs = {144, 0, 0, 144, 0, 0},
+    .moves = {MOVE_QUIVER_DANCE, MOVE_BATON_PASS, MOVE_PSYCHIC, MOVE_SLEEP_POWDER}
+  },
+    {
+    .iv = 31,
+    .lvl = 78,
+    .species = SPECIES_POLITOED,
+	.ability = 1,
+    .heldItem = ITEM_MYSTIC_WATER,
+    .nature = NATURE_TIMID,
+	.hpType = TYPE_GRASS,
+    .evs = {0, 0, 0, 144, 0, 144},
+    .moves = {MOVE_SURF, MOVE_ICE_BEAM, MOVE_HYPNOSIS, MOVE_HIDDEN_POWER}
+  },
+   {
+    .iv = 31,
+    .lvl = 77,
+    .species = SPECIES_KINGDRA,
+	.ability = 0,
+    .heldItem = ITEM_LUM_BERRY,
+    .nature = NATURE_MODEST,
+    .evs = {0, 0, 0, 144, 0, 144},
+    .moves = {MOVE_SURF, MOVE_OUTRAGE, MOVE_RAIN_DANCE, MOVE_ATTRACT}
+  },
+  {
+    .iv = 31,
+    .lvl = 77,
+    .species = SPECIES_MEGA_ALTARIA,
+	.ability = 0,
+	.shiny = 1,
+    .heldItem = ITEM_LEFTOVERS,
+    .nature = NATURE_MODEST,
+    .evs = {0, 0, 0, 144, 0, 144},
+    .moves = {MOVE_MOONBLAST, MOVE_DRAGON_CLAW, MOVE_FLAMETHROWER, MOVE_ATTRACT}
+  }
+};
+static const struct TrainerMonCustomMidele sParty_Sapph[] = {
+// FALTAN EQUIPO, FRASES Y LOCALIZACIÓN
+  {
+    .iv = 31,
+    .lvl = 78,
+    .species = SPECIES_G_BUTTERFREE,
+	.ability = 0,
+    .heldItem = ITEM_MENTAL_HERB,
+    .nature = NATURE_TIMID,
+    .evs = {144, 0, 0, 144, 0, 0},
+    .moves = {MOVE_QUIVER_DANCE, MOVE_BATON_PASS, MOVE_PSYCHIC, MOVE_SLEEP_POWDER}
+  }
 };

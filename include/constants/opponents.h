@@ -981,10 +981,14 @@
 #define TRAINER_FENAN 977
 #define TRAINER_ADDRI 978
 #define TRAINER_ADDRI_2 979
+#define TRAINER_POISONMASTAHHHH 980
+#define TRAINER_BLUE_AND_YELLOW 981
+#define TRAINER_DUNK_2 982
+#define TRAINER_SAPPH 983
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or [changing how trainer flags are handled] --> HECHO ESTO
-#define TRAINERS_COUNT                      980 // NUEVO: aumentar para añadir nuevos entrenadores
-#define MAX_TRAINERS_COUNT                  981
+#define TRAINERS_COUNT                      984 // NUEVO: aumentar para añadir nuevos entrenadores
+#define MAX_TRAINERS_COUNT                  985
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

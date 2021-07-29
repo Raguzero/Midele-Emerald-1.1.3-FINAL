@@ -69,7 +69,6 @@ MicoloLeagueLobby_EventScript_ResetTrainerYES:
 	cleartrainerflag TRAINER_FORBIDDENFOREST_EZECUTER
 	//cleartrainerflag TRAINER_ISMAPKM_1 ???
 	cleartrainerflag TRAINER_GOLDIE
-	//cleartrainerflag TRAINER_JOSITO ???
 	//cleartrainerflag TRAINER_VLADILAND ??
 	cleartrainerflag TRAINER_KEFKY
 	cleartrainerflag TRAINER_ELPRINCIPE
@@ -77,10 +76,9 @@ MicoloLeagueLobby_EventScript_ResetTrainerYES:
 	cleartrainerflag TRAINER_CHARIZARD_FAN
 	cleartrainerflag TRAINER_JAVISITO_POSTGAME
 	cleartrainerflag TRAINER_MERUM
-	//cleartrainerflag TRAINER_TREVEJO ??
+	cleartrainerflag TRAINER_TREVEJO
 	cleartrainerflag TRAINER_PUFFU 
 	cleartrainerflag TRAINER_MERCIBOKU 
-	//cleartrainerflag TRAINER_DUNK ??
 	cleartrainerflag TRAINER_EEVEETO 
 	cleartrainerflag TRAINER_UTALAWEA 
 	cleartrainerflag TRAINER_TENSHINHAN 
@@ -94,7 +92,7 @@ MicoloLeagueLobby_EventScript_ResetTrainerYES:
 	cleartrainerflag TRAINER_JPROGAMER 
 	cleartrainerflag TRAINER_SLOWBRO
 	cleartrainerflag TRAINER_BOTONES
-	///cleartrainerflag TRAINER_HYPEANTONIO_2 ???
+	cleartrainerflag TRAINER_HYPEANTONIO_2
 	cleartrainerflag TRAINER_VIN
 	//cleartrainerflag TRAINER_ESBIRRO_DARKI_1 ???
 	//cleartrainerflag TRAINER_ESBIRRO_DARKI_2 ???
@@ -115,12 +113,21 @@ MicoloLeagueLobby_EventScript_ResetTrainerYES:
 	cleartrainerflag TRAINER_MDRAGON
 	cleartrainerflag TRAINER_ALBERMAUS
 	cleartrainerflag TRAINER_HATHAR
+	cleartrainerflag TRAINER_CASTILLO
+	cleartrainerflag TRAINER_JOSITO_2
+	cleartrainerflag TRAINER_MR_ZERO
+	cleartrainerflag TRAINER_ZZZ
+	cleartrainerflag TRAINER_FENAN
+	cleartrainerflag TRAINER_ADDRI_2
+	cleartrainerflag TRAINER_POISONMASTAHHHH
+	cleartrainerflag TRAINER_BLUE_AND_YELLOW
+	cleartrainerflag TRAINER_DUNK_2
 	cleartrainerflag TRAINER_SANTYGRASS_3
 	setvar VAR_SHIFTEO_SANTY_GYM, 4
 	cleartrainerflag TRAINER_GOOSES
 	setflag FLAG_REMATCH_GOOSES
-	//cleartrainerflag TRAINER_SAPPH
-	//setflag FLAG_REMATCH_SAPPH
+	cleartrainerflag TRAINER_SAPPH
+	setflag FLAG_REMATCH_SAPPH
 	cleartrainerflag TRAINER_DARKI_BUENRO
 	cleartrainerflag TRAINER_DARKI_MALRO
 	setflag FLAG_REMATCH_DARKIBUENRO
