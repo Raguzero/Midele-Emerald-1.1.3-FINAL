@@ -42,10 +42,23 @@ Kaisser_MensajeDerrota:
     .string "Huehuehue$"
 	
 Kaisser_DespuesDeBatalla:
-    .string "Vendo Opel Corsa.\p"
-
-    .string "Siempre en garje, usado por persona\n"
-	.string "mayor.$"
+	.string "Lo mejor de las maduras, es que puedes\n"
+	.string "comerles el roscón de reyes, mientras\l"
+	.string "te tienen al fuego unas lentejas de\l"
+	.string "puta madre. Yo recuerdo una que conocí\l"
+	.string "en un eroski, y la recuerdo como uno de\l"
+	.string "los mejores polvos de mi vida. Ella me\l"
+	.string "hizo unos callos cojonudisisimos, y\l"
+	.string "mientras los preparaba, yo le daba como\l"
+	.string "un cabrón por el ojete, ya que se había\l"
+	.string "puesto faldita para que fuese\l"
+	.string "haciendo mientras cocinaba. Creo que\l"
+	.string "eyaculé tal cantidad de esperma, que\l"
+	.string "estuve dos horas inconsciente. Menos\l"
+	.string "mal que los callos me dieron fuerza\l"
+	.string "para acabar el día con un par más. Y\l"
+	.string "tenía unos hijos majísimos. Menudos\l"
+	.string "vicios echamos al crash bandicoot 2.$"
 
 EverGrandeCity_Text_EnteringVictoryRoad: @ 81E7D4F
 	.string "ENTERING VICTORY ROAD$"
