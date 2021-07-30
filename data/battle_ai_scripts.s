@@ -156,6 +156,8 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_DEFENSE_UP_2, AI_CBM_DefenseUp
 	if_effect EFFECT_SPEED_UP_2, AI_CBM_SpeedUp
 	if_effect EFFECT_SPECIAL_ATTACK_UP_2, AI_CBM_SpAtkUp
+	if_effect EFFECT_SPECIAL_ATTACK_UP_3, AI_CBM_SpAtkUp
+	if_effect EFFECT_ATTACK_SPATK_UP, AI_CBM_Growth
 	if_effect EFFECT_SPECIAL_DEFENSE_UP_2, AI_CBM_SpDefUp
 	if_effect EFFECT_ACCURACY_UP_2, AI_CBM_AccUp
 	if_effect EFFECT_EVASION_UP_2, AI_CBM_EvasionUp
@@ -313,6 +315,11 @@ AI_CBM_SpeedUp: @ 82DC35A
 	end
 
 AI_CBM_SpAtkUp: @ 82DC363
+	if_stat_level_equal AI_USER, STAT_SPATK, 12, Score_Minus10
+	end
+	
+AI_CBM_Growth:
+	if_stat_level_not_equal AI_USER, STAT_ATK, 12, AI_Ret
 	if_stat_level_equal AI_USER, STAT_SPATK, 12, Score_Minus10
 	end
 
@@ -974,6 +981,8 @@ AI_CheckViability_CheckEffects:
 	if_effect EFFECT_DEFENSE_UP_2, AI_CV_DefenseUp
 	if_effect EFFECT_SPEED_UP_2, AI_CV_SpeedUp
 	if_effect EFFECT_SPECIAL_ATTACK_UP_2, AI_CV_SpAtkUp
+	if_effect EFFECT_SPECIAL_ATTACK_UP_3, AI_CV_SpAtkUp
+	if_effect EFFECT_ATTACK_SPATK_UP, AI_CV_Growth
 	if_effect EFFECT_SPECIAL_DEFENSE_UP_2, AI_CV_SpDefUp
 	if_effect EFFECT_ACCURACY_UP_2, AI_CV_AccuracyUp
 	if_effect EFFECT_EVASION_UP_2, AI_CV_EvasionUp
@@ -1063,6 +1072,7 @@ AI_CheckViability_CheckEffects:
 	if_effect EFFECT_WILL_O_WISP, AI_CV_WillOWisp
 	if_effect EFFECT_RAPID_SPIN, AI_CV_RapidSpin
 	if_effect EFFECT_ROLLOUT, AI_CV_Rollout
+	if_effect EFFECT_COIL, AI_CV_DefenseUp
 	end
 
 AI_CV_Sleep: @ 82DCA92
@@ -1245,7 +1255,7 @@ AI_CV_Rollout3:
 	end
 
 AI_CV_AttackUp: @ 82DCBBC
-	call AI_CheckFreeSetup
+	if_free_setup_turn Score_Plus5
 	if_this_attack_might_be_the_last Score_Minus5
 	if_stat_level_less_than AI_USER, STAT_ATK, 9, AI_CV_AttackUp2
 	if_random_less_than 100, AI_CV_AttackUp3
@@ -1320,25 +1330,15 @@ AI_CV_SpeedUp: @ 82DCC5D
 	goto AI_CV_SpeedUp_End
 
 AI_CV_SpeedUp2: @ 82DCC6A
-	call AI_CheckFreeSetup_AssumeTargetIsSlowerAfterSetup
+	if_free_setup_turn_assuming_target_will_be_slower Score_Plus5
 	if_random_less_than 70, AI_CV_SpeedUp_End
 	score +3
 
 AI_CV_SpeedUp_End: @ 82DCC72
 	end
-	
-AI_CheckFreeSetup:
-    if_target_faster AI_Ret
-AI_CheckFreeSetup_AssumeTargetIsSlowerAfterSetup:
-    if_hp_less_than AI_USER, 100, AI_Ret
-	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_Ret
-    if_ability AI_USER, ABILITY_STURDY, Score_Plus5
-    if_holds_item AI_USER, ITEM_FOCUS_SASH, Score_Plus5
-	if_target_wont_attack_due_to_truant Score_Plus5
-    end
 
 AI_CV_SpAtkUp: @ 82DCC73
-	call AI_CheckFreeSetup
+	if_free_setup_turn Score_Plus5
     if_this_attack_might_be_the_last Score_Minus5
 	if_stat_level_less_than AI_USER, STAT_SPATK, 9, AI_CV_SpAtkUp2
 	if_random_less_than 100, AI_CV_SpAtkUp3
@@ -1359,6 +1359,31 @@ AI_CV_SpAtkUp_ScoreDown2: @ 82DCCAB
 	score -2
 
 AI_CV_SpAtkUp_End: @ 82DCCAD
+	end
+
+AI_CV_Growth:
+	if_free_setup_turn Score_Plus5
+    if_this_attack_might_be_the_last Score_Minus5
+	if_stat_level_less_than AI_USER, STAT_SPATK, 8, AI_CV_Growth2
+	if_stat_level_less_than AI_USER, STAT_ATK, 8, AI_CV_Growth2
+	if_random_less_than 100, AI_CV_Growth3
+	score -1
+	goto AI_CV_Growth3
+
+AI_CV_Growth2:
+	if_hp_not_equal AI_USER, 100, AI_CV_Growth3
+	if_random_less_than 128, AI_CV_Growth3
+	score +2
+
+AI_CV_Growth3:
+	if_hp_more_than AI_USER, 70, AI_CV_Growth_End
+	if_hp_less_than AI_USER, 40, AI_CV_Growth_ScoreDown2
+	if_random_less_than 70, AI_CV_Growth_End
+
+AI_CV_Growth_ScoreDown2:
+	score -2
+
+AI_CV_Growth_End:
 	end
 
 AI_CV_SpDefUp: @ 82DCCAE
@@ -2366,6 +2391,7 @@ AI_CV_DestinyBond:
 	score -1
 	if_status2 AI_USER, STATUS2_SUBSTITUTE, AI_CV_DestinyBond_End
 	if_target_faster AI_CV_DestinyBond_End
+	if_this_attack_might_be_the_last Score_Plus2
 	if_hp_more_than AI_USER, 70, AI_CV_DestinyBond_End
 	if_random_less_than 128, AI_CV_DestinyBond2
 	score +1
@@ -2920,6 +2946,9 @@ AI_CV_ChargeUpMove_NotSolarBeamOnSun:
 	if_type_effectiveness AI_EFFECTIVENESS_x0_25, AI_CV_ChargeUpMove_ScoreDown2
 	if_type_effectiveness AI_EFFECTIVENESS_x0_5, AI_CV_ChargeUpMove_ScoreDown2
 	if_has_move_with_effect AI_TARGET, EFFECT_PROTECT, Score_Minus5
+    if_effect EFFECT_SKULL_BASH, AI_CV_ChargeUpMove_SkipKOCheck
+	if_this_attack_might_be_the_last Score_Minus5
+AI_CV_ChargeUpMove_SkipKOCheck:
 	if_hp_more_than AI_USER, 38, AI_CV_ChargeUpMove_End
 	score -1
 	goto AI_CV_ChargeUpMove_End
@@ -3350,7 +3379,6 @@ AI_CV_Eruption_End:
 	end
 
 AI_CV_Imprison:
-    if_this_attack_might_be_the_last Score_Minus5
 	is_first_turn_for AI_USER
 	if_more_than 0, AI_CV_Imprison_End
 	if_random_less_than 100, AI_CV_Imprison_End

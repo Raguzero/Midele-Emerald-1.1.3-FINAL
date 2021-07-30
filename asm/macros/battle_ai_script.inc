@@ -711,3 +711,18 @@
     if_has_move_with_effect AI_TARGET, EFFECT_SUBSTITUTE, \ptr
 	.AI_target_not_expected_to_use_sub_\@:
     .endm
+	
+    .macro if_free_setup_turn_assuming_target_will_be_slower ptr:req
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, .AI_no_free_setup_\@
+	if_target_wont_attack_due_to_truant \ptr
+    if_hp_less_than AI_USER, 100, .AI_no_free_setup_\@
+    if_ability AI_USER, ABILITY_STURDY, \ptr
+    if_holds_item AI_USER, ITEM_FOCUS_SASH, \ptr
+    .AI_no_free_setup_\@:
+    .endm
+
+    .macro if_free_setup_turn ptr:req
+    if_target_faster .AI_no_free_setup_\@
+    if_free_setup_turn_assuming_target_will_be_slower \ptr
+    .AI_no_free_setup_\@:
+    .endm
