@@ -5069,6 +5069,9 @@
                                 "species": "SPECIES_AMBIPOM"
                             },
                             {
+                                "max_level": 80,
+                                "min_level": 75,
+                                "species": "SPECIES_PRIMEAPE"
                             },
                             {
                                 "max_level": 80,
