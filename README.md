@@ -52,7 +52,7 @@ Para instalar el repositorio, ver [INSTALL.md](INSTALL.md).
 - Diego Mertens
 - Zeturic (Move Item [EM] https://www.pokecommunity.com/showthread.php?p=10120157#post10120157)
 - Artrios (wrapping summary screen  https://github.com/Artrios/pokeemerald/commit/ecb5335028fd0da0b2056080e799542ecabf6a28)
-- Xhyz (Universal voicegroup from FE7 )
+- Xhyz, Alisa180, Blazer (Todo lo relacionado con la creación del Universal voicegroup from FE7 https://github.com/Xhyzi/pokeemerald/commit/b091c0047fa4ef3645f3b29a63f9b0cd0aad51b8 https://www.pokecommunity.com/showthread.php?t=332272 https://www.feshrine.net/hacking/projects/fe7instrumenthack.php)
 - ShinkoNet (midi de King Boss DELTARUNE, y midi de Battle Wild Pokemon Ultra Sun https://www.youtube.com/c/ShinkoNet/search?query=gba)
 - FL.Remix (Pokémon ΩRαS Vs. Wally [RSE/FRLG Remix] https://www.youtube.com/watch?v=ro5tRK9BwoE&lc=z12vjznz4rz0cnser231ivgw2pitcd0ct )
 - 8BitImp ( Butterfly - Digimon Adventure (GBA Pokemon soundfont) y Cruel Angel's Thesis (GBA Pokemon soundfont) https://www.youtube.com/watch?v=ylyFsYxyt-8)
