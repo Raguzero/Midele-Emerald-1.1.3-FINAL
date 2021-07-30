@@ -5051,132 +5051,129 @@
                 {
                     "base_label": "gMonocycleRoute0",
                     "land_mons": {
-                        "encounter_rate": 0,
+                        "encounter_rate": 20,
                         "mons": [
                             {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_NONE"
+                                "max_level": 80,
+                                "min_level": 75,
+                                "species": "SPECIES_FEAROW"
                             },
                             {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_NONE"
+                                "max_level": 80,
+                                "min_level": 75,
+                                "species": "SPECIES_EEVEE"
                             },
                             {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_NONE"
+                                "max_level": 80,
+                                "min_level": 75,
+                                "species": "SPECIES_AMBIPOM"
                             },
                             {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_NONE"
                             },
                             {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_NONE"
+                                "max_level": 80,
+                                "min_level": 75,
+                                "species": "SPECIES_STOUTLAND"
                             },
                             {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_NONE"
+                                "max_level": 80,
+                                "min_level": 75,
+                                "species": "SPECIES_LINOONE"
                             },
                             {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_NONE"
+                                "max_level": 80,
+                                "min_level": 75,
+                                "species": "SPECIES_MEGA_PIDGEOT"
                             },
                             {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_NONE"
+                                "max_level": 80,
+                                "min_level": 75,
+                                "species": "SPECIES_DODRIO"
                             },
                             {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_NONE"
+                                "max_level": 80,
+                                "min_level": 75,
+                                "species": "SPECIES_RAPIDASH"
                             },
                             {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_NONE"
+                                "max_level": 80,
+                                "min_level": 75,
+                                "species": "SPECIES_YANMEGA"
                             },
                             {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_NONE"
+                                "max_level": 80,
+                                "min_level": 80,
+                                "species": "SPECIES_RAPIDASH"
                             },
                             {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_NONE"
+                                "max_level": 80,
+                                "min_level": 80,
+                                "species": "SPECIES_YANMEGA"
                             }
                         ]
                     },
                     "land_mons_night": {
-                        "encounter_rate": 0,
+                        "encounter_rate": 20,
                         "mons": [
                             {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_NONE"
+                                "max_level": 80,
+                                "min_level": 75,
+                                "species": "SPECIES_NOCTOWL"
                             },
                             {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_NONE"
+                                "max_level": 80,
+                                "min_level": 75,
+                                "species": "SPECIES_EEVEE"
                             },
                             {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_NONE"
+                                "max_level": 80,
+                                "min_level": 75,
+                                "species": "SPECIES_AMBIPOM"
                             },
                             {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_NONE"
+                                "max_level": 80,
+                                "min_level": 75,
+                                "species": "SPECIES_VIGOROTH"
                             },
                             {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_NONE"
+                                "max_level": 80,
+                                "min_level": 75,
+                                "species": "SPECIES_MIGHTYENA"
                             },
                             {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_NONE"
+                                "max_level": 80,
+                                "min_level": 75,
+                                "species": "SPECIES_GALAR_LINOONE"
                             },
                             {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_NONE"
+                                "max_level": 80,
+                                "min_level": 75,
+                                "species": "SPECIES_MEGA_PIDGEOT"
                             },
                             {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_NONE"
+                                "max_level": 80,
+                                "min_level": 75,
+                                "species": "SPECIES_DODRIO"
                             },
                             {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_NONE"
+                                "max_level": 80,
+                                "min_level": 75,
+                                "species": "SPECIES_RAPIDASH"
                             },
                             {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_NONE"
+                                "max_level": 80,
+                                "min_level": 75,
+                                "species": "SPECIES_YANMEGA"
                             },
                             {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_NONE"
+                                "max_level": 80,
+                                "min_level": 75,
+                                "species": "SPECIES_RAPIDASH"
                             },
                             {
-                                "max_level": 5,
-                                "min_level": 5,
-                                "species": "SPECIES_NONE"
+                                "max_level": 80,
+                                "min_level": 75,
+                                "species": "SPECIES_YANMEGA"
                             }
                         ]
                     },
