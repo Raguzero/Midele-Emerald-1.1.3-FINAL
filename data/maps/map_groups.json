@@ -574,7 +574,9 @@
         "MicoloLeague_RaguRoom",
         "MicoloLeague_PacoRoom",
         "MicoloLeague_FinalRoom",
-        "MonocycleRoute"
+        "MonocycleRoute",
+        "SapphireGym",
+        "SapphireGym2"
     ],
     "gMapGroup4": [
         "LavaridgeTown_HerbShop",

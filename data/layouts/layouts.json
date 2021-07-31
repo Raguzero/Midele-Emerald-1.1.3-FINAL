@@ -4909,6 +4909,26 @@
             "primary_tileset": "gTileset_General",
             "secondary_tileset": "gTileset_Fortree",
             "width": 40
+        },
+        {
+            "blockdata_filepath": "data/layouts/SapphireGym/map.bin",
+            "border_filepath": "data/layouts/SapphireGym/border.bin",
+            "height": 50,
+            "id": "LAYOUT_SAPPHIRE_GYM",
+            "name": "SapphireGym_Layout",
+            "primary_tileset": "gTileset_Building",
+            "secondary_tileset": "gTileset_BattlePike",
+            "width": 40
+        },
+        {
+            "blockdata_filepath": "data/layouts/SapphireGym2/map.bin",
+            "border_filepath": "data/layouts/SapphireGym2/border.bin",
+            "height": 80,
+            "id": "LAYOUT_SAPPHIRE_GYM2",
+            "name": "SapphireGym2_Layout",
+            "primary_tileset": "gTileset_Building",
+            "secondary_tileset": "gTileset_BattlePike",
+            "width": 21
         }
     ],
     "layouts_table_label": "gMapLayouts"
