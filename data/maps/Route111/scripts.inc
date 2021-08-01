@@ -155,26 +155,6 @@ Route111_Movement_PlayerFall:: @ 81F0EB1
 	walk_fast_down
 	step_end
 
-Route111_EventScript_Girl:: @ 81F0EB9
-	lock
-	faceplayer
-	dotimebasedevents
-	goto_if_set FLAG_DAILY_ROUTE_111_RECEIVED_BERRY, Route111_EventScript_ReceivedBerry
-	msgbox Route111_Text_WateredPlantsEveryDayTakeBerry, MSGBOX_DEFAULT
-	giveitem ITEM_RAZZ_BERRY
-	compare VAR_RESULT, FALSE
-	goto_if_eq Common_EventScript_ShowBagIsFull
-	setflag FLAG_DAILY_ROUTE_111_RECEIVED_BERRY
-	special GetPlayerBigGuyGirlString
-	msgbox Route111_Text_GoingToTryToMakeDifferentColorBerries, MSGBOX_DEFAULT
-	release
-	end
-
-Route111_EventScript_ReceivedBerry:: @ 81F0EF4
-	msgbox Route111_Text_WhatColorBerriesToLookForToday, MSGBOX_DEFAULT
-	release
-	end
-
 @ Unused
 Route111_EventScript_ViciousSandstormTriggerUp:: @ 81F0EFE
 	lockall
@@ -433,6 +413,23 @@ Route111_EventScript_HikerMirageTowerDisintegrated:: @ 81F11D0
 
 Route111_EventScript_HikerMirageTowerVisible:: @ 81F11DA
 	msgbox Route111_Text_MirageTowerClearlyVisible, MSGBOX_DEFAULT
+	release
+	end
+	
+Route111_EventScript_Boy2:: @ 81ED057
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_TM09, Route111_EventScript_ReceivedBulletSeed
+	msgbox Route111_Text_LikeFillingMouthWithSeedsTakeThis, MSGBOX_DEFAULT
+	giveitem ITEM_TM09
+	compare VAR_RESULT, FALSE
+	goto_if_eq Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_TM09
+	release
+	end
+	
+Route111_EventScript_ReceivedBulletSeed:: @ 81ED086
+	msgbox Route111_Text_TMsAreOneTimeUse, MSGBOX_DEFAULT
 	release
 	end
 
@@ -740,4 +737,18 @@ Route111_Text_TrainerHillSign: @ 81F1D61
 	.string "{RIGHT_ARROW} TRAINER HILL ENTRANCE\p"
 	.string "“Scale the heights, you hot-blooded\n"
 	.string "TRAINERS!”$"
+	
+Route111_Text_LikeFillingMouthWithSeedsTakeThis: @ 81ED838
+	.string "I like filling my mouth with seeds,\n"
+	.string "then spitting them out fast!\p"
+	.string "You can have this, so you try it out!\p"
+	.string "Use it on a POKéMON, and it will learn\n"
+	.string "a move for firing seeds rapidly.$"
+	
+Route111_Text_TMsAreOneTimeUse: @ 81ED8E7
+	.string "A word of advice!\p"
+	.string "MENTAL HERB and WHITE HERB, are good\n"
+	.string "only for one-time use.\p"
+	.string "Once you use it, it's gone.\n"
+	.string "Think twice before using it!$"
 

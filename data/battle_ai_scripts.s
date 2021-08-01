@@ -2591,7 +2591,7 @@ AI_CV_Protect4:
 AI_CV_ProtectUserStatused:
 	score -1
 	if_double_battle AI_CV_Protect4
-	score -1
+	score -3
 	goto AI_CV_Protect4
 	
 AI_CV_Protect3:

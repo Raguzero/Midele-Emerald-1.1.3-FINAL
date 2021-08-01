@@ -18,19 +18,19 @@ Route104_Text_TrainersOftenMakeMonHoldBerries: @ 82A6E32
 	.string "It's up to you whether to grow BERRIES\n"
 	.string "or use them.$"
 
-Route111_Text_WateredPlantsEveryDayTakeBerry: @ 82A6EBD
+Route104_Text_WateredPlantsEveryDayTakeBerry: @ 82A6EBD
 	.string "I watered the plants every day.\n"
 	.string "They grew lots of flowers.\p"
 	.string "And they gave me lots of BERRIES, too.\p"
 	.string "Here you go!\n"
 	.string "You can have it!$"
 
-Route111_Text_GoingToTryToMakeDifferentColorBerries: @ 82A6F3D
+Route104_Text_GoingToTryToMakeDifferentColorBerries: @ 82A6F3D
 	.string "I'm going to try really hard and make\n"
 	.string "BERRIES in different colors.\p"
 	.string "I hope you try hard, too!$"
 
-Route111_Text_WhatColorBerriesToLookForToday: @ 82A6F9A
+Route104_Text_WhatColorBerriesToLookForToday: @ 82A6F9A
 	.string "I wonder what color BERRIES I'll look\n"
 	.string "for today?$"
 

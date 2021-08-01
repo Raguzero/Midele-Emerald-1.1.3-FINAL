@@ -683,11 +683,11 @@
         {
             "elevation": 3,
             "flag": "0",
-            "graphics_id": "EVENT_OBJ_GFX_GIRL_1",
+            "graphics_id": "EVENT_OBJ_GFX_BOY_2",
             "movement_range_x": 1,
             "movement_range_y": 0,
             "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
-            "script": "Route111_EventScript_Girl",
+            "script": "Route111_EventScript_Boy2",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
             "x": 23,

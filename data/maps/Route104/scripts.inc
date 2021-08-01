@@ -335,25 +335,28 @@ Route104_EventScript_Woman:: @ 81ED04E
 	msgbox Route104_Text_OnlyThrowBallAtWildPokemon, MSGBOX_NPC
 	end
 
-Route104_EventScript_Boy2:: @ 81ED057
-	lock
-	faceplayer
-	goto_if_set FLAG_RECEIVED_TM09, Route104_EventScript_ReceivedBulletSeed
-	msgbox Route104_Text_LikeFillingMouthWithSeedsTakeThis, MSGBOX_DEFAULT
-	giveitem ITEM_TM09
-	compare VAR_RESULT, FALSE
-	goto_if_eq Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_TM09
-	release
-	end
-
-Route104_EventScript_ReceivedBulletSeed:: @ 81ED086
-	msgbox Route104_Text_TMsAreOneTimeUse, MSGBOX_DEFAULT
-	release
-	end
-
 Route104_EventScript_Girl2:: @ 81ED090
 	msgbox Route104_Text_ImNotATrainer, MSGBOX_NPC
+	end
+	
+Route104_EventScript_Girl:: @ 81F0EB9
+	lock
+	faceplayer
+	dotimebasedevents
+	goto_if_set FLAG_DAILY_ROUTE_104_RECEIVED_BERRY, Route104_EventScript_ReceivedBerry2
+	msgbox Route104_Text_WateredPlantsEveryDayTakeBerry, MSGBOX_DEFAULT
+	giveitem ITEM_RAZZ_BERRY
+	compare VAR_RESULT, FALSE
+	goto_if_eq Common_EventScript_ShowBagIsFull
+	setflag FLAG_DAILY_ROUTE_104_RECEIVED_BERRY
+	special GetPlayerBigGuyGirlString
+	msgbox Route104_Text_GoingToTryToMakeDifferentColorBerries, MSGBOX_DEFAULT
+	release
+	end
+
+Route104_EventScript_ReceivedBerry2:: @ 81F0EF4
+	msgbox Route104_Text_WhatColorBerriesToLookForToday, MSGBOX_DEFAULT
+	release
 	end
 
 Route104_EventScript_SailToDewford:: @ 81ED099
@@ -1060,20 +1063,6 @@ Route104_Text_ImNotATrainer: @ 81ED7A2
 	.string "it's a challenge to battle.\p"
 	.string "If you don't want to battle, stay out\n"
 	.string "of their sight.$"
-
-Route104_Text_LikeFillingMouthWithSeedsTakeThis: @ 81ED838
-	.string "I like filling my mouth with seeds,\n"
-	.string "then spitting them out fast!\p"
-	.string "You can have this, so you try it out!\p"
-	.string "Use it on a POKéMON, and it will learn\n"
-	.string "a move for firing seeds rapidly.$"
-
-Route104_Text_TMsAreOneTimeUse: @ 81ED8E7
-	.string "A word of advice!\p"
-	.string "MENTAL HERB and WHITE HERB, are good\n"
-	.string "only for one-time use.\p"
-	.string "Once you use it, it's gone.\n"
-	.string "Think twice before using it!$"
 
 Route104_Text_DontNeedThisTakeIt: @ 81ED96A
 	.string "This FLOWER SHOP started selling\n"
