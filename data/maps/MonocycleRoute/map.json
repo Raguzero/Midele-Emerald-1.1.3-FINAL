@@ -21,6 +21,294 @@
         }
     ],
     "coord_events": [
+        {
+            "elevation": 0,
+            "script": "Musica_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 25,
+            "y": 56
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_NO_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 26,
+            "y": 56
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_NO_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 15,
+            "y": 56
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 16,
+            "y": 56
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_NO_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 8,
+            "y": 56
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 7,
+            "y": 56
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 15,
+            "y": 46
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_NO_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 16,
+            "y": 46
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 22,
+            "y": 43
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_NO_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 21,
+            "y": 43
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_NO_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 7,
+            "y": 34
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_NO_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 16,
+            "y": 42
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 15,
+            "y": 42
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 11,
+            "y": 33
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_NO_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 10,
+            "y": 33
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_NO_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 5,
+            "y": 26
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 4,
+            "y": 26
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 7,
+            "y": 35
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 11,
+            "y": 29
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_NO_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 10,
+            "y": 29
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_NO_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 25,
+            "y": 29
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 24,
+            "y": 29
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_NO_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 16,
+            "y": 5
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 15,
+            "y": 5
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 31,
+            "y": 26
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_NO_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 30,
+            "y": 26
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_NO_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 21,
+            "y": 19
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 22,
+            "y": 19
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_NO_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 16,
+            "y": 15
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 15,
+            "y": 15
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 26,
+            "y": 5
+        },
+        {
+            "elevation": 0,
+            "script": "Musica_NO_Acrobatica_Event",
+            "type": "trigger",
+            "var": "VAR_TEMP_0",
+            "var_value": "0",
+            "x": 25,
+            "y": 5
+        }
     ],
     "id": "MAP_MONOCYCLE_ROUTE",
     "layout": "LAYOUT_MONOCYCLE_ROUTE",

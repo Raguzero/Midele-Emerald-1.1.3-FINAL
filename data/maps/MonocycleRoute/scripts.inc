@@ -5,10 +5,6 @@ Monocycle_Road_Sign::
 	msgbox Monocycle_Road_Sign_Text, MSGBOX_SIGN
 	end
 
-Monocycle_Road_Sign_Text:
-	.string "Monocycle Road: Monociclo,\n" 
-	.string "porque mono es uno y la vida es un ciclo.$"
-
 Monocycle_Road_EventScript_MrZero::
 	trainerbattle_single TRAINER_MR_ZERO, MrZero_AntesBatalla, MrZero_MensajeDerrota
 	msgbox MrZero_DespuesDeBatalla, MSGBOX_AUTOCLOSE
@@ -35,6 +31,14 @@ Monocycle_Road_EventScript_Yellow::
 	msgbox BlueYellow_DespuesDeBatalla, MSGBOX_DEFAULT
 	release
 	end
+	
+Monocycle_Road_Sign_Text:
+	.string "Monocycle Road: Móntate en el\n"
+	.string "ACROCYCLE y usa el B + Dirección\l"
+	.string "para atravesar todos los caminos.\p"
+	
+	.string "Y recuerda: Monociclo, porque\n" 
+	.string "mono es uno y la vida es un ciclo.$"
 	
 BlueYellow_AntesBatalla:
 	.string "YELLOW: Gran amiga BLUE, ¿me estás\n"
