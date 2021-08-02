@@ -370,6 +370,13 @@
             "elevation": 0,
             "x": 80,
             "y": 45
+        },
+        {
+            "dest_map": "MAP_SAPPHIRE_GYM",
+            "dest_warp_id": 0,
+            "elevation": 0,
+            "x": 4,
+            "y": 45
         }
     ],
     "weather": "WEATHER_SUNNY"
