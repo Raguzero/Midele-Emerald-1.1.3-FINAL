@@ -50,13 +50,22 @@ MicoloLeague_FinalRoom_GameEndFlags::
 
 
 MicoloLeague_FinalRoom_Micolo_Text_0:
-	.string "TEXTO MICOLO PREBATTLE$"
+	.string "Enhorabuena por derrotar al inútil y\n"
+	.string "vencer a los tres PALLASOS. Ahora te\l"
+	.string "enfrentarás a la pesadilla Midelar.$"
 
 MicoloLeague_FinalRoom_Micolo_Text_1:
-	.string "TEXTO MICOLO DEFEAT$"
+.string "Monociclo porque mono es uno y la vida\n"
+.string "es un ciclo.$"
 
 MicoloLeague_FinalRoom_Micolo_Defeat_Text_0:
-	.string "TEXTO GIVE PSYCHE ARMOR$"
+	.string "Te hago entrega de este pequeño\n"
+	.string "regalo.$"
 
 MicoloLeague_FinalRoom_Micolo_Defeat_Text_1:
-	.string "TEXTO TE PASASTE EL JUEGO$"
+	.string "No creas que hayas ganado por ser\n"
+	.string "bueno, a Shadow Pikachu no le apetecía\l"
+	.string "luchar como sabe tras haber visto\l"
+	.string "todos tus combates, le hubiera dado\l"
+	.string "lástima humillar a un entrenador al que\l"
+	.string "respeta, como es tu caso.$"

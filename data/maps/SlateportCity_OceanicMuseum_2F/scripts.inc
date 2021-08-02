@@ -494,16 +494,15 @@ SlateportCity_OceanicMuseum_2F_Text_MicoloDefeatsGrunts:
 SlateportCity_OceanicMuseum_2F_Text_MicoloWantsToBattle:
 	.string "MICOLO: Nos vemos otra vez,\n"
 	.string "{PLAYER} n.n\p"
-	.string "Sé que tú podrías haber derrotado a\n"
-	.string "esos reclutas, eres muy pro n.n\p"
+	.string "Veo que Máximo y su padre te han pedido\n"
+	.string "que les entregues las Piezas Devon al\l"
+	.string "Cap Babor.\p"
 	.string "No te preocupes, yo no he venido aquí\n"
 	.string "a por las PIEZAS DEVON, ya no me son\l"
 	.string "necesarias xDDDDDDDDDD\p"
-	.string "que por qué estoy aquí entonces?\p"
-	.string "solo quería ver cómo de poderoso\n"
-	.string "te has vuelto n.n\p"
-	.string "prepara tus POKéMON, amigo,\n"
-	.string "y que gane el mejor n.n$"
+	.string "¿Que por qué estoy aquí entonces?\p"
+	.string "Me interesa ver tu forma de entrenar a\n"
+	.string "los POKéMON, ¡prepárate!$"
 
 SlateportCity_OceanicMuseum_2F_Text_MicoloDefeat:
 	.string "Eres muy poderoso n.n$"

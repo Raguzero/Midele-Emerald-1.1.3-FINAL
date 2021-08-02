@@ -340,11 +340,11 @@ MeteorFalls_1F_1R_Text_WhatsTeamMagmaDoingAtMtChimney: @ 822C47D
 	.string "METEORITE at MT. CHIMNEY?$"
 	
 MeteorFalls_1F_1R_Text_Micolo: 
-	.string "MICOLO: MICOLOOOOOOL\p"
+	.string "MICOLO: Magno y Aquiles, jefes y líderes\n"
+	.string "de los Equipos Magma y Aqua, solo son\l"
+	.string "dos chiflados con un sueño absurdo y\l"
+	.string "una chorrada de idea.\p"
 
-	.string "¡Esos del TEAM MAGMA y\n"
-	.string "y TEAM AGUA son unos pringaos\l"
-	.string "de categoría!\p"
 
 	.string "El TEAM MAGMA quiere invocar\n"
 	.string "al Pokémon legendario GROUDON\l"
@@ -358,7 +358,7 @@ MeteorFalls_1F_1R_Text_Micolo:
 	.string "donde puedan vivir los Pokémon.\p"
 
 	.string "Sus planes no tienen ninguna\n"
-	.string "lógica. ¡Piensalo!\p"	
+	.string "lógica. ¡Piénsalo!\p"	
 
 	.string "Si secan los mares, los\n"
 	.string "humanos nos quedamos sin agua\l"
@@ -374,7 +374,8 @@ MeteorFalls_1F_1R_Text_Micolo:
 	
 	.string "Pero no te preocupes,\n"
 	.string "todos sus planes saldrán mal\l"
-	.string "porque tu les pararás los pies...\p"
+	.string "porque tu les pararás los pies...\l"
+	.string "¡Humilla a sus reclutas sin piedad!\p"
 	
 	.string "...\p"
 	

@@ -238,7 +238,9 @@ RustboroCity_DevonCorp_1F_Text_ProductDisplay: @ 8211722
 	.string "POKé BALLS and POKéNAV systems.”$"
 
 RustboroCity_DevonCorp_1F_Text_MicoloGiveDexNav:
-	.string "MICOLO: Hola reina, soy MICOLO n.n\p"
+	.string "MICOLO: Hola reina, soy MICOLO n.n\n"
+	.string "Parece que has conocido a unos\l"
+	.string "chalados y los has derrotado.\p"
 	.string "DARKRAI: Ha recuperado las\n"
 	.string "PIEZAS DEVON...\p"
 	.string "ARCEUS: No pasa nada, ya no son\n"
@@ -254,7 +256,9 @@ RustboroCity_DevonCorp_1F_Text_MicoloGiveDexNav:
 	.string "ellos, son gente peligrosa xDDDD\p"
 	.string "Aunque si quieres destruirlos puedes\n"
 	.string "intentarlo... n.n\p"
-	.string "Ya sé, te voy a dar este DEXNAV.$"
+	.string "De todas formas, enhorabuena, te doy\n"
+	.string "este pequeño regalo como premio por\l"
+	.string "humillarlos.$"
 	
 
 RustboroCity_DevonCorp_1F_Text_MicoloGoodBye:
@@ -265,7 +269,7 @@ RustboroCity_DevonCorp_1F_Text_MicoloGoodBye:
 	.string "n.n\p"
 	.string "Espero que para ese entonces seas más\n"
 	.string "poderoso.\p"
-	.string "Ah, y dile a melkor que pague el servidor\n"
+	.string "Ah, y dile a Melkor que pague el servidor\n"
 	.string "de Pokéxperto. LOOOOOOOOOOOOOOOOOO\l"
 	.string "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO\l"
 	.string "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOL\p"
