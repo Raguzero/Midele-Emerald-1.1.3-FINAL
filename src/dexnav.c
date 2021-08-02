@@ -2754,43 +2754,13 @@ static void DexNavDrawHiddenIcons(void)
 /////////////////////////
 bool8 DexNavTryMakeShinyMon(void)
 {
-    u32 i, shinyRolls, chainBonus, rndBonus;
-    u32 shinyRate = 0;
-    u32 charmBonus = 0;
-    u8 searchLevel = sDexNavSearchDataPtr->searchLevel;
-    u8 chain = gSaveBlock1Ptr->dexNavChain;
-    
-    #ifdef ITEM_SHINY_CHARM
-    charmBonus = (CheckBagHasItem(ITEM_SHINY_CHARM, 1) > 0) ? 2 : 0;
-    #endif
-    
-    chainBonus = (chain == 50) ? 5 : (chain == 100) ? 10 : 0;
-    rndBonus = (Random() % 100 < 4 ? 4 : 0);
-    shinyRolls = 1 + charmBonus + chainBonus + rndBonus;
+    u16 chain = gSaveBlock1Ptr->dexNavChain;
+    if (chain > 40)
+        chain = 40;
 
-    if (searchLevel > 200)
-    {
-        shinyRate += searchLevel - 200;
-        searchLevel = 200;
-    }
-    else if (searchLevel > 100)
-    {
-        shinyRate += (searchLevel * 2) - 200;
-        searchLevel = 100;
-    }
-    else if (searchLevel > 0)
-    {
-        shinyRate += searchLevel * 6;
-    }
-    
-    shinyRate /= 100;
-    for (i = 0; i < shinyRolls; i++)
-    {
-        if (Random() % 10000 < shinyRate)
-            return TRUE;
-    }
-    
-    return FALSE;
+    // Si la cadena es de 40 o más, hay 1/100 de forzar que sea shiny
+    // En caso contrario, hay n/4000 de forzar que sea shiny si la cadena es de n
+    return (Random() % 4000) < chain;
 }
 
 void TryIncrementSpeciesSearchLevel(u16 dexNum)
