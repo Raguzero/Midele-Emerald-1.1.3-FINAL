@@ -22693,3 +22693,4 @@ voicegroup999::
 .include "sound/voicegroups/voicegroupcintiaencounter.inc" @ 304
 .include "sound/voicegroups/voicegroupwindwaker.inc" @ 305
 .include "sound/voicegroups/voicegrouphgsschamp.inc" @ 306
+.include "sound/voicegroups/voicegroup500.inc" @ 307

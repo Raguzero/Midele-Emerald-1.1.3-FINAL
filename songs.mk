@@ -1264,8 +1264,8 @@ $(MID_SUBDIR)/se_z_search.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G127 -v100 -P5
 	
 $(MID_SUBDIR)/wildbw2_final.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G000 -v90
-
+	$(MID) $< $@ -E -R$(STD_REVERB) -G500 -V086
+	
 $(MID_SUBDIR)/seq_ba_poke.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v70
 
