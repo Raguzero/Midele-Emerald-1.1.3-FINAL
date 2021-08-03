@@ -660,6 +660,7 @@ const u8 *const gMonIconTable[] =
 	[SPECIES_EXCADRILL] = gMonIcon_Excadrill,
 	[SPECIES_DARK_PIKACHU] = gMonIcon_Dark_Pikachu,
 	[SPECIES_ARMOR_MEWTWO] = gMonIcon_Armor_Mewtwo,
+	[SPECIES_HONEDGE_MONADO] = gMonIcon_Honedge_Monado,
     [SPECIES_BOSS] = gMonIcon_Bulbasaur,
     [SPECIES_EGG] = gMonIcon_Egg,
     [SPECIES_UNOWN_B] = gMonIcon_UnownB,
@@ -1329,6 +1330,7 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_EXCADRILL] = 0,
     [SPECIES_DARK_PIKACHU] = 0,
     [SPECIES_ARMOR_MEWTWO] = 2,
+    [SPECIES_HONEDGE_MONADO] = 1,
 // NUEVOS POKES
     [SPECIES_BOSS] = 1,
     [SPECIES_EGG] = 1,

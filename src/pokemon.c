@@ -733,6 +733,7 @@ const u16 gSpeciesToHoennPokedexNum[] = // Assigns all species to the Hoenn Dex 
 	SPECIES_TO_HOENN(DRILBUR),
 	SPECIES_TO_HOENN(EXCADRILL),
 	SPECIES_TO_HOENN(DARK_PIKACHU),
+	SPECIES_TO_HOENN(HONEDGE_MONADO),
 };
 
 const u16 gSpeciesToNationalPokedexNum[NUM_SPECIES] = // Assigns all species to the National Dex Index (Summary No. for National Dex)
@@ -1368,6 +1369,7 @@ const u16 gSpeciesToNationalPokedexNum[NUM_SPECIES] = // Assigns all species to 
 	SPECIES_TO_NATIONAL(DRILBUR),
 	SPECIES_TO_NATIONAL(EXCADRILL),
 	SPECIES_TO_NATIONAL(DARK_PIKACHU),
+	SPECIES_TO_NATIONAL(HONEDGE_MONADO),
 };
 
 const u16 gHoennToNationalOrder[] = // Assigns Hoenn Dex Pokémon (Using National Dex Index)
@@ -1941,7 +1943,8 @@ const u16 gHoennToNationalOrder[] = // Assigns Hoenn Dex Pokémon (Using Nationa
 	HOENN_TO_NATIONAL(MANDIBUZZ),
 	HOENN_TO_NATIONAL(DRILBUR),
 	HOENN_TO_NATIONAL(EXCADRILL),
-	HOENN_TO_NATIONAL(DARK_PIKACHU),	
+	HOENN_TO_NATIONAL(DARK_PIKACHU),
+	HOENN_TO_NATIONAL(HONEDGE_MONADO),
     HOENN_TO_NATIONAL(OLD_UNOWN_B),
     HOENN_TO_NATIONAL(OLD_UNOWN_C),
     HOENN_TO_NATIONAL(OLD_UNOWN_D),
@@ -2653,6 +2656,7 @@ static const u8 sMonFrontAnimIdsTable[] =
     [SPECIES_DRILBUR - 1] = 0x00,
     [SPECIES_EXCADRILL - 1] = 0x00,
     [SPECIES_DARK_PIKACHU - 1] = 0x00,
+    [SPECIES_HONEDGE_MONADO - 1] = 0x29,
 };
 
 static const u8 sMonAnimationDelayTable[NUM_SPECIES - 1] =
@@ -7721,6 +7725,7 @@ static u16 DoGetBattleBGM(void)
 	species == NATIONAL_DEX_MRRIME ||
 	species == NATIONAL_DEX_RUNERIGUS ||		
 	species == NATIONAL_DEX_PERSERKER ||
+	species == NATIONAL_DEX_HONEDGE_MONADO ||
 	species == NATIONAL_DEX_CURSOLA) return SWORDSHIELDWILD;
     return MUS_BATTLE27;
   }

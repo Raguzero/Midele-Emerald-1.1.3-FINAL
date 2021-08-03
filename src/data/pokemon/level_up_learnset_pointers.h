@@ -633,5 +633,6 @@ const u16 *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_EXCADRILL] = sExcadrillLevelUpLearnset,
     [SPECIES_ARMOR_MEWTWO] = sArmorMewtwoLevelUpLearnset,
     [SPECIES_DARK_PIKACHU] = sDarkPikachuLevelUpLearnset,
+    [SPECIES_HONEDGE_MONADO] = sHonedgeMonadoLevelUpLearnset,
     [SPECIES_BOSS] = sBulbasaurLevelUpLearnset,
 };

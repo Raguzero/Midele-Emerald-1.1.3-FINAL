@@ -4805,6 +4805,8 @@ static const union AnimCmd sAnim_GALAR_MRMIME_1[] =
 };
 static const union AnimCmd sAnim_MRRIME_1[] =
 {
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
@@ -6154,6 +6156,15 @@ static const union AnimCmd sAnim_ARMOR_MEWTWO_1[] =
 {
     ANIMCMD_FRAME(1, 15),
     ANIMCMD_FRAME(0, 20),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_HONEDGE_MONADO_1[] =
+{
+    ANIMCMD_FRAME(1, 20),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
 
@@ -9463,6 +9474,11 @@ static const union AnimCmd *const sAnims_ARMOR_MEWTWO[] ={
     sAnim_ARMOR_MEWTWO_1,
 };
 
+static const union AnimCmd *const sAnims_HONEDGE_MONADO[] ={
+    sAnim_GeneralFrame0,
+    sAnim_HONEDGE_MONADO_1,
+};
+
 static const union AnimCmd *const sAnims_EGG[] ={
     sAnim_GeneralFrame0,
     sAnim_EGG_1,
@@ -10241,6 +10257,7 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(EXCADRILL),
     ANIM_CMD(DARK_PIKACHU),
     ANIM_CMD(ARMOR_MEWTWO),
+    ANIM_CMD(HONEDGE_MONADO),
 // NUEVO PARA FORMAS ALOLA
     ANIM_CMD_FULL(BOSS, sAnims_WOOLOO),
     ANIM_CMD(EGG),

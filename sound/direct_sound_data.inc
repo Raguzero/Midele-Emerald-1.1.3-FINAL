@@ -2800,6 +2800,11 @@ Cry_Excadrill::
 
 	.align 2
 
+Cry_Honedge_Monado::
+	.incbin "sound/direct_sound_samples/cry_honedge_monado.bin"
+
+	.align 2
+
 DirectSoundWaveData_register_noise::
 	.incbin "sound/direct_sound_samples/register_noise.bin"
 

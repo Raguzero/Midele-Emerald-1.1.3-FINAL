@@ -633,6 +633,7 @@ const struct CompressedSpriteSheet gMonBackPicTable[] =
     SPECIES_SPRITE(EXCADRILL, gMonBackPic_Excadrill),
     SPECIES_SPRITE(DARK_PIKACHU, gMonBackPic_Dark_Pikachu),
     SPECIES_SPRITE(ARMOR_MEWTWO, gMonBackPic_Armor_Mewtwo),
+    SPECIES_SPRITE(HONEDGE_MONADO, gMonBackPic_Honedge_Monado),
 // NUEVOS POKES
     SPECIES_SPRITE(EGG, gMonStillFrontPic_Egg),
     SPECIES_SPRITE(UNOWN_B, gMonBackPic_UnownB),

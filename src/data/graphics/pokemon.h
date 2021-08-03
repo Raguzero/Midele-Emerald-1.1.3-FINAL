@@ -3868,6 +3868,11 @@ const u32 gMonBackPic_Armor_Mewtwo[] = INCBIN_U32("graphics/pokemon/armor_mewtwo
 const u32 gMonPalette_Armor_Mewtwo[] = INCBIN_U32("graphics/pokemon/armor_mewtwo/normal.gbapal.lz");
 const u32 gMonShinyPalette_Armor_Mewtwo[] = INCBIN_U32("graphics/pokemon/armor_mewtwo/shiny.gbapal.lz");
 const u8 gMonIcon_Armor_Mewtwo[] = INCBIN_U8("graphics/pokemon/armor_mewtwo/icon.4bpp");
+const u32 gMonFrontPic_Honedge_Monado[] = INCBIN_U32("graphics/pokemon/honedge_monado/anim_front.4bpp.lz");
+const u32 gMonBackPic_Honedge_Monado[] = INCBIN_U32("graphics/pokemon/honedge_monado/back.4bpp.lz");
+const u32 gMonPalette_Honedge_Monado[] = INCBIN_U32("graphics/pokemon/honedge_monado/normal.gbapal.lz");
+const u32 gMonShinyPalette_Honedge_Monado[] = INCBIN_U32("graphics/pokemon/honedge_monado/shiny.gbapal.lz");
+const u8 gMonIcon_Honedge_Monado[] = INCBIN_U8("graphics/pokemon/honedge_monado/icon.4bpp");
 
 const u32 gMonStillFrontPic_Egg[] = INCBIN_U32("graphics/pokemon/egg/front.4bpp.lz");
 const u32 gMonPalette_Egg[] = INCBIN_U32("graphics/pokemon/egg/normal.gbapal.lz");

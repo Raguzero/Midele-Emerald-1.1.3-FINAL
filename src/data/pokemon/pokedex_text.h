@@ -3410,8 +3410,12 @@ const u8 gExcadrillPokedexText[] = _(
     "but it can also help with construction.");
 	
 const u8 gDarkPikachuPokedexText[] = _(
-    "MICOLOOOOOOOOOOOOOOL\n"
-    "MICOLOOOOOOOOOOOOOOL\n"
-    "MICOLOOOOOOOOOOOOOOL\n"
-    "MICOLOOOOOOOOOOOOOOL.");
-
+    "A creation made by Micolo's experiments.\n"
+	"It destroyed an entire city\n" 
+	"with radiation.");
+	
+const u8 gHonedgeMonadoPokedexText[] = _(
+    "The sword of the Miconis, developed by\n" 
+	"Micolo's trusted scientist with high\n" 
+	"autism.\n"
+	"It does cut deep enough.");

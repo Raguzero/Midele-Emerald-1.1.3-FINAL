@@ -633,6 +633,7 @@ const struct CompressedSpritePalette gMonPaletteTable[] =
     SPECIES_PAL(EXCADRILL, gMonPalette_Excadrill),
     SPECIES_PAL(DARK_PIKACHU, gMonPalette_Dark_Pikachu),
     SPECIES_PAL(ARMOR_MEWTWO, gMonPalette_Armor_Mewtwo),
+    SPECIES_PAL(HONEDGE_MONADO, gMonPalette_Honedge_Monado),
 // NUEVOS POKES
     SPECIES_PAL(EGG, gMonPalette_Egg),
     SPECIES_PAL(UNOWN_B, gMonPalette_Unown),

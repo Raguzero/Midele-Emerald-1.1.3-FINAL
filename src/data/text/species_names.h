@@ -631,7 +631,8 @@ const u8 gSpeciesNames[][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_DRILBUR] = _("DRILBUR"),	
     [SPECIES_EXCADRILL] = _("EXCADRILL"),
     [SPECIES_ARMOR_MEWTWO] = _("MEWTWO"),		
-    [SPECIES_DARK_PIKACHU] = _("DARK PIKA"),	
+    [SPECIES_DARK_PIKACHU] = _("DARK PIKA"),
+    [SPECIES_HONEDGE_MONADO] = _("HONEDGE"),		
     [SPECIES_BOSS] = _("??????????"),
 // NUEVO POKES
 };

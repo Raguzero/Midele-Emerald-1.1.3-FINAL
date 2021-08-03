@@ -3894,6 +3894,11 @@ extern const u32 gMonShinyPalette_Armor_Mewtwo[];
 extern const u32 gMonPalette_Armor_Mewtwo[];
 extern const u32 gMonBackPic_Armor_Mewtwo[];
 extern const u32 gMonFrontPic_Armor_Mewtwo[];
+extern const u8 gMonIcon_Honedge_Monado[];
+extern const u32 gMonShinyPalette_Honedge_Monado[];
+extern const u32 gMonPalette_Honedge_Monado[];
+extern const u32 gMonBackPic_Honedge_Monado[];
+extern const u32 gMonFrontPic_Honedge_Monado[];
 // NUEVO POKES
 extern const u32 gMonPic_Egg[];
 extern const u32 gMonPalette_Egg[];

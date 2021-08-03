@@ -14611,6 +14611,7 @@ gCryTable:: @ 869DCF4
 	cry Cry_Mandibuzz
 	cry Cry_Drilbur
 	cry Cry_Excadrill
+	cry Cry_Honedge_Monado
 
 	.align 2
 gCryTable2:: @ 869EF24
@@ -15186,6 +15187,7 @@ gCryTable2:: @ 869EF24
 	cry2 Cry_Mandibuzz
 	cry2 Cry_Drilbur
 	cry2 Cry_Excadrill
+	cry2 Cry_Honedge_Monado
 
 	.align 2
 voicegroup129:: @ 86A0154

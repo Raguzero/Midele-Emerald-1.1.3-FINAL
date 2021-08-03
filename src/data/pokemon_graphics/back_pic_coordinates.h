@@ -3162,6 +3162,11 @@ const struct MonCoords gMonBackPicCoords[] =
         .size = 0x77,
         .y_offset = 0x07,
     },
+    [SPECIES_HONEDGE_MONADO] =
+    {
+        .size = 0x90,
+        .y_offset = 0x02,
+    },
 // NUEVO POKES
     [SPECIES_BOSS] =
     {

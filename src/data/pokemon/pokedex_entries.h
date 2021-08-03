@@ -6782,4 +6782,16 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 256,
         .trainerOffset = 0,
     },
+	
+    [NATIONAL_DEX_HONEDGE_MONADO] =
+    {
+        .categoryName = _("MONADOSWORD"),
+		.height = 8,
+		.weight = 20,
+        .description = gHonedgeMonadoPokedexText,
+        .pokemonScale = 479,
+        .pokemonOffset = 19,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
 };
