@@ -4105,7 +4105,11 @@ static void TryDoEventsBeforeFirstTurn(void)
 		for (i = 0; i < gBattlersCount; i++)
 		{
 			if (gBattleMons[i].hp == 0 || gBattleMons[i].species == SPECIES_NONE ||  gBattleMons[i].isEgg)
+		    {
 				gAbsentBattlerFlags |= gBitTable[i];
+				 if (gBattleMons[i].isEgg)
+                     gBattleMons[i].hp = 0;
+           }
 		}
 	}
 

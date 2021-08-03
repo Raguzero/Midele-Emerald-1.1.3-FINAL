@@ -774,7 +774,7 @@ static u8 ChooseMoveOrAction_Doubles(void)
 
     for (i = 0; i < MAX_BATTLERS_COUNT; i++)
     {
-        if (i == sBattler_AI || gBattleMons[i].hp == 0)
+        if (i == sBattler_AI || gBattleMons[i].hp == 0 || (gAbsentBattlerFlags & gBitTable[i]))
         {
             actionOrMoveIndex[i] = 0xFF;
             bestMovePointsForTarget[i] = -1;

@@ -841,7 +841,7 @@ bool8 IsBattlerSpritePresent(u8 battlerId)
         }
         else
         {
-            if (GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_HP) != 0)
+		if (GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_HP) != 0 && !(gAbsentBattlerFlags & gBitTable[battlerId]))
                 return TRUE;
         }
     }

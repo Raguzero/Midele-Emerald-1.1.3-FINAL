@@ -29,6 +29,7 @@
 #include "constants/trainer_hill.h"
 #include "constants/species.h"
 #include "random.h"
+#include "util.h"
 
 struct BattleWindowText
 {
@@ -2152,7 +2153,7 @@ void BufferStringBattle(u16 stringID)
     case STRINGID_INTROSENDOUT: // poke first send-out
         if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
         {
-            if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+             if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE && IsValidForBattle(&gPlayerParty[gBattlerPartyIndexes[gActiveBattler ^ BIT_FLANK]]))
             {
                 if (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER)
                     stringPtr = sText_InGamePartnerSentOutZGoN;
@@ -2162,6 +2163,9 @@ void BufferStringBattle(u16 stringID)
                     stringPtr = sText_LinkPartnerSentOutPkmnGoPkmn;
                 else
                     stringPtr = sText_GoTwoPkmn;
+                // Si el segundo poke no sale, se carga en su lugar el mensaje de un solo poke
+                if (stringPtr == sText_GoTwoPkmn && (gAbsentBattlerFlags & gBitTable[BIT_FLANK]))
+                    stringPtr = sText_GoPkmn;
             }
             else
             {
