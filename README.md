@@ -21,9 +21,11 @@ Para instalar el repositorio, ver [INSTALL.md](INSTALL.md).
 ## Otros colaboradores
 - [Eeveeto] (Ideas interesantes en cuanto a adición de nuevos Pokémon, en el buff a ciertos Pokémon, y en trabajar en sets modificados y nuevos del Frente Batalla y Random Battles, además de ordenar por tiers para Fabrica Batalla))
 - [Pacochef] (Ideas interesantes y aporte de un mapa creado por él)
-- [Darkizard] (Aporte de un mapa creado por él)
-- [Sapph] (Creación del sprite del MonoCiclo)
+- [Darkizard] (Creación de un mapa, y de sprites Buenro y Malro. Tambien recolor de Delos)
+- [Sapph] (Creación de dos mapas, y del sprite del MonoCiclo)
 - [MerúM] (Correción de instrumentos de algunas músicas, creación de nueva pantalla de título, cambiar sprite de bicicletas por monociclos, creación de sprites de Wintass, Mejorado sprites de Probopass, y ayuda con otros sprites)
+- [Goldie] (Creación de sprite front normal, back y icon de Honedge)
+- [Red Krow] (Recolor del Sprite Honedge Monado para convertirlo en shiny)
 
 ## Créditos al resto de personas cuyo código hemos utilizado:
 - Robinlukke https://www.pokecommunity.com/showthread.php?t=435076
