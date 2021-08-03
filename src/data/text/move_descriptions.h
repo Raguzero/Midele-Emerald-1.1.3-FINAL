@@ -1543,6 +1543,10 @@ static const u8 sSHORE_UPDescription[] = _(
 static const u8 sDRAGON_HAMMERDescription[] = _(
 	"Swings its whole body\n"
 	"like a hammer to damage.");
+	
+static const u8 sMONADO_POWERDescription[] = _(
+    "The Monado's power.\n" 
+	"Varies with its wielder's will.");
 
 // MOVE_NONE is ignored in this table. Make sure to always subtract 1 before getting the right pointer.
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
@@ -1934,5 +1938,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_LEAF_STORM - 1] = sLEAF_STORMDescription,
     [MOVE_SHORE_UP - 1] = sSHORE_UPDescription,
     [MOVE_DRAGON_HAMMER - 1] = sDRAGON_HAMMERDescription,
+    [MOVE_MONADO_POWER - 1] = sMONADO_POWERDescription,
 	// NUEVOS MOVES
 };

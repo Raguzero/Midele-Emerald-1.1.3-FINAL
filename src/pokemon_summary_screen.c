@@ -3937,7 +3937,7 @@ static void PrintMoveDetails(u16 move)
         if (sMonSummaryScreen->currPageIndex == PSS_MODE_BOX)
         {
             u8 category = GetBattleMoveSplit(move);
-			if (move == MOVE_HIDDEN_POWER)
+			if (move == MOVE_HIDDEN_POWER || move == MOVE_MONADO_POWER)
 			category = IS_TYPE_SPECIAL(sMideleHiddenPowerType);
 			ShowSplitIcon(category);
             PrintMovePowerAndAccuracy(move);
@@ -4131,7 +4131,7 @@ static void SetMoveTypeIcons(void)
     {
         if (summary->moves[i] != MOVE_NONE)
         {
-            if (summary->moves[i] == MOVE_HIDDEN_POWER)
+            if (summary->moves[i] == MOVE_HIDDEN_POWER || summary->moves[i] == MOVE_MONADO_POWER)
             {
                 SetMoveTypeSpritePosAndType(sMideleHiddenPowerType, 0x55, 0x20 + (i * 0x10), i + 3);
             }
@@ -4169,7 +4169,7 @@ static void SetNewMoveTypeIcon(void)
     else
     {
         if (sMonSummaryScreen->currPageIndex == 2) {
-            if (sMonSummaryScreen->newMove == MOVE_HIDDEN_POWER)
+            if (sMonSummaryScreen->newMove == MOVE_HIDDEN_POWER || sMonSummaryScreen->newMove == MOVE_MONADO_POWER)
                 SetMoveTypeSpritePosAndType(sMideleHiddenPowerType, 85, 96, 7);
             else
                 SetMoveTypeSpritePosAndType(gBattleMoves[sMonSummaryScreen->newMove].type, 85, 96, 7);

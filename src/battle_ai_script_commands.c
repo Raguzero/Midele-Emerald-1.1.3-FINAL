@@ -481,7 +481,7 @@ bool8 IsMoveSignificantlyAffectedByStatDrops(u16 move)
     u8 type = gBattleMoves[move].type;
     u8 power = gBattleMoves[move].power;
 
-    if (move == MOVE_HIDDEN_POWER)
+    if (move == MOVE_HIDDEN_POWER || move == MOVE_MONADO_POWER)
     {
         struct Pokemon *monAttacker;
         if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)

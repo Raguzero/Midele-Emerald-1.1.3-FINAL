@@ -1622,7 +1622,7 @@ void PrepareDynamicMoveTypeAndDamageForAI_CalcDmg(u8 attacker, u8 defender)
     if (gBattleMons[attacker].species == SPECIES_PERSIAN && gBattleMons[attacker].item == ITEM_NUGGET)
         gCritMultiplier = 2;
 
-    if (gCurrentMove == MOVE_HIDDEN_POWER) {
+	if (gBattleMoves[gCurrentMove].effect == EFFECT_HIDDEN_POWER) {
         struct Pokemon *monAttacker;
         if (GetBattlerSide(attacker) == B_SIDE_PLAYER)
             monAttacker = &gPlayerParty[gBattlerPartyIndexes[attacker]];
@@ -1630,7 +1630,7 @@ void PrepareDynamicMoveTypeAndDamageForAI_CalcDmg(u8 attacker, u8 defender)
             monAttacker = &gEnemyParty[gBattlerPartyIndexes[attacker]];
 
         *dynamicMoveType = monAttacker->box.hpType;
-		if (gBattleMons[attacker].ability == ABILITY_TECHNICIAN)
+		if (gCurrentMove == MOVE_HIDDEN_POWER && gBattleMons[attacker].ability == ABILITY_TECHNICIAN)
         gDynamicBasePower = 60;
     }
     else if (gCurrentMove == MOVE_WEATHER_BALL)
@@ -2000,7 +2000,7 @@ u8 TypeCalc(u16 move, u8 attacker, u8 defender)
     else
         monAttacker = &gEnemyParty[gBattlerPartyIndexes[attacker]];
 
-    if (move == MOVE_HIDDEN_POWER)
+    if (move == MOVE_HIDDEN_POWER || move == MOVE_MONADO_POWER)
     {
         moveType = monAttacker->box.hpType;;
     }
@@ -9906,6 +9906,7 @@ static void Cmd_hiddenpowercalc(void)
 {
     struct Pokemon *monAttacker;
     // Poder base de poder oculto
+    if (gCurrentMove != MOVE_MONADO_POWER) {
     if (gBattleMons[gBattlerAttacker].ability == ABILITY_TECHNICIAN)
     {
         gDynamicBasePower = MOVE_HIDDEN_POWER_DMG_TECHNICIAN;
@@ -9921,6 +9922,7 @@ static void Cmd_hiddenpowercalc(void)
     // El tipo depende del Pokémon (se genera aleatoriamente al obtenerlo)
     gBattleStruct->dynamicMoveType = monAttacker->box.hpType;
     gBattlescriptCurrInstr++;
+	}
 }
 
 static void Cmd_selectfirstvalidtarget(void)

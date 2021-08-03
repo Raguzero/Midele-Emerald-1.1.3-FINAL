@@ -1495,7 +1495,7 @@ static void MoveSelectionDisplayMoveType(void)
     txtPtr++;
 
     moveIndex = moveInfo->moves[gMoveSelectionCursor[gActiveBattler]];
-    if (moveIndex == MOVE_HIDDEN_POWER)
+    if (moveIndex == MOVE_HIDDEN_POWER || moveIndex == MOVE_MONADO_POWER)
     {
         monCurrent = &gPlayerParty[gBattlerPartyIndexes[gActiveBattler]];
         StringCopy(txtPtr, gTypeNames[monCurrent->box.hpType]);
