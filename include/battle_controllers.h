@@ -183,6 +183,7 @@ void OpponentBufferRunCommand(void);
 void HandleLinkBattleSetup(void);
 void SetUpBattleVarsAndBirchZigzagoon(void);
 void sub_8032768(void);
+bool32 IsValidForBattle(struct Pokemon *mon);
 void sub_8033648(void);
 void PrepareBufferDataTransferLink(u8 bufferId, u16 size, u8 *data);
 

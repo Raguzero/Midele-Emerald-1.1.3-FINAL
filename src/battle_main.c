@@ -4098,6 +4098,16 @@ static void TryDoEventsBeforeFirstTurn(void)
     // Midele: aura de totem.
     if (AbilityBattleEffects(ABILITYEFFECT_SPECIAL_TOTEM_AURA, 0, 0, 0, 0) != 0)
         return;
+	
+	// Set invalid mons as absent(for example when starting a double battle with only one pokemon).
+    if (IsDoubleBattle())
+	{		
+		for (i = 0; i < gBattlersCount; i++)
+		{
+			if (gBattleMons[i].hp == 0 || gBattleMons[i].species == SPECIES_NONE ||  gBattleMons[i].isEgg)
+				gAbsentBattlerFlags |= gBitTable[i];
+		}
+	}
 
     if (gBattleStruct->switchInAbilitiesCounter == 0)
     {
