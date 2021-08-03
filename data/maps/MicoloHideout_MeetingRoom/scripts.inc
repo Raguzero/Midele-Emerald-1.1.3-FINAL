@@ -248,6 +248,12 @@ MicoloHideout_MeetingRoom_PC3::
 	waitse
 	msgbox MicoloHideout_MeetingRoom_PC3_Text_0, MSGBOX_SIGN
 	return
+	
+MicoloHideout_MeetingRoom_PC4::
+	playse SE_PC_LOGIN
+	waitse
+	msgbox MicoloHideout_MeetingRoom_PC4_Text_0, MSGBOX_SIGN
+	return
 
 
 MicoloHideout_MeetingRoom_PCHeal::
@@ -287,6 +293,58 @@ MicoloHideout_MeetingRoom_PC3_Text_0:
 	.string "MICOLIGA: 350000¥\p"
 	.string "LABORATORIO: 800000¥\p"
 	.string "MONOCICLOS: 9999000¥”$"
+	
+MicoloHideout_MeetingRoom_PC4_Text_0:
+	.string "Parece un documento con información\n"
+	.string "confidencial que dice lo siguiente:\p"
+	
+	.string "He tenido que usar materiales\n"
+	.string "extremadamente raros con costes\l"
+	.string "millonarios, pero gracias al mecenas\l"
+	.string "ALPHA que ha apoyado mi proyecto con\l"
+	.string "una cuantiosa cantidad de dinero,\l" 
+	.string "he podido costear toda la investigación\l" 
+	.string "y desarrollo a cambio de ser él el\l" 
+	.string "primero en conseguir una unidad de mi\l" 
+	.string "HONEDGE modificado.\p"
+	
+	.string "¡SI! ¡POR FIN MI SUEÑO SE HA CUMPLIDO!\p"
+	
+	.string "¡Yo, el gran A.VADER, he conseguido\n"
+	.string "crear una forma alternativa de HONEDGE\l"
+	.string "totalmente nueva!\p"
+	
+	.string "¡El HONEDGE MONADO! ¡THIS IS THE POWER\n"
+	.string "OF THE MONADO!\l"
+	.string "Your blade.... it did not cut\l"
+	.string "deep enough.\p"
+	
+	.string "¡EJEM! Como iba escribiendo aquí...\p"
+
+	.string "Se trata de una versión mucho más\n" 
+	.string "poderosa que la forma normal, incluso\l" 
+	.string "más poderosa que la evolución final\l" 
+	.string "de HONEDGE.\p"
+	
+	.string "Estadísticas Base:\n"
+	.string "60 PS, 140 ATK, 50 DEF, 60 SATK,\l" 
+	.string "50 SDEF, 140 SPEED\p"
+	
+	.string "Habilidad: ADAPTABILITY\p"
+
+	.string "Más datos: No puede evolucionar, y\n"
+	.string "tampoco puede criar de forma normal,\l"
+	.string "pero eso no importa, tenemos la\l"
+	.string "clonación y la máquina de crianza de\l"
+	.string "legendarios... Pero, ¿podemos llamar\l" 
+	.string "a esto, LEGENDARIO?\p"
+
+	.string "Resto de datos: Desconocido por ahora.\n"
+	.string "¡Haré que lo investigue el resto de la\l"
+	.string "humanidad!\l"
+	.string "Today mankind moves one step closer\l" 
+	.string "to the divine!\l" 
+	.string "push button monados liberadas$"
 
 MicoloHideout_MeetingRoom_PCHeal_Text_0:
 	.string "¿Quieres curar a tus POKéMON?$"
