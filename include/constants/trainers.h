@@ -142,6 +142,7 @@
 #define TRAINER_PIC_DARKIMALRO          123
 #define TRAINER_PIC_DARKIBUENRO          124
 #define TRAINER_PIC_SANTY          125
+#define TRAINER_PIC_VADER          126
 
 #define TRAINER_BACK_PIC_BRENDAN                0
 #define TRAINER_BACK_PIC_MAY                    1
