@@ -29,9 +29,6 @@ EventScript_TryDoDoubleTrainerBattle:: @ 827138A
 	specialvar VAR_RESULT, GetTrainerFlag
 	compare VAR_RESULT, 0
 	goto_if_ne EventScript_NoDoubleTrainerBattle
-	special HasEnoughMonsForDoubleBattle
-	compare VAR_RESULT, PLAYER_HAS_TWO_USABLE_MONS
-	goto_if_ne EventScript_NotEnoughMonsForDoubleBattle
 	special SetUpTrainerEncounterMusic
 	special SetUpTrainerMovement
 	goto EventScript_ShowTrainerIntroMsg
