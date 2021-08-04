@@ -39,6 +39,69 @@ Monocycle_Road_EventScript_Yellow::
 	release
 	end
 	
+Monocycle_Road_EventScript_Dunk2::
+	trainerbattle_single TRAINER_DUNK_2, Dunk2_AntesBatalla, Dunk2_MensajeDerrota
+	msgbox Dunk2_DespuesDeBatalla, MSGBOX_AUTOCLOSE
+	end
+	
+Monocycle_Road_EventScript_Josito2::
+	trainerbattle_single TRAINER_JOSITO_2, Josito2_AntesBatalla, Josito2_MensajeDerrota
+	msgbox Josito2_DespuesDeBatalla, MSGBOX_AUTOCLOSE
+	end
+	
+Josito2_AntesBatalla:
+	.string "Tú y mi osito verde ya os habéis\n" 
+	.string "encontrado antes, ¿me recuerdas?$"
+
+Josito2_MensajeDerrota: 
+	.string "GGs, que vayan bien las próximas.$"
+ 
+Josito2_DespuesDeBatalla:
+	.string "Tremendo equipo te has montado,\n"
+	.string "aunque los míos molan más.$"
+	
+Dunk2_AntesBatalla:
+	.string "¿Me recuerdas? Soy DUNK, nos vimos en\n"
+	.string "SKY PILLAR cuando fuiste a ver a\l"
+	.string "RAYQUAZA.\p"
+
+	.string "Te dije que no hay ningún cambio\n" 
+	.string "climático, y al final el tiempo me dió\l"
+	.string "la razón.\p"
+
+	.string "Pero ahora estoy aquí por otro asunto\n"
+	.string "bastante distinto. Estoy reclutando\l" 
+	.string "gente para echar abajo por fin a la\l"
+	.string "dictadura Smogonita.\p"
+	
+	.string "SMOGON ha quedado corrompido por dar\n"
+	.string "asilo a personas de tan mala calaña, y\l"
+	.string "además los Bans de POKéMON que realizan\l" 
+	.string "cada vez son más incongruentes. Parece\l"
+	.string "que no saben hacer otra cosa que perder\l"
+	.string "el tiempo de sus vidas jugando\l" 
+	.string "STALL 6vs6, y es como si hubiesen\l" 
+	.string "convertido el juego en un FANGAME\l" 
+	.string "a la carta.\p"
+
+	.string "Para ello necesitamos formar una nueva\n"
+	.string "comunidad en la que jugaremos combates\l"
+	.string "rápidos 3vs3 con las reglas\l" 
+	.string "de GAMEFREAK.\p"
+	
+	.string "¡Así que demuéstrame que sabes hacer!$"
+
+Dunk2_MensajeDerrota: 
+	.string "Tienes mucho potencial, ¿por qué no\n"
+	.string "te unes a nosotros?$"  
+ 
+Dunk2_DespuesDeBatalla:
+	.string "Ya te lo he dicho, los de SMOGON han\n"
+	.string "perdido totalmente el norte.\p"
+	
+	.string "Al final solo nos queda jugar al\n"
+	.string "metagame original de GAMEFREAK.$"
+	
 Monocycle_Road_Sign_Text:
 	.string "Monocycle Road: Móntate en el\n"
 	.string "ACROCYCLE y usa el B + Dirección\l"

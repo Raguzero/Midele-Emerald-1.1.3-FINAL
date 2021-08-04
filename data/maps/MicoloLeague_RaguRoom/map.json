@@ -115,7 +115,7 @@
     "id": "MAP_MICOLO_LEAGUE_RAGU_ROOM",
     "layout": "LAYOUT_MICOLO_LEAGUE_RAGU_ROOM",
     "map_type": "MAP_TYPE_INDOOR",
-    "music": "MUS_RG_CHAMP_R",
+    "music": "MUS_RG_NANADUNGEON",
     "name": "MicoloLeague_RaguRoom",
     "object_events": [
         {
