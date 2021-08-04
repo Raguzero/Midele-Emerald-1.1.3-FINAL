@@ -9914,6 +9914,7 @@ static void Cmd_hiddenpowercalc(void)
     {
         gDynamicBasePower = MOVE_HIDDEN_POWER_DMG;
     }
+	}
 
     if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
         monAttacker = &gPlayerParty[gBattlerPartyIndexes[gBattlerAttacker]];
@@ -9922,7 +9923,6 @@ static void Cmd_hiddenpowercalc(void)
     // El tipo depende del Pokémon (se genera aleatoriamente al obtenerlo)
     gBattleStruct->dynamicMoveType = monAttacker->box.hpType;
     gBattlescriptCurrInstr++;
-	}
 }
 
 static void Cmd_selectfirstvalidtarget(void)
