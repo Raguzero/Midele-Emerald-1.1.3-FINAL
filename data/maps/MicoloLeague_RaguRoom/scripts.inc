@@ -165,11 +165,79 @@ MicoloLeague_RaguRoom_Text_PCSign:
 	.string "hacerle FRENTE?$"
 	
 MicoloLeague_RaguRoom_Text_RaguIntro: 
-	.string "FRASES$"
+	.string "No sé si seré el primero al que retas,\n"
+	.string "pero, no importa.\l"
+	.string "¡Te doy la bienvenida a la MICOLIGA!\p"
+	
+	.string "Supongo que has estado observando este\n"
+	.string "lugar...\p"
+	
+	.string "Muy bonito, ¿verdad?\n"
+	.string "Y sobre todo muy eficiente, todo va\l"
+	.string "sobre ruedas gracias a mi plan de\l"
+	.string "eficiencia del trabajo 24-7 al que\l"
+	.string "son sometidos mis esclavos.\p"
+	
+	.string "Pero aún debo mejorarlo más,\n" 
+	.string "¡No quiero más retrasos!\p"
+	
+	.string ":saca el látigo:\p"
+
+	.string "...\p"
+	
+	.string "¿Que la esclavitud se abolió hace mucho\n"
+	.string "tiempo? ¡Jajajaja! ¡No me hagas reir!\p"
+	
+	.string "¿Acaso no sabes la cantidad de gente\n"
+	.string "que está obligada a trabajar gratis\l" 
+	.string "para pillar experiencia...\l" 
+	.string "o con sueldos basura echando más horas\l" 
+	.string "que un reloj... con la esperanza de que\l" 
+	.string "en un futuro... poder conseguir un\l" 
+	.string "sueldo que le permita vivir dignamente?\p"
+	
+	.string "Yo por lo menos ofrezco a mis esclavos\n"
+	.string "un cuarto donde ellos pueden vivir y\l"
+	.string "hacer todas sus necesidades\l" 
+	.string "fisiológicas...\p"
+
+	.string "Así que me preocupo mucho de que mis\n"
+	.string "esclavos del Midele estén a gusto y\l"
+	.string "tengan un lugar al que ellos puedan\l" 
+	.string "llamar hogar. Es decir, ¡tienen la\l"
+	.string "vida resuelta!\p"
+	
+	.string "Pero, dejando de lado todo esto, debes\n"
+	.string "tener un potencial enorme para haber\l"
+	.string "llegado hasta aquí... Me intriga ver de\l" 
+	.string "que eres capaz.\p"
+	
+	.string "Bien, ¡prepárate para un combate\n"
+	.string "sin igual, vas a comprender porque me\l" 
+	.string "llaman MAESTRO HAX!$"
 
 MicoloLeague_RaguRoom_Text_RaguDefeat: 
-	.string "¡Salid de TWITTER!$"
+	.string "¡¡¡AAAAAAAAA!!!\p"
+
+	.string "¡Necesito aplastar un PIKACHU\n"
+	.string "con mis propias manos!\p"
+	
+	.string "¡DONDE ESTÁ! DONDE ESTÁ!\p"
+	
+	.string "Ostiaaaaa... pero si ya lo\n" 
+	.string "maté...\p"
+	
+	.string "¡DEP, siempre se van los mejores!$"
 
 MicoloLeague_RaguRoom_Text_RaguPostBattle:
-	.string "FRASES$"
+	.string "Es una pena que no quieras ser\n"
+	.string "mi esclavo. ¡Serías muy útil!\p"
+	
+	.string "Sigue adelante, que aún puede que te\n"
+	.string "quede un buen trecho para convertirte\l"
+	.string "en el CAMPEÓN de la MICOLIGA.\p"
+	
+	.string "Y no olvides echar un vistazo a los\n" 
+	.string "documentos y a todo lo que he\l" 
+	.string "almacenado aquí.$"
 	

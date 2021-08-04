@@ -4,6 +4,13 @@ MonocycleRoute_MapScripts::
 Monocycle_Road_Sign::
 	msgbox Monocycle_Road_Sign_Text, MSGBOX_SIGN
 	end
+	
+Monocycle_Road_EventScript_Constructor::
+	lock
+	faceplayer
+	msgbox Monocycle_Road_Text_Constructor, MSGBOX_DEFAULT
+	release
+	end
 
 Monocycle_Road_EventScript_MrZero::
 	trainerbattle_single TRAINER_MR_ZERO, MrZero_AntesBatalla, MrZero_MensajeDerrota
@@ -139,3 +146,11 @@ PoisonMastahhhh_DespuesDeBatalla:
 	
 	.string "Un saludo y muy buen floro.$"
 
+Monocycle_Road_Text_Constructor:
+	.string "MICOLO ha pagado a mi empresa\n"
+	.string "para que se encargue de construir\l" 
+	.string "la mejor carretera de monociclos\l"
+	.string "que has visto jamás.\p"
+	
+	.string "¿Por qué no retas algún GYM mientras\n"
+	.string "tanto, para hacer tiempo?$"

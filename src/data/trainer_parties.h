@@ -24186,7 +24186,6 @@ static const struct TrainerMonCustomMidele sParty_Manec[] = {
 	}
 };
 static const struct TrainerMonCustomMidele sParty_Ragu[] = {
-// FALTA FRASES
 	{
 	.iv = 31,
 	.lvl = 100, 
@@ -24340,15 +24339,15 @@ static const struct TrainerMonCustomMidele sParty_Avader2[] = {
     .moves = {MOVE_QUIVER_DANCE, MOVE_LIGHT_OF_RUIN, MOVE_OVERHEAT, MOVE_LEAF_STORM}
     },
 	{
-    .iv = 31,
+    .iv = 31,  
     .lvl = 100,
-    .species = SPECIES_METAGROSS,
-	.heldItem = ITEM_CHOICE_BAND,
-    .nature = NATURE_ADAMANT,
-	.ability = 0, // CLEAR BODY
-	.shiny = 1,
-	.evs = {252, 252, 0, 0, 6, 0},
-    .moves = {MOVE_METEOR_MASH, MOVE_EARTHQUAKE, MOVE_SHADOW_BALL, MOVE_BRICK_BREAK}
+    .species = SPECIES_HONEDGE_MONADO,
+	.heldItem = ITEM_FOCUS_SASH,
+	.nature = NATURE_JOLLY,
+	.evs = {0, 252, 6, 0, 0, 252},
+	.hpType = TYPE_FIGHTING,
+	.ability = 0, // ADAPTABILITY
+    .moves = {MOVE_SWORDS_DANCE, MOVE_SHADOW_BALL, MOVE_MONADO_POWER, MOVE_IRON_HEAD}
     },
 	{
     .iv = 31,
@@ -24435,7 +24434,6 @@ static const struct TrainerMonCustomMidele sParty_Lavender2[] = {
     },
 };
 static const struct TrainerMonCustomMidele sParty_Micolo3[] = { 
-// FALTA FRASES
 	{
 	.iv = 31,
 	.lvl = 100, 

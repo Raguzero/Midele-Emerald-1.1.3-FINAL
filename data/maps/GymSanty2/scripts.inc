@@ -19,7 +19,7 @@ GymSanty2_OnResume:
     end
 	
 GymSanty2_Script_Close::
-	setmetatile 28, 11, 0x04E, 1
+	setmetatile 28, 11, 0x066, 1
 	return
 
 GymSanty2_EventScript_Sign::

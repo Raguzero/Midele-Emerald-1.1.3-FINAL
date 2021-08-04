@@ -265,7 +265,7 @@
         },
         {
             "dest_map": "MAP_GYM_SANTY",
-            "dest_warp_id": 6,
+            "dest_warp_id": 3,
             "elevation": 0,
             "x": 28,
             "y": 4

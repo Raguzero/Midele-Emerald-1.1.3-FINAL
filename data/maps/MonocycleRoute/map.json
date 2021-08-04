@@ -406,6 +406,19 @@
             "trainer_type": "1",
             "x": 11,
             "y": 56
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_DEFEATED_GOOSES_GYM",
+            "graphics_id": "EVENT_OBJ_GFX_SAILOR",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+            "script": "Monocycle_Road_EventScript_Constructor",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 27,
+            "y": 56
         }
     ],
     "region_map_section": "MAPSEC_MONOCYCLE_ROUTE",
