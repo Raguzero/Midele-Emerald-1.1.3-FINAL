@@ -72,4 +72,5 @@ const u8 gTrainerClassNames[][13] = {
     [TRAINER_CLASS_SCIENTISH] = _("SCIENTISH"),
     [TRAINER_CLASS_CURSED] = _("CURSED"),
     [TRAINER_CLASS_RANDOM] = _("RANDOM"),
+    [TRAINER_CLASS_RICH_ALPHA] = _("{PKMN} TRAINER"),
 };

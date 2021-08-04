@@ -13203,7 +13203,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_ALPHA] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
+        .trainerClass = TRAINER_CLASS_RICH_ALPHA,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .battleMusic = MUS_ENCOUNTER_CYNTHIA,
         .trainerPic = TRAINER_PIC_DOCTOR,

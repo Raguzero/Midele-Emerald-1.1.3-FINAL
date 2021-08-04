@@ -24492,7 +24492,6 @@ static const struct TrainerMonCustomMidele sParty_Micolo3[] = {
 	}
 };
 static const struct TrainerMonCustomMidele sParty_Alpha[] = {
-// FALTA FRASES
     {
     .iv = 31,
     .lvl = 74,
@@ -24534,16 +24533,15 @@ static const struct TrainerMonCustomMidele sParty_Alpha[] = {
     .ability = 0, // OVERCOAT
     .moves = {MOVE_THUNDER_PUNCH, MOVE_RECOVER, MOVE_PSYCHIC, MOVE_FIRE_PUNCH}
     },
-    {
+	{
     .iv = 31,
     .lvl = 71,
-    .species = SPECIES_AERODACTYL,
-    .heldItem = ITEM_CHOICE_BAND, 
+    .species = SPECIES_HONEDGE_MONADO,
+    .heldItem = ITEM_FOCUS_SASH, 
     .nature = NATURE_JOLLY, 
     .evs = {0, 252, 0, 0, 4, 252},
-    .hpType = TYPE_FLYING,
-    .ability = 0, // ROCK HEAD
-    .moves = {MOVE_ROCK_SLIDE, MOVE_HIDDEN_POWER, MOVE_DOUBLE_EDGE, MOVE_EARTHQUAKE}
+    .ability = 0, // ADAPTABILITY
+    .moves = {MOVE_IRON_HEAD, MOVE_SHADOW_BALL, MOVE_EXTREME_SPEED, MOVE_SWORDS_DANCE}
     },
     {
     .iv = 31,

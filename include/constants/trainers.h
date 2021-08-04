@@ -319,7 +319,7 @@
 #define RS_FACILITY_CLASSES_COUNT               0x4D
 
 #define TRAINER_CLASS_PKMN_TRAINER_1 0x0  // Unused
-#define TRAINER_CLASS_CHAMPION_MIDELE 0x1  // Unused
+#define TRAINER_CLASS_CHAMPION_MIDELE 0x1  // Previously Unused
 #define TRAINER_CLASS_HIKER          0x2
 #define TRAINER_CLASS_TEAM_AQUA      0x3
 #define TRAINER_CLASS_PKMN_BREEDER   0x4
@@ -391,6 +391,7 @@
 #define TRAINER_CLASS_SCIENTISH        0x46
 #define TRAINER_CLASS_CURSED        0x47
 #define TRAINER_CLASS_RANDOM        0x48
+#define TRAINER_CLASS_RICH_ALPHA        0x49
 
 #define TRAINER_ENCOUNTER_MUSIC_MALE         0 // standard male encounter music
 #define TRAINER_ENCOUNTER_MUSIC_FEMALE       1 // standard female encounter music

@@ -893,6 +893,7 @@ static u8 GetTrainerBattleTransition(void)
 	if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_PKMN_TRAINER_MIDELE
         || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_LEADER_MIDELE
         || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_CURSED
+        || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_RICH_ALPHA
 		|| gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_ELITE_FOUR_MIDELE
 		|| gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_CHAMPION_MIDELE)
 	return B_TRANSITION_MONITO;
