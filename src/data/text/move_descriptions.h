@@ -1545,8 +1545,8 @@ static const u8 sDRAGON_HAMMERDescription[] = _(
 	"like a hammer to damage.");
 	
 static const u8 sMONADO_POWERDescription[] = _(
-    "The Monado's power.\n" 
-	"Varies with its wielder's will.");
+    "The Monado's power. Varies\n" 
+	"with its wielder's will.");
 
 // MOVE_NONE is ignored in this table. Make sure to always subtract 1 before getting the right pointer.
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =

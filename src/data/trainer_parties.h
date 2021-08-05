@@ -26241,5 +26241,5 @@ static const struct TrainerMonCustomMidele sParty_MirorB[] = {
     .nature = NATURE_ADAMANT,
     .evs = {252, 252, 0, 0, 0, 0},
     .moves = {MOVE_LOW_KICK, MOVE_ROCK_SLIDE, MOVE_HELPING_HAND, MOVE_ROLE_PLAY}
-  },
+  }
 };
