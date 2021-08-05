@@ -23,9 +23,9 @@ Para instalar el repositorio, ver [INSTALL.md](INSTALL.md).
 - [Pacochef] (Ideas interesantes y aporte de un mapa creado por él)
 - [Darkizard] (Creación de un mapa, y de sprites Buenro y Malro. Tambien recolor de Delos)
 - [Sapph] (Creación de dos mapas, y del sprite del MonoCiclo)
-- [MerúM] (Correción de instrumentos de algunas músicas, creación de nueva pantalla de título, cambiar sprite de bicicletas por monociclos, creación de sprites de Wintass, Mejorado sprites de Probopass, y ayuda con otros sprites)
-- [Goldie] (Creación de sprite front normal, back y icon de Honedge)
-- [Red Krow] (Recolor del Sprite Honedge Monado para convertirlo en shiny)
+- [MerúM] (Correción de instrumentos de algunas músicas, creación de su sprite de Entrenador, creación de nueva pantalla de título, cambiar sprite de bicicletas por monociclos, creación de sprites de Wintass, Mejorado sprites de Probopass, y ayuda con otros sprites)
+- [Goldie] (Creación de sprite front normal, back y icon de Honedge, creación de su sprite de Entrenador, y creación de sprite de Miror B)
+- [Red Krow] (Recolor del Sprite Honedge Monado para convertirlo en shiny, y creación de su sprite de Entrenador)
 
 ## Créditos al resto de personas cuyo código hemos utilizado:
 - Robinlukke https://www.pokecommunity.com/showthread.php?t=435076
