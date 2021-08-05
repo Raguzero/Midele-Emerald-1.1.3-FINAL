@@ -132,6 +132,8 @@ MicoloLeagueLobby_EventScript_ResetTrainerYES:
 	cleartrainerflag TRAINER_DARKI_MALRO
 	setflag FLAG_REMATCH_DARKIBUENRO
 	setflag FLAG_REMATCH_DARKIMALRO
+	clearflag FLAG_MIRORB_DEFEATED
+	cleartrainerflag TRAINER_MIRORB
 	// Etc
 	release
 	end

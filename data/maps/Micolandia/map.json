@@ -246,7 +246,7 @@
         },
         {
             "elevation": 3,
-            "flag": "FLAG_DEFEATED_GOOSES_GYM",
+            "flag": "FLAG_DARKI_GYM_READY",
             "graphics_id": "EVENT_OBJ_GFX_CONTEST_JUDGE",
             "movement_range_x": 0,
             "movement_range_y": 0,

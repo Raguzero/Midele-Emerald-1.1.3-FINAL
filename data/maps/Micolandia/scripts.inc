@@ -74,7 +74,15 @@ Micolandia_EventScript_GymSantySign::
 Micolandia_EventScript_GymDarkiSign::
 	lock
 	faceplayer
+	goto_if_set FLAG_DEFEATED_GOOSES_GYM, Micolandia_EventScript_GymDarkiSign2
 	msgbox Micolandia_Text_GymDarkiSign, MSGBOX_NPC
+	release
+	end
+	
+Micolandia_EventScript_GymDarkiSign2::
+	lock
+	faceplayer
+	msgbox Micolandia_Text_GymDarkiSign2, MSGBOX_NPC
 	release
 	end
 
@@ -323,6 +331,22 @@ Micolandia_Text_GymDarkiSign:
 	.string "Solo está permitido el paso\n"
 	.string "a quienes hayan derrotado al\l"
 	.string "LIDER GOOSES.$"
+	
+Micolandia_Text_GymDarkiSign2:
+	.string "¡Vaya! ¿Ya derrotaste a GOOSES?\n"
+	.string "¡Qué rápido!\p"
+
+	.string "Pero... aún no puedes entrar,\n"
+	.string "¡estamos mejorando el GYM para\l"
+	.string "que sea todo un reto para ti!\p"
+	
+	.string "¿Por qué no visitas MONOCYCLE ROAD\n"
+	.string "mientras terminamos los preparativos?\l"
+	.string "Hace poco que acabaron de construirla.\p"
+	
+	.string "Espero que tengas un ACROCYCLE, sino\n"
+	.string "visita MAUVILLE CITY, seguro que\l"
+	.string "tienen uno para ti.$"
 	
 Micolandia_Text_GymSapphSign:
 	.string "Solo está permitido el paso\n"

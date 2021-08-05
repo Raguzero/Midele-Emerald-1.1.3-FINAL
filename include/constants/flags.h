@@ -707,8 +707,8 @@
 #define FLAG_REMATCH_GOOSES  0x29A // Previously Unused Flag
 #define FLAG_REMATCH_DARKIBUENRO  0x29B // Previously Unused Flag
 #define FLAG_REMATCH_DARKIMALRO  0x29C // Previously Unused Flag
-#define FLAG_UNUSED_0x29D  0x29D // Unused Flag
-#define FLAG_UNUSED_0x29E  0x29E // Unused Flag
+#define FLAG_MIRORB_DEFEATED  0x29D // Previously Unused Flag
+#define FLAG_DARKI_GYM_READY  0x29E // Previously Unused Flag
 #define FLAG_UNUSED_0x29F  0x29F // Unused Flag
 #define FLAG_UNUSED_0x2A0  0x2A0 // Unused Flag
 #define FLAG_UNUSED_0x2A1  0x2A1 // Unused Flag

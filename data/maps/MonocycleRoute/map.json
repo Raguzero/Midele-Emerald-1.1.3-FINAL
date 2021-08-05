@@ -419,6 +419,19 @@
             "trainer_type": "0",
             "x": 27,
             "y": 56
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_MIRORB_DEFEATED",
+            "graphics_id": "EVENT_OBJ_GFX_BARD",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+            "script": "Monocycle_Road_EventScript_MirorB",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "1",
+            "x": 21,
+            "y": 4
         }
     ],
     "region_map_section": "MAPSEC_MONOCYCLE_ROUTE",

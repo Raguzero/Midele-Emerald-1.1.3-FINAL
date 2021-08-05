@@ -49,6 +49,79 @@ Monocycle_Road_EventScript_Josito2::
 	msgbox Josito2_DespuesDeBatalla, MSGBOX_AUTOCLOSE
 	end
 	
+Monocycle_Road_EventScript_MirorB::
+	lockall
+	faceplayer
+	playse SE_PIN
+	applymovement 9, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox MirorB_AntesBatalla, MSGBOX_NPC
+	trainerbattle_no_intro TRAINER_MIRORB, MirorB_MensajeDerrota
+	msgbox MirorB_DespuesDeBatalla_Text
+	closemessage
+	applymovement 9, Monocycle_Road_Movement_MirorBSpin
+	waitmovement 0
+	playse SE_W100
+	applymovement 9, Monocycle_Road_Movement_MirorBJumpaway
+	waitmovement 0
+	setflag FLAG_DARKI_GYM_READY
+	removeobject 9
+	setflag FLAG_MIRORB_DEFEATED
+	releaseall
+	end
+	
+Monocycle_Road_Movement_MirorBSpin:
+	face_up
+	delay_4
+	face_left
+	delay_4
+	face_down
+	delay_4
+	face_right
+	delay_4
+	step_end
+
+Monocycle_Road_Movement_MirorBJumpaway:
+	face_up
+	disable_anim
+	slide_up
+	slide_up
+	slide_up
+	slide_up
+	slide_up
+	slide_up
+	step_end
+
+MirorB_AntesBatalla:
+	.string "¡Estás delante de una estrella,\n"
+	.string "hoy estás de suerte! ¡Muy pocos\l"
+	.string "tienen el honor de conocer en\l"
+	.string "persona al gran MIROR B.!\p"
+	
+	.string "¡Rrrrrrrrrrittmo!\p"
+
+	.string "¡Llegó la hora de quitarme este\n"
+	.string "disfraz, y comenzar a bailar al\l"
+	.string "ritmo de la música!\p"
+	
+	.string "¡¡¡SALSAAAAAAAAAA!!!$"
+
+MirorB_MensajeDerrota: 
+	.string "¡Que pare la música! ¡Serás inútil!\p" 
+	
+	.string "A estas alturas, ¡deberías saber que\n"
+	.string "te conviene seguir mis pasos!\l" 
+	.string "¡Por tu culpa he perdido el ritmo!$"
+
+MirorB_DespuesDeBatalla_Text:
+	.string "¡No puedo contigo!\n" 
+	.string "Me repatea que me venzas.\p"
+	
+	.string "¿Eso es ser fan, eh, eh?\n" 
+	.string "Por esta vez voy a hacer la vista gorda.\l" 
+	.string "Pero ¡que no se repita!\p" 
+	.string "¡Hala! ¡Bueno! ¡Huyamos!$"
+
 Josito2_AntesBatalla:
 	.string "Tú y mi osito verde ya os habéis\n" 
 	.string "encontrado antes, ¿me recuerdas?$"
