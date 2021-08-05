@@ -613,6 +613,9 @@ static const u8 sText_RedHPGooses[] = _("Ahahaha! Aún no he acabado.\n¡Soy la 
 static const u8 sText_RaguPierdePrimerPoke[] = _("¿Cómo pudo ser?\nParecen fuegos de artificio...\p");
 static const u8 sText_RaguEnviaUltimoPoke[] = _("¡Este combate está que echa chispas!\p");
 static const u8 sText_RedHPRagu[] = _("¡Wouhouhouhou!\n¡Una batalla realmente furiosa!\p");
+static const u8 sText_MirorBPierdePrimerPoke[] = _("Bailar y luchar son dos cosas\nmuy distintas.\l¡Venga, sigue el ritmo de la música\ly mueve ese cuerpo serrano!\p");
+static const u8 sText_MirorBEnviaUltimoPoke[] = _("¡En cuestión de pasos de baile,\nno me ganas!\p");
+static const u8 sText_RedHPMirorB[] = _("¡Contigo no hay forma de llevar el ritmo!\p");
 
 
 static const u8 frase0[] = _("Entonces sustituí a Blissey por\nGarchomp; y como mi equipo sería un\lSandstorm team, cambié a Tangrowth por\lCradily).\p");
@@ -3164,6 +3167,7 @@ static const struct TrainerSlide sTrainerSlides[] =
     {TRAINER_IZABE_GOOSES, sText_GoosesEnviaUltimoPoke, sText_RedHPGooses, sText_GoosesPierdePrimerPoke},
     {TRAINER_GOOSES, sText_GoosesEnviaUltimoPoke, sText_RedHPGooses, sText_GoosesPierdePrimerPoke},
     {TRAINER_RAGU, sText_RaguEnviaUltimoPoke, sText_RedHPRagu, sText_RaguPierdePrimerPoke},
+    {TRAINER_MIRORB, sText_MirorBEnviaUltimoPoke, sText_RedHPMirorB, sText_MirorBPierdePrimerPoke},
 };
 
 static u32 GetEnemyMonCount(bool32 onlyAlive)

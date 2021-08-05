@@ -13066,7 +13066,7 @@ const struct Trainer gTrainers[] = {
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .battleMusic = ZINNIATHEME,
-        .trainerPic = TRAINER_PIC_NINJA_BOY,
+        .trainerPic = TRAINER_PIC_REDKROW,
         .trainerName = _("RED KROW"),
         .items = {},
         .doubleBattle = FALSE,
@@ -13766,5 +13766,18 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
         .partySize = ARRAY_COUNT(sParty_Sapph),
         .party = {.ItemCustomMidele = sParty_Sapph},
+    },
+    [TRAINER_MIRORB] =
+    {
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
+        .trainerClass = TRAINER_CLASS_WANDERER,
+	    .battleMusic = MIRORBCOLO,
+        .trainerPic = TRAINER_PIC_MIRORB,
+        .trainerName = _("MIROR B"),
+        .items = {},
+        .doubleBattle = TRUE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
+        .partySize = ARRAY_COUNT(sParty_MirorB),
+        .party = {.ItemCustomMidele = sParty_MirorB},
     }
 };

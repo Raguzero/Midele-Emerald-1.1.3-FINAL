@@ -143,6 +143,8 @@
 #define TRAINER_PIC_DARKIBUENRO          124
 #define TRAINER_PIC_SANTY          125
 #define TRAINER_PIC_VADER          126
+#define TRAINER_PIC_MIRORB          127
+#define TRAINER_PIC_REDKROW          128
 
 #define TRAINER_BACK_PIC_BRENDAN                0
 #define TRAINER_BACK_PIC_MAY                    1
@@ -392,6 +394,7 @@
 #define TRAINER_CLASS_CURSED        0x47
 #define TRAINER_CLASS_RANDOM        0x48
 #define TRAINER_CLASS_RICH_ALPHA        0x49
+#define TRAINER_CLASS_WANDERER        0x50
 
 #define TRAINER_ENCOUNTER_MUSIC_MALE         0 // standard male encounter music
 #define TRAINER_ENCOUNTER_MUSIC_FEMALE       1 // standard female encounter music

@@ -26181,3 +26181,65 @@ static const struct TrainerMonCustomMidele sParty_Sapph[] = {
     .moves = {MOVE_QUIVER_DANCE, MOVE_BATON_PASS, MOVE_PSYCHIC, MOVE_SLEEP_POWDER}
   }
 };
+static const struct TrainerMonCustomMidele sParty_MirorB[] = {
+  {
+    .iv = 31,
+    .lvl = 86,
+    .species = SPECIES_LUDICOLO,
+    .heldItem = ITEM_LEFTOVERS,
+    .nature = NATURE_BOLD,
+	.ability = 0,
+    .evs = {252, 0, 252, 0, 6, 0},
+    .moves = {MOVE_RAIN_DANCE, MOVE_SURF, MOVE_PROTECT, MOVE_KNOCK_OFF}
+  },
+  {
+    .iv = 31,
+    .lvl = 85,
+    .species = SPECIES_LUDICOLO,
+	.ability = 1,
+    .heldItem = ITEM_MYSTIC_WATER,
+    .nature = NATURE_TIMID,
+    .evs = {6, 0, 0, 252, 0, 252},
+    .moves = {MOVE_HYDRO_PUMP, MOVE_THUNDER_PUNCH, MOVE_GIGA_DRAIN, MOVE_FAKE_OUT}
+  },
+   {
+    .iv = 31,
+    .lvl = 87,
+    .species = SPECIES_ARMALDO,
+	.ability = 1,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .nature = NATURE_JOLLY,
+    .evs = {6, 252, 0, 0, 0, 252},
+    .moves = {MOVE_X_SCISSOR, MOVE_ROCK_SLIDE, MOVE_RAPID_SPIN, MOVE_MUD_SHOT}
+  },
+   {
+    .iv = 31,
+    .lvl = 86,
+    .species = SPECIES_JUMPLUFF,
+	.ability = 0,
+    .heldItem = ITEM_LEFTOVERS,
+    .nature = NATURE_TIMID,
+    .evs = {252, 0, 6, 0, 0, 252},
+    .moves = {MOVE_SLEEP_POWDER, MOVE_GIGA_DRAIN, MOVE_ENCORE, MOVE_MIMIC}
+  },
+   {
+    .iv = 31,
+    .lvl = 87,
+    .species = SPECIES_EXPLOUD,
+	.ability = 1,
+    .heldItem = ITEM_SILK_SCARF,
+    .nature = NATURE_BRAVE,
+    .evs = {0, 252, 0, 252, 0, 0},
+    .moves = {MOVE_HYPER_VOICE, MOVE_FIRE_BLAST, MOVE_LOW_KICK, MOVE_EXTRASENSORY}
+  },
+   {
+    .iv = 31,
+    .lvl = 87,
+    .species = SPECIES_SUDOWOODO,
+	.ability = 0,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .nature = NATURE_ADAMANT,
+    .evs = {252, 252, 0, 0, 0, 0},
+    .moves = {MOVE_LOW_KICK, MOVE_ROCK_SLIDE, MOVE_HELPING_HAND, MOVE_ROLE_PLAY}
+  },
+};
