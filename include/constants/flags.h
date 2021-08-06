@@ -709,12 +709,12 @@
 #define FLAG_REMATCH_DARKIMALRO  0x29C // Previously Unused Flag
 #define FLAG_MIRORB_DEFEATED  0x29D // Previously Unused Flag
 #define FLAG_DARKI_GYM_READY  0x29E // Previously Unused Flag
-#define FLAG_UNUSED_0x29F  0x29F // Unused Flag
-#define FLAG_UNUSED_0x2A0  0x2A0 // Unused Flag
-#define FLAG_UNUSED_0x2A1  0x2A1 // Unused Flag
-#define FLAG_UNUSED_0x2A2  0x2A2 // Unused Flag
-#define FLAG_UNUSED_0x2A3  0x2A3 // Unused Flag
-#define FLAG_UNUSED_0x2A4  0x2A4 // Unused Flag
+#define FLAG_ITEM_FORBIDDENFOREST_3RARECANDY  0x29F // Previously Unused Flag
+#define FLAG_ITEM_FORBIDDENFOREST_6REVIVE  0x2A0 // Previously Unused Flag
+#define FLAG_ITEM_FORBIDDENFOREST_3PPMAX  0x2A1 // Previously Unused Flag
+#define FLAG_ITEM_FORBIDDENFOREST_LEFTOVERS  0x2A2 // Previously Unused Flag
+#define FLAG_ITEM_FORBIDDENFOREST_4STARDUST  0x2A3 // Previously Unused Flag
+#define FLAG_ITEM_FORBIDDENFOREST_FOCUSBAND  0x2A4 // Previously Unused Flag
 #define FLAG_UNUSED_0x2A5  0x2A5 // Unused Flag
 #define FLAG_UNUSED_0x2A6  0x2A6 // Unused Flag
 #define FLAG_UNUSED_0x2A7  0x2A7 // Unused Flag

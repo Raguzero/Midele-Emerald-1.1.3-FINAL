@@ -118,6 +118,66 @@ ForbiddenForest_EventScript_RanFromCelebi::
 	goto Common_EventScript_LegendaryFlewAway
 	end
 	
+ForbiddenForest_EventScript_RareCandy::
+	giveitem ITEM_RARE_CANDY, 3
+	compare VAR_RESULT, FALSE
+	call_if_eq ForbiddenForest_BagFull
+	closemessage
+	removeobject 13
+	setflag FLAG_ITEM_FORBIDDENFOREST_3RARECANDY
+	end
+	
+ForbiddenForest_EventScript_Revive::
+	giveitem ITEM_REVIVE, 6
+	compare VAR_RESULT, FALSE
+	call_if_eq ForbiddenForest_BagFull
+	closemessage
+	removeobject 14
+	setflag FLAG_ITEM_FORBIDDENFOREST_6REVIVE
+	end
+	
+ForbiddenForest_EventScript_PPMax::
+	giveitem ITEM_PP_MAX, 3
+	compare VAR_RESULT, FALSE
+	call_if_eq ForbiddenForest_BagFull
+	closemessage
+	removeobject 15
+	setflag FLAG_ITEM_FORBIDDENFOREST_3PPMAX
+	end
+	
+ForbiddenForest_EventScript_Leftovers::
+	giveitem ITEM_LEFTOVERS, 1
+	compare VAR_RESULT, FALSE
+	call_if_eq ForbiddenForest_BagFull
+	closemessage
+	removeobject 16
+	setflag FLAG_ITEM_FORBIDDENFOREST_LEFTOVERS
+	end
+	
+ForbiddenForest_EventScript_Stardust::
+	giveitem ITEM_STARDUST, 4
+	compare VAR_RESULT, FALSE
+	call_if_eq ForbiddenForest_BagFull
+	closemessage
+	removeobject 17
+	setflag FLAG_ITEM_FORBIDDENFOREST_4STARDUST
+	end
+	
+ForbiddenForest_EventScript_FocusBand::
+	giveitem ITEM_FOCUS_BAND, 1
+	compare VAR_RESULT, FALSE
+	call_if_eq ForbiddenForest_BagFull
+	closemessage
+	removeobject 18
+	setflag FLAG_ITEM_FORBIDDENFOREST_FOCUSBAND
+	end
+	
+ForbiddenForest_BagFull::
+	call Common_EventScript_BagIsFull
+	closemessage
+	release
+	end
+	
 ForbiddenForest_EventScript_Ezecuter::  
 	trainerbattle_single TRAINER_FORBIDDENFOREST_EZECUTER, ForbiddenForest_Text_EzecuterIntro, ForbiddenForest_Text_EzecuterDefeat
 	msgbox ForbiddenForest_Text_EzecuterPostBattle, MSGBOX_AUTOCLOSE
