@@ -24153,7 +24153,6 @@ static const struct TrainerMonCustomMidele sParty_Maestro_Arena[] = {
 	}
 };
 static const struct TrainerMonCustomMidele sParty_Manec[] = { 
-// FALTA FRASES
 	{
 	.iv = 31,
 	.lvl = 100, 

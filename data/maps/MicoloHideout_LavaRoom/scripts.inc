@@ -278,10 +278,24 @@ MicoloHideout_LavaRoom_Text_GiratinaMaster_MusicPlayerUpgrade:
 	.string "tu MUSIC PLAYER!$"
 	
 MicoloHideout_LavaRoom_Text_ManecIntro:
-	.string "FRASES$"
+    .string "Hola buenas, ¿sabes si voy bien para\n"
+    .string "Ciudad Calagua?\p"
+    .string "…\n"
+    .string "¿No?\p"
+    .string "Ya decía yo que los entrenadores eran\n"
+    .string "menos flojos de la cuenta…\p"
+    .string "El tal M Dragon creo que tiene futuro,\n"
+    .string "casi le gana a mis pokes de concurso.\p"
+    .string "Bueno, pues muchas gracias, hasta otra.\p"
+    .string "…\p"
+    .string "Ah, es verdad, que por habernos mirado a\n"
+    .string "los ojos ya tenemos que pelear.\p"
+    .string "Pues nada, encuérese.$"
 
 MicoloHideout_LavaRoom_Text_ManecDefeat: 
-	.string "FRASES$"
+	.string "Cagüen…$"
 
 MicoloHideout_LavaRoom_Text_ManecPostBattle:
-	.string "FRASES$"
+    .string "Vaya flojera da tener que ir ahora al\n"
+    .string "Centro POKéMON.\l"
+    .string "Y menos mal que no están privatizados.$"
