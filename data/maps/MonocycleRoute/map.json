@@ -432,6 +432,58 @@
             "trainer_type": "1",
             "x": 21,
             "y": 4
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_ITEM_MONOCYCLEROAD_8TIMERBALL",
+            "graphics_id": "EVENT_OBJ_GFX_ITEM_BALL",
+            "movement_range_x": 1,
+            "movement_range_y": 1,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "Monocycle_Road_EventScript_TimerBall",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 13,
+            "y": 55
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_ITEM_MONOCYCLEROAD_4RARECANDY",
+            "graphics_id": "EVENT_OBJ_GFX_ITEM_BALL",
+            "movement_range_x": 1,
+            "movement_range_y": 1,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "Monocycle_Road_EventScript_RareCandy",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 27,
+            "y": 25
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_ITEM_MONOCYCLEROAD_SHELLBELL",
+            "graphics_id": "EVENT_OBJ_GFX_ITEM_BALL",
+            "movement_range_x": 1,
+            "movement_range_y": 1,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "Monocycle_Road_EventScript_ShellBell",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 2,
+            "y": 42
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_ITEM_MONOCYCLEROAD_9HEARTSCALE",
+            "graphics_id": "EVENT_OBJ_GFX_ITEM_BALL",
+            "movement_range_x": 1,
+            "movement_range_y": 1,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "Monocycle_Road_EventScript_HeartScale",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 2,
+            "y": 15
         }
     ],
     "region_map_section": "MAPSEC_MONOCYCLE_ROUTE",

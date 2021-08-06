@@ -715,10 +715,10 @@
 #define FLAG_ITEM_FORBIDDENFOREST_LEFTOVERS  0x2A2 // Previously Unused Flag
 #define FLAG_ITEM_FORBIDDENFOREST_4STARDUST  0x2A3 // Previously Unused Flag
 #define FLAG_ITEM_FORBIDDENFOREST_FOCUSBAND  0x2A4 // Previously Unused Flag
-#define FLAG_UNUSED_0x2A5  0x2A5 // Unused Flag
-#define FLAG_UNUSED_0x2A6  0x2A6 // Unused Flag
-#define FLAG_UNUSED_0x2A7  0x2A7 // Unused Flag
-#define FLAG_UNUSED_0x2A8  0x2A8 // Unused Flag
+#define FLAG_ITEM_MONOCYCLEROAD_8TIMERBALL  0x2A5 // Previously Unused Flag
+#define FLAG_ITEM_MONOCYCLEROAD_4RARECANDY  0x2A6 // Previously Unused Flag
+#define FLAG_ITEM_MONOCYCLEROAD_SHELLBELL  0x2A7 // Previously Unused Flag
+#define FLAG_ITEM_MONOCYCLEROAD_9HEARTSCALE  0x2A8 // Previously Unused Flag
 #define FLAG_UNUSED_0x2A9  0x2A9 // Unused Flag
 #define FLAG_UNUSED_0x2AA  0x2AA // Unused Flag
 #define FLAG_UNUSED_0x2AB  0x2AB // Unused Flag

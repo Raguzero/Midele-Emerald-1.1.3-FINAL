@@ -5,6 +5,48 @@ Monocycle_Road_Sign::
 	msgbox Monocycle_Road_Sign_Text, MSGBOX_SIGN
 	end
 	
+Monocycle_Road_EventScript_TimerBall::
+	giveitem ITEM_TIMER_BALL, 8
+	compare VAR_RESULT, FALSE
+	call_if_eq Monocycle_Road_BagFull
+	closemessage
+	removeobject 10
+	setflag FLAG_ITEM_MONOCYCLEROAD_8TIMERBALL
+	end
+	
+Monocycle_Road_EventScript_RareCandy::
+	giveitem ITEM_RARE_CANDY, 4
+	compare VAR_RESULT, FALSE
+	call_if_eq Monocycle_Road_BagFull
+	closemessage
+	removeobject 11
+	setflag FLAG_ITEM_MONOCYCLEROAD_4RARECANDY
+	end
+	
+Monocycle_Road_EventScript_ShellBell::
+	giveitem ITEM_SHELL_BELL, 1
+	compare VAR_RESULT, FALSE
+	call_if_eq Monocycle_Road_BagFull
+	closemessage
+	removeobject 12
+	setflag FLAG_ITEM_MONOCYCLEROAD_SHELLBELL
+	end
+	
+Monocycle_Road_EventScript_HeartScale::
+	giveitem ITEM_HEART_SCALE, 9
+	compare VAR_RESULT, FALSE
+	call_if_eq Monocycle_Road_BagFull
+	closemessage
+	removeobject 13
+	setflag FLAG_ITEM_MONOCYCLEROAD_9HEARTSCALE
+	end
+	
+Monocycle_Road_BagFull::
+	call Common_EventScript_BagIsFull
+	closemessage
+	release
+	end
+	
 Monocycle_Road_EventScript_Constructor::
 	lock
 	faceplayer
