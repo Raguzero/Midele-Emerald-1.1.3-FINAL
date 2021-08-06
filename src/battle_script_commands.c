@@ -2771,12 +2771,8 @@ void SetMoveEffect(bool8 primary, u8 certain)
         INCREMENT_RESET_RETURN
 		
 	if (gBattleMons[gBattlerAttacker].ability == ABILITY_SHEER_FORCE
-        && gBattleMoves[gCurrentMove].flags & FLAG_SHEER_FORCE_BOOST)
-        INCREMENT_RESET_RETURN
-		
-	if (gBattleMons[gBattlerAttacker].ability == ABILITY_IRON_FIST
-        && gBattleMoves[gCurrentMove].flags & FLAG_IRON_FIST_BOOST
-        && affectsUser != MOVE_EFFECT_AFFECTS_USER)
+        && gBattleMoves[gCurrentMove].flags & FLAG_SHEER_FORCE_BOOST
+        && !(gHitMarker & HITMARKER_IGNORE_SAFEGUARD))
         INCREMENT_RESET_RETURN
 
     if (gBattleMons[gEffectBattler].hp == 0
