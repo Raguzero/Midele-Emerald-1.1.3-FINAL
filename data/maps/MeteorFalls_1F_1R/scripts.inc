@@ -98,6 +98,18 @@ MeteorFalls_1F_1R_EventScript_MagmaStealsMeteoriteScene:: @ 822BD5F
 	waitmovement 0
 	msgbox MeteorFalls_1F_1R_Text_Micolo, MSGBOX_DEFAULT
 	closemessage
+	
+	setvar VAR_TEMP_1, SPECIES_ZUBAT
+	givecustommon SPECIES_ZUBAT, 23, ITEM_SOOTHE_BELL, ITEM_LUXURY_BALL, NATURE_JOLLY, 0, 0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, MOVE_GUST, MOVE_QUICK_ATTACK, MOVE_HYPNOSIS, MOVE_CURSE, TRUE
+	compare VAR_RESULT, 0
+	goto_if_eq MeteorFalls_1F_1R_EventScript_ReceiveMonParty
+	compare VAR_RESULT, 1
+	goto_if_eq MeteorFalls_1F_1R_EventScript_ReceiveMonPC
+	// Si no hay sitio para más Pokémon, el ZUBAT se pierde.
+	goto Common_EventScript_NoMoreRoomForPokemon 
+MeteorFalls_1F_1R_EventScript_ReceiveMonEnd:
+	msgbox MeteorFalls_1F_1R_Text_MicoloBye, MSGBOX_DEFAULT
+	closemessage
 	fadescreen 1
 	delay 30
 	removeobject 11
@@ -108,6 +120,38 @@ MeteorFalls_1F_1R_EventScript_MagmaStealsMeteoriteScene:: @ 822BD5F
 	setvar VAR_METEOR_FALLS_STATE, 1
 	releaseall
 	end
+
+MeteorFalls_1F_1R_EventScript_ReceiveMonParty:: @ 8270085
+	call MeteorFalls_1F_1R_EventScript_ReceiveMonFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq MeteorFalls_1F_1R_EventScript_ReceiveMonEnd
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto MeteorFalls_1F_1R_EventScript_ReceiveMonEnd
+	end
+
+MeteorFalls_1F_1R_EventScript_ReceiveMonPC:: @ 82700AD
+	call MeteorFalls_1F_1R_EventScript_ReceiveMonFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq MeteorFalls_1F_1R_EventScript_SendMonPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto MeteorFalls_1F_1R_EventScript_SendMonPC
+	end
+	
+MeteorFalls_1F_1R_EventScript_SendMonPC:: @ 82700D0
+	call Common_EventScript_TransferredToPC
+	goto MeteorFalls_1F_1R_EventScript_ReceiveMonEnd
+	end
+
+MeteorFalls_1F_1R_EventScript_ReceiveMonFanfare:: @ 82700DB
+	playfanfare MUS_FANFA4
+	message MeteorFalls_1F_1R_Text_ReceivedMon
+	waitmessage
+	waitfanfare
+	bufferspeciesname 0, SPECIES_ZUBAT
+	return
 
 MeteorFalls_1F_1R_Movement_Micolo:
 	walk_left
@@ -379,11 +423,16 @@ MeteorFalls_1F_1R_Text_Micolo:
 	
 	.string "...\p"
 	
-	.string "¿Qué cómo lo sé?\n"
-	.string "Todo mico tiene sus secretos n.n\p"
+	.string "Por cierto, me gustaría darte uno de mis\n"
+	.string "POKéMON.\p"
+	.string "Lo conseguí en esta cueva, seguro que\n"
+	.string "cuidarás de él. Y si no... mi DARK PIKA se\l"
+	.string "encargará de humillarte.$"
 
-	.string "xDDDDDDDDDDDDDDDDDD\p"
-	
+MeteorFalls_1F_1R_Text_ReceivedMon: @ 82706E8
+	.string "{PLAYER} received ZUBAT!$"
+
+MeteorFalls_1F_1R_Text_MicoloBye:
 	.string "Estoy seguro de que nos\n"
 	.string "volveremos a ver...\p"
 	.string "Recuerda, monociclo porque mono es uno\n"
