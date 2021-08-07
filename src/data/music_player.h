@@ -318,6 +318,9 @@ static const u16 sMusicTableBeforeMicoloHideout[] = {
     // SWSH
     SWORDSHIELDWILD,
     BATTLE_TOWER_SWSH,
+    
+    // XD
+    MIRORBCOLO,
 
     // XENOBLADE
     ZANZATHEME,
@@ -396,6 +399,9 @@ static const u16 sMusicTableFinal[] = {
     // SWSH
     SWORDSHIELDWILD,
     BATTLE_TOWER_SWSH,
+    
+    // XD
+    MIRORBCOLO,
     
     MUSICAVEGAGOLDY,
     
