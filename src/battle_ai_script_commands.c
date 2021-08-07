@@ -2802,7 +2802,7 @@ static void Cmd_calculate_nhko(void)
 {
     u16 attackerId, targetId;
     u16 * movePointer;
-    bool8 attacker_is_user;
+    bool8 check_only_considered_move;
     s32 i;
     s32 best_nhko = 5;     // todo lo que sea peor que 4HKO se lee como 5HKO (incluso daño 0)
 
@@ -2810,15 +2810,18 @@ static void Cmd_calculate_nhko(void)
     {
         attackerId = sBattler_AI;
         targetId = gBattlerTarget;
-		movePointer = &AI_THINKING_STRUCT->moveConsidered;
-        attacker_is_user = TRUE;
+        check_only_considered_move = (gBattleMoves[AI_THINKING_STRUCT->moveConsidered].power != 0);
+        if (check_only_considered_move)
+            movePointer = &AI_THINKING_STRUCT->moveConsidered;
+        else
+            movePointer = gBattleMons[sBattler_AI].moves;
     }
     else
     {
         attackerId = gBattlerTarget;
         targetId = sBattler_AI;
         movePointer = BATTLE_HISTORY->usedMoves[gBattlerTarget].moves;
-        attacker_is_user = FALSE;
+        check_only_considered_move = FALSE;
     }
     
     for (i = 0; i < MAX_MON_MOVES; i++)
@@ -2826,31 +2829,31 @@ static void Cmd_calculate_nhko(void)
         if (!movePointer[i] || !AI_CAN_ESTIMATE_DAMAGE(movePointer[i]))
             continue;  // se ignora el movimiento
 
-        if (!attacker_is_user)
+        if (!check_only_considered_move)
         {
-            u8 moveLimitations = CheckMoveLimitations(gBattlerTarget, 0, MOVE_LIMITATION_CHOICE-1);
+			u8 moveLimitations = CheckMoveLimitations(attackerId, 0, MOVE_LIMITATION_CHOICE-1);
             s32 j;
             for (j = 0; j < MAX_MON_MOVES; j++)
-                if (movePointer[i] == gBattleMons[gBattlerTarget].moves[j] && !(gBitTable[j] & moveLimitations))
+			if (movePointer[i] == gBattleMons[attackerId].moves[j] && !(gBitTable[j] & moveLimitations))
                     break;
             if (j == MAX_MON_MOVES)
                 continue; // No puede usar el movimiento por el momento; se ignora
 
-            if ((gBattleMons[attackerId].status2 & STATUS2_MULTIPLETURNS) && movePointer[i] != gLastMoves[gBattlerTarget])
+			if ((gBattleMons[attackerId].status2 & STATUS2_MULTIPLETURNS) && movePointer[i] != gLastMoves[attackerId])
                 continue; // Está en un ataque multiturno distinto de este; se ignora
 		}
 
         gCurrentMove = movePointer[i];
-        best_nhko = CalculatenHKOFromgCurrentMove(attackerId, targetId, attacker_is_user ? AI_THINKING_STRUCT->simulatedRNG[AI_THINKING_STRUCT->movesetIndex] : 0, best_nhko);
+		best_nhko = CalculatenHKOFromgCurrentMove(attackerId, targetId, AI_THINKING_STRUCT->simulatedRNG[check_only_considered_move ? AI_THINKING_STRUCT->movesetIndex : i], best_nhko);
 
-        if (attacker_is_user || best_nhko == 1)
+        if (check_only_considered_move || best_nhko == 1)
             break; // solo se mira el movimiento pensado, y no se sigue mirando si es OHKO
     }
 
     // Si el atacante es el oponente, no se conocen todos sus movs y no da OHKO,
     // la IA asume que los STAB estándar (de precisión alta) pueden ser los movs que faltan
 	// siempre que la IA esté en condiciones de usar un ataque nuevo
-		if (!attacker_is_user && best_nhko > 1
+		if (attackerId == gBattlerTarget && best_nhko > 1
         && gDisableStructs[attackerId].encoredMove == MOVE_NONE
         && !(gBattleMons[attackerId].status2 & (STATUS2_RECHARGE | STATUS2_MULTIPLETURNS)))
     {
@@ -2861,7 +2864,7 @@ static void Cmd_calculate_nhko(void)
         if (i != MAX_MON_MOVES) // algún ataque no se conoce
         {
             s32 type_i;
-            u8 opponent_types[2] = {gBattleMons[gBattlerTarget].type1, gBattleMons[gBattlerTarget].type2};
+			u8 opponent_types[2] = {gBaseStats[gBattleMons[gBattlerTarget].species].type1, gBaseStats[gBattleMons[gBattlerTarget].species].type2};
             s16 standard_moves[] = {
                 [TYPE_NORMAL] = MOVE_EGG_BOMB,       // prácticamente la misma potencia que Return/Frustration al máximo
                 [TYPE_FIGHTING] = MOVE_SKY_UPPERCUT, // los movs más potentes son más arriesgados

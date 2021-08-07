@@ -1062,17 +1062,18 @@ AI_CheckViability_CheckEffects:
 	if_effect EFFECT_OVERHEAT, AI_CV_Overheat
 	if_effect EFFECT_TICKLE, AI_CV_DefenseDown
 	if_effect EFFECT_COSMIC_POWER, AI_CV_SpDefUp
-	if_effect EFFECT_BULK_UP, AI_CV_DefenseUp
+	if_effect EFFECT_BULK_UP, AI_CV_AttackUp
 	if_effect EFFECT_POISON_TAIL, AI_CV_HighCrit
 	if_effect EFFECT_WATER_SPORT, AI_CV_WaterSport
-	if_effect EFFECT_CALM_MIND, AI_CV_SpDefUp
+	if_effect EFFECT_CALM_MIND, AI_CV_SpAtkUp
 	if_effect EFFECT_DRAGON_DANCE, AI_CV_DragonDance
 	if_effect EFFECT_SANDSTORM, AI_CV_Sandstorm
 	if_effect EFFECT_QUICK_ATTACK, AI_CV_QuickAttack @ para FEAR, incluye ExtremeSpeed y Mach Punch
 	if_effect EFFECT_WILL_O_WISP, AI_CV_WillOWisp
 	if_effect EFFECT_RAPID_SPIN, AI_CV_RapidSpin
 	if_effect EFFECT_ROLLOUT, AI_CV_Rollout
-	if_effect EFFECT_COIL, AI_CV_DefenseUp
+	if_effect EFFECT_COIL, AI_CV_AttackUp
+	if_effect EFFECT_QUIVER_DANCE, AI_CV_SpAtkUp
 	end
 
 AI_CV_Sleep: @ 82DCA92
@@ -1325,7 +1326,29 @@ AI_CV_DefenseUp_PhysicalTypes: @ 82DCC53
     .byte -1
 
 AI_CV_SpeedUp: @ 82DCC5D
-	if_target_faster AI_CV_SpeedUp2
+@ Evita subirse Velocidad si tardará más de 3 turnos en dar KO al rival,
+@ si el rival mete OHKO, o si el rival mete 2HKO y no le mete OHKO
+   calculate_nhko
+   if_more_than 3, Score_Minus3
+   calculate_nhko AI_TARGET
+   if_equal 1, Score_Minus3
+   if_more_than 2, AI_CV_SpeedUp_SkipOHKOCheck
+   calculate_nhko
+   if_more_than 1, Score_Minus3
+AI_CV_SpeedUp_SkipOHKOCheck:
+    if_target_faster AI_CV_SpeedUp2
+@ Si es más rápido, evita usar agilidad a no ser que:
+@ 1.- pueda meterle 2HKO al rival
+@ 2.- no espere caer en menos de 4 golpes del rival
+@ 3.- esté a +0 o menos de Velocidad
+@ en cuyo caso puede intentar usar Agilidad
+    calculate_nhko
+    if_more_than 2, AI_CV_SpeedUp_AlreadyFasterAndNoChanceToSweep
+    calculate_nhko AI_TARGET
+    if_less_than 4, AI_CV_SpeedUp_AlreadyFasterAndNoChanceToSweep
+    if_stat_level_more_than AI_USER, STAT_SPEED, 6, AI_CV_SpeedUp_AlreadyFasterAndNoChanceToSweep
+    if_random_less_than 170, AI_CV_SpeedUp2
+AI_CV_SpeedUp_AlreadyFasterAndNoChanceToSweep:
 	score -3
 	goto AI_CV_SpeedUp_End
 
@@ -2243,22 +2266,33 @@ AI_CV_Counter_PhysicalTypeList:
     .byte -1
 
 AI_CV_Encore:
-	if_any_move_disabled AI_TARGET, AI_CV_Encore2
-	if_target_faster AI_CV_Encore_ScoreDown2
-	get_last_used_bank_move AI_TARGET
-	get_move_effect_from_result
-	if_not_in_bytes AI_CV_Encore_EncouragedMovesToEncore, AI_CV_Encore_ScoreDown2
-
+    if_target_faster AI_CV_Encore_TargetIsFaster
+    if_any_move_disabled AI_TARGET, AI_CV_Encore2
+    get_last_used_bank_move AI_TARGET
+    if_equal MOVE_NONE, Score_Minus8
+    get_move_effect_from_result
+    if_not_in_bytes AI_CV_Encore_EncouragedMovesToEncore, AI_CV_Encore_ScoreDown2
 AI_CV_Encore2:
-	if_random_less_than 30, AI_CV_Encore_End
-	score +3
-	goto AI_CV_Encore_End
+    if_random_less_than 30, AI_CV_Encore_End
+    score +3
+    goto AI_CV_Encore_End
 
+AI_CV_Encore_TargetIsFaster:
+    get_last_used_bank_move AI_TARGET
+    if_not_equal MOVE_NONE, AI_CV_Encore_TargetIsFaster_TargetHasAttackedOrIsExpectedToAttack
+    if_status AI_TARGET, STATUS1_FREEZE, Score_Minus5
+    if_target_not_expected_to_sleep AI_CV_Encore_TargetIsFaster_TargetHasAttackedOrIsExpectedToAttack
+    goto Score_Minus5
+
+AI_CV_Encore_TargetIsFaster_TargetHasAttackedOrIsExpectedToAttack:
+    if_this_attack_might_be_the_last Score_Minus5
+    if_ability AI_USER, ABILITY_SHADOW_TAG, AI_CV_Encore2
+@ En general conviene poco usar Encore en pokes lentos
 AI_CV_Encore_ScoreDown2:
-	score -2
+    score -2
 
 AI_CV_Encore_End:
-	end
+    end
 
 AI_CV_Encore_EncouragedMovesToEncore:
     .byte EFFECT_DREAM_EATER
@@ -3113,7 +3147,8 @@ AI_CV_FocusPunch_SkipFreezeCheck:
     if_stat_level_more_than AI_USER, STAT_EVASION, 10, AI_CV_FocusPunch_End
 AI_CV_FocusPunch_SkipAccuracyAndPrecisionCheck1:
     score -1
-    if_status AI_TARGET, STATUS1_SLEEP, AI_CV_FocusPunch_CheckSleep
+    if_target_not_expected_to_sleep AI_CV_FocusPunch_NotExpectedToSleep
+    goto AI_CV_FocusPunch_End
 AI_CV_FocusPunch_NotExpectedToSleep:
     if_not_status AI_TARGET, STATUS1_PARALYSIS, AI_CV_FocusPunch_NoParafuseOrParalove
     if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_FocusPunch_End
@@ -3129,13 +3164,6 @@ AI_CV_FocusPunch_SkipAccuracyAndPrecisionCheck2:
     score -1
 AI_CV_FocusPunch_End:
     end
-
-@ Comprueba si el status de sueño es 5 (101 en binario), en cuyo caso va a despertar
-AI_CV_FocusPunch_CheckSleep:
-    if_not_status AI_TARGET, 1, AI_CV_FocusPunch_End
-    if_status AI_TARGET, 2, AI_CV_FocusPunch_End
-    if_not_status AI_TARGET, 4, AI_CV_FocusPunch_End
-    goto AI_CV_FocusPunch_NotExpectedToSleep
 
 AI_CV_SmellingSalt:
 	if_status AI_TARGET, STATUS1_PARALYSIS, AI_CV_SmellingSalt_ScoreUp1

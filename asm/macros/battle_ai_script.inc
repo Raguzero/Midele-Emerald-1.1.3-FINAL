@@ -726,3 +726,12 @@
     if_free_setup_turn_assuming_target_will_be_slower \ptr
     .AI_no_free_setup_\@:
     .endm
+	
+	.macro if_target_not_expected_to_sleep ptr:req
+    if_not_status AI_TARGET, STATUS1_SLEEP, \ptr
+    @ Comprueba si el status de sueño es 5 (101 en binario), en cuyo caso va a despertar
+    if_not_status AI_TARGET, 1, .AI_target_might_be_sleeping_\@
+    if_status AI_TARGET, 2, .AI_target_might_be_sleeping_\@
+    if_status AI_TARGET, 4, \ptr
+    .AI_target_might_be_sleeping_\@:
+    .endm
