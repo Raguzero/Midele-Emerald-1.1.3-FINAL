@@ -377,6 +377,8 @@ extern const u8 gText_DefaultNameLillie[];
 extern const u8 gText_DefaultNameTerra[];
 extern const u8 gText_DefaultNameLucy[];
 extern const u8 gText_DefaultNameHalie[];
+extern const u8 gText_NameMidele[];
+extern const u8 gText_NameMideleUppercase[];
 
 // mystery event menu text
 extern const u8 gText_EventSafelyLoaded[];

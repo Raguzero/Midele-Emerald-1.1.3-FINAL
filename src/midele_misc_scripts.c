@@ -2,10 +2,17 @@
 #include "event_data.h"
 #include "midele_misc_scripts.h"
 #include "string_util.h"
+#include "strings.h"
 #include "constants/random_battle.h"
 
 static void IncrementVictories(u16 victoriesVar, u16 maxVictoriesVar);
 static void ResetVictories(u16 victoriesVar);
+
+const u8 *const gSpecialNames[] = {
+    gText_NameMidele,
+    gText_NameMideleUppercase
+};
+
 
 void BufferRandomBattleVictories(void)
 {
@@ -68,6 +75,23 @@ void UpdateRandomBattleVictories(void)
             ResetVictories(victoriesVar);
             break;
     }
+}
+
+bool8 PlayerHasSpecialNickname(void)
+{
+    u8 i;
+    bool8 hasSpecialNickname = FALSE;
+    for (i = 0; i < ARRAY_COUNT(gSpecialNames); i++)
+    {
+        if (StringCompare(gSaveBlock2Ptr->playerName, gSpecialNames[i]) == 0)
+        {
+            hasSpecialNickname = TRUE;
+            break;
+        }
+    }
+    
+    return hasSpecialNickname;
+    
 }
 
 static void IncrementVictories(u16 victoriesVar, u16 maxVictoriesVar)

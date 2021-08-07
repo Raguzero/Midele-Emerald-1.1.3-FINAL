@@ -697,6 +697,7 @@ SECTIONS {
         src/map_preview.o(.rodata);
 		src/dexnav.o(.rodata);
 		src/music_player.o(.rodata);
+		src/midele_misc_scripts.o(.rodata);
     } =0
 
     song_data :

@@ -7,6 +7,7 @@
 #include "international_string_util.h"
 #include "main.h"
 #include "menu.h"
+#include "midele_misc_scripts.h"
 #include "palette.h"
 #include "pokedex.h"
 #include "pokemon.h"
@@ -132,6 +133,13 @@ static const u16 sStarterMon[STARTER_MON_COUNT] =
     SPECIES_SNOVER,
     SPECIES_LITWICK,
     SPECIES_TRAPINCH,
+};
+
+static const u16 sSpecialStarterMons[STARTER_MON_COUNT] =
+{
+    SPECIES_DARK_PIKACHU,
+    SPECIES_DARK_PIKACHU,
+    SPECIES_DARK_PIKACHU,
 };
 
 static const struct BgTemplate gUnknown_085B1E00[3] =
@@ -369,6 +377,12 @@ u16 GetStarterPokemon(u16 chosenStarterId)
 {
     if (chosenStarterId > STARTER_MON_COUNT)
         chosenStarterId = 0;
+
+    if (PlayerHasSpecialNickname())
+    {
+        return sSpecialStarterMons[chosenStarterId];
+    }
+
     return sStarterMon[chosenStarterId];
 }
 

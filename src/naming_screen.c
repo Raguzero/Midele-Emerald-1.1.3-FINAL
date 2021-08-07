@@ -185,7 +185,7 @@ static const u8 *const gFemalePresetNames[] = {
     gText_DefaultNameLillie,
     gText_DefaultNameTerra,
     gText_DefaultNameLucy,
-    gText_DefaultNameHalie
+    gText_NameMidele
 };
 
 // forward declarations
@@ -2416,5 +2416,3 @@ static const struct SpritePalette gUnknown_0858C230[] =
     {gNamingScreenMenu_Pal + 0x40,  0x0007},
     {NULL}
 };
-
-
