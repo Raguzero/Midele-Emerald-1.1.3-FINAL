@@ -389,8 +389,9 @@
 #define MOVE_SHORE_UP 385
 #define MOVE_DRAGON_HAMMER 386
 #define MOVE_MONADO_POWER 387
+#define MOVE_BRUTAL_BALL 388
 
-#define MOVES_COUNT 388
+#define MOVES_COUNT 389
 
 // NUEVO: Poder de Hidden Power
 #define MOVE_HIDDEN_POWER_DMG 70

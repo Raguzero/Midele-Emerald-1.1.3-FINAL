@@ -24484,10 +24484,10 @@ static const struct TrainerMonCustomMidele sParty_Micolo3[] = {
 	.iv = 31,
 	.lvl = 100, 
 	.species = SPECIES_GALLADE, 
-	.heldItem = ITEM_SALAC_BERRY,  
-	.nature = NATURE_JOLLY,
-	.evs = {6, 252, 0, 0, 0, 252},
-	.moves = {MOVE_SWORDS_DANCE, MOVE_EARTHQUAKE, MOVE_ENDURE, MOVE_REVERSAL} 
+	.heldItem = ITEM_FOCUS_SASH,  
+	.nature = NATURE_NAIVE,
+	.evs = {0, 128, 0, 128, 0, 252},
+	.moves = {MOVE_MIDELE_POWER, MOVE_PSYCHIC, MOVE_MOONBLAST, MOVE_BRICK_BREAK} 
 	},
 	{
 	.iv = 31,
@@ -24514,7 +24514,7 @@ static const struct TrainerMonCustomMidele sParty_Micolo3[] = {
 	.heldItem = ITEM_SITRUS_BERRY,  
 	.nature = NATURE_TIMID,
 	.evs = {6, 0, 0, 252, 0, 252},
-	.moves = {MOVE_DARK_THUNDER, MOVE_MIDELE_POWER, MOVE_DARK_PULSE, MOVE_SURF} 
+	.moves = {MOVE_DARK_THUNDER, MOVE_MIDELE_POWER, MOVE_BRUTAL_BALL, MOVE_SURF} 
 	},
 	{
 	.iv = 31,
@@ -24523,7 +24523,7 @@ static const struct TrainerMonCustomMidele sParty_Micolo3[] = {
 	.heldItem = ITEM_LEFTOVERS,  
 	.nature = NATURE_TIMID,
 	.evs = {6, 0, 0, 252, 0, 252},
-	.moves = {MOVE_NASTY_PLOT, MOVE_PSYCHIC, MOVE_FLAMETHROWER, MOVE_ENERGY_BALL} 
+	.moves = {MOVE_NASTY_PLOT, MOVE_PSYCHIC, MOVE_FLAMETHROWER, MOVE_BRUTAL_BALL} 
 	}
 };
 static const struct TrainerMonCustomMidele sParty_Alpha[] = {

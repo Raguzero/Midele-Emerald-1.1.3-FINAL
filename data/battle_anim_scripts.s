@@ -403,6 +403,7 @@ gBattleAnims_Moves::
 	.4byte Move_SHORE_UP
 	.4byte Move_DRAGON_HAMMER
 	.4byte Move_MONADO_POWER
+	.4byte Move_BRUTAL_BALL
 	.4byte Move_COUNT @ cannot be reached, because last move is Psycho Boost
 
 	.align 2
@@ -11277,6 +11278,7 @@ Move_DRAGON_HAMMER::
 	end
 	
 Move_MONADO_POWER::
+	@ HIDDEN POWER ANIMATION
 	loadspritegfx ANIM_TAG_RED_ORB
 	playsewithpan SE_W036, SOUND_PAN_ATTACKER
 	createvisualtask AnimTask_ScaleMonAndRestore, 5, -7, -7, 11, ANIM_ATTACKER, 0
@@ -11304,6 +11306,7 @@ Move_MONADO_POWER::
 	createsprite gHiddenPowerOrbScatterSpriteTemplate, ANIM_TARGET, 2, 160
 	createsprite gHiddenPowerOrbScatterSpriteTemplate, ANIM_TARGET, 2, 192
 	createsprite gHiddenPowerOrbScatterSpriteTemplate, ANIM_TARGET, 2, 224
+	@ HYPER BEAM ANIMATION
 	loadspritegfx ANIM_TAG_ORBS
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 4, 0, 16, RGB_BLACK
 	waitforvisualfinish
@@ -11352,6 +11355,65 @@ MonadoPower1:
 	createsprite gHyperBeamOrbSpriteTemplate, ANIM_TARGET, 2
 	delay 1
 	return
+	
+Move_BRUTAL_BALL:
+	@ WATER PULSE ANIMATION
+	loadspritegfx ANIM_TAG_SMALL_BUBBLES
+	loadspritegfx ANIM_TAG_BLUE_RING_2
+	monbg ANIM_TARGET
+	monbgprio_28 ANIM_TARGET
+	playsewithpan SE_W145C, SOUND_PAN_ATTACKER
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 0, 0, 7, RGB(0, 25, 28)
+	delay 10
+	createsprite gUnknown_085952F8, ANIM_ATTACKER, 66, 100, 100, 8, 1, 20, 40, 0
+	createsprite gUnknown_085952F8, ANIM_ATTACKER, 66, 20, 100, 16, 2, 10, 35, 1
+	createsprite gUnknown_085952F8, ANIM_ATTACKER, 66, 200, 80, 8, 1, 40, 20, 0
+	createsprite gUnknown_085952F8, ANIM_ATTACKER, 66, 80, 60, 10, 3, 20, 50, 0
+	createsprite gUnknown_085952F8, ANIM_ATTACKER, 66, 140, 100, 16, 1, 20, 30, 1
+	playsewithpan SE_W145C, SOUND_PAN_TARGET
+	waitforvisualfinish
+	playsewithpan SE_W202, SOUND_PAN_ATTACKER
+	createsprite gWaterPulseRingSpriteTemplate, ANIM_TARGET, 2, 0, 0, 40, 15
+	delay 5
+	playsewithpan SE_W202, SOUND_PAN_ATTACKER
+	createsprite gWaterPulseRingSpriteTemplate, ANIM_TARGET, 2, 0, 0, 40, 15
+	delay 5
+	playsewithpan SE_W202, SOUND_PAN_ATTACKER
+	createsprite gWaterPulseRingSpriteTemplate, ANIM_TARGET, 2, 0, 0, 40, 15
+	delay 13
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 8, 18, 1
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 1, 7, 0, RGB(0, 25, 28)
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	@ WEATHER BALL ANIMATION
+	loadspritegfx ANIM_TAG_SMALL_BUBBLES
+	createsprite gUnknown_08595328, ANIM_TARGET, 2, -30, -100, 25, 1, 50, 10
+	playsewithpan SE_W152, SOUND_PAN_TARGET
+	delay 8
+	createsprite gUnknown_08595328, ANIM_TARGET, 2, -30, -100, 25, 1, -20, 20
+	playsewithpan SE_W152, SOUND_PAN_TARGET
+	delay 13
+	createsprite gUnknown_08595328, ANIM_TARGET, 2, -30, -100, 25, 1, 0, 0
+	playsewithpan SE_W152, SOUND_PAN_TARGET
+	waitforvisualfinish
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 3, 8, 1
+	playsewithpan SE_W202, SOUND_PAN_TARGET
+	waitforvisualfinish
+	@ SHADOW BALL ANIMATION
+	loadspritegfx ANIM_TAG_SHADOW_BALL
+	fadetobg BG_GHOST
+	waitbgfadein
+	delay 15
+	createsoundtask sub_8158C58, SE_W054, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 5, 5, 0, 5
+	createsprite gShadowBallSpriteTemplate, ANIM_TARGET, 2, 16, 16, 8
+	waitforvisualfinish
+	playsewithpan SE_W028, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 8, 1
+	waitforvisualfinish
+	restorebg
+	waitbgfadein
+	end
 
 Move_COUNT:
 	loadspritegfx ANIM_TAG_IMPACT
