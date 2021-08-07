@@ -181,9 +181,9 @@ static void MusicPlayer_SelectSong(u8 taskId)
 
 static void MusicPlayer_DestroyWindow(u8 taskId)
 {
-    ClearStdWindowAndFrame(gTasks[taskId].data[1], TRUE);
 
     ClearStdWindowAndFrame(gTasks[taskId].data[2], TRUE);
+    RemoveWindow(gTasks[taskId].data[2]);
 
     ScriptUnfreezeEventObjects();
     ScriptContext2_Disable();
