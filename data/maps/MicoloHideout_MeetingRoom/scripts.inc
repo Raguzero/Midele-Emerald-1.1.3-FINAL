@@ -308,13 +308,13 @@ MicoloHideout_MeetingRoom_PC4_Text_0:
 	.string "primero en conseguir una unidad de mi\l" 
 	.string "HONEDGE modificado.\p"
 	
-	.string "¡SI! ¡POR FIN MI SUEÑO SE HA CUMPLIDO!\p"
+	.string "¡SÍ! ¡POR FIN MI SUEÑO SE HA CUMPLIDO!\p"
 	
 	.string "¡Yo, el gran A.VADER, he conseguido\n"
 	.string "crear una forma alternativa de HONEDGE\l"
 	.string "totalmente nueva!\p"
 	
-	.string "¡El HONEDGE MONADO! ¡THIS IS THE POWER\n"
+	.string "¡El HONEDGE MONADO! THIS IS THE POWER\n"
 	.string "OF THE MONADO!\l"
 	.string "Your blade.... it did not cut\l"
 	.string "deep enough.\p"
