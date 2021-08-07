@@ -4941,8 +4941,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
     [MOVE_DARK_THUNDER] =
     {
-        .effect = EFFECT_MULTI_HIT,
-        .power = 80,
+        .effect = EFFECT_DOUBLE_HIT,
+        .power = 70,
         .type = TYPE_ELECTRIC,
         .accuracy = 100,
         .pp = 10,
