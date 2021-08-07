@@ -21,11 +21,24 @@
             "movement_range_x": 0,
             "movement_range_y": 0,
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "script": "NULL",
+            "script": "SapphireGym2_EventScript_Sapphire",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
             "x": 10,
             "y": 5
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_DEFEATED_SAPPHIRE_TOTEM",
+            "graphics_id": "EVENT_OBJ_GFX_TRICK_HOUSE_STATUE",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "script": "SapphireGym2_EventScript_Totem",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 10,
+            "y": 41
         }
     ],
     "region_map_section": "MAPSEC_MICOLANDIA",
@@ -33,10 +46,24 @@
     "show_map_name": false,
     "warp_events": [
         {
-            "dest_map": "MAP_SAPPHIRE_GYM2",
+            "dest_map": "MAP_SAPPHIRE_GYM",
             "dest_warp_id": 2,
             "elevation": 0,
             "x": 10,
+            "y": 79
+        },
+        {
+            "dest_map": "MAP_SAPPHIRE_GYM",
+            "dest_warp_id": 2,
+            "elevation": 0,
+            "x": 11,
+            "y": 79
+        },
+        {
+            "dest_map": "MAP_SAPPHIRE_GYM",
+            "dest_warp_id": 2,
+            "elevation": 0,
+            "x": 9,
             "y": 79
         }
     ],

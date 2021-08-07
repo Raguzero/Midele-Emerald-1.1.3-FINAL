@@ -986,10 +986,14 @@
 #define TRAINER_DUNK_2 982
 #define TRAINER_SAPPH 983
 #define TRAINER_MIRORB 984
+#define TRAINER_SAPPH_GYM_1 985
+#define TRAINER_SAPPH_GYM_2 986
+#define TRAINER_SAPPH_GYM_3 987
+#define TRAINER_SAPPH_GYM_4 988
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or [changing how trainer flags are handled] --> HECHO ESTO
-#define TRAINERS_COUNT                      985 // NUEVO: aumentar para añadir nuevos entrenadores
-#define MAX_TRAINERS_COUNT                  986
+#define TRAINERS_COUNT                      989 // NUEVO: aumentar para añadir nuevos entrenadores
+#define MAX_TRAINERS_COUNT                  990
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

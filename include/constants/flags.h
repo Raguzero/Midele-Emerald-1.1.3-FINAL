@@ -719,9 +719,9 @@
 #define FLAG_ITEM_MONOCYCLEROAD_4RARECANDY  0x2A6 // Previously Unused Flag
 #define FLAG_ITEM_MONOCYCLEROAD_SHELLBELL  0x2A7 // Previously Unused Flag
 #define FLAG_ITEM_MONOCYCLEROAD_9HEARTSCALE  0x2A8 // Previously Unused Flag
-#define FLAG_UNUSED_0x2A9  0x2A9 // Unused Flag
-#define FLAG_UNUSED_0x2AA  0x2AA // Unused Flag
-#define FLAG_UNUSED_0x2AB  0x2AB // Unused Flag
+#define FLAG_HIDDEN_SAPPH_GYM_MASTER_BALL    0x2A9 // Previously unused Flag
+#define FLAG_DEFEATED_SAPPHIRE_TOTEM         0x2AA // Previously unused Flag
+#define FLAG_HIDE_SAPPHGYM_ZIGZA             0x2AB // Previously unused Flag
 #define FLAG_UNUSED_0x2AC  0x2AC // Unused Flag
 #define FLAG_UNUSED_0x2AD  0x2AD // Unused Flag
 #define FLAG_UNUSED_0x2AE  0x2AE // Unused Flag

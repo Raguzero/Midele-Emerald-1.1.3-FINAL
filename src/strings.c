@@ -2126,3 +2126,9 @@ const u8 gTotem9[] =  _("M-CAMERUPT");
 const u8 gTotem10[] =  _("LANTURN");  
 const u8 gTotem11[] =  _("M-GLALIE");  
 const u8 gTotem12[] =  _("TYRANITAR");
+
+// SAPPH GYM
+const u8 gTextPoochyena[] = _("POOCHYENA");
+const u8 gTextZigzagoon[] = _("ZIGZAGOON");
+const u8 gTextMew[] = _("MEW");
+const u8 gTextKirlia[] = _("KIRLIA");

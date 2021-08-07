@@ -3244,6 +3244,12 @@ extern const u8 gTotem8[];
 extern const u8 gTotem9[];  
 extern const u8 gTotem10[];  
 extern const u8 gTotem11[];  
-extern const u8 gTotem12[];  
+extern const u8 gTotem12[]; 
+
+// SAPPH GYM
+extern const u8 gTextPoochyena[];
+extern const u8 gTextZigzagoon[];
+extern const u8 gTextMew[];
+extern const u8 gTextKirlia[];
 
 #endif // GUARD_STRINGS_H

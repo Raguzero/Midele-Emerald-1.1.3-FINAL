@@ -1070,6 +1070,21 @@ static const struct MenuAction MultichoiceList_Totem_Battle_List[] =
     {gText_Exit},
 };
 
+static const struct MenuAction MultichoiceList_SapphGym_FirstPuzzleAnswers[] =
+{
+    {gTextPoochyena},
+    {gTextZigzagoon},
+    {gTextMew},
+};
+
+static const struct MenuAction MultichoiceList_SapphGym_SecondPuzzleAnswers[] =
+{
+    {gTextPoochyena},
+    {gTextZigzagoon},
+    {gTextMew},
+    {gTextKirlia},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -1228,6 +1243,8 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
 	[MULTI_QUIZ12_GYM] =  MULTICHOICE(MultichoiceList_Quiz12),
 	[MULTI_QUIZ13_GYM] =  MULTICHOICE(MultichoiceList_Quiz13),
 	[MULTI_TOTEM_BATTLE_LIST] =  MULTICHOICE(MultichoiceList_Totem_Battle_List),
+	[MULTI_SAPPHGYM_FIRST_PUZZLE_ANSWERS] =  MULTICHOICE(MultichoiceList_SapphGym_FirstPuzzleAnswers),
+	[MULTI_SAPPHGYM_SECOND_PUZZLE_ANSWERS] =  MULTICHOICE(MultichoiceList_SapphGym_SecondPuzzleAnswers),
 };
 
 const u8 *const gStdStrings[] =
