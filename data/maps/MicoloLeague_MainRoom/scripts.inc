@@ -58,7 +58,23 @@ MicoloLeague_VaderRoom_EventScript_Mewtwo::
     release
     end
 
+MicoloLeague_MainRoom_EventScript_PCExplanation::
+    msgbox MicoloLeague_MainRoom_Text_PCExplanation, MSGBOX_SIGN
+    end
+
 MicoloLeagueLobby_Text_Mewtwo:
     .string "MEWTWO: ¡Twooo!$"
 
-
+MicoloLeague_MainRoom_Text_PCExplanation:
+    .string "Explicación de la MICOLIGA:\p"
+    .string "Deberás enfrentarte a los cuatro\n"
+    .string "entrenadores de la MICOLIGA, y una vez\l"
+    .string "los derrotes, podrás luchar contra el\l"
+    .string "CAMPEÓN.\p"
+    .string "Los cuatro teletransportadores del\n"
+    .string "suelo te llevarán a las salas de los\l"
+    .string "cuatro entrenadores. Una vez entres\l"
+    .string "en una sala, no podrás salir hasta que\l"
+    .string "derrotes a su entrenador o seas\l"
+    .string "derrotado.\p"
+    .string "Fin de la explicación de la MICOLIGA.$"
