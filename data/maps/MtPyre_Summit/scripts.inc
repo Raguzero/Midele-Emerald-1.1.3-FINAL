@@ -330,6 +330,20 @@ MtPyre_Summit_EventScript_Micolo_1:
 	trainerbattle_no_intro TRAINER_MICOLO_2, MtPyre_Summit_EventScript_Micolo_Text_1
 	msgbox MtPyre_Summit_EventScript_Micolo_Text_2
 	closemessage
+	
+	// GIFT KECLEON
+	setvar VAR_TEMP_1, SPECIES_KECLEON
+	givecustommon SPECIES_KECLEON, 40, ITEM_SALAC_BERRY, ITEM_LUXURY_BALL, NATURE_ADAMANT, 1, 0, 120, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, MOVE_BODY_SLAM, MOVE_BRICK_BREAK, MOVE_ROCK_SLIDE, MOVE_DIZZY_PUNCH, TRUE
+	compare VAR_RESULT, 0
+	goto_if_eq MtPyre_Summit_EventScript_ReceiveMonParty
+	compare VAR_RESULT, 1
+	goto_if_eq MtPyre_Summit_EventScript_ReceiveMonPC
+	// Si no hay sitio para más Pokémon, el KECLEON se pierde.
+	goto Common_EventScript_NoMoreRoomForPokemon 
+MtPyre_Summit_EventScript_ReceiveMonEnd:
+	msgbox MtPyre_Summit_Text_MicoloBye, MSGBOX_DEFAULT
+	closemessage
+	
 	applymovement 9, MtPyre_Summit_Movement_Micolo_Leaves
 	waitmovement 0
 	removeobject 9
@@ -337,6 +351,38 @@ MtPyre_Summit_EventScript_Micolo_1:
 	waitmovement 0
 	playbgm MUS_MACHUPI, 1
 	release
+	return
+
+MtPyre_Summit_EventScript_ReceiveMonParty:: @ 8270085
+	call MtPyre_Summit_EventScript_ReceiveMonFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq MtPyre_Summit_EventScript_ReceiveMonEnd
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto MtPyre_Summit_EventScript_ReceiveMonEnd
+	end
+
+MtPyre_Summit_EventScript_ReceiveMonPC:: @ 82700AD
+	call MtPyre_Summit_EventScript_ReceiveMonFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq MtPyre_Summit_EventScript_SendMonPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto MtPyre_Summit_EventScript_SendMonPC
+	end
+	
+MtPyre_Summit_EventScript_SendMonPC:: @ 82700D0
+	call Common_EventScript_TransferredToPC
+	goto MtPyre_Summit_EventScript_ReceiveMonEnd
+	end
+
+MtPyre_Summit_EventScript_ReceiveMonFanfare:: @ 82700DB
+	playfanfare MUS_FANFA4
+	message MtPyre_Summit_Text_ReceivedMon
+	waitmessage
+	waitfanfare
+	bufferspeciesname 0, SPECIES_KECLEON
 	return
 
 MtPyre_Summit_EventScript_Micolo_2:
@@ -758,6 +804,17 @@ MtPyre_Summit_EventScript_Micolo_Text_2:
 	.string "problemas con AQUA y MAGMA... y\l"
 	.string "seguramente puedas derrotar a la LIGA\l"
 	.string "POKéMON...\p"
+	.string "Por cierto, ¿has estado cuidando del\n"
+	.string "ZUBAT que te regalé? n.n.\p"
+	.string "Me gustaría regalarte otro amigo, esta\n"
+	.string "vez es alguien muy especial, un\l"
+	.string "KECLEON.\p"
+	.string "Cuida bien de él, o si no...$"
+
+MtPyre_Summit_Text_ReceivedMon: @ 82706E8
+	.string "{PLAYER} received KECLEON!$"
+
+MtPyre_Summit_Text_MicoloBye:
 	.string "No creo que nos veamos en bastante\n"
 	.string "tiempo... n.n\p"
 	.string "Pero no te preocupes, cuando llegue el\n"
