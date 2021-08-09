@@ -133,17 +133,6 @@ const struct TotemMon gTotemMons[] =
         .statBoosts = {6, 6, 8, 6, 6, 8, 6, 6},  // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
         .evs = {252, 0, 252, 0, 252, 0},
     },
-    [TOTEM_LANTURN] =
-    {
-        .species = SPECIES_LANTURN,
-        .minLevel = 75,
-        .moves = {MOVE_THUNDER, MOVE_SURF, MOVE_ICE_BEAM, MOVE_THUNDER_WAVE},
-        .item = ITEM_LEFTOVERS,
-        .nature = NATURE_MODEST,
-        .abilityNumber = 0, // VOLT ABSORB
-        .statBoosts = {6, 6, 12, 6, 8, 12, 6, 6}, // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
-        .evs = {252, 252, 252, 252, 252, 252},
-    },
     [TOTEM_SAPPHIRE] =
     {
         .species = SPECIES_MAGIKARP,

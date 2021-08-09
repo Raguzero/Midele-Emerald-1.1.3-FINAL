@@ -70,7 +70,7 @@
 #define FLAG_SYS_NO_CATCHING    0x3A // Unused Flag
 #define FLAG_TOTEM_GYMSANTY    0x3B // Previously unused Flag
 #define FLAG_TOTEM_GYMDARKI    0x3C // Previously unused Flag
-#define FLAG_TOTEM_GYMSAPPH    0x3D // Previously unused Flag
+#define FLAG_UNUSED_0x3D    0x3D // Unused Flag
 #define FLAG_TOTEM_GYMGOOSES    0x3E // Previously unused Flag
 #define FLAG_HIDE_GYMGOOSES_TELEPORTBOY    0x3F // Previously unused Flag
 #define FLAG_RANDOMBATTLE_GYMGOOSES    0x40 // Previously unused Flag
