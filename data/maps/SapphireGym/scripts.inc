@@ -20,11 +20,11 @@ SapphireGym_MapScripts_OnLoad:
 	compare VAR_STATE_SAPPH_GYM, 5
 	call_if_eq SapphireGym_MapScripts_OnLoad_OpenFourthPuzzlePath
 
-	checktrainerflag TRAINER_SAPPH_GYM_1 // CAMBIAR POR FIRST PUZZLE GIRL
+	checktrainerflag TRAINER_SAPPH_GYM_1
 	call_if_eq SapphireGym_MapScripts_OnLoad_DisableFirstPuzzleGirlTrigger
-	checktrainerflag TRAINER_SAPPH_GYM_2 // CAMBIAR POR SECOND PUZZLE GIRL
+	checktrainerflag TRAINER_SAPPH_GYM_2
 	call_if_eq SapphireGym_MapScripts_OnLoad_DisableSecondPuzzleGirlTrigger
-	checktrainerflag TRAINER_SAPPH_GYM_3 // CAMBIAR POR SECOND PUZZLE GIRL
+	checktrainerflag TRAINER_SAPPH_GYM_3
 	call_if_eq SapphireGym_MapScripts_OnLoad_DisableThirdPuzzleGirlTrigger
 	return
 
@@ -230,7 +230,6 @@ SapphireGym_EventScript_FirstPuzzle_Explain:
 	applymovement EVENT_OBJ_ID_PLAYER, SapphireGym_Movement_FirstPuzzle_MovePlayer
 	waitmovement 0
 	call SapphireGym_EventScript_ExecutePuzzle
-	// Aquí preguntar, y si acierta
 	msgbox SapphireGym_Text_FirstPuzzle_GuessWhoFailed, MSGBOX_NPC
 	multichoicegrid 0, 0, MULTI_SAPPHGYM_FIRST_PUZZLE_ANSWERS, 1, 1
 	compare VAR_RESULT, 0
@@ -345,7 +344,6 @@ SapphireGym_EventScript_SecondPuzzle_Explain:
 	applymovement EVENT_OBJ_ID_PLAYER, SapphireGym_Movement_SecondPuzzle_MovePlayer
 	waitmovement 0
 	call SapphireGym_EventScript_ExecuteSecondPuzzle
-	// Aquí preguntar, y si acierta
 	msgbox SapphireGym_Text_SecondPuzzle_GuessWhoFailed, MSGBOX_NPC
 	multichoicegrid 0, 0, MULTI_SAPPHGYM_SECOND_PUZZLE_ANSWERS, 1, 1
 	compare VAR_RESULT, 0

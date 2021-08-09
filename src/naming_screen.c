@@ -184,7 +184,7 @@ static const u8 *const gFemalePresetNames[] = {
     gText_DefaultNameNicola,
     gText_DefaultNameLillie,
     gText_DefaultNameTerra,
-    gText_DefaultNameLucy,
+    gText_NameSapph,
     gText_NameMidele
 };
 

@@ -10,7 +10,9 @@ static void ResetVictories(u16 victoriesVar);
 
 const u8 *const gSpecialNames[] = {
     gText_NameMidele,
-    gText_NameMideleUppercase
+    gText_NameMideleUppercase,
+    gText_NameSapph,
+    gText_NameSapphUppercase
 };
 
 
