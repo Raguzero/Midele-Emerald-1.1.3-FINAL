@@ -13237,7 +13237,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
 
     [FRONTIER_MON_CORVISQUIRE] = {
-        .species = SPECIES_ROOKIDEE,
+        .species = SPECIES_CORVISQUIRE,
         .moves = {MOVE_BRAVE_BIRD, MOVE_TAUNT, MOVE_SPITE, MOVE_SAND_ATTACK},
         .itemTableId = BATTLE_FRONTIER_ITEM_SHARP_BEAK,
         .evSpread = F_EV_SPREAD_SPEED | F_EV_SPREAD_ATTACK,
