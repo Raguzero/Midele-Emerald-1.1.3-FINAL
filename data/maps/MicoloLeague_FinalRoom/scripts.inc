@@ -11,6 +11,7 @@ MicoloLeague_FinalRoom_Micolo::
 
 MicoloLeague_FinalRoom_Micolo_Defeat::
 	lockall
+	setflag FLAG_FORM_SPOILER_DEX
 	checkitem ITEM_PSYCHE_ARMOR, 1
 	compare VAR_RESULT, FALSE
 	goto_if_eq MicoloLeague_FinalRoom_Micolo_Defeat_2

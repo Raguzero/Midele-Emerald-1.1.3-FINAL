@@ -1571,6 +1571,10 @@ void UpdateSpecies(bool8 resetForm)
 s32 GetNextFormSpecies()
 {
     s32 sp;
+
+	if (sPokedexListItem->species == SPECIES_MEWTWO && FlagGet(FLAG_FORM_SPOILER_DEX) != 1)
+       return sPokedexListItem->species;
+
     for (sp = 1 + sPokedexListItem->species; sp < NUM_SPECIES; sp++)
         if (SpeciesToNationalPokedexNum(sp) == sPokedexListItem->dexNum)
             break;
