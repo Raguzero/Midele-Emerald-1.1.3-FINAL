@@ -20,6 +20,8 @@
 #include "constants/species.h"
 #include "sound.h"
 
+#include "data/probable_moves.h"
+
 #define __DEBUG_AI__ 1
 #if __DEBUG_AI__
     #include "string_util.h"
@@ -175,6 +177,7 @@ static void Cmd_if_trick_fails_in_this_type_of_battle(void);
 static void Cmd_calculate_nhko(void);
 static void Cmd_if_next_turn_target_might_use_move_with_effect(void);
 static void Cmd_if_battler_absent(void);
+static void Cmd_get_possible_categories_of_foes_attacks(void);
 
 // ewram
 EWRAM_DATA const u8 *gAIScriptPtr = NULL;
@@ -295,6 +298,7 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
 	Cmd_calculate_nhko,        // 0x6B
 	Cmd_if_next_turn_target_might_use_move_with_effect,        // 0x6C
 	Cmd_if_battler_absent,   // 0x6D
+	Cmd_get_possible_categories_of_foes_attacks,   // 0x6E
 };
 
 static const u16 sDiscouragedPowerfulMoveEffects[] =
@@ -533,11 +537,26 @@ void CalculategBattleMoveDamageFromgCurrentMove(u8 attackerId, u8 targetId, u8 s
 s32 CalculatenHKOFromgCurrentMove(u8 attackerId, u8 targetId, u8 simulatedRng, s32 best_nhko)
 {
     s32 n;
+    s32 divisor = 1, adder = 0;
+
 
     CalculategBattleMoveDamageFromgCurrentMove(attackerId, targetId, simulatedRng);
 
+    // Multiplica por 2 si es un mov de dos turnos, y resta un turno si está ejecutándose
+    switch (gBattleMoves[gCurrentMove].effect) {
+        case EFFECT_SOLARBEAM:
+            if (WEATHER_HAS_EFFECT && (gBattleWeather & WEATHER_SUN_ANY)) break;
+        case EFFECT_RAZOR_WIND:
+        case EFFECT_SKY_ATTACK:
+        case EFFECT_SKULL_BASH:
+        case EFFECT_SEMI_INVULNERABLE:
+            divisor = 2;
+            if ((gBattleMons[attackerId].status2 & STATUS2_MULTIPLETURNS) && gCurrentMove == gLastMoves[attackerId])
+                adder = 1;
+    }
+	
     for (n = 1; n < best_nhko; n++)
-        if (gBattleMons[targetId].hp <= n * gBattleMoveDamage)
+		if (gBattleMons[targetId].hp <= ((n+adder)/divisor) * gBattleMoveDamage)
             return n;
 
     return best_nhko;
@@ -2805,6 +2824,7 @@ static void Cmd_calculate_nhko(void)
     bool8 check_only_considered_move;
     s32 i;
     s32 best_nhko = 5;     // todo lo que sea peor que 4HKO se lee como 5HKO (incluso daño 0)
+    bool8 assumeWorstCaseScenario = gAIScriptPtr[1] & AI_NHKO_PESSIMISTIC;
 
     if (gAIScriptPtr[1] == AI_USER)
     {
@@ -2844,14 +2864,15 @@ static void Cmd_calculate_nhko(void)
 		}
 
         gCurrentMove = movePointer[i];
-		best_nhko = CalculatenHKOFromgCurrentMove(attackerId, targetId, AI_THINKING_STRUCT->simulatedRNG[check_only_considered_move ? AI_THINKING_STRUCT->movesetIndex : i], best_nhko);
+		best_nhko = CalculatenHKOFromgCurrentMove(attackerId, targetId, (targetId == sBattler_AI && assumeWorstCaseScenario) ? 0 : (AI_THINKING_STRUCT->simulatedRNG[check_only_considered_move ? AI_THINKING_STRUCT->movesetIndex : i]), best_nhko);
 
         if (check_only_considered_move || best_nhko == 1)
             break; // solo se mira el movimiento pensado, y no se sigue mirando si es OHKO
     }
 
     // Si el atacante es el oponente, no se conocen todos sus movs y no da OHKO,
-    // la IA asume que los STAB estándar (de precisión alta) pueden ser los movs que faltan
+    // la IA puede asumir que los STAB estándar (de precisión alta)
+    // y ataques típicos de la especie pueden ser los movs que faltan
 	// siempre que la IA esté en condiciones de usar un ataque nuevo
 		if (attackerId == gBattlerTarget && best_nhko > 1
         && gDisableStructs[attackerId].encoredMove == MOVE_NONE
@@ -2906,6 +2927,28 @@ static void Cmd_calculate_nhko(void)
                         break; // el presunto ataque STAB es OHKO: no hace falta comprobar el otro tipo STAB si lo hay
                 }
             }
+			
+			// Si sigue sin ser OHKO, la IA tiene una cierta probabilidad de considerar los
+            // movimientos típicos de la especie del poke rival.
+            // Lo hace casi seguramente (31/32) si se exige a la IA ser pesimista
+            // (por ejemplo, para asegurarse del todo de que puede hincharse a boosts),
+            // lo hace con probabilidad muy alta (7/8) si el rival acaba de entrar pero
+            // el poke de la IA no (es decir, el rival entró sabiendo el poke de la IA)
+            // ya que si entró será por algo, y lo hace a veces (1/2) en el resto de casos
+            if (best_nhko > 1 && Random() % (assumeWorstCaseScenario ? 32 : ((gDisableStructs[attackerId].isFirstTurn && !(gDisableStructs[targetId].isFirstTurn)) ? 8 : 2)) != 0)
+            {
+                const u16 * probable_moves = sProbablePowerfulOrNonSTABMoves[gBattleMons[attackerId].species];
+                s32 move_i;
+
+                // Evalúa cada uno de los ataques probables de la especie
+                for (move_i = 0; move_i < MAX_PROBABLE_MOVES && probable_moves[move_i] != MOVE_NONE; move_i++)
+                {
+                    gCurrentMove = probable_moves[move_i];
+                    best_nhko = CalculatenHKOFromgCurrentMove(attackerId, targetId, 0, best_nhko);
+                    if (best_nhko == 1)
+                        break; // el presunto ataque es OHKO, no hace falta seguir mirando
+                }
+            }
         }
     }
     
@@ -2954,4 +2997,102 @@ static void Cmd_if_battler_absent(void)
         gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
     else
         gAIScriptPtr += 6;
+}
+
+static void Cmd_get_possible_categories_of_foes_attacks(void)
+{
+    s32 i, j;
+    bool8 physical_move_known = FALSE;
+    bool8 special_move_known = FALSE;
+    bool8 all_moves_known = TRUE;
+    u8 result;
+    
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        u16 move = BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i];
+        if (!move)
+            all_moves_known = FALSE;
+        else if (AI_CAN_ESTIMATE_DAMAGE(move)) // hay mov de daño y no es Counter/Mirror Coat/Bide/OHKO
+        {
+            u8 moveLimitations = CheckMoveLimitations(gBattlerTarget, 0, MOVE_LIMITATION_CHOICE-1);
+            u8 type = gBattleMoves[move].type;
+
+            for (j = 0; j < MAX_MON_MOVES; j++)
+                      if (move == gBattleMons[gBattlerTarget].moves[j] && !(gBitTable[j] & moveLimitations))
+                    break;
+            if (j == MAX_MON_MOVES)
+                continue; // No puede usar el movimiento por el momento; se ignora
+
+                  if ((gBattleMons[gBattlerTarget].status2 & STATUS2_MULTIPLETURNS) && move != gLastMoves[gBattlerTarget])
+                continue; // Está en un ataque multiturno distinto de este; se ignora
+
+            // Comprueba el tipo
+			if (move == MOVE_HIDDEN_POWER || move == MOVE_MONADO_POWER)
+            {
+                struct Pokemon *monAttacker;
+                if (GetBattlerSide(gBattlerTarget) == B_SIDE_PLAYER)
+                    monAttacker = &gPlayerParty[gBattlerPartyIndexes[gBattlerTarget]];
+                else
+                    monAttacker = &gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]];
+
+                type = monAttacker->box.hpType;
+            }
+            else if (move == MOVE_WEATHER_BALL && WEATHER_HAS_EFFECT)
+            {
+                if (gBattleWeather & WEATHER_RAIN_ANY)
+                    type = TYPE_WATER;
+                else if (gBattleWeather & WEATHER_SANDSTORM_ANY)
+                    type = TYPE_ROCK;
+                else if (gBattleWeather & WEATHER_SUN_ANY)
+                    type = TYPE_FIRE;
+                else if (gBattleWeather & WEATHER_HAIL_ANY)
+                    type = TYPE_ICE;
+            }
+
+            // Comprueba que el poke de la IA no es inmune al tipo del movimiento
+            gCurrentMove = move;
+            CalculategBattleMoveDamageFromgCurrentMove(gBattlerTarget, sBattler_AI, 0);
+            if (gBattleMoveDamage == 0)
+                continue;
+
+            // Lee la categoría del tipo
+            if (IS_TYPE_PHYSICAL(type))
+                physical_move_known = TRUE;
+            else
+                special_move_known = TRUE;
+            }
+    }
+    
+    if (physical_move_known)
+    {
+        if (special_move_known)
+            result = AI_BOTH_PHYSICAL_AND_SPECIAL;
+        else if (all_moves_known)
+            result = AI_PHYSICAL_ONLY;
+        else
+            result = AI_ONLY_PHYSICAL_KNOWN;
+    }
+    else if (special_move_known)
+    {
+        if (all_moves_known)
+            result = AI_SPECIAL_ONLY;
+        else
+		result = AI_ONLY_SPECIAL_KNOWN;
+    }
+    else if (all_moves_known || gBattleMons[gBattlerTarget].species == SPECIES_WOBBUFFET || gBattleMons[gBattlerTarget].species == SPECIES_WYNAUT)
+        result = AI_NO_DAMAGING_MOVES;
+    else
+    {
+        u16 base_attack = gBaseStats[gBattleMons[gBattlerTarget].species].baseAttack;
+        u16 base_sp_attack = gBaseStats[gBattleMons[gBattlerTarget].species].baseSpAttack;
+        if (base_attack * 4 < base_sp_attack * 3 && base_attack < 100)
+            result = AI_UNKNOWN_CATEGORIES_PROBABLY_SPECIAL;
+        else if (base_sp_attack * 4 < base_attack * 3 && base_sp_attack < 100)
+            result = AI_UNKNOWN_CATEGORIES_PROBABLY_PHYSICAL;
+        else
+            result = AI_UNKNOWN_CATEGORIES;
+    }
+
+    gBattleResources->ai->funcResult = result;
+    gAIScriptPtr++;
 }

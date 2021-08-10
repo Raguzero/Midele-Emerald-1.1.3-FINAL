@@ -41,6 +41,19 @@
 #define TARGET_CANNOT_USE_SUB          2
 #define USER_CANNOT_USE_SUB            3
 
+#define AI_NHKO_PESSIMISTIC 4
+
+// get_possible_categories_of_foes_attacks
+#define AI_PHYSICAL_ONLY 0
+#define AI_ONLY_PHYSICAL_KNOWN 1
+#define AI_BOTH_PHYSICAL_AND_SPECIAL 2
+#define AI_ONLY_SPECIAL_KNOWN 3
+#define AI_SPECIAL_ONLY 4
+#define AI_UNKNOWN_CATEGORIES_PROBABLY_PHYSICAL 5
+#define AI_UNKNOWN_CATEGORIES 6
+#define AI_UNKNOWN_CATEGORIES_PROBABLY_SPECIAL 7
+#define AI_NO_DAMAGING_MOVES 8
+
 // script's table id to bit
 #define AI_SCRIPT_CHECK_BAD_MOVE (1 << 0)
 #define AI_SCRIPT_TRY_TO_FAINT (1 << 1)

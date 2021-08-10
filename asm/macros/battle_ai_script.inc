@@ -614,6 +614,10 @@
 	.byte \battler
 	.4byte \ptr
 	.endm
+	
+    .macro get_possible_categories_of_foes_attacks
+    .byte 0x6e
+    .endm
 
 @ useful script macros
 	.macro get_curr_move_type
@@ -734,4 +738,80 @@
     if_status AI_TARGET, 2, .AI_target_might_be_sleeping_\@
     if_status AI_TARGET, 4, \ptr
     .AI_target_might_be_sleeping_\@:
+    .endm
+	
+   @ Determina que el usuario puede boostearse tranquilamente:
+    @ - Si el rival no puede debilitarlo en 3 golpes (ni con movs desconocidos probables), o si está durmiendo (y no tiene Sleep Talk) o congelado y no puede debilitarlo en 2 golpes
+    @ - Escenario A: Si tiene movs de curación del 50% y el rival no puede debilitarlo en 2 golpes
+    @ - Escenario B: Si tiene movs de curación (incluido Rest), el mov boostea la defensa por la que
+    @    ataca el rival, el usuario tiene Restos (o con Rest, Chesto o Lum Berry) y el rival no hace OHKO
+    @ (si el usuario es más lento, hace lo mismo pero exigiendo un golpe más)
+    .macro if_user_can_probably_boost_safely ptr:req
+    calculate_nhko AI_TARGET | AI_NHKO_PESSIMISTIC
+	if_effect EFFECT_CURSE, .AI_user_slower_\@
+    if_target_faster .AI_user_slower_\@
+
+    if_target_not_expected_to_sleep .AI_user_faster_target_not_sleeping_\@
+    if_has_move_with_effect AI_TARGET, EFFECT_SLEEP_TALK, .AI_user_faster_target_not_sleeping_\@
+    if_more_than 2, \ptr
+    .AI_user_faster_target_not_sleeping_\@:
+    if_not_status AI_TARGET, STATUS1_FREEZE, .AI_user_faster_target_not_statused_\@
+    if_more_than 2, \ptr
+    
+    .AI_user_faster_target_not_statused_\@:
+    if_more_than 3, \ptr
+    if_equal 3, .AI_check_scenarios_A_and_B_\@
+    if_equal 2, .AI_check_scenario_B_\@
+    goto .AI_user_might_not_be_able_to_boost_safely_\@
+
+    .AI_check_scenarios_A_and_B_\@:
+    if_has_a_50_percent_hp_recovery_move AI_USER, \ptr
+    .AI_check_scenario_B_\@:
+    get_possible_categories_of_foes_attacks
+    if_effect EFFECT_BULK_UP, .AI_check_scenario_B_move_boosts_physical_defense\@
+    if_effect EFFECT_CURSE, .AI_check_scenario_B_move_boosts_physical_defense\@
+    if_effect EFFECT_COIL, .AI_check_scenario_B_move_boosts_physical_defense\@
+    if_effect EFFECT_CALM_MIND, .AI_check_scenario_B_move_boosts_physical_defense\@
+    if_effect EFFECT_QUIVER_DANCE, .AI_check_scenario_B_move_boosts_physical_defense\@
+    goto .AI_user_might_not_be_able_to_boost_safely_\@
+
+    .AI_check_scenario_B_move_boosts_physical_defense\@:
+    if_equal AI_PHYSICAL_ONLY, .AI_check_scenario_B_move_boosts_proper_defense\@
+    if_equal AI_ONLY_PHYSICAL_KNOWN, .AI_check_scenario_B_move_boosts_proper_defense\@
+    if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_PHYSICAL, .AI_check_scenario_B_move_boosts_proper_defense\@
+    goto .AI_user_might_not_be_able_to_boost_safely_\@
+
+    .AI_check_scenario_B_move_boosts_special_defense\@:
+    if_equal AI_SPECIAL_ONLY, .AI_check_scenario_B_move_boosts_proper_defense\@
+    if_equal AI_ONLY_SPECIAL_KNOWN, .AI_check_scenario_B_move_boosts_proper_defense\@
+    if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_SPECIAL, .AI_check_scenario_B_move_boosts_proper_defense\@
+    goto .AI_user_might_not_be_able_to_boost_safely_\@
+
+    .AI_check_scenario_B_move_boosts_proper_defense\@:
+    if_holds_item AI_USER, ITEM_LEFTOVERS, .AI_check_recovery_move_\@
+    if_holds_item AI_USER, ITEM_CHESTO_BERRY, .AI_check_Rest_\@
+    if_holds_item AI_USER, ITEM_LUM_BERRY, .AI_check_Rest_\@
+    goto .AI_user_might_not_be_able_to_boost_safely_\@
+    .AI_check_recovery_move_\@:
+    if_has_a_50_percent_hp_recovery_move AI_USER, \ptr
+    .AI_check_Rest_\@:
+    if_has_move_with_effect AI_USER, EFFECT_REST, \ptr
+    goto .AI_user_might_not_be_able_to_boost_safely_\@
+
+    .AI_user_slower_\@:
+    if_next_turn_target_might_use_move_with_effect EFFECT_TAUNT, .AI_user_might_not_be_able_to_boost_safely_\@
+
+    if_target_not_expected_to_sleep .AI_user_slower_target_not_sleeping_\@
+	
+	if_has_move_with_effect AI_TARGET, EFFECT_SLEEP_TALK, .AI_user_slower_target_not_sleeping_\@
+    if_more_than 3, \ptr
+    .AI_user_slower_target_not_sleeping_\@:
+    if_not_status AI_TARGET, STATUS1_FREEZE, .AI_user_slower_target_not_statused_\@
+    if_more_than 3, \ptr
+    
+    .AI_user_slower_target_not_statused_\@:
+    if_more_than 4, \ptr
+    if_equal 4, .AI_check_scenarios_A_and_B_\@
+    if_equal 3, .AI_check_scenario_B_\@
+    .AI_user_might_not_be_able_to_boost_safely_\@:
     .endm

@@ -1061,7 +1061,7 @@ AI_CheckViability_CheckEffects:
 	if_effect EFFECT_MUD_SPORT, AI_CV_MudSport
 	if_effect EFFECT_OVERHEAT, AI_CV_Overheat
 	if_effect EFFECT_TICKLE, AI_CV_DefenseDown
-	if_effect EFFECT_COSMIC_POWER, AI_CV_SpDefUp
+	if_effect EFFECT_COSMIC_POWER, AI_CV_CosmicPower
 	if_effect EFFECT_BULK_UP, AI_CV_AttackUp
 	if_effect EFFECT_POISON_TAIL, AI_CV_HighCrit
 	if_effect EFFECT_WATER_SPORT, AI_CV_WaterSport
@@ -1257,6 +1257,7 @@ AI_CV_Rollout3:
 
 AI_CV_AttackUp: @ 82DCBBC
 	if_free_setup_turn Score_Plus5
+	if_user_can_probably_boost_safely Score_Plus5
 	if_this_attack_might_be_the_last Score_Minus5
 	if_stat_level_less_than AI_USER, STAT_ATK, 9, AI_CV_AttackUp2
 	if_random_less_than 100, AI_CV_AttackUp3
@@ -1291,6 +1292,11 @@ AI_CV_DefenseUp2: @ 82DCC0C
 	score +2
 
 AI_CV_DefenseUp3: @ 82DCC1B
+    get_possible_categories_of_foes_attacks
+    if_equal AI_SPECIAL_ONLY, Score_Minus3
+    if_equal AI_ONLY_SPECIAL_KNOWN, Score_Minus2
+    if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_SPECIAL, Score_Minus2
+    if_equal AI_NO_DAMAGING_MOVES, Score_Minus2
 	if_hp_less_than AI_USER, 70, AI_CV_DefenseUp4
 	if_random_less_than 200, AI_CV_DefenseUp_End
 
@@ -1362,6 +1368,7 @@ AI_CV_SpeedUp_End: @ 82DCC72
 
 AI_CV_SpAtkUp: @ 82DCC73
 	if_free_setup_turn Score_Plus5
+	if_user_can_probably_boost_safely Score_Plus5
     if_this_attack_might_be_the_last Score_Minus5
 	if_stat_level_less_than AI_USER, STAT_SPATK, 9, AI_CV_SpAtkUp2
 	if_random_less_than 100, AI_CV_SpAtkUp3
@@ -1386,6 +1393,7 @@ AI_CV_SpAtkUp_End: @ 82DCCAD
 
 AI_CV_Growth:
 	if_free_setup_turn Score_Plus5
+	if_user_can_probably_boost_safely Score_Plus5
     if_this_attack_might_be_the_last Score_Minus5
 	if_stat_level_less_than AI_USER, STAT_SPATK, 8, AI_CV_Growth2
 	if_stat_level_less_than AI_USER, STAT_ATK, 8, AI_CV_Growth2
@@ -1408,6 +1416,33 @@ AI_CV_Growth_ScoreDown2:
 
 AI_CV_Growth_End:
 	end
+	
+AI_CV_CosmicPower:
+    if_stat_level_less_than AI_USER, STAT_SPDEF, 9, AI_CV_CosmicPowerUp2
+    if_stat_level_less_than AI_USER, STAT_DEF, 9, AI_CV_CosmicPowerUp2
+    if_random_less_than 100, AI_CV_CosmicPowerUp3
+    score -1
+    goto AI_CV_CosmicPowerUp3
+
+AI_CV_CosmicPowerUp2:
+    if_user_can_probably_boost_safely Score_Plus5
+    if_hp_not_equal AI_USER, 100, AI_CV_CosmicPowerUp3
+    if_random_less_than 128, AI_CV_CosmicPowerUp3
+    score +2
+
+AI_CV_CosmicPowerUp3:
+    if_user_can_probably_boost_safely Score_Plus2
+    if_hp_less_than AI_USER, 70, AI_CV_CosmicPowerUp4
+    if_random_less_than 200, AI_CV_CosmicPower_End
+
+AI_CV_CosmicPowerUp4:
+    if_hp_more_than AI_USER, 40, AI_CV_CosmicPower_End
+
+AI_CV_CosmicPower_ScoreDown2:
+    score -2
+
+AI_CV_CosmicPower_End:
+    end
 
 AI_CV_SpDefUp: @ 82DCCAE
 	if_stat_level_less_than AI_USER, STAT_SPDEF, 9, AI_CV_SpDefUp2
@@ -1421,6 +1456,11 @@ AI_CV_SpDefUp2: @ 82DCCC3
 	score +2
 
 AI_CV_SpDefUp3: @ 82DCCD2
+    get_possible_categories_of_foes_attacks
+    if_equal AI_PHYSICAL_ONLY, Score_Minus3
+    if_equal AI_ONLY_PHYSICAL_KNOWN, Score_Minus2
+    if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_PHYSICAL, Score_Minus2
+    if_equal AI_NO_DAMAGING_MOVES, Score_Minus2
 	if_hp_less_than AI_USER, 70, AI_CV_SpDefUp4
 	if_random_less_than 200, AI_CV_SpDefUp_End
 
@@ -1468,6 +1508,8 @@ AI_CV_AccuracyUp_End:
 	end
 
 AI_CV_EvasionUp:
+    if_has_move_with_effect AI_TARGET, EFFECT_ALWAYS_HIT, AI_CV_EvasionUp_ScoreDown2
+    if_user_can_probably_boost_safely Score_Plus5
 	if_hp_less_than AI_USER, 90, AI_CV_EvasionUp2
 	if_random_less_than 100, AI_CV_EvasionUp2
 	score +3
@@ -1661,6 +1703,7 @@ AI_CV_AccuracyDownFromChance:
 	end
 
 AI_CV_AccuracyDown: @ 82DCF0C
+	if_user_can_probably_boost_safely Score_Plus2
 	if_hp_less_than AI_USER, 70, AI_CV_AccuracyDown2
 	if_hp_more_than AI_TARGET, 70, AI_CV_AccuracyDownIfOpponentCannotSwitch
 
@@ -1866,6 +1909,10 @@ AI_CV_Heal5b:
 	if_random_less_than 100, AI_CV_Heal_End
 
 AI_CV_Heal6:
+    if_hp_less_than AI_USER, 40, Score_Plus2
+    calculate_nhko AI_TARGET
+    if_more_than 3, AI_CV_Heal3
+    if_equal 3, AI_CV_Heal_End
 	if_random_less_than 20, AI_CV_Heal_End
 	score +2
 
@@ -2198,7 +2245,14 @@ AI_CV_Disable_End:
 
 AI_CV_Counter:
 	if_target_wont_attack_due_to_truant Score_Minus10
-	if_status AI_TARGET, STATUS1_SLEEP, AI_CV_Counter_ScoreDown1
+    get_possible_categories_of_foes_attacks
+    if_equal AI_SPECIAL_ONLY, Score_Minus10
+    if_equal AI_NO_DAMAGING_MOVES, Score_Minus10
+    if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_SPECIAL, Score_Minus5
+    if_equal AI_ONLY_SPECIAL_KNOWN, Score_Minus5
+    if_target_not_expected_to_sleep AI_CV_Counter_TargetNotSleeping
+    goto AI_CV_Counter_ScoreDown1
+AI_CV_Counter_TargetNotSleeping:
 	if_status AI_TARGET, STATUS1_FREEZE, AI_CV_Counter_ScoreDown1
 	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_Counter_ScoreDown1
 	if_status2 AI_TARGET, STATUS2_CONFUSION, AI_CV_Counter_ScoreDown1
@@ -2212,7 +2266,7 @@ AI_CV_Counter2:
 	score -1
 
 AI_CV_Counter3:
-	if_has_move AI_USER, MOVE_MIRROR_COAT, AI_CV_Counter7
+    if_has_move AI_USER, MOVE_MIRROR_COAT, AI_CV_Counter6
 	get_last_used_bank_move AI_TARGET
 	get_move_power_from_result
 	if_equal 0, AI_CV_Counter5
@@ -2234,17 +2288,6 @@ AI_CV_Counter5:
 	score +1
 
 AI_CV_Counter6:
-	get_target_type1
-	if_in_bytes AI_CV_Counter_PhysicalTypeList, AI_CV_Counter_End
-	get_target_type2
-	if_in_bytes AI_CV_Counter_PhysicalTypeList, AI_CV_Counter_End
-	if_random_less_than 50, AI_CV_Counter_End
-
-AI_CV_Counter7:
-	if_random_less_than 100, AI_CV_Counter8
-	score +4
-
-AI_CV_Counter8:
 	end
 
 AI_CV_Counter_ScoreDown1:
@@ -2388,6 +2431,9 @@ AI_CV_Snore:
 	end
 
 AI_CV_LockOn:
+	if_doesnt_have_move_with_effect AI_USER, EFFECT_OHKO, AI_CV_LockOn_NoChanceToOHKOInFreeTurn
+    if_free_setup_turn Score_Plus2
+AI_CV_LockOn_NoChanceToOHKOInFreeTurn:
 	if_this_attack_might_be_the_last Score_Minus5
 	if_random_less_than 128, AI_CV_LockOn_End
 	score +2
@@ -2529,6 +2575,7 @@ AI_CV_Curse:
 	if_equal TYPE_GHOST, AI_CV_Curse4
 	get_user_type2
 	if_equal TYPE_GHOST, AI_CV_Curse4
+	if_user_can_probably_boost_safely Score_Plus5
 	if_stat_level_more_than AI_USER, STAT_DEF, 9, AI_CV_Curse_End
 	if_random_less_than 128, AI_CV_Curse2
 	score +1
@@ -2903,7 +2950,14 @@ AI_CV_PsychUp_End:
 
 AI_CV_MirrorCoat:
 	if_target_wont_attack_due_to_truant Score_Minus10
-	if_status AI_TARGET, STATUS1_SLEEP, AI_CV_MirrorCoat_ScoreDown1
+    get_possible_categories_of_foes_attacks
+    if_equal AI_PHYSICAL_ONLY, Score_Minus10
+    if_equal AI_NO_DAMAGING_MOVES, Score_Minus10
+    if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_PHYSICAL, Score_Minus5
+    if_equal AI_ONLY_PHYSICAL_KNOWN, Score_Minus5
+    if_target_not_expected_to_sleep AI_CV_MirrorCoat_TargetNotSleeping
+    goto AI_CV_MirrorCoat_ScoreDown1
+AI_CV_MirrorCoat_TargetNotSleeping:
 	if_status AI_TARGET, STATUS1_FREEZE, AI_CV_MirrorCoat_ScoreDown1
 	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_MirrorCoat_ScoreDown1
 	if_status2 AI_TARGET, STATUS2_CONFUSION, AI_CV_MirrorCoat_ScoreDown1
@@ -2917,7 +2971,7 @@ AI_CV_MirrorCoat2:
 	score -1
 
 AI_CV_MirrorCoat3:
-	if_has_move AI_USER, MOVE_COUNTER, AI_CV_MirrorCoat_ScoreUp4
+    if_has_move AI_USER, MOVE_COUNTER, AI_CV_MirrorCoat6
 	get_last_used_bank_move AI_TARGET
 	get_move_power_from_result
 	if_equal 0, AI_CV_MirrorCoat5
@@ -2939,17 +2993,6 @@ AI_CV_MirrorCoat5:
 	score +1
 
 AI_CV_MirrorCoat6:
-	get_target_type1
-	if_in_bytes AI_CV_MirrorCoat_SpecialTypeList, AI_CV_MirrorCoat_End
-	get_target_type2
-	if_in_bytes AI_CV_MirrorCoat_SpecialTypeList, AI_CV_MirrorCoat_End
-	if_random_less_than 50, AI_CV_MirrorCoat_End
-
-AI_CV_MirrorCoat_ScoreUp4:
-	if_random_less_than 100, AI_CV_MirrorCoat_ScoreUp4_End
-	score +4
-
-AI_CV_MirrorCoat_ScoreUp4_End:
 	end
 
 AI_CV_MirrorCoat_ScoreDown1:
@@ -3517,6 +3560,8 @@ AI_CV_WaterSport_End:
 	end
 
 AI_CV_DragonDance:
+    if_free_setup_turn Score_Plus5
+	if_user_can_probably_boost_safely Score_Plus5
 	if_target_faster AI_CV_DragonDance2
 	if_hp_more_than AI_USER, 50, AI_CV_DragonDance_End
 	if_random_less_than 70, AI_CV_DragonDance_End
