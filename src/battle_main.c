@@ -2124,35 +2124,58 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 }
 		// NUEVO RANDOM BATTLE
 		
-		// NUEVO RANDOM BATTLE 3 POKEMON NV80 MIN
+		// NUEVO RANDOM BATTLE (3 pokes enemigos de nv80 min u otros niveles)
                 if (FlagGet(FLAG_RANDOMBATTLE_GYMGOOSES) == 1)
                 {
-                    u8 playerPartyMaxLevel = GetPlayerPartyMaxLevel();
-					u8 minLevel = 80;
-					u8 level = max(playerPartyMaxLevel, minLevel);
-				const struct FacilityMon * pokeenemy;
-					do {
-					pokeenemy = &gBattleFrontierMons[Random() % NUM_FRONTIER_MONS];
-						for (j=0; j<i && pokeenemy->species != GetMonData(&gEnemyParty[j], MON_DATA_SPECIES2); j++);
-						} while (j < i);
-				CreateMonWithEVSpreadNatureOTID(&gEnemyParty[i], pokeenemy -> species, level, pokeenemy -> nature, 31, pokeenemy -> evSpread, 0);
-                for (j = 0; j < MAX_MON_MOVES; j++)
-        {
-            SetMonMoveAvoidReturn(&gEnemyParty[i], pokeenemy -> moves[j], j);
-        }
+                    u8 level;
+                    const struct FacilityMon * pokeenemy;
 
-        SetMonData(&gEnemyParty[i], MON_DATA_FRIENDSHIP, 0);
-        SetMonData(&gEnemyParty[i], MON_DATA_HELD_ITEM, &gBattleFrontierHeldItems[pokeenemy -> itemTableId]);
-				for (j = 0; j < MAX_MON_MOVES; j++)
-                {
-                    u8 maxPp = CalculatePPWithBonus(pokeenemy -> moves[j], 3, 0);
-                    u8 fullpp = 0xFF;
-					SetMonData(&gEnemyParty[i], MON_DATA_PP1 + j, &maxPp);
-					SetMonData(&gEnemyParty[i], MON_DATA_PP_BONUSES, &fullpp);
+                    if (FlagGet(FLAG_RANDOMBATTLE_GYMSAPPH) == 1)
+                        level = 76 + (Random() % 4);
+                    else
+                        level = 82 + (Random() % 4);
+
+                    do {
+                        pokeenemy = &gBattleFrontierMons[Random() % FRONTIER_MON_MEWTWO_1];
+                        for (j=0; j<i && pokeenemy->species != GetMonData(&gEnemyParty[j], MON_DATA_SPECIES2); j++);
+                            switch (pokeenemy->species) {
+                                case SPECIES_ARTICUNO:
+                                case SPECIES_ZAPDOS:
+                                case SPECIES_MOLTRES:
+                                case SPECIES_RAIKOU:
+                                case SPECIES_ENTEI:
+                                case SPECIES_SUICUNE:
+                                case SPECIES_CELEBI:
+                                case SPECIES_REGIROCK:
+                                case SPECIES_REGICE:
+                                case SPECIES_REGISTEEL:
+                                case SPECIES_LATIOS:
+                                case SPECIES_LATIAS:
+                                case SPECIES_JIRACHI:
+                                case SPECIES_REGIDRAGO:
+                                case SPECIES_REGIELEKI:
+                                    j = -1;
+                            }
+                        } while (j < i);
+                    CreateMonWithEVSpreadNatureOTID(&gEnemyParty[i], pokeenemy -> species, level, pokeenemy -> nature, 31, pokeenemy -> evSpread, 0);
+                    for (j = 0; j < MAX_MON_MOVES; j++)
+                    {
+                        SetMonMoveAvoidReturn(&gEnemyParty[i], pokeenemy -> moves[j], j);
+                    }
+
+                    SetMonData(&gEnemyParty[i], MON_DATA_FRIENDSHIP, 0);
+                    SetMonData(&gEnemyParty[i], MON_DATA_HELD_ITEM, &gBattleFrontierHeldItems[pokeenemy -> itemTableId]);
+                    for (j = 0; j < MAX_MON_MOVES; j++)
+                    {
+                        u8 maxPp = CalculatePPWithBonus(pokeenemy -> moves[j], 3, 0);
+                        u8 fullpp = 0xFF;
+                        SetMonData(&gEnemyParty[i], MON_DATA_PP1 + j, &maxPp);
+                        SetMonData(&gEnemyParty[i], MON_DATA_PP_BONUSES, &fullpp);
+                    }
+                    
+                    break;
                 }
-					break;
-                }
-		// NUEVO RANDOM BATTLE 3 POKEMON NV80 MIN
+        // NUEVO RANDOM BATTLE (3 pokes enemigos de nv80 min u otros niveles)
 		
 		// NUEVO RANDOM BATTLE CC
                 if (FlagGet(FLAG_RYU_RANDOMBATTLECC) == 1)

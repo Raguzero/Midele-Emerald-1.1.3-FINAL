@@ -112,6 +112,8 @@ SapphireGym_Trigger_FourthPuzzle::
 	msgbox SapphireGym_Text_YouWonFourthPuzzle, MSGBOX_NPC
 SapphireGym_EventScript_FourthPuzzle_EndPuzzle:
 	fadedefaultbgm
+	clearflag FLAG_RANDOMBATTLE_GYMGOOSES
+	clearflag FLAG_RANDOMBATTLE_GYMSAPPH	  
 	setvar VAR_STATE_SAPPH_GYM, 4
 	setvar VAR_TEMP_3, 1
 	release
@@ -119,11 +121,20 @@ SapphireGym_EventScript_FourthPuzzle_EndPuzzle:
 
 SapphireGym_EventScript_FourthPuzzle_FightRandom:
 	msgbox SapphireGym_Text_YouFailed, MSGBOX_NPC
+	setflag FLAG_RANDOMBATTLE_GYMGOOSES
+	setflag FLAG_RANDOMBATTLE_GYMSAPPH
 	setvar VAR_0x8004, SPECIAL_RANDOM_BATTLE
     setvar VAR_0x8005, 0
     special DoSpecialTrainerBattle
     waitstate
-	goto SapphireGym_EventScript_FourthPuzzle_EndPuzzle
+    compare VAR_RESULT, B_OUTCOME_DREW
+    call_if_eq SapphireGym_EventScript_LossPuzzle_AndLossRandomBattle
+    compare VAR_RESULT, B_OUTCOME_WON
+    call_if_eq SapphireGym_EventScript_FourthPuzzle_EndPuzzle
+    compare VAR_RESULT, B_OUTCOME_LOST
+    call_if_eq SapphireGym_EventScript_LossPuzzle_AndLossRandomBattle
+    compare VAR_RESULT, B_OUTCOME_FORFEITED
+    call_if_eq SapphireGym_EventScript_LossPuzzle_AndLossRandomBattle
 	end
 
 SapphireGym_EventScript_FirstPuzzleGirlDefeated:
@@ -237,8 +248,20 @@ SapphireGym_EventScript_FirstPuzzle_Explain:
 	msgbox SapphireGym_Text_YouWon, MSGBOX_NPC
 SapphireGym_EventScript_FirstPuzzle_EndPuzzle:
 	fadedefaultbgm
+	clearflag FLAG_RANDOMBATTLE_GYMGOOSES
+	clearflag FLAG_RANDOMBATTLE_GYMSAPPH
 	call SapphireGym_EventScript_FirstPuzzle_OpenPath
 	setvar VAR_STATE_SAPPH_GYM, 1
+	release
+	end
+
+SapphireGym_EventScript_LossPuzzle_AndLossRandomBattle:
+	fadedefaultbgm
+	special HealPlayerParty
+	clearflag FLAG_RANDOMBATTLE_GYMGOOSES
+	clearflag FLAG_RANDOMBATTLE_GYMSAPPH
+	warp MAP_SAPPHIRE_GYM, 0, 0, 0
+	closemessage
 	release
 	end
 
@@ -259,11 +282,20 @@ SapphireGym_EventScript_ExecutePuzzle:
 
 SapphireGym_EventScript_FirstPuzzle_FightRandom:
 	msgbox SapphireGym_Text_YouFailed, MSGBOX_NPC
+	setflag FLAG_RANDOMBATTLE_GYMGOOSES
+	setflag FLAG_RANDOMBATTLE_GYMSAPPH
 	setvar VAR_0x8004, SPECIAL_RANDOM_BATTLE
     setvar VAR_0x8005, 0
     special DoSpecialTrainerBattle
     waitstate
-	goto SapphireGym_EventScript_FirstPuzzle_EndPuzzle
+    compare VAR_RESULT, B_OUTCOME_DREW
+    call_if_eq SapphireGym_EventScript_LossPuzzle_AndLossRandomBattle
+    compare VAR_RESULT, B_OUTCOME_WON
+    call_if_eq SapphireGym_EventScript_FirstPuzzle_EndPuzzle
+    compare VAR_RESULT, B_OUTCOME_LOST
+    call_if_eq SapphireGym_EventScript_LossPuzzle_AndLossRandomBattle
+    compare VAR_RESULT, B_OUTCOME_FORFEITED
+    call_if_eq SapphireGym_EventScript_LossPuzzle_AndLossRandomBattle
 	end
 
 SapphireGym_EventScript_ShowZigzagoon:
@@ -351,6 +383,8 @@ SapphireGym_EventScript_SecondPuzzle_Explain:
 	msgbox SapphireGym_Text_YouWonSecondPuzzle, MSGBOX_NPC
 SapphireGym_EventScript_SecondPuzzle_EndPuzzle:
 	fadedefaultbgm
+	clearflag FLAG_RANDOMBATTLE_GYMGOOSES
+	clearflag FLAG_RANDOMBATTLE_GYMSAPPH	  
 	call SapphireGym_EventScript_SecondPuzzle_OpenPath
 	setvar VAR_STATE_SAPPH_GYM, 2
 	release
@@ -363,11 +397,20 @@ SapphireGym_EventScript_SecondPuzzle_Decline:
 
 SapphireGym_EventScript_SecondPuzzle_FightRandom:
 	msgbox SapphireGym_Text_YouFailed, MSGBOX_NPC
+	setflag FLAG_RANDOMBATTLE_GYMGOOSES
+	setflag FLAG_RANDOMBATTLE_GYMSAPPH
 	setvar VAR_0x8004, SPECIAL_RANDOM_BATTLE
     setvar VAR_0x8005, 0
     special DoSpecialTrainerBattle
     waitstate
-	goto SapphireGym_EventScript_SecondPuzzle_EndPuzzle
+    compare VAR_RESULT, B_OUTCOME_DREW
+    call_if_eq SapphireGym_EventScript_LossPuzzle_AndLossRandomBattle
+    compare VAR_RESULT, B_OUTCOME_WON
+    call_if_eq SapphireGym_EventScript_SecondPuzzle_EndPuzzle
+    compare VAR_RESULT, B_OUTCOME_LOST
+    call_if_eq SapphireGym_EventScript_LossPuzzle_AndLossRandomBattle
+    compare VAR_RESULT, B_OUTCOME_FORFEITED
+    call_if_eq SapphireGym_EventScript_LossPuzzle_AndLossRandomBattle
 	end
 
 SapphireGym_EventScript_ExecuteSecondPuzzle:
@@ -495,6 +538,8 @@ SapphireGym_EventScript_ThirdPuzzleZigza::
 	msgbox SapphireGym_Text_YouWonThirdPuzzle, MSGBOX_NPC
 SapphireGym_EventScript_ThirdPuzzle_EndPuzzle:
 	fadedefaultbgm
+	clearflag FLAG_RANDOMBATTLE_GYMGOOSES
+	clearflag FLAG_RANDOMBATTLE_GYMSAPPH	  
 	call SapphireGym_EventScript_ThirdPuzzle_OpenPath
 	setvar VAR_STATE_SAPPH_GYM, 3
 	release
@@ -592,11 +637,20 @@ SapphireGym_EventScript_StartThirdPuzzle_Iteration0:
 
 SapphireGym_EventScript_ThirdPuzzle_FightRandom:
 	msgbox SapphireGym_Text_YouFailed, MSGBOX_NPC
+	setflag FLAG_RANDOMBATTLE_GYMGOOSES
+	setflag FLAG_RANDOMBATTLE_GYMSAPPH
 	setvar VAR_0x8004, SPECIAL_RANDOM_BATTLE
     setvar VAR_0x8005, 0
     special DoSpecialTrainerBattle
     waitstate
-	goto SapphireGym_EventScript_ThirdPuzzle_EndPuzzle
+    compare VAR_RESULT, B_OUTCOME_DREW
+    call_if_eq SapphireGym_EventScript_LossPuzzle_AndLossRandomBattle
+    compare VAR_RESULT, B_OUTCOME_WON
+    call_if_eq SapphireGym_EventScript_ThirdPuzzle_EndPuzzle
+    compare VAR_RESULT, B_OUTCOME_LOST
+    call_if_eq SapphireGym_EventScript_LossPuzzle_AndLossRandomBattle
+    compare VAR_RESULT, B_OUTCOME_FORFEITED
+    call_if_eq SapphireGym_EventScript_LossPuzzle_AndLossRandomBattle
 	end
 
 SapphireGym_EventScript_ThirdPuzzle_OpenPath:
