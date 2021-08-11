@@ -17,4 +17,16 @@ OldaleTown_PokemonCenter_2F_EventScript_TradeCenter:: @ 81FC233
 OldaleTown_PokemonCenter_2F_EventScript_RecordCorner:: @ 81FC239
 	call CableClub_EventScript_RecordCorner
 	end
+	
+OldaleTown_PokemonCenter_2F_EventScript_PC::
+	goto_if_unset FLAG_OLDALE_TOWN_PC_OCUPADO, OldaleTown_PokemonCenter_2F_EventScript_PC2
+	call EventScript_PC
+	end
+OldaleTown_PokemonCenter_2F_EventScript_PC2::
+	msgbox OldaleTown_PokemonCenter_1F_Text_PCActualizando, MSGBOX_SIGN
+	end
+	
+OldaleTown_PokemonCenter_1F_Text_PCActualizando:
+	.string "The PC is updating.\n" 
+	.string "Right now it can't be used.$"
 

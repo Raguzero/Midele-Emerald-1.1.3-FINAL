@@ -78,6 +78,19 @@
             "trainer_type": "0",
             "x": 15,
             "y": 2
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_OLDALE_TOWN_PC_OCUPADO",
+            "graphics_id": "EVENT_OBJ_GFX_MANIAC",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_UP",
+            "script": "OldaleTown_PokemonCenter_1F_EventScript_PCOcupado",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 11,
+            "y": 2
         }
     ],
     "region_map_section": "MAPSEC_OLDALE_TOWN",
