@@ -2195,7 +2195,7 @@ const struct MonCoords gMonFrontPicCoords[] =
     [SPECIES_PERSERKER] =
     {
         .size = 0x77,
-        .y_offset = 0x07,
+        .y_offset = 0x04,
     },
     [SPECIES_GALAR_ZIGZAGOON] =
     {
@@ -2626,7 +2626,7 @@ const struct MonCoords gMonFrontPicCoords[] =
     [SPECIES_INTELEON] =
     {
         .size = 0x86,
-        .y_offset = 1,
+        .y_offset = 0x01,
     },
     [SPECIES_TURTWIG] =
     {
@@ -2821,7 +2821,7 @@ const struct MonCoords gMonFrontPicCoords[] =
     [SPECIES_FLAPPLE] =
     {
         .size = 0x64,
-        .y_offset = 0x12,
+        .y_offset = 0x9,
     },
     [SPECIES_APPLETUN] =
     {
@@ -3156,7 +3156,7 @@ const struct MonCoords gMonFrontPicCoords[] =
     [SPECIES_DARK_PIKACHU] =
     {
         .size = 0x67,
-        .y_offset = 0x09,
+        .y_offset = 0x04,
     },
     [SPECIES_HONEDGE_MONADO] =
     {
