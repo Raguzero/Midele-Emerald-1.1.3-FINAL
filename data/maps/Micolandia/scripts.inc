@@ -281,7 +281,7 @@ Micolandia_GymNoroesteSign:
 Micolandia_GymSuroesteSign:
 	.string "POKEMON GYM Nº2\n"
 	.string "LEADER: SAPPH\l"
-	.string "“TEMÁTICA: ????”$"
+	.string "“TEMÁTICA: BURBUJA RÍTMICA”$"
 
 Micolandia_GymSuresteSign:
 	.string "POKéMON GYM Nº3\n"

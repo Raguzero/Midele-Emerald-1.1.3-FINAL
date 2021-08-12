@@ -135,13 +135,13 @@ const struct TotemMon gTotemMons[] =
     },
     [TOTEM_SAPPHIRE] =
     {
-        .species = SPECIES_MAGIKARP,
+        .species = SPECIES_DARK_PIKACHU,
         .minLevel = 75,
-        .moves = {MOVE_THUNDER, MOVE_SURF, MOVE_ICE_BEAM, MOVE_THUNDER_WAVE},
+        .moves = {MOVE_THUNDER, MOVE_SURF, MOVE_BRUTAL_BALL, MOVE_CONFUSE_RAY},
         .item = ITEM_LEFTOVERS,
         .nature = NATURE_MODEST,
-        .abilityNumber = 0, // VOLT ABSORB
-        .statBoosts = {6, 6, 12, 6, 8, 12, 6, 6}, // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
+        .abilityNumber = 0, // INTIMIDATE
+        .statBoosts = {6, 6, 12, 6, 6, 12, 6, 6}, // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
         .evs = {252, 252, 252, 252, 252, 252},
     }
 };
