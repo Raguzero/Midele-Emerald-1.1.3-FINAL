@@ -39,6 +39,9 @@
 
 #define AI_THINKING_STRUCT ((struct AI_ThinkingStruct *)(gBattleResources->ai))
 #define BATTLE_HISTORY ((struct BattleHistory *)(gBattleResources->battleHistory))
+#define FOES_MOVE_HISTORY(opponentId) (BATTLE_HISTORY->_usedMoves[gBattlerPartyIndexes[opponentId]].moves)
+#define FOES_OBSERVED_ABILITY(opponentId) (BATTLE_HISTORY->_abilities[gBattlerPartyIndexes[opponentId]])
+#define FOES_OBSERVED_ITEM_EFFECT(opponentId) (BATTLE_HISTORY->_itemEffects[gBattlerPartyIndexes[opponentId]])
 #define AI_CAN_ESTIMATE_DAMAGE(move) (gBattleMoves[move].power > 1 || (gBattleMoves[move].power == 1 && gBattleMoves[move].effect != EFFECT_OHKO && move != MOVE_COUNTER && move != MOVE_MIRROR_COAT && move != MOVE_BIDE))
 
 // AI states
@@ -464,7 +467,7 @@ bool32 IsTruantMonVulnerable(u32 battlerAI, u32 opposingBattler)
 
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
-        u32 move = gBattleResources->battleHistory->usedMoves[opposingBattler].moves[i];
+        u32 move = FOES_MOVE_HISTORY(opposingBattler)[i];
         if (gBattleMoves[move].effect == EFFECT_PROTECT && move != MOVE_ENDURE)
             return TRUE;
 		if (gBattleMoves[move].effect == EFFECT_SUBSTITUTE
@@ -586,7 +589,7 @@ bool32 OurShedinjaIsVulnerable(u32 battlerAI, u32 opposingBattler, u16 considere
 
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
-        gCurrentMove = gBattleResources->battleHistory->usedMoves[opposingBattler].moves[i];
+        gCurrentMove = FOES_MOVE_HISTORY(opposingBattler)[i];
 
         if (!gCurrentMove)
             continue;
@@ -772,6 +775,30 @@ static u8 ChooseMoveOrAction_Singles(void)
             {
                 AI_THINKING_STRUCT->switchMon = TRUE;
                 return AI_CHOICE_SWITCH;
+            }
+        // El poke lleva muchos turnos intoxicado, mejor cambiar
+        if (gBattleMons[sBattler_AI].status1 & STATUS1_TOXIC_POISON
+            && ((gBattleMons[sBattler_AI].status1 & 0xF00) >> 8) >= 4 // lleva al menos 4 turnos de daño y por tanto va a perder más de un 25% (al menos un 31,25%) de sus PS
+            && currentMoveArray[0] <= 101 // y no escoge un movimiento que alcance los 102 puntos (probable KO)
+			&& AICanSwitchAssumingEnoughPokemon())
+			if (GetMostSuitableMonToSwitchInto() != PARTY_SIZE)
+            {
+                bool8 convenient_move = FALSE; // TRUE si en el mov hace que no sea relevante el estar intoxicado
+                switch (gBattleMoves[move].effect) {
+                    case EFFECT_REFRESH:
+                    case EFFECT_HEAL_BELL:
+                    case EFFECT_REST:
+                    case EFFECT_EXPLOSION:
+                    case EFFECT_DESTINY_BOND:
+                    case EFFECT_GRUDGE:
+                    case EFFECT_MEMENTO:
+                    case EFFECT_BATON_PASS:
+                        convenient_move = TRUE;
+                }
+             if (!convenient_move) {
+                AI_THINKING_STRUCT->switchMon = TRUE;
+                return AI_CHOICE_SWITCH;
+               }
             }
         return chosenMovePos;
     }
@@ -968,14 +995,17 @@ static void RecordLastUsedMoveByTarget(void)
 {
     s32 i;
 
+    if (GetBattlerSide(gBattlerTarget) != B_SIDE_PLAYER)
+        return;
+
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
-        if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] == gLastMoves[gBattlerTarget])
+        if (FOES_MOVE_HISTORY(gBattlerTarget)[i] == gLastMoves[gBattlerTarget])
             break;
-        if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] != gLastMoves[gBattlerTarget]  // HACK: This redundant condition is a hack to make the asm match.
-         && BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] == MOVE_NONE)
+        if (FOES_MOVE_HISTORY(gBattlerTarget)[i] != gLastMoves[gBattlerTarget]  // HACK: This redundant condition is a hack to make the asm match.
+         && FOES_MOVE_HISTORY(gBattlerTarget)[i] == MOVE_NONE)
         {
-            BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] = gLastMoves[gBattlerTarget];
+            FOES_MOVE_HISTORY(gBattlerTarget)[i] = gLastMoves[gBattlerTarget];
             break;
         }
     }
@@ -985,28 +1015,54 @@ void ClearBattlerMoveHistory(u8 battlerId)
 {
     s32 i;
 
+  if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
     for (i = 0; i < MAX_MON_MOVES; i++)
-        BATTLE_HISTORY->usedMoves[battlerId].moves[i] = MOVE_NONE;
+        FOES_MOVE_HISTORY(battlerId)[i] = MOVE_NONE;
 }
 
 void RecordAbilityBattle(u8 battlerId, u8 abilityId)
 {
-    BATTLE_HISTORY->abilities[battlerId] = abilityId;
+  if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
+    FOES_OBSERVED_ABILITY(battlerId) = abilityId;
 }
 
 void ClearBattlerAbilityHistory(u8 battlerId)
 {
-    BATTLE_HISTORY->abilities[battlerId] = ABILITY_NONE;
+  if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
+    FOES_OBSERVED_ABILITY(battlerId) = ABILITY_NONE;
+}
+
+void CopyBattlerHistoryForTransformedMon(u8 transformUser, u8 transformTarget)
+{
+    s32 i;
+
+    if (GetBattlerSide(transformUser) != B_SIDE_PLAYER)
+        return;
+    
+    if (GetBattlerSide(transformTarget) == B_SIDE_PLAYER) {
+        FOES_OBSERVED_ABILITY(transformUser) = FOES_OBSERVED_ABILITY(transformTarget);
+        
+        for (i = 0; i < MAX_MON_MOVES; i++)
+            FOES_MOVE_HISTORY(transformUser)[i] = FOES_MOVE_HISTORY(transformTarget)[i];
+    }
+    else {
+        FOES_OBSERVED_ABILITY(transformUser) = gBattleMons[transformTarget].ability;
+        
+        for (i = 0; i < MAX_MON_MOVES; i++)
+            FOES_MOVE_HISTORY(transformUser)[i] = gBattleMons[transformTarget].moves[i];
+    }
 }
 
 void RecordItemEffectBattle(u8 battlerId, u8 itemEffect)
 {
-    BATTLE_HISTORY->itemEffects[battlerId] = itemEffect;
+  if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
+    FOES_OBSERVED_ITEM_EFFECT(battlerId) = itemEffect;
 }
 
 void ClearBattlerItemEffectHistory(u8 battlerId)
 {
-    BATTLE_HISTORY->itemEffects[battlerId] = 0;
+  if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
+    FOES_OBSERVED_ITEM_EFFECT(battlerId) = 0;
 }
 
 static void Cmd_if_random_less_than(void)
@@ -1741,9 +1797,9 @@ static void Cmd_get_ability(void)
 
 	if ((gActiveBattler | BIT_FLANK) != (battlerId | BIT_FLANK))
     {
-        if (BATTLE_HISTORY->abilities[battlerId] != 0)
+        if (FOES_OBSERVED_ABILITY(battlerId) != 0)
         {
-            AI_THINKING_STRUCT->funcResult = BATTLE_HISTORY->abilities[battlerId];
+            AI_THINKING_STRUCT->funcResult = FOES_OBSERVED_ABILITY(battlerId);
             gAIScriptPtr += 2;
             return;
         }
@@ -1794,9 +1850,9 @@ static void Cmd_check_ability(void)
 
     if (gAIScriptPtr[1] == AI_TARGET || gAIScriptPtr[1] == AI_TARGET_PARTNER)
     {
-        if (BATTLE_HISTORY->abilities[battlerId] != ABILITY_NONE)
+        if (FOES_OBSERVED_ABILITY(battlerId) != ABILITY_NONE)
         {
-            ability = BATTLE_HISTORY->abilities[battlerId];
+            ability = FOES_OBSERVED_ABILITY(battlerId);
             AI_THINKING_STRUCT->funcResult = ability;
         }
         // Abilities that prevent fleeing.
@@ -2188,11 +2244,11 @@ static void Cmd_if_has_move(void)
         moveLimitations = CheckMoveLimitations(gBattlerTarget, 0, MOVE_LIMITATION_PP);
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
-            if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] == *movePtr)
+            if (FOES_MOVE_HISTORY(gBattlerTarget)[i] == *movePtr)
             {
                 s32 j;
                 for (j = 0; j < MAX_MON_MOVES; j++)
-                    if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] == gBattleMons[gBattlerTarget].moves[j] && !(gBitTable[j] & moveLimitations))
+                    if (FOES_MOVE_HISTORY(gBattlerTarget)[i] == gBattleMons[gBattlerTarget].moves[j] && !(gBitTable[j] & moveLimitations))
                         break;
                 if (j != MAX_MON_MOVES)
                     break;
@@ -2232,11 +2288,11 @@ static void Cmd_if_doesnt_have_move(void)
         moveLimitations = CheckMoveLimitations(gBattlerTarget, 0, MOVE_LIMITATION_PP);
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
-            if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] == *movePtr)
+            if (FOES_MOVE_HISTORY(gBattlerTarget)[i] == *movePtr)
             {
                 s32 j;
                 for (j = 0; j < MAX_MON_MOVES; j++)
-                    if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] == gBattleMons[gBattlerTarget].moves[j] && !(gBitTable[j] & moveLimitations))
+                    if (FOES_MOVE_HISTORY(gBattlerTarget)[i] == gBattleMons[gBattlerTarget].moves[j] && !(gBitTable[j] & moveLimitations))
                         break;
                 if (j != MAX_MON_MOVES)
                     break;
@@ -2275,11 +2331,11 @@ static void Cmd_if_has_move_with_effect(void)
         moveLimitations = CheckMoveLimitations(gBattlerTarget, 0, MOVE_LIMITATION_PP);
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
-            if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] && gBattleMoves[BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i]].effect == gAIScriptPtr[2])
+            if (FOES_MOVE_HISTORY(gBattlerTarget)[i] && gBattleMoves[FOES_MOVE_HISTORY(gBattlerTarget)[i]].effect == gAIScriptPtr[2])
             {
                 s32 j;
                 for (j = 0; j < MAX_MON_MOVES; j++)
-                    if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] == gBattleMons[gBattlerTarget].moves[j] && !(gBitTable[j] & moveLimitations))
+                    if (FOES_MOVE_HISTORY(gBattlerTarget)[i] == gBattleMons[gBattlerTarget].moves[j] && !(gBitTable[j] & moveLimitations))
                         break;
                 if (j != MAX_MON_MOVES)
                     break;
@@ -2318,11 +2374,11 @@ static void Cmd_if_doesnt_have_move_with_effect(void)
         moveLimitations = CheckMoveLimitations(gBattlerTarget, 0, MOVE_LIMITATION_PP);
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
-            if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] && gBattleMoves[BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i]].effect == gAIScriptPtr[2])
+            if (FOES_MOVE_HISTORY(gBattlerTarget)[i] && gBattleMoves[FOES_MOVE_HISTORY(gBattlerTarget)[i]].effect == gAIScriptPtr[2])
             {
                 s32 j;
                 for (j = 0; j < MAX_MON_MOVES; j++)
-                    if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] == gBattleMons[gBattlerTarget].moves[j] && !(gBitTable[j] & moveLimitations))
+                    if (FOES_MOVE_HISTORY(gBattlerTarget)[i] == gBattleMons[gBattlerTarget].moves[j] && !(gBitTable[j] & moveLimitations))
                         break;
                 if (j != MAX_MON_MOVES)
                     break;
@@ -2429,7 +2485,7 @@ static void Cmd_if_holds_item(void)
     if ((battlerId & BIT_SIDE) == (sBattler_AI & BIT_SIDE))
         item = gBattleMons[battlerId].item;
     else
-        item = BATTLE_HISTORY->itemEffects[battlerId];
+        item = FOES_OBSERVED_ITEM_EFFECT(battlerId);
 
     var2 = gAIScriptPtr[2];
     var1 = gAIScriptPtr[3];
@@ -2840,7 +2896,7 @@ static void Cmd_calculate_nhko(void)
     {
         attackerId = gBattlerTarget;
         targetId = sBattler_AI;
-        movePointer = BATTLE_HISTORY->usedMoves[gBattlerTarget].moves;
+        movePointer = FOES_MOVE_HISTORY(gBattlerTarget);
         check_only_considered_move = FALSE;
     }
     
@@ -2974,11 +3030,11 @@ static void Cmd_if_next_turn_target_might_use_move_with_effect(void)
 
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
-        if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] && gBattleMoves[BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i]].effect == *(gAIScriptPtr - 5))
+        if (FOES_MOVE_HISTORY(gBattlerTarget)[i] && gBattleMoves[FOES_MOVE_HISTORY(gBattlerTarget)[i]].effect == *(gAIScriptPtr - 5))
         {
             s32 j;
             for (j = 0; j < MAX_MON_MOVES; j++)
-                if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] == gBattleMons[gBattlerTarget].moves[j] && !(gBitTable[j] & moveLimitations))
+                if (FOES_MOVE_HISTORY(gBattlerTarget)[i] == gBattleMons[gBattlerTarget].moves[j] && !(gBitTable[j] & moveLimitations))
                     break;
             if (j != MAX_MON_MOVES)
                 break;
@@ -3009,7 +3065,7 @@ static void Cmd_get_possible_categories_of_foes_attacks(void)
     
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
-        u16 move = BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i];
+        u16 move = FOES_MOVE_HISTORY(gBattlerTarget)[i];
         if (!move)
             all_moves_known = FALSE;
         else if (AI_CAN_ESTIMATE_DAMAGE(move)) // hay mov de daño y no es Counter/Mirror Coat/Bide/OHKO

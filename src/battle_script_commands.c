@@ -53,6 +53,7 @@
 #include "constants/rgb.h"
 #include "data.h"
 #include "boss_battles.h"
+#include "battle_ai_script_commands.h"
 #include "constants/boss_battles.h"
 #include "constants/party_menu.h"
 
@@ -1826,6 +1827,10 @@ static void Cmd_typecalc(void)
     }
     else
     {
+        // Si el poke rival no tiene Levitación, la IA toma nota
+        // (Levitación siempre es la primera habilidad)
+        if (moveType == TYPE_GROUND && gBaseStats[gBattleMons[gBattlerTarget].species].abilities[0] == ABILITY_LEVITATE && gBaseStats[gBattleMons[gBattlerTarget].species].abilities[1] == gBattleMons[gBattlerTarget].ability)
+            RecordAbilityBattle(gBattlerTarget, gBattleMons[gBattlerTarget].ability);
         while (TYPE_EFFECT_ATK_TYPE(i) != TYPE_ENDTABLE)
         {
             if (TYPE_EFFECT_ATK_TYPE(i) == TYPE_FORESIGHT)
@@ -1895,6 +1900,8 @@ static void CheckWonderGuardAndLevitate(void)
         RecordAbilityBattle(gBattlerTarget, ABILITY_LEVITATE);
         return;
     }
+    else if (moveType == TYPE_GROUND && gBaseStats[gBattleMons[gBattlerTarget].species].abilities[0] == ABILITY_LEVITATE && gBaseStats[gBattleMons[gBattlerTarget].species].abilities[1] == gBattleMons[gBattlerTarget].ability)
+        RecordAbilityBattle(gBattlerTarget, gBattleMons[gBattlerTarget].ability); // El poke no tiene Levitación: la IA toma nota
 
     while (TYPE_EFFECT_ATK_TYPE(i) != TYPE_ENDTABLE)
     {
@@ -5378,6 +5385,10 @@ static void Cmd_typecalc2(void)
     }
     else
     {
+        // Si el poke rival no tiene Levitación, la IA toma nota
+        // (Levitación siempre es la primera habilidad)
+        if (moveType == TYPE_GROUND && gBaseStats[gBattleMons[gBattlerTarget].species].abilities[0] == ABILITY_LEVITATE && gBaseStats[gBattleMons[gBattlerTarget].species].abilities[1] == gBattleMons[gBattlerTarget].ability)
+            RecordAbilityBattle(gBattlerTarget, gBattleMons[gBattlerTarget].ability);
         while (TYPE_EFFECT_ATK_TYPE(i) != TYPE_ENDTABLE)
         {
             if (TYPE_EFFECT_ATK_TYPE(i) == TYPE_FORESIGHT)
@@ -6095,6 +6106,13 @@ static void Cmd_switchineffects(void)
 
     gHitMarker &= ~(HITMARKER_FAINTED(gActiveBattler));
     gSpecialStatuses[gActiveBattler].flag40 = 0;
+
+    // Al observar si recibe o no daño de Púas, la IA puede ver que la habilidad es o no es Levitación
+    if (!(gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SPIKES_DAMAGED)
+        && (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SPIKES)
+        && !IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_FLYING)
+        && gBaseStats[gBattleMons[gActiveBattler].species].abilities[0] == ABILITY_LEVITATE)
+        RecordAbilityBattle(gActiveBattler, gBattleMons[gBattlerTarget].ability);
 
     if (!(gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SPIKES_DAMAGED)
         && (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SPIKES)
@@ -8828,6 +8846,8 @@ static void Cmd_transformdataexecution(void)
             else
                 gBattleMons[gBattlerAttacker].pp[i] = 5;
         }
+
+        CopyBattlerHistoryForTransformedMon(gBattlerAttacker, gBattlerTarget);
 
         gActiveBattler = gBattlerAttacker;
         BtlController_EmitResetActionMoveSelection(0, RESET_MOVE_SELECTION);

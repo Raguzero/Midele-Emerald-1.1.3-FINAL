@@ -1074,6 +1074,7 @@ AI_CheckViability_CheckEffects:
 	if_effect EFFECT_ROLLOUT, AI_CV_Rollout
 	if_effect EFFECT_COIL, AI_CV_AttackUp
 	if_effect EFFECT_QUIVER_DANCE, AI_CV_SpAtkUp
+	if_effect EFFECT_STOCKPILE, AI_CV_CosmicPower
 	end
 
 AI_CV_Sleep: @ 82DCA92
@@ -1115,6 +1116,10 @@ AI_CV_SelfKO_Encourage1: @ 82DCAE2
 
 AI_CV_SelfKO_Encourage2: @ 82DCAFA
 	if_hp_more_than AI_USER, 50, AI_CV_SelfKO_Encourage4
+    if_cant_faint AI_CV_SelfKO_SkipLastMonCheck
+    count_usable_party_mons AI_TARGET
+    if_equal 0, AI_CV_SelfKO_End  @ recibe bonus en AI_TryToFaint, no necesita más
+AI_CV_SelfKO_SkipLastMonCheck:
 	if_random_less_than 128, AI_CV_SelfKO_Encourage3
 	score +1
 
@@ -1281,6 +1286,7 @@ AI_CV_AttackUp_End: @ 82DCBF6
 	end
 
 AI_CV_DefenseUp: @ 82DCBF7
+	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus2
 	if_stat_level_less_than AI_USER, STAT_DEF, 9, AI_CV_DefenseUp2
 	if_random_less_than 100, AI_CV_DefenseUp3
 	score -1
@@ -1418,6 +1424,7 @@ AI_CV_Growth_End:
 	end
 	
 AI_CV_CosmicPower:
+	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus2
     if_stat_level_less_than AI_USER, STAT_SPDEF, 9, AI_CV_CosmicPowerUp2
     if_stat_level_less_than AI_USER, STAT_DEF, 9, AI_CV_CosmicPowerUp2
     if_random_less_than 100, AI_CV_CosmicPowerUp3
@@ -1445,6 +1452,7 @@ AI_CV_CosmicPower_End:
     end
 
 AI_CV_SpDefUp: @ 82DCCAE
+	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus2
 	if_stat_level_less_than AI_USER, STAT_SPDEF, 9, AI_CV_SpDefUp2
 	if_random_less_than 100, AI_CV_SpDefUp3
 	score -1
@@ -1508,6 +1516,7 @@ AI_CV_AccuracyUp_End:
 	end
 
 AI_CV_EvasionUp:
+	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus2
     if_has_move_with_effect AI_TARGET, EFFECT_ALWAYS_HIT, AI_CV_EvasionUp_ScoreDown2
     if_user_can_probably_boost_safely Score_Plus5
 	if_hp_less_than AI_USER, 90, AI_CV_EvasionUp2
@@ -2145,10 +2154,14 @@ AI_CV_Substitute:
 AI_CV_SubstituteStart:
 	if_target_wont_attack_due_to_truant AI_CV_SubstitutePlus3Continue
 	if_ability AI_USER, ABILITY_SPEED_BOOST, AI_CV_Substitute_SpeedBoost
+	if_status AI_USER, STATUS1_PSN_ANY | STATUS1_BURN, AI_CV_SubstituteMinus1Continue
 	if_not_status2 AI_TARGET, STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION, AI_CV_Substitute1
 	if_status3 AI_TARGET, STATUS3_PERISH_SONG, AI_CV_SubstitutePlus3Continue
 	if_status AI_TARGET, STATUS1_BURN | STATUS1_PSN_ANY, AI_CV_SubstitutePlus1Continue
 	goto AI_CV_Substitute1
+AI_CV_SubstituteMinus1Continue:
+    score -1
+    goto AI_CV_Substitute1
 AI_CV_SubstitutePlus1Continue:
 	score +1
 	goto AI_CV_Substitute1
@@ -2179,16 +2192,17 @@ AI_CV_Substitute4:
 	if_equal EFFECT_LEECH_SEED, AI_CV_Substitute7
 	goto AI_CV_Substitute_End
 AI_CV_Substitute5:
-	if_not_status AI_TARGET, STATUS1_ANY, AI_CV_Substitute8
+	if_not_status AI_USER, STATUS1_ANY, AI_CV_Substitute8
 	goto AI_CV_Substitute_End
 AI_CV_Substitute6:
-	if_not_status2 AI_TARGET, STATUS2_CONFUSION, AI_CV_Substitute8
+	if_not_status2 AI_USER, STATUS2_CONFUSION, AI_CV_Substitute8
 	goto AI_CV_Substitute_End
 AI_CV_Substitute7:
-	if_status3 AI_TARGET, STATUS3_LEECHSEED, AI_CV_Substitute_End
+	if_status3 AI_USER, STATUS3_LEECHSEED, AI_CV_Substitute_End
 AI_CV_Substitute8:
 	if_random_less_than 100, AI_CV_Substitute_End
 	score +1
+	goto AI_CV_Substitute_End
 AI_CV_Substitute_SpeedBoost:
 	if_user_faster Score_Plus5
 	score -3

@@ -746,7 +746,9 @@
     @ - Escenario B: Si tiene movs de curación (incluido Rest), el mov boostea la defensa por la que
     @    ataca el rival, el usuario tiene Restos (o con Rest, Chesto o Lum Berry) y el rival no hace OHKO
     @ (si el usuario es más lento, hace lo mismo pero exigiendo un golpe más)
-    .macro if_user_can_probably_boost_safely ptr:req
+	@ No considera seguro boostearse si está intoxicado o si puede recibir Taunt
+	.macro if_user_can_probably_boost_safely ptr:req
+	if_user_is_intoxicated_and_does_not_have_baton_pass .AI_user_might_not_be_able_to_boost_safely_\@
     calculate_nhko AI_TARGET | AI_NHKO_PESSIMISTIC
 	if_effect EFFECT_CURSE, .AI_user_slower_\@
     if_target_faster .AI_user_slower_\@
@@ -814,4 +816,10 @@
     if_equal 4, .AI_check_scenarios_A_and_B_\@
     if_equal 3, .AI_check_scenario_B_\@
     .AI_user_might_not_be_able_to_boost_safely_\@:
+    .endm
+	
+	.macro if_user_is_intoxicated_and_does_not_have_baton_pass ptr:req
+    if_not_status AI_USER, STATUS1_TOXIC_POISON, .AI_no_toxic_\@
+    if_doesnt_have_move_with_effect AI_USER, EFFECT_BATON_PASS, \ptr
+    .AI_no_toxic_\@:
     .endm

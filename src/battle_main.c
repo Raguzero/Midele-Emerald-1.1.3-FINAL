@@ -3336,6 +3336,7 @@ void SwitchInClearSetData(void)
     struct DisableStruct disableStructCopy = gDisableStructs[gActiveBattler];
     s32 i;
     u8 *ptr;
+	bool8 was_transformed = (gBattleMons[gActiveBattler].status2 & STATUS2_TRANSFORMED);
 
     if (gBattleMoves[gCurrentMove].effect != EFFECT_BATON_PASS)
     {
@@ -3438,9 +3439,12 @@ void SwitchInClearSetData(void)
     gBattleResources->flags->flags[gActiveBattler] = 0;
     gCurrentMove = 0;
     gBattleStruct->arenaTurnCounter = 0xFF;
-
+    if (was_transformed)
+    {
+    // Dado que estaba transformado, sus movimientos y habilidad probablemente no son los registrados
     ClearBattlerMoveHistory(gActiveBattler);
     ClearBattlerAbilityHistory(gActiveBattler);
+	}
 }
 
 void FaintClearSetData(void)

@@ -13,6 +13,7 @@ u8 BattleAI_ChooseMoveOrAction(void);
 void ClearBattlerMoveHistory(u8 battlerId);
 void RecordAbilityBattle(u8 battlerId, u8 abilityId);
 void ClearBattlerAbilityHistory(u8 battlerId);
+void CopyBattlerHistoryForTransformedMon(u8 transformUser, u8 transformTarget);
 void RecordItemEffectBattle(u8 battlerId, u8 itemEffect);
 void ClearBattlerItemEffectHistory(u8 battlerId);
 
