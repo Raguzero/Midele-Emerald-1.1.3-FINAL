@@ -51,22 +51,57 @@ MicoloLeague_FinalRoom_GameEndFlags::
 
 
 MicoloLeague_FinalRoom_Micolo_Text_0:
-	.string "Enhorabuena por derrotar al inútil y\n"
-	.string "vencer a los tres PALLASOS. Ahora te\l"
-	.string "enfrentarás a la pesadilla Midelar.$"
+	.string "Así que volvemos a vernos. n.n\n"
+	.string "Enhorabuena por derrotar al smod inútil\l"
+	.string "y vencer a los tres PALLASOS.\p"
+
+	.string "Desde la primera vez que te ví, supe\n"
+	.string "que llegarías hasta aquí.\p"
+	
+	.string "Durante mis viajes estuve pensando\n" 
+	.string "en hacer algo diferente a los desafíos\l" 
+	.string "a los que me enfrentaba. En mi aventura\l" 
+	.string "por HOENN descubrí el BATTLE FRONTIER,\l"
+	.string "en ese lugar se me ocurrió lo que estaba\l" 
+	.string "pensando en mis otros viajes,\l" 
+	.string "el desafío definitivo, por esa razón\l"
+	.string "construí con la ayuda de mis POKéMON y\l" 
+	.string "mis más fieles seguidores, el lugar\l"
+	.string "donde estamos ahora.\p"
+	
+	.string "¿Todo listo? ¡Ahora te enfrentarás a la\n" 
+	.string "pesadilla Midelar!$"
 
 MicoloLeague_FinalRoom_Micolo_Text_1:
-.string "Monociclo porque mono es uno y la vida\n"
-.string "es un ciclo.$"
+	.string "Monociclo porque mono es uno y la vida\n"
+	.string "es un ciclo.$"
 
 MicoloLeague_FinalRoom_Micolo_Defeat_Text_0:
 	.string "Te hago entrega de este pequeño\n"
-	.string "regalo.$"
+	.string "regalo, fruto de una de mis más\l"
+	.string "ambiciosas investigaciones.\p"
+	
+	.string "¡Con esto podrás hacer que MEWTWO\n"
+	.string "alcance su máximo potencial!$"
 
 MicoloLeague_FinalRoom_Micolo_Defeat_Text_1:
-	.string "No creas que hayas ganado por ser\n"
+	.string "¡Superaste la MICOLIGA, el mayor\n"
+	.string "desafío de todos los tiempos!\p"
+
+	.string "Y para que conste tu victoria,\n"
+	.string "todos los POKéMON de tu equipo serán\l"
+	.string "galardonados con 7 RIBBONS especiales\l"
+	.string "que darán fe de que habeis superado\l"
+	.string "todos los Desafíos de la MICOLIGA.\p"
+	
+	.string "¡Enhorabuena {PLAYER} n.n!\p"
+
+	.string "Pero no creas que hayas ganado por ser\n"
 	.string "bueno, a Shadow Pikachu no le apetecía\l"
 	.string "luchar como sabe tras haber visto\l"
 	.string "todos tus combates, le hubiera dado\l"
 	.string "lástima humillar a un entrenador al que\l"
-	.string "respeta, como es tu caso.$"
+	.string "respeta, como es tu caso.\p"
+	
+	.string "Bueno, {PLAYER}, espero que nos\n"
+	.string "volvamos a ver, ¡hasta entonces!$"
