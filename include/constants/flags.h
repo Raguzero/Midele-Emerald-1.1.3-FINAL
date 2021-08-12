@@ -1246,7 +1246,7 @@
 #define FLAG_ITEM_GOLDEN_CANDY                                      0x4A2 // Previously Unused Flag
 #define FLAG_FORM_SPOILER_DEX                                       0x4A3 // Previously Unused Flag
 #define FLAG_OLDALE_TOWN_PC_OCUPADO                                 0x4A4 // Previously Unused Flag
-#define FLAG_UNUSED_0x4A5                                           0x4A5 // Unused Flag
+#define FLAG_HIDE_RAGU_ROUTE_101                                    0x4A5 // Previously Unused Flag
 #define FLAG_UNUSED_0x4A6                                           0x4A6 // Unused Flag
 #define FLAG_UNUSED_0x4A7                                           0x4A7 // Unused Flag
 #define FLAG_UNUSED_0x4A8                                           0x4A8 // Unused Flag

@@ -249,5 +249,6 @@ EventScript_ResetAllMapFlags:: @ 82715DE
 	setflag FLAG_HIDE_FIREON_2_GYM_SANTY
 	setflag FLAG_HIDE_FIREON_3_GYM_SANTY
 	setflag FLAG_HIDE_FIREON_4_GYM_SANTY
+	setflag FLAG_HIDE_RAGU_ROUTE_101
 	call EventScript_ResetAllBerries
 	end

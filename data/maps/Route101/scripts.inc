@@ -206,6 +206,76 @@ Route101_Movement_Unused2: @ 81EBDF7
 Route101_EventScript_Youngster:: @ 81EBDFB
 	msgbox Route101_Text_TakeTiredPokemonToPokeCenter, MSGBOX_NPC
 	end
+	
+Route101_EventScript_LevelCap::
+	lockall
+	msgbox Route101_Text_Ragu, MSGBOX_DEFAULT
+	closemessage
+	applymovement 7, Route101_Movement_Ragu
+	waitmovement 0
+	msgbox Route101_Text_Ragu2, MSGBOX_DEFAULT
+	@ Dar Objeto clave Level Cap
+	msgbox Route101_Text_Ragu3, MSGBOX_DEFAULT
+	applymovement 7, Route101_Movement_Ragu3
+	waitmovement 0
+	removeobject 7
+	setvar VAR_LEVEL_CAP_RECEIVED, 2
+	setflag FLAG_HIDE_RAGU_ROUTE_101
+	releaseall
+	end
+	
+Route101_EventScript_LevelCap2::
+	lockall
+	msgbox Route101_Text_Ragu, MSGBOX_DEFAULT
+	closemessage
+	applymovement 7, Route101_Movement_Ragu2
+	waitmovement 0
+	msgbox Route101_Text_Ragu2, MSGBOX_DEFAULT
+	@ Dar Objeto clave Level Cap
+	msgbox Route101_Text_Ragu3, MSGBOX_DEFAULT
+	applymovement 7, Route101_Movement_Ragu3
+	waitmovement 0
+	removeobject 7
+	setvar VAR_LEVEL_CAP_RECEIVED, 2
+	setflag FLAG_HIDE_RAGU_ROUTE_101
+	releaseall
+	end
+	
+Route101_Movement_Ragu:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_in_place_fast_down
+	step_end
+
+Route101_Movement_Ragu2:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_in_place_fast_down
+	step_end
+	
+Route101_Movement_Ragu3:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
 
 Route101_EventScript_Boy:: @ 81EBE04
 	msgbox Route101_Text_WildPokemonInTallGrass, MSGBOX_NPC
@@ -236,12 +306,14 @@ Route101_EventScript_BirchsBag:: @ 81EBE16
 	setflag FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG
 	setvar VAR_BIRCH_LAB_STATE, 2
 	setvar VAR_ROUTE101_STATE, 3
+	setvar VAR_LEVEL_CAP_RECEIVED, 1
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
 	checkplayergender
 	compare VAR_RESULT, MALE
 	call_if_eq Route101_EventScript_HideMayInBedroom
 	compare VAR_RESULT, FEMALE
 	call_if_eq Route101_EventScript_HideBrendanInBedroom
+	clearflag FLAG_HIDE_RAGU_ROUTE_101
 	warp MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB, 255, 6, 5
 	waitstate
 	release
@@ -298,4 +370,47 @@ Route101_Text_WildPokemonInTallGrass: @ 81EC04A
 Route101_Text_RouteSign: @ 81EC0C8
 	.string "ROUTE 101\n"
 	.string "{UP_ARROW} OLDALE TOWN$"
+	
+Route101_Text_Ragu:
+	.string "¡Alto ahí!$"
+	
+Route101_Text_Ragu2:
+	.string "¡Hola! Mi nombre es RAGU, y estoy\n"
+	.string "buscando entrenadores que tengan\l"
+	.string "potencial para afrontar un gran reto.\p"
+	
+	.string "Y este es el momento típico en el que\n"
+	.string "te elogio diciendote que eres genial,\l"
+	.string "que tienes un potencial increible,\l"
+	.string "y te doy 20 REVIVEs por la cara,\l"
+	.string "pero no, no va a ser así, ya que\l"
+	.string "solo eres un NOOB...\l"
+	.string "Al menos por ahora.\p"
+	
+	.string "¿Sabes? La gente siempre se queja\n"
+	.string "de que POKéMON es muy fácil, de\l"
+	.string "que se pasa el juego con los ojos\l"
+	.string "cerrados a la pata coja con cualquier\l"
+	.string "POKéMON overlevel, por malo que sea.\p"
+	
+	.string "Así que, ¿por qué no complicamos todo\n"
+	.string "un poquito? ¿No te gustan los retos?\l"
+	.string "¡A mi me gustan los retos!\p"
+	
+	.string "¡No digas nada!, te haré entrega de un\n"
+	.string "objeto clave autolimitante de nivel, del\l"
+	.string "que no te podrás desprender hasta que\l"
+	.string "te puedas liberar tu mismo de las\l"
+	.string "cadenas que te limitan.$"
+	
+Route101_Text_Ragu3:
+	.string "Ahora mismo tus POKéMON no pueden\n"
+	.string "superar el nivel 20 hasta que consigas\l"
+	.string "derrotar al primer lider de GYM.\p"
+	
+	.string "Si tienes alguna duda sobre la limitación\n"
+	.string "de nivel, solo tienes que usar el objeto\l"
+	.string "que te acabo de dar.\p"
+	
+	.string "¡Adios! Seguro que nos volveremos a ver.$"
 

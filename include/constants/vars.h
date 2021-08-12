@@ -118,7 +118,7 @@
 #define VAR_ROUTE104_STATE                   0x4063
 #define VAR_MAX_VICTORIES_CC_DOUBLES         0x4064 // Previously unused Var
 #define VAR_STATE_SAPPH_GYM                  0x4065 // Previously Unused Var
-#define VAR_ROUTE107_STATE                   0x4066 // Unused Var
+#define VAR_LEVEL_CAP_RECEIVED               0x4066 // Previously Unused Var
 #define VAR_ROUTE108_STATE                   0x4067 // Unused Var
 #define VAR_ROUTE109_STATE                   0x4068 // Unused Var
 #define VAR_ROUTE110_STATE                   0x4069
