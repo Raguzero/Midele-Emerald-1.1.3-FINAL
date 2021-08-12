@@ -914,13 +914,50 @@ LittlerootTown_Movement_MomExitThroughDoor: @ 81E863B
 LittlerootTown_Teleport::
 	lock
 	faceplayer
+	checkplayergender
+	compare VAR_RESULT, MALE
+	call_if_eq LittlerootTown_TeleportBoy
+	compare VAR_RESULT, FEMALE
+	call_if_eq LittlerootTown_TeleportGirl
+	release
+	end
+	
+LittlerootTown_TeleportBoy::
+	goto_if_set FLAG_EXPLANATION_MICOLANDIA, LittlerootTown_TeleportExplanationAgain
+	msgbox LittlerootTown_Text_TeleportBoy, MSGBOX_DEFAULT
 	msgbox LittlerootTown_Text_Teleport, MSGBOX_DEFAULT
 	msgbox LittlerootTown_Text_Teleport_2, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq LittlerootTown_Text_Teleport_Yes
 	release
 	end
-LittlerootTown_Text_Teleport_Yes:
+	
+LittlerootTown_TeleportGirl::
+	goto_if_set FLAG_EXPLANATION_MICOLANDIA, LittlerootTown_TeleportExplanationAgain
+	msgbox LittlerootTown_Text_TeleportGirl, MSGBOX_DEFAULT
+	msgbox LittlerootTown_Text_Teleport, MSGBOX_DEFAULT
+	msgbox LittlerootTown_Text_Teleport_2, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq LittlerootTown_Text_Teleport_Yes
+	release
+	end
+	
+LittlerootTown_Text_Teleport_Yes::
+	msgbox LittlerootTown_Text_Teleport_3, MSGBOX_DEFAULT
+	setflag FLAG_EXPLANATION_MICOLANDIA 
+	warp MAP_MICOLANDIA_HOUSE1, 2, 0, 0
+	waitstate
+	end
+	
+LittlerootTown_TeleportExplanationAgain::
+	msgbox LittlerootTown_Text_Teleport_4, MSGBOX_DEFAULT
+	msgbox LittlerootTown_Text_Teleport_2, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq LittlerootTown_Text_Teleport_Yes2
+	release
+	end	
+	
+LittlerootTown_Text_Teleport_Yes2::
 	msgbox LittlerootTown_Text_Teleport_3, MSGBOX_DEFAULT
 	warp MAP_MICOLANDIA_HOUSE1, 2, 0, 0
 	waitstate
@@ -1076,12 +1113,37 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab: @ 81E8DA2
 	.string "I have something to show you.\n"
 	.string "Let's go to my LAB.$"
 	
-LittlerootTown_Text_Teleport:
-	.string "Eres {PLAYER}, el nuevo CAMPEÓN ¿no?\n"
-	.string "¿Conoces un lugar llamado MICOLANDIA?\p"
+LittlerootTown_Text_TeleportBoy:
+	.string "Eres {PLAYER}, el nuevo CAMPEÓN de\n"
+	.string "HOENN ¿no?\p"
 	
-	.string "Está claro que no, es ¡TOP SECRET!\n"
-	.string "Bien, deja que te cuente.\p"
+	.string "Seguramente quieras alcanzar el\n"
+	.string "máximo potencial de tus POKéMON, ten\l"
+	.string "en cuenta que hasta que no afrontes\l"
+	.string "retos mayores, tus POKéMON no podrán\l"
+	.string "superar el nivel 65. ¡Pero sé de un\l"
+	.string "lugar perfecto para ello!\p"
+
+	.string "¿Conoces un lugar llamado MICOLANDIA?$"
+	
+LittlerootTown_Text_TeleportGirl:
+	.string "Eres {PLAYER}, la nueva CAMPEONA de\n"
+	.string "HOENN ¿no?\p"
+	
+	.string "Seguramente quieras alcanzar el\n"
+	.string "máximo potencial de tus POKéMON, ten\l"
+	.string "en cuenta que hasta que no afrontes\l"
+	.string "retos mayores, tus POKéMON no podrán\l"
+	.string "superar el nivel 65. ¡Pero sé de un\l"
+	.string "lugar perfecto para ello!\p"
+	
+	.string "¿Conoces un lugar llamado MICOLANDIA?$"
+	
+LittlerootTown_Text_Teleport:
+	.string "¡Jajaja! Está claro que no, es...\n"
+	.string "¡TOP SECRET!\p"
+	
+	.string "Bien, deja que te cuente:\p"
 	
 	.string "MICOLANDIA es el mayor reto POSTGAME\n"
 	.string "que encontrarás en este juego, sin\l"
@@ -1125,3 +1187,33 @@ LittlerootTown_Text_Teleport_3:
 	.string "buenas noches.\p"
 	
 	.string "({PLAYER} huele el cloroformo y se desmaya)$"
+	
+LittlerootTown_Text_Teleport_4:
+	.string "¡Así que quieres oir de nuevo la\n"
+	.string "explicación sobre MICOLANDIA!\p"
+	
+	.string "Bien, deja que te cuente:\p"
+	
+	.string "MICOLANDIA es el mayor reto POSTGAME\n"
+	.string "que encontrarás en este juego, sin\l"
+	.string "contar el BATTLE FRONTIER, que no sé\l"
+	.string "si ya conocerás.\p"
+	
+	.string "MICOLO, es el dueño de dicho lugar, donde\n"
+	.string "ha montado una competición llamada\l"
+	.string "MICOLIGA que consiste en obtener la\l"
+	.string "medalla de los 4 GYMs para poder\l"
+	.string "participar en la Liga Pokémon más\l" 
+	.string "poderosa que hayas visto jamás.\p"
+	
+	.string "También encontrarás allí a los\n"
+	.string "entrenadores más fuertes de la región,\l"
+	.string "y otras sorpresas que no te quiero\l"
+	.string "desvelar, pero que te ayudarán a\l"
+	.string "afrontar mejor el reto del\l"
+	.string "BATTLE FRONTIER.\p"
+	
+	.string "Dicho lugar se encuentra en un lugar\n"
+	.string "inaccesible para la gente común.\p"
+	
+	.string "¡Ya te digo que vale la pena!$"
