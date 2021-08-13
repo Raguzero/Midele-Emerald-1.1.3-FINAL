@@ -254,6 +254,12 @@ MicoloHideout_MeetingRoom_PC4::
 	waitse
 	msgbox MicoloHideout_MeetingRoom_PC4_Text_0, MSGBOX_SIGN
 	return
+	
+MicoloHideout_MeetingRoom_PC5::
+	playse SE_PC_LOGIN
+	waitse
+	msgbox MicoloHideout_MeetingRoom_PC5_Text_0, MSGBOX_SIGN
+	return
 
 
 MicoloHideout_MeetingRoom_PCHeal::
@@ -345,6 +351,22 @@ MicoloHideout_MeetingRoom_PC4_Text_0:
 	.string "Today mankind moves one step closer\l" 
 	.string "to the divine!\l" 
 	.string "push button monados liberadas$"
+	
+MicoloHideout_MeetingRoom_PC5_Text_0:
+	.string "Parece un documento que describe\n"
+	.string "varios movimientos creados:\p"
+	
+	.string "BRUTAL BALL: Tipo DARK, 100 Power,\n"
+	.string "100 Accuracy, 20% de congelar, quemar\l"
+	.string "o paralizar.\p"
+	
+	.string "MIDELE POWER: Tipo ???, 70 Power,\n"
+	.string "100 Accuracy, Priority +2, atraviesa\l"
+	.string "PROTECT, sube 50% ATK, DEF, SATK, SPDEF\l"
+	.string "y SPEED por cada uso.\p"
+	
+	.string "DARK THUNDER: Tipo ELECTRIC, 70 Power,\n"
+	.string "100 Accuracy, efecto de doble golpe.$"
 
 MicoloHideout_MeetingRoom_PCHeal_Text_0:
 	.string "¿Quieres curar a tus POKéMON?$"

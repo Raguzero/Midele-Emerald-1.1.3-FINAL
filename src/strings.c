@@ -2125,7 +2125,7 @@ const u8 gTotem6[] =  _("RHYPERIOR");
 const u8 gTotem7[] =  _("M-ABSOL");  
 const u8 gTotem8[] =  _("PRIMARINA");  
 const u8 gTotem9[] =  _("M-CAMERUPT");  
-const u8 gTotem10[] =  _("LANTURN");  
+const u8 gTotem10[] =  _("DARK PIKA");  
 const u8 gTotem11[] =  _("M-GLALIE");  
 const u8 gTotem12[] =  _("TYRANITAR");
 

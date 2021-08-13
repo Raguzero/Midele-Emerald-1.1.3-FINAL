@@ -358,10 +358,10 @@ MicoloHideout_ExperimentRoom_Scientist3_Text_0:
 	.string "a un entrenador muy PALLASO.$"
 	
 PCBatallaTotem::
-	msgbox PCBatallaTotem_Text, MSGBOX_DEFAULT
-	msgbox PC_ChooseTotem, MSGBOX_DEFAULT
+	msgbox PCBatallaTotem_Text, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq PC_NoBatallaTotem
+	msgbox PC_ChooseTotem, MSGBOX_DEFAULT
 	multichoicegrid 0, 0, MULTI_TOTEM_BATTLE_LIST, 3, 0
 	switch VAR_RESULT
 	case 0, PC_BatalllaTotem1
@@ -452,7 +452,7 @@ PC_BatalllaTotem9::
 	end
 	
 PC_BatalllaTotem10::	
-    setvar VAR_0x8004, BOSS_BATTLE_TOTEM_MEGA_CAMERUPT // FALTA TOTEM, ¿LANTURN?
+    setvar VAR_0x8004, BOSS_BATTLE_TOTEM_SAPPHIRE
     special CreateBossBattleMon
     special BattleSetup_StartBossBattle
     waitstate

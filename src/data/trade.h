@@ -978,7 +978,7 @@ static const union AffineAnimCmd *const gSpriteAffineAnimTable_8338ECC[] =
 
 static const struct InGameTrade sIngameTrades[] =
 {
-    [INGAME_TRADE_SEEDOT] = 
+    [INGAME_TRADE_SEEDOT] = // FEEBAS
     {
         .nickname = _("MISS WORLD"), 
         .species = SPECIES_FEEBAS,
@@ -992,17 +992,17 @@ static const struct InGameTrade sIngameTrades[] =
         .otName = _("KOBE"), 
         .otGender = MALE, 
         .sheen = 106,
-        .requestedSpecies = SPECIES_ELECTRIKE
+        .requestedSpecies = SPECIES_HOUNDOUR
     }, 
-    [INGAME_TRADE_PLUSLE] = 
+    [INGAME_TRADE_PLUSLE] = // SALANDIT
     {
-        .nickname = _("PLUSES"), 
-        .species = SPECIES_PLUSLE,
-        .ivs = {4, 4, 4, 5, 5, 4},
+        .nickname = _("PHEROMON"), 
+        .species = SPECIES_SALANDIT,
+        .ivs = {15, 15, 15, 31, 31, 15},
         .abilityNum = 0, 
         .otId = 73996,
         .conditions = {5, 5, 30, 5, 5},
-        .personality = 0x6F,
+        .personality = NATURE_TIMID,
         .heldItem = ITEM_WOOD_MAIL, 
         .mailNum = 0,
         .otName = _("ROMAN"), 
@@ -1010,13 +1010,13 @@ static const struct InGameTrade sIngameTrades[] =
         .sheen = 10,
         .requestedSpecies = SPECIES_VOLBEAT
     }, 
-    [INGAME_TRADE_HORSEA] = 
+    [INGAME_TRADE_HORSEA] = // EEVEE
     {
-        .nickname = _("SEASOR"),
-        .species = SPECIES_HORSEA,
-        .ivs = {5, 4, 4, 4, 5, 4},
+        .nickname = _("EEVAA"),
+        .species = SPECIES_EEVEE,
+        .ivs = {31, 15, 15, 15, 15, 15},
         .abilityNum = 0, 
-        .otId = 46285,
+        .otId = 0x7F,
         .conditions = {5, 5, 5, 5, 30},
         .personality = 0x7F,
         .heldItem = ITEM_WAVE_MAIL, 
@@ -1026,12 +1026,12 @@ static const struct InGameTrade sIngameTrades[] =
         .sheen = 10,
         .requestedSpecies = SPECIES_BAGON
     }, 
-    [INGAME_TRADE_MEOWTH] = 
+    [INGAME_TRADE_MEOWTH] = // CHARMANDER
     {
         .nickname = _("CHORIZORD"),
-        .species = SPECIES_CHARIZARD,
+        .species = SPECIES_CHARMANDER,
         .ivs = {31, 31, 31, 31, 31, 31},
-        .abilityNum = 0, 
+        .abilityNum = 1, 
         .otId = 0x8B,
         .conditions = {5, 5, 5, 30, 5},
         .personality = 0x8B,

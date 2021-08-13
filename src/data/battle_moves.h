@@ -4846,7 +4846,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_MIDELE_POWER] =
     {
         .effect = EFFECT_ALL_STATS_UP_HIT,
-        .power = 100,
+        .power = 70,
         .type = TYPE_MYSTERY,
         .accuracy = 100,
         .pp = 5,
