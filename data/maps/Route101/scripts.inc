@@ -214,7 +214,7 @@ Route101_EventScript_LevelCap::
 	applymovement 7, Route101_Movement_Ragu
 	waitmovement 0
 	msgbox Route101_Text_Ragu2, MSGBOX_DEFAULT
-	@ Dar Objeto clave Level Cap
+	giveitem ITEM_LEVEL_CAP, 1
 	msgbox Route101_Text_Ragu3, MSGBOX_DEFAULT
 	applymovement 7, Route101_Movement_Ragu3
 	waitmovement 0
@@ -231,7 +231,7 @@ Route101_EventScript_LevelCap2::
 	applymovement 7, Route101_Movement_Ragu2
 	waitmovement 0
 	msgbox Route101_Text_Ragu2, MSGBOX_DEFAULT
-	@ Dar Objeto clave Level Cap
+	giveitem ITEM_LEVEL_CAP, 1
 	msgbox Route101_Text_Ragu3, MSGBOX_DEFAULT
 	applymovement 7, Route101_Movement_Ragu3
 	waitmovement 0

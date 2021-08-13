@@ -3077,14 +3077,15 @@ const struct Item gItems[] =
         .secondaryId = 0,
     },
 
-    [ITEM_0E8] =
+    [ITEM_LEVEL_CAP] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
+        .name = _("LEVEL CAP"),
+        .itemId = ITEM_LEVEL_CAP,
         .price = 0,
-        .description = sDummyDesc,
-        .pocket = POCKET_ITEMS,
-        .type = 4,
+        .description = sLevelCapDesc,
+		.importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
     },

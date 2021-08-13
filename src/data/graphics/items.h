@@ -585,6 +585,9 @@ const u32 gItemIconPalette_PinkPetal[] = INCBIN_U32("graphics/items/icon_palette
 const u32 gItemIcon_PsycheArmor[] = INCBIN_U32("graphics/items/icons/psychearmor.4bpp.lz");
 const u32 gItemIconPalette_PsycheArmor[] = INCBIN_U32("graphics/items/icon_palettes/psychearmor.gbapal.lz");
 
+const u32 gItemIcon_LevelCap[] = INCBIN_U32("graphics/items/icons/levelcap.4bpp.lz");
+const u32 gItemIconPalette_LevelCap[] = INCBIN_U32("graphics/items/icon_palettes/levelcap.gbapal.lz");
+
 // Key items
 
 const u32 gItemIcon_MachBike[] = INCBIN_U32("graphics/items/icons/mach_bike.4bpp.lz");

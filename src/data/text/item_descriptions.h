@@ -1661,3 +1661,8 @@ static const u8 sMusicPlayer[] = _(
     "A device that\n"
     "allows you to\n"
     "listen to songs.");
+	
+static const u8 sLevelCapDesc[] = _(
+    "A device that\n"
+    "self-limits the\n"
+    "level rise.");

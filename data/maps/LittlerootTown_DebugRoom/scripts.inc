@@ -114,6 +114,7 @@ LittlerootTown_DebugRoom_Script_ActivarTodo::
     giveitem ITEM_SWEET_HEART, 1
 	giveitem ITEM_ABILITY_CAPSULE, 1
     giveitem ITEM_MUSIC_PLAYER, 1
+    giveitem ITEM_LEVEL_CAP, 1
     setvar VAR_MUSIC_PLAYER, MUSIC_PLAYER_STATE_FINAL
 	giveitem ITEM_MASTER_BALL, 99
 

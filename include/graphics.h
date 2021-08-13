@@ -4985,6 +4985,8 @@ extern const u32 gItemIcon_PinkPetal[];
 extern const u32 gItemIconPalette_PinkPetal[];
 extern const u32 gItemIcon_PsycheArmor[];
 extern const u32 gItemIconPalette_PsycheArmor[];
+extern const u32 gItemIcon_LevelCap[];
+extern const u32 gItemIconPalette_LevelCap[];
 // Contest hold items
 extern const u32 gItemIcon_Scarf[];
 extern const u32 gItemIconPalette_RedScarf[];
