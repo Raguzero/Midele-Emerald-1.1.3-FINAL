@@ -13,7 +13,7 @@ static const u8 digitInidicator_1000000[] =         _("{LEFT_ARROW}+1000000{RIGH
 static const u8 digitInidicator_10000000[] =        _("{LEFT_ARROW}+10000000{RIGHT_ARROW} ");
 
 // Music names
-static const u8 gText_Music_NoMusic[]                = _("POWER OFF \nTURN OFF MUSIC PLAYER");
+static const u8 gText_Music_NoMusic[]                = _("POWER OFF \nTURN OFF");
 
 static const u8 gText_Music_AquaMagma[]                = _("POKéMON RSE \nVS AQUA/MAGMA");
 static const u8 gText_Music_GymLeader[]                = _("POKéMON RSE \nVS GYM LEADER");
@@ -44,7 +44,7 @@ static const u8 gText_Music_XYWild[]                 = _("POKéMON XY           
 static const u8 gText_Music_ZinniaTheme[]            = _("POKéMON ORAS         \nZINNIA THEME");
 static const u8 gText_Music_SMWildBattle[]           = _("POKéMON SM           \nWILD BATTLE");
 static const u8 gText_Music_ThemeOfEncounter[]       = _("FIRE EMBLEM          \nTHEME OF ENCOUNTER");
-static const u8 gText_Music_EinzugDerGladiatoren[]   = _("FUCIK                \nEINZUG DER GLADIATOREN");
+static const u8 gText_Music_EinzugDerGladiatoren[]   = _("FUCIK                \nGLADIATOREN");
 static const u8 gText_Music_DialgaPalkia[]           = _("POKéMON DPPt         \nVS DIALGA AND PALKIA");
 static const u8 gText_Music_Megalovania[]            = _("UNDERTALE            \nMEGALOVANIA");
 static const u8 gText_Music_ThatPersonNameIs[]       = _("BRAVELY DEFAULT      \nTHAT PERSON NAME IS");
