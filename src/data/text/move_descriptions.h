@@ -1496,7 +1496,7 @@ static const u8 sHEAL_PULSEDescription[] = _(
 	
 static const u8 sMidelePowerDescription[] = _(
 	"MICOLO's ultimate attack.\n"
-    "No one can stop it.");
+    "Raises all stats by one.");
 	
 static const u8 sGUNK_SHOTDescription[] = _(
 	"Shoots filthy garbage at\n"
@@ -1527,8 +1527,8 @@ static const u8 sACCELEROCKDescription[] = _(
 	"rock that always goes first.");
 	
 static const u8 sDARKTHUNDERDescription[] = _(
-	"DARK PIKA's ultimate attack\n"
-    "researched by MICOLO.");
+	"DARK PIKA's ultimate attack.\n"
+    "It hits twice.");
 	
 static const u8 sDRILL_RUNDescription[] = _(
 	"Spins its body like a drill.\n"
