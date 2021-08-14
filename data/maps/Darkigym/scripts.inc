@@ -166,9 +166,14 @@ Darkigym_EventScript_MalroDefeated::
 	applymovement EVENT_OBJ_ID_PLAYER, Common_Movement_ExclamationMark
 	waitmovement 0
 	playfanfare MUS_ME_B_BIG
-	delay 30
+	waitfanfare
+	playse SE_PC_OFF
 	msgbox LevelCapItem_Text_GymDarki, MSGBOX_DEFAULT
 	closemessage
+	setvar VAR_0x8004, ITEM_LEVEL_CAP
+	bufferitemname 0, VAR_0x8004
+    removeitem VAR_0x8004
+	delay 30
 	@ Level Cap Item	
 	setflag FLAG_DEFEATED_DARKI_GYM
 	release
@@ -528,8 +533,8 @@ Darkigym_Text_MobuPostBattle:
 	.string "te animaré desde aquí.$"
 	
 Darkigym_Text_RoxyIntro: 
-	.string "Vaya, así que eres tú el que ha\n" 
-	.string "montado tanto revuelo.\p"
+	.string "Vaya, así que eres la persona que\n" 
+	.string "ha montado tanto revuelo.\p"
 
 	.string "....\p"
 
@@ -545,7 +550,7 @@ Darkigym_Text_RoxyIntro:
 	.string "felicidad de mis hermanos, por lo que ni\l" 
 	.string "de coña puedo permitirme perder.\p" 
 
-	.string "¿Estás preparado?$" 
+	.string "¿READY?$" 
 	
 Darkigym_Text_RoxyDefeat: 
 	.string "Lo siento... malro y buenro...$"
@@ -595,26 +600,26 @@ Darkigym_Text_AnthonyPostBattle:
 	.string "significado de los taladros y de mi\l"
 	.string "técnica definitiva:\p"
 	
-	.string "Giga Drill Breaker.$"
+	.string "¡GIGA DRILL BREAKER!$"
 	
 Darkigym_Text_DranixIntro:
-	.string "Espero que hayas traido Autan.\p"
+	.string "Espero que hayas traido Autan...\p"
 	
-	.string "¡Porque vas a ser acribillado a\n"
-	.string "picaduras de mi ejercito definitivo\l"
-	.string "de BEEDRILLs!$"
+	.string "¡Porque tu cuerpo será acribillado\n"
+	.string "por las picaduras de mi ejercito\l"
+	.string "definitivo de BEEDRILLs!$"
 
 Darkigym_Text_DranixDefeat: 
 	.string "¡Noooo! Mis preciosos BEEDRILLs...$"
 
 Darkigym_Text_DranixPostBattle:
-	.string "¡Pero Beedrill tiene que ser un\n"
-	.string "OVERUSED como sea!\p"
+	.string "¡Pero BEEDRILL tiene que ser un\n"
+	.string "OU como sea!\p"
 	
 	.string "¡Necesitamos más gente llevando\n"
 	.string "a BEEDRILL en su equipo!\p"
 	
-	.string "Mmm... mejor actualizaré la Tier List\n"
+	.string "Mmm... mejor actualizaré la TIER LIST\n"
 	.string "para que se así sea.$"
 	
 Darkigym_Text_Umbreon123Intro:
@@ -709,7 +714,7 @@ Darkigym_Text_CharzDefeat:
 	.string "¡¡¡NOOOOOOOOOOOOOOOOO!!!$"
 
 Darkigym_Text_CharzPostBattle:
-	.string "Eres bastante poderoso...\p"
+	.string "Tienes demasiado poder...\p"
 	
 	.string "Deberías unirte a nosotros, podríamos\n"
 	.string "conseguir grandes cosas contigo a\l"
@@ -761,8 +766,8 @@ Darkigym_Text_FurryDefeat:
 	.string "En cuanto consiga cobertura...$"
 
 Darkigym_Text_FurryPostBattle:
-	.string "La gente aquí debe tener hackeado\n"
-	.string "el cerebro.\p"
+	.string "¡La gente aquí debe tener hackeado\n"
+	.string "el cerebro!\p"
 	
 	.string "¿Te puedes creer que el FURRY que\n"
 	.string "conocen se corrompió ante los HACKs,\l"
@@ -770,8 +775,17 @@ Darkigym_Text_FurryPostBattle:
 	.string "chusma, y se fue de JOHTO para luego\l"
 	.string "convertirse en un PIRATA?\p"
 	
-	.string "¡Están mintiendo!\n" 
-	.string "¡Yo nunca caería tan bajo!$"
+	.string "¡Están mintiendo! ¡Yo nunca caería\n" 
+	.string "tan bajo!\p"
+	
+	.string "Será mejor que avise a MICO...\n"
+	.string "quiero decir... ehm... a MELKOR, eso.\p"
+	
+	.string "¡YA QUE ES MI TRABAJO COMO POLICIA\n"
+	.string "MANTENER A LOS HACKERS A RAYA!\p"
+	
+	.string "¡ACABARÉ YO MISMO CON TODOS ELLOS!\n"
+	.string "IN JUSTICE WE TRUST!$"
 	
 Darkigym_Text_DarkMelkorIntro:
 	.string "¡DARKNESS! ¡DARKNESS! ¡DARKNESS!\p"
@@ -827,8 +841,8 @@ Darkigym_Text_DarkMelkorPostBattle:
 	.string "que alguien está alterando el equilibrio\l"
 	.string "del espacio-tiempo, lo que está\l"
 	.string "provocando la apertura de portales\l"
-	.string "dimensionales que está trayendo a\l" 
-	.string "gentes de otros mundos.\p"
+	.string "interdimensionales que está trayendo\l" 
+	.string "a gentes de otros mundos.\p"
 	
 	.string "¡Un invento maravilloso!\n" 
 	.string "¡Tal vez tengamos una oportunidad para\l"
@@ -969,9 +983,9 @@ Darkigym_Text_TiloAlolaIntro:
 	.string "me ganes, te regalaré 10 revivires.$"
 
 Darkigym_Text_TiloAlolaDefeat: 
-	.string "¡Wow, eres super fuerte, grandioso,\n" 
-	.string "maravilloso, todo un máquina, nunca\l" 
-	.string "tuve una oportunidad...!$"
+	.string "¡Wow, eres super fuerte, increible,\n" 
+	.string "una máquina, nunca tuve una\l" 
+	.string "oportunidad de conoc...!$"
 
 Darkigym_Text_TiloAlolaPostBattle:
 	.string "¡Quién diría que me encontraría con\n" 
@@ -1369,5 +1383,7 @@ Darkigym_Text_DarkiMalroRematchDefeat:
 LevelCapItem_Text_GymDarki:
 	.string "LEVEL CAP: Actualización completada.\n"
 	.string "Te liberaste de las cadenas que te\l"
-	.string "autolimitaban, por lo que ahora tus\p"
-	.string "POKéMON pueden llegar al nivel 100.$"
+	.string "autolimitaban, por lo que ahora tus\l"
+	.string "POKéMON pueden llegar al nivel 100.\p"
+	
+	.string "¡El objeto LEVEL CAP desapareció!$"

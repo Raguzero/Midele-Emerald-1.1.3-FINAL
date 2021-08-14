@@ -1193,7 +1193,9 @@ Respuesta_NSNC_Text:
 GymGooses_Text_GymGuideAdvice:
 	.string "¡Ya veo que has llegado lejos!\p"
 	
-	.string "Bienvenido al último GYM de MICOLANDIA.\p"
+	.string "Te doy la bienvenida al gimnasio\n"
+	.string "de GOOSES, la bruja amante de\l"
+	.string "los tableros.\p"
 
 	.string "La pruebas de este GYM son:\n"
 	.string "Completar los 3 TABLEROS de DADOS\l"
@@ -1244,13 +1246,9 @@ GymGooses_Text_GymGuideAdvice:
 	.string "¡Buen hax!$"
 
 GymGooses_Text_GymGuidePostVictory:
-	.string "¡Enhorabuena! ¡Has vencido a\n"
-	.string "todos los líderes de GYM!\p"
-
-	.string "¡Ya puedes participar\n"
-	.string "en la MICOLIGA!\p"
-	
-	.string "¡Buen hax!$"	
+	.string "¡FLIPANDING! ¡No solo has completado\n"
+	.string "los tableros, sino que también has\l"
+	.string "vencido a GOOSES!$"
 	
 GymGooses_Text_GymStatue:
 	.string "POKEMON GYM Nº3\n"
@@ -1362,7 +1360,7 @@ GymGooses_Text_GoosesPostBattle:
 	.string "formidable de los futuros.$"
 	
 GymGooses_Text_GoosesRematchIntro:
-	.string "Bienvenido de nuevo, criatura. Has\n"
+	.string "Hola de nuevo, criatura. Has\n"
 	.string "recorrido un largo camino y vencido a\l"
 	.string "todos, ¿por qué no me demuestras si de\l"
 	.string "verdad mereces el título de campeón?\p"
@@ -1402,7 +1400,7 @@ GymGooses_Text_Totemderrotado:
 	.string "M-GLALIE disappeared...$"
 	
 GymGooses_Text_Comienza:
-	.string "¿Estás preparado para comenzar\n"
+	.string "¿Todo listo para comenzar\n"
 	.string "la prueba del GYM?$"
 	
 GymGooses_Text_Jugardenuevo:
@@ -1411,7 +1409,7 @@ GymGooses_Text_Jugardenuevo:
 	.string "tablero todas las veces que quieras,\l"
 	.string "pero sin ningún premio a conseguir.\p"
 	
-	.string "¿Estás preparado para comenzar\n"
+	.string "¿Todo listo para comenzar\n"
 	.string "la prueba?$"
 	
 GymGooses_Text_Curacion:

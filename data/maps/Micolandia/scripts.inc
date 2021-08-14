@@ -284,7 +284,7 @@ Micolandia_GymNoroesteSign:
 
 Micolandia_GymSuroesteSign:
 	.string "POKEMON GYM Nº2\n"
-	.string "LEADER: SAPPH\l"
+	.string "LEADER: SAPPHIRE\l"
 	.string "“TEMÁTICA: BURBUJA RÍTMICA”$"
 
 Micolandia_GymSuresteSign:
@@ -311,7 +311,7 @@ Micolandia_Text_Sign1:
 	.string "liderado por SANTY.\p"
 
 	.string "{LEFT_ARROW}: SEGUNDO GYM,\n"
-	.string "liderado por SAPPH.$"
+	.string "liderado por SAPPHIRE.$"
 	
 Micolandia_Text_Sign2:
 	.string "{UP_ARROW}: TERCER GYM,\n"
@@ -324,7 +324,7 @@ Micolandia_Text_Sign3:
 	.string "{LEFT_ARROW}: MONOCYCLE ROAD.\p"
 
 	.string "{DOWN_ARROW}: SEGUNDO GYM,\n"
-	.string "liderado por SAPPH.$"
+	.string "liderado por SAPPHIRE.$"
 	
 Micolandia_Text_GymSantySign:
 	.string "Estamos haciendo preparativos.\n"
@@ -366,7 +366,7 @@ Micolandia_Text_GymSapphSign:
 Micolandia_Text_GymGoosesSign:
 	.string "Solo está permitido el paso\n"
 	.string "a quienes hayan derrotado a la\l"
-	.string "LIDER SAPPH.$"
+	.string "LIDER SAPPHIRE.$"
 
 Micolandia_Dueno_de_Kirlia_Text:
 	.string "La única forma de salir de aquí\n"

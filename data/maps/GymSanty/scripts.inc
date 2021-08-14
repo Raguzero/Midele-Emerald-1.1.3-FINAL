@@ -164,10 +164,14 @@ GymSanty_Text_GymGuideAdvice2:
 	.string "entrenador no quedarán registradas las\l" 
 	.string "medallas que consigas en este lugar.\p"
 	
-	.string "Cada GYM constará de 3 pruebas:\n"
+	.string "Cada GYM normalmente constará de\n" 
+	.string "3 pruebas:\l"
 	.string "Derrotar a todos los entrenadores\l"
 	.string "Derrotar al POKÉMON TOTEM\l"
-	.string "Derrotar al LIDER de GYM$"
+	.string "Derrotar al LIDER de GYM\p"
+	
+    .string "Pero las pruebas pueden cambiar\n"
+	.string "dependiendo de las ideas del LIDER$"
 
 GymSanty_Text_GymGuideAdvice3:
 	.string "En cuanto a este GYM...\p"
@@ -224,7 +228,7 @@ GymSanty_Text_SantyShifteo1Defeat:
     .string "aunque parece que el día no me\l"
 	.string "acompañaba.\p"
 
-    .string "Pero no importa, Celebi me permite\n"
+    .string "Pero no importa, CELEBI me permite\n"
 	.string "viajar en el tiempo e ir a una línea\l"
 	.string "temporal en donde no me hayas ganado.\p"
 
@@ -260,10 +264,12 @@ GymSanty_Text_ExplainBadgeTakeThis:
 	.string "POKéMON intercambiado que no sea\l"
 	.string "superior al nivel 85.\p"
 	
-	.string "También estarás capacitado para el\n"
-	.string "reto del siguiente GYM.\p"
+	.string "También te capacita para el reto\n"
+	.string "del siguiente GYM.\p"
 
-	.string "SAPPH te estará esperando allí.$"
+	.string "SAPPHIRE te estará esperando allí.\n"
+	.string "¡Será mejor que te prepares para\l"
+	.string "su espectáculo de baile!$"
 
 GymSanty_Text_SantyPostBattle:
 	.string "A ti aún te quedan muchos entrenadores\n"
