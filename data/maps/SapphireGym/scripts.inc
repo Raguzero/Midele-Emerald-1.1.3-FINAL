@@ -107,7 +107,7 @@ SapphireGym_Trigger_FourthPuzzle::
 	call SapphireGym_EventScript_ExecuteFourthPuzzle
 	msgbox SapphireGym_Text_FourthPuzzle_GuessWhoFailed, MSGBOX_NPC
 	multichoicegrid 0, 0, MULTI_SAPPHGYM_SECOND_PUZZLE_ANSWERS, 1, 1
-	compare VAR_RESULT, 0
+	compare VAR_RESULT, 3
 	goto_if_ne SapphireGym_EventScript_FourthPuzzle_FightRandom
 	msgbox SapphireGym_Text_YouWonFourthPuzzle, MSGBOX_NPC
 SapphireGym_EventScript_FourthPuzzle_EndPuzzle:
@@ -160,14 +160,9 @@ SapphireGym_EventScript_ThirdPuzzleGirlDefeated:
 
 SapphireGym_EventScript_ExecuteFourthPuzzle:
 	playbgm MUS_TEST3, 0
-	call SapphireGym_EventScript_ExecuteFourthPuzzle_HideZigzagoon
-	call SapphireGym_EventScript_ExecuteFourthPuzzle_HidePoochyena
-	call SapphireGym_EventScript_ExecuteFourthPuzzle_HideKirlia
-	call SapphireGym_EventScript_ExecuteFourthPuzzle_HideMew
-	call SapphireGym_EventScript_ExecuteFourthPuzzle_HideZigzagoon
-	call SapphireGym_EventScript_ExecuteFourthPuzzle_HidePoochyena
-	call SapphireGym_EventScript_ExecuteFourthPuzzle_HideKirlia
-	call SapphireGym_EventScript_ExecuteFourthPuzzle_HideMew
+	call SapphireGym_EventScript_StartFourthPuzzle_Iteration0
+	call SapphireGym_EventScript_StartFourthPuzzle_Iteration1
+	call SapphireGym_EventScript_StartFourthPuzzle_Iteration2
 	return
 
 SapphireGym_EventScript_ExecuteFourthPuzzle_HideZigzagoon:
@@ -210,6 +205,55 @@ SapphireGym_EventScript_ExecuteFourthPuzzle_HideMew:
 	removeobject 19
 	return
 
+SapphireGym_EventScript_StartFourthPuzzle_Iteration0:
+	msgbox SapphireGym_Text_FourthPuzzleIteration0, MSGBOX_NPC
+
+	call SapphireGym_EventScript_ExecuteFourthPuzzle_HideMew
+	call SapphireGym_EventScript_ExecuteFourthPuzzle_HidePoochyena
+	call SapphireGym_EventScript_ExecuteFourthPuzzle_HideZigzagoon
+	call SapphireGym_EventScript_ExecuteFourthPuzzle_HideKirlia
+	call SapphireGym_EventScript_ExecuteFourthPuzzle_HidePoochyena
+	call SapphireGym_EventScript_ExecuteFourthPuzzle_HideKirlia
+	call SapphireGym_EventScript_ExecuteFourthPuzzle_HideMew
+	call SapphireGym_EventScript_ExecuteFourthPuzzle_HideMew
+	return
+
+SapphireGym_Text_FourthPuzzleIteration0:
+	.string "TEXTO ITERACION 1$"
+
+SapphireGym_EventScript_StartFourthPuzzle_Iteration1:
+	msgbox SapphireGym_Text_FourthPuzzleIteration1, MSGBOX_NPC
+
+	call SapphireGym_EventScript_ExecuteFourthPuzzle_HideMew
+	call SapphireGym_EventScript_ExecuteFourthPuzzle_HideKirlia
+	call SapphireGym_EventScript_ExecuteFourthPuzzle_HideKirlia
+	call SapphireGym_EventScript_ExecuteFourthPuzzle_HideKirlia
+	call SapphireGym_EventScript_ExecuteFourthPuzzle_HidePoochyena
+	call SapphireGym_EventScript_ExecuteFourthPuzzle_HideKirlia
+	call SapphireGym_EventScript_ExecuteFourthPuzzle_HideKirlia
+	call SapphireGym_EventScript_ExecuteFourthPuzzle_HideZigzagoon
+	return
+
+SapphireGym_Text_FourthPuzzleIteration1:
+	.string "TEXTO ITERACION 2$"
+
+SapphireGym_EventScript_StartFourthPuzzle_Iteration2:
+	msgbox SapphireGym_Text_FourthPuzzleIteration2, MSGBOX_NPC
+
+	call SapphireGym_EventScript_ExecuteFourthPuzzle_HideZigzagoon
+	call SapphireGym_EventScript_ExecuteFourthPuzzle_HideMew
+	call SapphireGym_EventScript_ExecuteFourthPuzzle_HideZigzagoon
+	call SapphireGym_EventScript_ExecuteFourthPuzzle_HideZigzagoon
+	call SapphireGym_EventScript_ExecuteFourthPuzzle_HidePoochyena
+	call SapphireGym_EventScript_ExecuteFourthPuzzle_HideZigzagoon
+	call SapphireGym_EventScript_ExecuteFourthPuzzle_HideKirlia
+	call SapphireGym_EventScript_ExecuteFourthPuzzle_HideMew
+	return
+
+SapphireGym_Text_FourthPuzzleIteration2:
+	.string "TEXTO ITERACION 3$"
+
+
 
 SapphireGym_EventScript_GymExplanation::
 	lock
@@ -243,7 +287,7 @@ SapphireGym_EventScript_FirstPuzzle_Explain:
 	call SapphireGym_EventScript_ExecutePuzzle
 	msgbox SapphireGym_Text_FirstPuzzle_GuessWhoFailed, MSGBOX_NPC
 	multichoicegrid 0, 0, MULTI_SAPPHGYM_FIRST_PUZZLE_ANSWERS, 1, 1
-	compare VAR_RESULT, 0
+	compare VAR_RESULT, 1
 	goto_if_ne SapphireGym_EventScript_FirstPuzzle_FightRandom
 	msgbox SapphireGym_Text_YouWon, MSGBOX_NPC
 SapphireGym_EventScript_FirstPuzzle_EndPuzzle:
@@ -354,8 +398,6 @@ SapphireGym_EventScript_StartFirstPuzzle:
 	call SapphireGym_EventScript_StartFirstPuzzle_Iteration0
 	call SapphireGym_EventScript_StartFirstPuzzle_Iteration1
 	call SapphireGym_EventScript_StartFirstPuzzle_Iteration2
-	call SapphireGym_EventScript_StartFirstPuzzle_Iteration3
-	call SapphireGym_EventScript_StartFirstPuzzle_Iteration4
 	
 	return
 
@@ -464,8 +506,6 @@ SapphireGym_EventScript_StartSecondPuzzle:
 	call SapphireGym_EventScript_StartSecondPuzzle_Iteration0
 	call SapphireGym_EventScript_StartSecondPuzzle_Iteration1
 	call SapphireGym_EventScript_StartSecondPuzzle_Iteration2
-	call SapphireGym_EventScript_StartSecondPuzzle_Iteration3
-	call SapphireGym_EventScript_StartSecondPuzzle_Iteration4
 	return
 
 SapphireGym_EventScript_MakePCEmitSounds:
@@ -533,7 +573,7 @@ SapphireGym_EventScript_ThirdPuzzleZigza::
 	call SapphireGym_EventScript_StartThirdPuzzle
 	msgbox SapphireGym_Text_ThirdPuzzle_GuessWhoFailed, MSGBOX_NPC
 	multichoicegrid 0, 0, MULTI_SAPPHGYM_SECOND_PUZZLE_ANSWERS, 1, 1
-	compare VAR_RESULT, 0
+	compare VAR_RESULT, 1
 	goto_if_ne SapphireGym_EventScript_ThirdPuzzle_FightRandom
 	msgbox SapphireGym_Text_YouWonThirdPuzzle, MSGBOX_NPC
 SapphireGym_EventScript_ThirdPuzzle_EndPuzzle:
@@ -877,7 +917,7 @@ SapphireGym_EventScript_StartSecondPuzzle_Iteration1:
 	waitmovement 0
 	playmoncry SPECIES_KIRLIA, 2
 	waitmoncry
-	applymovement 13, SapphireGym_Movement_SecondPuzzleIteration1
+	applymovement 13, SapphireGym_Movement_SecondPuzzleIteration1Failed
 	waitmovement 0
 	return
 
@@ -891,6 +931,41 @@ SapphireGym_Movement_SecondPuzzleIteration1:
 	face_left
 	delay_16
 	face_down
+	delay_16
+	face_left
+	delay_16
+	face_down
+	delay_16
+	face_left
+	delay_16
+	face_up
+	delay_16
+	face_left
+	delay_16
+	face_up
+	delay_16
+	face_left
+	delay_16
+	step_end
+
+SapphireGym_Movement_SecondPuzzleIteration1Failed:
+	face_left
+	delay_16
+	face_down
+	delay_16
+	face_up
+	delay_16
+	face_left
+	delay_16
+	face_down
+	delay_16
+	walk_up
+	delay_16
+	walk_right
+	delay_16
+	walk_left
+	delay_16
+	walk_down
 	delay_16
 	face_left
 	delay_16
@@ -962,109 +1037,6 @@ SapphireGym_Movement_SecondPuzzleIteration2:
 SapphireGym_Text_SecondPuzzleIteration2:
 	.string "TEXTO ITERACION 3$"
 
-SapphireGym_EventScript_StartSecondPuzzle_Iteration3:
-	msgbox SapphireGym_Text_SecondPuzzleIteration3, MSGBOX_NPC
-
-	playmoncry SPECIES_MEW, 2
-	waitmoncry
-	applymovement 12, SapphireGym_Movement_SecondPuzzleIteration3
-	waitmovement 0
-	playmoncry SPECIES_KIRLIA, 2
-	waitmoncry
-	applymovement 13, SapphireGym_Movement_SecondPuzzleIteration3
-	waitmovement 0
-	playmoncry SPECIES_ZIGZAGOON, 2
-	waitmoncry
-	applymovement 10, SapphireGym_Movement_SecondPuzzleIteration3
-	waitmovement 0
-	playmoncry SPECIES_POOCHYENA, 2
-	waitmoncry
-	applymovement 11, SapphireGym_Movement_SecondPuzzleIteration3
-	waitmovement 0
-	return
-
-SapphireGym_Movement_SecondPuzzleIteration3:
-	face_left
-	delay_16
-	face_down
-	delay_16
-	face_left
-	delay_16
-	face_up
-	delay_16
-	face_left
-	delay_16
-	face_up
-	delay_16
-	face_down
-	delay_16
-	face_left
-	delay_16
-	face_up
-	delay_16
-	face_down
-	delay_16
-	face_left
-	delay_16
-	face_down
-	delay_16
-	step_end
-
-SapphireGym_Text_SecondPuzzleIteration3:
-	.string "TEXTO ITERACION 4$"
-
-SapphireGym_EventScript_StartSecondPuzzle_Iteration4:
-	msgbox SapphireGym_Text_SecondPuzzleIteration4, MSGBOX_NPC
-
-	playmoncry SPECIES_KIRLIA, 2
-	waitmoncry
-	applymovement 13, SapphireGym_Movement_SecondPuzzleIteration4
-	waitmovement 0
-	playmoncry SPECIES_POOCHYENA, 2
-	waitmoncry
-	applymovement 11, SapphireGym_Movement_SecondPuzzleIteration4
-	waitmovement 0
-	playmoncry SPECIES_ZIGZAGOON, 2
-	waitmoncry
-	applymovement 10, SapphireGym_Movement_SecondPuzzleIteration4
-	waitmovement 0
-	playmoncry SPECIES_MEW, 2
-	waitmoncry
-	applymovement 12, SapphireGym_Movement_SecondPuzzleIteration4
-	waitmovement 0
-	return
-
-SapphireGym_Movement_SecondPuzzleIteration4:
-	face_left
-	delay_16
-	face_up
-	delay_16
-	face_down
-	delay_16
-	face_left
-	delay_16
-	face_up
-	delay_16
-	face_down
-	delay_16
-	face_up
-	delay_16
-	face_left
-	delay_16
-	face_down
-	delay_16
-	face_left
-	delay_16
-	face_down
-	delay_16
-	face_left
-	delay_16
-	step_end
-
-SapphireGym_Text_SecondPuzzleIteration4:
-	.string "TEXTO ITERACION 5$"
-
-
 
 SapphireGym_EventScript_StartFirstPuzzle_Iteration0:
 	msgbox SapphireGym_Text_Iteration0, MSGBOX_NPC
@@ -1080,37 +1052,54 @@ SapphireGym_EventScript_StartFirstPuzzle_Iteration0:
 
 SapphireGym_Movement_Iteration0:
 	face_right
-	delay_4
-	face_left
-	delay_4
-	face_up
-	delay_4
-	face_right
-	delay_4
-	walk_right
-	delay_4
-	walk_up
-	delay_4
-	face_up
-	delay_4
-	face_right
-	delay_4
-	walk_left
-	delay_4
-	walk_left
-	delay_4
-	face_down
-	delay_4
-	face_left
-	delay_4
-	walk_right
-	delay_4
-	walk_down
-	delay_4
-	face_down
-	delay_4
 	delay_16
-	delay_4
+	delay_16
+	face_left
+	delay_16
+	delay_16
+	face_up
+	delay_16
+	delay_16
+	face_right
+	delay_16
+	delay_16
+	walk_right
+	delay_16
+	delay_16
+	walk_up
+	delay_16
+	delay_16
+	face_up
+	delay_16
+	delay_16
+	face_right
+	delay_16
+	delay_16
+	walk_left
+	delay_16
+	delay_16
+	walk_left
+	delay_16
+	delay_16
+	face_down
+	delay_16
+	delay_16
+	face_left
+	delay_16
+	delay_16
+	walk_right
+	delay_16
+	delay_16
+	walk_down
+	delay_16
+	delay_16
+	face_down
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
 	step_end
 
 SapphireGym_Text_Iteration0:
@@ -1130,35 +1119,51 @@ SapphireGym_EventScript_StartFirstPuzzle_Iteration1:
 
 SapphireGym_Movement_Iteration1:
 	walk_left
-	delay_4
-	face_right
-	delay_4
-	walk_right
-	delay_4
-	walk_down
-	delay_4
-	face_down
-	delay_4
-	face_right
-	delay_4
-	walk_right
-	delay_4
-	face_left
-	delay_4
-	walk_up
-	delay_4
-	face_left
-	delay_4
-	face_up
-	delay_4
-	face_down
-	delay_4
-	walk_left
-	delay_4
-	face_down
-	delay_4
 	delay_16
-	delay_4
+	delay_16
+	face_right
+	delay_16
+	delay_16
+	walk_right
+	delay_16
+	delay_16
+	walk_down
+	delay_16
+	delay_16
+	face_down
+	delay_16
+	delay_16
+	face_right
+	delay_16
+	delay_16
+	walk_right
+	delay_16
+	delay_16
+	face_left
+	delay_16
+	delay_16
+	walk_up
+	delay_16
+	delay_16
+	face_left
+	delay_16
+	delay_16
+	face_up
+	delay_16
+	delay_16
+	face_down
+	delay_16
+	delay_16
+	walk_left
+	delay_16
+	delay_16
+	face_down
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
 	step_end
 
 SapphireGym_Text_Iteration1:
@@ -1169,7 +1174,8 @@ SapphireGym_EventScript_StartFirstPuzzle_Iteration2:
 
 	applymovement 7, SapphireGym_Movement_Iteration2
 	waitmovement 0
-	applymovement 9, SapphireGym_Movement_Iteration2
+	// Se equivoca ZIGZAGOON
+	applymovement 9, SapphireGym_Movement_Iteration2Failed
 	waitmovement 0
 	applymovement 8, SapphireGym_Movement_Iteration2
 	waitmovement 0
@@ -1178,138 +1184,110 @@ SapphireGym_EventScript_StartFirstPuzzle_Iteration2:
 
 SapphireGym_Movement_Iteration2:
 	face_right
-	delay_4
-	face_up
-	delay_4
-	walk_up
-	delay_4
-	face_up
-	delay_4
-	face_down
-	delay_4
-	face_right
-	delay_4
-	walk_left
-	delay_4
-	walk_down
-	delay_4
-	face_left
-	delay_4
-	walk_up
-	delay_4
-	face_up
-	delay_4
-	walk_right
-	delay_4
-	walk_down
-	delay_4
-	face_down
-	delay_4
 	delay_16
-	delay_4
+	delay_16
+	face_up
+	delay_16
+	delay_16
+	walk_up
+	delay_16
+	delay_16
+	face_up
+	delay_16
+	delay_16
+	face_down
+	delay_16
+	delay_16
+	face_right
+	delay_16
+	delay_16
+	walk_left
+	delay_16
+	delay_16
+	walk_down
+	delay_16
+	delay_16
+	face_left
+	delay_16
+	delay_16
+	walk_up
+	delay_16
+	delay_16
+	face_up
+	delay_16
+	delay_16
+	walk_right
+	delay_16
+	delay_16
+	walk_down
+	delay_16
+	delay_16
+	face_down
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	step_end
+
+SapphireGym_Movement_Iteration2Failed:
+	face_right
+	delay_16
+	delay_16
+	face_up
+	delay_16
+	delay_16
+	walk_up
+	delay_16
+	delay_16
+	face_up
+	delay_16
+	delay_16
+	face_down
+	delay_16
+	delay_16
+	face_right
+	delay_16
+	delay_16
+	walk_left
+	delay_16
+	delay_16
+	walk_left
+	delay_16
+	delay_16
+	walk_down
+	delay_16
+	delay_16
+	face_left
+	delay_16
+	delay_16
+	walk_up
+	delay_16
+	delay_16
+	face_up
+	delay_16
+	delay_16
+	walk_right
+	delay_16
+	delay_16
+	walk_down
+	delay_16
+	delay_16
+	walk_right
+	delay_16
+	delay_16
+	face_down
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
 	step_end
 
 SapphireGym_Text_Iteration2:
 	.string "TEXTO ITERACION 3$"
-
-SapphireGym_EventScript_StartFirstPuzzle_Iteration3:
-	msgbox SapphireGym_Text_Iteration3, MSGBOX_NPC
-
-	applymovement 7, SapphireGym_Movement_Iteration3
-	waitmovement 0
-	applymovement 8, SapphireGym_Movement_Iteration3
-	waitmovement 0
-	applymovement 9, SapphireGym_Movement_Iteration3
-	waitmovement 0
-
-	return
-
-SapphireGym_Movement_Iteration3:
-	face_down
-	delay_4
-	face_up
-	delay_4
-	walk_right
-	delay_4
-	walk_down
-	delay_4
-	walk_up
-	delay_4
-	walk_left
-	delay_4
-	face_up
-	delay_4
-	walk_down
-	delay_4
-	walk_up
-	delay_4
-	face_up
-	delay_4
-	walk_left
-	delay_4
-	face_right
-	delay_4
-	walk_right
-	delay_4
-	face_down
-	delay_4
-	delay_16
-	delay_4
-	step_end
-
-SapphireGym_Text_Iteration3:
-	.string "TEXTO ITERACION 4$"
-
-SapphireGym_EventScript_StartFirstPuzzle_Iteration4:
-	msgbox SapphireGym_Text_Iteration4, MSGBOX_NPC
-
-	applymovement 9, SapphireGym_Movement_Iteration4
-	waitmovement 0
-	applymovement 7, SapphireGym_Movement_Iteration4
-	waitmovement 0
-	applymovement 8, SapphireGym_Movement_Iteration4
-	waitmovement 0
-
-	return
-
-SapphireGym_Movement_Iteration4:
-	face_up
-	delay_4
-	face_down
-	delay_4
-	walk_up
-	delay_4
-	walk_right
-	delay_4
-	face_up
-	delay_4
-	face_left
-	delay_4
-	walk_left
-	delay_4
-	walk_right
-	delay_4
-	face_down
-	delay_4
-	face_right
-	delay_4
-	face_down
-	delay_4
-	face_right
-	delay_4
-	walk_left
-	delay_4
-	walk_down
-	delay_4
-	face_down
-	delay_4
-	delay_16
-	delay_4
-	step_end
-
-SapphireGym_Text_Iteration4:
-	.string "TEXTO ITERACION 5$"
-
 
 
 SapphireGym_EventScript_FirstPuzzle_OpenPath:
