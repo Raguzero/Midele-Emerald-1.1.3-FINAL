@@ -104,6 +104,14 @@ static const u16 sMovingRegionMapSections[3] =
     MAPSEC_TERRA_CAVE
 };
 
+static const u16 sMicoloHideoutNotShownMons[4] =
+{
+    SPECIES_KYOGRE,
+    SPECIES_GROUDON,
+    SPECIES_RAYQUAZA,
+    SPECIES_MEWTWO
+};
+
 static const u16 sFeebasData[][3] =
 {
     {SPECIES_FEEBAS, MAP_GROUP(ROUTE119), MAP_NUM(ROUTE119)},
@@ -456,11 +464,25 @@ static u16 GetRegionMapSectionId(u8 mapGroup, u8 mapNum)
 
 static bool8 MapHasMon(const struct WildPokemonHeader *info, u16 species)
 {
-    if (GetRegionMapSectionId(info->mapGroup, info->mapNum) == MAPSEC_ALTERING_CAVE_2)
+    u16 regionMapSectionId = GetRegionMapSectionId(info->mapGroup, info->mapNum);
+    if (regionMapSectionId == MAPSEC_ALTERING_CAVE_2)
     {
         sPokedexAreaScreen->unk6E2++;
         if (sPokedexAreaScreen->unk6E2 != sPokedexAreaScreen->unk6E4 + 1)
             return FALSE;
+    }
+
+    // MIDELE: no mostrar los mons en sMicoloHideoutNotShownMons si aparecen en MAPSEC_MICOLO_HIDEOUT
+    if (regionMapSectionId == MAPSEC_MICOLO_HIDEOUT)
+    {
+        u8 i;
+        for (i = 0; i < ARRAY_COUNT(sMicoloHideoutNotShownMons); i++)
+        {
+            if (species == sMicoloHideoutNotShownMons[i])
+            {
+                return FALSE;
+            }
+        }
     }
 
     if (MonListHasMon(info->landMonsInfo, species, 12))
