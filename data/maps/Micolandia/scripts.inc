@@ -64,6 +64,10 @@ Micolandia_EventScript_Sign2::
 	msgbox Micolandia_Text_Sign2, MSGBOX_SIGN
 	end
 	
+Micolandia_EventScript_Sign3::
+	msgbox Micolandia_Text_Sign3, MSGBOX_SIGN
+	end
+	
 Micolandia_EventScript_GymSantySign::
 	lock
 	faceplayer
@@ -297,24 +301,30 @@ Micolandia_CibercafeSign:
 	.string "CIBERCAFÉ BATALLA$"
 	
 Micolandia_Text_ForestSign:
-	.string "Hacia la derecha, entrada a\n" 
-	.string "Forbidden Forest.\p"
+	.string "{RIGHT_ARROW}: entrada a\n" 
+	.string "FORBIDDEN FOREST.\p"
 
 	.string "Entra bajo tu propio riesgo.$"
 	
 Micolandia_Text_Sign1:
-	.string "Hacia arriba: PRIMER GYM,\n"
+	.string "{UP_ARROW}: PRIMER GYM,\n"
 	.string "liderado por SANTY.\p"
 
-	.string "Hacia la izquierda: SEGUNDO GYM,\n"
-	.string "liderado por SAPPH$"
+	.string "{LEFT_ARROW}: SEGUNDO GYM,\n"
+	.string "liderado por SAPPH.$"
 	
 Micolandia_Text_Sign2:
-	.string "Hacia arriba: TERCER GYM,\n"
+	.string "{UP_ARROW}: TERCER GYM,\n"
 	.string "liderado por GOOSES.\p"
 
-	.string "Hacia la izquierda: CUARTO GYM,\n"
-	.string "liderado por DARKIZARD$"
+	.string "{RIGHT_ARROW}: CUARTO GYM,\n"
+	.string "liderado por DARKIZARD.$"
+	
+Micolandia_Text_Sign3:
+	.string "{LEFT_ARROW}: MONOCYCLE ROAD.\p"
+
+	.string "{DOWN_ARROW}: SEGUNDO GYM,\n"
+	.string "liderado por SAPPH.$"
 	
 Micolandia_Text_GymSantySign:
 	.string "Estamos haciendo preparativos.\n"

@@ -218,7 +218,7 @@ Dunk2_DespuesDeBatalla:
 	.string "metagame original de GAMEFREAK.$"
 	
 Monocycle_Road_Sign_Text:
-	.string "Monocycle Road: Móntate en el\n"
+	.string "MONOCYCLE ROAD: Móntate en el\n"
 	.string "ACROCYCLE y usa el B + Dirección\l"
 	.string "para atravesar todos los caminos.\p"
 	
