@@ -33,6 +33,16 @@ RustboroCity_Gym_EventScript_GiveRockTomb:: @ 8212FA4
 	goto_if_eq Common_EventScript_ShowBagIsFull
 	setflag FLAG_RECEIVED_TM39
 	msgbox RustboroCity_Gym_Text_ExplainRockTomb, MSGBOX_DEFAULT
+	@ Level Cap Item
+	delay 30
+	playse SE_PIN
+	applymovement EVENT_OBJ_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	playfanfare MUS_ME_B_SMALL
+	delay 30
+	msgbox LevelCapItem_Text_RustboroGym, MSGBOX_DEFAULT
+	closemessage
+	@ Level Cap Item
 	release
 	end
 
@@ -285,3 +295,7 @@ RustboroCity_Gym_Text_RoxanneRematchNeedTwoMons: @ 8213D93
 	.string "You only have one POKéMON with you?\p"
 	.string "Please return with at least one more\n"
 	.string "POKéMON.$"
+	
+LevelCapItem_Text_RustboroGym:
+	.string "LEVEL CAP: Actualización completada.\n"
+	.string "El nuevo límite es el nivel 20.$"

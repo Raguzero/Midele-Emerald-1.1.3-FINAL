@@ -115,6 +115,15 @@ SootopolisCity_Gym_1F_EventScript_JuanDefeated:: @ 8224F82
 	waitfanfare
 	closemessage
 	delay 30
+	@ Level Cap Item
+	playse SE_PIN
+	applymovement EVENT_OBJ_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	playfanfare MUS_ME_B_SMALL
+	delay 30
+	msgbox LevelCapItem_Text_SootopolisGym, MSGBOX_DEFAULT
+	closemessage
+	@ Level Cap Item
 	setflag FLAG_ENABLE_JUAN_MATCH_CALL
 	release
 	end
@@ -323,4 +332,8 @@ SootopolisCity_Gym_1F_Text_JuanRematchNeedTwoMons: @ 8225B48
 	.string "You have with you but one POKéMON.\p"
 	.string "I wish that you would return with\n"
 	.string "two, perhaps more, POKéMON, please.$"
+
+LevelCapItem_Text_SootopolisGym:
+	.string "LEVEL CAP: Actualización completada.\n"
+	.string "El nuevo límite es el nivel 65.$"
 

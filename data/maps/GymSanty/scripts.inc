@@ -60,6 +60,16 @@ GymSanty_EventScript_SantyShifteo2Defeated::
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox GymSanty_Text_ExplainBadgeTakeThis, MSGBOX_DEFAULT
+	@ Level Cap Item
+	delay 30
+	playse SE_PIN
+	applymovement EVENT_OBJ_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	playfanfare MUS_ME_B_SMALL
+	delay 30
+	msgbox LevelCapItem_Text_GymSanty, MSGBOX_DEFAULT
+	closemessage
+	@ Level Cap Item	
 	setflag FLAG_DEFEATED_SANTY_GYM
 	setvar VAR_SHIFTEO_SANTY_GYM, 3
 	delay 30
@@ -245,14 +255,10 @@ GymSanty_Text_ReceivedBadge:
 	.string "QUEMADA de SANTYGRASS.$"
 
 GymSanty_Text_ExplainBadgeTakeThis:
-	.string "Con esta MEDALLA en tu poder, desde\n"
-	.string "ahora mismo, tus POKÉMON no tienen\l"
-	.string "ninguna limitación para subir hasta\l"
-	.string "el nivel 85.\p"
-	
-	.string "Incluso te obedecerá sin rechistar todo\n"
+	.string "Con esta MEDALLA en tu poder,\n"
+	.string "te obedecerá sin rechistar todo\l"
 	.string "POKéMON intercambiado que no sea\l"
-	.string "superior a ese nivel.\p"
+	.string "superior al nivel 85.\p"
 	
 	.string "También estarás capacitado para el\n"
 	.string "reto del siguiente GYM.\p"
@@ -296,3 +302,7 @@ GymSanty_Text_SantyRematchIntro:
 GymSanty_Text_SantyRematchDefeat:
     .string "How Could this Happen\n"
     .string "Even with the apocrypha!?$"
+	
+LevelCapItem_Text_GymSanty:
+	.string "LEVEL CAP: Actualización completada.\n"
+	.string "El nuevo límite es el nivel 85.$"

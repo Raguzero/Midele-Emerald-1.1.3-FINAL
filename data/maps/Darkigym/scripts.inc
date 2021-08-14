@@ -160,6 +160,16 @@ Darkigym_EventScript_MalroDefeated::
 	msgbox Darkigym_Text_ExplainBadgeTakeThis, MSGBOX_DEFAULT
 	delay 30
 	msgbox Darkigym_Text_MalroPostBattle2, MSGBOX_DEFAULT
+	@ Level Cap Item
+	delay 30
+	playse SE_PIN
+	applymovement EVENT_OBJ_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	playfanfare MUS_ME_B_BIG
+	delay 30
+	msgbox LevelCapItem_Text_GymDarki, MSGBOX_DEFAULT
+	closemessage
+	@ Level Cap Item	
 	setflag FLAG_DEFEATED_DARKI_GYM
 	release
 	end
@@ -1218,15 +1228,12 @@ Darkigym_Text_ReceivedBadge:
 
 Darkigym_Text_ExplainBadgeTakeThis:
 	.string "Con esta MEDALLA en tu poder, desde\n"
-	.string "ahora mismo, tus POKÉMON no tienen\l"
-	.string "ninguna limitación para subir hasta\l"
-	.string "el nivel 100.\p"
+	.string "ahora mismo... todo POKEMON\l" 
+	.string "intercambiado obedecerá todas tus\l"
+	.string "ordenes, incluso aunque sean...\l"
+	.string "moralmente reprochables.\p"
 	
-	.string "Ahora todo POKEMON intercambiado\n"
-	.string "obedecerá todas tus ordenes, incluso\l"
-	.string "aunque sean moralmente reprochables.\p"
-	
-	.string "¡Je! ¡patético!\p"
+	.string "¡Je! ¡Qué patético!\p"
 
 	.string "Y debido a que ya tienes la última\n"
 	.string "medalla, podrás participar en\l"
@@ -1357,4 +1364,10 @@ Darkigym_Text_DarkiMalroRematchIntro:
 	.string "hará realidad tu deseo!$" 
 
 Darkigym_Text_DarkiMalroRematchDefeat:
-	.string "¡Debemos derrotar juntos a MASUDA!$" 
+	.string "¡Debemos derrotar juntos a MASUDA!$"
+	
+LevelCapItem_Text_GymDarki:
+	.string "LEVEL CAP: Actualización completada.\n"
+	.string "Te liberaste de las cadenas que te\l"
+	.string "autolimitaban, por lo que ahora tus\p"
+	.string "POKéMON pueden llegar al nivel 100.$"

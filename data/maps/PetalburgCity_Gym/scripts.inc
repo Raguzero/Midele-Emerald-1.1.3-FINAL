@@ -426,6 +426,16 @@ PetalburgCity_Gym_EventScript_NormanBattle:: @ 8204E3B
 	delay 30
 	msgbox PetalburgCity_Gym_Text_DadHappyAndSad, MSGBOX_DEFAULT
 	closemessage
+	@ Level Cap Item
+	delay 30
+	playse SE_PIN
+	applymovement EVENT_OBJ_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	playfanfare MUS_ME_B_SMALL
+	delay 30
+	msgbox LevelCapItem_Text_PetalburgGym, MSGBOX_DEFAULT
+	closemessage
+	@ Level Cap Item
 	delay 40
 	playse SE_DOOR
 	delay 10
@@ -1693,3 +1703,7 @@ PetalburgCity_Gym_Text_NormanRematchNeedTwoMons: @ 820764A
 	.string "capable of battle?\p"
 	.string "Sorry, but you'll have to come back\n"
 	.string "with at least two POKéMON.$"
+	
+LevelCapItem_Text_PetalburgGym:
+	.string "LEVEL CAP: Actualización completada.\n"
+	.string "El nuevo límite es el nivel 45.$"

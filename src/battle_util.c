@@ -3754,7 +3754,7 @@ u8 IsMonDisobedient(void)
             return 0;
         if (!IsOtherTrainer(gBattleMons[gBattlerAttacker].otId, gBattleMons[gBattlerAttacker].otName))
             return 0;
-        if (FlagGet(FLAG_BADGE08_GET))
+        if (FlagGet(FLAG_DEFEATED_DARKI_GYM))
             return 0;
 
         obedienceLevel = 10;
@@ -3771,6 +3771,16 @@ u8 IsMonDisobedient(void)
             obedienceLevel = 50;
         if (FlagGet(FLAG_BADGE07_GET))
             obedienceLevel = 55;
+        if (FlagGet(FLAG_BADGE08_GET))
+            obedienceLevel = 65;
+        if (FlagGet(FLAG_EXPLANATION_MICOLANDIA))
+            obedienceLevel = 80;
+        if (FlagGet(FLAG_DEFEATED_SANTY_GYM))
+            obedienceLevel = 85;
+        if (FlagGet(FLAG_DEFEATED_SAPPH_GYM))
+            obedienceLevel = 90;
+        if (FlagGet(FLAG_DEFEATED_GOOSES_GYM))
+            obedienceLevel = 95;
     }
 
     if (gBattleMons[gBattlerAttacker].level <= obedienceLevel)

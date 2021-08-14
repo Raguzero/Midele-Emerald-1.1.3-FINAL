@@ -216,6 +216,7 @@ Route101_EventScript_LevelCap::
 	msgbox Route101_Text_Ragu2, MSGBOX_DEFAULT
 	giveitem ITEM_LEVEL_CAP, 1
 	msgbox Route101_Text_Ragu3, MSGBOX_DEFAULT
+	closemessage
 	applymovement 7, Route101_Movement_Ragu3
 	waitmovement 0
 	removeobject 7
@@ -233,6 +234,7 @@ Route101_EventScript_LevelCap2::
 	msgbox Route101_Text_Ragu2, MSGBOX_DEFAULT
 	giveitem ITEM_LEVEL_CAP, 1
 	msgbox Route101_Text_Ragu3, MSGBOX_DEFAULT
+	closemessage
 	applymovement 7, Route101_Movement_Ragu3
 	waitmovement 0
 	removeobject 7
@@ -404,8 +406,17 @@ Route101_Text_Ragu2:
 	.string "cadenas que te limitan.$"
 	
 Route101_Text_Ragu3:
+	.string "Con el objeto LEVEL CAP podrás saber el\n"
+	.string "límite de nivel que pueden alcanzar tus\l"
+	.string "POKéMON en ese momento de la aventura.\p"
+	
+	.string "Normalmente podrás romper ese límite\n"
+	.string "por cada medalla que consigas, pero no\l"
+	.string "siempre será así. ¡El objeto te avisará\l"
+	.string "cuando se rompa ese límite!\p"
+
 	.string "Ahora mismo tus POKéMON no pueden\n"
-	.string "superar el nivel 20 hasta que consigas\l"
+	.string "superar el nivel 15 hasta que consigas\l"
 	.string "derrotar al primer lider de GYM.\p"
 	
 	.string "Si tienes alguna duda sobre la limitación\n"

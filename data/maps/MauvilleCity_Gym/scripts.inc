@@ -110,6 +110,15 @@ MauvilleCity_Gym_EventScript_WattsonDefeated:: @ 820DF2B
 	waitfanfare
 	closemessage
 	delay 30
+	@ Level Cap Item
+	playse SE_PIN
+	applymovement EVENT_OBJ_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	playfanfare MUS_ME_B_SMALL
+	delay 30
+	msgbox LevelCapItem_Text_MauvilleGym, MSGBOX_DEFAULT
+	closemessage
+	@ Level Cap Item
 	setflag FLAG_ENABLE_WATTSON_MATCH_CALL
 	release
 	end
@@ -429,4 +438,8 @@ MauvilleCity_Gym_Text_WattsonRematchNeedTwoMons: @ 820EAFD
 	.string "You've only one POKéMON with you!\p"
 	.string "Come see me with two or more\n"
 	.string "POKéMON, all right?$"
+	
+LevelCapItem_Text_MauvilleGym:
+	.string "LEVEL CAP: Actualización completada.\n"
+	.string "El nuevo límite es el nivel 35.$"
 

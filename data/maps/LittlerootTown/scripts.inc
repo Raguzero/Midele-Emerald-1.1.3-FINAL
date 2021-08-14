@@ -943,6 +943,13 @@ LittlerootTown_TeleportGirl::
 	end
 	
 LittlerootTown_Text_Teleport_Yes::
+	msgbox LittlerootTown_Text_UpdateLevelCap, MSGBOX_DEFAULT
+	@ Level Cap Item
+	playfanfare MUS_ME_B_SMALL
+	delay 30
+	msgbox LevelCapItem_Text_LittlerootTown, MSGBOX_DEFAULT
+	closemessage
+	@ Level Cap Item
 	msgbox LittlerootTown_Text_Teleport_3, MSGBOX_DEFAULT
 	setflag FLAG_EXPLANATION_MICOLANDIA 
 	warp MAP_MICOLANDIA_HOUSE1, 2, 0, 0
@@ -1172,6 +1179,10 @@ LittlerootTown_Text_Teleport:
 LittlerootTown_Text_Teleport_2:
 	.string "¿Te he convencido?\n"
 	.string "¿Quieres que lleve a MICOLANDIA?$"
+
+LittlerootTown_Text_UpdateLevelCap:	
+	.string "Bien, entonces deja que te actualice\n"
+	.string "ese LEVEL CAP que llevas.$"
 	
 LittlerootTown_Text_Teleport_3:
 	.string "Como dije antes, ese lugar es\n"
@@ -1217,3 +1228,7 @@ LittlerootTown_Text_Teleport_4:
 	.string "inaccesible para la gente común.\p"
 	
 	.string "¡Ya te digo que vale la pena!$"
+	
+LevelCapItem_Text_LittlerootTown:
+	.string "LEVEL CAP: Actualización completada.\n"
+	.string "El nuevo límite es el nivel 80.$"

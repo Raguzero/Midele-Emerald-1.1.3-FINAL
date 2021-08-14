@@ -174,6 +174,15 @@ DewfordTown_Gym_EventScript_BrawlyDefeated:: @ 81FC7F7
 	waitfanfare
 	closemessage
 	delay 30
+	@ Level Cap Item
+	playse SE_PIN
+	applymovement EVENT_OBJ_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	playfanfare MUS_ME_B_SMALL
+	delay 30
+	msgbox LevelCapItem_Text_DewfordGym, MSGBOX_DEFAULT
+	closemessage
+	@ Level Cap Item
 	setflag FLAG_ENABLE_BRAWLY_MATCH_CALL
 	setvar VAR_ROXANNE_CALL_STEP_COUNTER, 0
 	setflag FLAG_ENABLE_ROXANNE_FIRST_CALL
@@ -472,3 +481,7 @@ DewfordTown_Gym_Text_BrawlyRematchNeedTwoMons: @ 81FD3DE
 	.string "that can battle.\p"
 	.string "I'm sorry, but I'd like you to come back\n"
 	.string "with at least two POKéMON.$"
+	
+LevelCapItem_Text_DewfordGym:
+	.string "LEVEL CAP: Actualización completada.\n"
+	.string "El nuevo límite es el nivel 30.$"

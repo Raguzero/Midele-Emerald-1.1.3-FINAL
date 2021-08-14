@@ -995,6 +995,16 @@ GymGooses_EventScript_GoosesDefeated::
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox GymGooses_Text_ExplainBadgeTakeThis, MSGBOX_DEFAULT
+	@ Level Cap Item
+	delay 30
+	playse SE_PIN
+	applymovement EVENT_OBJ_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	playfanfare MUS_ME_B_SMALL
+	delay 30
+	msgbox LevelCapItem_Text_GymGooses, MSGBOX_DEFAULT
+	closemessage
+	@ Level Cap Item
 	setflag FLAG_DEFEATED_GOOSES_GYM
 	delay 30
 	release
@@ -1371,10 +1381,9 @@ GymGooses_Text_ReceivedBadge:
 GymGooses_Text_ExplainBadgeTakeThis:
 	.string "Esta es tu recompensa por tu respuesta\n"
 	.string "final. Con la MEDALLA FRÍO INVERNAL\l"
-	.string "tus POKéMON podrán subir hasta el\l"
-	.string "nivel 95. Incluso te obedecerá sin\l"
-	.string "rechistar todo POKéMON intercambiado\l"
-	.string "que no sea superior a ese nivel.\p"
+	.string "te obedecerá sin rechistar todo\l"
+	.string "POKéMON intercambiado que no sea\l"
+	.string "superior al nivel 95.\p"
 	.string "Finalmente, esta medalla te capacita\n"
 	.string "para afrontar el reto de DARKIZARD, en\l"
 	.string "el último GYM. Ese necio ha permitido\l"
@@ -1410,3 +1419,7 @@ GymGooses_Text_Curacion:
 	.string "tu equipo será curado.\p"
 	
 	.string "¡ADELANTE!$"
+	
+LevelCapItem_Text_GymGooses:
+	.string "LEVEL CAP: Actualización completada.\n"
+	.string "El nuevo límite es el nivel 95.$"

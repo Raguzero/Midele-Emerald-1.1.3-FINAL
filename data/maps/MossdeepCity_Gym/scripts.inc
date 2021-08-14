@@ -85,6 +85,15 @@ MossdeepCity_Gym_EventScript_TateAndLizaDefeated:: @ 82208D1
 	waitfanfare
 	closemessage
 	delay 30
+	@ Level Cap Item
+	playse SE_PIN
+	applymovement EVENT_OBJ_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	playfanfare MUS_ME_B_SMALL
+	delay 30
+	msgbox LevelCapItem_Text_MossdeepGym, MSGBOX_DEFAULT
+	closemessage
+	@ Level Cap Item
 	setflag FLAG_ENABLE_TATE_AND_LIZA_MATCH_CALL
 	release
 	end
@@ -650,3 +659,7 @@ MossdeepCity_Gym_Text_TateAndLizaRematchNeedTwoMons: @ 8221EB8
 	.string "LIZA: You brought just one POKéMON!\p"
 	.string "TATE: We need you to bring at least…\n"
 	.string "LIZA: Two POKéMON when you come back.$"
+	
+LevelCapItem_Text_MossdeepGym:
+	.string "LEVEL CAP: Actualización completada.\n"
+	.string "El nuevo límite es el nivel 55.$"

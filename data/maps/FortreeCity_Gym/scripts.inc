@@ -43,6 +43,15 @@ FortreeCity_Gym_EventScript_WinonaDefeated:: @ 82165FD
 	waitfanfare
 	closemessage
 	delay 30
+	@ Level Cap Item
+	playse SE_PIN
+	applymovement EVENT_OBJ_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	playfanfare MUS_ME_B_SMALL
+	delay 30
+	msgbox LevelCapItem_Text_FortreeGym, MSGBOX_DEFAULT
+	closemessage
+	@ Level Cap Item
 	setflag FLAG_ENABLE_WINONA_MATCH_CALL
 	setvar VAR_SCOTT_FORTREE_CALL_STEP_COUNTER, 0
 	setflag FLAG_SCOTT_CALL_FORTREE_GYM
@@ -319,3 +328,7 @@ FortreeCity_Gym_Text_WinonaRematchNeedTwoMons: @ 8217292
 	.string "POKéMON with you?\p"
 	.string "Please return with two POKéMON\n"
 	.string "at the very least.$"
+	
+LevelCapItem_Text_FortreeGym:
+	.string "LEVEL CAP: Actualización completada.\n"
+	.string "El nuevo límite es el nivel 50.$"
