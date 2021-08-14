@@ -145,6 +145,7 @@
 #define TRAINER_PIC_VADER          126
 #define TRAINER_PIC_MIRORB          127
 #define TRAINER_PIC_REDKROW          128
+#define TRAINER_PIC_SAPPH          129
 
 #define TRAINER_BACK_PIC_BRENDAN                0
 #define TRAINER_BACK_PIC_MAY                    1
