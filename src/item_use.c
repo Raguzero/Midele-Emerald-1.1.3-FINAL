@@ -1178,4 +1178,20 @@ void ItemUseOutOfBattle_MusicPlayer(u8 taskId)
     sItemUseOnFieldCB = StartMusicPlayer;
     SetUpItemUseOnFieldCallback(taskId);
 }
+
+void ItemUseOutOfBattle_LevelCap(u8 taskId)
+{
+    ConvertIntToDecimalStringN(gStringVar1, GetLevelCap(), STR_CONV_MODE_LEFT_ALIGN, 3);
+    StringExpandPlaceholders(gStringVar4, gText_LevelCap);
+
+    if (!gTasks[taskId].tUsingRegisteredKeyItem)
+    {
+        DisplayItemMessage(taskId, 1, gStringVar4, BagMenu_InitListsMenu);
+    }
+    else
+    {
+        DisplayItemMessageOnField(taskId, gStringVar4, Task_CloseCantUseKeyItemMessage);
+    }
+}
+
 #undef tUsingRegisteredKeyItem

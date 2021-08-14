@@ -2134,3 +2134,5 @@ const u8 gTextPoochyena[] = _("POOCHYENA");
 const u8 gTextZigzagoon[] = _("ZIGZAGOON");
 const u8 gTextMew[] = _("MEW");
 const u8 gTextKirlia[] = _("KIRLIA");
+
+const u8 gText_LevelCap[] = _("Tus POKéMON no pueden superar el nivel:\n{STR_VAR_1}{PAUSE_UNTIL_PRESS}");

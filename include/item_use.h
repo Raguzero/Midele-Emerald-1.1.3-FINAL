@@ -38,5 +38,6 @@ void ItemUseOutOfBattle_SootSack(u8);
 u16 GetAshCount(void);
 void ItemUseOutOfBattle_FormChange(u8);
 void ItemUseOutOfBattle_MusicPlayer(u8 taskId);
+void ItemUseOutOfBattle_LevelCap(u8 taskId);
 
 #endif // GUARD_ITEM_USE_H
