@@ -280,6 +280,27 @@ MicoloHideout_MeetingRoom_PCHeal_2:
 	special HealPlayerParty
 	goto MicoloHideout_MeetingRoom_PCHeal_1
 
+MicoloHideout_MeetingRoom_Chairman::
+	lockall
+	faceplayer
+	msgbox MicoloHideout_MeetingRoom_Chairman_Text_0
+	releaseall
+	return
+
+
+MicoloHideout_MeetingRoom_Chairman_Text_0:
+	.string "¿Eh? ¿Qué quieres? ¿Cómo has llegado\n"
+	.string "hasta aquí? Bueno, da igual...\p"
+	.string "Esta es la SALA de REUNIONES del gran\n"
+	.string "MICOLO. Aquí se llevan a cabo los\l"
+	.string "charlas más intelectuales de toda\l"
+	.string "MICOLANDIA... donde acuden los\l"
+	.string "entrenadores más poderosos de todo el\l"
+	.string "mundo.\p"
+	.string "Será mejor que te largues si no quieres\n"
+	.string "que te hagan un 6-0.$"
+
+
 
 MicoloHideout_MeetingRoom_PC1_Text_0:
 	.string "Hay un montón de datos técnicos sobre\n"

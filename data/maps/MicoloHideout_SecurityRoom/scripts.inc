@@ -36,6 +36,26 @@ MicoloHideout_SecurityRoom_Machine::
 	msgbox MicoloHideout_SecurityRoom_Machine_Text_0, MSGBOX_SIGN
 	return
 
+MicoloHideout_SecurityRoom_SecurityMan::
+	lockall
+	faceplayer
+	msgbox MicoloHideout_SecurityRoom_SecurityMan_Text_0
+	releaseall
+	return
+
+
+MicoloHideout_SecurityRoom_SecurityMan_Text_0:
+	.string "Maldito PACOCHEF... ya ha dejado la\n"
+	.string "puerta abierta otra vez...\p"
+	.string "¿Eh? ¿Has conseguido entrar? Se\n"
+	.string "supone que mi trabajo es detenerte,\l"
+	.string "pero bueno... esto está lleno de\l"
+	.string "entrenadores fortísimos, si sigues\l"
+	.string "adelante ellos harán que te\l"
+	.string "arrepientas.\p"
+	.string "Por cierto... ¡ni se te ocurra leer lo que\n"
+	.string "hay en los PCs de esta sala!$"
+
 
 MicoloHideout_SecurityRoom_PC1_Text_0:
 	.string "Hay un documento abierto en el PC.\p"
