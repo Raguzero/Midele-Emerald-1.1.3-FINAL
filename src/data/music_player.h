@@ -6,11 +6,6 @@ static const u8 gDebugText_Util_PlaySong[] =                _("SONG NAME");
 static const u8 digitInidicator_1[] =               _("{LEFT_ARROW}+1{RIGHT_ARROW}        ");
 static const u8 digitInidicator_10[] =              _("{LEFT_ARROW}+10{RIGHT_ARROW}       ");
 static const u8 digitInidicator_100[] =             _("{LEFT_ARROW}+100{RIGHT_ARROW}      ");
-static const u8 digitInidicator_1000[] =            _("{LEFT_ARROW}+1000{RIGHT_ARROW}     ");
-static const u8 digitInidicator_10000[] =           _("{LEFT_ARROW}+10000{RIGHT_ARROW}    ");
-static const u8 digitInidicator_100000[] =          _("{LEFT_ARROW}+100000{RIGHT_ARROW}   ");
-static const u8 digitInidicator_1000000[] =         _("{LEFT_ARROW}+1000000{RIGHT_ARROW}  ");
-static const u8 digitInidicator_10000000[] =        _("{LEFT_ARROW}+10000000{RIGHT_ARROW} ");
 
 // Music names
 static const u8 gText_Music_NoMusic[]                = _("POWER OFF \nTURN OFF");
@@ -75,11 +70,6 @@ const u8 * const gText_DigitIndicator2[] =
     digitInidicator_1,
     digitInidicator_10,
     digitInidicator_100,
-    digitInidicator_1000,
-    digitInidicator_10000,
-    digitInidicator_100000,
-    digitInidicator_1000000,
-    digitInidicator_10000000
 };
 
 static const s32 sPowersOfTen[] =
@@ -87,13 +77,6 @@ static const s32 sPowersOfTen[] =
              1,
             10,
            100,
-          1000,
-         10000,
-        100000,
-       1000000,
-      10000000,
-     100000000,
-    1000000000,
 };
 
 // Menu template
