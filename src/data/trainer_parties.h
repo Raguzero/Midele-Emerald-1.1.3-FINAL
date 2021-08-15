@@ -24573,10 +24573,11 @@ static const struct TrainerMonCustomMidele sParty_Alpha[] = {
     .lvl = 96,
     .species = SPECIES_HONEDGE_MONADO,
     .heldItem = ITEM_FOCUS_SASH, 
-    .nature = NATURE_JOLLY, 
+    .nature = NATURE_JOLLY,
+	.hpType = TYPE_FIGHTING,
     .evs = {0, 252, 0, 0, 4, 252},
     .ability = 0, // ADAPTABILITY
-    .moves = {MOVE_IRON_HEAD, MOVE_SHADOW_BALL, MOVE_EXTREME_SPEED, MOVE_SWORDS_DANCE}
+    .moves = {MOVE_IRON_HEAD, MOVE_SHADOW_BALL, MOVE_MONADO_POWER, MOVE_SWORDS_DANCE}
     },
     {
     .iv = 31,
