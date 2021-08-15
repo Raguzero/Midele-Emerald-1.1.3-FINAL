@@ -701,6 +701,9 @@ static u8 ChooseMoveOrAction_Singles(void)
 		&& AICanSwitchAssumingEnoughPokemon())
     {
         s32 cap = AI_THINKING_STRUCT->aiFlags & (AI_SCRIPT_CHECK_VIABILITY) ? 95 : 93;
+        s32 i_2;
+        bool8 notChangingIsPossible = TRUE;
+        bool8 notChangingIsAcceptable = TRUE;
 	if (gBattleMons[sBattler_AI].hp < gBattleMons[sBattler_AI].maxHP / 2 && (Random() & 1))
            cap -= 3;
 		for (i = 0; i < MAX_MON_MOVES; i++)
@@ -708,9 +711,15 @@ static u8 ChooseMoveOrAction_Singles(void)
             if (AI_THINKING_STRUCT->score[i] > cap)
                 break;
         }
+        for (i_2 = 0; i_2 < MAX_MON_MOVES; i_2++)
+            if (AI_THINKING_STRUCT->score[i_2] > cap - 2)
+                break;
+
+        if (i_2 == MAX_MON_MOVES)
+            notChangingIsAcceptable = FALSE;
 
         gActiveBattler = sBattler_AI;
-        if (i == MAX_MON_MOVES && GetMostSuitableMonToSwitchInto() != PARTY_SIZE)
+		if (i == MAX_MON_MOVES && GetMostSuitableMonToSwitchInto(notChangingIsPossible, notChangingIsAcceptable) != PARTY_SIZE)
         {
             AI_THINKING_STRUCT->switchMon = TRUE;
             return AI_CHOICE_SWITCH;
@@ -725,7 +734,7 @@ static u8 ChooseMoveOrAction_Singles(void)
             || IsTruantMonVulnerable(sBattler_AI, gBattlerTarget))
             && gDisableStructs[sBattler_AI].truantCounter
 			&& AICanSwitchAssumingEnoughPokemon())
-            if (GetMostSuitableMonToSwitchInto() != PARTY_SIZE)
+            if (GetMostSuitableMonToSwitchInto_NotChangingIsUnacceptable() != PARTY_SIZE)
             {
                 AI_THINKING_STRUCT->switchMon = TRUE;
                 return AI_CHOICE_SWITCH;
@@ -762,7 +771,7 @@ static u8 ChooseMoveOrAction_Singles(void)
         if (IsMoveSignificantlyAffectedByStatDrops(move)
 			&& currentMoveArray[0] <= 101 // no cambia si el movimiento alcanza los 102 puntos (probable KO)
 			&& AICanSwitchAssumingEnoughPokemon())
-            if (GetMostSuitableMonToSwitchInto() != PARTY_SIZE)
+            if (GetMostSuitableMonToSwitchInto_NotChangingIsUnacceptable() != PARTY_SIZE)
             {
                 AI_THINKING_STRUCT->switchMon = TRUE;
                 return AI_CHOICE_SWITCH;
@@ -771,7 +780,7 @@ static u8 ChooseMoveOrAction_Singles(void)
         if (gBattleMons[sBattler_AI].species == SPECIES_SHEDINJA
             && OurShedinjaIsVulnerable(sBattler_AI, gBattlerTarget, move)
             && AICanSwitchAssumingEnoughPokemon())
-            if (GetMostSuitableMonToSwitchInto() != PARTY_SIZE)
+            if (GetMostSuitableMonToSwitchInto_NotChangingIsUnacceptable() != PARTY_SIZE)
             {
                 AI_THINKING_STRUCT->switchMon = TRUE;
                 return AI_CHOICE_SWITCH;
@@ -781,7 +790,7 @@ static u8 ChooseMoveOrAction_Singles(void)
             && ((gBattleMons[sBattler_AI].status1 & 0xF00) >> 8) >= 4 // lleva al menos 4 turnos de daño y por tanto va a perder más de un 25% (al menos un 31,25%) de sus PS
             && currentMoveArray[0] <= 101 // y no escoge un movimiento que alcance los 102 puntos (probable KO)
 			&& AICanSwitchAssumingEnoughPokemon())
-			if (GetMostSuitableMonToSwitchInto() != PARTY_SIZE)
+			if (GetMostSuitableMonToSwitchInto_NotChangingIsUnacceptable() != PARTY_SIZE)
             {
                 bool8 convenient_move = FALSE; // TRUE si en el mov hace que no sea relevante el estar intoxicado
                 switch (gBattleMoves[move].effect) {
@@ -937,7 +946,7 @@ static u8 ChooseMoveOrAction_Doubles(void)
                   && (gBattleMons[gBattlerTarget ^ BIT_FLANK].hp == 0 || IsTruantMonVulnerable(sBattler_AI, gBattlerTarget ^ BIT_FLANK))))
         && gDisableStructs[sBattler_AI].truantCounter
         && AICanSwitchAssumingEnoughPokemon())
-        if (GetMostSuitableMonToSwitchInto() != PARTY_SIZE)
+        if (GetMostSuitableMonToSwitchInto_NotChangingIsUnacceptable() != PARTY_SIZE)
         {
             AI_THINKING_STRUCT->switchMon = TRUE;
             return AI_CHOICE_SWITCH;
@@ -2873,37 +2882,31 @@ static void Cmd_if_trick_fails_in_this_type_of_battle(void)
         gAIScriptPtr += 5;
 }
 
-static void Cmd_calculate_nhko(void)
+// Calcula el mejor nHKO que puede hacerle un poke a otro
+// Se calcula de forma notablemente distinta según si el poke en cuestión es conocido por la IA o no
+// consideredMove puede ser MOVE_NONE para que evalúe todos los movimientos
+// (todos los movimientos conocidos y esperados, si no se conocen los movimientos del atacante)
+s32 CalculateNHKO(u16 attackerId, u16 targetId, bool8 attackerIsCurrentAI, u16 consideredMove, bool8 assumeWorstCaseScenario, bool8 ignoreFocusPunch)
 {
-    u16 attackerId, targetId;
     u16 * movePointer;
-    bool8 check_only_considered_move;
+	bool8 check_only_considered_move = (consideredMove != MOVE_NONE);
     s32 i;
     s32 best_nhko = 5;     // todo lo que sea peor que 4HKO se lee como 5HKO (incluso daño 0)
-    bool8 assumeWorstCaseScenario = gAIScriptPtr[1] & AI_NHKO_PESSIMISTIC;
-
-    if (gAIScriptPtr[1] == AI_USER)
-    {
-        attackerId = sBattler_AI;
-        targetId = gBattlerTarget;
-        check_only_considered_move = (gBattleMoves[AI_THINKING_STRUCT->moveConsidered].power != 0);
-        if (check_only_considered_move)
-            movePointer = &AI_THINKING_STRUCT->moveConsidered;
-        else
-            movePointer = gBattleMons[sBattler_AI].moves;
-    }
+ 
+    if (check_only_considered_move)
+        movePointer = &consideredMove;
+    else if (attackerIsCurrentAI)
+        movePointer = gBattleMons[attackerId].moves;
     else
-    {
-        attackerId = gBattlerTarget;
-        targetId = sBattler_AI;
-        movePointer = FOES_MOVE_HISTORY(gBattlerTarget);
-        check_only_considered_move = FALSE;
-    }
-    
+        movePointer = FOES_MOVE_HISTORY(attackerId);
+ 
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
         if (!movePointer[i] || !AI_CAN_ESTIMATE_DAMAGE(movePointer[i]))
             continue;  // se ignora el movimiento
+
+        if (!check_only_considered_move && (gBattleMoves[movePointer[i]].effect == EFFECT_EXPLOSION || (ignoreFocusPunch && movePointer[i] == MOVE_FOCUS_PUNCH)))
+            continue;
 
         if (!check_only_considered_move)
         {
@@ -2920,7 +2923,7 @@ static void Cmd_calculate_nhko(void)
 		}
 
         gCurrentMove = movePointer[i];
-		best_nhko = CalculatenHKOFromgCurrentMove(attackerId, targetId, (targetId == sBattler_AI && assumeWorstCaseScenario) ? 0 : (AI_THINKING_STRUCT->simulatedRNG[check_only_considered_move ? AI_THINKING_STRUCT->movesetIndex : i]), best_nhko);
+		best_nhko = CalculatenHKOFromgCurrentMove(attackerId, targetId, assumeWorstCaseScenario ? 0 : (AI_THINKING_STRUCT->simulatedRNG[check_only_considered_move ? AI_THINKING_STRUCT->movesetIndex : i]), best_nhko);
 
         if (check_only_considered_move || best_nhko == 1)
             break; // solo se mira el movimiento pensado, y no se sigue mirando si es OHKO
@@ -2930,7 +2933,7 @@ static void Cmd_calculate_nhko(void)
     // la IA puede asumir que los STAB estándar (de precisión alta)
     // y ataques típicos de la especie pueden ser los movs que faltan
 	// siempre que la IA esté en condiciones de usar un ataque nuevo
-		if (attackerId == gBattlerTarget && best_nhko > 1
+		if (!attackerIsCurrentAI && best_nhko > 1
         && gDisableStructs[attackerId].encoredMove == MOVE_NONE
         && !(gBattleMons[attackerId].status2 & (STATUS2_RECHARGE | STATUS2_MULTIPLETURNS)))
     {
@@ -2941,7 +2944,7 @@ static void Cmd_calculate_nhko(void)
         if (i != MAX_MON_MOVES) // algún ataque no se conoce
         {
             s32 type_i;
-			u8 opponent_types[2] = {gBaseStats[gBattleMons[gBattlerTarget].species].type1, gBaseStats[gBattleMons[gBattlerTarget].species].type2};
+			u8 opponent_types[2] = {gBaseStats[gBattleMons[attackerId].species].type1, gBaseStats[gBattleMons[attackerId].species].type2};
             s16 standard_moves[] = {
                 [TYPE_NORMAL] = MOVE_EGG_BOMB,       // prácticamente la misma potencia que Return/Frustration al máximo
                 [TYPE_FIGHTING] = MOVE_SKY_UPPERCUT, // los movs más potentes son más arriesgados
@@ -3010,8 +3013,35 @@ static void Cmd_calculate_nhko(void)
     
     if (((gBattleMons[attackerId].status2 & STATUS2_RECHARGE) || gDisableStructs[attackerId].truantCounter) && best_nhko < 5)
         best_nhko += 1;
+    return best_nhko;
+}
 
-    AI_THINKING_STRUCT->funcResult = best_nhko;
+static void Cmd_calculate_nhko(void)
+{
+    u16 attackerId, targetId;
+    bool8 attackerIsCurrentAI = (gAIScriptPtr[1] & (~AI_NHKO_PESSIMISTIC)) == AI_USER;
+    u16 consideredMove = MOVE_NONE;
+    bool8 assumeWorstCaseScenario = gAIScriptPtr[1] & AI_NHKO_PESSIMISTIC;
+	bool8 ignoreFocusPunch = attackerIsCurrentAI || AI_CAN_ESTIMATE_DAMAGE(AI_THINKING_STRUCT->moveConsidered);
+
+    if (attackerIsCurrentAI)
+    {
+        attackerId = sBattler_AI;
+        targetId = gBattlerTarget;
+        // Si la IA está considerando un movimiento de daño, se evalúa solo ese.
+        // En caso contrario, se consideran todos los (demás) movimientos que conoce
+        if (gBattleMoves[AI_THINKING_STRUCT->moveConsidered].power != 0)
+            consideredMove = AI_THINKING_STRUCT->moveConsidered;
+    }
+    else
+    {
+        attackerId = gBattlerTarget;
+        targetId = sBattler_AI;
+    }
+
+    // Calcula el nHKO y lo guarda en funcResult, con lo que se puede consultar su valor
+    // usando comandos de la IA como if_equal, if_less_than, etc
+	AI_THINKING_STRUCT->funcResult = CalculateNHKO(attackerId, targetId, attackerIsCurrentAI, consideredMove, assumeWorstCaseScenario, ignoreFocusPunch);
     gAIScriptPtr += 2;
 }
 

@@ -17,4 +17,8 @@ void CopyBattlerHistoryForTransformedMon(u8 transformUser, u8 transformTarget);
 void RecordItemEffectBattle(u8 battlerId, u8 itemEffect);
 void ClearBattlerItemEffectHistory(u8 battlerId);
 
+bool32 OurShedinjaIsVulnerable(u32 battlerAI, u32 opposingBattler, u16 consideredMove);
+bool32 IsTruantMonVulnerable(u32 battlerAI, u32 opposingBattler);
+s32 CalculateNHKO(u16 attackerId, u16 targetId, bool8 attackerIsCurrentAI, u16 consideredMove, bool8 assumeWorstCaseScenario, bool8 ignoreFocusPunch);
+
 #endif // GUARD_BATTLE_AI_SCRIPT_COMMANDS_H
