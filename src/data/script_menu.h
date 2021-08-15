@@ -1085,6 +1085,22 @@ static const struct MenuAction MultichoiceList_SapphGym_SecondPuzzleAnswers[] =
     {gTextKirlia},
 };
 
+static const struct MenuAction MultichoiceList_Move_Tutor_List[] =
+{
+	{gExplosionTutor},
+	{gDoubleEdgeTutor},
+	{gDynamicPunchTutor},  
+	{gSubstituteTutor},  
+	{gSleepTalkTutor},  
+	{gMetronomeTutor},  
+	{gMimicTutor},  
+	{gFuryCutterTutor},  
+	{gRolloutTutor},  
+	{gSwaggerTutor},  
+	{gChooseRightTutorMove},  
+	{gChooseLeftTutorMove}, 
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -1245,6 +1261,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
 	[MULTI_TOTEM_BATTLE_LIST] =  MULTICHOICE(MultichoiceList_Totem_Battle_List),
 	[MULTI_SAPPHGYM_FIRST_PUZZLE_ANSWERS] =  MULTICHOICE(MultichoiceList_SapphGym_FirstPuzzleAnswers),
 	[MULTI_SAPPHGYM_SECOND_PUZZLE_ANSWERS] =  MULTICHOICE(MultichoiceList_SapphGym_SecondPuzzleAnswers),
+	[MULTI_MOVE_TUTOR_LIST] =  MULTICHOICE(MultichoiceList_Move_Tutor_List),
 };
 
 const u8 *const gStdStrings[] =

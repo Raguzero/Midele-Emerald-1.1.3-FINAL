@@ -2135,4 +2135,17 @@ const u8 gTextZigzagoon[] = _("ZIGZAGOON");
 const u8 gTextMew[] = _("MEW");
 const u8 gTextKirlia[] = _("KIRLIA");
 
+const u8 gExplosionTutor[] = _("EXPLOSION");
+const u8 gDoubleEdgeTutor[] = _("DOUBLE EDGE");
+const u8 gDynamicPunchTutor[] = _("DYNAMIC PUNCH");  
+const u8 gSubstituteTutor[] = _("SUBSTITUTE");  
+const u8 gSleepTalkTutor[] = _("SLEEP TALK");  
+const u8 gMetronomeTutor[] = _("METRONOME");  
+const u8 gMimicTutor[] = _("MIMIC");  
+const u8 gFuryCutterTutor[] = _("FURY CUTTER");  
+const u8 gRolloutTutor[] = _("ROLLOUT");  
+const u8 gSwaggerTutor[] = _("SWAGGER");  
+const u8 gChooseRightTutorMove[] = _("MORE TUTOR 1");  
+const u8 gChooseLeftTutorMove[] = _("MORE TUTOR 2"); 
+
 const u8 gText_LevelCap[] = _("Tus POKéMON no pueden superar el nivel:\n{STR_VAR_1}{PAUSE_UNTIL_PRESS}");

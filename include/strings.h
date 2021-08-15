@@ -3255,4 +3255,18 @@ extern const u8 gTextZigzagoon[];
 extern const u8 gTextMew[];
 extern const u8 gTextKirlia[];
 
+// MOVE TUTOR LIST
+extern const u8 gExplosionTutor[];
+extern const u8 gDoubleEdgeTutor[];
+extern const u8 gDynamicPunchTutor[];  
+extern const u8 gSubstituteTutor[];  
+extern const u8 gSleepTalkTutor[];  
+extern const u8 gMetronomeTutor[];  
+extern const u8 gMimicTutor[];  
+extern const u8 gFuryCutterTutor[];  
+extern const u8 gRolloutTutor[];  
+extern const u8 gSwaggerTutor[];  
+extern const u8 gChooseRightTutorMove[];  
+extern const u8 gChooseLeftTutorMove[]; 
+
 #endif // GUARD_STRINGS_H

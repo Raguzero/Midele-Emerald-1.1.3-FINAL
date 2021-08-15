@@ -138,6 +138,91 @@ MicoloLeagueLobby_EventScript_ResetTrainerYES:
 	release
 	end
 	
+MicoloLeagueLobby_EventScript_Tutor_Definitive_List::
+	lockall
+	faceplayer
+	msgbox Tutor_Definite_List_Text, MSGBOX_DEFAULT	
+	multichoicegrid 0, 0, MULTI_MOVE_TUTOR_LIST, 2, 0
+	switch VAR_RESULT
+	case 0, EXPLOSION
+	case 1, DOUBLEEDGE
+	case 2, DYNAMICPUNCH
+	case 3, SUBSTITUTE
+	case 4, SLEEPTALK
+	case 5, METRONOME
+	case 6, MIMIC
+	case 7, FURRYCUTTER
+	case 8, ROLLOUT
+	case 9, SWAGGER
+	case 10, MORETUTOR1
+	case 11, MORETUTOR2
+	case MULTI_B_PRESSED, No_Tutor
+	end
+	
+EXPLOSION::	
+	call PacifidlogTown_PokemonCenter_1F_EventScript_ExplosionTutor
+	releaseall
+	end
+	
+DOUBLEEDGE::	
+	call SootopolisCity_PokemonCenter_1F_EventScript_DoubleEdgeTutor
+	releaseall
+	end
+
+DYNAMICPUNCH::	
+	call MossdeepCity_EventScript_DynamicPunchTutor
+	releaseall
+	end
+	
+SUBSTITUTE::	
+	call LilycoveCity_DepartmentStoreRooftop_EventScript_SubstituteTutor
+	releaseall
+	end
+	
+SLEEPTALK::	
+	call FortreeCity_House2_EventScript_SleepTalkTutor
+	releaseall
+	end
+	
+METRONOME::	
+	call FallarborTown_Mart_EventScript_MetronomeTutor
+	releaseall
+	end
+	
+MIMIC::	
+	call LavaridgeTown_House_EventScript_MimicTutor
+	releaseall
+	end
+	
+FURRYCUTTER::	
+	call VerdanturfTown_PokemonCenter_1F_EventScript_FuryCutterTutor
+	releaseall
+	end
+	
+ROLLOUT::	
+	call MauvilleCity_EventScript_RolloutTutor
+	releaseall
+	end
+	
+SWAGGER::	
+	call SlateportCity_PokemonFanClub_EventScript_SwaggerTutor
+	releaseall
+	end
+
+MORETUTOR1::	
+	call BattleFrontier_Lounge7_EventScript_ChooseRightTutorMove
+	releaseall
+	end
+	
+MORETUTOR2::	
+	call BattleFrontier_Lounge7_EventScript_ChooseLeftTutorMove
+	releaseall
+	end
+	
+No_Tutor::
+	releaseall
+	end
+	
 MicoloLeagueLobby_Mart_EventScript_Clerk::
 	lock
 	faceplayer
@@ -342,3 +427,6 @@ MicoloLeagueLobby_Text_ResetTrainerFlagsMachineNO:
 MicoloLeagueLobby_Text_ResetTrainerFlagsComplete:
 	.string "Los entrenadores especiales MIDELE se\n"
 	.string "han reseteado de forma satisfactoria.$"
+	
+Tutor_Definite_List_Text:
+	.string "DEFINITIVE MOVE TUTOR LIST!$"
