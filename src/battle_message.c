@@ -622,6 +622,9 @@ static const u8 sText_RedHPLavender2[] = _("Menos mal que esto no es BLANCO/NEGR
 static const u8 sText_MicoloFinalPierdePrimerPoke[] = _("Has podido con uno,\npero no podrás con el resto.\p");
 static const u8 sText_MicoloFinalEnviaUltimoPoke[] = _("¡Adelante, humillalos como sabes!\p");
 static const u8 sText_RedHPMicoloFinal[] = _("Ahora tocará usar nuestro\nespíritu de gladiador\p");
+static const u8 sText_Krub2PierdePrimerPoke[] = _("Me estaba dejando ganar.\p");
+static const u8 sText_Krub2EnviaUltimoPoke[] = _("Este mensaje aparece para marear.\p");
+static const u8 sText_RedHPKrub2[] = _("Este mensaje vuelve a aparecer\npara marear\p");
 
 
 static const u8 frase0[] = _("Entonces sustituí a Blissey por\nGarchomp; y como mi equipo sería un\lSandstorm team, cambié a Tangrowth por\lCradily).\p");
@@ -3176,6 +3179,7 @@ static const struct TrainerSlide sTrainerSlides[] =
     {TRAINER_MIRORB, sText_MirorBEnviaUltimoPoke, sText_RedHPMirorB, sText_MirorBPierdePrimerPoke},
     {TRAINER_LAVENDER_MICOLANDIA, sText_Lavender2EnviaUltimoPoke, sText_RedHPLavender2, sText_Lavender2PierdePrimerPoke},
     {TRAINER_MICOLO_MICOLANDIA, sText_MicoloFinalEnviaUltimoPoke, sText_RedHPMicoloFinal, sText_MicoloFinalPierdePrimerPoke},
+    {TRAINER_KRUB_2, sText_Krub2EnviaUltimoPoke, sText_RedHPKrub2, sText_Krub2PierdePrimerPoke},
 };
 
 static u32 GetEnemyMonCount(bool32 onlyAlive)

@@ -24529,7 +24529,7 @@ static const struct TrainerMonCustomMidele sParty_Micolo3[] = {
 static const struct TrainerMonCustomMidele sParty_Alpha[] = {
     {
     .iv = 31,
-    .lvl = 74,
+    .lvl = 97,
     .species = SPECIES_TYRANITAR,
     .heldItem = ITEM_LEFTOVERS, 
     .nature = NATURE_ADAMANT,
@@ -24540,7 +24540,7 @@ static const struct TrainerMonCustomMidele sParty_Alpha[] = {
     },
     {
     .iv = 31,
-	.lvl = 73,
+	.lvl = 98,
     .species = SPECIES_SKARMORY,
     .heldItem = ITEM_LEFTOVERS, 
     .nature = NATURE_CAREFUL, 
@@ -24550,7 +24550,7 @@ static const struct TrainerMonCustomMidele sParty_Alpha[] = {
     },
     {
     .iv = 31,
-    .lvl = 75,
+    .lvl = 100,
     .species = SPECIES_TORTERRA,
     .heldItem = ITEM_LEFTOVERS, 
     .nature = NATURE_ADAMANT, 
@@ -24560,7 +24560,7 @@ static const struct TrainerMonCustomMidele sParty_Alpha[] = {
     },
     {
     .iv = 31,
-    .lvl = 72,
+    .lvl = 96,
     .species = SPECIES_REUNICLUS,
     .heldItem = ITEM_LEFTOVERS, 
     .nature = NATURE_BOLD, 
@@ -24570,7 +24570,7 @@ static const struct TrainerMonCustomMidele sParty_Alpha[] = {
     },
 	{
     .iv = 31,
-    .lvl = 71,
+    .lvl = 96,
     .species = SPECIES_HONEDGE_MONADO,
     .heldItem = ITEM_FOCUS_SASH, 
     .nature = NATURE_JOLLY, 
@@ -24580,7 +24580,7 @@ static const struct TrainerMonCustomMidele sParty_Alpha[] = {
     },
     {
     .iv = 31,
-    .lvl = 73, 
+    .lvl = 97, 
     .species = SPECIES_CLOYSTER,
     .heldItem = ITEM_LEFTOVERS, 
     .nature = NATURE_MILD,
@@ -26241,4 +26241,68 @@ static const struct TrainerMonCustomMidele sParty_MirorB[] = {
     .evs = {252, 252, 0, 0, 0, 0},
     .moves = {MOVE_LOW_KICK, MOVE_ROCK_SLIDE, MOVE_HELPING_HAND, MOVE_ROLE_PLAY}
   }
+};
+static const struct TrainerMonCustomMidele sParty_Krub2[] = {
+    {
+    .iv = 31,
+    .lvl = 75,
+    .species = SPECIES_FARFETCHD,
+	.heldItem = ITEM_STICK,
+	.nature = NATURE_IMPISH,
+	.evs = {252, 0, 120, 0, 136, 0},
+	.ability = 1, // INNER FOCUS
+    .moves = {MOVE_SWORDS_DANCE, MOVE_AGILITY, MOVE_BATON_PASS, MOVE_SLASH}
+    },
+    {
+    .iv = 31, 
+    .lvl = 72,
+    .species = SPECIES_BRELOOM,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_ADAMANT,
+	.evs = {0, 252, 0, 0, 0, 252},
+	.ability = 1, // TECHNICIAN
+	.friendship = 255,
+    .moves = {MOVE_SPORE, MOVE_SUBSTITUTE, MOVE_FOCUS_PUNCH, MOVE_RETURN}
+    },
+    {
+    .iv = 31, 
+    .lvl = 74,
+    .species = SPECIES_HAUNTER,
+	.heldItem = ITEM_SILK_SCARF,
+	.nature = NATURE_HASTY,
+	.evs = {0, 0, 0, 252, 0, 252}, 
+	.ability = 0, // LEVITATE
+    .moves = {MOVE_TAUNT, MOVE_DESTINY_BOND, MOVE_THUNDERBOLT, MOVE_EXPLOSION}
+    },
+    {
+    .iv = 31,
+    .lvl = 72,
+    .species = SPECIES_ABOMASNOW,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_MILD,
+	.evs = {252, 0, 200, 0, 56, 0},
+	.ability = 1, // SNOW WARNING
+    .moves = {MOVE_GIGA_DRAIN, MOVE_BLIZZARD, MOVE_EARTHQUAKE, MOVE_LEECH_SEED}
+    },
+    {
+    .iv = 31, 
+    .lvl = 71,
+    .species = SPECIES_GLACEON,
+	.heldItem = ITEM_NEVER_MELT_ICE,
+	.nature = NATURE_MODEST,
+	.evs = {0, 0, 0, 252, 0, 252},
+	.hpType = TYPE_FIRE,
+	.ability = 1, // SNOW CLOAK
+    .moves = {MOVE_BLIZZARD, MOVE_HIDDEN_POWER, MOVE_SHADOW_BALL, MOVE_PROTECT}
+    },
+    {
+    .iv = 31, 
+    .lvl = 73,
+    .species = SPECIES_SABLEYE,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_CALM,
+	.evs = {252, 0, 200, 0, 56, 0},
+	.ability = 0, // KEEN EYE
+    .moves = {MOVE_WILL_O_WISP, MOVE_RECOVER, MOVE_NIGHT_SHADE, MOVE_KNOCK_OFF}
+    }
 };

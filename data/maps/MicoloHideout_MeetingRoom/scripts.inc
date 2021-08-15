@@ -26,6 +26,11 @@ MicoloHideout_MeetingRoom_EventScript_Addri::
 	msgbox Addri2_DespuesDeBatalla, MSGBOX_AUTOCLOSE
 	end
 	
+MicoloHideout_MeetingRoom_EventScript_Alpha::
+	trainerbattle_single TRAINER_ALPHA, Alpha_AntesBatalla, Alpha_MensajeDerrota
+	msgbox Alpha_DespuesDeBatalla, MSGBOX_AUTOCLOSE
+	end
+	
 Goldie_MasdeunPokemon: // BATALLA DOBLE
 	.string "Pero si no llevas más de un\n"
 	.string "POKéMON con vida...\p"
@@ -166,6 +171,37 @@ MicoloHideout_MeetingRoom_Text_KaderetePostBattle:
 	.string "En fin, tampoco le había echado ganas.\p"
 
     .string "Vete antes de que te parta la cara.$"
+	
+Alpha_AntesBatalla: 
+	.string "En la batalla, así como en el ejercicio\n"
+	.string "de la medicina, solo acepto la\l"
+	.string "excelencia. ¿Será su merced capaz de,\l"
+	.string "al menos, entretenerme?$"
+	
+Alpha_MensajeDerrota: 
+	.string "¿En verdad he perdido?\n"
+	.string "...\p"
+	
+	.string "Me he cansado de esta pantomima.\p" 
+	
+	.string "Anda, toma la calderilla que me ha\n" 
+	.string "sobrado de comprar en Versace;\l" 
+	.string "a ver si dejas de usar esos harapos,\l"
+	.string "muerto de hambre.$"
+	
+Alpha_DespuesDeBatalla:
+	.string "¿En serio no tienes nada mejor que\n"
+	.string "hacer? Si en vez de farmear\l"
+	.string "experiencia y hacer shiny hunting,\l"
+	.string "hubieses estudiado 100 GB por\l"
+	.string "cuatrimestre, no estarías en paro y sin\l"
+	.string "un duro.\p"
+	
+	.string "¡Uy qué tarde! Me voy que van a\n"
+	.string "llegar pronto los jardineros y tengo\l"
+	.string "que decirles qué hacer... si es que los\l"
+	.string "de clase media no sabéis hacer nada\l"
+	.string "solos.$"
 
 MicoloHideout_MeetingRoom_Showcase_Monociclo::
 	msgbox MicoloHideout_MeetingRoom_Showcase_Monociclo_Text_0, MSGBOX_SIGN

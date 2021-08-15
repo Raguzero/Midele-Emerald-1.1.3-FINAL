@@ -98,11 +98,11 @@
         {
             "elevation": 3,
             "flag": "0",
-            "graphics_id": "EVENT_OBJ_GFX_MAN_3",
+            "graphics_id": "EVENT_OBJ_GFX_BUG_CATCHER",
             "movement_range_x": 0,
             "movement_range_y": 0,
             "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-            "script": "GymSanty2_EventScript_Alpha",
+            "script": "GymSanty2_EventScript_Krub2",
             "trainer_sight_or_berry_tree_id": "2",
             "trainer_type": "1",
             "x": 59,

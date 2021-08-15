@@ -147,7 +147,7 @@
         {
             "elevation": 3,
             "flag": "FLAG_TOTEM_FIERYPATH",
-            "graphics_id": "EVENT_OBJ_GFX_BOY_1",
+            "graphics_id": "EVENT_OBJ_GFX_BUG_CATCHER",
             "movement_range_x": 0,
             "movement_range_y": 0,
             "movement_type": "MOVEMENT_TYPE_FACE_LEFT",

@@ -184,7 +184,10 @@ static const u16 sMicoloHideoutTrainerFlags[] = {
     TRAINER_MAESTRO_ARENA,
     TRAINER_MANEC,
     TRAINER_HATHAR,
-    TRAINER_MDRAGON
+    TRAINER_MDRAGON,
+    TRAINER_ALPHA,
+    TRAINER_SLOWBRO,
+    TRAINER_ADDRI
 };
 
 static const u16 sDarkiGymTrainersZone1Flags[] = {

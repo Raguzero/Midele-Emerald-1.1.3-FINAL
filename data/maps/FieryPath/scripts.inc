@@ -308,7 +308,7 @@ Fiery_Path_Text_KrubPostBattle:
 	.string "Por cierto, dicen que han visto a\n"
 	.string "la puta madre de KADERETE en el\l"
 	.string "polígono y parece que tiene\l"
-	.string "muchos clientes$"
+	.string "muchos clientes.$"
 	
 Fiery_Path_EventScript_DobleC::  
 	trainerbattle_single TRAINER_FIERYPATH_DOBLEC, Fiery_Path_Text_DobleCIntro, Fiery_Path_Text_DobleCDefeat

@@ -12602,7 +12602,7 @@ const struct Trainer gTrainers[] = {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
-        .trainerPic = TRAINER_PIC_BIRD_KEEPER,
+        .trainerPic = TRAINER_PIC_BUG_CATCHER,
         .battleMusic = MUS_RG_VS_TORE,
         .trainerName = _("KRUB"),
         .items = {},
@@ -13840,4 +13840,18 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_Sapph),
         .party = {.ItemCustomMidele = sParty_Sapph},
     },
+    [TRAINER_KRUB_2] =
+    {
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
+        .battleMusic = MUS_RG_VS_TORE,
+        .trainerPic = TRAINER_PIC_BUG_CATCHER,
+        .trainerName = _("KRUB"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
+        .partySize = ARRAY_COUNT(sParty_Krub2),
+        .party = {.ItemCustomMidele = sParty_Krub2},
+    }
 };

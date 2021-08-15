@@ -179,9 +179,9 @@ GymSanty2_EventScript_Albermaus::
 	msgbox Albermaus_DespuesDeBatalla, MSGBOX_AUTOCLOSE
 	end
 	
-GymSanty2_EventScript_Alpha::
-	trainerbattle_single TRAINER_ALPHA, Alpha_AntesBatalla, Alpha_MensajeDerrota
-	msgbox Alpha_DespuesDeBatalla, MSGBOX_AUTOCLOSE
+GymSanty2_EventScript_Krub2::
+	trainerbattle_single TRAINER_KRUB_2, Krub2_AntesBatalla, Krub2_MensajeDerrota
+	msgbox Krub2_DespuesDeBatalla, MSGBOX_AUTOCLOSE
 	end
 	
 GymSanty2_EventScript_Fenan::
@@ -353,36 +353,23 @@ Felipex88_Text_MasdeunPokemon: // BATALLA DOBLE
 	.string "Prefiero cortarme la lengua que usar\n"
 	.string "mi equipo en BATALLA INDIVIDUAL.$"	
 	
-Alpha_AntesBatalla: 
-	.string "En la batalla, así como en el ejercicio\n"
-	.string "de la medicina, solo acepto la\l"
-	.string "excelencia. ¿Será su merced capaz de,\l"
-	.string "al menos, entretenerme?$"
+Krub2_AntesBatalla: 
+    .string "¿Puedes dejarme 20 EUROS?$"
 	
-Alpha_MensajeDerrota: 
-	.string "¿En verdad he perdido?\n"
+Krub2_MensajeDerrota: 
+    .string ":sad: Perdí, tendría que haber\n"
+    .string "mirado más bulbapedia.$"
+	
+Krub2_DespuesDeBatalla:
+    .string "Te tengo que decir y dar algo útil.\n"
+	
 	.string "...\p"
 	
-	.string "Me he cansado de esta pantomima.\p" 
+	.string "...\p"
 	
-	.string "Anda, toma la calderilla que me ha\n" 
-	.string "sobrado de comprar en Versace;\l" 
-	.string "a ver si dejas de usar esos harapos,\l"
-	.string "muerto de hambre.$"
-	
-Alpha_DespuesDeBatalla:
-	.string "¿En serio no tienes nada mejor que\n"
-	.string "hacer? Si en vez de farmear\l"
-	.string "experiencia y hacer shiny hunting,\l"
-	.string "hubieses estudiado 100 GB por\l"
-	.string "cuatrimestre, no estarías en paro y sin\l"
-	.string "un duro.\p"
-	
-	.string "¡Uy qué tarde! Me voy que van a\n"
-	.string "llegar pronto los jardineros y tengo\l"
-	.string "que decirles qué hacer... si es que los\l"
-	.string "de clase media no sabéis hacer nada\l"
-	.string "solos.$"
+	.string "...\p"
+
+    .string "Nah, estaba troleando.$"
 	
 Fenan_AntesBatalla: 
 	.string "los k usan pokesav son unos mamones\n"

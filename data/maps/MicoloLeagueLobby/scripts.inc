@@ -67,7 +67,7 @@ MicoloLeagueLobby_EventScript_ResetTrainerYES:
 	cleartrainerflag TRAINER_ENTROPIA
 	cleartrainerflag TRAINER_UTALAWEA
 	cleartrainerflag TRAINER_FORBIDDENFOREST_EZECUTER
-	//cleartrainerflag TRAINER_ISMAPKM_1 ???
+	cleartrainerflag TRAINER_ISMAPKM_1
 	cleartrainerflag TRAINER_GOLDIE
 	//cleartrainerflag TRAINER_VLADILAND ??
 	cleartrainerflag TRAINER_KEFKY
@@ -94,11 +94,11 @@ MicoloLeagueLobby_EventScript_ResetTrainerYES:
 	cleartrainerflag TRAINER_BOTONES
 	cleartrainerflag TRAINER_HYPEANTONIO_2
 	cleartrainerflag TRAINER_VIN
-	//cleartrainerflag TRAINER_ESBIRRO_DARKI_1 ???
-	//cleartrainerflag TRAINER_ESBIRRO_DARKI_2 ???
-	//cleartrainerflag TRAINER_ESBIRRO_DARKI_3 ???
-	//cleartrainerflag TRAINER_ESBIRRO_DARKI_4 ???
-	//cleartrainerflag TRAINER_ESBIRRO_DARKI_5 ???
+	cleartrainerflag TRAINER_ESBIRRO_DARKI_1
+	cleartrainerflag TRAINER_ESBIRRO_DARKI_2
+	cleartrainerflag TRAINER_ESBIRRO_DARKI_3
+	cleartrainerflag TRAINER_ESBIRRO_DARKI_4
+	cleartrainerflag TRAINER_ESBIRRO_DARKI_5
 	cleartrainerflag TRAINER_ANTHONYPXP
 	cleartrainerflag TRAINER_DRANIX
 	cleartrainerflag TRAINER_UMBREON123
@@ -134,7 +134,7 @@ MicoloLeagueLobby_EventScript_ResetTrainerYES:
 	setflag FLAG_REMATCH_DARKIMALRO
 	clearflag FLAG_MIRORB_DEFEATED
 	cleartrainerflag TRAINER_MIRORB
-	// Etc
+	cleartrainerflag TRAINER_KRUB_2
 	release
 	end
 	
