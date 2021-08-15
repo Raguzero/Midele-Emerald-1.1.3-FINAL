@@ -1795,7 +1795,7 @@ static void CreateNoDataIcon(s16 x, s16 y)
     CreateSprite(&sNoDataIconTemplate, x, y, 0);
 }
 
-static bool8 CapturedAllLandMons(u8 headerId)
+static bool8 CapturedAllLandMons(u16 headerId)
 {
     u16 i, species;
     int count = 0;
@@ -1845,7 +1845,7 @@ static bool8 CapturedAllLandMons(u8 headerId)
 }
 
 //Checks if all Pokemon that can be encountered while surfing have been capture
-static bool8 CapturedAllWaterMons(u8 headerId)
+static bool8 CapturedAllWaterMons(u16 headerId)
 {
     u32 i;
     u16 species;
@@ -1876,7 +1876,7 @@ static bool8 CapturedAllWaterMons(u8 headerId)
     return FALSE;
 }
 
-static bool8 CapturedAllHiddenMons(u8 headerId)
+static bool8 CapturedAllHiddenMons(u16 headerId)
 {
     u32 i;
     u16 species;
@@ -1909,7 +1909,7 @@ static bool8 CapturedAllHiddenMons(u8 headerId)
 
 static void DexNavLoadCapturedAllSymbols(void)
 {
-    u8 headerId = GetCurrentMapWildMonHeaderId();
+    u16 headerId = GetCurrentMapWildMonHeaderId();
 	
     if (headerId == 0xFFFF)
         return;
@@ -2595,7 +2595,7 @@ bool8 TryFindHiddenPokemon(void)
     if ((*stepPtr) == 0 && (Random() % 100 < HIDDEN_MON_SEARCH_RATE))
     {
         // hidden pokemon
-        u8 headerId = GetCurrentMapWildMonHeaderId();
+        u16 headerId = GetCurrentMapWildMonHeaderId();
         u8 index;
         u16 species;
         u8 environment;
