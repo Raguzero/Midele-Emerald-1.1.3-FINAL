@@ -1338,6 +1338,7 @@ AI_CV_DefenseUp_PhysicalTypes: @ 82DCC53
     .byte -1
 
 AI_CV_SpeedUp: @ 82DCC5D
+	if_has_move_with_effect AI_USER, EFFECT_BATON_PASS, AI_CV_SpeedUp_HasBatonPass
 @ Evita subirse Velocidad si tardará más de 3 turnos en dar KO al rival,
 @ si el rival mete OHKO, o si el rival mete 2HKO y no le mete OHKO
    calculate_nhko
@@ -1364,6 +1365,16 @@ AI_CV_SpeedUp_AlreadyFasterAndNoChanceToSweep:
 	score -3
 	goto AI_CV_SpeedUp_End
 
+@ Si tiene Baton Pass, los criterios anteriores se sustituyen por:
+@ no tirar Agility si espera recibir KO o si está ya a +4
+@ por lo menos (en general, de sobra para outspeedear casi todo)
+@ Además, le resta 1 punto (pero continúa evaluando) si ya está a +2 o +3
+AI_CV_SpeedUp_HasBatonPass:
+    calculate_nhko AI_TARGET
+    if_equal 1, Score_Minus3
+    if_stat_level_more_than AI_USER, STAT_SPEED, 9, Score_Minus3
+    if_stat_level_less_than AI_USER, STAT_SPEED, 8, AI_CV_SpeedUp2
+    score -1 @ (sigue)
 AI_CV_SpeedUp2: @ 82DCC6A
 	if_free_setup_turn_assuming_target_will_be_slower Score_Plus5
 	if_random_less_than 70, AI_CV_SpeedUp_End
@@ -3655,6 +3666,8 @@ AI_TryToFaint_NotSolarBeamOnSun:
     if_effect EFFECT_RECOIL_50, AI_TryToFaint_DiscourageRecoil50 @ LIGHT OF RUIN, HEAD SMASH
     if_effect EFFECT_DOUBLE_EDGE, AI_TryToFaint_DiscourageRecoil33 @ DOUBLE EDGE, BRAVE BIRD, VOLT TACKLE
     if_effect EFFECT_RECOIL, AI_TryToFaint_DiscourageRecoil25 @ TAKE DOWN, SUBMISION
+    if_effect EFFECT_VITAL_THROW, AI_TryToFaint_DiscourageLowPriorityMovesIfUserIsFaster
+    if_effect EFFECT_REVENGE, AI_TryToFaint_DiscourageLowPriorityMovesIfUserIsFaster
 	if_effect EFFECT_EXPLOSION, AI_TryToFaint_EncourageExplosionIfOpponentHasOneMonLeft
 	if_not_effect EFFECT_QUICK_ATTACK, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
 	score +2
@@ -3695,6 +3708,11 @@ AI_TryToFaint_DiscourageRecoil25:
     if_hp_more_than AI_USER, 15, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
     if_ability AI_USER, ABILITY_ROCK_HEAD, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
     score -1  @ Recibirá un punto menos que un ataque de la misma precisión
+    goto AI_TryToFaint_IncreaseScoreDependingOnAccuracy
+
+AI_TryToFaint_DiscourageLowPriorityMovesIfUserIsFaster:
+    if_target_faster AI_TryToFaint_IncreaseScoreDependingOnAccuracy
+    score -2  @ Recibirá dos puntos menos que un ataque de la misma precisión
     goto AI_TryToFaint_IncreaseScoreDependingOnAccuracy
 
 AI_TryToFaint_EncourageExplosionIfOpponentHasOneMonLeft:
