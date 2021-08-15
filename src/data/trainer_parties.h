@@ -24681,12 +24681,12 @@ static const struct TrainerMonCustomMidele sParty_Slowbro[] = {
 	{
 	.iv = 31,
 	.lvl = 100, 
-	.species = SPECIES_AERODACTYL, 
-	.heldItem = ITEM_LEFTOVERS,  
-	.nature = NATURE_JOLLY,
-	.evs = {252, 6, 0, 0, 0, 252},
+	.species = SPECIES_RHYPERIOR, 
+	.heldItem = ITEM_SITRUS_BERRY,  
+	.nature = NATURE_CAREFUL,
+	.evs = {6, 0, 0, 0, 252, 252},
 	.ability = 1,
-	.moves = {MOVE_SUBSTITUTE, MOVE_PROTECT, MOVE_FLY, MOVE_TOXIC} 
+	.moves = {MOVE_ROCK_POLISH, MOVE_SWORDS_DANCE, MOVE_EARTHQUAKE, MOVE_STONE_EDGE} 
 	},
 	{
 	.iv = 31,

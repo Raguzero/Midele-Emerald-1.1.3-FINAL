@@ -188,7 +188,7 @@ MicoloHideout_LavaRoom_Text_PhentPostBattle:
 	.string "¿Por qué GF sacó los otros dos?$"
 	
 MicoloHideout_LavaRoom_Text_MDragonIntro:
-	.string "Hola, soy MDRAGON, uno de los más\n" 
+	.string "Hola, soy M DRAGON, uno de los más\n" 
 	.string "fuertes entrenadores de todos los\l" 
 	.string "tiempos, ganador de una gran cantidad\l" 
 	.string "de torneos en SMOGON, POKEXPERTO,\l" 

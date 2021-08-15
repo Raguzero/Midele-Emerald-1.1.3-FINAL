@@ -328,7 +328,7 @@ MicoloHideout_MeetingRoom_Chairman_Text_0:
 	.string "¿Eh? ¿Qué quieres? ¿Cómo has llegado\n"
 	.string "hasta aquí? Bueno, da igual...\p"
 	.string "Esta es la SALA de REUNIONES del gran\n"
-	.string "MICOLO. Aquí se llevan a cabo los\l"
+	.string "MICOLO. Aquí se llevan a cabo las\l"
 	.string "charlas más intelectuales de toda\l"
 	.string "MICOLANDIA... donde acuden los\l"
 	.string "entrenadores más poderosos de todo el\l"
