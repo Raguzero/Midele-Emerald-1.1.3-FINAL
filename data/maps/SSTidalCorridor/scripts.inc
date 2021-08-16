@@ -125,6 +125,14 @@ SSTidalCorridor_EventScript_ExitSailor:: @ 823C119
 SSTidalCorridor_EventScript_ExitLilycove:: @ 823C13B
 	setrespawn HEAL_LOCATION_LILYCOVE_CITY
 	msgbox SSTidalCorridor_Text_WeveArrived, MSGBOX_DEFAULT
+	cleartrainerflag TRAINER_PHILLIP
+	cleartrainerflag TRAINER_LEONARD
+	cleartrainerflag TRAINER_COLTON
+	cleartrainerflag TRAINER_MICAH 
+	cleartrainerflag TRAINER_THOMAS
+	cleartrainerflag TRAINER_LEA_AND_JED
+	cleartrainerflag TRAINER_GARRET
+	cleartrainerflag TRAINER_NAOMI 
 	call_if_set FLAG_RECEIVED_TM49, SSTidalCorridor_EventScript_HideSnatchGiver
 	warp MAP_LILYCOVE_CITY_HARBOR, 255, 8, 11
 	waitstate
@@ -134,6 +142,14 @@ SSTidalCorridor_EventScript_ExitLilycove:: @ 823C13B
 SSTidalCorridor_EventScript_ExitSlateport:: @ 823C15A
 	setrespawn HEAL_LOCATION_SLATEPORT_CITY
 	msgbox SSTidalCorridor_Text_WeveArrived, MSGBOX_DEFAULT
+	cleartrainerflag TRAINER_PHILLIP
+	cleartrainerflag TRAINER_LEONARD
+	cleartrainerflag TRAINER_COLTON
+	cleartrainerflag TRAINER_MICAH 
+	cleartrainerflag TRAINER_THOMAS
+	cleartrainerflag TRAINER_LEA_AND_JED
+	cleartrainerflag TRAINER_GARRET
+	cleartrainerflag TRAINER_NAOMI 
 	call_if_set FLAG_RECEIVED_TM49, SSTidalCorridor_EventScript_HideSnatchGiver
 	warp MAP_SLATEPORT_CITY_HARBOR, 255, 8, 11
 	waitstate
