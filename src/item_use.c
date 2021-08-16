@@ -40,6 +40,7 @@
 #include "constants/event_objects.h"
 #include "constants/flags.h"
 #include "constants/item_effects.h"
+#include "constants/item_use.h"
 #include "constants/items.h"
 #include "constants/map_types.h"
 #include "constants/songs.h"
@@ -891,7 +892,16 @@ static void Task_UseRepel(u8 taskId)
 {
     if (!IsSEPlaying())
     {
-        VarSet(VAR_REPEL_STEP_COUNT, ItemId_GetHoldEffectParam(gSpecialVar_ItemId));
+        u16 repelSteps;
+        if (IsDarkiMap())
+        {
+            repelSteps = DARKI_MAP_REPEL_STEPS;
+        }
+        else
+        {
+            repelSteps = ItemId_GetHoldEffectParam(gSpecialVar_ItemId);
+        }
+        VarSet(VAR_REPEL_STEP_COUNT, repelSteps);
         VarSet(VAR_LAST_USED_REPEL, gSpecialVar_ItemId);
         RemoveUsedItem();
         if (!InBattlePyramid())

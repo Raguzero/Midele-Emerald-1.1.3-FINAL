@@ -28,12 +28,15 @@
 
 extern const u8 EventScript_RepelWoreOff[];
 extern const u8 EventScript_ReuseRepel[];
+extern const u8 EventScript_RepelWoreOffDarkiMap[];
+extern const u8 EventScript_ReuseRepelDarkiMap[];
 
 #define NUM_FEEBAS_SPOTS    6
 
 // this file's functions
 static u16 FeebasRandom(void);
 static void FeebasSeedRng(u16 seed);
+static void SetUpRepelEventScripts(const u8** reuseRepelScriptPtr, const u8** reuseRepelWoreOffScriptPtr);
 static bool8 IsWildLevelAllowedByRepel(u8 level);
 static void ApplyFluteEncounterRateMod(u32 *encRate);
 static void ApplyCleanseTagEncounterRateMod(u32 *encRate);
@@ -900,6 +903,8 @@ u16 GetLocalWaterMon(void)
 bool8 UpdateRepelCounter(void)
 {
     u16 steps;
+    const u8 *reuseRepelScript;
+    const u8 *reuseRepelWoreOffScript;
 
     if (InBattlePike() || InBattlePyramid())
         return FALSE;
@@ -914,17 +919,31 @@ bool8 UpdateRepelCounter(void)
         VarSet(VAR_REPEL_STEP_COUNT, steps);
         if (steps == 0)
         {
+            SetUpRepelEventScripts(&reuseRepelScript, &reuseRepelWoreOffScript);
 			InterruptDexNavSearch();
             if (CheckBagHasItem(VarGet(VAR_LAST_USED_REPEL), 1))
-
-                ScriptContext1_SetupScript(EventScript_ReuseRepel);
+                ScriptContext1_SetupScript(reuseRepelScript);
             else
-                ScriptContext1_SetupScript(EventScript_RepelWoreOff);
+                ScriptContext1_SetupScript(reuseRepelWoreOffScript);
 
             return TRUE;
         }
     }
     return FALSE;
+}
+
+static void SetUpRepelEventScripts(const u8** reuseRepelScriptPtr, const u8** reuseRepelWoreOffScriptPtr)
+{
+    if (IsDarkiMap())
+    {
+        *reuseRepelScriptPtr = EventScript_ReuseRepelDarkiMap;
+        *reuseRepelWoreOffScriptPtr = EventScript_RepelWoreOffDarkiMap;
+    }
+    else
+    {
+        *reuseRepelScriptPtr = EventScript_ReuseRepel;
+        *reuseRepelWoreOffScriptPtr = EventScript_RepelWoreOff;
+    }
 }
 
 static bool8 IsWildLevelAllowedByRepel(u8 wildLevel)
