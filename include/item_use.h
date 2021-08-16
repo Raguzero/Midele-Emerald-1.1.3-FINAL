@@ -39,5 +39,6 @@ u16 GetAshCount(void);
 void ItemUseOutOfBattle_FormChange(u8);
 void ItemUseOutOfBattle_MusicPlayer(u8 taskId);
 void ItemUseOutOfBattle_LevelCap(u8 taskId);
+u16 GetUsedRepelSteps(u16 repelId);
 
 #endif // GUARD_ITEM_USE_H

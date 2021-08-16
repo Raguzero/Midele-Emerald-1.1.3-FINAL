@@ -18,6 +18,7 @@
 #include "battle_pyramid.h"
 #include "day_night.h"
 #include "item.h"
+#include "item_use.h"
 #include "dexnav.h"
 #include "constants/abilities.h"
 #include "constants/game_stat.h"
@@ -1036,7 +1037,7 @@ static void ApplyCleanseTagEncounterRateMod(u32 *encRate)
 
 void ResetLastRepelSteps()
 {
-    VarSet(VAR_REPEL_STEP_COUNT, ItemId_GetHoldEffectParam(VarGet(VAR_LAST_USED_REPEL)));
+    VarSet(VAR_REPEL_STEP_COUNT, GetUsedRepelSteps(VarGet(VAR_LAST_USED_REPEL)));
 }
 
 u8 ChooseHiddenMonIndex(void)

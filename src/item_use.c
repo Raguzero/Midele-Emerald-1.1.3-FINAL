@@ -822,6 +822,15 @@ void ItemUseOutOfBattle_TMHM(u8 taskId)
         DisplayItemMessage(taskId, 1, gText_BootedUpTM, BootUpSoundTMHM); // TM
 }
 
+u16 GetUsedRepelSteps(u16 repelId)
+{
+    if (IsDarkiMap())
+    {
+        return DARKI_MAP_REPEL_STEPS;
+    }
+    return ItemId_GetHoldEffectParam(repelId);
+}
+
 static void BootUpSoundTMHM(u8 taskId)
 {
     PlaySE(SE_PC_LOGIN);
@@ -892,15 +901,7 @@ static void Task_UseRepel(u8 taskId)
 {
     if (!IsSEPlaying())
     {
-        u16 repelSteps;
-        if (IsDarkiMap())
-        {
-            repelSteps = DARKI_MAP_REPEL_STEPS;
-        }
-        else
-        {
-            repelSteps = ItemId_GetHoldEffectParam(gSpecialVar_ItemId);
-        }
+        u16 repelSteps = GetUsedRepelSteps(gSpecialVar_ItemId);
         VarSet(VAR_REPEL_STEP_COUNT, repelSteps);
         VarSet(VAR_LAST_USED_REPEL, gSpecialVar_ItemId);
         RemoveUsedItem();
