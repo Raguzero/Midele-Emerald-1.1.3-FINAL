@@ -6,7 +6,7 @@ EventScript_ReuseRepel::
 	msgbox Text_AskReuseRepel, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq EventScript_UseAnotherRepel
-	goto EventScript_RepelWoreOff
+	closemessage
 	end
 
 EventScript_UseAnotherRepel:
@@ -26,7 +26,7 @@ EventScript_ReuseRepelDarkiMap::
 	msgbox Text_AskReuseRepelDarkiMap, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq EventScript_UseAnotherRepelDarkiMap
-	goto EventScript_RepelWoreOffDarkiMap
+	closemessage
 	end
 
 EventScript_UseAnotherRepelDarkiMap:
@@ -48,12 +48,25 @@ Text_AskReuseRepel::
 Text_NewRepelUsed::
 	.string "{PLAYER} used a {STR_VAR_1}.$"
 
-Text_RepelWoreOffDarkiMap: @ 82A4B33
-	.string "WORE OFF DARKI MAP$"
+Text_RepelWoreOffDarkiMap:
+	.string "REPEL's effect wore off…\p"
+	
+	.string "DARKI: Si quieres llegar hasta mi,\n" 
+	.string "pulga, deberás confiar en tu propia\l" 
+	.string "fuerza o ¿acaso crees que siempre\l"
+	.string "podrás confiar en tus repelentes?\l" 	
+	.string "¡MUAJAJAJA!$"
 
 Text_AskReuseRepelDarkiMap::
-	.string "DARKI REPEL's effect wore off…\n"
+	.string "REPEL's effect wore off…\p"
+	
+	.string "DARKI: Si quieres llegar hasta mi,\n" 
+	.string "pulga, deberás confiar en tu propia\l" 
+	.string "fuerza o ¿acaso crees que siempre\l"
+	.string "podrás confiar en tus repelentes?\l" 	
+	.string "¡MUAJAJAJA!\p"
+
 	.string "Use another REPEL?$"
 
 Text_NewRepelUsedDarkiMap::
-	.string "DARKI {PLAYER} used a {STR_VAR_1}.$"
+	.string "{PLAYER} used a {STR_VAR_1}.$"
