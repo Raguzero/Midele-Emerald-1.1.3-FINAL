@@ -74,12 +74,12 @@ SapphireGym2_EventScript_Sapphire_Defeated::
 	end
 	
 SapphireGym2_EventScript_Sapph_Rematch::
-	trainerbattle_single TRAINER_SAPPH, SapphireGym_Text_SapphIntro, SapphireGym_Text_SapphLose, SapphireGym2_EventScript_SapphRematchDefeated, NO_MUSIC
+	trainerbattle_single TRAINER_SAPPH, SapphireGym2_Text_SapphRematchIntro, SapphireGym_Text_SapphLose, SapphireGym2_EventScript_SapphRematchDefeated, NO_MUSIC
 	release
 	end
 	
 SapphireGym2_EventScript_SapphRematchDefeated::
-	msgbox SapphireGym2_Text_SapphPostBattle, MSGBOX_DEFAULT
+	msgbox SapphireGym2_Text_SapphRematchPostBattle, MSGBOX_DEFAULT
 	clearflag FLAG_REMATCH_SAPPH
 	release
 	end
@@ -105,3 +105,9 @@ SapphireGym2_Text_ExplainBadgeTakeThis:
 
 SapphireGym2_Text_SapphPostBattle:
 	.string "TEXTO POST BATTLE$"
+	
+SapphireGym2_Text_SapphRematchIntro:
+    .string "TEXTO REMATCH INTRO$" 
+
+SapphireGym2_Text_SapphRematchPostBattle:
+	.string "TEXTO REMATCH POSTBATTLE$"
