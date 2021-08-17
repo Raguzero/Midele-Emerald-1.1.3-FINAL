@@ -1062,6 +1062,25 @@ void CopyBattlerHistoryForTransformedMon(u8 transformUser, u8 transformTarget)
     }
 }
 
+void LearnBattlerHistoryFromTransformedMon(u8 transformUser, u8 transformTarget)
+{
+    s32 i;
+
+    if (GetBattlerSide(transformUser) == B_SIDE_PLAYER || GetBattlerSide(transformTarget) != B_SIDE_PLAYER)
+        return;
+
+    FOES_OBSERVED_ABILITY(transformTarget) = gBattleMons[transformTarget].ability;
+        
+    for (i = 0; i < MAX_MON_MOVES; i++)
+     {
+        FOES_MOVE_HISTORY(transformTarget)[i] = gBattleMons[transformTarget].moves[i];
+        // Chapuza para que la IA sepa que conoce todos los movimientos:
+        // se repite el primer movimiento en los huecos si el rival no tiene 4 movimientos
+        if (gBattleMons[transformTarget].moves[i] == MOVE_NONE)
+            FOES_MOVE_HISTORY(transformTarget)[i] = gBattleMons[transformTarget].moves[0];
+    }
+}
+
 void RecordItemEffectBattle(u8 battlerId, u8 itemEffect)
 {
   if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
@@ -2923,7 +2942,7 @@ s32 CalculateNHKO(u16 attackerId, u16 targetId, bool8 attackerIsCurrentAI, u16 c
 		}
 
         gCurrentMove = movePointer[i];
-		best_nhko = CalculatenHKOFromgCurrentMove(attackerId, targetId, assumeWorstCaseScenario ? 0 : (AI_THINKING_STRUCT->simulatedRNG[check_only_considered_move ? AI_THINKING_STRUCT->movesetIndex : i]), best_nhko);
+		best_nhko = CalculatenHKOFromgCurrentMove(attackerId, targetId, (assumeWorstCaseScenario || (!attackerIsCurrentAI && check_only_considered_move)) ? 0 : (AI_THINKING_STRUCT->simulatedRNG[check_only_considered_move ? AI_THINKING_STRUCT->movesetIndex : i]), best_nhko);
 
         if (check_only_considered_move || best_nhko == 1)
             break; // solo se mira el movimiento pensado, y no se sigue mirando si es OHKO
@@ -2933,7 +2952,7 @@ s32 CalculateNHKO(u16 attackerId, u16 targetId, bool8 attackerIsCurrentAI, u16 c
     // la IA puede asumir que los STAB estándar (de precisión alta)
     // y ataques típicos de la especie pueden ser los movs que faltan
 	// siempre que la IA esté en condiciones de usar un ataque nuevo
-		if (!attackerIsCurrentAI && best_nhko > 1
+		if (!attackerIsCurrentAI && !check_only_considered_move && best_nhko > 1
         && gDisableStructs[attackerId].encoredMove == MOVE_NONE
         && !(gBattleMons[attackerId].status2 & (STATUS2_RECHARGE | STATUS2_MULTIPLETURNS)))
     {

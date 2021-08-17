@@ -8847,8 +8847,12 @@ static void Cmd_transformdataexecution(void)
                 gBattleMons[gBattlerAttacker].pp[i] = 5;
         }
 
+		// Si el rival se transforma en la IA, la IA sabe sus movimientos y habilidad
         CopyBattlerHistoryForTransformedMon(gBattlerAttacker, gBattlerTarget);
 
+		// Si la IA se transforma en el rival, puede ver sus movimientos y habilidad
+		LearnBattlerHistoryFromTransformedMon(gBattlerAttacker, gBattlerTarget);
+		
         gActiveBattler = gBattlerAttacker;
         BtlController_EmitResetActionMoveSelection(0, RESET_MOVE_SELECTION);
         MarkBattlerForControllerExec(gActiveBattler);

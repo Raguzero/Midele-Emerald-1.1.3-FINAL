@@ -883,6 +883,27 @@ static u32 GetBestMonOffensive(struct Pokemon *party, s32 firstId, s32 lastId, u
     return PARTY_SIZE;
 }
 
+void PrepareDisableStructForSwitchIn(u32 battler, const struct DisableStruct * disableStructCopy)
+{
+    s32 i;
+    u8 * ptr;
+
+    ptr = (u8 *)&gDisableStructs[battler];
+    for (i = 0; i < sizeof(struct DisableStruct); i++)
+        ptr[i] = 0;
+
+    if (gBattleMoves[gCurrentMove].effect == EFFECT_BATON_PASS)
+    {
+        gDisableStructs[battler].substituteHP = disableStructCopy->substituteHP;
+        gDisableStructs[battler].battlerWithSureHit = disableStructCopy->battlerWithSureHit;
+        gDisableStructs[battler].perishSongTimer = disableStructCopy->perishSongTimer;
+        gDisableStructs[battler].perishSongTimerStartValue = disableStructCopy->perishSongTimerStartValue;
+        gDisableStructs[battler].battlerPreventingEscape = disableStructCopy->battlerPreventingEscape;
+    }
+
+    gDisableStructs[battler].isFirstTurn = 0; // 0 en lugar de 2 (que se pone para que al turno siguiente baje a 1) para que la IA no asuma que puede tirar alegremente Sorpresa
+}
+
 // Evalúa si quedan pokes sin filtrar
 u8 MonsLeft(u8 bits)
 {
@@ -918,7 +939,7 @@ bool8 HasYetToAttack(u32 battler)
     if (*(&gBattleStruct->field_91) & gBitTable[battler])
         return FALSE;
 
-    if (gBattleCommunication[gActiveBattler] == 2)
+    if (gBattleCommunication[gActiveBattler] == 3 || gBattleCommunication[gActiveBattler] == 2)
         return TRUE; // La IA todavía está pendiente de escoger acción
 
     if (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE) && gBattleMons[gActiveBattler].hp == 0)
@@ -932,6 +953,61 @@ bool8 HasYetToAttack(u32 battler)
     return FALSE;
 }
 
+void TransformIfImposter(u32 battler, u32 opposingBattler)
+{
+    s32 i;
+    u8 *battleMonAttacker, *battleMonTarget;
+
+    if (gBattleMons[battler].ability != ABILITY_IMPOSTER
+      || gBattleMons[opposingBattler].hp == 0
+      || (gBattleMons[opposingBattler].status2 & (STATUS2_TRANSFORMED | STATUS2_SUBSTITUTE))
+      || (gStatuses3[opposingBattler] & STATUS3_SEMI_INVULNERABLE)
+    )
+        return; // no hay transformación
+
+    gBattleMons[battler].status2 |= STATUS2_TRANSFORMED;
+    gDisableStructs[battler].transformedMonPersonality = gBattleMons[opposingBattler].personality;
+
+    battleMonAttacker = (u8*)(&gBattleMons[battler]);
+    battleMonTarget = (u8*)(&gBattleMons[opposingBattler]);
+
+    for (i = 0; i < offsetof(struct BattlePokemon, pp); i++)
+        battleMonAttacker[i] = battleMonTarget[i];
+
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        if (gBattleMoves[gBattleMons[battler].moves[i]].pp < 5)
+            gBattleMons[battler].pp[i] = gBattleMoves[gBattleMons[battler].moves[i]].pp;
+        else
+            gBattleMons[battler].pp[i] = 5;
+    }
+}
+
+// Determina si un poke es vulnerable a Intimidate
+bool8 VulnerableToIntimidate(u32 battler)
+{
+    if (gBattleMons[battler].statStages[STAT_ATK] == 0)
+        return FALSE; // no puede bajar de -6
+
+    if (gBattleMons[battler].status2 & STATUS2_SUBSTITUTE)
+        return FALSE; // sub
+
+    if (gSideTimers[GET_BATTLER_SIDE(battler)].mistTimer)
+        return FALSE; // Neblina
+
+    switch(gBattleMons[battler].ability) {
+        case ABILITY_CLEAR_BODY:
+        case ABILITY_HYPER_CUTTER:
+        case ABILITY_WHITE_SMOKE:
+        case ABILITY_SCRAPPY:
+        case ABILITY_INNER_FOCUS:
+        case ABILITY_OBLIVIOUS:
+        case ABILITY_OWN_TEMPO:
+            return FALSE;
+    }
+    return TRUE;
+}
+
 // Prepara una tabla con tres entradas para cada poke del equipo:
 // si es más rápido que el rival, qué nHKO le hace al rival, y qué nHKO espera recibir del rival
 void PrepareNHKOTable(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][3])
@@ -940,11 +1016,19 @@ void PrepareNHKOTable(struct Pokemon *party, s32 firstId, s32 lastId, u8 filtere
     {
         s32 i;
         struct BattlePokemon currentMon = gBattleMons[gActiveBattler];
+		struct DisableStruct disableStructCopy = gDisableStructs[gActiveBattler];
 
         for (i = firstId; i < lastId; i++)
             if (!(gBitTable[i] & filteredMons))
             {
-                PokemonToBattleMon(&party[i], &gBattleMons[gActiveBattler]);
+                bool8 intimidateApplies;
+
+                PokemonToBattleMon(&party[i], &gBattleMons[gActiveBattler], gCurrentMove == MOVE_BATON_PASS);
+                intimidateApplies = gBattleMons[gActiveBattler].ability == ABILITY_INTIMIDATE && VulnerableToIntimidate(opposingBattler);
+                if (intimidateApplies)
+                gBattleMons[opposingBattler].statStages[STAT_ATK] -= 1;
+				PrepareDisableStructForSwitchIn(gActiveBattler, &disableStructCopy);
+				TransformIfImposter(gActiveBattler, opposingBattler);
 
                 // Guarda en la primera posición un 1 si es más rápido que el rival
                 if (GetWhoStrikesFirst(gActiveBattler, opposingBattler, TRUE) == 0)
@@ -956,10 +1040,57 @@ void PrepareNHKOTable(struct Pokemon *party, s32 firstId, s32 lastId, u8 filtere
                 // y en la tercera el que espera recibir del rival
                 nhko[i][1] = CalculateNHKO(gActiveBattler, opposingBattler, TRUE, MOVE_NONE, FALSE, TRUE);
                 nhko[i][2] = CalculateNHKO(opposingBattler, gActiveBattler, FALSE, MOVE_NONE, FALSE, TRUE);
-            }
+               if (intimidateApplies)
+               gBattleMons[opposingBattler].statStages[STAT_ATK] += 1;
+			}
         
         gBattleMons[gActiveBattler] = currentMon;
+		gDisableStructs[gActiveBattler] = disableStructCopy;
     }
+}
+
+// Evita meter un poke antes de que ataque el rival cuando puede recibir KO
+// en el cambio simplemente repitiendo el último ataque que lanzó al actual poke de la IA
+// (si es que este estaba presente cuando se eligió tal ataque)
+u8 FilterSwitchInsThatMightGetKOedBeforeEndOfTurn(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 a[][3])
+{
+    u16 move = gLastMoves[opposingBattler];
+
+    if (HasYetToAttack(opposingBattler) && move != MOVE_NONE && gBattleMoves[move].power > 0 && gDisableStructs[gActiveBattler].isFirstTurn == 0)
+    {
+        s32 i;
+        u8 nhko;
+        struct BattlePokemon currentMon = gBattleMons[gActiveBattler];
+        struct DisableStruct disableStructCopy = gDisableStructs[gActiveBattler];
+
+        for (i = firstId; i < lastId; i++)
+            if (!(gBitTable[i] & filteredMons))
+            {
+                bool8 intimidateApplies;
+
+                PokemonToBattleMon(&party[i], &gBattleMons[gActiveBattler], gCurrentMove == MOVE_BATON_PASS);
+                intimidateApplies = gBattleMons[gActiveBattler].ability == ABILITY_INTIMIDATE && VulnerableToIntimidate(opposingBattler);
+                if (intimidateApplies)
+                    gBattleMons[opposingBattler].statStages[STAT_ATK] -= 1;
+
+                PrepareDisableStructForSwitchIn(gActiveBattler, &disableStructCopy);
+                TransformIfImposter(gActiveBattler, opposingBattler);
+
+                nhko = CalculateNHKO(opposingBattler, gActiveBattler, FALSE, move, FALSE, FALSE);
+				
+		// si recibe OHKO o, siendo más lento, 2HKO, queda descartado
+                if (nhko == 1 || (nhko == 2 && GetWhoStrikesFirst(gActiveBattler, opposingBattler, TRUE) != 0))
+                    filteredMons |= gBitTable[i];
+
+                if (intimidateApplies)
+                    gBattleMons[opposingBattler].statStages[STAT_ATK] += 1;
+            }
+
+        gBattleMons[gActiveBattler] = currentMon;
+        gDisableStructs[gActiveBattler] = disableStructCopy;
+    }
+
+    return filteredMons;
 }
 
 // Excluye los pokes con Imposter si, en caso de entrar, no se van a transformar
@@ -1014,16 +1145,19 @@ u8 FilterTruantIfUseless(struct Pokemon *party, s32 firstId, s32 lastId, u8 filt
         if (!HasYetToAttack(opposingBattler))
         {
             struct BattlePokemon currentMon = gBattleMons[gActiveBattler];
+			struct DisableStruct disableStructCopy = gDisableStructs[gActiveBattler];
 			for (i = firstId; i < lastId; i++)
                 if ((gBitTable[i] & truantMons))
                 {
-                    PokemonToBattleMon(&party[i], &gBattleMons[gActiveBattler]);
+                    PokemonToBattleMon(&party[i], &gBattleMons[gActiveBattler], gCurrentMove == MOVE_BATON_PASS);
+					PrepareDisableStructForSwitchIn(gActiveBattler, &disableStructCopy);
 
                     if (IsTruantMonVulnerable(gActiveBattler, opposingBattler))
                         vulnerableTruantMons |= gBitTable[i];
                 }
             
             gBattleMons[gActiveBattler] = currentMon;
+			gDisableStructs[gActiveBattler] = disableStructCopy;
         }
         else // Si el rival no ha atacado, podría anticiparse aunque sea más lento
         {
@@ -1056,6 +1190,7 @@ u8 FilterShedinjaIfVulnerable(struct Pokemon *party, s32 firstId, s32 lastId, u8
     if (sheds)
     {
         struct BattlePokemon currentMon = gBattleMons[gActiveBattler];
+		struct DisableStruct disableStructCopy = gDisableStructs[gActiveBattler];
 
         for (i = firstId; i < lastId; i++)
             if ((gBitTable[i] & sheds))
@@ -1065,7 +1200,8 @@ u8 FilterShedinjaIfVulnerable(struct Pokemon *party, s32 firstId, s32 lastId, u8
                 bool8 vulnerable = TRUE;
                 s32 move_i;
                 u16 move;
-                PokemonToBattleMon(&party[i], &gBattleMons[gActiveBattler]);
+                PokemonToBattleMon(&party[i], &gBattleMons[gActiveBattler], gCurrentMove == MOVE_BATON_PASS);
+				PrepareDisableStructForSwitchIn(gActiveBattler, &disableStructCopy);
 
 	if (HasYetToAttack(opposingBattler))
                     gBattleMons[gActiveBattler].speed = 0; // Si el rival no ha atacado, da igual la velocidad de Shedinja (salvo predicción)
@@ -1081,8 +1217,38 @@ u8 FilterShedinjaIfVulnerable(struct Pokemon *party, s32 firstId, s32 lastId, u8
             }
         
         gBattleMons[gActiveBattler] = currentMon;
+		gDisableStructs[gActiveBattler] = disableStructCopy;
     }
     return (filteredMons | vulnerableSheds);
+}
+
+u8 FilterChoiceMonsNotPowerfulEnough(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][3])
+{
+    s32 i, j;
+    u16 item, move;
+
+    for (i = firstId; i < lastId; i++)
+        if (!(gBitTable[i] & filteredMons))
+        {
+            item = GetMonData(&party[i], MON_DATA_HELD_ITEM);
+
+            if (item == ITEM_CHOICE_BAND || item == ITEM_CHOICE_SPECS || item == ITEM_CHOICE_SCARF)
+            {
+                bool8 hasOHKOmove = FALSE;
+
+                for (j = 0; !hasOHKOmove && j < MAX_MON_MOVES; j++)
+                {
+                    move = GetMonData(&party[i], MON_DATA_MOVE1 + j);
+                    if (move != MOVE_NONE && gBattleMoves[move].effect == EFFECT_OHKO)
+                        hasOHKOmove = TRUE;
+                }
+
+                if (!hasOHKOmove && nhko[i][1] > 2)
+                    filteredMons |= gBitTable[i];
+            }
+        }
+
+    return filteredMons;
 }
 
 u8 FilterRevengeKill(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][3])
@@ -1293,11 +1459,13 @@ u8 GetMostSuitableMonToSwitchInto(bool8 notChangingIsPossible, bool8 notChanging
         APPLY_FILTER(FilterImposterIfUseless, notChangingIsPossible);
         APPLY_FILTER(FilterShedinjaIfVulnerable, notChangingIsPossible);
         APPLY_FILTER(FilterTruantIfUseless, notChangingIsPossible);
+		APPLY_FILTER(FilterSwitchInsThatMightGetKOedBeforeEndOfTurn, notChangingIsPossible);
 
         // Calcula el nHKO que cada poke disponible hace y recibe del oponente
         // También almacena si cada poke es más rápido que el oponente
         PrepareNHKOTable(party, firstId, lastId, filteredMons, opposingBattler, nhko);
 
+        APPLY_FILTER(FilterChoiceMonsNotPowerfulEnough, notChangingIsAcceptable);
         // Si los filtros eliminaron todas las opciones posibles o no se podía cambiar, no se cambia
         if (!MonsLeft(filteredMons))
             return PARTY_SIZE;
