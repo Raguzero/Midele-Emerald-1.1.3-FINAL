@@ -411,11 +411,14 @@ MicoloHideout_MeetingRoom_PC4_Text_0:
 	
 MicoloHideout_MeetingRoom_PC5_Text_0:
 	.string "Parece un documento que describe\n"
-	.string "varios movimientos creados:\p"
+	.string "varios movimientos creados por MICOLO:\p"
 	
 	.string "BRUTAL BALL: Tipo DARK, 100 Power,\n"
 	.string "100 Accuracy, 20% de congelar, quemar\l"
 	.string "o paralizar.\p"
+	
+	.string "SEISMIC PUNCH: Tipo FIGHT, 100 Power,\n"
+	.string "100 Accuracy.\p"
 	
 	.string "MIDELE POWER: Tipo ???, 70 Power,\n"
 	.string "100 Accuracy, Priority +2, atraviesa\l"

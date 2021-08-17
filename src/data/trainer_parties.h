@@ -25807,7 +25807,7 @@ static const struct TrainerMonCustomMidele sParty_Hathar[] = {
     .nature = NATURE_HASTY, 
     .evs = {0, 252, 0, 6, 0, 252},
     .ability = 0, // BLAZE
-    .moves = {MOVE_OVERHEAT, MOVE_BRICK_BREAK, MOVE_STONE_EDGE, MOVE_IRON_TAIL}
+    .moves = {MOVE_OVERHEAT, MOVE_SEISMIC_PUNCH, MOVE_STONE_EDGE, MOVE_IRON_TAIL}
     },
     {
     .iv = 31,
