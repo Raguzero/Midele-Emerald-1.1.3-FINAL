@@ -138,8 +138,8 @@ const struct EasyChatGroup gEasyChatGroups[] = {
     },
     {
         .wordData = {.valueList = gEasyChatGroup_Move3},
-        .numWords = 34,
-        .numEnabledWords = 34,
+        .numWords = 35,
+        .numEnabledWords = 35,
     },
     {
         .wordData = {.valueList = gEasyChatGroup_Pokemon3},

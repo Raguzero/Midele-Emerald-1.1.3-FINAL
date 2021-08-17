@@ -235,3 +235,27 @@ MoveTutor_Text_ExplosionTaught: @ 82C7E7A
 	.string "to ignite my own EXPLOSION…\p"
 	.string "Maybe it's because deep down,\n"
 	.string "I would rather stay here…$"
+	
+MoveTutor_Text_SeismicPunchTeach: @ 82C7B8E
+	.string "¡Alabado sea el mico!\p"
+
+	.string "¡Oh, hola! ¿Quieres que le enseñe\n"
+	.string "un movimiento fantástico a tus\l"
+	.string "POKéMON?\p"
+	
+	.string "Se trata de SEISMIC PUNCH, uno de\n"
+	.string "los movimientos definitivos,\l"
+	.string "creado por MICOLO.$"
+
+MoveTutor_Text_SeismicPunchDeclined: @ 82C7C7E
+	.string "Oh…\n"
+	.string "Que deshonra para el gran mico…$"
+
+MoveTutor_Text_SeismicPunchWhichMon: @ 82C7C98
+	.string "Vale, ¿cuál POKéMON quieres que\n"
+	.string "aprenda SEISMIC PUNCH?$"
+
+MoveTutor_Text_SeismicPunchTaught: @ 82C7CC8
+	.string "¡Ahora tu POKéMON dará tan potente"
+	.string "puñetazo que hará temblar la tierra!$"
+

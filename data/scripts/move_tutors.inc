@@ -287,6 +287,30 @@ MoveTutor_EventScript_ExplosionTaught:: @ 82C831C
 	msgbox MoveTutor_Text_ExplosionTaught, MSGBOX_DEFAULT
 	release
 	end
+	
+MoveTutor_Micolandia_EventScript_SeismicPunchTutor::
+	lock
+	faceplayer
+	msgbox MoveTutor_Text_SeismicPunchTeach, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq MoveTutor_EventScript_SeismicPunchDeclined
+	msgbox MoveTutor_Text_SeismicPunchWhichMon, MSGBOX_DEFAULT
+	setvar VAR_0x8005, TUTOR_MOVE_SEISMIC_PUNCH
+	call MoveTutor_EventScript_OpenPartyMenu
+	compare VAR_RESULT, 0
+	goto_if_eq MoveTutor_EventScript_SeismicPunchDeclined
+	goto MoveTutor_EventScript_SeismicPunchTaught
+	end
+
+MoveTutor_EventScript_SeismicPunchDeclined:: @ 82C8312
+	msgbox MoveTutor_Text_SeismicPunchDeclined, MSGBOX_DEFAULT
+	release
+	end
+
+MoveTutor_EventScript_SeismicPunchTaught:: @ 82C831C
+	msgbox MoveTutor_Text_SeismicPunchTaught, MSGBOX_DEFAULT
+	release
+	end
 
 MoveTutor_EventScript_OpenPartyMenu:: @ 82C8326
 	special ChooseMonForMoveTutor
