@@ -24267,8 +24267,8 @@ static const struct TrainerMonCustomMidele sParty_Ragu[] = {
 	.heldItem = ITEM_CHOICE_SCARF,  
 	.nature = NATURE_ADAMANT,
 	.evs = {6, 252, 0, 0, 0, 252},
-	.hpType = TYPE_FIGHTING,
-	.moves = {MOVE_IRON_HEAD, MOVE_SHADOW_BALL, MOVE_SIGNAL_BEAM, MOVE_HIDDEN_POWER} 
+	.hpType = TYPE_ROCK,
+	.moves = {MOVE_IRON_HEAD, MOVE_SHADOW_BALL, MOVE_HIDDEN_POWER, MOVE_SEISMIC_PUNCH} 
 	},
 	{
 	.iv = 31,
@@ -24478,7 +24478,7 @@ static const struct TrainerMonCustomMidele sParty_Micolo3[] = {
 	.friendship = 255,
 	.hpType = TYPE_FLYING,
 	.evs = {0, 252, 6, 0, 0, 252},
-	.moves = {MOVE_HIDDEN_POWER, MOVE_RETURN, MOVE_LOW_KICK, MOVE_SHADOW_BALL} 
+	.moves = {MOVE_HIDDEN_POWER, MOVE_RETURN, MOVE_SEISMIC_PUNCH, MOVE_SHADOW_BALL} 
 	},
 	{
 	.iv = 31,
@@ -24487,7 +24487,7 @@ static const struct TrainerMonCustomMidele sParty_Micolo3[] = {
 	.heldItem = ITEM_FOCUS_SASH,  
 	.nature = NATURE_NAIVE,
 	.evs = {0, 128, 0, 128, 0, 252},
-	.moves = {MOVE_MIDELE_POWER, MOVE_PSYCHIC, MOVE_MOONBLAST, MOVE_BRICK_BREAK} 
+	.moves = {MOVE_MIDELE_POWER, MOVE_PSYCHIC, MOVE_MOONBLAST, MOVE_SEISMIC_PUNCH} 
 	},
 	{
 	.iv = 31,
