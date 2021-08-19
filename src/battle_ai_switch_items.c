@@ -976,6 +976,12 @@ void TransformIfImposter(u32 battler, u32 opposingBattler)
 
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
+		u16 known_move = gBattleResources->battleHistory->_usedMoves[(GetBattlerSide(opposingBattler) == B_SIDE_PLAYER ? 0 : PARTY_SIZE) + gBattlerPartyIndexes[opposingBattler]].moves[i];
+        gBattleMons[battler].moves[i] = known_move; // puede ser MOVE_NONE cuando no conozca los movimientos
+    }
+
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
         if (gBattleMoves[gBattleMons[battler].moves[i]].pp < 5)
             gBattleMons[battler].pp[i] = gBattleMoves[gBattleMons[battler].moves[i]].pp;
         else
@@ -1055,10 +1061,20 @@ void PrepareNHKOTable(struct Pokemon *party, s32 firstId, s32 lastId, u8 filtere
 u8 FilterSwitchInsThatMightGetKOedBeforeEndOfTurn(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 a[][3])
 {
     u16 move = gLastMoves[opposingBattler];
+    u8 moveLimitations;
+    s32 i;
 
-    if (HasYetToAttack(opposingBattler) && move != MOVE_NONE && gBattleMoves[move].power > 0 && gDisableStructs[gActiveBattler].isFirstTurn == 0)
+    if (!HasYetToAttack(opposingBattler) || move == MOVE_NONE || gBattleMoves[move].power == 0 || gDisableStructs[gActiveBattler].isFirstTurn != 0)
+        return filteredMons;
+
+    // Comprueba que el rival seguir usando el movimiento
+    moveLimitations = CheckMoveLimitations(opposingBattler, 0, MOVE_LIMITATION_CHOICE-1);
+    for (i = 0; i < MAX_MON_MOVES; i++)
+        if (gBattleMons[opposingBattler].moves[i] == move && !(gBitTable[i] & moveLimitations))
+            break;
+
+    if (i != MAX_MON_MOVES)
     {
-        s32 i;
         u8 nhko;
         struct BattlePokemon currentMon = gBattleMons[gActiveBattler];
         struct DisableStruct disableStructCopy = gDisableStructs[gActiveBattler];
@@ -1081,6 +1097,85 @@ u8 FilterSwitchInsThatMightGetKOedBeforeEndOfTurn(struct Pokemon *party, s32 fir
 		// si recibe OHKO o, siendo más lento, 2HKO, queda descartado
                 if (nhko == 1 || (nhko == 2 && GetWhoStrikesFirst(gActiveBattler, opposingBattler, TRUE) != 0))
                     filteredMons |= gBitTable[i];
+
+                if (intimidateApplies)
+                    gBattleMons[opposingBattler].statStages[STAT_ATK] += 1;
+            }
+
+        gBattleMons[gActiveBattler] = currentMon;
+        gDisableStructs[gActiveBattler] = disableStructCopy;
+    }
+
+    return filteredMons;
+}
+
+// Evita meter un poke si recibe un OHKO de algún movimiento de prioridad del rival,
+// salvo si puede hacerle OHKO antes con otro movimiento de prioridad
+u8 FilterFragileMonsAgainstPriority(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 a[][3])
+{
+    u16 move;
+    u16 opponent_priority_moves[4] = {0, 0, 0, 0};
+    u8 moveLimitations_ai, moveLimitations_opponent = CheckMoveLimitations(opposingBattler, 0, MOVE_LIMITATION_CHOICE-1);
+    s32 i, move_i, move_j;
+    bool8 skipMon;
+
+    // Anota los movimientos de prioridad que conoce del rival y que el rival puede usar
+    for (move_i = 0; move_i < MAX_MON_MOVES; move_i++)
+    {
+        move = gBattleMons[opposingBattler].moves[move_i];
+        if (move && gBattleMoves[move].effect == EFFECT_QUICK_ATTACK && !(gBitTable[move_i] & moveLimitations_opponent))
+            for (move_j = 0; move_j < MAX_MON_MOVES; move_j++)
+                if (gBattleResources->battleHistory->_usedMoves[(GetBattlerSide(opposingBattler) == B_SIDE_PLAYER ? 0 : PARTY_SIZE) + gBattlerPartyIndexes[opposingBattler]].moves[move_j] == move)
+                {
+                    opponent_priority_moves[move_i] = move;
+                    break;
+                }
+    }
+
+    // Solo procede si conoce algún movimiento de prioridad del rival
+    if (opponent_priority_moves[0] != 0 || opponent_priority_moves[1] != 0 || opponent_priority_moves[2] != 0 || opponent_priority_moves[3] != 0)
+    {
+        struct BattlePokemon currentMon = gBattleMons[gActiveBattler];
+        struct DisableStruct disableStructCopy = gDisableStructs[gActiveBattler];
+
+        for (i = firstId; i < lastId; i++)
+            if (!(gBitTable[i] & filteredMons))
+            {
+                bool8 intimidateApplies;
+
+                PokemonToBattleMon(&party[i], &gBattleMons[gActiveBattler], gCurrentMove == MOVE_BATON_PASS);
+                intimidateApplies = gBattleMons[gActiveBattler].ability == ABILITY_INTIMIDATE && VulnerableToIntimidate(opposingBattler);
+                if (intimidateApplies)
+                    gBattleMons[opposingBattler].statStages[STAT_ATK] -= 1;
+
+                PrepareDisableStructForSwitchIn(gActiveBattler, &disableStructCopy);
+                TransformIfImposter(gActiveBattler, opposingBattler);
+
+                skipMon = FALSE;
+
+                // Primero, comprueba que no le pueda meter KO al rival con prioridad antes
+				moveLimitations_ai = CheckMoveLimitations(gActiveBattler, 0, 0xFF);
+                for (move_i = 0; move_i < MAX_MON_MOVES && !skipMon; move_i++)
+                {
+                    move = gBattleMons[gActiveBattler].moves[move_i];
+                    if (move && !(gBitTable[move_i] & moveLimitations_ai) && (
+                        (gBattleMoves[move].effect == EFFECT_QUICK_ATTACK && GetWhoStrikesFirst(gActiveBattler, opposingBattler, TRUE) == 0) // es más rápido y tiene prioridad
+                        || gBattleMoves[move].effect == EFFECT_FAKE_OUT // o tiene Fake Out
+                      ) && CalculateNHKO(gActiveBattler, opposingBattler, TRUE, move, FALSE, FALSE) == 1)
+                        skipMon = TRUE;
+                }
+
+                // Si recibe OHKO con un mov de prioridad, queda descartado
+                if (!skipMon)
+                    for (move_i = 0; move_i < MAX_MON_MOVES; move_i++)
+                    {
+                        move = opponent_priority_moves[move_i];
+                        if (move && CalculateNHKO(opposingBattler, gActiveBattler, FALSE, move, FALSE, FALSE) == 1)
+                        {
+                            filteredMons |= gBitTable[i];
+                            break;
+                        }
+                    }
 
                 if (intimidateApplies)
                     gBattleMons[opposingBattler].statStages[STAT_ATK] += 1;
@@ -1435,7 +1530,13 @@ u8 GetMostSuitableMonToSwitchInto(bool8 notChangingIsPossible, bool8 notChanging
         invalidMons |= 0x7;
     if (lastId == 3)
         invalidMons |= 0x38;
-
+    {
+        // Anota el último movimiento usado por el rival para actuar en consecuencia
+        u8 gbt = gBattlerTarget;
+        gBattlerTarget = opposingBattler;
+        RecordLastUsedMoveByTarget();
+        gBattlerTarget = gbt;
+    }
     {
         u8 nhko[PARTY_SIZE][3];
 
@@ -1460,6 +1561,7 @@ u8 GetMostSuitableMonToSwitchInto(bool8 notChangingIsPossible, bool8 notChanging
         APPLY_FILTER(FilterShedinjaIfVulnerable, notChangingIsPossible);
         APPLY_FILTER(FilterTruantIfUseless, notChangingIsPossible);
 		APPLY_FILTER(FilterSwitchInsThatMightGetKOedBeforeEndOfTurn, notChangingIsPossible);
+        APPLY_FILTER(FilterFragileMonsAgainstPriority, notChangingIsAcceptable);
 
         // Calcula el nHKO que cada poke disponible hace y recibe del oponente
         // También almacena si cada poke es más rápido que el oponente

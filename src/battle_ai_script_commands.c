@@ -39,9 +39,10 @@
 
 #define AI_THINKING_STRUCT ((struct AI_ThinkingStruct *)(gBattleResources->ai))
 #define BATTLE_HISTORY ((struct BattleHistory *)(gBattleResources->battleHistory))
-#define FOES_MOVE_HISTORY(opponentId) (BATTLE_HISTORY->_usedMoves[gBattlerPartyIndexes[opponentId]].moves)
-#define FOES_OBSERVED_ABILITY(opponentId) (BATTLE_HISTORY->_abilities[gBattlerPartyIndexes[opponentId]])
-#define FOES_OBSERVED_ITEM_EFFECT(opponentId) (BATTLE_HISTORY->_itemEffects[gBattlerPartyIndexes[opponentId]])
+#define HISTORY_INDEX(opponentId) ((GetBattlerSide(opponentId) == B_SIDE_PLAYER ? 0 : PARTY_SIZE) + gBattlerPartyIndexes[opponentId])
+#define FOES_MOVE_HISTORY(opponentId) (BATTLE_HISTORY->_usedMoves[HISTORY_INDEX(opponentId)].moves)
+#define FOES_OBSERVED_ABILITY(opponentId) (BATTLE_HISTORY->_abilities[HISTORY_INDEX(opponentId)])
+#define FOES_OBSERVED_ITEM_EFFECT(opponentId) (BATTLE_HISTORY->_itemEffects[HISTORY_INDEX(opponentId)])
 #define AI_CAN_ESTIMATE_DAMAGE(move) (gBattleMoves[move].power > 1 || (gBattleMoves[move].power == 1 && gBattleMoves[move].effect != EFFECT_OHKO && move != MOVE_COUNTER && move != MOVE_MIRROR_COAT && move != MOVE_BIDE))
 
 // AI states
@@ -65,7 +66,6 @@ extern const u8 *const gBattleAI_ScriptsTable[];
 
 static u8 ChooseMoveOrAction_Singles(void);
 static u8 ChooseMoveOrAction_Doubles(void);
-static void RecordLastUsedMoveByTarget(void);
 static void BattleAI_DoAIProcessing(void);
 static void AIStackPushVar(const u8 *);
 static bool8 AIStackPop(void);
@@ -1000,11 +1000,11 @@ static void BattleAI_DoAIProcessing(void)
     }
 }
 
-static void RecordLastUsedMoveByTarget(void)
+void RecordLastUsedMoveByTarget(void)
 {
     s32 i;
 
-    if (GetBattlerSide(gBattlerTarget) != B_SIDE_PLAYER)
+    if (gLastMoves[gBattlerTarget] == 0xFFFF || gLastMoves[gBattlerTarget] == MOVE_NONE)
         return;
 
     for (i = 0; i < MAX_MON_MOVES; i++)
@@ -1024,31 +1024,26 @@ void ClearBattlerMoveHistory(u8 battlerId)
 {
     s32 i;
 
-  if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
     for (i = 0; i < MAX_MON_MOVES; i++)
         FOES_MOVE_HISTORY(battlerId)[i] = MOVE_NONE;
 }
 
 void RecordAbilityBattle(u8 battlerId, u8 abilityId)
 {
-  if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
     FOES_OBSERVED_ABILITY(battlerId) = abilityId;
 }
 
 void ClearBattlerAbilityHistory(u8 battlerId)
 {
-  if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
     FOES_OBSERVED_ABILITY(battlerId) = ABILITY_NONE;
 }
 
 void CopyBattlerHistoryForTransformedMon(u8 transformUser, u8 transformTarget)
 {
     s32 i;
-
-    if (GetBattlerSide(transformUser) != B_SIDE_PLAYER)
-        return;
-    
-    if (GetBattlerSide(transformTarget) == B_SIDE_PLAYER) {
+    // Si se transforma en un compañero, el rival solo tiene acceso a los movimientos que ha visto,
+    // mientras que si lo hace en un oponente, el rival sabe sus movimientos
+    if (GetBattlerSide(transformTarget) == GetBattlerSide(transformUser)) {
         FOES_OBSERVED_ABILITY(transformUser) = FOES_OBSERVED_ABILITY(transformTarget);
         
         for (i = 0; i < MAX_MON_MOVES; i++)
@@ -1066,7 +1061,8 @@ void LearnBattlerHistoryFromTransformedMon(u8 transformUser, u8 transformTarget)
 {
     s32 i;
 
-    if (GetBattlerSide(transformUser) == B_SIDE_PLAYER || GetBattlerSide(transformTarget) != B_SIDE_PLAYER)
+    // No aporta ninguna información si el poke se transforma en un compañero
+    if (GetBattlerSide(transformUser) == GetBattlerSide(transformTarget))
         return;
 
     FOES_OBSERVED_ABILITY(transformTarget) = gBattleMons[transformTarget].ability;
@@ -1083,13 +1079,11 @@ void LearnBattlerHistoryFromTransformedMon(u8 transformUser, u8 transformTarget)
 
 void RecordItemEffectBattle(u8 battlerId, u8 itemEffect)
 {
-  if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
     FOES_OBSERVED_ITEM_EFFECT(battlerId) = itemEffect;
 }
 
 void ClearBattlerItemEffectHistory(u8 battlerId)
 {
-  if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
     FOES_OBSERVED_ITEM_EFFECT(battlerId) = 0;
 }
 

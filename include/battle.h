@@ -204,9 +204,9 @@ struct UsedMoves
 
 struct BattleHistory
 {
-    struct UsedMoves _usedMoves[PARTY_SIZE];
-    u8 _abilities[PARTY_SIZE];
-    u8 _itemEffects[PARTY_SIZE];
+    struct UsedMoves _usedMoves[2 * PARTY_SIZE];
+    u8 _abilities[2 * PARTY_SIZE];
+    u8 _itemEffects[2 * PARTY_SIZE];
     u16 trainerItems[MAX_BATTLERS_COUNT];
     u8 itemsNo;
 };
