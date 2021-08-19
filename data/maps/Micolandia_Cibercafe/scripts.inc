@@ -297,17 +297,44 @@ PC_BatallaFinDRAW::
 	
 Micolandia_Cibercafe_Dueno_Script::
 	msgbox Micolandia_Cibercafe_Dueno_Text, MSGBOX_NPC
-	release
+	end
+	
+Micolandia_Cibercafe_NPC1::
+	msgbox Micolandia_Cibercafe_NPC1_Text, MSGBOX_SIGN
+	end
+	
+Micolandia_Cibercafe_NPC2::
+	msgbox Micolandia_Cibercafe_NPC2_Text, MSGBOX_SIGN
+	end
+	
+Micolandia_Cibercafe_NPC3::
+	msgbox Micolandia_Cibercafe_NPC3_Text, MSGBOX_SIGN
+	end
+	
+Micolandia_Cibercafe_NPC4::
+	msgbox Micolandia_Cibercafe_NPC4_Text, MSGBOX_SIGN
+	end
+	
+Micolandia_Cibercafe_NPC5y7::
+	msgbox Micolandia_Cibercafe_NPC5y7_Text, MSGBOX_SIGN
+	end
+	
+Micolandia_Cibercafe_NPC6::
+	msgbox Micolandia_Cibercafe_NPC6_Text, MSGBOX_SIGN
 	end
 	
 Micolandia_Cibercafe_Dueno_Text:
-	.string "Bienvenido al CIBERCAFE BATALLA.\p"
+	.string "¡Te doy la bienvenida al\n" 
+	.string "CIBERCAFE BATALLA!\p"
 	
 	.string "Elige un PC para combatir con\n"
-	.string "entrenadores de otras regiones.\p"
+	.string "simulaciones de entrenadores de\l" 
+	.string "otras regiones. Estos entrenadores\l"
+	.string "se adecuarán al nivel máximo de tu\l"
+	.string "equipo, así que tenlo en cuenta.\p"
 	
 	.string "Puedes ganar dinero, experiencia y\n"
-	.string "premios en estas batallas.\p"
+	.string "premios si vences en estas batallas.\p"
 	
 	.string "¡Buena suerte!$"
 	
@@ -330,3 +357,24 @@ PC_Roto_Text:
 	
 PC_ChooseEnemy:
 	.string "Elige un contrincante.$"
+	
+Micolandia_Cibercafe_NPC1_Text:
+	.string "¡Qué dificil es este simulador!$"
+	
+Micolandia_Cibercafe_NPC2_Text:
+	.string "¡Esto me servirá como entrenamiento\n"
+	.string "para afrontar el desafío de la MICOLIGA!$"
+	
+Micolandia_Cibercafe_NPC3_Text:
+	.string "¡Genial! ¡Vencí a RED y conseguí un\n"
+	.string "LUCKY EGG!$"
+	
+Micolandia_Cibercafe_NPC4_Text:
+	.string "¡Noooooo! ¡LANCE es demasiado fuerte!$"
+	
+Micolandia_Cibercafe_NPC5y7_Text:
+	.string "...$"
+	
+Micolandia_Cibercafe_NPC6_Text:
+	.string "¡Que vicio esto! ¡Estoy consiguiendo\n"
+	.string "muchos objetos útiles!$"

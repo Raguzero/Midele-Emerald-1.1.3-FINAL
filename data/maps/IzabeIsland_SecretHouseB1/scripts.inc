@@ -50,7 +50,16 @@ IzabeIsland_SecretHouseB1_Text_PC::
 	.string "retomaré mis experimentos y lograré\l"
 	.string "conquistar HOENN. Mi primer paso\l"
 	.string "será la sequía casi total del mar.”\l"
-	.string "“Nadie me detendrá n.n”\l"
+	.string "“Nadie me detendrá n.n”\p"
+	
+	.string "Por cierto mi equipo en MIDELE RED fue:\n"
+	.string "Slowbro, Nidoqueen, Vikavolt, Golem,\l" 
+	.string "Dugtrio, y Dark Pika.\p"
+	
+	.string "Y mi equipo en MIDELE CRYSTAL fue:\n"
+	.string "Gyarados shiny, Arcanine, Jynx shiny,\l"
+	.string "Crobat, Dragonite, y Tyranitar.\p"
+	
 	.string "“PD: Monociclo porque mono es uno.”$"
 
 DesafiarMasuda_Text:
