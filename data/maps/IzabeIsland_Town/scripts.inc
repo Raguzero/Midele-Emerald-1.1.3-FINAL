@@ -27,6 +27,10 @@ IzabeIsland_Town_EventScript_Cameraman::
 	msgbox IzabeIsland_Town_Text_Cameraman, MSGBOX_NPC
 	end
 	
+IzabeIsland_Town_EventScript_SignTown::
+	msgbox IzabeIsland_Town_Text_SignTown, MSGBOX_NPC
+	end
+	
 IzabeIsland_Town_EventScript_ItemSunStone::
 	finditem ITEM_SUN_STONE
 	end
@@ -64,3 +68,9 @@ IzabeIsland_Town_Text_Cameraman::
 	.string "Pues... este lago es más profundo de lo\n"
 	.string "que parece, probablemente los LAPRAS\l"
 	.string "vivan en sus profundidades.$"
+	
+IzabeIsland_Town_Text_SignTown::
+	.string "IZABE TOWN\n"
+	.string "“Precioso lugar rodeado de mar y de\l"
+	.string "enormes montañas que dan culto a\p"
+	.string "una leyenda.”$"
