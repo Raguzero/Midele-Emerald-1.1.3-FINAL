@@ -25266,16 +25266,6 @@ static const struct TrainerMonCustomMidele sParty_Phent[] = {
 static const struct TrainerMonCustomMidele sParty_UltraMagic[] = {
     {
     .iv = 31,  
-    .lvl = 85, 
-    .species = SPECIES_GENGAR,
-	.heldItem = ITEM_FOCUS_SASH,
-	.nature = NATURE_MODEST,
-	.evs = {6, 0, 0, 252, 0, 252},  
-	.shiny = 1,
-    .moves = {MOVE_THUNDERBOLT, MOVE_ICE_PUNCH, MOVE_FIRE_PUNCH, MOVE_DESTINY_BOND}
-    },
-    {
-    .iv = 31,  
     .lvl = 87, 
     .species = SPECIES_TYRANITAR,
 	.heldItem = ITEM_LEFTOVERS,
@@ -25283,15 +25273,25 @@ static const struct TrainerMonCustomMidele sParty_UltraMagic[] = {
 	.evs = {6, 252, 0, 0, 0, 252},  
     .moves = {MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_BRICK_BREAK}
     },
-    {
+	{
     .iv = 31,  
-    .lvl = 86, 
-    .species = SPECIES_BLISSEY,
+    .lvl = 85, 
+    .species = SPECIES_GENGAR,
 	.heldItem = ITEM_LEFTOVERS,
-	.nature = NATURE_BOLD,
-	.evs = {252, 0, 252, 0, 6, 0},  
-	.ability = 1,
-    .moves = {MOVE_SOFT_BOILED, MOVE_TOXIC, MOVE_ICE_BEAM, MOVE_SEISMIC_TOSS}
+	.nature = NATURE_MODEST,
+	.evs = {6, 0, 0, 252, 0, 252},  
+	.shiny = 1,
+    .moves = {MOVE_THUNDERBOLT, MOVE_ICE_PUNCH, MOVE_FIRE_PUNCH, MOVE_DESTINY_BOND}
+    },
+    {
+    .iv = 0,  
+    .lvl = 1, 
+    .species = SPECIES_ARON,
+	.heldItem = ITEM_SHELL_BELL,
+	.nature = NATURE_JOLLY,
+	.evs = {0, 0, 0, 0, 0, 0},  
+	.ability = 0,
+    .moves = {MOVE_ENDEAVOR, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 };
 static const struct TrainerMonCustomMidele sParty_Charz[] = {

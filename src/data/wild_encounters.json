@@ -13179,64 +13179,64 @@
                         "encounter_rate": 10,
                         "mons": [
                             {
-                                "max_level": 34,
-                                "min_level": 28,
+                                "max_level": 60,
+                                "min_level": 56,
                                 "species": "SPECIES_GOLBAT"
                             },
                             {
-                                "max_level": 34,
-                                "min_level": 32,
-                                "species": "SPECIES_NUZLEAF"
+                                "max_level": 60,
+                                "min_level": 56,
+                                "species": "SPECIES_SHIFTRY"
                             },
                             {
-                                "max_level": 34,
-                                "min_level": 29,
-                                "species": "SPECIES_SLUGMA"
+                                "max_level": 63,
+                                "min_level": 56,
+                                "species": "SPECIES_MAGCARGO"
                             },
                             {
-                                "max_level": 35,
-                                "min_level": 30,
-                                "species": "SPECIES_RHYHORN"
+                                "max_level": 60,
+                                "min_level": 56,
+                                "species": "SPECIES_RHYDON"
                             },
                             {
-                                "max_level": 35,
-                                "min_level": 30,
-                                "species": "SPECIES_SLUGMA"
+                                "max_level": 63,
+                                "min_level": 59,
+                                "species": "SPECIES_MAGCARGO"
                             },
                             {
-                                "max_level": 33,
-                                "min_level": 29,
-                                "species": "SPECIES_KROKOROK"
+                                "max_level": 60,
+                                "min_level": 56,
+                                "species": "SPECIES_KROOKODILE"
                             },
                             {
-                                "max_level": 33,
-                                "min_level": 30,
+                                "max_level": 60,
+                                "min_level": 56,
                                 "species": "SPECIES_MR_MIME"
                             },
                             {
-                                "max_level": 33,
-                                "min_level": 29,
-                                "species": "SPECIES_HOUNDOUR"
+                                "max_level": 60,
+                                "min_level": 56,
+                                "species": "SPECIES_MR_MIME"
                             },
                             {
-                                "max_level": 33,
-                                "min_level": 29,
-                                "species": "SPECIES_HOUNDOUR"
+                                "max_level": 63,
+                                "min_level": 59,
+                                "species": "SPECIES_HOUNDOOM"
                             },
                             {
-                                "max_level": 33,
-                                "min_level": 29,
+                                "max_level": 60,
+                                "min_level": 56,
                                 "species": "SPECIES_MAGMAR"
                             },
                             {
-                                "max_level": 33,
-                                "min_level": 30,
-                                "species": "SPECIES_MAGMAR"
+                                "max_level": 63,
+                                "min_level": 59,
+                                "species": "SPECIES_MAGMORTAR"
                             },
                             {
-                                "max_level": 33,
-                                "min_level": 31,
-                                "species": "SPECIES_MAGMAR"
+                                "max_level": 63,
+                                "min_level": 59,
+                                "species": "SPECIES_MAGMORTAR"
                             }
                         ]
                     },
