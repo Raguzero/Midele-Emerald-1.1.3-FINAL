@@ -26181,6 +26181,93 @@ static const struct TrainerMonCustomMidele sParty_Sapph[] = {
     .moves = {MOVE_QUIVER_DANCE, MOVE_BATON_PASS, MOVE_PSYCHIC, MOVE_SLEEP_POWDER}
   }
 };
+
+static const struct TrainerMonCustomMidele sParty_SapphGymTrainer1[] = {
+  {
+    .iv = 31,
+    .lvl = 1,
+    .species = SPECIES_FARFETCHD,
+	.ability = 0,
+    .heldItem = ITEM_STICK,
+    .nature = NATURE_ADAMANT,
+    .evs = {6, 252, 0, 0, 0, 252},
+    .moves = {MOVE_BODY_SLAM, MOVE_BRAVE_BIRD, MOVE_MUD_SLAP, MOVE_SWORDS_DANCE}
+  },
+  {
+    .iv = 31,
+    .lvl = 1,
+    .species = SPECIES_SIRFETCH,
+	.ability = 0,
+    .heldItem = ITEM_LEFTOVERS,
+    .nature = NATURE_ADAMANT,
+    .evs = {6, 252, 252, 0, 0, 0},
+    .moves = {MOVE_BRICK_BREAK, MOVE_BRAVE_BIRD, MOVE_DOUBLE_EDGE, MOVE_STEEL_WING}
+  },
+  {
+    .iv = 31,
+    .lvl = 1,
+    .species = SPECIES_LUDICOLO,
+	.ability = 1,
+    .heldItem = ITEM_LEFTOVERS,
+    .nature = NATURE_CALM,
+    .evs = {6, 0, 0, 252, 252, 0},
+    .moves = {MOVE_LEECH_SEED, MOVE_TEETER_DANCE, MOVE_GIGA_DRAIN, MOVE_REST}
+  },
+  {
+    .iv = 31,
+    .lvl = 1,
+    .species = SPECIES_POLITOED,
+	.ability = 1,
+    .heldItem = ITEM_LEFTOVERS,
+    .nature = NATURE_CALM,
+    .evs = {252, 0, 0, 0, 252, 6},
+    .moves = {MOVE_MIND_READER, MOVE_FISSURE, MOVE_PERISH_SONG, MOVE_HYPNOSIS}
+  }
+};
+
+static const struct TrainerMonCustomMidele sParty_SapphGymTrainer2[] = {
+  {
+    .iv = 31,
+    .lvl = 1,
+    .species = SPECIES_LANTURN,
+	.ability = 0,
+    .heldItem = ITEM_LEFTOVERS,
+    .nature = NATURE_CALM,
+    .evs = {252, 0, 0, 5, 252, 0},
+    .moves = {MOVE_THUNDER_WAVE, MOVE_THUNDER, MOVE_SURF, MOVE_CONFUSE_RAY}
+  },
+  {
+    .iv = 31,
+    .lvl = 1,
+    .species = SPECIES_LUVDISC,
+	.ability = 0,
+    .heldItem = ITEM_HEART_SCALE,
+    .nature = NATURE_MODEST,
+    .evs = {6, 0, 0, 252, 0, 252},
+    .moves = {MOVE_SURF, MOVE_ICE_BEAM, MOVE_SWEET_KISS, MOVE_SAFEGUARD}
+  },
+  {
+    .iv = 31,
+    .lvl = 1,
+    .species = SPECIES_WIGGLYTUFF,
+	.ability = 0,
+    .heldItem = ITEM_LEFTOVERS,
+    .nature = NATURE_ADAMANT,
+    .evs = {252, 252, 0, 0, 6, 0},
+    .moves = {MOVE_SING, MOVE_HYPER_VOICE, MOVE_SEISMIC_PUNCH, MOVE_WISH}
+  },
+  {
+    .iv = 31,
+    .lvl = 1,
+    .species = SPECIES_JYNX,
+	.ability = 1,
+    .heldItem = ITEM_LEFTOVERS,
+    .nature = NATURE_MODEST,
+    .evs = {6, 0, 0, 252, 0, 252},
+    .moves = {MOVE_PSYCHIC, MOVE_PERISH_SONG, MOVE_ICE_BEAM, MOVE_NASTY_PLOT}
+  }
+};
+
 static const struct TrainerMonCustomMidele sParty_MirorB[] = {
   {
     .iv = 31,
