@@ -109,7 +109,7 @@
 #define TRAINER_PIC_LEAF                  90
 #define TRAINER_PIC_RS_BRENDAN            91
 #define TRAINER_PIC_RS_MAY                92
-#define TRAINER_PIC_SOPHOCLES             93
+#define TRAINER_PIC_LAVENDER             93
 #define TRAINER_PIC_BROCK             	  94
 #define TRAINER_PIC_MISTY                 95
 #define TRAINER_PIC_LT_SURGE              96
