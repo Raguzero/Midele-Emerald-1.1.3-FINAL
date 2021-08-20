@@ -23,6 +23,7 @@
 #include "constants/songs.h"
 #include "constants/species.h"
 #include "constants/vars.h"
+#include "day_night.h"
 
 #define AREA_SCREEN_WIDTH 32
 #define AREA_SCREEN_HEIGHT 20
@@ -60,8 +61,10 @@ struct PokeDexAreaScreen
     /*0x618*/ u16 areaShadeFrameCounter;
     /*0x61A*/ u16 areaShadeBldArgLo;
     /*0x61C*/ u16 areaShadeBldArgHi;
-    /*0x61E*/ u8 whichMarkersFlashing;
-    /*0x61F*/ u8 specialMarkerCycleCounter;
+    /*0x61E*/ u8 whichMarkersFlashing:1;
+              u8 isDay:1;
+              u8 specialMarkerCycleCounter:6;
+    /*0x61F*/ u8 dayNightIconSpriteId;
     /*0x620*/ u16 specialAreaRegionMapSectionIds[0x20];
     /*0x660*/ struct Sprite *areaMarkerSprites[0x20];
     /*0x6E0*/ u16 numAreaMarkerSprites;
@@ -94,6 +97,7 @@ static void DestroyAreaMarkerSprites(void);
 
 static const u32 sAreaGlow_Pal[] = INCBIN_U32("graphics/pokedex/area_glow.gbapal");
 static const u32 sAreaGlow_Gfx[] = INCBIN_U32("graphics/pokedex/area_glow.4bpp.lz");
+static const u32 sDayNightSprite_Gfx[] = INCBIN_U32("graphics/pokedex/day_night.4bpp");
 
 static const u16 sSpeciesHiddenFromAreaScreen[] = { SPECIES_MEW };
 
@@ -303,6 +307,68 @@ static const struct SpriteTemplate sAreaUnknownSpriteTemplate =
     SpriteCallbackDummy
 };
 
+static const struct OamData sOamData_DayNightSprite =
+{
+    .size = SPRITE_SIZE(64x64),
+    .shape = SPRITE_SHAPE(64x64),
+    .priority = 0,
+};
+
+static const struct SpriteSheet sSpriteSheet_DayNightSprite =
+{
+    .data = sDayNightSprite_Gfx,
+    .size = 64*64*3/2,
+    .tag = 4,
+};
+
+static const union AnimCmd sSpriteAnim_DayNightSprite_Day[] =
+{
+    ANIMCMD_FRAME(0, 0),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_DayNightSprite_Night[] =
+{
+    ANIMCMD_FRAME(64, 0),
+    ANIMCMD_END
+};
+
+static const union AnimCmd *const sSpriteAnimTable_DayNightSprite[] =
+{
+    sSpriteAnim_DayNightSprite_Night,
+    sSpriteAnim_DayNightSprite_Day,
+};
+
+static const struct SpriteTemplate sSpriteTemplate_DayNightSprite =
+{
+    .tileTag = 4,
+    .paletteTag = 2,
+    .oam = &sOamData_DayNightSprite,
+    .anims = sSpriteAnimTable_DayNightSprite,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy
+};
+
+static void UpdateDayNightSprite()
+{
+    StartSpriteAnim(&gSprites[sPokedexAreaScreen->dayNightIconSpriteId], sPokedexAreaScreen->isDay);
+}
+
+static void CreateDayNightSprite()
+{
+    LoadSpriteSheet(&sSpriteSheet_DayNightSprite);
+    sPokedexAreaScreen->dayNightIconSpriteId = CreateSprite(&sSpriteTemplate_DayNightSprite, 225, 35, 0);
+
+    gSprites[sPokedexAreaScreen->dayNightIconSpriteId].invisible = FALSE;
+    UpdateDayNightSprite();
+}
+
+static void DestroyDayNightSprite(void)
+{
+    DestroySprite(&gSprites[sPokedexAreaScreen->dayNightIconSpriteId]);
+}
+
 static void ResetDrawAreaGlowState(void)
 {
     sPokedexAreaScreen->drawAreaGlowState = 0;
@@ -485,9 +551,9 @@ static bool8 MapHasMon(const struct WildPokemonHeader *info, u16 species)
         }
     }
 
-    if (MonListHasMon(info->landMonsInfo, species, 12))
+    if (sPokedexAreaScreen->isDay && MonListHasMon(info->landMonsInfo, species, 12))
         return TRUE;
-    if (MonListHasMon(info->landMonsNightInfo, species, 12))
+    if (!sPokedexAreaScreen->isDay && MonListHasMon(info->landMonsNightInfo, species, 12))
         return TRUE;
     if (MonListHasMon(info->waterMonsInfo, species, 5))
         return TRUE;
@@ -668,6 +734,7 @@ void ShowPokedexAreaScreen(u16 species, u8 *errno)
     sPokedexAreaScreen = AllocZeroed(sizeof(*sPokedexAreaScreen));
     sPokedexAreaScreen->species = species;
     sPokedexAreaScreen->errno = errno;
+	sPokedexAreaScreen->isDay = IsCurrentlyDay();
     errno[0] = 0;
     taskId = CreateTask(Task_PokedexAreaScreen_0, 0);
     gTasks[taskId].data[0] = 0;
@@ -708,6 +775,7 @@ static void Task_PokedexAreaScreen_0(u8 taskId)
             break;
         case 6:
             CreateAreaMarkerSprites();
+			CreateDayNightSprite();
             break;
         case 7:
             LoadAreaUnknownGraphics();
@@ -752,6 +820,21 @@ static void Task_PokedexAreaScreen_1(u8 taskId)
             gTasks[taskId].data[1] = 1;
          PlaySE(SE_PC_OFF);
         }
+        else if (gMain.newKeys & A_BUTTON)
+        {
+            sPokedexAreaScreen->isDay ^= 1; // se cambia de día a noche y viceversa
+            DestroyAreaMarkerSprites();
+            ResetDrawAreaGlowState();
+            while (DrawAreaGlow())
+                ; // se ejecuta hasta que llega a FALSE
+            CreateAreaMarkerSprites();
+            LoadAreaUnknownGraphics();
+            CreateAreaUnknownSprites();
+            StartAreaGlow();
+            UpdateDayNightSprite();
+            PlaySE(SE_PIN);
+            return;
+        }
         else if (gMain.newKeys & DPAD_LEFT || (gMain.newKeys & L_BUTTON && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_LR))
         {
             gTasks[taskId].data[1] = 1;
@@ -777,6 +860,7 @@ static void Task_PokedexAreaScreen_1(u8 taskId)
         if (gPaletteFade.active)
             return;
         DestroyAreaMarkerSprites();
+		DestroyDayNightSprite();
         sPokedexAreaScreen->errno[0] = gTasks[taskId].data[1];
         sub_813D6B4();
         DestroyTask(taskId);
