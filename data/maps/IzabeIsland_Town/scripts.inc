@@ -50,7 +50,10 @@ IzabeIsland_Town_Text_GameboyKid::
 	.string "¿Eh? ¿Que a qué estoy jugando?\n"
 	.string "¡A POKéMON EDICIÓN ESPADA y ESCUDO¡\p"
 	.string "Tal vez debería dejarlo e irme a jugar\n"
-	.string "a las afueras del pueblo...$"
+	.string "a las afueras del pueblo...\p"
+	.string "¿Eh? ¿Que qué opino de MASUDA?\p"
+	.string "Diría que es un tipo NORMAL, aunque, a\n"
+	.string "veces... ¡es un poco FANTASMA!$"
 
 IzabeIsland_Town_Text_Maid::
 	.string "Esto de aquí es la casa del ALCALDE.\n"
@@ -72,5 +75,5 @@ IzabeIsland_Town_Text_Cameraman::
 IzabeIsland_Town_Text_SignTown::
 	.string "IZABE TOWN\n"
 	.string "“Precioso lugar rodeado de mar y de\l"
-	.string "enormes montañas que dan culto a\p"
+	.string "enormes montañas que dan culto a\l"
 	.string "una leyenda.”$"
