@@ -236,26 +236,25 @@ MoveTutor_Text_ExplosionTaught: @ 82C7E7A
 	.string "Maybe it's because deep down,\n"
 	.string "I would rather stay here…$"
 	
-MoveTutor_Text_SeismicPunchTeach: @ 82C7B8E
-	.string "¡Alabado sea el mico!\p"
+MoveTutor_Text_SeismicPunchTeach:
+	.string "¡Me has encontrado!\p"
 
-	.string "¡Oh, hola! ¿Quieres que le enseñe\n"
-	.string "un movimiento fantástico a tus\l"
-	.string "POKéMON?\p"
-	
-	.string "Se trata de SEISMIC PUNCH, uno de\n"
-	.string "los movimientos definitivos,\l"
-	.string "creado por MICOLO.$"
+	.string "Ayudo a mi tito a enseñar a POKéMON\n" 
+	.string "un movimiento increíble. Se llama\l" 
+	.string "SEISMIC PUNCH y es un poderoso\l" 
+	.string "movimiento creado por mi tito Micolo.\p"
 
-MoveTutor_Text_SeismicPunchDeclined: @ 82C7C7E
-	.string "Oh…\n"
-	.string "Que deshonra para el gran mico…$"
+	.string "¿Quieres que un POKéMON tuyo aprenda\n" 
+	.string "el movimiento?$"
 
-MoveTutor_Text_SeismicPunchWhichMon: @ 82C7C98
-	.string "Vale, ¿cuál POKéMON quieres que\n"
-	.string "aprenda SEISMIC PUNCH?$"
+MoveTutor_Text_SeismicPunchDeclined:
+	.string "Si no quieres, no pasa nada.$"
 
-MoveTutor_Text_SeismicPunchTaught: @ 82C7CC8
-	.string "¡Ahora tu POKéMON dará tan potente"
-	.string "puñetazo que hará temblar la tierra!$"
+MoveTutor_Text_SeismicPunchWhichMon:
+	.string "Bien, ¿Que POKéMON quieres que le\n"
+	.string "enseñe SEISMIC PUNCH?$"
+
+MoveTutor_Text_SeismicPunchTaught:
+	.string "¡Ya está! ¡Tu POKéMON ya puede hacer\n" 
+	.string "temblar a los rivales con su puño!$"
 
