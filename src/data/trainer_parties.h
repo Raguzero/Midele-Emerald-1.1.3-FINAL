@@ -26185,7 +26185,7 @@ static const struct TrainerMonCustomMidele sParty_Sapph[] = {
 static const struct TrainerMonCustomMidele sParty_SapphGymTrainer1[] = {
   {
     .iv = 31,
-    .lvl = 1,
+    .lvl = 75,
     .species = SPECIES_FARFETCHD,
 	.ability = 0,
     .heldItem = ITEM_STICK,
@@ -26195,7 +26195,7 @@ static const struct TrainerMonCustomMidele sParty_SapphGymTrainer1[] = {
   },
   {
     .iv = 31,
-    .lvl = 1,
+    .lvl = 75,
     .species = SPECIES_SIRFETCH,
 	.ability = 0,
     .heldItem = ITEM_LEFTOVERS,
@@ -26205,7 +26205,7 @@ static const struct TrainerMonCustomMidele sParty_SapphGymTrainer1[] = {
   },
   {
     .iv = 31,
-    .lvl = 1,
+    .lvl = 76,
     .species = SPECIES_LUDICOLO,
 	.ability = 1,
     .heldItem = ITEM_LEFTOVERS,
@@ -26215,7 +26215,7 @@ static const struct TrainerMonCustomMidele sParty_SapphGymTrainer1[] = {
   },
   {
     .iv = 31,
-    .lvl = 1,
+    .lvl = 76,
     .species = SPECIES_POLITOED,
 	.ability = 1,
     .heldItem = ITEM_LEFTOVERS,
@@ -26228,17 +26228,17 @@ static const struct TrainerMonCustomMidele sParty_SapphGymTrainer1[] = {
 static const struct TrainerMonCustomMidele sParty_SapphGymTrainer2[] = {
   {
     .iv = 31,
-    .lvl = 1,
+    .lvl = 76,
     .species = SPECIES_LANTURN,
 	.ability = 0,
     .heldItem = ITEM_LEFTOVERS,
     .nature = NATURE_CALM,
-    .evs = {252, 0, 0, 5, 252, 0},
+    .evs = {252, 0, 0, 6, 252, 0},
     .moves = {MOVE_THUNDER_WAVE, MOVE_THUNDER, MOVE_SURF, MOVE_CONFUSE_RAY}
   },
   {
     .iv = 31,
-    .lvl = 1,
+    .lvl = 76,
     .species = SPECIES_LUVDISC,
 	.ability = 0,
     .heldItem = ITEM_HEART_SCALE,
@@ -26248,7 +26248,7 @@ static const struct TrainerMonCustomMidele sParty_SapphGymTrainer2[] = {
   },
   {
     .iv = 31,
-    .lvl = 1,
+    .lvl = 78,
     .species = SPECIES_WIGGLYTUFF,
 	.ability = 0,
     .heldItem = ITEM_LEFTOVERS,
@@ -26258,13 +26258,89 @@ static const struct TrainerMonCustomMidele sParty_SapphGymTrainer2[] = {
   },
   {
     .iv = 31,
-    .lvl = 1,
+    .lvl = 78,
     .species = SPECIES_JYNX,
 	.ability = 1,
     .heldItem = ITEM_LEFTOVERS,
     .nature = NATURE_MODEST,
     .evs = {6, 0, 0, 252, 0, 252},
     .moves = {MOVE_PSYCHIC, MOVE_PERISH_SONG, MOVE_ICE_BEAM, MOVE_NASTY_PLOT}
+  }
+};
+
+static const struct TrainerMonCustomMidele sParty_SapphGymTrainer3[] = {
+  {
+    .iv = 31,
+    .lvl = 76,
+    .species = SPECIES_ROSERADE,
+	.ability = 1,
+    .heldItem = ITEM_FOCUS_SASH,
+    .nature = NATURE_TIMID,
+    .evs = {6, 0, 0, 252, 0, 252},
+    .moves = {MOVE_SWEET_KISS, MOVE_WEATHER_BALL, MOVE_MAGICAL_LEAF, MOVE_SPIKES}
+  },
+  {
+    .iv = 31,
+    .lvl = 77,
+    .species = SPECIES_MEGA_ALTARIA,
+	.ability = 0,
+    .heldItem = ITEM_LEFTOVERS,
+    .nature = NATURE_BRAVE,
+    .evs = {252, 128, 0, 128, 0, 0},
+    .moves = {MOVE_MOONBLAST, MOVE_FEATHER_DANCE, MOVE_EARTHQUAKE, MOVE_DRAGON_CLAW}
+  },
+  {
+    .iv = 31,
+    .lvl = 76,
+    .species = SPECIES_MILOTIC,
+	.ability = 1,
+    .heldItem = ITEM_LEFTOVERS,
+    .nature = NATURE_MODEST,
+    .evs = {128, 0, 0, 252, 128, 0},
+    .moves = {MOVE_SURF, MOVE_ICE_BEAM, MOVE_RECOVER, MOVE_SAFEGUARD}
+  },
+  {
+    .iv = 31,
+    .lvl = 78,
+    .species = SPECIES_LAPRAS,
+	.ability = 1,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .nature = NATURE_QUIET,
+    .evs = {6, 252, 0, 252, 0, 0},
+    .moves = {MOVE_PSYCHIC, MOVE_THUNDER, MOVE_ICE_BEAM, MOVE_MEGAHORN}
+  }
+};
+
+static const struct TrainerMonCustomMidele sParty_SapphGymTrainer4[] = {
+  {
+    .iv = 31,
+    .lvl = 78,
+    .species = SPECIES_DELCATTY,
+	.ability = 0,
+    .heldItem = ITEM_POKE_DOLL,
+    .nature = NATURE_MODEST,
+    .evs = {128, 0, 0, 128, 0, 252},
+    .moves = {MOVE_CALM_MIND, MOVE_WATER_PULSE, MOVE_THUNDER, MOVE_FAINT_ATTACK}
+  },
+  {
+    .iv = 31,
+    .lvl = 79,
+    .species = SPECIES_MRRIME,
+	.ability = 0,
+    .heldItem = ITEM_NEVER_MELT_ICE,
+    .nature = NATURE_MODEST,
+    .evs = {252, 0, 0, 252, 0, 6},
+    .moves = {MOVE_SLACK_OFF, MOVE_TEETER_DANCE, MOVE_ICICLE_SPEAR, MOVE_PSYCHIC}
+  },
+  {
+    .iv = 31,
+    .lvl = 79,
+    .species = SPECIES_GARDEVOIR,
+	.ability = 1,
+    .heldItem = ITEM_LEFTOVERS,
+    .nature = NATURE_TIMID,
+    .evs = {252, 0, 0, 6, 0, 252},
+    .moves = {MOVE_FUTURE_SIGHT, MOVE_DISABLE, MOVE_ENCORE, MOVE_MOONBLAST}
   }
 };
 
