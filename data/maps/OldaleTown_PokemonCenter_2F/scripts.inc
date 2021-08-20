@@ -28,5 +28,4 @@ OldaleTown_PokemonCenter_2F_EventScript_PC2::
 	
 OldaleTown_PokemonCenter_1F_Text_PCActualizando:
 	.string "The PC is updating.\n" 
-	.string "Right now it can't be used.$"
-
+	.string "Right now, it can't be used.$"

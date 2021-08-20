@@ -1050,7 +1050,7 @@ LilycoveCity_ContestHall_EventScript_MideleEVReducer_NoEgg::
 
 LilycoveCity_ContestHall_Text_MideleEVReducer_Greeting::
 	.string "Mientras no miraba mi POKéMON se hartó\n"
-	.string "a comer POKEBLOCK y cuando me di\l"
+	.string "a comer {POKEBLOCK}s y cuando me di\l"
 	.string "cuenta... ¡no servía para nada en los\l"
 	.string "concursos!\p"
 	.string "Pero no me rendí e ideé un\n"
