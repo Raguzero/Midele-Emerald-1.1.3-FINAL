@@ -163,7 +163,7 @@ static const struct TrainerMonCustomMidele sParty_BrendanRustboroTreecko[] = {
 	.nature = NATURE_MODEST,
     .heldItem = ITEM_MIRACLE_SEED,
 	.evs = {0, 0, 0, 24, 0, 0},
-    .moves = {MOVE_MEGA_DRAIN, MOVE_BUBBLE_BEAM, MOVE_LEECH_SEED, MOVE_BULLET_SEED}
+    .moves = {MOVE_MEGA_DRAIN, MOVE_BUBBLE_BEAM, MOVE_LEECH_SEED, MOVE_MEGA_DRAIN}
     },
     {
     .iv = 31,
@@ -300,7 +300,7 @@ static const struct TrainerMonCustomMidele sParty_BrendanRustboroTorchic[] = {
 	.nature = NATURE_MODEST,
     .heldItem = ITEM_MIRACLE_SEED,
 	.evs = {0, 0, 0, 24, 0, 0},
-    .moves = {MOVE_MEGA_DRAIN, MOVE_BUBBLE_BEAM, MOVE_LEECH_SEED, MOVE_BULLET_SEED}
+    .moves = {MOVE_MEGA_DRAIN, MOVE_BUBBLE_BEAM, MOVE_LEECH_SEED, MOVE_MEGA_DRAIN}
     },
     {
     .iv = 31,
@@ -2194,7 +2194,7 @@ static const struct TrainerMonCustomMidele sParty_Roxanne1[] = {
     .nature = NATURE_QUIET,
     .heldItem = ITEM_MAGNET,
 	.ability = 1,
-    .moves = {MOVE_TACKLE, MOVE_SPARK, MOVE_ROCK_TOMB, MOVE_FLAMETHROWER}
+    .moves = {MOVE_TACKLE, MOVE_SPARK, MOVE_ROCK_TOMB, MOVE_FIRE_PUNCH}
 	},
     {
     .iv = 31,
@@ -4542,7 +4542,7 @@ static const struct TrainerMonCustomMidele sParty_GinaAndMia1[] = {
     .lvl = 8,
     .species = SPECIES_SEEDOT,
 	.ability = 1,
-    .moves = {MOVE_QUICK_ATTACK, MOVE_BULLET_SEED, MOVE_PROTECT, MOVE_LEECH_SEED}
+    .moves = {MOVE_QUICK_ATTACK, MOVE_ABSORB, MOVE_PROTECT, MOVE_LEECH_SEED}
     },
     {
     .iv = 31,
@@ -5009,7 +5009,7 @@ static const struct TrainerMonCustomMidele sParty_Elliot1[] = {
     .species = SPECIES_REMORAID,
 	.evs = {0, 12, 0, 12, 0, 0},
 	.ability = 1,
-    .moves = {MOVE_PSYBEAM, MOVE_BULLET_SEED, MOVE_MUD_SHOT, MOVE_WATER_GUN}
+    .moves = {MOVE_PSYBEAM, MOVE_SUPERSONIC, MOVE_MUD_SHOT, MOVE_WATER_GUN}
     }
 };
 
