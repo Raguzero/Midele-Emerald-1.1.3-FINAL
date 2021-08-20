@@ -128,6 +128,12 @@ MicoloLeagueLobby_EventScript_ResetTrainerYES:
 	setflag FLAG_REMATCH_GOOSES
 	cleartrainerflag TRAINER_SAPPH
 	setflag FLAG_REMATCH_SAPPH
+	clearflag FLAG_HIDE_SAPPHGYM_ZIGZA
+    cleartrainerflag TRAINER_SAPPH_GYM_1
+    cleartrainerflag TRAINER_SAPPH_GYM_2
+    cleartrainerflag TRAINER_SAPPH_GYM_3
+    cleartrainerflag TRAINER_SAPPH_GYM_4
+    setvar VAR_STATE_SAPPH_GYM, 0
 	cleartrainerflag TRAINER_DARKI_BUENRO
 	cleartrainerflag TRAINER_DARKI_MALRO
 	setflag FLAG_REMATCH_DARKIBUENRO
