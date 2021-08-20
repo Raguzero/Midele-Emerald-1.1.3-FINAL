@@ -1101,6 +1101,13 @@ static const struct MenuAction MultichoiceList_Move_Tutor_List[] =
 	{gChooseLeftTutorMove}, 
 };
 
+static const struct MenuAction MultichoiceList_IzabeIsland_House3_Documents[] =
+{
+	{gDarkPikaDocument},
+	{gCatermanoDocument},
+	{gMicomonDocument},  
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -1262,6 +1269,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
 	[MULTI_SAPPHGYM_FIRST_PUZZLE_ANSWERS] =  MULTICHOICE(MultichoiceList_SapphGym_FirstPuzzleAnswers),
 	[MULTI_SAPPHGYM_SECOND_PUZZLE_ANSWERS] =  MULTICHOICE(MultichoiceList_SapphGym_SecondPuzzleAnswers),
 	[MULTI_MOVE_TUTOR_LIST] =  MULTICHOICE(MultichoiceList_Move_Tutor_List),
+	[MULTI_IZABE_HOUSE3_DOCUMENTS] =  MULTICHOICE(MultichoiceList_IzabeIsland_House3_Documents),
 };
 
 const u8 *const gStdStrings[] =

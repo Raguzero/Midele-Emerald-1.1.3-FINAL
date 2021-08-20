@@ -105,6 +105,115 @@ IzabeIsland_House3_EventScript_AlreadyReceivedMonEnd:
 	release
 	end
 
+IzabeIsland_House3_EventScript_DarkPikaNotes::
+	msgbox IzabeIsland_House3_EventScript_DarkPikaNotes_Text_0, MSGBOX_DEFAULT
+	multichoicegrid 0, 0, MULTI_IZABE_HOUSE3_DOCUMENTS, 1, 0
+	switch VAR_RESULT
+	case 0, IzabeIsland_House3_EventScript_DarkPikaNotes_3
+	case 1, IzabeIsland_House3_EventScript_DarkPikaNotes_4
+	case 2, IzabeIsland_House3_EventScript_DarkPikaNotes_5
+IzabeIsland_House3_EventScript_DarkPikaNotes_1:
+	release
+	return
+
+IzabeIsland_House3_EventScript_DarkPikaNotes_3:
+	msgbox IzabeIsland_House3_EventScript_DarkPikaNotes_Text_1, MSGBOX_SIGN
+	goto IzabeIsland_House3_EventScript_DarkPikaNotes_1
+
+IzabeIsland_House3_EventScript_DarkPikaNotes_4:
+	msgbox IzabeIsland_House3_EventScript_DarkPikaNotes_Text_2, MSGBOX_SIGN
+	goto IzabeIsland_House3_EventScript_DarkPikaNotes_1
+
+IzabeIsland_House3_EventScript_DarkPikaNotes_5:
+	msgbox IzabeIsland_House3_EventScript_DarkPikaNotes_Text_3, MSGBOX_SIGN
+	goto IzabeIsland_House3_EventScript_DarkPikaNotes_1
+
+
+IzabeIsland_House3_EventScript_DarkPikaNotes_Text_0:
+	.string "En el fondo de la estantería observas\n"
+	.string "múltiples documentos que comparten el\l"
+	.string "título “Investigación sobre POKéMON\l"
+	.string "confidenciales” ¿Cuál quieres leer?$"
+
+IzabeIsland_House3_EventScript_DarkPikaNotes_Text_1:
+	.string "“Reporte de investigación sobre la\n"
+	.string "creación del PIKACHU definitivo, por\l"
+	.string "PHENT”.\p"
+	.string "“Tras 478 intentos de crianza\n"
+	.string "selectiva de incontables PIKACHU\l"
+	.string "traídos de distintas regiones y\l"
+	.string "cuidados por los mejores entrenadores,\l"
+	.string "he conseguido hacer eclosionar al\l"
+	.string "PIKACHU con las características que\l"
+	.string "MICOLO deseaba (a partir de ahora,\l"
+	.string "DARK PIKA)”\p"
+	.string "“La principal característica de DARK\n"
+	.string "PIKA que lo diferencia de otros\l"
+	.string "PIKACHU es su color negro, producto de\l"
+	.string "la gran concentración de energía\l"
+	.string "eléctrica que este almacena.”\p"
+	.string "“Esta gran cantidad de energía le\n"
+	.string "permite ejecutar sin ninguna clase de\l"
+	.string "problema poderosísimos ataques\l"
+	.string "eléctricos. Es tal su energía que,\l"
+	.string "según mis cálculos, sería incluso capaz\l"
+	.string "de destruir una ciudad entera en un\l"
+	.string "arrannque de ira.”\p"
+	.string "“No hemos sido capaces de hacer\n"
+	.string "evolucionar a DARK PIKA y tampoco\l"
+	.string "tiene ninguna preevolución conocida ni\l"
+	.string "es capaz de criar, pero esto no es\l"
+	.string "problema ninguno para su poderío.”\l"
+	.string "“MICOLO ya lo ha establecido como su\l"
+	.string "POKéMON insignia.”\p"
+	.string "“ANEXO: CARACTERÍSTICAS TÉCNICAS\p"
+	.string "Tipo: ELECTRIC/DARK\n"
+	.string "Habilidades: INTIMIDATE/TOUGH CLAWS\p"
+	.string "Estadísticas base:\n"
+	.string "HP: 115, ATK: 125, DEF: 85, SPD: 180, SATK:\l"
+	.string "120, SDEF: 120\p"
+	.string "Movimientos: es capaz de aprender los\n"
+	.string "movimientos DARK THUNDER, SEISMIC\l"
+	.string "PUNCH, BRUTAL BALL y MIDELE POWER al\l"
+	.string "subir de nivel. ”$"
+
+IzabeIsland_House3_EventScript_DarkPikaNotes_Text_2:
+	.string "“Reporte de investigación sobre\n"
+	.string "CATERMANO, por A.VADER”\p"
+	.string "“El otro día iba caminando por la hierba\n"
+	.string "y me apareció un CATERPIE shiny, lo\l"
+	.string "llamé CATERMANO.\p"
+	.string "Quería llevarlo en mi equipo, por eso de\n"
+	.string "que es shiny, pero es tremenda basura.\l"
+	.string "Además, si lo evoluciono perdería su\l"
+	.string "color dorado.\p"
+	.string "Le diré a MICOLO que es un CATERPIE\n"
+	.string "especial y le pediré permiso para usar\l"
+	.string "el laboratorio y hacerle aprender el\l"
+	.string "movimiento MIDELE POWER, seguro que\l"
+	.string "cuela. MASTERMINDED.”\p"
+	.string "“Quizás lo clone y lo venda en el casino.\n"
+	.string "La gente se pensará que es algo\l"
+	.string "especial, pero es un mero CATERPIE\l"
+	.string "shiny con el movimiento MIDELE POWER y\l"
+	.string "los puntos de esfuerzo al máximo.”$"
+
+IzabeIsland_House3_EventScript_DarkPikaNotes_Text_3:
+	.string "“Reporte de investigación sobre\n"
+	.string "MICOMON, por LAVENDER”\p"
+	.string "“Durante mi estadía en KANTO, logré\n"
+	.string "crear al MICOMON. Mi idea era crear el\l"
+	.string "POKéMON más poderoso de todos, el tan\l"
+	.string "ansiado por MICOLO.”\p"
+	.string "“Cloné unos cuantos, pero eran\n"
+	.string "bastante inútiles. Durante nuestra\l"
+	.string "huida de KANTO en barco, los tiré todos\l"
+	.string "al mar.”\p"
+	.string "“Calculo que habrán acabado todos en\n"
+	.string "las costas de SINNOH. Con suerte nadie\l"
+	.string "los encontrará y nunca volveremos a\l"
+	.string "saber más de ellos.”$"
+
 
 IzabeIsland_House3_Text_Scientist::
 	.string "Mmm...\n"

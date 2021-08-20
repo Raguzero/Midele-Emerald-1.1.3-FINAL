@@ -3269,4 +3269,9 @@ extern const u8 gSwaggerTutor[];
 extern const u8 gChooseRightTutorMove[];  
 extern const u8 gChooseLeftTutorMove[]; 
 
+
+extern const u8 gDarkPikaDocument[]; 
+extern const u8 gCatermanoDocument[]; 
+extern const u8 gMicomonDocument[]; 
+
 #endif // GUARD_STRINGS_H

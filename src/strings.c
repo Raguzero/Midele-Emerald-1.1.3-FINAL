@@ -2148,4 +2148,8 @@ const u8 gSwaggerTutor[] = _("SWAGGER");
 const u8 gChooseRightTutorMove[] = _("MORE TUTOR 1");  
 const u8 gChooseLeftTutorMove[] = _("MORE TUTOR 2"); 
 
+const u8 gDarkPikaDocument[] = _("Investigación 1: DARK PIKA"); 
+const u8 gCatermanoDocument[] = _("Investigación 2: CATERMANO"); 
+const u8 gMicomonDocument[] = _("Investigación 3: MICOMON"); 
+
 const u8 gText_LevelCap[] = _("Tus POKéMON no pueden superar el nivel:\n{STR_VAR_1}{PAUSE_UNTIL_PRESS}");
