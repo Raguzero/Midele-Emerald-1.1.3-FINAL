@@ -6650,6 +6650,18 @@ void MideleResetSelectedMonEVs(void)
     CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
 }
 
+// NUEVO: special, establece los status de concurso a 0 del Pokémon seleccionado
+void MideleResetContestStats(void)
+{
+    u8 contestStatsValue = 0;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_COOL, &contestStatsValue);
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_BEAUTY, &contestStatsValue);
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_CUTE, &contestStatsValue);
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SMART, &contestStatsValue);
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_TOUGH, &contestStatsValue);
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SHEEN, &contestStatsValue);
+}
+
 void CursorCb_MoveItemCallback(u8 taskId)
 {
     u16 item1, item2;

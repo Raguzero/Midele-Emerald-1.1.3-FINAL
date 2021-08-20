@@ -102,6 +102,7 @@ bool8 CanUseCandyItem(u16 itemId, u16 monLevel);
 bool8 IsItemReusable(u16 item);
 void MideleChangeSelectedMonNature(void);
 void MideleResetSelectedMonEVs(void);
+void MideleResetContestStats(void);
 bool8 CanLearnTutorMove(u16, u8);
 void IsSelectedMonLegendary(void);
 void IsSelectedMonDeoxys(void);

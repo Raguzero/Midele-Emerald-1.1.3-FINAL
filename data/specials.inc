@@ -572,3 +572,4 @@ gSpecials:: @ 81DBA64
 	def_special SavePostMicolo
 	def_special UpdateRandomBattleVictories
 	def_special BufferRandomBattleVictories
+	def_special MideleResetContestStats

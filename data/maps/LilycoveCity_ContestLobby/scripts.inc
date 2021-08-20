@@ -1016,6 +1016,68 @@ LilycoveCity_ContestLobby_EventScript_LittleGirlHaveCase:: @ 821AD06
 	release
 	end
 
+LilycoveCity_ContestHall_EventScript_MideleContestStatsResetter::
+	lock
+	faceplayer
+	msgbox LilycoveCity_ContestHall_Text_MideleEVReducer_Greeting, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq LilycoveCity_ContestHall_EventScript_MideleEVReducer_NoChange
+	
+	msgbox LilycoveCity_ContestHall_Text_MideleEVReducer_ChooseMon, MSGBOX_DEFAULT
+	special ChoosePartyMon
+	waitstate
+	compare VAR_0x8004, 255
+	goto_if_eq LilycoveCity_ContestHall_EventScript_MideleEVReducer_NoChange
+	special IsSelectedMonEgg
+	compare VAR_RESULT, TRUE
+	goto_if_eq LilycoveCity_ContestHall_EventScript_MideleEVReducer_NoEgg
+	special MideleResetContestStats
+	playfanfare MUS_ME_WASURE
+	waitfanfare
+	msgbox LilycoveCity_ContestHall_Text_MideleEVReducer_Done, MSGBOX_DEFAULT
+	goto LilycoveCity_ContestHall_EventScript_MideleEVReducer_NoChange
+	end
+
+LilycoveCity_ContestHall_EventScript_MideleEVReducer_NoChange::
+	msgbox LilycoveCity_ContestHall_Text_MideleEVReducer_NoChange
+	release
+	end
+
+LilycoveCity_ContestHall_EventScript_MideleEVReducer_NoEgg::
+	msgbox LilycoveCity_ContestHall_Text_MideleEVReducer_NoEgg
+	release
+	end
+
+LilycoveCity_ContestHall_Text_MideleEVReducer_Greeting::
+	.string "Mientras no miraba mi POKéMON se hartó\n"
+	.string "a comer bayas y cuando no me di\l"
+	.string "cuenta... ¡no servía para nada en los\l"
+	.string "concursos!\p"
+	.string "Pero no me rendí e ideé un\n"
+	.string "entrenamiento secreto para conseguir\l"
+	.string "que mi POKéMON pudiera volver a brillar\l"
+	.string "en el escenario... si quieres, lo\l"
+	.string "comparto contigo.\p"
+	.string "Con mi entrenamiento secreto reiniciaré\n"
+	.string "todas las estadísticas de concurso de\l"
+	.string "uno de tus POKéMON, ¿te interesa?$"
+
+LilycoveCity_ContestHall_Text_MideleEVReducer_ChooseMon::
+	.string "Elige un POKéMON.$"
+
+LilycoveCity_ContestHall_Text_MideleEVReducer_Done::
+	.string "Las estadísticas de concurso de tu\n"
+	.string "POKéMON han sido reiniciadas\l"
+	.string "exitosamente.$"
+
+LilycoveCity_ContestHall_Text_MideleEVReducer_NoChange::
+	.string "Vuelve cuando quieras.$"
+
+LilycoveCity_ContestHall_Text_MideleEVReducer_NoEgg::
+	.string "¡No puedo modificar las estadísticas de\n"
+	.string "un HUEVO!$"
+
+
 LilycoveCity_ContestLobby_Text_LadyGaveMePokeblockCase: @ 821AD10
 	.string "Yippee!\p"
 	.string "The lady at the reception counter\n"
@@ -1117,4 +1179,3 @@ LilycoveCity_ContestLobby_Text_MadePokeblocksWithFamily: @ 821B3FC
 	.string "Big Sister. They turned out great!\p"
 	.string "I bet you can make smoother, better\n"
 	.string "{POKEBLOCK}S if you have more people.$"
-
