@@ -1556,7 +1556,7 @@ static const u8 sBRUTAL_BALLDescription[] = _(
 	
 static const u8 sSEISMIC_PUNCHDescription[] = _(	
 	"MICOLO's ultimate attack.\n"
-    "Earthquake in the Punch.");
+    "Punch that shakes the earth.");
 
 // MOVE_NONE is ignored in this table. Make sure to always subtract 1 before getting the right pointer.
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
