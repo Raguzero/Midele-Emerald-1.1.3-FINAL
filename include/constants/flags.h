@@ -723,7 +723,7 @@
 #define FLAG_DEFEATED_SAPPHIRE_TOTEM         0x2AA // Previously unused Flag
 #define FLAG_HIDE_SAPPHGYM_ZIGZA             0x2AB // Previously unused Flag
 #define FLAG_SHINY_CREATION  0x2AC // Previously Unused Flag
-#define FLAG_UNUSED_0x2AD  0x2AD // Unused Flag
+#define FLAG_DEFEATED_BOSS_TITAN   0x2AD // Previously unused Flag
 #define FLAG_UNUSED_0x2AE  0x2AE // Unused Flag
 #define FLAG_UNUSED_0x2AF  0x2AF // Unused Flag
 #define FLAG_UNUSED_0x2B0  0x2B0 // Unused Flag

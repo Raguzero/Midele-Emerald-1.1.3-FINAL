@@ -1299,7 +1299,7 @@ SapphireGym_EventScript_FirstPuzzle_OpenPath:
 	playse SE_DOOR
 	delay 40
 	call SapphireGym_OpenFirsPuzzlePath
-	playse(SE_RG_W_DOOR)
+	playse SE_RG_W_DOOR
 	special DrawWholeMapView
 	return
 

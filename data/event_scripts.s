@@ -1182,3 +1182,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/SapphireGym/scripts.inc"
 
 	.include "data/maps/SapphireGym2/scripts.inc"
+
+	.include "data/maps/SapphireGym_Basement/scripts.inc"

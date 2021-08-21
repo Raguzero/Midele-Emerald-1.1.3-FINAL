@@ -93,5 +93,11 @@ const struct BossBattle gBossBattles[] = {
         .music = MUS_RG_VS_LAST,
         .weather = WEATHER_RAIN, // ver WEATHER_* flags en include/constants/weather.h
         .boss = TOTEM_SAPPHIRE,
-    }
+    },
+    [BOSS_BATTLE_TITAN] =
+    {
+        .battleType = BATTLE_TYPE_BOSS,
+        .music = SASAGEYO,
+        .boss = BOSS_TITAN,
+    },
 };

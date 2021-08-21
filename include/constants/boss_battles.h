@@ -26,11 +26,13 @@
 #define BOSS_BATTLE_TOTEM_PRIMARINA 13
 #define BOSS_BATTLE_MASUDA        14
 #define BOSS_BATTLE_TOTEM_SAPPHIRE 15
+#define BOSS_BATTLE_TITAN          16
 
 // Bosses
 #define BOSS_CORONA 1
 #define BOSS_YETI   2
 #define BOSS_MASUDA 3
+#define BOSS_TITAN 4
 
 // Totems
 #define TOTEM_SUDOWOODO_DEBUG 1

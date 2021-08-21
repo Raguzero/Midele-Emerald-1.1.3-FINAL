@@ -643,6 +643,7 @@
 #define MAP_MONOCYCLE_ROUTE                      (46 | (34 << 8))
 #define MAP_SAPPHIRE_GYM                         (47 | (34 << 8))
 #define MAP_SAPPHIRE_GYM2                        (48 | (34 << 8))
+#define MAP_SAPPHIRE_GYM_BASEMENT                (49 | (34 << 8))
 
 #define MAP_GROUPS_COUNT 35
 

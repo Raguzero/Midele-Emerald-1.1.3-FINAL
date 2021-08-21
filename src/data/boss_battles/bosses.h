@@ -47,5 +47,21 @@ const struct Boss gBosses[] =
         .ability = ABILITY_SHADOW_TAG,
         .type1 = TYPE_NORMAL,
         .type2 = TYPE_GHOST,
+    },
+    [BOSS_TITAN] =
+    {
+        .name = gBossNameTitan,
+        .level = 80,
+        .hp = 335, // Equivalente a 106 BST, 31 IV, 255 EV, LVL 80
+        .attack = 352, // Equivalente a 150 BST, 31 IV, 255 EV, LVL 80, NATURE FAVORABLE
+        .defense = 224, // Equivalente a 90 BST, 31 IV, 255 EV, LVL 80, NATURE NEUTRAL
+        .spAttack = 240, // Equivalente a 100 BST, 31 IV, 255 EV, LVL 80, NATURE NEUTRAL
+        .spDefense = 202, // Equivalente a 90 BST, 31 IV, 255 EV, LVL 80, NATURE UNFAVORABLE
+        .speed = 136, // Equivalente a 60 BST, 31 IV, 128 EV, LVL 80, NATURE UNFAVORABLE
+        .item = ITEM_LEFTOVERS,
+        .moves = {MOVE_SEISMIC_PUNCH, MOVE_MIDELE_POWER, MOVE_CRUNCH, MOVE_NONE},
+        .ability = ABILITY_STRONG_JAW, // Para CRUNCH
+        .type1 = TYPE_FIGHTING,
+        .type2 = TYPE_FIGHTING,
     }
 };

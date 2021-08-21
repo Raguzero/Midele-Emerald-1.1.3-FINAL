@@ -4,6 +4,8 @@ SapphireGym2_MapScripts::
 
 SapphireGym2_MapScripts_OnLoad:
 	call_if_unset FLAG_DEFEATED_SAPPHIRE_TOTEM, SapphireGym2_BlockTotemPath
+	checktrainerflag TRAINER_SAPPH
+	call_if_ne SapphireGym2_BlockTitanRoom
 	return
 
 SapphireGym2_BlockTotemPath:
@@ -14,6 +16,30 @@ SapphireGym2_BlockTotemPath:
 SapphireGym2_OpenTotemPath:
 	setmetatile 10, 37, 0x2C1, 0
 	setmetatile 10, 36, 0x2C1, 0
+	return
+
+SapphireGym2_BlockTitanRoom:
+	setmetatile 9, 3, 0x259, 1
+	setmetatile 10, 3, 0x25A, 1
+	setmetatile 11, 3, 0x25B, 1
+	setmetatile 9, 2, 0x251, 1
+	setmetatile 10, 2, 0x252, 1
+	setmetatile 11, 2, 0x253, 1
+	setmetatile 9, 1, 0x249, 1
+	setmetatile 10, 1, 0x24A, 1
+	setmetatile 11, 1, 0x24B, 1
+	return
+
+SapphireGym2_OpenTitanRoom:
+	setmetatile 9, 3, 0x2BA, 1
+	setmetatile 10, 3, 0x2BB, 0
+	setmetatile 11, 3, 0x2BC, 1
+	setmetatile 9, 2, 0x2B2, 1
+	setmetatile 10, 2, 0x2B3, 1
+	setmetatile 11, 2, 0x2B4, 1
+	setmetatile 9, 1, 0x2AA, 1
+	setmetatile 10, 1, 0x2AB, 1
+	setmetatile 11, 1, 0x2AC, 1
 	return
 
 SapphireGym2_EventScript_Totem::
@@ -64,6 +90,11 @@ SapphireGym2_EventScript_SapphDefeated::
 	msgbox SapphireGym2_Text_ExplainBadgeTakeThis, MSGBOX_DEFAULT
 	setflag FLAG_DEFEATED_SAPPH_GYM
 	delay 30
+	playse SE_DOOR
+	delay 40
+	call SapphireGym2_OpenTitanRoom
+	playse SE_RG_W_DOOR
+	special DrawWholeMapView
 	release
 	end
 	
