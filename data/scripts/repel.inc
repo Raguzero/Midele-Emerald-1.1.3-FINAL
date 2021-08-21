@@ -51,7 +51,7 @@ Text_NewRepelUsed::
 Text_RepelWoreOffDarkiMap:
 	.string "REPEL's effect wore off…\p"
 	
-	.string "DARKI: Si quieres llegar hasta mi,\n" 
+	.string "DARKI: Si quieres llegar hasta mí,\n" 
 	.string "pulga, deberás confiar en tu propia\l" 
 	.string "fuerza o ¿acaso crees que siempre\l"
 	.string "podrás confiar en tus repelentes?\l" 	
@@ -60,7 +60,7 @@ Text_RepelWoreOffDarkiMap:
 Text_AskReuseRepelDarkiMap::
 	.string "REPEL's effect wore off…\p"
 	
-	.string "DARKI: Si quieres llegar hasta mi,\n" 
+	.string "DARKI: Si quieres llegar hasta mí,\n" 
 	.string "pulga, deberás confiar en tu propia\l" 
 	.string "fuerza o ¿acaso crees que siempre\l"
 	.string "podrás confiar en tus repelentes?\l" 	

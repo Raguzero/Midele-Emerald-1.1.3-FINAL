@@ -231,15 +231,15 @@ BlueYellow_AntesBatalla:
 	.string "hagas la tonta! ¿Recuerdas esa foto en\l"
 	.string "la que saliste tan sexy como modelo de\l"
 	.string "cierta marca de ropa de cierto\l"
-	.string "catalago de moda?\p"
+	.string "catálago de moda?\p"
 	
 	.string "Mi amiga BLUE es modelo, ¿sabes?\n"
-	.string "No dejare que se acerque a ella ningun\l"
+	.string "No dejaré que se acerque a ella ningun\l"
 	.string "baboso ni nadie que pueda hacerle algo\l"
 	.string "malo.\p"
 
-	.string "BLUE: Amiga YELLOW se te ve\n"
-	.string "euforica, baja un poco de las nubes que\l"
+	.string "BLUE: Amiga YELLOW, se te ve\n"
+	.string "eufórica, baja un poco de las nubes que\l"
 	.string "mi vida privada no tiene porque saberla\l"
 	.string "nadie.$"
 
@@ -272,9 +272,9 @@ Monocycle_Road_Text_YellowNotEnoughMons:
 	.string "¡Solo luchamos BATALLAS DOBLES!$"
 
 MrZero_AntesBatalla: 
-	.string "Si te preguntasen si te gusta mas\n" 
+	.string "Si te preguntasen si te gusta más\n" 
 	.string "ENTEI, RAIKOU, o SUICUNE,\l"
-	.string "¿cuál dirías, tu?\p"
+	.string "¿cuál dirías, tú?\p"
 	
 	.string "Para mi es ENTEI porque me gustan\n"
 	.string "los de tipo PLANTA.$" 
@@ -292,13 +292,13 @@ MrZero_DespuesDeBatalla:
 Zzz_AntesBatalla: 
 	.string "¡¡¡SENSEI RED KROW!!!\p"
 	
-	.string "¡¡¡DONDE ESTÁS SENSEI RED KROW!!!\p"
+	.string "¡¡¡DÓNDE ESTÁS SENSEI RED KROW!!!\p"
 
-	.string "Eh, tu, ¿has visto a mi sensei\n"
+	.string "Eh, tú, ¿has visto a mi sensei\n"
 	.string "por aquí?$"
 
 Zzz_MensajeDerrota: 
-	.string "¡Que decepción para mi sensei!$"  
+	.string "¡Qué decepción para mi sensei!$"  
  
 Zzz_DespuesDeBatalla:
 	.string "Mi sensei RED KROW era el único\n"

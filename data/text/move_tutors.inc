@@ -251,10 +251,9 @@ MoveTutor_Text_SeismicPunchDeclined:
 	.string "Si no quieres, no pasa nada.$"
 
 MoveTutor_Text_SeismicPunchWhichMon:
-	.string "Bien, ¿Que POKéMON quieres que le\n"
+	.string "Bien, ¿a qué POKéMON quieres que le\n"
 	.string "enseñe SEISMIC PUNCH?$"
 
 MoveTutor_Text_SeismicPunchTaught:
 	.string "¡Ya está! ¡Tu POKéMON ya puede hacer\n" 
 	.string "temblar a los rivales con su puño!$"
-
