@@ -722,7 +722,7 @@
 #define FLAG_HIDDEN_SAPPH_GYM_MASTER_BALL    0x2A9 // Previously unused Flag
 #define FLAG_DEFEATED_SAPPHIRE_TOTEM         0x2AA // Previously unused Flag
 #define FLAG_HIDE_SAPPHGYM_ZIGZA             0x2AB // Previously unused Flag
-#define FLAG_UNUSED_0x2AC  0x2AC // Unused Flag
+#define FLAG_SHINY_CREATION  0x2AC // Previously Unused Flag
 #define FLAG_UNUSED_0x2AD  0x2AD // Unused Flag
 #define FLAG_UNUSED_0x2AE  0x2AE // Unused Flag
 #define FLAG_UNUSED_0x2AF  0x2AF // Unused Flag

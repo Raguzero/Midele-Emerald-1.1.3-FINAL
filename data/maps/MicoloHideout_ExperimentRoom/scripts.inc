@@ -124,7 +124,9 @@ MicoloHideout_ExperimentRoom_EventScript_LegendaryMachine::
 	playse SE_TK_WARPIN
 	msgbox MicoloHideout_ExperimentRoom_Text_LegendaryMachineReceivedMon, MSGBOX_DEFAULT
 	waitse
+	setflag FLAG_SHINY_CREATION
 	giveEgg VAR_0x8005
+	clearflag FLAG_SHINY_CREATION
 MicoloHideout_ExperimentRoom_EventScript_LegendaryMachineEnd:
 	release
 	end

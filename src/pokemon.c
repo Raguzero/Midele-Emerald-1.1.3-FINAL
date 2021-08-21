@@ -3172,6 +3172,16 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
               | (gSaveBlock2Ptr->playerTrainerId[1] << 8)
               | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
               | (gSaveBlock2Ptr->playerTrainerId[3] << 24);
+		
+        if (FlagGet(FLAG_SHINY_CREATION) && (Random() % 2) == 0)
+        {
+            u8 nature = personality % 25;  // keep current nature
+            do {
+                personality = Random32();
+                personality = ((((Random() % SHINY_ODDS) ^ (HIHALF(value) ^ LOHALF(value))) ^ LOHALF(personality)) << 16) | LOHALF(personality);
+            } while (nature != GetNatureFromPersonality(personality));
+        }
+			  
 	 if (FlagGet(FLAG_SYS_DEXNAV_SEARCH) && DexNavTryMakeShinyMon())
         {            
             do {
