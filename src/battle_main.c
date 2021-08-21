@@ -2131,9 +2131,9 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                     const struct FacilityMon * pokeenemy;
 
                     if (FlagGet(FLAG_RANDOMBATTLE_GYMSAPPH) == 1)
-                        level = 76 + (Random() % 4);
+                        level = 72 + (Random() % 4);
                     else
-                        level = 82 + (Random() % 4);
+                        level = 79 + (Random() % 4);
 
                     do {
                         pokeenemy = &gBattleFrontierMons[Random() % FRONTIER_MON_MEWTWO_1];
