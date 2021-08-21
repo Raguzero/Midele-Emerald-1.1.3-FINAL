@@ -2452,8 +2452,10 @@ AI_CV_PainSplit_End:
 	end
 
 AI_CV_Snore:
-	score +2
-	end
+    if_not_expected_to_sleep AI_CV_Snore_End
+    score +8
+AI_CV_Snore_End:
+    end
 
 AI_CV_LockOn:
 	if_doesnt_have_move_with_effect AI_USER, EFFECT_OHKO, AI_CV_LockOn_NoChanceToOHKOInFreeTurn
