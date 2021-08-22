@@ -84,11 +84,7 @@ SapphireGym2_EventScript_Sapphire::
 	end
 
 SapphireGym2_EventScript_SapphDefeated::
-	message SapphireGym2_Text_ReceivedBadge
-	waitmessage
-	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox SapphireGym2_Text_ExplainBadgeTakeThis, MSGBOX_DEFAULT
-	setflag FLAG_DEFEATED_SAPPH_GYM
 	delay 30
 	playse SE_DOOR
 	delay 40
@@ -100,10 +96,16 @@ SapphireGym2_EventScript_SapphDefeated::
 	
 SapphireGym2_EventScript_Sapphire_Defeated::
 	goto_if_set FLAG_REMATCH_SAPPH, SapphireGym2_EventScript_Sapph_Rematch
+	goto_if_unset FLAG_DEFEATED_BOSS_TITAN, SapphireGym2_EventScript_SapphPostBattle_CheckTheBasement
 	msgbox SapphireGym2_Text_SapphPostBattle, MSGBOX_DEFAULT
 	release
 	end
-	
+
+SapphireGym2_EventScript_SapphPostBattle_CheckTheBasement:
+	msgbox SapphireGym2_Text_SapphPostBattle_CheckTheBasement, MSGBOX_DEFAULT
+	release
+	end
+
 SapphireGym2_EventScript_Sapph_Rematch::
 	trainerbattle_single TRAINER_SAPPH, SapphireGym2_Text_SapphRematchIntro, SapphireGym_Text_SapphLose, SapphireGym2_EventScript_SapphRematchDefeated, NO_MUSIC
 	release
@@ -142,3 +144,6 @@ SapphireGym2_Text_SapphRematchIntro:
 
 SapphireGym2_Text_SapphRematchPostBattle:
 	.string "TEXTO REMATCH POSTBATTLE$"
+
+SapphireGym2_Text_SapphPostBattle_CheckTheBasement:
+	.string "TEXTO VE AL SOTANO$"

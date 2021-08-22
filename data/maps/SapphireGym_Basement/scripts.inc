@@ -24,7 +24,10 @@ SapphireGym_Basement_EventScript_TitanNoFight:
 	end
 
 SapphireGym_Basement_EventScript_TitanDefeated::
-	giveitem ITEM_MASTER_BALL
+	message SapphireGym2_Text_ReceivedBadge
+	waitmessage
+	call Common_EventScript_PlayGymBadgeFanfare
+	setflag FLAG_DEFEATED_SAPPH_GYM
 	setflag FLAG_DEFEATED_BOSS_TITAN
 	removeobject 1
 	releaseall
