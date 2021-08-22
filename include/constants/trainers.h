@@ -147,6 +147,10 @@
 #define TRAINER_PIC_REDKROW          128
 #define TRAINER_PIC_SAPPH          129
 #define TRAINER_PIC_MAUS          130
+#define TRAINER_PIC_SOLDIER_MIKU          131
+#define TRAINER_PIC_MEIKO          132
+#define TRAINER_PIC_LUKA          133
+#define TRAINER_PIC_MIKU          134
 
 #define TRAINER_BACK_PIC_BRENDAN                0
 #define TRAINER_BACK_PIC_MAY                    1

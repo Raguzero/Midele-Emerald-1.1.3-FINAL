@@ -131,6 +131,10 @@ const struct MonCoords gTrainerFrontPicCoords[] =
 	[TRAINER_PIC_REDKROW] = {.size = 8, .y_offset = 1},
 	[TRAINER_PIC_SAPPH] = {.size = 8, .y_offset = 1},
 	[TRAINER_PIC_MAUS] = {.size = 8, .y_offset = 1},
+	[TRAINER_PIC_SOLDIER_MIKU] = {.size = 8, .y_offset = 1},
+	[TRAINER_PIC_MEIKO] = {.size = 8, .y_offset = 1},
+	[TRAINER_PIC_LUKA] = {.size = 8, .y_offset = 1},
+	[TRAINER_PIC_MIKU] = {.size = 8, .y_offset = 1},
 };
 
 const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
@@ -266,6 +270,10 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
 	TRAINER_SPRITE(REDKROW, gTrainerFrontPic_RedKrow, 0x800),
 	TRAINER_SPRITE(SAPPH, gTrainerFrontPic_Sapph, 0x800),
 	TRAINER_SPRITE(MAUS, gTrainerFrontPic_Maus, 0x800),
+	TRAINER_SPRITE(SOLDIER_MIKU, gTrainerFrontPic_SoldierMiku, 0x800),
+	TRAINER_SPRITE(MEIKO, gTrainerFrontPic_Meiko, 0x800),
+	TRAINER_SPRITE(LUKA, gTrainerFrontPic_Luka, 0x800),
+	TRAINER_SPRITE(MIKU, gTrainerFrontPic_Miku, 0x800),
 };
 
 const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
@@ -401,4 +409,8 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(REDKROW, gTrainerPalette_RedKrow),
     TRAINER_PAL(SAPPH, gTrainerPalette_Sapph),
     TRAINER_PAL(MAUS, gTrainerPalette_Maus),
+    TRAINER_PAL(SOLDIER_MIKU, gTrainerPalette_SoldierMiku),
+    TRAINER_PAL(MEIKO, gTrainerPalette_Meiko),
+    TRAINER_PAL(LUKA, gTrainerPalette_Luka),
+    TRAINER_PAL(MIKU, gTrainerPalette_Miku),
 };

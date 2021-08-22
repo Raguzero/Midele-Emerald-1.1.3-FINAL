@@ -522,6 +522,22 @@ static const union AnimCmd *const sAnims_Maus[] ={
     sAnim_GeneralFrame0,
 };
 
+static const union AnimCmd *const sAnims_SoldierMiku[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Meiko[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Luka[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Miku[] ={
+    sAnim_GeneralFrame0,
+};
+
 const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
 {
     [TRAINER_PIC_HIKER] = sAnims_Hiker,
@@ -655,4 +671,8 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_REDKROW] = sAnims_RedKrow,
     [TRAINER_PIC_SAPPH] = sAnims_Sapph,
     [TRAINER_PIC_MAUS] = sAnims_Maus,
+    [TRAINER_PIC_SOLDIER_MIKU] = sAnims_SoldierMiku,
+    [TRAINER_PIC_MEIKO] = sAnims_Meiko,
+    [TRAINER_PIC_LUKA] = sAnims_Luka,
+    [TRAINER_PIC_MIKU] = sAnims_Miku,
 };
