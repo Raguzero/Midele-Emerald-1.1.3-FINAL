@@ -8257,7 +8257,6 @@ bool8 HasTwoFramesAnimation(u16 species)
 			&& species != SPECIES_CENTISKORCH
 			&& species != SPECIES_CORVIKNIGHT
 			&& species != SPECIES_HAWLUCHA
-			&& species != SPECIES_DURANT
             && species != SPECIES_FROSMOTH
 			&& species != SPECIES_G_KINGLER
 			&& species != SPECIES_G_BUTTERFREE
@@ -8292,8 +8291,6 @@ bool8 HasTwoFramesAnimation(u16 species)
 			&& species != SPECIES_SLIGGOO
 			&& species != SPECIES_GOODRA
 			&& species != SPECIES_GALAR_STUNFISK 			
-			&& species != SPECIES_DUOSION
-			&& species != SPECIES_REUNICLUS
 			&& species != SPECIES_ARMOR_MEWTWO			
             && species != SPECIES_BOSS);
 }

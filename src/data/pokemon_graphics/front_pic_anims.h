@@ -5597,6 +5597,8 @@ static const union AnimCmd sAnim_HAWLUCHA_1[] =
 
 static const union AnimCmd sAnim_DURANT_1[] =
 {
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
@@ -6100,12 +6102,16 @@ static const union AnimCmd sAnim_SOLOSIS_1[] =
 
 static const union AnimCmd sAnim_DUOSION_1[] =
 {
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
 
 static const union AnimCmd sAnim_REUNICLUS_1[] =
 {
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
@@ -9096,7 +9102,7 @@ static const union AnimCmd *const sAnims_CORVIKNIGHT[] ={
 
 static const union AnimCmd *const sAnims_DURANT[] ={
     sAnim_GeneralFrame0,
-    sAnim_HAWLUCHA_1,
+    sAnim_DURANT_1,
 };
 
 static const union AnimCmd *const sAnims_HAWLUCHA[] ={
