@@ -17,5 +17,6 @@ u8 GetMostSuitableMonToSwitchInto_NotChangingIsImpossible(void);
 u8 GetMostSuitableMonToSwitchInto_NotChangingIsUnacceptable(void);
 u8 GetMostSuitableMonToSwitchInto_NotChangingIsAcceptable(void);
 bool8 AreAttackingStatsLowered(u8 category);
+bool8 IsAccuracyLowered(s8 threshold);
 
 #endif // GUARD_BATTLE_AI_SWITCH_ITEMS_H

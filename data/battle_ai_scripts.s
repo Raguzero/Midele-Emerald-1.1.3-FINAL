@@ -859,16 +859,66 @@ AI_CBM_JumpKick_ProtectedOnce:
 	if_random_less_than 128, Score_Minus3
     goto AI_CBM_JumpKick_End
 
+AI_UselessEffectsWhenChoiced:
+    .byte EFFECT_ATTACK_UP
+    .byte EFFECT_DEFENSE_UP
+    .byte EFFECT_SPEED_UP
+    .byte EFFECT_SPECIAL_ATTACK_UP
+    .byte EFFECT_SPECIAL_DEFENSE_UP
+    .byte EFFECT_ACCURACY_UP
+    .byte EFFECT_EVASION_UP
+    .byte EFFECT_CONVERSION
+    .byte EFFECT_SPECIAL_DEFENSE_UP_2
+    .byte EFFECT_FOCUS_ENERGY
+    .byte EFFECT_ATTACK_UP_2
+    .byte EFFECT_DEFENSE_UP_2
+    .byte EFFECT_SPEED_UP_2
+    .byte EFFECT_SPECIAL_ATTACK_UP_2
+    .byte EFFECT_SPECIAL_DEFENSE_UP_2
+    .byte EFFECT_ACCURACY_UP_2
+    .byte EFFECT_EVASION_UP_2
+    .byte EFFECT_SUBSTITUTE
+    .byte EFFECT_MINIMIZE
+    .byte EFFECT_DEFENSE_CURL
+    .byte EFFECT_INGRAIN
+    .byte EFFECT_IMPRISON
+    .byte EFFECT_COSMIC_POWER
+    .byte EFFECT_BULK_UP
+    .byte EFFECT_CALM_MIND
+    .byte EFFECT_CAMOUFLAGE
+    .byte EFFECT_QUIVER_DANCE
+    .byte EFFECT_COIL
+    .byte EFFECT_STOCKPILE
+	.byte EFFECT_DRAGON_DANCE
+	.byte EFFECT_ATTACK_SPATK_UP
+	.byte EFFECT_SPECIAL_ATTACK_UP_3
+	.byte EFFECT_CHARGE
+	.byte EFFECT_LOCK_ON
+	.byte EFFECT_BELLY_DRUM
+    .byte -1
+	
 @ If move doesn't do meaningful damage, switch out
 AI_ChoiceDamage:
+    get_considered_move_effect
+    if_in_bytes AI_UselessEffectsWhenChoiced, Score_Minus12
+    if_effect EFFECT_CURSE, AI_ChoiceDamage_CheckCurseType
 	get_considered_move_power
 	if_equal 0, Score_Minus5
+AI_ChoiceDamage_CalculateNHKO:
 	if_effect EFFECT_OHKO, AI_ChoiceDamage_End
     calculate_nhko
     if_less_than 3, AI_ChoiceDamage_End
     if_equal 3, AI_ChoiceDamage_3HKO
     if_equal 4, AI_ChoiceDamage_4HKO
     goto Score_Minus8
+
+@ Si el poke tiene objeto choice y el ataque es Cure, le quita 5 o 10 según el tipo de Curse
+AI_ChoiceDamage_CheckCurseType:
+    get_user_type1
+    if_equal TYPE_GHOST, Score_Minus5
+    get_user_type2
+    if_equal TYPE_GHOST, Score_Minus5
+       goto Score_Minus12
 
 AI_ChoiceDamage_3HKO:
     if_has_a_50_percent_hp_recovery_move AI_TARGET, Score_Minus8
@@ -2034,11 +2084,22 @@ AI_CV_OneHitKO:
 
 AI_CV_Trap:
 	if_this_attack_might_be_the_last Score_Minus5
+    if_has_move_with_effect AI_TARGET, EFFECT_ROAR, AI_CV_Trap_DontTrapUnlessUserCannotBePhazed
+AI_CV_Trap_UserCannotBePhazed:
 	if_status AI_TARGET, STATUS1_TOXIC_POISON, AI_CV_Trap2
 	if_status2 AI_TARGET, STATUS2_CURSED, AI_CV_Trap2
 	if_status3 AI_TARGET, STATUS3_PERISH_SONG, AI_CV_Trap2
 	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_Trap2
 	goto AI_CV_Trap_End
+
+AI_CV_Trap_DontTrapUnlessUserCannotBePhazed:
+    if_ability AI_USER, ABILITY_SUCTION_CUPS, AI_CV_Trap_UserCannotBePhazed
+    if_ability AI_USER, ABILITY_SOUNDPROOF, AI_CV_Trap_DontTrapIfPhazingMoveIsWhirlwind
+    goto Score_Minus3
+
+AI_CV_Trap_DontTrapIfPhazingMoveIsWhirlwind:
+    if_has_move AI_TARGET, MOVE_WHIRLWIND, Score_Minus3
+    goto AI_CV_Trap_UserCannotBePhazed
 
 AI_CV_Trap2:
 	if_random_less_than 128, AI_CV_Trap_End
@@ -2661,7 +2722,10 @@ AI_CV_Protect_OpponentIsNotSemiInvulnerableOrRecharge:
 	if_ability AI_USER, ABILITY_SPEED_BOOST, AI_CV_Protect_Boost
 	if_status  AI_USER, STATUS1_PSN_ANY | STATUS1_BURN, AI_CV_ProtectUserStatused
 	if_status2 AI_USER, STATUS2_CURSED | STATUS2_INFATUATION, AI_CV_ProtectUserStatused
-	if_status3 AI_USER, STATUS3_PERISH_SONG | STATUS3_LEECHSEED | STATUS3_YAWN, AI_CV_ProtectUserStatused
+    if_status3 AI_USER, STATUS3_LEECHSEED | STATUS3_YAWN, AI_CV_ProtectUserStatused
+    if_status3 AI_TARGET, STATUS3_PERISH_SONG, AI_CV_Protect_SkipProtectUserStatusedDueToPerishSong
+    if_status3 AI_USER, STATUS3_PERISH_SONG, AI_CV_ProtectUserStatused
+AI_CV_Protect_SkipProtectUserStatusedDueToPerishSong:
     if_next_turn_target_might_use_move_with_effect EFFECT_RESTORE_HP, AI_CV_Protect3
 	if_next_turn_target_might_use_move_with_effect EFFECT_SOFTBOILED, AI_CV_Protect3
 	if_next_turn_target_might_use_move_with_effect EFFECT_MORNING_SUN, AI_CV_Protect3
@@ -2709,6 +2773,7 @@ AI_CV_Protect3:
 
 AI_CV_Protect_ScoreDown5:
 	score -5
+	goto AI_CV_Protect_End
 	
 AI_CV_Protect_Wish:
 	if_hp_more_than AI_USER, 75, Score_Minus3

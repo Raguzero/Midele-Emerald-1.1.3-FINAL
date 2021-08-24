@@ -520,6 +520,20 @@ bool8 IsMoveSignificantlyAffectedByStatDrops(u16 move)
     return AreAttackingStatsLowered(IS_TYPE_PHYSICAL(type) ? 0 : 1);
 }
 
+// Determina si un cierto ataque se está viendo afectado por bajadas de Precisión
+bool8 IsMoveSignificantlyAffectedByAccuracyDrops(u16 move)
+{
+    if (gBattleMoves[move].accuracy == 0 && move != MOVE_MIRROR_MOVE && move != MOVE_METRONOME && move != MOVE_SLEEP_TALK && move != MOVE_ASSIST)
+        return FALSE;  // no le afecta la posible bajada en Precisión
+    // Lock-On, Mind Reader
+    if (gStatuses3[gBattlerTarget] & STATUS3_ALWAYS_HITS && gDisableStructs[gBattlerTarget].battlerWithSureHit == sBattler_AI)
+        return FALSE;
+    // No Guard
+    if (gBattleMons[gBattlerTarget].ability == ABILITY_NO_GUARD || gBattleMons[sBattler_AI].ability == ABILITY_NO_GUARD)
+        return FALSE;
+    return IsAccuracyLowered(-3); // se considera bajada a partir de -3
+}
+
 void CalculategBattleMoveDamageFromgCurrentMove(u8 attackerId, u8 targetId, u8 simulatedRng)
 {
     gDynamicBasePower = 0;
@@ -771,6 +785,14 @@ static u8 ChooseMoveOrAction_Singles(void)
         if (IsMoveSignificantlyAffectedByStatDrops(move)
 			&& currentMoveArray[0] <= 101 // no cambia si el movimiento alcanza los 102 puntos (probable KO)
 			&& AICanSwitchAssumingEnoughPokemon())
+            if (GetMostSuitableMonToSwitchInto_NotChangingIsUnacceptable() != PARTY_SIZE)
+            {
+                AI_THINKING_STRUCT->switchMon = TRUE;
+                return AI_CHOICE_SWITCH;
+            }
+		if (IsMoveSignificantlyAffectedByAccuracyDrops(move)
+            && currentMoveArray[0] <= 101 // no cambia si el movimiento alcanza los 102 puntos (probable KO con precisión suficiente)
+            && AICanSwitchAssumingEnoughPokemon())
             if (GetMostSuitableMonToSwitchInto_NotChangingIsUnacceptable() != PARTY_SIZE)
             {
                 AI_THINKING_STRUCT->switchMon = TRUE;

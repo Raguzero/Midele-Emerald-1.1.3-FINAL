@@ -408,6 +408,23 @@ bool8 AreAttackingStatsLowered(u8 category)
     return TRUE;
 }
 
+// AI should switch if it's become blind and has something better to switch to
+bool8 IsAccuracyLowered(s8 threshold)
+{
+    // Considera cambiar si su precisión es, al menos, la indicada en threshold
+    if (gBattleMons[gActiveBattler].statStages[STAT_ACC] > 6 + threshold)
+        return FALSE;
+
+    if (FindMonWithFlagsAndSuperEffective(MOVE_RESULT_DOESNT_AFFECT_FOE, 1))
+        return TRUE;
+    if (FindMonWithFlagsAndSuperEffective(MOVE_RESULT_NOT_VERY_EFFECTIVE, 1))
+        return TRUE;
+
+    *(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler) = PARTY_SIZE;
+    BtlController_EmitTwoReturnValues(1, B_ACTION_SWITCH, 0);
+    return TRUE;
+}
+
 static bool8 FindMonWithFlagsAndSuperEffective(u8 flags, u8 moduloPercent)
 {
     u8 battlerIn1, battlerIn2;
@@ -1014,9 +1031,37 @@ bool8 VulnerableToIntimidate(u32 battler)
     return TRUE;
 }
 
+bool8 KnowsSomeRecoveryMove(u32 opposingBattler)
+{
+    u16 * move_history = gBattleResources->battleHistory->_usedMoves[(GetBattlerSide(opposingBattler) == B_SIDE_PLAYER ? 0 : PARTY_SIZE) + gBattlerPartyIndexes[opposingBattler]].moves;
+    u8 moveLimitations = CheckMoveLimitations(opposingBattler, 0, MOVE_LIMITATION_CHOICE-1);
+    u16 move;
+    s32 i, j;
+
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        move = gBattleMons[opposingBattler].moves[i];
+        if (move && !(gBitTable[i] & moveLimitations) &&
+           (
+            gBattleMoves[move].effect == EFFECT_RESTORE_HP
+         || gBattleMoves[move].effect == EFFECT_SOFTBOILED
+         || gBattleMoves[move].effect == EFFECT_MORNING_SUN
+         || gBattleMoves[move].effect == EFFECT_MOONLIGHT
+         || gBattleMoves[move].effect == EFFECT_SHORE_UP
+         || gBattleMoves[move].effect == EFFECT_SYNTHESIS
+         || gBattleMoves[move].effect == EFFECT_REST
+           ))
+            for (j = 0; j < MAX_MON_MOVES; j++)
+                if (move_history[j] == move)
+                    return TRUE;
+    }
+    return FALSE;
+}
+
 // Prepara una tabla con tres entradas para cada poke del equipo:
-// si es más rápido que el rival, qué nHKO le hace al rival, y qué nHKO espera recibir del rival
-void PrepareNHKOTable(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][3])
+// si es más rápido que el rival, qué nHKO le hace al rival, qué nHKO espera
+// recibir del rival y si le quita un 56.25% de los PS con algún ataque
+void PrepareNHKOTable(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][4])
 {
     if (MonsLeft(filteredMons))
     {
@@ -1046,7 +1091,15 @@ void PrepareNHKOTable(struct Pokemon *party, s32 firstId, s32 lastId, u8 filtere
                 // y en la tercera el que espera recibir del rival
                 nhko[i][1] = CalculateNHKO(gActiveBattler, opposingBattler, TRUE, MOVE_NONE, FALSE, TRUE);
                 nhko[i][2] = CalculateNHKO(opposingBattler, gActiveBattler, FALSE, MOVE_NONE, FALSE, TRUE);
-               if (intimidateApplies)
+
+                {
+                    u16 current_opponent_hp = gBattleMons[opposingBattler].hp;
+                    gBattleMons[opposingBattler].hp = (gBattleMons[opposingBattler].maxHP * 9) / 16 + 1;
+                    nhko[i][3] = CalculateNHKO(gActiveBattler, opposingBattler, TRUE, MOVE_NONE, FALSE, TRUE) == 1 ? 1 : 0;
+                    gBattleMons[opposingBattler].hp = current_opponent_hp;
+                }
+
+			   if (intimidateApplies)
                gBattleMons[opposingBattler].statStages[STAT_ATK] += 1;
 			}
         
@@ -1058,7 +1111,7 @@ void PrepareNHKOTable(struct Pokemon *party, s32 firstId, s32 lastId, u8 filtere
 // Evita meter un poke antes de que ataque el rival cuando puede recibir KO
 // en el cambio simplemente repitiendo el último ataque que lanzó al actual poke de la IA
 // (si es que este estaba presente cuando se eligió tal ataque)
-u8 FilterSwitchInsThatMightGetKOedBeforeEndOfTurn(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 a[][3])
+u8 FilterSwitchInsThatMightGetKOedBeforeEndOfTurn(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 a[][4])
 {
     u16 move = gLastMoves[opposingBattler];
     u8 moveLimitations;
@@ -1111,7 +1164,7 @@ u8 FilterSwitchInsThatMightGetKOedBeforeEndOfTurn(struct Pokemon *party, s32 fir
 
 // Evita meter un poke si recibe un OHKO de algún movimiento de prioridad del rival,
 // salvo si puede hacerle OHKO antes con otro movimiento de prioridad
-u8 FilterFragileMonsAgainstPriority(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 a[][3])
+u8 FilterFragileMonsAgainstPriority(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 a[][4])
 {
     u16 move;
     u16 opponent_priority_moves[4] = {0, 0, 0, 0};
@@ -1189,7 +1242,7 @@ u8 FilterFragileMonsAgainstPriority(struct Pokemon *party, s32 firstId, s32 last
 }
 
 // Excluye los pokes con Imposter si, en caso de entrar, no se van a transformar
-u8 FilterImposterIfUseless(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 a[][3])
+u8 FilterImposterIfUseless(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 a[][4])
 {
     s32 i;
     // Imposter falla si el objetivo está debilitado, transformado,
@@ -1216,7 +1269,7 @@ u8 FilterImposterIfUseless(struct Pokemon *party, s32 firstId, s32 lastId, u8 fi
 }
 
 // Excluye los pokes con Truant si no pueden tocar al rival
-u8 FilterTruantIfUseless(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 a[][3])
+u8 FilterTruantIfUseless(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 a[][4])
 {
     u8 truantMons = 0, vulnerableTruantMons = 0;
     u16 species;
@@ -1269,7 +1322,7 @@ u8 FilterTruantIfUseless(struct Pokemon *party, s32 firstId, s32 lastId, u8 filt
 }
 
 // Excluye los Shedinja que corran peligro
-u8 FilterShedinjaIfVulnerable(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 a[][3])
+u8 FilterShedinjaIfVulnerable(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 a[][4])
 {
     u8 sheds = 0, vulnerableSheds = 0;
     u16 species;
@@ -1317,7 +1370,7 @@ u8 FilterShedinjaIfVulnerable(struct Pokemon *party, s32 firstId, s32 lastId, u8
     return (filteredMons | vulnerableSheds);
 }
 
-u8 FilterChoiceMonsNotPowerfulEnough(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][3])
+u8 FilterChoiceMonsNotPowerfulEnough(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][4])
 {
     s32 i, j;
     u16 item, move;
@@ -1346,7 +1399,81 @@ u8 FilterChoiceMonsNotPowerfulEnough(struct Pokemon *party, s32 firstId, s32 las
     return filteredMons;
 }
 
-u8 FilterRevengeKill(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][3])
+u8 FilterOpponentCanBeTrappedAndDefeated(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][4])
+{
+    s32 i;
+    u8 min_opponent_attacks = HasYetToAttack(opposingBattler) ? 1 : 0;
+    bool8 opponentIsGhost = IS_BATTLER_OF_TYPE(opposingBattler, TYPE_GHOST),
+          opponentIsGrounded = !IS_BATTLER_OF_TYPE(opposingBattler, TYPE_FLYING) && gBattleMons[opposingBattler].ability != ABILITY_LEVITATE,
+          opponentIsSteel = IS_BATTLER_OF_TYPE(opposingBattler, TYPE_STEEL);
+    bool8 opponentHasPhazingMoves = FALSE;
+    u16 * opponentHistory = gBattleResources->battleHistory->_usedMoves[(GetBattlerSide(opposingBattler) == B_SIDE_PLAYER ? 0 : PARTY_SIZE) + gBattlerPartyIndexes[opposingBattler]].moves;
+    if (((gStatuses3[opposingBattler] & STATUS3_ROOTED) && !opponentIsGhost)
+     || (gBattleTypeFlags & (BATTLE_TYPE_ARENA | BATTLE_TYPE_PALACE)))
+        return filteredMons; // El rival ya está atrapado, no hace falta atraparlo
+
+    for (i = 0; i < MAX_MON_MOVES && !opponentHasPhazingMoves; i++)
+        if (opponentHistory[i] != MOVE_NONE && gBattleMoves[opponentHistory[i]].effect == EFFECT_ROAR)
+            opponentHasPhazingMoves = TRUE;
+
+    for (i = firstId; i < lastId; i++)
+        if (!(gBitTable[i] & filteredMons))
+        {
+            u8 num_attacks_taken_until_KO = nhko[i][1] - nhko[i][0] + min_opponent_attacks;
+			u8 nhko_taken = nhko[i][2];
+
+            // Tiene que dar revenge kill, o hacer KO de sobra antes de recibirlo
+            if (num_attacks_taken_until_KO > 0
+             && !(num_attacks_taken_until_KO == 1 && nhko_taken >= 3 && !opponentHasPhazingMoves)
+             && !(num_attacks_taken_until_KO == 2 && nhko_taken >= 5 && !opponentHasPhazingMoves))
+                filteredMons |= gBitTable[i];
+            else
+            {
+                u16 species = GetMonData(&party[i], MON_DATA_SPECIES);
+                u8 ability;
+
+                if (GetMonData(&party[i], MON_DATA_ABILITY_NUM) != 0)
+                    ability = gBaseStats[species].abilities[1];
+                else
+                    ability = gBaseStats[species].abilities[0];
+
+                // Tiene que atrapar al rival
+                if (!(ability == ABILITY_SHADOW_TAG && !opponentIsGhost && gBattleMons[opposingBattler].ability != ABILITY_SHADOW_TAG)
+                 && !(ability == ABILITY_ARENA_TRAP && !opponentIsGhost && opponentIsGrounded)
+                 && !(ability == ABILITY_MAGNET_PULL && opponentIsSteel))
+                {
+                    // También considera que el rival será atrapado si le da OHKO con Pursuit
+                    bool8 canKOwithPursuit = FALSE;
+
+				if (nhko[i][1] == 1 && (GetMonData(&party[i], MON_DATA_MOVE1) == MOVE_PURSUIT || GetMonData(&party[i], MON_DATA_MOVE2) == MOVE_PURSUIT || GetMonData(&party[i], MON_DATA_MOVE3) == MOVE_PURSUIT || GetMonData(&party[i], MON_DATA_MOVE4) == MOVE_PURSUIT))
+                    {
+                        u8 moveLimitations;
+                        s32 move_i;
+                        struct BattlePokemon currentMon = gBattleMons[gActiveBattler];
+                        struct DisableStruct disableStructCopy = gDisableStructs[gActiveBattler];
+
+                        PokemonToBattleMon(&party[i], &gBattleMons[gActiveBattler], gCurrentMove == MOVE_BATON_PASS);
+                        PrepareDisableStructForSwitchIn(gActiveBattler, &disableStructCopy);
+
+                        moveLimitations = CheckMoveLimitations(gActiveBattler, 0, 0xFF);
+                        if (CalculateNHKO(gActiveBattler, opposingBattler, TRUE, MOVE_PURSUIT, FALSE, FALSE) == 1)
+                            for (move_i = 0; move_i < MAX_MON_MOVES && !canKOwithPursuit; move_i++)
+                                if (gBattleMons[gActiveBattler].moves[move_i] == MOVE_PURSUIT && !(gBitTable[move_i] & moveLimitations))
+                                    canKOwithPursuit = TRUE; // hace KO con Persecución y puede usarlo
+
+                        gBattleMons[gActiveBattler] = currentMon;
+                        gDisableStructs[gActiveBattler] = disableStructCopy;
+                    }
+                    if (!canKOwithPursuit)
+                        filteredMons |= gBitTable[i];
+                }
+             }
+        }
+
+    return filteredMons;
+}
+
+u8 FilterRevengeKill(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][4])
 {
     s32 i;
 
@@ -1362,7 +1489,7 @@ u8 FilterRevengeKill(struct Pokemon *party, s32 firstId, s32 lastId, u8 filtered
     return filteredMons;
 }
 
-u8 FilterKOTaking1Hit(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][3])
+u8 FilterKOTaking1Hit(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][4])
 {
     s32 i;
     u8 min_opponent_attacks = HasYetToAttack(opposingBattler) ? 1 : 0;
@@ -1377,14 +1504,14 @@ u8 FilterKOTaking1Hit(struct Pokemon *party, s32 firstId, s32 lastId, u8 filtere
 		
 	u8 nhko_taken = nhko[i][2];
             
-            if (num_attacks_taken_until_KO > 1 || nhko_taken < 3)
+            if (num_attacks_taken_until_KO > 1 || nhko_taken < 3 || (!nhko[i][3] && KnowsSomeRecoveryMove(opposingBattler)))
                 filteredMons |= gBitTable[i];
         }
 
     return filteredMons;
 }
 
-u8 FilterKOTaking2Hits(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][3])
+u8 FilterKOTaking2Hits(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][4])
 {
     s32 i;
     u8 min_opponent_attacks = HasYetToAttack(opposingBattler) ? 1 : 0;
@@ -1398,14 +1525,14 @@ u8 FilterKOTaking2Hits(struct Pokemon *party, s32 firstId, s32 lastId, u8 filter
             u8 num_attacks_taken_until_KO = nhko[i][1] - nhko[i][0] + min_opponent_attacks;
             u8 nhko_taken = nhko[i][2];
             
-            if (num_attacks_taken_until_KO > 2 || nhko_taken < 5)
+            if (num_attacks_taken_until_KO > 2 || nhko_taken < 5 || (!nhko[i][3] && KnowsSomeRecoveryMove(opposingBattler)))
                 filteredMons |= gBitTable[i];
         }
 
     return filteredMons;
 }
 
-u8 FilterTakesMostHits(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][3])
+u8 FilterTakesMostHits(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][4])
 {
     u8 max_hits_taken = 1;
     s32 i;
@@ -1423,7 +1550,7 @@ u8 FilterTakesMostHits(struct Pokemon *party, s32 firstId, s32 lastId, u8 filter
     return filteredMons;
 }
 
-u8 FilterKOsInLessHits(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][3])
+u8 FilterKOsInLessHits(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][4])
 {
     u8 min_hits_given = 5;
     s32 i;
@@ -1538,7 +1665,7 @@ u8 GetMostSuitableMonToSwitchInto(bool8 notChangingIsPossible, bool8 notChanging
         gBattlerTarget = gbt;
     }
     {
-        u8 nhko[PARTY_SIZE][3];
+        u8 nhko[PARTY_SIZE][4];
 
         // Se aplican sucesivos filtros para excluir pokes que no conviene meter en este momento
         // Si un criterio elimina todos los pokes, entonces ese criterio se ignora (y por tanto deciden los criterios posteriores)
@@ -1580,7 +1707,10 @@ u8 GetMostSuitableMonToSwitchInto(bool8 notChangingIsPossible, bool8 notChanging
         //      que le quiten menos de 1/5 de sus PS actuales, se saca uno de esos.
         //  4.- Se elige entre los pokes que más golpes aguanten.
         //  5.- Se elige entre los pokes que menos golpes requieran para eliminar al rival.
-        APPLY_FILTER(FilterRevengeKill, FALSE);
+        // Si alguno de los tres primeros criterios filtra pokes y alguno de ellos
+        // puede atrapar al rival, se elige entre aquellos que atrapen al rival
+        APPLY_FILTER(FilterOpponentCanBeTrappedAndDefeated, FALSE);
+		APPLY_FILTER(FilterRevengeKill, FALSE);
         APPLY_FILTER(FilterKOTaking1Hit, FALSE);
         APPLY_FILTER(FilterKOTaking2Hits, FALSE);
         APPLY_FILTER(FilterTakesMostHits, FALSE);
