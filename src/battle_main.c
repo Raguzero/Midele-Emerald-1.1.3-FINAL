@@ -66,6 +66,7 @@
 #include "cable_club.h"
 #include "battle_factory.h"
 #include "constants/battle_frontier_mons.h"
+#include "constants/battle_frontier_sets_by_species.h"
 
 extern struct MusicPlayerInfo gMPlayInfo_SE1;
 extern struct MusicPlayerInfo gMPlayInfo_SE2;
@@ -632,6 +633,13 @@ const u8 * const gStatusConditionStringsTable[7][2] =
 static const u8 sPkblToEscapeFactor[][3] = {{0, 0, 0}, {3, 5, 0}, {2, 3, 0}, {1, 2, 0}, {1, 1, 0}};
 static const u8 sGoNearCounterToCatchFactor[] = {4, 3, 2, 1};
 static const u8 sGoNearCounterToEscapeFactor[] = {4, 4, 4, 4};
+
+static const u16 accepting_probability[] = {
+           0, 65535, 41347, 32001, // probabilidad de aceptar un poke en random battle;
+       26720, 23215, 20673, 18723, // provoca que un poke con k sets tenga una
+       17168, 15892, 14822, 13908, // probabilidad de salir proporcional a log_3(2+k)
+       13118, 12425, 11812, 11266}; // ej: para 1 es 1, para 2 es 1.26... para 7 es 2, para 14 es 2.5
+
 
 // code
 void CB2_InitBattle(void)
@@ -2104,6 +2112,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 					do {
 					pokeenemy = &gBattleFrontierMons[Random() % NUM_FRONTIER_MONS];
 						for (j=0; j<i && pokeenemy->species != GetMonData(&gEnemyParty[j], MON_DATA_SPECIES2); j++);
+						if (Random() > accepting_probability[num_frontier_sets_by_species[pokeenemy->species]]) j = -1;
 						} while (j < i);
 				CreateMonWithEVSpreadNatureOTID(&gEnemyParty[i], pokeenemy -> species, level, pokeenemy -> nature, 31, pokeenemy -> evSpread, 0);
                 for (j = 0; j < MAX_MON_MOVES; j++)
@@ -2187,10 +2196,12 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 					do {
 					pokeenemy = &gBattleFrontierMons[Random() % NUM_FRONTIER_MONS];
 						for (j=0; j<i && pokeenemy->species != GetMonData(&gEnemyParty[j], MON_DATA_SPECIES2); j++);
+						if (Random() > accepting_probability[num_frontier_sets_by_species[pokeenemy->species]]) j = -1;
 						} while (j < i);
 					do {
 					pokeplayer = &gBattleFrontierMons[Random() % NUM_FRONTIER_MONS];
 						for (j=0; j<i && pokeplayer->species != GetMonData(&gPlayerParty[j], MON_DATA_SPECIES2); j++);
+						if (Random() > accepting_probability[num_frontier_sets_by_species[pokeplayer->species]]) j = -1;
 						} while (j < i);
 				CreateMonWithEVSpreadNatureOTID(&gEnemyParty[i], pokeenemy -> species, level, pokeenemy -> nature, 31, pokeenemy -> evSpread, otID);
                 CreateMonWithEVSpreadNatureOTID(&gPlayerParty[i], pokeplayer -> species, level, pokeplayer -> nature, 31, pokeplayer -> evSpread, otID);
