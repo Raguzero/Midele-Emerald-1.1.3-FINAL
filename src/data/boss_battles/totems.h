@@ -114,7 +114,7 @@ const struct TotemMon gTotemMons[] =
     [TOTEM_TYRANITAR] =
     {
         .species = SPECIES_TYRANITAR,
-        .minLevel = 90,
+        .minLevel = 85,
         .moves = {MOVE_CRUNCH, MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_FIRE_BLAST},
         .item = ITEM_LEFTOVERS,
         .nature = NATURE_BRAVE,
