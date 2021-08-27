@@ -181,6 +181,8 @@ static void Cmd_calculate_nhko(void);
 static void Cmd_if_next_turn_target_might_use_move_with_effect(void);
 static void Cmd_if_battler_absent(void);
 static void Cmd_get_possible_categories_of_foes_attacks(void);
+static void Cmd_if_perish_song_not_about_to_trigger(void);
+static void Cmd_if_high_change_to_break_sub_and_keep_hitting(void);
 
 // ewram
 EWRAM_DATA const u8 *gAIScriptPtr = NULL;
@@ -302,6 +304,8 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
 	Cmd_if_next_turn_target_might_use_move_with_effect,        // 0x6C
 	Cmd_if_battler_absent,   // 0x6D
 	Cmd_get_possible_categories_of_foes_attacks,   // 0x6E
+	Cmd_if_perish_song_not_about_to_trigger,   // 0x6F
+	Cmd_if_high_change_to_break_sub_and_keep_hitting,   // 0x70
 };
 
 static const u16 sDiscouragedPowerfulMoveEffects[] =
@@ -2211,6 +2215,10 @@ static void Cmd_if_stat_level_not_equal(void)
 
 static void Cmd_if_can_faint(void)
 {
+    u16 target_damage = gBattleMons[gBattlerTarget].hp;
+    if ((gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE) && gDisableStructs[gBattlerTarget].substituteHP)
+        target_damage = gDisableStructs[gBattlerTarget].substituteHP;
+
     if (!AI_CAN_ESTIMATE_DAMAGE(AI_THINKING_STRUCT->moveConsidered))
     {
         gAIScriptPtr += 5;
@@ -2220,7 +2228,7 @@ static void Cmd_if_can_faint(void)
     gCurrentMove = AI_THINKING_STRUCT->moveConsidered;
     CalculategBattleMoveDamageFromgCurrentMove(sBattler_AI, gBattlerTarget, AI_THINKING_STRUCT->simulatedRNG[AI_THINKING_STRUCT->movesetIndex]);
 
-    if (gBattleMons[gBattlerTarget].hp <= gBattleMoveDamage)
+    if (target_damage <= gBattleMoveDamage)
         gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 1);
     else
         gAIScriptPtr += 5;
@@ -3216,4 +3224,55 @@ static void Cmd_get_possible_categories_of_foes_attacks(void)
 
     gBattleResources->ai->funcResult = result;
     gAIScriptPtr++;
+}
+
+static void Cmd_if_perish_song_not_about_to_trigger(void)
+{
+    u8 battlerId = BattleAI_GetWantedBattler(gAIScriptPtr[1]);
+
+    if ((gStatuses3[battlerId] & STATUS3_PERISH_SONG) && gDisableStructs[battlerId].perishSongTimer == 0)
+        gAIScriptPtr += 6;
+    else
+        gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
+}
+
+static void Cmd_if_high_change_to_break_sub_and_keep_hitting(void)
+{
+    u16 move = AI_THINKING_STRUCT->moveConsidered;
+    u16 effect = gBattleMoves[move].effect;
+    u16 target_damage = gDisableStructs[gBattlerTarget].substituteHP;
+
+    gAIScriptPtr += 5; // luego se deshace si hay que saltar
+
+    if (!AI_CAN_ESTIMATE_DAMAGE(move) || !(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE) || !gDisableStructs[gBattlerTarget].substituteHP)
+        return;
+
+    switch (effect)
+    {
+        case EFFECT_MULTI_HIT:
+        case EFFECT_TWINEEDLE:
+        case EFFECT_DOUBLE_HIT:
+        case EFFECT_TRIPLE_KICK:
+            break;
+        default:
+            return;
+    }
+
+    gCurrentMove = move;
+    CalculategBattleMoveDamageFromgCurrentMove(sBattler_AI, gBattlerTarget, AI_THINKING_STRUCT->simulatedRNG[AI_THINKING_STRUCT->movesetIndex]);
+
+    switch (effect)
+    {
+        case EFFECT_MULTI_HIT: // mira si 2 golpes bastan para romper el sub
+            gBattleMoveDamage = (gBattleMoveDamage / 3) * 2;
+            break;
+        case EFFECT_TWINEEDLE:
+        case EFFECT_DOUBLE_HIT: // mira si el primer golpe rompe el sub
+        case EFFECT_TRIPLE_KICK: // mira si los dos primeros golpes rompen el sub
+            gBattleMoveDamage /= 2;
+            break;
+    }
+
+    if (target_damage <= gBattleMoveDamage)
+        gAIScriptPtr = T1_READ_PTR(gAIScriptPtr - 4);
 }

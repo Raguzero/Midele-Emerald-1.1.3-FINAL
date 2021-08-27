@@ -619,6 +619,17 @@
     .byte 0x6e
     .endm
 
+    .macro if_perish_song_not_about_to_trigger battler:req, ptr:req
+    .byte 0x6f
+    .byte \battler
+    .4byte \ptr
+    .endm
+
+    .macro if_high_change_to_break_sub_and_keep_hitting ptr:req
+    .byte 0x70
+    .4byte \ptr
+    .endm
+
 @ useful script macros
 	.macro get_curr_move_type
 	get_type AI_TYPE_MOVE
@@ -749,7 +760,8 @@
 	@ No considera seguro boostearse si está intoxicado o si puede recibir Taunt
 	.macro if_user_can_probably_boost_safely ptr:req
 	if_user_is_intoxicated_and_does_not_have_baton_pass .AI_user_might_not_be_able_to_boost_safely_\@
-    calculate_nhko AI_TARGET | AI_NHKO_PESSIMISTIC
+    if_status3 AI_USER, STATUS3_PERISH_SONG, .AI_user_might_not_be_able_to_boost_safely_\@
+	calculate_nhko AI_TARGET | AI_NHKO_PESSIMISTIC
 	if_effect EFFECT_CURSE, .AI_user_slower_\@
     if_target_faster .AI_user_slower_\@
 
@@ -822,4 +834,15 @@
     if_not_status AI_USER, STATUS1_TOXIC_POISON, .AI_no_toxic_\@
     if_doesnt_have_move_with_effect AI_USER, EFFECT_BATON_PASS, \ptr
     .AI_no_toxic_\@:
+    .endm
+	
+    .macro if_move_is_useless_when_choiced ptr:req
+    get_considered_move_effect
+    if_in_bytes AI_UselessEffectsWhenChoiced, \ptr
+    if_not_effect EFFECT_CURSE, .AI_not_useless_\@
+    get_user_type1
+    if_equal TYPE_GHOST, .AI_not_useless_\@
+    get_user_type2
+    if_not_equal TYPE_GHOST, \ptr
+    .AI_not_useless_\@:
     .endm

@@ -97,7 +97,7 @@ CheckIfLevitateCancelsGroundMove: @ 82DBFEF
 
 AI_CheckBadMove_CheckSoundproof: @ 82DBFFE
     if_ability_might_be AI_TARGET, ABILITY_SOUNDPROOF, AI_CheckBadMove_CheckSoundMoves
-    goto AI_CheckBadMove_CheckThawingAndNotKO
+    goto AI_CheckBadMove_CheckPerishSong
 AI_CheckBadMove_CheckSoundMoves:
 	if_move MOVE_GROWL, Score_Minus10
 	if_move MOVE_ROAR, Score_Minus10
@@ -112,6 +112,9 @@ AI_CheckBadMove_CheckSoundMoves:
 	if_move MOVE_PERISH_SONG, Score_Minus10
 	if_move MOVE_OVERDRIVE, Score_Minus10
 	if_move MOVE_BOOMBURST, Score_Minus10
+AI_CheckBadMove_CheckPerishSong:
+	if_perish_song_not_about_to_trigger AI_USER, AI_CheckBadMove_CheckThawingAndNotKO
+	if_move_is_useless_when_choiced Score_Minus10
 	
 AI_CheckBadMove_CheckThawingAndNotKO:
     if_not_status AI_TARGET, STATUS1_FREEZE, AI_CheckBadMove_CheckEffect
@@ -899,9 +902,7 @@ AI_UselessEffectsWhenChoiced:
 	
 @ If move doesn't do meaningful damage, switch out
 AI_ChoiceDamage:
-    get_considered_move_effect
-    if_in_bytes AI_UselessEffectsWhenChoiced, Score_Minus12
-    if_effect EFFECT_CURSE, AI_ChoiceDamage_CheckCurseType
+    if_move_is_useless_when_choiced Score_Minus12
 	get_considered_move_power
 	if_equal 0, Score_Minus5
 AI_ChoiceDamage_CalculateNHKO:
@@ -911,14 +912,6 @@ AI_ChoiceDamage_CalculateNHKO:
     if_equal 3, AI_ChoiceDamage_3HKO
     if_equal 4, AI_ChoiceDamage_4HKO
     goto Score_Minus8
-
-@ Si el poke tiene objeto choice y el ataque es Cure, le quita 5 o 10 según el tipo de Curse
-AI_ChoiceDamage_CheckCurseType:
-    get_user_type1
-    if_equal TYPE_GHOST, Score_Minus5
-    get_user_type2
-    if_equal TYPE_GHOST, Score_Minus5
-       goto Score_Minus12
 
 AI_ChoiceDamage_3HKO:
     if_has_a_50_percent_hp_recovery_move AI_TARGET, Score_Minus8
@@ -996,7 +989,7 @@ AI_CheckViability_CallChoiceDamage:
 AI_CheckViability_CheckEffects:
 	if_effect EFFECT_SLEEP, AI_CV_Sleep
 	if_effect EFFECT_ABSORB, AI_CV_Absorb
-	if_effect EFFECT_EXPLOSION, AI_CV_SelfKO
+	if_effect EFFECT_EXPLOSION, AI_CV_Explosion
 	if_effect EFFECT_DREAM_EATER, AI_CV_DreamEater
 	if_effect EFFECT_MIRROR_MOVE, AI_CV_MirrorMove
 	if_effect EFFECT_ATTACK_UP, AI_CV_AttackUp
@@ -1150,7 +1143,19 @@ AI_CV_AbsorbEncourageMaybe: @ 82DCABF
 
 AI_CV_Absorb_End: @ 82DCAC7
 	end
+	
+@ Si el usuario (que no puede cambiar) y el rival van a caer por Canto Mortal,
+@ mejor explotar, incluso si el rival es inmune (probablemente cambie)
+AI_CV_Explosion:
+    if_perish_song_not_about_to_trigger AI_USER, AI_CV_SelfKO
+    if_perish_song_not_about_to_trigger AI_TARGET, AI_CV_SelfKO
+    count_usable_party_mons AI_TARGET
+    if_equal 0, Score_Minus5  @ el rival va a caer igualmente, no conviene explotar
+    score +6                  @ le explota a lo que sea que aparezca
+    if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Plus10  @ neutraliza el -10 por ser Fantasma el rival, ya que va a cambiar
+    end
 
+@ (incluye Explosión, salvo en la situación de KO inminente por Canto Mortal)
 AI_CV_SelfKO: @ 82DCAC8
 	if_stat_level_less_than AI_TARGET, STAT_EVASION, 7, AI_CV_SelfKO_Encourage1
 	score -1
@@ -3209,16 +3214,48 @@ AI_HailResistantAbilities:
 	.byte -1
 
 AI_CV_FakeOut:
-    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus8
+	call AI_CV_FakeOut_AvoidIfChoicedAndLastMon
+	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_CV_FakeOut_CheckIfSubIsBroken
 	if_ability_might_be AI_TARGET, ABILITY_INNER_FOCUS, AI_CV_FakeOut_End
 	if_ability_might_be AI_TARGET, ABILITY_SHIELD_DUST, AI_CV_FakeOut_End
 	if_double_battle AI_CV_FakeOut_Double
+    if_holds_item AI_USER, ITEM_CHOICE_BAND, AI_CV_FakeOut_Double
+    if_holds_item AI_USER, ITEM_CHOICE_SPECS, AI_CV_FakeOut_Double
+    if_holds_item AI_USER, ITEM_CHOICE_SCARF, AI_CV_FakeOut_Double
 	score +5
 	end
 AI_CV_FakeOut_Double:
 	score +2
 AI_CV_FakeOut_End:
 	end
+
+AI_CV_FakeOut_CheckIfSubIsBroken:
+    if_can_faint AI_CV_FakeOut_End
+    goto Score_Minus8
+	
+AI_CV_FakeOut_AvoidIfChoicedAndLastMon:
+    if_holds_item AI_USER, ITEM_CHOICE_BAND, AI_CV_FakeOut_AvoidIfLastMon
+    if_holds_item AI_USER, ITEM_CHOICE_SPECS, AI_CV_FakeOut_AvoidIfLastMon
+    if_holds_item AI_USER, ITEM_CHOICE_SCARF, AI_CV_FakeOut_AvoidIfLastMon
+    goto AI_CV_FakeOut_End
+
+@ Si es el último poke se evita Fake Out, salvo si el rival también es el último poke, no tiene sustituto, Fake Out es KO y no tiene Protect/Detect ni Endure
+AI_CV_FakeOut_AvoidIfLastMon:
+    count_usable_party_mons AI_USER
+    if_more_than 0, AI_CV_FakeOut_End @ en caso contrario, es el último poke
+    count_usable_party_mons AI_TARGET
+    if_more_than 0, AI_CV_FakeOut_Avoid
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_CV_FakeOut_Avoid
+    if_can_faint AI_CV_FakeOut_CheckProtectEndure
+    goto AI_CV_FakeOut_Avoid
+
+AI_CV_FakeOut_Avoid:
+    goto Score_Minus12
+
+AI_CV_FakeOut_CheckProtectEndure:
+    if_has_move_with_effect AI_TARGET, EFFECT_PROTECT, AI_CV_FakeOut_Avoid
+    if_has_move_with_effect AI_TARGET, EFFECT_ENDURE, AI_CV_FakeOut_Avoid
+    goto AI_CV_FakeOut_End @ no tiene nada de eso: puede ser conveniente tirar Fake Out
 
 AI_CV_SpitUp:
 	get_stockpile_count AI_USER
@@ -3697,9 +3734,7 @@ AI_CV_Sandstorm_End:
 	
 AI_TryToFaint:
 	if_target_is_ally AI_Ret
-	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_TryToFaint_SkipCanFaint
 	if_can_faint AI_TryToFaint_TryToEncourageQuickAttack
-AI_TryToFaint_SkipCanFaint:
 	get_how_powerful_move_is
 	if_equal MOVE_NOT_MOST_POWERFUL, Score_Minus1
 	if_equal MOVE_POWER_DISCOURAGED_AND_NOT_MOST_POWERFUL, Score_Minus2
@@ -3713,7 +3748,17 @@ AI_TryToFaint_DoubleSuperEffective:
 	end
 
 AI_TryToFaint_TryToEncourageQuickAttack:
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_TryToFaint_CheckFakeOutWithSub
     if_effect EFFECT_PURSUIT, AI_TryToFaint_PursuitAndFakeOutBonus
+    goto AI_TryToFaint_CheckFakeOutWithNoSub
+AI_TryToFaint_CheckFakeOutWithSub:
+    if_not_effect EFFECT_FAKE_OUT, AI_TryToFaint_SkipPlus3Bonus
+    is_first_turn_for AI_USER
+    if_equal 0, AI_TryToFaint_End
+    if_user_faster AI_TryToFaint_SkipPlus3Bonus @ no tiene sentido sumarle +3 a Fake Out si la IA ya es más rápida y el rival tiene sub
+    goto AI_TryToFaint_PursuitAndFakeOutBonus
+
+AI_TryToFaint_CheckFakeOutWithNoSub:
     if_not_effect EFFECT_FAKE_OUT, AI_TryToFaint_SkipPlus3Bonus
     is_first_turn_for AI_USER
     if_equal 0, AI_TryToFaint_End
@@ -3736,9 +3781,14 @@ AI_TryToFaint_NotSolarBeamOnSun:
     if_effect EFFECT_VITAL_THROW, AI_TryToFaint_DiscourageLowPriorityMovesIfUserIsFaster
     if_effect EFFECT_REVENGE, AI_TryToFaint_DiscourageLowPriorityMovesIfUserIsFaster
 	if_effect EFFECT_EXPLOSION, AI_TryToFaint_EncourageExplosionIfOpponentHasOneMonLeft
+	if_high_change_to_break_sub_and_keep_hitting AI_TryToFaint_ExtraPointForBreakingSubAndKeepHitting
 	if_not_effect EFFECT_QUICK_ATTACK, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
 	score +2
 	goto AI_TryToFaint_IncreaseScoreDependingOnAccuracy
+
+AI_TryToFaint_ExtraPointForBreakingSubAndKeepHitting:
+    score +1
+    goto AI_TryToFaint_IncreaseScoreDependingOnAccuracy
 	
 AI_TryToFaint_FocusPunch:
 	if_target_wont_attack_due_to_truant AI_TryToFaint_IncreaseScoreDependingOnAccuracy
@@ -3783,8 +3833,10 @@ AI_TryToFaint_DiscourageLowPriorityMovesIfUserIsFaster:
     goto AI_TryToFaint_IncreaseScoreDependingOnAccuracy
 
 AI_TryToFaint_EncourageExplosionIfOpponentHasOneMonLeft:
+	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_TryToFaint_SkipExplosionEncourage
     count_usable_party_mons AI_TARGET
     if_not_equal 0, AI_TryToFaint_End
+AI_TryToFaint_SkipExplosionEncourage:
     score -1  @ Recibirá un punto menos que un ataque de la misma precisión
 	
 AI_TryToFaint_IncreaseScoreDependingOnAccuracy:
@@ -3800,6 +3852,7 @@ AI_TryToFaint_ScoreUp2:
 AI_TryToFaint_ScoreUp1:
     score +1
     if_user_faster AI_TryToFaint_End
+	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_TryToFaint_End
     if_has_a_50_percent_hp_recovery_move AI_TARGET, AI_TryToFaint_GiveBonusToMostDamagingAttack
     if_has_move_with_effect AI_TARGET, EFFECT_REST, AI_TryToFaint_GiveBonusToMostDamagingAttack
     goto AI_TryToFaint_End
