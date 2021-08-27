@@ -791,7 +791,7 @@ MauvilleCity_GameCorner_EventScript_MonPrizes2:
 	case 1, MauvilleCity_GameCorner_EventScript_CUBONEConfirm
 	case 2, MauvilleCity_GameCorner_EventScript_VENONATConfirm
 	case 3, MauvilleCity_GameCorner_EventScript_HAPPINYConfirm
-	case 4, MauvilleCity_GameCorner_EventScript_GRUBBINConfirm
+	case 4, MauvilleCity_GameCorner_EventScript_WOOPERConfirm
 	goto MauvilleCity_GameCorner_EventScript_CancelDollSelect 
 	end
 	
@@ -815,9 +815,9 @@ MauvilleCity_GameCorner_EventScript_HAPPINYConfirm:
     bufferspeciesname 0, SPECIES_HAPPINY
 	goto MauvilleCity_GameCorner_EventScript_MonConfirm2
     
-MauvilleCity_GameCorner_EventScript_GRUBBINConfirm:
+MauvilleCity_GameCorner_EventScript_WOOPERConfirm:
 	setvar VAR_TEMP_1, 5
-    bufferspeciesname 0, SPECIES_GRUBBIN
+    bufferspeciesname 0, SPECIES_WOOPER
 	goto MauvilleCity_GameCorner_EventScript_MonConfirm2
 	
 MauvilleCity_GameCorner_EventScript_MonConfirm2:
@@ -829,7 +829,7 @@ MauvilleCity_GameCorner_EventScript_MonConfirm2:
 	case 2, MauvilleCity_GameCorner_EventScript_CUBONE
 	case 3, MauvilleCity_GameCorner_EventScript_VENONAT
 	case 4, MauvilleCity_GameCorner_EventScript_HAPPINY
-	case 5, MauvilleCity_GameCorner_EventScript_GRUBBIN
+	case 5, MauvilleCity_GameCorner_EventScript_WOOPER
 	end
 	
 MauvilleCity_GameCorner_EventScript_SPHEAL:
@@ -928,7 +928,7 @@ MauvilleCity_GameCorner_EventScript_HAPPINY:
 	call_if_eq Common_EventScript_NameReceivedPartyMon
     goto MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst2
     
-MauvilleCity_GameCorner_EventScript_GRUBBIN:
+MauvilleCity_GameCorner_EventScript_WOOPER:
 	checkcoins VAR_TEMP_2
 	compare VAR_TEMP_2, 800
 	goto_if_lt MauvilleCity_GameCorner_EventScript_NoCoinsForMon
@@ -941,12 +941,12 @@ MauvilleCity_GameCorner_EventScript_GRUBBIN:
 	playse SE_REGI
     waitse
 	playfanfare MUS_FANFA4
-	bufferspeciesname 0, SPECIES_GRUBBIN
+	bufferspeciesname 0, SPECIES_WOOPER
 	message MauvilleCity_GameCorner_Text_GetMon
 	waitfanfare
 	waitmessage
-	givemon SPECIES_GRUBBIN, 20, ITEM_NONE
-	bufferspeciesname 1, SPECIES_GRUBBIN
+	givemon SPECIES_WOOPER, 20, ITEM_NONE
+	bufferspeciesname 1, SPECIES_WOOPER
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	call_if_eq Common_EventScript_NameReceivedPartyMon
