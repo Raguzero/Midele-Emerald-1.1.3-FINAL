@@ -3011,16 +3011,16 @@ extern const u8 gText_DomeFossil[];
 extern const u8 gText_OldAmber[];
 
 // NUEVO POKES CASINO
-extern const u8 gText_Bulbasaur[];
-extern const u8 gText_Charmander[];
-extern const u8 gText_Squirtle[];
-extern const u8 gText_Chikorita[];
-extern const u8 gText_Cyndaquil[];
-extern const u8 gText_Totodile[];
-extern const u8 gText_Treecko[];
-extern const u8 gText_Torchic[];
-extern const u8 gText_Mudkip[];
-extern const u8 gText_Turtwig[];
+extern const u8 gText_Ferroseed[];
+extern const u8 gText_Sandygast[];
+extern const u8 gText_Snom[];
+extern const u8 gText_Pineco[];
+extern const u8 gText_Meditite[];
+extern const u8 gText_Spheal[];
+extern const u8 gText_Cubone[];
+extern const u8 gText_Venonat[];
+extern const u8 gText_Happiny[];
+extern const u8 gText_Wooper[];
 extern const u8 gText_DarkPika[];
 extern const u8 gText_Wintass[];
 extern const u8 gText_Catermano[];

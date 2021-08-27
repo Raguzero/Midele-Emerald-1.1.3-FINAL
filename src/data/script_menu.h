@@ -856,21 +856,21 @@ static const struct MenuAction MultichoiceList_MideleEVStats[] =
 
 static const struct MenuAction MultichoiceList_GameCornerPkmn[] =
 {
-    {gText_Bulbasaur},
-    {gText_Charmander},
-    {gText_Squirtle},
-    {gText_Chikorita},
-    {gText_Cyndaquil},
+    {gText_Ferroseed},
+    {gText_Sandygast},
+    {gText_Snom},
+    {gText_Pineco},
+    {gText_Meditite},
     {gText_Exit},
 };
 
 static const struct MenuAction MultichoiceList_GameCornerPkmn2[] =
 {
-    {gText_Totodile},
-    {gText_Treecko},
-    {gText_Torchic},
-    {gText_Mudkip},
-    {gText_Turtwig},
+    {gText_Spheal},
+    {gText_Cubone},
+    {gText_Venonat},
+    {gText_Happiny},
+    {gText_Wooper},
     {gText_Exit},
 };
 

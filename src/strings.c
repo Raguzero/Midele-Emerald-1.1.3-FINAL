@@ -1864,16 +1864,16 @@ const u8 gText_DomeFossil[] = _("DOME FOSSIL");
 const u8 gText_OldAmber[] = _("OLD AMBER");
 
 // NUEVO POKES CASINO
-const u8 gText_Bulbasaur[] = _("FERROSEED{CLEAR_TO 0x48}1500 COINS");
-const u8 gText_Charmander[] = _("SANDYGAST{CLEAR_TO 0x48}1200 COINS");
-const u8 gText_Squirtle[] = _("SNOM{CLEAR_TO 0x48}1000 COINS");
-const u8 gText_Chikorita[] = _("PINECO{CLEAR_TO 0x48}500 COINS");
-const u8 gText_Cyndaquil[] = _("MEDITITE{CLEAR_TO 0x48}1300 COINS");
-const u8 gText_Totodile[] = _("SPHEAL{CLEAR_TO 0x48}800 COINS");
-const u8 gText_Treecko[] = _("CUBONE{CLEAR_TO 0x48}500 COINS");
-const u8 gText_Torchic[] = _("VENONAT{CLEAR_TO 0x48}500 COINS");
-const u8 gText_Mudkip[] = _("HAPPINY{CLEAR_TO 0x48}2500 COINS");
-const u8 gText_Turtwig[] = _("GRUBBIN{CLEAR_TO 0x48}800 COINS");
+const u8 gText_Ferroseed[] = _("FERROSEED{CLEAR_TO 0x48}1500 COINS");
+const u8 gText_Sandygast[] = _("SANDYGAST{CLEAR_TO 0x48}1200 COINS");
+const u8 gText_Snom[] = _("SNOM{CLEAR_TO 0x48}1000 COINS");
+const u8 gText_Pineco[] = _("PINECO{CLEAR_TO 0x48}500 COINS");
+const u8 gText_Meditite[] = _("MEDITITE{CLEAR_TO 0x48}1300 COINS");
+const u8 gText_Spheal[] = _("SPHEAL{CLEAR_TO 0x48}800 COINS");
+const u8 gText_Cubone[] = _("CUBONE{CLEAR_TO 0x48}500 COINS");
+const u8 gText_Venonat[] = _("VENONAT{CLEAR_TO 0x48}500 COINS");
+const u8 gText_Happiny[] = _("HAPPINY{CLEAR_TO 0x48}2500 COINS");
+const u8 gText_Wooper[] = _("WOOPER{CLEAR_TO 0x48}800 COINS");
 const u8 gText_DarkPika[] = _("DARK PIKA{CLEAR_TO 0x48}9000 COINS");
 const u8 gText_Wintass[] = _("WINTASS{CLEAR_TO 0x48}9000 COINS");
 const u8 gText_Catermano[] = _("CATERMANO{CLEAR_TO 0x48}9000 COINS");
