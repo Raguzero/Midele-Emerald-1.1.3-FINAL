@@ -66,7 +66,6 @@
 #include "cable_club.h"
 #include "battle_factory.h"
 #include "constants/battle_frontier_mons.h"
-#include "constants/battle_frontier_sets_by_species.h"
 
 extern struct MusicPlayerInfo gMPlayInfo_SE1;
 extern struct MusicPlayerInfo gMPlayInfo_SE2;
@@ -347,6 +346,8 @@ static const u16 gUnknown_0831ACC4[] = {0xfff0, 0, 0x0400, 0, 0, 0, 0x3c00, 0, 0
 static const u16 *const gUnknown_0831ACDC = gUnknown_0831ACC4;
 
 static const s8 gUnknown_0831ACE0[] ={-32, -16, -16, -32, -32, 0, 0, 0};
+
+#include "data/battle_frontier/battle_frontier_sets_by_species.h"
 
 // format: attacking type, defending type, damage multiplier
 // the multiplier is a (decimal) fixed-point number:
@@ -638,7 +639,8 @@ static const u16 accepting_probability[] = {
            0, 65535, 41347, 32001, // probabilidad de aceptar un poke en random battle;
        26720, 23215, 20673, 18723, // provoca que un poke con k sets tenga una
        17168, 15892, 14822, 13908, // probabilidad de salir proporcional a log_3(2+k)
-       13118, 12425, 11812, 11266}; // ej: para 1 es 1, para 2 es 1.26... para 7 es 2, para 14 es 2.5
+       13118, 12425, 11812, 11266
+}; // ej: para 1 es 1, para 2 es 1.26... para 7 es 2, para 14 es 2.5
 
 
 // code
