@@ -158,7 +158,7 @@ IzabeIsland_House3_EventScript_DarkPikaNotes_Text_1:
 	.string "eléctricos. Es tal su energía que,\l"
 	.string "según mis cálculos, sería incluso capaz\l"
 	.string "de destruir una ciudad entera en un\l"
-	.string "arrannque de ira.”\p"
+	.string "arranque de ira.”\p"
 	.string "“No hemos sido capaces de hacer\n"
 	.string "evolucionar a DARK PIKA y tampoco\l"
 	.string "tiene ninguna preevolución conocida ni\l"
