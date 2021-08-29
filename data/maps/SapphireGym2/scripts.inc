@@ -216,16 +216,20 @@ SapphireGym2_Text_SapphPostBattle:
 
 SapphireGym2_Text_SapphRematchIntro:
 	.string "Hola, que tal, ¿cómo has estado? ¿Qué?\n"
-	.string "¿Quieres una revancha? Estaba\l"
-	.string "esperando que lo dijeras. Me gustaría\l"
+	.string "¿Quieres una revancha? ¡Estaba\l"
+	.string "esperando que lo dijeras! ¡Me gustaría\l"
 	.string "emplearme a fondo y también ver cuánto\l"
-	.string "has mejorado.$"
+	.string "has mejorado!$"
 
 SapphireGym2_Text_SapphRematchPostBattle:
-	.string "TEXTO REMATCH POSTBATTLE$"
+	.string "Está bien, aún no estoy preparada. Debo\n"
+	.string "seguir entrenando junto a mis Pokémon\l"
+	.string "y las idols. No podemos permitir que un\l"
+	.string "incidente como el de aquella vez,\l"
+	.string "sacuda nuevamente a mi gimnasio.$"
 
 SapphireGym_Text_SapphLoseRematch:
-    .string "TEXTO LOSE REMATCH$"
+    .string "Vale, ya entendí u.u$"
 
 SapphireGym2_Text_SapphPostBattle_CheckTheBasement:
 	.string "La gente de MICOLO solía entrar y salir\n"
