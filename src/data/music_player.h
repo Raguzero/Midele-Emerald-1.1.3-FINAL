@@ -62,7 +62,7 @@ static const u8 gText_Music_BreathOfFire2FinalBoss[] = _("BREATH OF FIRE 2     \
 static const u8 gText_Music_JackRoom[]               = _("DELTARUNE            \nTHE CIRCUS");
 static const u8 gText_Music_Molgera[]                = _("ZELDA WIND WAKER     \nMOLGERA BATTLE");
 static const u8 gText_Music_ChampionHGSS[]           = _("POKéMON HGSS         \nVS CHAMPION");
-
+static const u8 gText_Music_HeartMulHolland[]        = _("MATT MULHOLLAND      \nMY HEART WILL GO ON");
 
 // Digit indicators
 const u8 * const gText_DigitIndicator2[] =
@@ -338,6 +338,8 @@ static const u16 sMusicTableBeforeMicoloHideout[] = {
     MUS_BLOODY_STREAM,
 
     SASAGEYO,
+
+    HEARTMULHOLLAND
 };
 
 static const u16 sMusicTableFinal[] = {
@@ -423,6 +425,7 @@ static const u16 sMusicTableFinal[] = {
     
     SASAGEYO,
     
+    HEARTMULHOLLAND,
     SHUM,
 };
 
@@ -480,4 +483,5 @@ const u8* const sMusicNames[] = {
     [JACKROOM] = gText_Music_JackRoom,
     [MUS_MOLGERA_WW] = gText_Music_Molgera,
     [MUS_CHAMPION_BATTLE_HGSS] = gText_Music_ChampionHGSS,
+    [HEARTMULHOLLAND] = gText_Music_HeartMulHolland,
 };
