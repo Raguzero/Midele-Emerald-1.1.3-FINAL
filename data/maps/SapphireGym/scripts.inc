@@ -43,7 +43,7 @@ SapphireGym_MapScripts_OnLoad_CloseFirstPuzzlePath:
 	return
 
 SapphireGym_OpenSecondPuzzlePath:
-	setmetatile 22, 19, 0x2C1, 0
+	setmetatile 22, 19, 0x2DA, 0
 	return
 
 SapphireGym_MapScripts_OnLoad_CloseSecondPuzzlePath:
@@ -79,6 +79,9 @@ SapphireGym_Trigger_Warp::
 
 SapphireGym_Trigger_FightFirstPuzzleGirl::
 	lock
+    playse SE_PIN
+    applymovement 3, Common_Movement_ExclamationMark
+    waitmovement 0
 	applymovement 3, SapphireGym_Movement_MoveFirstPuzzleGirl
 	waitmovement 0
 	trainerbattle_single TRAINER_SAPPH_GYM_1, SapphireGym_Text_FirstPuzzleGirlIntro, SapphireGym_Text_FirstPuzzleGirlLose, SapphireGym_EventScript_FirstPuzzleGirlDefeated, NO_MUSIC
@@ -87,6 +90,9 @@ SapphireGym_Trigger_FightFirstPuzzleGirl::
 
 SapphireGym_Trigger_FightSecondPuzzleGirl::
 	lock
+    playse SE_PIN
+    applymovement 1, Common_Movement_ExclamationMark
+    waitmovement 0
 	applymovement 1, SapphireGym_Movement_MoveSecondPuzzleGirl
 	waitmovement 0
 	trainerbattle_single TRAINER_SAPPH_GYM_2, SapphireGym_Text_SecondPuzzleGirlIntro, SapphireGym_Text_SecondPuzzleGirlLose, SapphireGym_EventScript_SecondPuzzleGirlDefeated, NO_MUSIC
@@ -95,6 +101,9 @@ SapphireGym_Trigger_FightSecondPuzzleGirl::
 
 SapphireGym_Trigger_FightThirdPuzzleGirl::
 	lock
+    playse SE_PIN
+    applymovement 6, Common_Movement_ExclamationMark
+    waitmovement 0
 	applymovement 6, SapphireGym_Movement_MoveThirdPuzzleGirl
 	waitmovement 0
 	trainerbattle_single TRAINER_SAPPH_GYM_3, SapphireGym_Text_ThirdPuzzleGirlIntro, SapphireGym_Text_ThirdPuzzleGirlLose, SapphireGym_EventScript_ThirdPuzzleGirlDefeated, NO_MUSIC
@@ -592,7 +601,9 @@ SapphireGym_EventScript_ThirdPuzzleGirl_Sleep:
 SapphireGym_EventScript_ThirdPuzzleZigza::
 	lock
 	faceplayer
-	msgbox SapphireGym_Text_ThirdPuzzleZigza, MSGBOX_NPC
+	msgbox SapphireGym_Text_ThirdPuzzleZigza, MSGBOX_YESNO
+    compare VAR_RESULT, NO
+    goto_if_eq SapphireGym_EventScript_ThirdPuzzleZigzaNo
 	call SapphireGym_EventScript_StartThirdPuzzle
 	msgbox SapphireGym_Text_ThirdPuzzle_GuessWhoFailed, MSGBOX_NPC
 	multichoicegrid 0, 0, MULTI_SAPPHGYM_SECOND_PUZZLE_ANSWERS, 1, 1
@@ -607,6 +618,14 @@ SapphireGym_EventScript_ThirdPuzzle_EndPuzzle:
 	setvar VAR_STATE_SAPPH_GYM, 3
 	release
 	end
+
+SapphireGym_EventScript_ThirdPuzzleZigzaNo:
+    msgbox SapphireGym_Text_ThirdPuzzleZigzaNo, MSGBOX_NPC
+    release
+    end
+
+SapphireGym_Text_ThirdPuzzleZigzaNo:
+    .string "¿Ziig?$"
 
 SapphireGym_EventScript_StartThirdPuzzle:
 	playbgm MUS_TEST3, 0
