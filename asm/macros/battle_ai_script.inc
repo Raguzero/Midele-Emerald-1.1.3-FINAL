@@ -846,3 +846,9 @@
     if_not_equal TYPE_GHOST, \ptr
     .AI_not_useless_\@:
     .endm
+	
+    .macro if_user_choiced ptr:req
+    if_holds_item AI_USER, ITEM_CHOICE_BAND, \ptr
+    if_holds_item AI_USER, ITEM_CHOICE_SPECS, \ptr
+    if_holds_item AI_USER, ITEM_CHOICE_SCARF, \ptr
+    .endm

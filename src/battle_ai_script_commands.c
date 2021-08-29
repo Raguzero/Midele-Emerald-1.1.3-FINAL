@@ -475,9 +475,7 @@ bool32 IsTruantMonVulnerable(u32 battlerAI, u32 opposingBattler)
         if (gBattleMoves[move].effect == EFFECT_PROTECT && move != MOVE_ENDURE)
             return TRUE;
 		if (gBattleMoves[move].effect == EFFECT_SUBSTITUTE
-			&& gBattleMons[opposingBattler].hp > gBattleMons[opposingBattler].maxHP / 4 // tiene PS para meter sub
-			&& ((gBattleMons[opposingBattler].status2 & STATUS2_SUBSTITUTE)    // ya tiene sub
-			|| GetWhoStrikesFirst(battlerAI, opposingBattler, TRUE) == 1)) // o es más rápido
+			&& gBattleMons[opposingBattler].hp > gBattleMons[opposingBattler].maxHP / 4) // tiene PS para meter sub
             return TRUE;
 		 if (gBattleMoves[move].effect == EFFECT_SEMI_INVULNERABLE && GetWhoStrikesFirst(battlerAI, opposingBattler, TRUE) == 1)
             return TRUE;

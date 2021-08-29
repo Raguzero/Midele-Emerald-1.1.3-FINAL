@@ -980,9 +980,7 @@ Score_Plus10:
 
 AI_CheckViability:
 	if_target_is_ally AI_Ret
-    if_holds_item AI_USER, ITEM_CHOICE_BAND, AI_CheckViability_CallChoiceDamage
-    if_holds_item AI_USER, ITEM_CHOICE_SPECS, AI_CheckViability_CallChoiceDamage
-    if_holds_item AI_USER, ITEM_CHOICE_SCARF, AI_CheckViability_CallChoiceDamage
+    if_user_choiced AI_CheckViability_CallChoiceDamage
     goto AI_CheckViability_CheckEffects
 AI_CheckViability_CallChoiceDamage:
     call AI_ChoiceDamage
@@ -2548,9 +2546,7 @@ AI_CV_SleepTalk_NotExpectedToSleep:
     if_equal 1, AI_CV_SleepTalk_Discourage
     count_usable_party_mons AI_USER
     if_equal 0, AI_CV_SleepTalk_Discourage
-    if_holds_item AI_USER, ITEM_CHOICE_BAND, AI_CV_SleepTalk_UseToWakeUpIfNecessary
-    if_holds_item AI_USER, ITEM_CHOICE_SPECS, AI_CV_SleepTalk_UseToWakeUpIfNecessary
-    if_holds_item AI_USER, ITEM_CHOICE_SCARF, AI_CV_SleepTalk_UseToWakeUpIfNecessary
+    if_user_choiced AI_CV_SleepTalk_UseToWakeUpIfNecessary
 
 AI_CV_SleepTalk_Discourage:
     goto Score_Minus8
@@ -3219,9 +3215,7 @@ AI_CV_FakeOut:
 	if_ability_might_be AI_TARGET, ABILITY_INNER_FOCUS, AI_CV_FakeOut_End
 	if_ability_might_be AI_TARGET, ABILITY_SHIELD_DUST, AI_CV_FakeOut_End
 	if_double_battle AI_CV_FakeOut_Double
-    if_holds_item AI_USER, ITEM_CHOICE_BAND, AI_CV_FakeOut_Double
-    if_holds_item AI_USER, ITEM_CHOICE_SPECS, AI_CV_FakeOut_Double
-    if_holds_item AI_USER, ITEM_CHOICE_SCARF, AI_CV_FakeOut_Double
+    if_user_choiced AI_CV_FakeOut_Double
 	score +5
 	end
 AI_CV_FakeOut_Double:
@@ -3234,9 +3228,7 @@ AI_CV_FakeOut_CheckIfSubIsBroken:
     goto Score_Minus8
 	
 AI_CV_FakeOut_AvoidIfChoicedAndLastMon:
-    if_holds_item AI_USER, ITEM_CHOICE_BAND, AI_CV_FakeOut_AvoidIfLastMon
-    if_holds_item AI_USER, ITEM_CHOICE_SPECS, AI_CV_FakeOut_AvoidIfLastMon
-    if_holds_item AI_USER, ITEM_CHOICE_SCARF, AI_CV_FakeOut_AvoidIfLastMon
+    if_user_choiced AI_CV_FakeOut_AvoidIfLastMon
     goto AI_CV_FakeOut_End
 
 @ Si es el último poke se evita Fake Out, salvo si el rival también es el último poke, no tiene sustituto, Fake Out es KO y no tiene Protect/Detect ni Endure
@@ -3851,8 +3843,11 @@ AI_TryToFaint_ScoreUp2:
     score +1
 AI_TryToFaint_ScoreUp1:
     score +1
+    if_not_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_TryToFaint_ConsiderBonusToMostDamagingAttack
+    if_user_choiced AI_TryToFaint_GiveBonusToMostDamagingAttack
+    goto AI_TryToFaint_End
+AI_TryToFaint_ConsiderBonusToMostDamagingAttack:
     if_user_faster AI_TryToFaint_End
-	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_TryToFaint_End
     if_has_a_50_percent_hp_recovery_move AI_TARGET, AI_TryToFaint_GiveBonusToMostDamagingAttack
     if_has_move_with_effect AI_TARGET, EFFECT_REST, AI_TryToFaint_GiveBonusToMostDamagingAttack
     goto AI_TryToFaint_End
