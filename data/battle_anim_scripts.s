@@ -5603,6 +5603,11 @@ BlizzardAgainstPlayer:
 	fadetobg BG_HIGHSPEED_PLAYER
 	goto BlizzardContinue
 
+
+BlizzardAgainstPlayerMidele:
+	fadetobg BG_HIGHSPEED_PLAYER
+	goto BlizzardContinueMidele
+
 Move_POWDER_SNOW:
 	loadspritegfx ANIM_TAG_ICE_CRYSTALS
 	monbg ANIM_DEF_PARTNER
@@ -10730,8 +10735,9 @@ Move_MIDELE_POWER:
 	loadspritegfx ANIM_TAG_ICE_CRYSTALS
 	monbg ANIM_DEF_PARTNER
 	createvisualtask AnimTask_GetAttackerSide, 2
-	jumprettrue BlizzardAgainstPlayer
+	jumprettrue BlizzardAgainstPlayerMidele
 	fadetobg BG_HIGHSPEED_OPPONENT
+BlizzardContinueMidele:
 	waitbgfadeout
 	createvisualtask sub_8117660, 5, -2304, 0, 1, -1
 	waitbgfadein
