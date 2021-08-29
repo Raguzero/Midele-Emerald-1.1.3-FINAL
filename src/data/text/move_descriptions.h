@@ -1557,6 +1557,10 @@ static const u8 sBRUTAL_BALLDescription[] = _(
 static const u8 sSEISMIC_PUNCHDescription[] = _(	
 	"MICOLO's ultimate attack.\n"
     "Punch that shakes the earth.");
+	
+static const u8 sHOLA_REINADescription[] = _(
+    "Inflicts damage identical\n"
+    "to the user's level.");
 
 // MOVE_NONE is ignored in this table. Make sure to always subtract 1 before getting the right pointer.
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
@@ -1951,5 +1955,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_MONADO_POWER - 1] = sMONADO_POWERDescription,
     [MOVE_BRUTAL_BALL - 1] = sBRUTAL_BALLDescription,
     [MOVE_SEISMIC_PUNCH - 1] = sSEISMIC_PUNCHDescription,
+    [MOVE_HOLA_REINA - 1] = sHOLA_REINADescription,
 	// NUEVOS MOVES
 };

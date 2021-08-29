@@ -391,8 +391,9 @@
 #define MOVE_MONADO_POWER 387
 #define MOVE_BRUTAL_BALL 388
 #define MOVE_SEISMIC_PUNCH 389
+#define MOVE_HOLA_REINA    390
 
-#define MOVES_COUNT 390
+#define MOVES_COUNT 391
 
 // NUEVO: Poder de Hidden Power
 #define MOVE_HIDDEN_POWER_DMG 70

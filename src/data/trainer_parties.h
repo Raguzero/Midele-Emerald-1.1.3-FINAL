@@ -3366,7 +3366,7 @@ static const struct TrainerMonCustomMidele sParty_Micolo1[] = {
     .lvl = 15,
     .species = SPECIES_DARK_PIKACHU,
     .evs = {0, 0, 0, 0, 0, 48},
-    .moves = {MOVE_GLARE, MOVE_THUNDER_SHOCK, MOVE_NIGHT_SHADE, MOVE_CURSE}
+    .moves = {MOVE_GLARE, MOVE_THUNDER_SHOCK, MOVE_HOLA_REINA, MOVE_CURSE}
     }
 };
 // OCEANIC MUSEUM

@@ -13222,7 +13222,7 @@ static const u16 sArmorMewtwoLevelUpLearnset[] = {
 
 static const u16 sDarkPikachuLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_GLARE),
-    LEVEL_UP_MOVE( 1, MOVE_NIGHT_SHADE),
+    LEVEL_UP_MOVE( 1, MOVE_HOLA_REINA),
     LEVEL_UP_MOVE( 4, MOVE_THUNDER_SHOCK),
     LEVEL_UP_MOVE( 7, MOVE_FURY_ATTACK),
     LEVEL_UP_MOVE( 9, MOVE_DOUBLE_KICK),

@@ -3078,6 +3078,13 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
         .comboStarterId = COMBO_STARTER_EARTHQUAKE,
         .comboMoves = {0},
     },
+    [MOVE_HOLA_REINA] =
+    {
+        .effect = CONTEST_EFFECT_STARTLE_MONS_SAME_TYPE_APPEAL,
+        .contestCategory = CONTEST_CATEGORY_SMART,
+        .comboStarterId = 0,
+        .comboMoves = {0},
+    },
 };
 
 const struct ContestEffect gContestEffects[] =
