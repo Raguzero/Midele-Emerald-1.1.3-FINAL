@@ -4,9 +4,9 @@ SapphireGym_Basement_MapScripts::
 SapphireGym_Basement_EventScript_Titan::
 	lockall
 	msgbox TitanIntro_Text, MSGBOX_YESNO
-	compare VAR_RESULT, YES
+	compare VAR_RESULT, NO
 	goto_if_eq SapphireGym_Basement_EventScript_TitanNoFight
-	msgbox TitanIntro_Text_Desacuerdo, MSGBOX_DEFAULT
+	msgbox TitanIntro_Text_DeAcuerdo, MSGBOX_DEFAULT
 	setvar VAR_0x8004, BOSS_BATTLE_TITAN
 	special CreateBossBattleMon
 	special BattleSetup_StartBossBattle
@@ -19,7 +19,7 @@ SapphireGym_Basement_EventScript_Titan::
 	end
 
 SapphireGym_Basement_EventScript_TitanNoFight:
-	msgbox TitanIntro_Text_DeAcuerdo, MSGBOX_DEFAULT
+	msgbox TitanIntro_Text_Desacuerdo, MSGBOX_DEFAULT
 	releaseall
 	end
 
@@ -33,10 +33,16 @@ SapphireGym_Basement_EventScript_TitanDefeated::
 	releaseall
 	end
 TitanIntro_Text:
-	.string "INTRO BOSS$"
+	.string "...\n"
+	.string "...\p"
+	.string "La gente de Ymir...\p"
+	.string "...$"
 
 TitanIntro_Text_DeAcuerdo:
-	.string "BOSS NO BATTLE$"
+	.string "...\n"
+	.string "Ymir...\p"
+	.string "... saludos.$"
 
 TitanIntro_Text_Desacuerdo:
-	.string "BOSS BATTLE$"
+    .string "...\n"
+    .string "... uuuughhh...$"

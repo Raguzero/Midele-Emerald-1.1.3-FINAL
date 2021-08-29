@@ -119,8 +119,31 @@ SapphireGym_EventScript_FourthPuzzle_EndPuzzle:
 	release
 	end
 
+SapphireGym_EventScript_PC::
+    msgbox SapphireGym_Text_PC, MSGBOX_SIGN
+    end
+
+SapphireGym_Text_PC:
+	.string "Hay abierto un archivo...\p"
+	.string "“Investigación sobre el monstruo del\n"
+	.string "sótano.”\p"
+	.string "“El monstruo del sótano es muy\n"
+	.string "poderoso pero, tras varios\l"
+	.string "acercamientos hemos conseguido\l"
+	.string "obtener la siguiente información:”\p"
+	.string "“TIPO: LUCHA\n"
+	.string "HP: MÁXIMO\p"
+	.string "ATTACK: MUY ALTO\n"
+	.string "DEFENSE: ALTO\p"
+	.string "SP. ATTACK: ALTO\n"
+	.string "SP. DEFENSE: MEDIO\p"
+	.string "SPEED: MUY BAJO\n"
+	.string "HABILIDAD: STRONG JAW\p"
+	.string "Parece conocer algunos de los\n"
+	.string "movimientos creados por MICOLO...”$"
+
 SapphireGym_EventScript_FourthPuzzle_FightRandom:
-	msgbox SapphireGym_Text_YouFailed, MSGBOX_NPC
+	msgbox SapphireGym_Text_YouFailedFourthPuzzle, MSGBOX_NPC
 	setflag FLAG_RANDOMBATTLE_GYMGOOSES
 	setflag FLAG_RANDOMBATTLE_GYMSAPPH
 	setvar VAR_0x8004, SPECIAL_RANDOM_BATTLE
@@ -219,7 +242,7 @@ SapphireGym_EventScript_StartFourthPuzzle_Iteration0:
 	return
 
 SapphireGym_Text_FourthPuzzleIteration0:
-	.string "TEXTO ITERACION 1$"
+	.string "¡Primera iteración!$"
 
 SapphireGym_EventScript_StartFourthPuzzle_Iteration1:
 	msgbox SapphireGym_Text_FourthPuzzleIteration1, MSGBOX_NPC
@@ -235,7 +258,7 @@ SapphireGym_EventScript_StartFourthPuzzle_Iteration1:
 	return
 
 SapphireGym_Text_FourthPuzzleIteration1:
-	.string "TEXTO ITERACION 2$"
+	.string "¡Segunda iteración!$"
 
 SapphireGym_EventScript_StartFourthPuzzle_Iteration2:
 	msgbox SapphireGym_Text_FourthPuzzleIteration2, MSGBOX_NPC
@@ -251,7 +274,7 @@ SapphireGym_EventScript_StartFourthPuzzle_Iteration2:
 	return
 
 SapphireGym_Text_FourthPuzzleIteration2:
-	.string "TEXTO ITERACION 3$"
+	.string "¡Tercera iteración!$"
 
 
 
@@ -438,7 +461,7 @@ SapphireGym_EventScript_SecondPuzzle_Decline:
 	end
 
 SapphireGym_EventScript_SecondPuzzle_FightRandom:
-	msgbox SapphireGym_Text_YouFailed, MSGBOX_NPC
+	msgbox SapphireGym_Text_YouFailedSecondPuzzle, MSGBOX_NPC
 	setflag FLAG_RANDOMBATTLE_GYMGOOSES
 	setflag FLAG_RANDOMBATTLE_GYMSAPPH
 	setvar VAR_0x8004, SPECIAL_RANDOM_BATTLE
@@ -557,7 +580,7 @@ SapphireGym_EventScript_ThirdPuzzleGirl::
 	checktrainerflag TRAINER_SAPPH_GYM_3
 	goto_if_ne SapphireGym_EventScript_ThirdPuzzleGirl_Sleep
 	faceplayer
-	msgbox SapphireGym_Text_ThirdPuzzleGirl_YouBeatPuzzle, MSGBOX_NPC
+	msgbox SapphireGym_Text_ThirdPuzzleGirl_Awaken, MSGBOX_NPC
 	release
 	end
 
@@ -676,7 +699,7 @@ SapphireGym_EventScript_StartThirdPuzzle_Iteration0:
 	return
 
 SapphireGym_EventScript_ThirdPuzzle_FightRandom:
-	msgbox SapphireGym_Text_YouFailed, MSGBOX_NPC
+	msgbox SapphireGym_Text_YouFailedThirdPuzzle, MSGBOX_NPC
 	setflag FLAG_RANDOMBATTLE_GYMGOOSES
 	setflag FLAG_RANDOMBATTLE_GYMSAPPH
 	setvar VAR_0x8004, SPECIAL_RANDOM_BATTLE
@@ -751,7 +774,7 @@ SapphireGym_Movement_ThirdPuzzleIteration0:
 	step_end
 
 SapphireGym_Text_ThirdPuzzleIteration0:
-	.string "TEXTO ITERACION 1$"
+	.string "¡ZIGZAAAA!$"
 
 SapphireGym_EventScript_StartThirdPuzzle_Iteration1:
 	msgbox SapphireGym_Text_ThirdPuzzleIteration1, MSGBOX_NPC
@@ -798,7 +821,7 @@ SapphireGym_Movement_ThirdPuzzleIteration1:
 	step_end
 
 SapphireGym_Text_ThirdPuzzleIteration1:
-	.string "TEXTO ITERACION 2$"
+	.string "¡ZIGZAAAAA!$"
 
 SapphireGym_EventScript_StartThirdPuzzle_Iteration2:
 	msgbox SapphireGym_Text_ThirdPuzzleIteration2, MSGBOX_NPC
@@ -845,7 +868,7 @@ SapphireGym_Movement_ThirdPuzzleIteration2:
 	step_end
 
 SapphireGym_Text_ThirdPuzzleIteration2:
-	.string "TEXTO ITERACION 3$"
+	.string "¡ZIGZAAA!$"
 
 
 
@@ -898,7 +921,7 @@ SapphireGym_Movement_SecondPuzzleIteration0:
 	step_end
 
 SapphireGym_Text_SecondPuzzleIteration0:
-	.string "TEXTO ITERACION 1$"
+	.string "¡Primera iteración!$"
 
 SapphireGym_EventScript_StartSecondPuzzle_Iteration1:
 	msgbox SapphireGym_Text_SecondPuzzleIteration1, MSGBOX_NPC
@@ -984,7 +1007,7 @@ SapphireGym_Movement_SecondPuzzleIteration1Failed:
 	step_end
 
 SapphireGym_Text_SecondPuzzleIteration1:
-	.string "TEXTO ITERACION 2$"
+	.string "¡Segunda iteración!$"
 
 SapphireGym_EventScript_StartSecondPuzzle_Iteration2:
 	msgbox SapphireGym_Text_SecondPuzzleIteration2, MSGBOX_NPC
@@ -1035,7 +1058,7 @@ SapphireGym_Movement_SecondPuzzleIteration2:
 	step_end
 
 SapphireGym_Text_SecondPuzzleIteration2:
-	.string "TEXTO ITERACION 3$"
+	.string "¡Tercera iteración!$"
 
 
 SapphireGym_EventScript_StartFirstPuzzle_Iteration0:
@@ -1103,7 +1126,21 @@ SapphireGym_Movement_Iteration0:
 	step_end
 
 SapphireGym_Text_Iteration0:
-	.string "TEXTO ITERACION 1$"
+	.string "Pon atención. Ellos se moverán uno\n"
+	.string "después del otro. El primero, hará unos\l"
+	.string "movimientos, luego el segundo imitará\l"
+	.string "esos movimientos, y a continuación el\l"
+	.string "tercero, también imitará los\l"
+	.string "movimientos del anterior, después de\l"
+	.string "todo es una coreografía, ¿entiendes?\p"
+	.string "Debes poner mucha atención a sus\n"
+	.string "movimientos. Una vez que los 3 hayan\l"
+	.string "danzado, volverán a comenzar y así un\l"
+	.string "par de veces.\p"
+	.string "Finalmente yo te haré una pregunta y tú\n"
+	.string "debes contestarla correctamente para\l"
+	.string "que te permita pasar.\p"
+	.string "Muy bien, ¡que comience la función!$"
 
 SapphireGym_EventScript_StartFirstPuzzle_Iteration1:
 	msgbox SapphireGym_Text_Iteration1, MSGBOX_NPC
@@ -1167,7 +1204,7 @@ SapphireGym_Movement_Iteration1:
 	step_end
 
 SapphireGym_Text_Iteration1:
-	.string "TEXTO ITERACION 2$"
+	.string "¡Segunda iteración!$"
 
 SapphireGym_EventScript_StartFirstPuzzle_Iteration2:
 	msgbox SapphireGym_Text_Iteration2, MSGBOX_NPC
@@ -1287,7 +1324,7 @@ SapphireGym_Movement_Iteration2Failed:
 	step_end
 
 SapphireGym_Text_Iteration2:
-	.string "TEXTO ITERACION 3$"
+	.string "¡Tercera iteración!$"
 
 
 SapphireGym_EventScript_FirstPuzzle_OpenPath:
@@ -1652,133 +1689,280 @@ SapphireGym_Movement_ExecuteFourthPuzzle_HideKirlia:
 	step_end
 
 SapphireGym_Text_GymExplanation:
-	.string "TEXTO EXPLICAR GYM$"
+	.string "Saludos, visitante, te doy la\n"
+	.string "bienvenida. Supongo que viniste a ver\l"
+	.string "el espectáculo de las idols.\n"
+	.string "...\p"
+	.string "Oh, entiendo, pero no te preocupes, te\n"
+	.string "explicaré.\p"
+	.string "Este es un gimnasio compuestos por\n"
+	.string "idols. Ellas aman la música y sobretodo\l"
+	.string "les gusta armar coreografías, así que\l"
+	.string "si quieres que te dejen pasar, primero\l"
+	.string "tendrás que demostrarles que tienes\l"
+	.string "talento. Quien sabe, quizás te pongan a\l"
+	.string "prueba, je, je.\p"
+	.string "En cualquier caso, si logras llegar al\n"
+	.string "final, podrás conocer a SAPPHIRE, la\l"
+	.string "líder de este gimnasio, aunque la\l"
+	.string "verdad no sé si ella esté dispuesta a\l"
+	.string "recibirte sabes, ha estado muy ocupada\l"
+	.string "últimamente. Al parecer, algo muy grave\l"
+	.string "está sucediendo al final del gimnasio y\l"
+	.string "andan todas con los nervios de punta.\p"
+	.string "Claro que si pudieras ver que está\n"
+	.string "sucediendo, y lograras tranquilizarlas,\l"
+	.string "te lo agradecería.$"
 
 SapphireGym_Text_GymExplanation_DefeatedSapph:
-	.string "TEXTO DERROTASTE A SAPPH$"
+	.string "Muchas gracias, lograste tranquilizar a\n"
+	.string "las idols, eres increíble. Esa medalla\l"
+	.string "te queda muy bien.$"
 
 SapphireGym_Text_FirstPuzzle_Explain:
-	.string "TEXTO EXPLICAR PRIMER PUZZLE$"
-
-SapphireGym_Text_FirstPuzzle_Done:
-	.string "TEXTO COMPLETASTE EL PRIMER PUZZLE$"
+	.string "Algo extraño está sucediendo al final\n"
+	.string "del gimnasio y la líder SAPPHIRE ha\l"
+	.string "cancelado los espectáculos mientras\l"
+	.string "no se soluciona ese problema. Qué\l"
+	.string "desgracia, pero no importa,\l"
+	.string "aprovecharé este tiempo para ensayar\l"
+	.string "mis coreografías, así que tendré que\l"
+	.string "pedirte que te retires.\p"
+	.string "...\p"
+	.string "¿Cómo?, ¿insistes en querer pasar?\n"
+	.string "Está bien, te dejaré pasar, pero sólo si\l"
+	.string "antes me ayudas con algo. Te explico.\p"
+	.string "Le he enseñado unos movimientos de\n"
+	.string "baile a mis pokémon. Cuando ellos\l"
+	.string "salgan de detrás de esas cortinas\l"
+	.string "harán una coreografía y tú tendrás\l"
+	.string "que poner mucha atención.\p"
+	.string "Cuando acabe la coreografía, yo te haré\n"
+	.string "una pregunta y tú deberás contestar\l"
+	.string "correctamente.\p"
+	.string "Espero que hayas entendido. ¿Estás\n"
+	.string "preparado?$"
 
 SapphireGym_Text_FirstPuzzle_Decline:
-	.string "TEXTO VUELVE CUANDO QUIERAS$"
+	.string "¡Entonces no me hagas perder el tiempo\n"
+	.string "y vete a casa!$"
 
 SapphireGym_Text_ShowZigzagoon:
-	.string "TEXTO ESTE ES ZIGZA$"
+	.string "Primero que nada, presentando a\n"
+	.string "¡ZIGZAGOON!$"
 
 SapphireGym_Text_ShowPoochyena:
-	.string "TEXTO ESTE ES POOCHY$"
+	.string "Y este es ¡POOCHYENA!$"
 
 SapphireGym_Text_ShowMew:
-	.string "TEXTO ESTE ES MEW$"
+    .string "A continuación, tenemos a ¡MEW!$"
 
 SapphireGym_Text_FirstPuzzle_GuessWhoFailed:
-	.string "TEXTO QUIEN SE EQUIVOCÓ?$"
+	.string "Responde esta pregunta. ¿Cual de ellos\n"
+	.string "equivocó el paso imitando al anterior?$"
 
 SapphireGym_Text_YouFailed:
-	.string "TEXTO FALLASTE LUCHA RAND$"
+	.string "Si serás, ¡has fallado! No tienes\n"
+	.string "talento para esto, así que recibirás un\l"
+	.string "castigo.\p"
+	.string "¡Guardia! ¡Enséñele la salida!$"
 
 SapphireGym_Text_YouWon:
-	.string "TEXTO GANASTE TE JODES$"
+	.string "¡Correcto! ¡Veo que tienes muy buen ojo\n"
+	.string "para esto! ¡Deberías intentar la\l"
+	.string "coreografía!\p"
+SapphireGym_Text_FirstPuzzle_Done:
+	.string "En fin, puedes pasar, pero ten cuidado.\n"
+	.string "Las demás idols quizás también quieran\l"
+	.string "ponerte a prueba.$"
 
 SapphireGym_Text_FirstPuzzleGirlIntro:
-	.string "TEXTO FPG INTRO$"
+	.string "¡Espera un momento! ¡Lo pensé mejor y\n"
+	.string "me parece que eso ha sido demasiado\l"
+	.string "fácil! ¡En guardia!$"
 
 SapphireGym_Text_FirstPuzzleGirlLose:
-	.string "TEXTO FPG LOSE$"
+	.string "¡Al menos soy mejor que tú armando\n"
+	.string "coreografías!$"
 
 SapphireGym_Text_FirstPuzzleGirlDefeated:
-	.string "TEXTO FPG DEFEATED$"
-
-SapphireGym_Text_SecondPuzzle_Done:
-	.string "TEXTO COMPLETASTE EL 2DO PUZZLE$"
+	.string "Mm... quizás sí tienes talento musical.\n"
+	.string "Adelante.$"
 
 SapphireGym_Text_SecondPuzzle_Decline:
-	.string "TEXTO VUELVE CUANDO QUIERAS$"
+	.string "Está bien, cuando estés listo, regresa.\n"
+	.string "Aquí te espero.$"
 
 SapphireGym_Text_SecondPuzzle_Explain:
-	.string "TEXTO EXPLICA 2ND PLZUEL$"
+	.string "Ah... hola. Esto... ¿eres un fan? Oh,\n"
+	.string "discúlpame, es que estoy algo nerviosa.\l"
+	.string "Algo terrible ha sucedido y el\l"
+	.string "espectáculo ha sido suspendido. Creo\l"
+	.string "que tiene que ver con el incidente al\l"
+	.string "final del gimnasio.\p"
+	.string "...\p"
+	.string "¿Cómo? ¿Quieres saber que incidente es\n"
+	.string "ese? Lo siento, SAPPHIRE me dijo que no\l"
+	.string "hablara de esto con nadie de afuera,\l"
+	.string "pero puedes ir y preguntarle tú\l"
+	.string "directamente. Claro que antes necesito\l"
+	.string "que me ayudes con algo. Si me ayudas te\l"
+	.string "dejaré pasar, ¿vale? Te explico. Me\l"
+	.string "pidieron que ayudara con una\l"
+	.string "coreografía, pero como no se me da bien\l"
+	.string "improvisar registré algunos datos en\l"
+	.string "estos PCs para que no se me olvidaran.\l"
+	.string "Así que mientras yo reviso los PCs,\l"
+	.string "quiero que tú por favor, pongas\l"
+	.string "atención a mis pokémon. Ellos bailarán,\l"
+	.string "uno tras uno, imitando al anterior.\l"
+	.string "Cuando acaben, yo te haré una\l"
+	.string "pregunta. Si contestas correctamente,\l"
+	.string "yo te dejaré pasar. ¿De acuerdo?$"
 
 SapphireGym_Text_SecondPuzzle_GuessWhoFailed:
-	.string "TEXTO ADIVINA 2D PUZLE$"
+	.string "Pregunta, ¿cuál grito no está\n"
+	.string "registrado en ningún PC?$"
 
 SapphireGym_Text_YouWonSecondPuzzle:
-	.string "GANASTE TE JODES 2DO PUZLE$"
+	.string "Tienes razón. Muchas gracias, me has\n"
+	.string "ayudado.\p" 
+SapphireGym_Text_SecondPuzzle_Done:
+    .string "Puedes pasar si quieres, pero\n"
+	.string "ten cuidado.$"
+
+SapphireGym_Text_YouFailedSecondPuzzle:
+	.string "Ay no, fallaste. Que desgracia. ¡¿Eh?!...\n"
+	.string "¡Oye, detrás de ti! ¡Un fan furioso te\l"
+	.string "quiere atacar!$"
 
 SapphireGym_Text_ShowZigzagoon2:
-	.string "TEXTO ZIGZA$"
+    .string "Comencemos. Este es ZIGZAGOON.$"
 
 SapphireGym_Text_ShowPoochyena2:
-	.string "TEXTO pch$"
+	.string "El segundo es POOCHYENA.$"
 
 SapphireGym_Text_ShowMew2:
-	.string "TEXTO MEW$"
+	.string "A continuación, MEW.$"
 
 SapphireGym_Text_ShowKirlia:
-	.string "TEXTO KRLLL$"
+	.string "Y finalmente, KIRLIA.$"
 
 SapphireGym_Text_SecondPuzzlePowerOnPCs:
-	.string "TEXTO VOY A ENENDER LO SPC$"
+	.string "Muy bien, eso es todo. Ahora yo voy a\n"
+	.string "encender los PCs. Pon mucha atención.$"
 
 SapphireGym_Text_FirstPC:
-	.string "1 PC$"
+	.string "¡Enciendo el primer PC!$"
 
 SapphireGym_Text_SecondPC:
-	.string "2 PC$"
+	.string "¡Enciendo el segundo PC!$"
 
 SapphireGym_Text_ThirdPC:
-	.string "3 PC$"
+	.string "¡Enciendo el tercer PC!$"
 
 SapphireGym_Text_SecondPuzzleGirlIntro:
-	.string "HOLA LUCHA SPG$"
+	.string "Oye, espera. ¿Me podrías ayudar con\n"
+	.string "algo más?$"
 
 SapphireGym_Text_SecondPuzzleGirlLose:
-	.string "SPG LOSE$"
+	.string "Vale, me volviste a ayudar.$"
 
 SapphireGym_Text_SecondPuzzleGirlDefeated:
-	.string "SPG DEFEATED$"
+	.string "Este gimnasio es muy acogedor, me\n"
+	.string "siento a gusto aquí.$"
 
 SapphireGym_Text_ThirdPuzzleGirl_Sleep:
-	.string "Z Z Z Z Z SZ$"
+	.string "Zzz...$"
 
 SapphireGym_Text_ThirdPuzzleZigza:
-	.string "ZIGZA START$"
+SapphireGym_Text_ThirdPuzzleGirl_YouBeatPuzzle:
+	.string "Zigzaa...\n"
+	.string "...\p"
+	.string "...\n"
+	.string "...\p"
+	.string "Zigzaa...$"
 
 SapphireGym_Text_ThirdPuzzle_GuessWhoFailed:
-	.string "TEXTO ZIGZA ADIVINA$"
+	.string "¿Zigza... Zigzagoooon...?$"
+
+SapphireGym_Text_YouFailedThirdPuzzle:
+    .string "Zig...$"
 
 SapphireGym_Text_YouWonThirdPuzzle:
-	.string "YOU WON ZIGZA$"
-
-SapphireGym_Text_ThirdPuzzleGirl_YouBeatPuzzle:
-	.string "YOU BEAT PUZLE TEXT 3$"
+	.string "¡ZIGZAGOON!$"
 
 SapphireGym_Text_ThirdPuzzleGirlIntro:
-	.string "TPG INTRO$"
+	.string "Ajum... ¡oye! ¡Me quedé dormida!\n"
+	.string "Ay, ¡¿cómo se te ocurre hacer la prueba\l"
+	.string "sin mí?!$"
 
 SapphireGym_Text_ThirdPuzzleGirlLose:
-	.string "TPG LOSE$"
+	.string "No creas que esto es todo.$"
 
 SapphireGym_Text_ThirdPuzzleGirlDefeated:
-	.string "TPG DEFEAT$"
+SapphireGym_Text_ThirdPuzzleGirl_Awaken:
+	.string "Como el espectáculo se suspendió, ando\n"
+	.string "un poco deprimida...\p"
+	.string "...y me quedé dormida a causa de eso.\n"
+	.string "Como sea, yo creo que lo del incidente\l"
+	.string "del gimnasio son sólo patrañas.$"
+
 
 SapphireGym_Text_FourthPuzzle_Explain:
-	.string "EXPLAIN FOURTH PUZZLE$"
+	.string "Hola, bienvenido. Como te habrás dado\n"
+	.string "cuenta las tres chicas de antes te\l"
+	.string "pusieron a prueba.\p"
+	.string "Habiéndose suspendido el espectáculo\n"
+	.string "de idols, no nos queda más remedio que\l"
+	.string "armar otro espectáculo, con los\l"
+	.string "aspirantes que creen que pueden\l"
+	.string "atravesar este gimnasio.\p"
+	.string "Desgraciadamente, lo del incidente de\n"
+	.string "este gimnasio no es mentira. Algo\l"
+	.string "terrible ha sucedido al final del\l"
+	.string "gimnasio que nos tiene muy asustadas.\p"
+	.string "...\p"
+	.string "Si esa... cosa... sigue ahí, no sé que\n"
+	.string "vamos a hacer... ains...\p"
+	.string "¿Quieres verlo por ti mismo? No te\n"
+	.string "dejaré pasar a menos que me\l"
+	.string "demuestres que estás capacitado para\l"
+	.string "afrontar el desafío. Así es, aquí\l"
+	.string "comienza tu prueba.$"
 
 SapphireGym_Text_FourthPuzzle_GuessWhoFailed:
-	.string "GUESS FOURTH PUZZLE$"
+	.string "Dime, ¿cuál es el pokémon que más veces\n"
+	.string "se arrojó al vació?$"
 
 SapphireGym_Text_YouWonFourthPuzzle:
-	.string "YOU WON FOURTH PUZZLE$"
+	.string "¡Está correcto! Tus sentidos están\n"
+	.string "despiertos, así que puedes pasar.$"
+
+SapphireGym_Text_YouFailedFourthPuzzle:
+	.string "Incorrecto. Si aún quieres pasar, no\n"
+	.string "tengo opción.\p"
+	.string "¡Activar holograma!$"
 
 SapphireGym_Text_FourthPuzzleGirlIntro:
-	.string "FPG INTRO$"
+	.string "¡Esta será la verdadera prueba musical!$"
 
 SapphireGym_Text_FourthPuzzleGirlLose:
-	.string "FPG LOSE$"
+	.string "It's a Project Diva!$"
 
 SapphireGym_Text_FourthPuzzleGirl_Defeated:
-	.string "FPG DEFEATED$"
+	.string "Siguiendo derecho por aquí,\n"
+	.string "encontrarás a la líder SAPPHIRE y\l"
+	.string "también conocerás la verdad sobre\l"
+	.string "este gimnasio, pero antes, una prueba\l"
+	.string "más tendrás que superar.\p"
+	.string "Ten mucho cuidado, algo terrible está\n"
+	.string "sucediendo. Dicen que el incidente del\l"
+	.string "gimnasio está relacionado con ese tal\l"
+	.string "MICOLO al que todos adoran por estas\l"
+	.string "zonas.\p"
+	.string "Pero ese no es mi asunto. Nosotras las\n"
+	.string "idols estamos aquí sólo porque fuimos\l"
+	.string "invocadas por la líder SAPPHIRE, el\l"
+	.string "resto no nos incumbe.$"
+
