@@ -466,8 +466,8 @@ static const struct MenuAction sMenuActions_Gender[] = {
 // gMalePresetNames and gFemalePresetNames must have the same number of elements
 static const u8 *const gMalePresetNames[] = {
     gText_ExpandedPlaceholder_Brendan,
-    gText_ExpandedPlaceholder_Brendan,
-    gText_ExpandedPlaceholder_Brendan
+    gText_NameMideleUppercase,
+    gText_NameMideleUppercase
 };
 
 static const u8 *const gFemalePresetNames[] = {

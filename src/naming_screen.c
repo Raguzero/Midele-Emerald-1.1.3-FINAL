@@ -141,7 +141,8 @@ static const u8 gUnknown_0858BEA0[] = { 8, 8, 6 };
 static const u8 gUnknown_0858BEA3[] = { 0, 12, 24, 56, 68, 80, 92, 123, 0, 12, 24, 56, 68, 80, 92, 123, 0, 22, 44, 66, 88, 110, 0, 0 };
 
 static const u8 *const gMalePresetNames[] = {
-    gText_ExpandedPlaceholder_Brendan
+    gText_ExpandedPlaceholder_Brendan,
+    gText_NameMideleUppercase
 };
 
 static const u8 *const gFemalePresetNames[] = {
