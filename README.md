@@ -12,6 +12,10 @@ Para instalar el repositorio, ver [INSTALL.md](INSTALL.md).
 - Muchas mecánicas y movimientos adaptadas a últimas generaciones.
 - Nuevas zonas y entrenadores.
 
+## Versiones
+- Para ver el registro de versiones, ver [CHANGELOG.md](CHANGELOG.md)
+- Para ver cómo funciona el número de versión, ver [VERSIONING.md](VERSIONING.md)
+
 ## Colaboradores principales
 
 - [Ragu](https://github.com/Raguzero)
