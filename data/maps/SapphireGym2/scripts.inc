@@ -185,7 +185,7 @@ SapphireGym2_Text_ExplainBadgeTakeThis:
 	.string "una criatura para añadir a la colección\l"
 	.string "de MICOLO, quiero decir, la “cara\l"
 	.string "bonita”, el cascarón del que sería el\l"
-	.string "Pokémon insignea de MICOLO. Un\l"
+	.string "Pokémon insignia de MICOLO. Un\l"
 	.string "científico llamado PHENT era el\l"
 	.string "encargado de aquel bizarro proyecto y\l"
 	.string "de darle vida a ese Pokémon al cual\l"

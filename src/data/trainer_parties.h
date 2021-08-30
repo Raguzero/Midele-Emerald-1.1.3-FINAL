@@ -26169,16 +26169,65 @@ static const struct TrainerMonCustomMidele sParty_Dunk2[] = {
   }
 };
 static const struct TrainerMonCustomMidele sParty_Sapph[] = {
-// FALTAN EQUIPO, FRASES Y LOCALIZACIÓN
   {
     .iv = 31,
-    .lvl = 78,
-    .species = SPECIES_G_BUTTERFREE,
-	.ability = 0,
-    .heldItem = ITEM_MENTAL_HERB,
+    .lvl = 80,
+    .species = SPECIES_ALOLAN_RAICHU,
+    .ability = 0, // SWIFT SWIM
+    .heldItem = ITEM_FOCUS_SASH,
     .nature = NATURE_TIMID,
-    .evs = {144, 0, 0, 144, 0, 0},
-    .moves = {MOVE_QUIVER_DANCE, MOVE_BATON_PASS, MOVE_PSYCHIC, MOVE_SLEEP_POWDER}
+    .evs = {0, 0, 0, 252, 6, 252},
+    .moves = {MOVE_THUNDER, MOVE_SURF, MOVE_PSYCHIC, MOVE_RAIN_DANCE}
+  },
+   {
+    .iv = 31,
+    .lvl = 79,
+    .species = SPECIES_LANTURN,
+    .ability = 0, // VOLT ABSORB
+    .heldItem = ITEM_LEFTOVERS,
+    .nature = NATURE_MODEST,
+    .evs = {252, 0, 0, 252, 6, 0},
+    .moves = {MOVE_THUNDER, MOVE_SURF, MOVE_ICE_BEAM, MOVE_CONFUSE_RAY}
+  },
+    {
+    .iv = 31,
+    .lvl = 80,
+    .species = SPECIES_SYLVEON,
+    .ability = 0, // CUTE CHARM
+    .heldItem = ITEM_SITRUS_BERRY,
+    .nature = NATURE_MODEST,
+    .evs = {252, 0, 0, 252, 0, 0},
+    .moves = {MOVE_ATTRACT, MOVE_MOONBLAST, MOVE_WEATHER_BALL, MOVE_RAIN_DANCE}
+  },
+     {
+    .iv = 31,
+    .lvl = 78,
+    .species = SPECIES_PRIMARINA,
+    .ability = 1, // CUTE CHARM
+    .heldItem = ITEM_LEFTOVERS,
+    .nature = NATURE_MODEST,
+    .evs = {252, 0, 0, 252, 6, 0},
+    .moves = {MOVE_MOONBLAST, MOVE_SURF, MOVE_REST, MOVE_SLEEP_TALK}
+  },
+      {
+    .iv = 31,
+    .lvl = 78,
+    .species = SPECIES_KINGDRA,
+    .ability = 0, // SWIFT SWIM
+    .heldItem = ITEM_MYSTIC_WATER,
+    .nature = NATURE_MODEST,
+    .evs = {6, 0, 0, 252, 0, 252},
+    .moves = {MOVE_ICE_BEAM, MOVE_SURF, MOVE_HYDRO_PUMP, MOVE_RAIN_DANCE}
+  },
+       {
+    .iv = 31,
+    .lvl = 79,
+    .species = SPECIES_CLEFABLE,
+    .ability = 0, // CUTE CHARM
+    .heldItem = ITEM_LEFTOVERS,
+    .nature = NATURE_BOLD,
+    .evs = {252, 0, 252, 6, 0, 0},
+    .moves = {MOVE_CALM_MIND, MOVE_MOONBLAST, MOVE_SOFT_BOILED, MOVE_THUNDER}
   }
 };
 
