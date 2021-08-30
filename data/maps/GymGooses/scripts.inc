@@ -1080,7 +1080,7 @@ GymGoosesCombate_Text:
 	
 GymGoosesStatus_Text:
 	.string "Casilla Status:\n"
-	.string "¡Probablemente tus POKÉMON sufrirán\l"
+	.string "¡Probablemente tus POKéMON sufrirán\l"
 	.string "un estado pernicioso!$"
 	
 GymGoosesStatus_Poison:
@@ -1122,8 +1122,8 @@ Quiz4_Text:
 	.string "una pobre papelera?$"
 	
 Quiz5_Text:
-	.string "¿Quién dijo la frase:\n"
-	.string "Maestro Arena, eres un mierdas?$"
+	.string "Quién dijo la siguiente frase:\n"
+	.string "Maestro Arena, eres un mierdas$"
 
 Quiz6_Text:
 	.string "¿Quién se considera el mayor\n" 
@@ -1153,7 +1153,7 @@ Quiz12_Text:
 	.string "No Person?$"
 	
 Quiz13_Text:
-	.string "¿Cuál es el POKÉMON capaz de\n" 
+	.string "¿Cuál es el POKéMON capaz de\n" 
 	.string "usar el Trueno de la Oscuridad\l" 
 	.string "(DARK THUNDER)?$"
 
@@ -1175,7 +1175,7 @@ Quiz16_Text_Correcta:
 	.string "fué MICHOH!$"
 	
 Quiz17_Text:
-	.string "¿felipex88 se cortó la lengua?\n"
+	.string "¿FELIPEX88 se cortó la lengua?\n"
 	.string "por gusto? O eso dijo.$"
 	
 Quiz18_Text:
@@ -1199,7 +1199,7 @@ GymGooses_Text_GymGuideAdvice:
 
 	.string "La pruebas de este GYM son:\n"
 	.string "Completar los 3 TABLEROS de DADOS\l"
-	.string "Derrotar al POKÉMON TOTEM\l"
+	.string "Derrotar al POKéMON TOTEM\l"
 	.string "Derrotar al LIDER de GYM\p"
 	
 	.string "Si consigues superar las pruebas,\n"
@@ -1236,7 +1236,7 @@ GymGooses_Text_GymGuideAdvice:
 	.string "Casilla Morada: Tendrás que responder de\n"
 	.string "forma correcta a una pregunta.\p"
 
-	.string "Casilla Musical: Tus pokémon pueden\n"
+	.string "Casilla Musical: Tus POKéMON pueden\n"
 	.string "caer en un estado alterado aleatorio.\p"	
 
 	.string "En cuanto al LIDER GOOSES, solo te puedo\n"
@@ -1347,10 +1347,10 @@ GymGooses_Text_GoosesPostBattle:
 	.string "y no te traiciones. Tu futuro brillará,\l"
 	.string "lo garantizo con mi título de bruja.\p"
 	.string "Ahora debes ir a por DARKIZARD y el\n"
-	.string "viejo rey Micolo. Ya solo son una sombra\l"
+	.string "viejo rey MICOLO. Ya solo son una sombra\l"
 	.string "enajenada de sus antiguos seres...\p"
 	.string "Véncelos y yo me ocuparé del resto.\p"
-	.string "¿Que si no le sirvo a Micolo? Bueno,\n"
+	.string "¿Que si no le sirvo a MICOLO? Bueno,\n"
 	.string "antaño le serví, ahora sigo mi propio\l"
 	.string "camino para evitar una catástrofe...\p"
 	.string "Si siguen así desataran el poder de una\n"
@@ -1387,7 +1387,7 @@ GymGooses_Text_ExplainBadgeTakeThis:
 	.string "el último GYM. Ese necio ha permitido\l"
 	.string "que el HATE sobre DPP y ALOLA le\l"
 	.string "consumieran y desbordarán. Debes\l"
-	.string "pararle y detener sus planes, Lylia no\l"
+	.string "pararle y detener sus planes, LYLIA no\l"
 	.string "hizo nada malo.\p"
 	.string "Te deseo la mejor de las suertes... ¡La\n"
 	.string "necesitarás!$"

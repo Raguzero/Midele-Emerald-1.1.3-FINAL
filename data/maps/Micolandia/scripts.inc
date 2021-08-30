@@ -209,27 +209,27 @@ Micolandia_Text_TopoVigilante:
 	.string "de seguridad.\p"
 	
 	.string "Este edificio que ves delante tiene\n"
-	.string "muchas instalaciones. El Micocasino,\l"
+	.string "muchas instalaciones. El MICOCASINO,\l"
 	.string "los laboratorios y, por supuesto, la\l"
-	.string "impresionante Micoliga.\p"
+	.string "impresionante MICOLIGA.\p"
 	
 	.string "Pero este lugar es exclusivo.\p"
 	
 	.string "Solo te puedo dejar pasar si has\n"
-	.string "conseguido la Medalla de los 4 líderes\l"
-	.string "de gym de MICOLANDIA.$"
+	.string "conseguido la medalla de los cuatro\l"
+	.string "líderes de gimnasio de MICOLANDIA.$"
 	
 Micolandia_Text_TopoVigilante2:
 	.string "Hola, soy TOPO, el vigilante\n"
 	.string "de seguridad.\p"
 	
 	.string "Este edificio que ves delante tiene\n"
-	.string "muchas instalaciones. El Micocasino,\l"
+	.string "muchas instalaciones. El MICOCASINO,\l"
 	.string "los laboratorios y, por supuesto, la\l" 
-	.string "impresionante Micoliga.\p"
+	.string "impresionante MICOLIGA.\p"
 	
 	.string "Ya me he enterado que has vencido a los\n"
-	.string "líderes gym de MICOLANDIA.\p"
+	.string "líderes de gimnasio de MICOLANDIA.\p"
 	
 	.string "Te has ganado el derecho a dejarte pasar\n"
 	.string "por esta puerta.\p"
@@ -258,24 +258,26 @@ Micolandia_Text_TopoPostCombate:
 Micolandia_Text_Marihuana:
 	.string "¿Ves esas plantas de ahí?\p"
 	.string "Cualquiera diría que hay\n" 
-	.string "Pokémon salvajes.\p"
+	.string "POKéMON salvajes.\p"
 
 	.string "Pero si fumas de eso serás tú quien\n"
 	.string	"acabará bien salvaje. ¡jeje!$"
 
 Micolandia_Text_BienvenidaSign:
-	.string "¡Bienvenido a MICOLANDIA!\n"
-	.string "Si estás aquí es que fuiste elegido\p"
-	.string "para afrontar el desafio de la\n"
-	.string "Liga Pokemon Midelar.\p"
+	.string "¡Bienvenido a MICOLANDIA!\p"
+	.string "Si estás aquí es que fuiste elegido\n"
+	.string "para afrontar el desafio de la\l"
+	.string "LIGA POKéMON MIDELAR, o para\l"
+	.string "abreviar: MICOLIGA.\p"
 	
 	.string "¡Deberás superar la prueba\n"
-	.string "de los cuatro líderes de gimnasio\p"
-	.string "para participar en la nueva y\n"
-	.string "extraordinario Liga Pokemon Midelar!$"
+	.string "de los cuatro líderes de gimnasio\l"
+	.string "para participar en la nueva y\l"
+	.string "extraordinaria LIGA POKéMON MIDELAR!$"
 	
 Micolandia_Text_LigaSign:
-	.string "LIGA POKéMON MIDELAR$"
+	.string "LIGA POKéMON MIDELAR: Donde solo\n"
+	.string "entra la crème de la créme.$"
 	
 Micolandia_GymNoroesteSign:
 	.string "POKéMON GYM Nº1\n"
@@ -307,23 +309,23 @@ Micolandia_Text_ForestSign:
 	.string "Entra bajo tu propio riesgo.$"
 	
 Micolandia_Text_Sign1:
-	.string "{UP_ARROW}: PRIMER GYM,\n"
-	.string "liderado por SANTY.\p"
+	.string "{UP_ARROW}: PRIMER GIMNASIO,\n"
+	.string "liderado por SANTYGRASS.\p"
 
-	.string "{LEFT_ARROW}: SEGUNDO GYM,\n"
+	.string "{LEFT_ARROW}: SEGUNDO GIMNASIO,\n"
 	.string "liderado por SAPPHIRE.$"
 	
 Micolandia_Text_Sign2:
-	.string "{UP_ARROW}: TERCER GYM,\n"
+	.string "{UP_ARROW}: TERCER GIMNASIO,\n"
 	.string "liderado por GOOSES.\p"
 
-	.string "{RIGHT_ARROW}: CUARTO GYM,\n"
+	.string "{RIGHT_ARROW}: CUARTO GIMNASIO,\n"
 	.string "liderado por DARKIZARD.$"
 	
 Micolandia_Text_Sign3:
 	.string "{LEFT_ARROW}: MONOCYCLE ROAD.\p"
 
-	.string "{DOWN_ARROW}: SEGUNDO GYM,\n"
+	.string "{DOWN_ARROW}: SEGUNDO GIMNASIO,\n"
 	.string "liderado por SAPPHIRE.$"
 	
 Micolandia_Text_GymSantySign:

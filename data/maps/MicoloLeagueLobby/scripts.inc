@@ -69,7 +69,6 @@ MicoloLeagueLobby_EventScript_ResetTrainerYES:
 	cleartrainerflag TRAINER_FORBIDDENFOREST_EZECUTER
 	cleartrainerflag TRAINER_ISMAPKM_1
 	cleartrainerflag TRAINER_GOLDIE
-	//cleartrainerflag TRAINER_VLADILAND ??
 	cleartrainerflag TRAINER_KEFKY
 	cleartrainerflag TRAINER_ELPRINCIPE
 	cleartrainerflag TRAINER_JZOMBIE2
@@ -347,26 +346,27 @@ MicoloLeagueLobby_EventScript_GuardCheck_Text_0:
 	.string "hora de que demuestres que eres el\l"
 	.string "mejor entrenador de MICOLANDIA, y para\l"
 	.string "ello tendrás que vencer a la ELITE FOUR\l"
-	.string "entera de la MICOLIGA, que lo\l"
-	.string "conforman los 5 entrenadores más\l"
-	.string "fuertes que jamás hayas visto.\p"
+	.string "entera de la MICOLIGA y a la persona\l"
+	.string "que sostiene el título de CAMPEÓN.\l"
+	.string "Ellos son los entrenadores más fuertes\l" 
+	.string "que jamás hayas visto.\p"
 	.string "Ten en cuenta que una vez que entres,\n"
-	.string "no podrás salir hasta proclamarte\l"
-	.string "CAMPEÓN... o perder.\p"
+	.string "no podrás salir hasta completar la\l"
+	.string "MICOLIGA... o perder.\p"
 	.string "Si estás preparado, entra por esa\n"
 	.string "puerta, pero si no eres mas que otro\l"
 	.string "cobarde, llora, y vuelve a casa con tu\l"
 	.string "mamá.$"
 
 MicoloLeagueLobby_Text_1:
-	.string "¡La Liga Pokémon Oficial de HOENN es\n" 
+	.string "¡La LIGA POKéMON Oficial de HOENN es\n" 
 	.string "para casuals!\p"
 
 	.string "La MICOLIGA es mejor porque ofrece\n" 
 	.string "un reto mayor.\p"
 	
 	.string "Aún no pude vencer a LAVENDER, pero\n"
-	.string "algún día lo conseguiré.$"
+	.string "algún día lo conseguiré. ¡Ya verás!$"
 	
 MicoloLeagueLobby_Text_2:
 	.string "¿POR QUÉ QUITARON A STEVEN DE CAMPEÓN\n" 
@@ -380,36 +380,36 @@ MicoloLeagueLobby_Text_3:
 	
 	.string "Es decir, el último oponente al que\n"
 	.string "necesitarás vencer para que puedas\l"
-	.string "coronarte como el nuevo Campeón de\l"
-	.string "de la MICOLIGA.\p"
+	.string "completar la MICOLIGA.\p"
 	
 	.string "Ya te lo imaginas, ¿verdad?$"
 	
 MicoloLeagueLobby_Text_4:
 	.string "Te esperan cinco enfrentamientos\n"
-	.string "consecutivos para erigirte como\l" 
-	.string "nuevo Campeón de la MICOLIGA.\p"
+	.string "consecutivos para poder completar\l" 
+	.string "la MICOLIGA.\p"
 
 	.string "Te aconsejo que compres todos los\n"
 	.string "objetos curativos que puedas, y que\l"
 	.string "refuerces al máximo el potencial de\l"
-	.string "tus Pokémon con ayuda de todos los\l"
+	.string "tus POKéMON con ayuda de todos los\l"
 	.string "objetos que encontraste, y de todas\l"
 	.string "las personas que conociste en tu\l"
 	.string "aventura.\p"
 	
-	.string "¡Esta Liga Pokémon es dura de verdad!\p"
+	.string "¡Esta LIGA POKéMON es dura de verdad!\p"
 
-	.string "Aún nadie ha podido vencer a los\n"
-	.string "cinco entrenadores del ALTO MANDO.$"
+	.string "Aún nadie ha podido superar los cinco\n"
+	.string "enfrentamientos seguidos.$"
 	
 MicoloLeagueLobby_Text_ResetTrainerFlagsMachine:
-	.string "¡Hola, soy el ReseT.Ador!\p"
+	.string "¡Hola, soy el RESET.ADOR!\p"
 	
 	.string "Esta máquina que ves aquí, sirve para\n"
 	.string "resetear todos los encuentros con\l"
 	.string "entrenadores especiales de MIDELE\l" 
-	.string "que has tenido a lo largo del juego.\p"
+	.string "EMERALD que has tenido a lo largo\l"
+	.string "del juego.\p"
 
 	.string "Si quieres volver a luchar contra todos\n"
 	.string "los entrenadores especiales, yo puedo\l"
@@ -425,7 +425,7 @@ MicoloLeagueLobby_Text_ResetTrainerFlagsMachine:
 MicoloLeagueLobby_Text_ResetTrainerFlagsMachinePregunta:
 	.string "¿Quieres usar la máquina para resetear\n"
 	.string "los encuentros de los entrenadores\l"
-	.string "especiales de MIDELE?$"
+	.string "especiales de MIDELE EMERALD?$"
 	
 MicoloLeagueLobby_Text_ResetTrainerFlagsMachineNO:
 	.string "Así que no quieres...$"

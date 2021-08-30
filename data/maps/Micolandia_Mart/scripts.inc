@@ -121,12 +121,12 @@ Micolandia_EV_Mart:
 	.string "¡Bienvenido al EV CHANGER!\p"
 
 	.string "Aquí podrás cambiar a tu gusto los\n"
-	.string "EVs de tus POKÉMON.\p"
+	.string "EVs de tus POKéMON.\p"
 	
 	.string "IT'S FREE!\p"
 
 	.string "Así que, ¿Cuales EVS quieres cambiar\n"
-	.string "a cual POKÉMON?$"
+	.string "a cual POKéMON?$"
 	
 Micolandia_EV_Mart_Bye:
 	.string "¡Hasta pronto!$"
@@ -135,7 +135,7 @@ Micolandia_Mart_Text_Boy:
 	.string "¿Has usado ya el EV CHANGER?\p"
 	
 	.string "¡Puedes redistribuir los EVs a tus\n"
-	.string "POKÉMON como quieras!\l"
+	.string "POKéMON como quieras!\l"
 	.string "¡Es super útil!\p"
 
 	.string "Se acabó el comprar vitaminas y plantar\n"

@@ -475,6 +475,6 @@ SlateportCity_OceanicMuseum_1F_Text_PacochefMusicPlayer:
 	.string "Esto es uh, un reproductor de música. Ya\n"
 	.string "sabes, para los TEMASOS. Con unas\l"
 	.string "tarjetitas tan bonitas como las que\l"
-	.string "usa Albert Rivera, podrás conseguir\l"
+	.string "usa ALBERT RIVERA, podrás conseguir\l"
 	.string "más canciones para escuchar. Ahora\l"
 	.string "sí... Chau.$"

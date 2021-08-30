@@ -643,9 +643,9 @@ MicoloHideout_EventScript_Recepcionista_Text_0:
     .string "Te doy la bienvenida al CASINO de\n"
 	.string "MICOLANDIA, {PLAYER}. Disfruta de tu\l"
 	.string "merecida recompensa tras haber\l"
-	.string "derrotado a los 4 líderes de gimnasio\l"
-	.string "de MICOLANDIA y haber llegado al final\l"
-	.string "del viaje.$"
+	.string "derrotado a los cuatro líderes de\l"
+	.string "gimnasio de MICOLANDIA y haber llegado\l"
+	.string "al final de tu viaje.$"
 
 MicoloHideout_EventScript_ViejoFichas::
 	lock
@@ -657,7 +657,7 @@ MicoloHideout_EventScript_ViejoFichas::
 MicoloHideout_EventScript_ViejoFichas_Text_0:
 	.string "Jojojo... ¿me parece a mí o las fichas de\n"
 	.string "este CASINO son más baratas que las\l"
-	.string "del CASINO de MAUVILLE?\p"
+	.string "del CASINO de MAUVILLE CITY?\p"
 	.string "Por cierto, ¿sigue el loco de los gachas\n"
 	.string "por ahí? Antes se pasaba por aquí,\l"
 	.string "pero MICOLO le metió un buen 6-0 y lo\l"
@@ -733,47 +733,47 @@ MicoloHideout_EventScript_MagnoAquiles::
 
 
 MicoloHideout_EventScript_MagnoAquiles_Text_0:
-	.string "MAGNO: ¡Apuesto todo al AZUL!$"
+	.string "MAXIE: ¡Apuesto todo al AZUL!$"
 
 MicoloHideout_EventScript_MagnoAquiles_Text_1:
-	.string "AQUILES: ¡Puesto yo apuesto todo al\n"
+	.string "ARCHIE: ¡Puesto yo apuesto todo al\n"
 	.string "ROJO!\p"
 	.string "...$"
 
 MicoloHideout_EventScript_MagnoAquiles_Text_2:
-	.string "MAGNO: Oye... creo que nos hemos\n"
+	.string "MAXIE: Oye... creo que nos hemos\n"
 	.string "confundido otra vez de color...$"
 
 MicoloHideout_EventScript_MagnoAquiles_Text_3:
-	.string "MAGNO: ¡Eh! ¡Tú eres aquel chico que\n"
+	.string "MAXIE: ¡Eh! ¡Tú eres aquel chico que\n"
 	.string "detuvo nuestros planes! Si no hubiese\l"
 	.string "sido por ti y por ese MICOLO...$"
 
 MicoloHideout_EventScript_MagnoAquiles_Text_4:
-	.string "AQUILES: Creo que no deberías hablar\n"
+	.string "ARCHIE: Creo que no deberías hablar\n"
 	.string "así de MICOLO. Al fin y al cabo, él es\l"
 	.string "quien nos ha dejado refugiarnos aquí\l"
 	.string "en MICOLANDIA con toda clase de lujos.$"
 
 MicoloHideout_EventScript_MagnoAquiles_Text_5:
-	.string "MAGNO: Ya... pero, no sé... Algo falla...\n"
+	.string "MAXIE: Ya... pero, no sé... Algo falla...\n"
 	.string "Mmm...$"
 
 MicoloHideout_EventScript_MagnoAquiles_Text_6:
-	.string "AQUILES: ¿A qué te refieres?$"
+	.string "ARCHIE: ¿A qué te refieres?$"
 
 MicoloHideout_EventScript_MagnoAquiles_Text_7:
-	.string "MAGNO: Diría que MICOLO nos ha estado\n"
+	.string "MAXIE: Diría que MICOLO nos ha estado\n"
 	.string "utilizando durante todo este tiempo.$"
 
 MicoloHideout_EventScript_MagnoAquiles_Text_8:
-	.string "AQUILES: ¡Ja! ¿Utilizarnos? ¿A\n"
+	.string "ARCHIE: ¡Ja! ¿Utilizarnos? ¿A\n"
 	.string "nosotros, las mentes más capaces de\l"
 	.string "todo HOENN? ¡Ni en sueños!\p"
 	.string "¡Apuesto todo al ROJO!$"
 
 MicoloHideout_EventScript_MagnoAquiles_Text_9:
-	.string "MAGNO: ¡Y que lo digas! ¡Apuesto todo al\n"
+	.string "MAXIE: ¡Y que lo digas! ¡Apuesto todo al\n"
 	.string "AZUL!\p"
 	.string "Oh, espera... otra vez no...$"
 
@@ -807,7 +807,7 @@ MicoloHideout_EventScript_NerdMaquinas_Text_1:
 
 
 MicoloHideout_GameCorner_Text_ThisIsMicoloHideoutGameCorner: @ 8210460
-	.string "Bienvenido al CASINO de MICOLANDIA.$"
+	.string "Bienvenido al MICOCASINO.$"
 
 MicoloHideout_GameCorner_Text_NeedCoinCaseForCoins: @ 821047E
 	.string "¿Quieres FICHAS?\n"
@@ -910,7 +910,10 @@ MicoloHideoutTickets_Text_NotEnoughMoney:
 	.string "timar?$"
 	
 MicoloHideout_SiVendido_Text:
-	.string "¡¡Esto es un trato dabuten!!$"
+	.string "¡¡Esto es un trato dabuten!!\p"
+
+	.string "¡Ha sido la leche birlar estos\n"
+	.string "tickets al dueño de todo esto!$"
 
 MicoloHideout_Sign_LaPapelera_Text_BuscarPapelera:
 	.string "Examinas lo que habías visto en la\n"

@@ -1752,7 +1752,7 @@ SapphireGym_Text_FirstPuzzle_Explain:
 	.string "Está bien, te dejaré pasar, pero sólo si\l"
 	.string "antes me ayudas con algo. Te explico.\p"
 	.string "Le he enseñado unos movimientos de\n"
-	.string "baile a mis pokémon. Cuando ellos\l"
+	.string "baile a mis POKéMON. Cuando ellos\l"
 	.string "salgan de detrás de esas cortinas\l"
 	.string "harán una coreografía y tú tendrás\l"
 	.string "que poner mucha atención.\p"
@@ -1833,7 +1833,7 @@ SapphireGym_Text_SecondPuzzle_Explain:
 	.string "estos PCs para que no se me olvidaran.\l"
 	.string "Así que mientras yo reviso los PCs,\l"
 	.string "quiero que tú por favor, pongas\l"
-	.string "atención a mis pokémon. Ellos bailarán,\l"
+	.string "atención a mis POKéMON. Ellos bailarán,\l"
 	.string "uno tras uno, imitando al anterior.\l"
 	.string "Cuando acaben, yo te haré una\l"
 	.string "pregunta. Si contestas correctamente,\l"
@@ -1951,7 +1951,7 @@ SapphireGym_Text_FourthPuzzle_Explain:
 	.string "comienza tu prueba.$"
 
 SapphireGym_Text_FourthPuzzle_GuessWhoFailed:
-	.string "Dime, ¿cuál es el pokémon que más veces\n"
+	.string "Dime, ¿cuál es el POKéMON que más veces\n"
 	.string "se arrojó al vació?$"
 
 SapphireGym_Text_YouWonFourthPuzzle:

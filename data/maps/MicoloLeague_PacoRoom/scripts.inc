@@ -116,14 +116,14 @@ MicoloLeague_PacoRoom_Paco_Text_0:
 	.string "contigo, not gonna lie. Sin duda eres\l"
 	.string "capaz de partirle la cara a ese\l"
 	.string "desgraciado y sus monociclos.\p"
-	.string "Gracias por haber viajado por Hoenn y\n"
+	.string "Gracias por haber viajado por HOENN y\n"
 	.string "enfrentarte a Midele.\p"
 	.string "Ha sido un largo camino, hasta te puse\n"
 	.string "unos alicientes caóticos, por si no\l"
 	.string "fuera suficiente con las idas de olla\l"
 	.string "que hay por aquí. Nunca lo olvides, un\l"
 	.string "porro al día alegra la vida.\p"
-	.string "Adelante: Micolo te espera.$"
+	.string "Adelante: MICOLO te espera.$"
 
 MicoloLeague_PacoRoom_Paco_Text_1:
 	.string "¡Hostia neno! Cuánto tiempo, ¿eh?\p"
@@ -132,12 +132,12 @@ MicoloLeague_PacoRoom_Paco_Text_1:
 	.string "vimos? …da igual, putos petas. Te\l"
 	.string "invitaría a uno, pero está claro que\l"
 	.string "este no es el momento.\p"
-	.string "Aish, qué lejos has llegado. Victorioso\n"
-	.string "ante los Tótem, campeón de Hoenn, y a\l"
-	.string "un paso de Micolo. Debería dejarte\l"
+	.string "Aish, qué lejos has llegado. Implacable\n"
+	.string "ante los TOTEM, la liga de HOENN, y a\l"
+	.string "un paso de MICOLO. Debería dejarte\l"
 	.string "pasar sin más para que te enfrentes a\l"
 	.string "él.\p"
-	.string "Naaaah no mames wey, esto es POKÉMON.\p"
+	.string "Naaaah no mames wey, esto es POKéMON.\p"
 	.string "He de admitir que no quiero ser un\n"
 	.string "obstáculo para ti, pero neno, neeeeeno,\l"
 	.string "debes saber una cosa. Tal vez sean las\l"
@@ -163,7 +163,7 @@ MicoloLeague_PacoRoom_Paco_Text_1:
 	.string "Todo vale. Disfrutemos, y prepárate\l"
 	.string "para descojonarte. Quiero que lleves\l"
 	.string "tu mejor sonrisa cuando le rajes la\l"
-	.string "garganta a Micolo.\p"
+	.string "garganta a MICOLO.\p"
 	.string "¡LET'S FUCKING GO!$"
 
 MicoloLeague_PacoRoom_Paco_Text_2:
@@ -171,8 +171,9 @@ MicoloLeague_PacoRoom_Paco_Text_2:
 	.string "guay desde que apalicé a la papelera.$"
 
 MicoloLeague_PacoRoom_Piba1_Text_0:
-	.string "Bienvenido a la estancia de Paquito el\n"
-	.string "chocolatero. Fumar está permitido.\l"
+	.string "Te doy la bienvenida a la estancia\n"
+	.string "de Paquito el chocolatero.\l"
+	.string "Fumar está permitido.\l"
 	.string "Tirarse por los pozos no, que limpiar\l"
 	.string "cadáveres es asqueroso.$"
 
@@ -184,9 +185,9 @@ MicoloLeague_PacoRoom_Piba2_Text_0:
 	.string "Fuera, bicho, tira pa'lante.$"
 
 MicoloLeague_PacoRoom_HombreDeAsul_Text_0:
-	.string "¿Oh? Un amigo de Paco, ya veo. Soy uno\n"
+	.string "¿Oh? Un amigo de PACO, ya veo. Soy uno\n"
 	.string "de los alter-egos de ese autista,\l"
-	.string "Francesco. Me usa para hacer el payaso\l"
+	.string "FRANCESCO. Me usa para hacer el payaso\l"
 	.string "en roles. Podría apuñalarte aquí y\l"
 	.string "ahora, pero creo que está esperando\l"
 	.string "por ti. Espero que me deje tus restos.$"
@@ -200,13 +201,13 @@ MicoloLeague_PacoRoom_Candela_Text_0:
 
 MicoloLeague_PacoRoom_CameraMan_Text_0:
 	.string "¡AAAAAH Y TÚ QUIÉN ERES!\p"
-	.string "¿...vienes a derrotar a Micolo? ¿A\n"
+	.string "¿...vienes a derrotar a MICOLO? ¿A\n"
 	.string "SALVARNOS? Mis plegarias han sido\l"
 	.string "escuchadas :D\p"
-	.string "Soy Fran, el real, no ese bicho chungo\n"
-	.string "que se hace llamar Pacochef. Tengo un\l"
+	.string "Soy FRAN, el real, no ese bicho chungo\n"
+	.string "que se hace llamar PACOCHEF. Tengo un\l"
 	.string "trabajo de mierda como cámara, esos\l"
-	.string "pelotudos de Shiyo y Nacho me han\l"
+	.string "pelotudos de RAGU y NACHO me han\l"
 	.string "pedido que grabe todo para que se\l"
 	.string "pueda ver en el emulador. Grrrr, se van\l"
 	.string "a enterar cuando salga de aquí.\p"
@@ -214,11 +215,11 @@ MicoloLeague_PacoRoom_CameraMan_Text_0:
 	.string "¡VUELVE AQUÍ, CABRÓN!$"
 
 MicoloLeague_PacoRoom_SnorlaxDoll_Text_0:
-	.string "Es un Snorlax dormido... está abrazando\n"
+	.string "Es un SNORLAX dormido... está abrazando\n"
 	.string "un cristal Midelar.$"
 
 MicoloLeague_PacoRoom_CyndaDoll_Text_0:
-	.string "Es un muñeco de Cyndaquil. Hay una nota\n"
+	.string "Es un muñeco de CYNDAQUIL. Hay una nota\n"
 	.string "al lado...\p"
 	.string "“Nunca olvides de dónde vienes y cómo\n"
 	.string "empezó todo.”$"

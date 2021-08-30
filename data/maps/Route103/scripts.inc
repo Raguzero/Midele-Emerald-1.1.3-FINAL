@@ -625,47 +625,47 @@ Route103_Text_RouteSign: @ 81ECC1A
 	.string "{DOWN_ARROW} OLDALE TOWN$"
 	
 Route103_Text_AlteringCaveChanger:
-	.string "¿Cambiar Altering Cave?$"
+	.string "¿Cambiar ALTERING CAVE?$"
 
 Route103_Text_AlteringCaveChoose:
-	.string "Elige Altering Cave.$"
+	.string "Elige ALTERING CAVE.$"
 	
 Route103_Text_AlteringCaveNoChange:
 	.string "Vuelve cuando quieras.$"
 	
 Route103_Text_AlteringCaveGen1:
-	.string "Altering Cave ahora es Gen 1.$"
+	.string "ALTERING CAVE ahora es Gen 1.$"
 
 Route103_Text_AlteringCaveGen2:
-	.string "Altering Cave ahora es Gen 2.$"
+	.string "ALTERING CAVE ahora es Gen 2.$"
 	
 Route103_Text_AlteringCaveGen3:
-	.string "Altering Cave ahora es Gen 3.$"
+	.string "ALTERING CAVE ahora es Gen 3.$"
 	
 Route103_Text_AlteringCaveGen4:
-	.string "Altering Cave ahora es Gen 4.$"
+	.string "ALTERING CAVE ahora es Gen 4.$"
 	
 Route103_Text_AlteringCaveGen5:
-	.string "Altering Cave ahora es Gen 5.$"
+	.string "ALTERING CAVE ahora es Gen 5.$"
 	
 Route103_Text_AlteringCaveGen6:
-	.string "Altering Cave ahora es Gen 6.$"
+	.string "ALTERING CAVE ahora es Gen 6.$"
 	
 Route103_Text_AlteringCaveGen7:
-	.string "Altering Cave ahora es Gen 7.$"
+	.string "ALTERING CAVE ahora es Gen 7.$"
 	
 Route103_Text_AlteringCaveGen8:
-	.string "Altering Cave ahora es Gen 8.$"
+	.string "ALTERING CAVE ahora es Gen 8.$"
 	
 Route103_Text_AlteringCaveNPC:
 	.string "¿Conoces esta cueva?\p"
-	.string "La llaman Altering Cave.\p"
+	.string "La llaman ALTERING CAVE.\p"
 
 	.string "En ella salen POKéMON especiales\n"
 	.string "que van cambiando cada día.\p"
 
 	.string "Eso puede ocasionar un problema\n"
-	.string "para atrapar a los POKÉMON que buscas.\p"
+	.string "para atrapar a los POKéMON que buscas.\p"
 	
 	.string "¡Pero no tienes de que preocuparte!\p"
 	
@@ -712,11 +712,11 @@ Route103_Text_Avader_Text_TakeUnown:
 
 	.string "Quiero decir... ehm...\p"
 
-	.string "¡CON ESTE POKÉMON TAN PODEROSO!$"
+	.string "¡CON ESTE POKéMON TAN PODEROSO!$"
 
 Route103_Text_Avader_NoRoomForPokemon: 
 	.string "¡No tienes sitio para este\n"
-	.string "poderoso POKÉMON ni en la cajas!\p"
+	.string "poderoso POKéMON ni en la cajas!\p"
 	
 	.string "Pues nada, tendré que tirarlo a\n"
 	.string "la basura.\p"

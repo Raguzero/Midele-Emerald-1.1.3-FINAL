@@ -34,11 +34,11 @@ MicoloLeague_VaderRoom_EventScript_Vader_2:
 
 
 MicoloLeague_VaderRoom_EventScript_Vader_Text_0:
-    .string "Vaya, pensaba derrotarte y que Micolo\n"
+    .string "Vaya, pensaba derrotarte y que MICOLO\n"
 	.string "me aumentara el sueldo. Digo...Sí, eso\l"
 	.string "es, todo según mi plan como te he dicho.\p"
 	.string "Ahora debes decidir {PLAYER}, does\n"
-	.string "this world belong to Micolo? Or does it\l"
+	.string "this world belong to MICOLO? Or does it\l"
 	.string "belong to you?$"
 
 MicoloLeague_VaderRoom_EventScript_Vader_Text_1:
@@ -47,12 +47,12 @@ MicoloLeague_VaderRoom_EventScript_Vader_Text_1:
 	.string "Eres tú, niño de los regis... Espero que\n"
 	.string "me hayas dejado para el final, jeje.\p"
 	.string "Yo te he guiado hasta aquí, desde que\n"
-	.string "nos conocimos en la ruta 103...\p"
+	.string "nos conocimos en la ROUTE 103...\p"
 	.string "No, puede que desde antes. Todo es\n"
 	.string "parte de mi plan.\p"
 	.string "Según mis cálculos, si eres capaz de\n"
 	.string "derrotar al alto mico, significará que\l"
-	.string "estarás al nivel del gran rey Micolo. Sí,\l"
+	.string "estarás al nivel del gran rey MICOLO. Sí,\l"
 	.string "debes derrotarlo por mí, yo no puedo\l"
 	.string "hacerlo porque me robó el alma. Y\l"
 	.string "cuando lo derrotes...\p"

@@ -144,7 +144,7 @@ GymSanty_Text_GymGuideAdvice2:
 	
 	.string "¿Qué es la MICOLIGA?\p"
 	
-	.string "Es una nueva LIGA POKÉMON más dificil\n"
+	.string "Es una nueva LIGA POKéMON más dificil\n"
 	.string "que cualquier otra LIGA de cualquier\l" 
 	.string "otra región.\p"
 	
@@ -159,7 +159,7 @@ GymSanty_Text_GymGuideAdvice2:
 	.string "Ten en cuenta, que todo esto es...\n"
 	.string "digamos, no-oficial, por lo que no tiene\l" 
 	.string "ninguna validez legal para los gobiernos\l"
-	.string "que organizan la LIGA POKÉMON de cada\l"
+	.string "que organizan la LIGA POKéMON de cada\l"
 	.string "región, y por tanto, en tu info de\l" 
 	.string "entrenador no quedarán registradas las\l" 
 	.string "medallas que consigas en este lugar.\p"
@@ -167,11 +167,11 @@ GymSanty_Text_GymGuideAdvice2:
 	.string "Cada GYM normalmente constará de\n" 
 	.string "3 pruebas:\l"
 	.string "Derrotar a todos los entrenadores\l"
-	.string "Derrotar al POKÉMON TOTEM\l"
+	.string "Derrotar al POKéMON TOTEM\l"
 	.string "Derrotar al LIDER de GYM\p"
 	
     .string "Pero las pruebas pueden cambiar\n"
-	.string "dependiendo de las ideas del LIDER$"
+	.string "dependiendo de las ideas del líder.$"
 
 GymSanty_Text_GymGuideAdvice3:
 	.string "En cuanto a este GYM...\p"

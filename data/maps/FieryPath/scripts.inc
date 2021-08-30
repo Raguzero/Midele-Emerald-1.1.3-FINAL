@@ -120,14 +120,15 @@ Fiery_Path_PacochefPostBattle::
 	end
 
 Fiery_Path_Text_PacochefIntro:
-	.string "Oh, anda, la piltrafilla de Portual.\p"
+	.string "Oh, anda, la piltrafilla del\n"
+	.string "museo de SLATEPORT CITY.\p"
 	
 	.string "Veo que haces progresos, ¿eh?\p"
 
 	.string "Has vencido a mis compañeros y además\n" 
 	.string "tienes otra medalla.\p"
 	
-	.string "¿Uh? ¿La Mafia? JAJAJAJA no me hagas\n" 
+	.string "¿Uh? ¿La MAFIA? JAJAJAJA no me hagas\n" 
 	.string "reír, venimos aquí, principalmente, a\l" 
 	.string "encendernos los porros.\p" 
 	
@@ -141,12 +142,12 @@ Fiery_Path_Text_PacochefIntro:
 	.string "de aquí?\p" 
 	
 	.string "Probablemente ya hayas encontrado\n" 
-	.string "Pokémon así durante la aventura.\p" 
+	.string "POKéMON así durante la aventura.\p" 
 	
-	.string "Me gusta llamarlos Tótem, o Dominantes.\p" 
+	.string "Me gusta llamarlos TOTEM, o DOMINANTES.\p" 
 	
 	.string "Estos pobres desgraciados han sido\n" 
-	.string "modificados en el Laboratorio Midele\l"
+	.string "modificados en el LABORATORIO MIDELE\l"
 	.string "con fines macabros.\p" 
 	
 	.string "¿Que qué hacen repartidos por\n"
@@ -165,10 +166,10 @@ Fiery_Path_Text_PacochefPostBattle:
 	.string "Jeje... bien, lo drometido es peuda.\p"
 	
 	.string "Como dije antes, la terrible\n" 
-	.string "Organización Midelar es real.\p" 
+	.string "ORGANIZACIÓN MIDELAR es real.\p" 
 	
 	.string "Hace tiempo intentó tomar el control\n" 
-	.string "en KANTO y JOHTO, pero Micolo I, aquel\l" 
+	.string "en KANTO y JOHTO, pero MICOLO I, aquel\l" 
 	.string "que Mono es uno y la vida un Ciclo,\l" 
 	.string "falló en ambas ocasiones.\p" 
 	
@@ -177,7 +178,7 @@ Fiery_Path_Text_PacochefPostBattle:
 	
 	.string "Ha corrompido por completo el ADN de\n" 
 	.string "muchos Pokémon y este es el resultado,\l" 
-	.string "los Tótem.\p" 
+	.string "los TOTEM.\p" 
 	
 	.string "Llevo mucho tiempo infiltrado en su\n" 
 	.string "organización, y tras ver sufrir a estos\l" 
@@ -202,7 +203,7 @@ Fiery_Path_Text_PacochefPostBattle:
 	.string "uno a uno.\p"
 	
 	.string "Quizá si vences a todos te conviertas en\n"
-	.string "el elegido destinado a derrotar a Micolo\l" 
+	.string "el elegido destinado a derrotar a MICOLO\l" 
 	.string "de una vez por todas.\p" 
 	
 	.string "O tal vez te convertirás en su sujeto de\n" 
@@ -254,7 +255,7 @@ Fiery_Path_Text_KadereteIntro:
 	.string "para que te eches atrás.\p"
 	
 	.string "¡Yo soy KADERETE, y somos la\n" 
-	.string "Mafia PxP! ¡No vamos a permitir\l"
+	.string "MAFIA PxP! ¡No vamos a permitir\l"
 	.string "que nadie se chive de nuestros\l"
 	.string "planes al STAFF de PxP!\p"
 	
@@ -267,7 +268,7 @@ Fiery_Path_Text_KadereteIntro:
 	.string "¡AH, JODER! ¡Pero si PxP está muerto!\p"
 	
 	.string "Y por tanto tampoco somos ya la\n"
-	.string "Mafia PxP...\p"
+	.string "MAFIA PxP...\p"
 	
 	.string "¡Bah, qué más da! ¡Pelea!$"
 

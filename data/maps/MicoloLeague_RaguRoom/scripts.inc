@@ -90,7 +90,17 @@ MicoloLeague_RaguRoom_Text_PlanosSign:
 	.string "sus necesidades sin interrupciones.\p"
 	
 	.string "Fecha definitiva Lanzamiento de\n"
-	.string "MIDELE EMERALD: JULIO 2021$"
+	.string "MIDELE EMERALD: JULIO 2021\p"
+	
+	.string "MIDELE EMERALD se retrasa.\p"
+	
+	.string "Fecha definitiva Lanzamiento de\n"
+	.string "MIDELE EMERALD: AGOSTO 2021\p"
+	
+	.string "MIDELE EMERALD se retrasa de nuevo.\p"
+	
+	.string "Fecha definitiva Lanzamiento de\n"
+	.string "MIDELE EMERALD: SEPTIEMBRE 2021$"
 	
 MicoloLeague_RaguRoom_Text_Mudkip:
 	.string "¡Es el POKéMON favorito de RAGU!\p"
@@ -162,7 +172,7 @@ MicoloLeague_RaguRoom_Text_PCSign:
 	.string "eliminado completamente.\p"
 	
 	.string "¿Aparecerá alguien capaz de\n" 
-	.string "hacerle FRENTE?$"
+	.string "hacerle FRENTE en BATALLA?$"
 	
 MicoloLeague_RaguRoom_Text_RaguIntro: 
 	.string "No sé si seré el primero al que retas,\n"
@@ -202,7 +212,7 @@ MicoloLeague_RaguRoom_Text_RaguIntro:
 	.string "fisiológicas...\p"
 
 	.string "Así que me preocupo mucho de que mis\n"
-	.string "esclavos del Midele estén a gusto y\l"
+	.string "esclavos del MIDELE estén a gusto y\l"
 	.string "tengan un lugar al que ellos puedan\l" 
 	.string "llamar hogar. Es decir, ¡tienen la\l"
 	.string "vida resuelta!\p"

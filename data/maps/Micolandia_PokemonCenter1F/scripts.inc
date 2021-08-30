@@ -60,5 +60,5 @@ Micolandia_PokemonCenter1F_Text_Phrases2:
 	.string "Pero ten en cuenta que las frases de\n"
 	.string "LATIOS y LATIAS no podrás usarlas\l"
 	.string "hasta que al menos los registres\l"
-	.string "en la POKÉDEX como vistos.$"
+	.string "en la POKéDEX como vistos.$"
 	

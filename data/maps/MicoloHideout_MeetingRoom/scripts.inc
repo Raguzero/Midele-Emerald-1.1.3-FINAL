@@ -244,7 +244,7 @@ MicoloHideout_MeetingRoom_MagmaLetter_Text_0:
 	.string "la mesa, dice lo siguiente:\p"
 	.string "“Estimado MICOLO:\p"
 	.string "Tu plan sobre el secado de todas las\n"
-	.string "rutas marítimas más allá de RUTA 124\l"
+	.string "rutas marítimas más allá de ROUTE 124\l"
 	.string "nos ha parecido bastante interesante,\l"
 	.string "así que hemos decidido enviarte todas\l"
 	.string "esas máquinas, como pediste.\p"
@@ -263,7 +263,7 @@ MicoloHideout_MeetingRoom_MagmaLetter_Text_0:
 	.string "secado parcial, pero eso debería ser\l"
 	.string "más que suficiente para probar la\l"
 	.string "efectividad de las máquinas.\p"
-	.string "LÍDER MAGMA, MAGNO”$"
+	.string "LÍDER MAGMA, MAXIE”$"
 
 MicoloHideout_MeetingRoom_PC1::
 	playse SE_PC_LOGIN
@@ -422,11 +422,15 @@ MicoloHideout_MeetingRoom_PC5_Text_0:
 	
 	.string "MIDELE POWER: Tipo ???, 70 Power,\n"
 	.string "100 Accuracy, Priority +2, atraviesa\l"
-	.string "PROTECT, sube 50% ATK, DEF, SATK, SPDEF\l"
-	.string "y SPEED por cada uso.\p"
+	.string "PROTECT y ENDURE, sube 50% ATK, DEF,\l"
+	.string "SATK, SPDEF y SPEED por cada uso.\p"
 	
 	.string "DARK THUNDER: Tipo ELECTRIC, 70 Power,\n"
-	.string "100 Accuracy, efecto de doble golpe.$"
+	.string "100 Accuracy, efecto de doble golpe.\p"
+	
+	.string "HOLA REINA: Tipo DARK, 100 Accuracy,\n"
+	.string "atraviesa PROTECT y ENDURE, efecto de\l"
+	.string "NIGHT SHADE.$"
 
 MicoloHideout_MeetingRoom_PCHeal_Text_0:
 	.string "¿Quieres curar a tus POKéMON?$"

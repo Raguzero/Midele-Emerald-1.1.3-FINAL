@@ -424,7 +424,7 @@ Darkigym_Text_KizardeIntro:
 	.string "¡Alto Ahí! Pequeña ardilla,\n"
 	.string "¿cómo osas entrar en la guarida\l"
 	.string "del gran cientifico loco\l"
-	.string "D. Kizarde?\p"
+	.string "D. KIZARDE?\p"
 
 	.string "Fu wa ja ja ja ja ja ja ja ja ja$"
 
@@ -446,7 +446,7 @@ Darkigym_Text_KizardePostBattle:
 	.string "el miembro número uno del laboratorio\l"
 	.string "de inventos subterráneos.\p"
 
-	.string "El cientifico loco D. Kizarde,\n"
+	.string "El cientifico loco D. KIZARDE,\n"
 	.string "podría haber inventado tan\l" 
 	.string "impresionante máquina. ¡Mua ja ja!\p"
 
@@ -457,12 +457,12 @@ Darkigym_Text_KizardePostBattle:
 	.string "evitar la tercera guerra\l" 
 	.string "interdimensional.\p"
 
-	.string "En la que Gooses junto a las brujas\n" 
+	.string "En la que GOOSES junto a las brujas\n" 
 	.string "del destino, busca oprimir a toda la\l"
 	.string "humanidad con su ejército de\l" 
 	.string "lolis waifus.\p"
 
-	.string "Siendo el detonante... un tal Masuda.\p"
+	.string "Siendo el detonante... un tal MASUDA.\p"
 
 	.string "El cual dio a luz a Lilie para controlar\n"
 	.string "las mentes de todos aquellos niños que\l" 
@@ -553,7 +553,7 @@ Darkigym_Text_RoxyIntro:
 	.string "¿READY?$" 
 	
 Darkigym_Text_RoxyDefeat: 
-	.string "Lo siento... malro y buenro...$"
+	.string "Lo siento... MALRO y BUENRO...$"
 
 Darkigym_Text_RoxyPostBattle:
 	.string "Rayos.\p"
@@ -623,10 +623,10 @@ Darkigym_Text_DranixPostBattle:
 	.string "para que se así sea.$"
 	
 Darkigym_Text_Umbreon123Intro:
-	.string "Meeeelkor... maaaaaldito...\n"
-	.string "Meeeelkor.\p"
+	.string "MEEEELKOR... MAAAAALDITO...\n"
+	.string "MEEEELKOR.\p"
 	
-	.string "Meeeelkor, me baneaaaaste, me\n"
+	.string "MEEEELKOR, me baneaaaaste, me\n"
 	.string "cambiaaaaste el texto personal y firma.\p"
 	
 	.string "Pusiste que soy un troll sin gracia y\n"
@@ -635,15 +635,15 @@ Darkigym_Text_Umbreon123Intro:
 	.string "Y me diste -100 Karma... como a ningún\n"
 	.string "otro usuario.\p"
 	
-	.string "Meeeelkor, me humillaaaaaste.\p"
+	.string "MEEEELKOR, ME HUMILLAAAAASTE.\p"
 	
-	.string "Meeeelkor.........$"
+	.string "MEEEELKOR.........$"
 
 Darkigym_Text_Umbreon123Defeat: 
-	.string "Maaaaaaldito...$"
+	.string "MAAAAAALDITO...$"
 
 Darkigym_Text_Umbreon123PostBattle:
-	.string "Meeeeelkor, me vengareeeeeeeee.$"
+	.string "MEEEEELKOR, ME VENGAREEEEEEEEE.$"
 	
 Darkigym_Text_UltramagicIntro:
 	.string "¡Ey DOOD!\n"
@@ -747,15 +747,15 @@ Darkigym_Text_FurryIntro:
 	.string "cambiar las coordenadas de mi\l" 
 	.string "localización!\p" 
 
-	.string "¡ESTO ES UN HACKEO PELIGROSO!\n" 
-	.string "¿ME OYES?\p"
+	.string "¡¡¡ESTO ES UN HACKEO PELIGROSO!!!\n" 
+	.string "¡¿ME OYES?!\p"
 	
 	.string "...\p"
 	
 	.string "Sniff... Sniff...\n"
 	.string "¡Tu también hueles a hacks...!\p" 
 
-	.string "¡Malditos Hackers! ¡Os vais a enterar!\p"
+	.string "¡MALDITOS HACKERS! ¡OS VAIS A ENTERAR!\p"
 	
 	.string "Mandaré un aviso a NOENTIENDO para que\n" 
 	.string "os baneen para siempre.$"
@@ -775,8 +775,8 @@ Darkigym_Text_FurryPostBattle:
 	.string "chusma, y se fue de JOHTO para luego\l"
 	.string "convertirse en un PIRATA?\p"
 	
-	.string "¡Están mintiendo! ¡Yo nunca caería\n" 
-	.string "tan bajo!\p"
+	.string "¡ESTÁN MINTIENDO! ¡YO NUNCA CAERÍA\n" 
+	.string "TAN BAJO!\p"
 	
 	.string "Será mejor que avise a MICO...\n"
 	.string "quiero decir... ehm... a MELKOR, eso.\p"
@@ -855,9 +855,9 @@ Darkigym_Text_DarkMelkorPostBattle:
 Darkigym_Text_FanboyKalosIntro:
 	.string "No tengo ni la más remota idea de donde\n"
 	.string "estoy, ¡pero qué importa!\l"
-	.string "¡VIVA LA 6ªGEN! ¡VIVA POKEMON Z!\p"
+	.string "¡VIVA LA 6ªGEN! ¡VIVA POKéMON Z!\p"
 
-	.string "¿CÓMO? ¿QUÉ ES POKEMON Z?\p"
+	.string "¿CÓMO? ¿QUÉ ES POKéMON Z?\p"
 	
 	.string "¡PERO CÓMO PUEDES NO SABERLO! ¡SI ES EL\n"
 	.string "MEJOR JUEGO QUE HA SACADO GAMEFREAK\l"
@@ -870,7 +870,7 @@ Darkigym_Text_FanboyKalosIntro:
 	.string "Déjame explicarte las maravillas de\l" 
 	.string "POKéMON Z.\p"
 	
-	.string "Se trata de la secuela de POKÉMON XY,\n"
+	.string "Se trata de la secuela de POKéMON XY,\n"
 	.string "y tiene lugar 3 años después, en la\l"
 	.string "región de KALOS, pero esta vez todo\l" 
 	.string "toma lugar en KALOS SUR.\p"
@@ -906,7 +906,7 @@ Darkigym_Text_FanboyKalosDefeat:
 
 Darkigym_Text_FanboyKalosPostBattle:
 	.string "¡Espera! ¿Este no es mi mundo?\n"
-	.string "¿Aquí no hay POKeMON Z...?\l"
+	.string "¿Aquí no hay POKéMON Z...?\l"
 	.string "¿Tampoco KALOS SUR...?\p"
 	
 	.string "Pero entonces... ¿Qué hay aquí\n"
@@ -919,7 +919,7 @@ Darkigym_Text_FanboyKalosPostBattle:
 	.string "¿POKéMON ESPADA y ESCUDO con la\l"
 	.string "eliminación de la mitad de la Dex?\l"
 	.string "¿DINAMAX? ¿GIGAMAX?\l"
-	.string "¿DLC a 30 euros y POKÉMON HOME cuatro\l"
+	.string "¿DLC a 30 euros y POKéMON HOME cuatro\l"
 	.string "veces más caro que POKéBANCO?\p"
 
 	.string "¡ESTE MUNDO ES UNA MIERDA!$"
@@ -958,7 +958,7 @@ Darkigym_Text_YumeDefeat:
 Darkigym_Text_YumePostBattle:
 	.string "Bueno, tendré que buscar a un nuevo\n" 
 	.string "Onichan, estarás contento, ojalá que\l" 
-	.string "el señor malro te aplaste.\p" 
+	.string "el señor MALRO te aplaste.\p" 
 	
 	.string "¡ji ji ji!$"
 	
@@ -1016,7 +1016,7 @@ Darkigym_Text_MalroIntro:
 	.string "Había oido que en este mundo los\n" 
 	.string "niños son los que cortan el bacalao.\p"
 
-	.string "Pero sabrás... que yo Darkizard, el\n" 
+	.string "Pero sabrás... que yo DARKIZARD, el\n" 
 	.string "señor del inframundo, el buscador del\l" 
 	.string "caos, el hater definitivo, aquel que\l" 
 	.string "sumirá a este y todos los mundos que\l"
@@ -1045,8 +1045,8 @@ Darkigym_Text_MalroPostBattle:
 	.string "¡En este punto de la historia él es\n"
 	.string "quien se convierte en el dios de tu\l" 
 	.string "mundo, y lo que vendrá después será\l"
-	.string "horrible, Sinnoh, Lilia, y hasta matará\l" 
-	.string "a la mitad de los pokémon existentes!\p"
+	.string "horrible, SINNOH, LILIA, y hasta matará\l" 
+	.string "a la mitad de los POKéMON existentes!\p"
 	
 	.string "Su soberbia, codicia y estupidez hará\n" 
 	.string "sufrir a muchas personas...\p"
@@ -1066,7 +1066,7 @@ Darkigym_Text_MalroPostBattle:
 	.string "Aún no es tarde, incluso un torpe como\n" 
 	.string "tu me puede ser útil, sí.\p"
 	
-	.string "Encuentra a Masuda y pártele la boca\n"
+	.string "Encuentra a MASUDA y pártele la boca\n"
 	.string "por mí.\p"
 
 	.string "Si un insignificante ser como tú, pudo\n" 
@@ -1077,7 +1077,7 @@ Darkigym_Text_MalroPostBattle:
 	.string "fu fu fu.\p"
 	
 	.string "Y antes que se me olvide, toma,\n" 
-	.string "la medalla Determinación, como prueba\l" 
+	.string "la MEDALLA DETERMINACIÓN, como prueba\l" 
 	.string "de que sabes usar el buen y el mal rollo\l" 
 	.string "para superar todos los obstáculos que\l" 
 	.string "se te presenten, lo necesitarás para\l" 
@@ -1087,10 +1087,10 @@ Darkigym_Text_MalroPostBattle2:
 	.string "¿Sigues aquí?\p"
 
 	.string "¡Largo!, ve y dale una PALIZA a ese\n" 
-	.string "idiota de Masuda por los dos.\p"
+	.string "idiota de MASUDA por los dos.\p"
 	
-	.string "Si lo metes dentro de un Victreebel o le\n" 
-	.string "estampes un Mimikyu en la cara.\l"
+	.string "Si lo metes dentro de un VICTREEBEL o le\n" 
+	.string "estampes un MIMIKYU en la cara.\l"
 	.string "Tanto mejor.\p"
 	
 	.string "¿Ah... que quieres que te lleve de\n" 
@@ -1112,10 +1112,10 @@ Darkigym_Text_MalroPostBattle3:
 	.string "¿Sigues aquí?\p"
 
 	.string "¡Largo!, ve y dale una PALIZA a ese\n" 
-	.string "idiota de Masuda por los dos.\p"
+	.string "idiota de MASUDA por los dos.\p"
 	
-	.string "Si lo metes dentro de un Victreebel o le\n" 
-	.string "estampes un Mimikyu en la cara.\l"
+	.string "Si lo metes dentro de un VICTREEBEL o le\n" 
+	.string "estampes un MIMIKYU en la cara.\l"
 	.string "Tanto mejor.$"
 
 Darkigym_Text_BuenroIntro:
@@ -1137,10 +1137,10 @@ Darkigym_Text_BuenroIntro:
 	.string "para hacerme frente en un combate?$"
 	
 Darkigym_Text_BuenroIntro2:
-	.string "Bueno, supongo que YO, el GRAN Darkizard,\n" 
+	.string "Bueno, supongo que YO, el gran DARKIZARD,\n" 
 	.string "el todo poderoso buen rollo,\l" 
 	.string "Capitán de la guardia imperial del\l" 
-	.string "inframundo y co-líder de este Gimnasio,\l"
+	.string "inframundo y co-líder de este gimnasio,\l"
 	.string "tendré que detenerte aquí y ahora.\p"
 
 	.string "Nyeh heh heh heh$" 
@@ -1159,10 +1159,10 @@ Darkigym_Text_BuenroPostBattle:
 	.string "desesperación que es transitar por\l" 
 	.string "aquellos agónicos sitios.\p"
 
-	.string "Que son: Alola y Sinnoh.\p"
+	.string "Que son: ALOLA y SINNOH.\p"
 
 	.string "Que para mí no estan TAAAAN mal como dice\n"
-	.string "malro, pero bueno, como decía.\p"
+	.string "MALRO, pero bueno, como decía.\p"
 
 	.string "Para un amante de los puzzles como yo,\n"
 	.string "no podría contentarme con hacer solo\l" 
@@ -1184,7 +1184,7 @@ Darkigym_Text_BuenroPostBattle:
 	.string "superarlo.\p"
 
 	.string "No te preocupes, si pudiste vencerme\n" 
-	.string "a mí, al GRAN DARKIZARD, esta mazmorra\l" 
+	.string "a mí, al gran DARKIZARD, esta mazmorra\l" 
 	.string "de la desesperación no sera nada\l"
 	.string "para ti.\p"
 
@@ -1230,7 +1230,7 @@ Darkigym_Text_BuenroPostBattle2:
 	
 Darkigym_Text_BuenroPostBattle3:
 	.string "Así que nos derrotaste a ambos, a\n"
-	.string "buenro, osea yo, y a malro, es decir,\l"
+	.string "BUENRO, osea yo, y a MALRO, es decir,\l"
 	.string "mi hermano.\p"
 
 	.string "¡La próxima vez te venceré!\n"
@@ -1242,7 +1242,7 @@ Darkigym_Text_ReceivedBadge:
 
 Darkigym_Text_ExplainBadgeTakeThis:
 	.string "Con esta MEDALLA en tu poder, desde\n"
-	.string "ahora mismo... todo POKEMON\l" 
+	.string "ahora mismo... todo POKéMON\l" 
 	.string "intercambiado obedecerá todas tus\l"
 	.string "ordenes, incluso aunque sean...\l"
 	.string "moralmente reprochables.\p"
@@ -1299,7 +1299,7 @@ Darkigym_Text_PCDarki_Sign:
 	.string "lograremos reunir suficiente autismo de\l" 
 	.string "este mundo como para evitarlo.\p"
 	
-	.string "Micolo y El pingüino no tienen por que\n" 
+	.string "MICOLO y el pingüino no tienen por que\n" 
 	.string "sospechar nada... $"
 	
 Darkigym_Text_MaquinaMeteorito_Sign:
@@ -1311,19 +1311,20 @@ Darkigym_Text_MaquinaMeteorito_Sign:
 	.string "a revisión.$"
 	
 Darkigym_Text_CartaMagma1_Sign:
-	.string "Es una invitación de un tal Micolo a\n"
+	.string "Es una invitación de un tal MICOLO a\n"
 	.string "distintas personas para que defiendan\l" 
 	.string "su guarida como líderes de gimnasio.\p"
 	
 	.string "El final está marcado con una pata\n" 
-	.string "de pinguino...$"
+	.string "de pingüino...$"
 	
 Darkigym_Text_CartaMagma2_Sign:
-	.string "Querido Señor Micolo, Yo y mi hermano\n" 
-	.string "malro estaremos complacidos de ser\l" 
-	.string "líderes de gimnasio de su liga autista.\p"
+	.string "Querido Señor MICOLO:\p"
+	.string "Yo y mi hermano MALRO, estaremos\n" 
+	.string "complacidos de ser líderes de gimnasio\l" 
+	.string "de su liga autista.\p"
 	
-	.string "Malro esta especialmente emocionado,\n" 
+	.string "MALRO esta especialmente emocionado,\n" 
 	.string "dice algo que todo entra en sus planes,\l" 
 	.string "pero no le haga mucho caso, simplemente\l" 
 	.string "le gusta mucho fingir que es un villano,\l" 
@@ -1351,7 +1352,7 @@ Darkigym_Text_DarkiBuenroRematchIntro:
 	.string "y quieres otra batalla contra mi?\p"
 
 	.string "Bueno, no te preocupes,\n"
-	.string "YO el GRAN Darkizard,\l" 
+	.string "YO el gran DARKIZARD,\l" 
 	.string "el todo poderoso buen rollo,\l" 
 	.string "Capitán de la guardia imperial del\l" 
 	.string "inframundo y co-líder de este gimnasio,\l"
@@ -1369,7 +1370,7 @@ Darkigym_Text_DarkiMalroRematchIntro:
 
 	.string "¡JAJAJAJAJAJAJA!\p"
 
-	.string "¡YO, Darkizard, el\n" 
+	.string "¡YO, DARKIZARD, el\n" 
 	.string "señor del inframundo, el buscador del\l" 
 	.string "caos, el hater definitivo, aquel que\l" 
 	.string "sumirá a este y todos los mundos que\l"
