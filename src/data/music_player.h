@@ -43,7 +43,7 @@ static const u8 gText_Music_EinzugDerGladiatoren[]   = _("FUCIK                \
 static const u8 gText_Music_DialgaPalkia[]           = _("POKéMON DPPt         \nVS DIALGA AND PALKIA");
 static const u8 gText_Music_Megalovania[]            = _("UNDERTALE            \nMEGALOVANIA");
 static const u8 gText_Music_ThatPersonNameIs[]       = _("BRAVELY DEFAULT      \nTHAT PERSON NAME IS");
-static const u8 gText_Music_LiyueBattleThemeMain[]   = _("GENSHIN IMPACT       \nLIYUEBATTLETHEMEIMAIN");
+static const u8 gText_Music_LiyueBattleThemeMain[]   = _("GENSHIN IMPACT       \nLIYUE BATTLE THEME");
 static const u8 gText_Music_Bonetrousle[]            = _("UNDERTALE            \nBONETROUSLE");
 static const u8 gText_Music_WallyBattle[]            = _("POKéMON ORAS         \nWALLY BATTLE");
 static const u8 gText_Music_BloodyStream[]           = _("JOJO                 \nBLOODY STREAM");
@@ -63,7 +63,7 @@ static const u8 gText_Music_JackRoom[]               = _("DELTARUNE            \
 static const u8 gText_Music_Molgera[]                = _("ZELDA WIND WAKER     \nMOLGERA BATTLE");
 static const u8 gText_Music_ChampionHGSS[]           = _("POKéMON HGSS         \nVS CHAMPION");
 static const u8 gText_Music_HeartMulHolland[]        = _("MATT MULHOLLAND      \nMY HEART WILL GO ON");
-static const u8 gText_Music_SapphireBattle[]         = _("ATC / SAPPHIRE REMIX \nALL AROUND THE WORLD");
+static const u8 gText_Music_SapphireBattle[]         = _("ATC / SAPPHIRE REMIX \nAROUND THE WORLD");
 
 // Digit indicators
 const u8 * const gText_DigitIndicator2[] =
