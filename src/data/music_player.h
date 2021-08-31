@@ -63,6 +63,7 @@ static const u8 gText_Music_JackRoom[]               = _("DELTARUNE            \
 static const u8 gText_Music_Molgera[]                = _("ZELDA WIND WAKER     \nMOLGERA BATTLE");
 static const u8 gText_Music_ChampionHGSS[]           = _("POKéMON HGSS         \nVS CHAMPION");
 static const u8 gText_Music_HeartMulHolland[]        = _("MATT MULHOLLAND      \nMY HEART WILL GO ON");
+static const u8 gText_Music_SapphireBattle[]         = _("ATC / SAPPHIRE REMIX \nALL AROUND THE WORLD");
 
 // Digit indicators
 const u8 * const gText_DigitIndicator2[] =
@@ -324,6 +325,8 @@ static const u16 sMusicTableBeforeMicoloHideout[] = {
 
     THEMEOFENCOUNTER,
 
+    LIYUEBATTLETHEMEIMAIN,
+
     THEREINCARNATION,
 
     UMINEKONONAKUKORO,
@@ -339,7 +342,9 @@ static const u16 sMusicTableBeforeMicoloHideout[] = {
 
     SASAGEYO,
 
-    HEARTMULHOLLAND
+    HEARTMULHOLLAND,
+
+    BATTLESAPPH,
 };
 
 static const u16 sMusicTableFinal[] = {
@@ -409,6 +414,8 @@ static const u16 sMusicTableFinal[] = {
     MUS_MOLGERA_WW,
     
     THEMEOFENCOUNTER,
+
+    LIYUEBATTLETHEMEIMAIN,
     
     THEREINCARNATION,
     
@@ -426,6 +433,7 @@ static const u16 sMusicTableFinal[] = {
     SASAGEYO,
     
     HEARTMULHOLLAND,
+    BATTLESAPPH,
     SHUM,
 };
 
@@ -484,4 +492,5 @@ const u8* const sMusicNames[] = {
     [MUS_MOLGERA_WW] = gText_Music_Molgera,
     [MUS_CHAMPION_BATTLE_HGSS] = gText_Music_ChampionHGSS,
     [HEARTMULHOLLAND] = gText_Music_HeartMulHolland,
+    [BATTLESAPPH] = gText_Music_SapphireBattle,
 };
