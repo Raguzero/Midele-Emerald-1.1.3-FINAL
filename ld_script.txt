@@ -1271,6 +1271,7 @@ SECTIONS {
 		sound/songs/mus_molgera_ww.o(.rodata);
 		sound/songs/mus_champion_battle_hgss.o(.rodata);
 		sound/songs/midi/heartmulholland.o(.rodata);
+		sound/songs/midi/battlesapph.o(.rodata);
     } =0
 
     lib_rodata :

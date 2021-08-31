@@ -573,6 +573,7 @@
 #define MUS_MOLGERA_WW 645
 #define MUS_CHAMPION_BATTLE_HGSS 646
 #define HEARTMULHOLLAND 647
+#define BATTLESAPPH 648
 
 // Número total de músicas. Normalmente es el mismo número que la última música.
 #define MUS_COUNT 647

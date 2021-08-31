@@ -649,6 +649,7 @@ gSongTable:: @ 86B49F0
 	song mus_molgera_ww, 0, 0
 	song mus_champion_battle_hgss, 0, 0
 	song heartmulholland, 0, 0
+	song battlesapph, 0, 0
 
 	.align 2
 dummy_song_header: @ 86B5D00

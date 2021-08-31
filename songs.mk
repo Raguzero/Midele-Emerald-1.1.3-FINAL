@@ -1335,3 +1335,6 @@ $(MID_SUBDIR)/uminekononakukoro.s: %.s: %.mid
 $(MID_SUBDIR)/heartmulholland.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G115 -V105
 	
+$(MID_SUBDIR)/battlesapph.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v0100
+	
