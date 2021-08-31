@@ -1300,7 +1300,7 @@ $(MID_SUBDIR)/cruelangelsthesis.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100
 
 $(MID_SUBDIR)/liyuebattlethemeimain.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100 -P5
+	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v120
 	
 $(MID_SUBDIR)/bonetrousleundertale.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -V55
