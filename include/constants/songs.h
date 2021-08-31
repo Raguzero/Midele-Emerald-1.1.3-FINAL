@@ -576,7 +576,7 @@
 #define BATTLESAPPH 648
 
 // Número total de músicas. Normalmente es el mismo número que la última música.
-#define MUS_COUNT 647
+#define MUS_COUNT 648
 
 #define MUS_ROUTE_118 0x7FFF  // map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 
