@@ -34,14 +34,14 @@ SapphireGym_Basement_EventScript_TitanDefeated::
 	end
 TitanIntro_Text:
 	.string "...\n"
-	.string "...\p"
-	.string "La gente de Ymir...\p"
+	.string "...\l"
+	.string "La gente... de... Ymir...\p"
+	
 	.string "...$"
 
 TitanIntro_Text_DeAcuerdo:
 	.string "...\n"
-	.string "Ymir...\p"
-	.string "... saludos.$"
+	.string "Ymir-sama, saludos...$"
 
 TitanIntro_Text_Desacuerdo:
     .string "...\n"

@@ -347,6 +347,7 @@ SapphireGym_EventScript_FirstPuzzle_Decline:
 	end
 
 SapphireGym_EventScript_ExecutePuzzle:
+	playbgm MUS_TEST3, 0
 	call SapphireGym_EventScript_ShowZigzagoon
 	call SapphireGym_EventScript_ShowPoochyena
 	call SapphireGym_EventScript_ShowMew
@@ -426,7 +427,6 @@ SapphireGym_EventScript_HideMew:
 	return
 
 SapphireGym_EventScript_StartFirstPuzzle:
-	playbgm MUS_TEST3, 0
 	call SapphireGym_EventScript_StartFirstPuzzle_Iteration0
 	call SapphireGym_EventScript_StartFirstPuzzle_Iteration1
 	call SapphireGym_EventScript_StartFirstPuzzle_Iteration2
@@ -604,6 +604,7 @@ SapphireGym_EventScript_ThirdPuzzleZigza::
 	msgbox SapphireGym_Text_ThirdPuzzleZigza, MSGBOX_YESNO
     compare VAR_RESULT, NO
     goto_if_eq SapphireGym_EventScript_ThirdPuzzleZigzaNo
+	closemessage
 	call SapphireGym_EventScript_StartThirdPuzzle
 	msgbox SapphireGym_Text_ThirdPuzzle_GuessWhoFailed, MSGBOX_NPC
 	multichoicegrid 0, 0, MULTI_SAPPHGYM_SECOND_PUZZLE_ANSWERS, 1, 1
@@ -1706,6 +1707,28 @@ SapphireGym_Movement_ExecuteFourthPuzzle_HideKirlia:
 	walk_right
 	walk_down
 	step_end
+	
+SapphireGym_EventScript_LeftGymStatue::
+	lockall
+	goto_if_set FLAG_DEFEATED_BOSS_TITAN, SapphireGym_EventScript_GymStatueCertified
+	goto SapphireGym_EventScript_GymStatue
+	end
+
+SapphireGym_EventScript_RightGymStatue::
+	lockall
+	goto_if_set FLAG_DEFEATED_BOSS_TITAN, SapphireGym_EventScript_GymStatueCertified
+	goto SapphireGym_EventScript_GymStatue
+	end
+
+SapphireGym_EventScript_GymStatueCertified::
+	msgbox SapphireGym_Text_GymStatueCertified, MSGBOX_DEFAULT
+	releaseall
+	end
+
+SapphireGym_EventScript_GymStatue::
+	msgbox SapphireGym_Text_GymStatue, MSGBOX_DEFAULT
+	releaseall
+	end
 
 SapphireGym_Text_GymExplanation:
 	.string "Saludos, visitante, te doy la\n"
@@ -1767,8 +1790,7 @@ SapphireGym_Text_FirstPuzzle_Decline:
 	.string "y vete a casa!$"
 
 SapphireGym_Text_ShowZigzagoon:
-	.string "Primero que nada, presentando a\n"
-	.string "¡ZIGZAGOON!$"
+	.string "Primero, te presento a ¡ZIGZAGOON!$"
 
 SapphireGym_Text_ShowPoochyena:
 	.string "Y este es ¡POOCHYENA!$"
@@ -1984,4 +2006,17 @@ SapphireGym_Text_FourthPuzzleGirl_Defeated:
 	.string "idols estamos aquí sólo porque fuimos\l"
 	.string "invocadas por la líder SAPPHIRE, el\l"
 	.string "resto no nos incumbe.$"
+	
+SapphireGym_Text_GymStatue:
+    .string "POKEMON GYM Nº2\n"
+    .string "LEADER: SAPPHIRE\l"
+    .string "“TEMÁTICA: BURBUJA RÍTMICA”$"
+
+SapphireGym_Text_GymStatueCertified:
+    .string "POKEMON GYM Nº2\n"
+    .string "LEADER: SAPPHIRE\l"
+    .string "“TEMÁTICA: BURBUJA RÍTMICA”\p"
+
+    .string "SAPPHIRE'S CERTIFIED TRAINERS:\n"
+    .string "{PLAYER}$"
 

@@ -19,6 +19,22 @@
             "type": "sign",
             "x": 27,
             "y": 13
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "SapphireGym_EventScript_LeftGymStatue",
+            "type": "sign",
+            "x": 8,
+            "y": 42
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "SapphireGym_EventScript_RightGymStatue",
+            "type": "sign",
+            "x": 11,
+            "y": 42
         }
     ],
     "connections": null,

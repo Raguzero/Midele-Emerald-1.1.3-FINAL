@@ -205,8 +205,8 @@ SapphireGym2_Text_ExplainBadgeTakeThis:
 	.string "Sí, ¡mejor no vayas!$"
 
 SapphireGym2_Text_ReceivedBadge:
-	.string "{PLAYER} obtuvo la MEDALLA BURBUJA RÍTMICA\n"
-    .string "del gimnasio de SAPPHIRE.$"
+	.string "{PLAYER} obtuvo la MEDALLA BURBUJA\n" 
+	.string "RÍTMICA del gimnasio de SAPPHIRE.$"
 
 SapphireGym2_Text_SapphPostBattle:
     .string "Gracias a ti, todo vuelve a la calma en\n"

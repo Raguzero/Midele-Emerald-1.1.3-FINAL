@@ -342,7 +342,7 @@ Micolandia_Text_GymSantySign:
 Micolandia_Text_GymDarkiSign:
 	.string "Solo está permitido el paso\n"
 	.string "a quienes hayan derrotado al\l"
-	.string "LIDER GOOSES.$"
+	.string "LIDER GOOSES y obtenido su medalla.$"
 	
 Micolandia_Text_GymDarkiSign2:
 	.string "¡Vaya! ¿Ya derrotaste a GOOSES?\n"
@@ -363,12 +363,12 @@ Micolandia_Text_GymDarkiSign2:
 Micolandia_Text_GymSapphSign:
 	.string "Solo está permitido el paso\n"
 	.string "a quienes hayan derrotado al\l"
-	.string "LIDER SANTYGRASS.$"
+	.string "LIDER SANTYGRASS y obtenido su medalla.$"
 	
 Micolandia_Text_GymGoosesSign:
 	.string "Solo está permitido el paso\n"
 	.string "a quienes hayan derrotado a la\l"
-	.string "LIDER SAPPHIRE.$"
+	.string "LIDER SAPPHIRE y obtenido su medalla.$"
 
 Micolandia_Dueno_de_Kirlia_Text:
 	.string "La única forma de salir de aquí\n"
