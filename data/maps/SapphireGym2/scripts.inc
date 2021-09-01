@@ -78,6 +78,8 @@ SapphireGym2_EventScript_Sapphire::
 	lock
 	faceplayer
 	goto_if_set FLAG_REMATCH_SAPPH, SapphireGym2_EventScript_Sapphire_Defeated
+    checktrainerflag TRAINER_SAPPH
+    goto_if_eq SapphireGym2_EventScript_Sapphire_Defeated
 	trainerbattle_single TRAINER_SAPPH, SapphireGym_Text_SapphIntro, SapphireGym_Text_SapphLose, SapphireGym2_EventScript_SapphDefeated, NO_MUSIC
 	release
 	end
