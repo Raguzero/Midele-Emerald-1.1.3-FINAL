@@ -436,4 +436,6 @@ void SetBoxMonLanguage(struct BoxPokemon *mon, u8 *language);
 u8 GetPlayerPartyMaxLevel(void);
 void CreateShinyMonWithNature(struct Pokemon *mon, u16 species, u8 level, u8 nature);
 void CreateShinyMon(struct Pokemon *mon, u16 species, u8 level);
+void PlayChosenOrMusicPlayerBGM(u16 songId);
+
 #endif // GUARD_POKEMON_H

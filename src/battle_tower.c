@@ -23,6 +23,7 @@
 #include "field_message_box.h"
 #include "tv.h"
 #include "battle_factory.h"
+#include "music_player.h"
 #include "constants/apprentice.h"
 #include "constants/battle_frontier.h"
 #include "constants/battle_frontier_mons.h"
@@ -34,6 +35,7 @@
 #include "constants/trainers.h"
 #include "constants/event_objects.h"
 #include "constants/moves.h"
+#include "constants/songs.h"
 #include "constants/species.h"
 #include "constants/easy_chat.h"
 #include "constants/tv.h"
@@ -2190,11 +2192,11 @@ void DoSpecialTrainerBattle(void)
 	    case SPECIAL_RANDOM_BATTLE:
         gBattleTypeFlags = BATTLE_TYPE_TRAINER;
 		CreateTask(Task_StartBattleAfterTransition, 1);
-        PlayMapChosenOrBattleBGM(0);
+        PlayChosenOrMusicPlayerBGM(MUS_BATTLE20);
         BattleTransition_StartOnField(sub_80B100C(6));
 		  if (FlagGet(FLAG_RANDOMBATTLE_GYMGOOSES) == TRUE || FlagGet(FLAG_RANDOMBATTLE_GYMSAPPH) == TRUE)
 			{
-			PlayMapChosenOrBattleBGM(0);
+            PlayChosenOrMusicPlayerBGM(MUS_BATTLE20);
 			gTrainerBattleOpponent_A = TRAINER_RANDOM_PARTY_GYM;
 			sTrainerADefeatSpeech = frasederrota;
 			}
@@ -2205,7 +2207,7 @@ void DoSpecialTrainerBattle(void)
 		case SPECIAL_RANDOM_BATTLE_2:
         gBattleTypeFlags = BATTLE_TYPE_TRAINER;
 		CreateTask(Task_StartBattleAfterTransition, 1);
-        PlayMapChosenOrBattleBGM(0);
+        PlayChosenOrMusicPlayerBGM(MUS_BATTLE20);
         BattleTransition_StartOnField(sub_80B100C(6));
 		gTrainerBattleOpponent_A = TRAINER_RANDOM_PARTY_2;
 		sTrainerADefeatSpeech = frasederrota;
@@ -2216,7 +2218,7 @@ void DoSpecialTrainerBattle(void)
 		if (gTrainerBattleOpponent_A == TRAINER_RED2)
         sTrainerADefeatSpeech = frase_red;
 		CreateTask(Task_StartBattleAfterTransition, 1);
-        PlayMapChosenOrBattleBGM(0);
+        PlayChosenOrMusicPlayerBGM(MUS_BATTLE20);
         BattleTransition_StartOnField(sub_80B100C(13));
 		break;
 	// NUEVO RANDOM BATTLE

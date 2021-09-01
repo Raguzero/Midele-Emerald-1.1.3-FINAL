@@ -7761,6 +7761,13 @@ void PlayMapChosenOrBattleBGM(u16 songId)
         PlayNewMapMusic(GetBattleBGM());
 }
 
+void PlayChosenOrMusicPlayerBGM(u16 songId)
+{
+  ResetMapMusic();
+  m4aMPlayAllStop();
+  PlayNewMapMusic(TryUseBattleBGM(songId, NULL));
+}
+
 void sub_806E694(u16 songId)
 {
     u8 taskId;

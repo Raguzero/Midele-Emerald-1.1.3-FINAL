@@ -1923,7 +1923,7 @@ SapphireGym_Text_ThirdPuzzleGirlDefeated:
 SapphireGym_Text_ThirdPuzzleGirl_Awaken:
 	.string "Como el espectáculo se suspendió, ando\n"
 	.string "un poco deprimida...\p"
-	.string "...y me quedé dormida a causa de eso.\n"
+	.string "... y me quedé dormida a causa de eso.\n"
 	.string "Como sea, yo creo que lo del incidente\l"
 	.string "del gimnasio son sólo patrañas.$"
 
