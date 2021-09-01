@@ -46,7 +46,7 @@ MicoloHideout_ExperimentRoom_EventScript_Mewtwo::
 	waitmoncry
 	setwildbattle SPECIES_MEWTWO, 70, ITEM_NONE
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	special StartLegendDogsBattle
+	special BattleSetup_StartLegendaryBattle
 	waitstate
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	specialvar VAR_RESULT, GetBattleOutcome
