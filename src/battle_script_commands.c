@@ -3003,10 +3003,11 @@ void SetMoveEffect(bool8 primary, u8 certain)
             BattleScriptPush(gBattlescriptCurrInstr + 1);
 
             if (sStatusFlagsForMoveEffects[gBattleCommunication[MOVE_EFFECT_BYTE]] == STATUS1_SLEEP)
-			   {
-				gBattleMons[gEffectBattler].status1 |= ((Random() % 3) + 1);
-			if (gBattleMons[gEffectBattler].status1 == 3) gBattleMons[gEffectBattler].status1 |= 4;
-			   }
+				{
+				gBattleMons[gEffectBattler].status1 |= ((Random() % 3) + 2);
+			if (gBattleMons[gEffectBattler].ability == ABILITY_EARLY_BIRD && (gBattleMons[gEffectBattler].status1 == 3 || gBattleMons[gEffectBattler].status1 == 4))
+                gBattleMons[gEffectBattler].status1 = 7; // 3 | 4, pequeño parche para que la IA sepa cuándo despertará un poke con Early Bird
+				}
 			else
                 gBattleMons[gEffectBattler].status1 |= sStatusFlagsForMoveEffects[gBattleCommunication[MOVE_EFFECT_BYTE]];
 
