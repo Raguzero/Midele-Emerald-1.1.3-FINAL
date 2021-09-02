@@ -5731,6 +5731,7 @@ static const u32 sTutorLearnsets[] =
                                 | TUTOR(MOVE_SLEEP_TALK)
                                 | TUTOR(MOVE_DEFENSE_CURL)
                                 | TUTOR(MOVE_THUNDER_PUNCH)
+                                | TUTOR(MOVE_SEISMIC_PUNCH)
                                 | TUTOR(MOVE_FIRE_PUNCH)),
 
     [SPECIES_REGICE]           = (TUTOR(MOVE_MEGA_PUNCH)
@@ -7142,6 +7143,7 @@ static const u32 sTutorLearnsets[] =
 											| TUTOR(MOVE_SNORE)
 											| TUTOR(MOVE_SUBSTITUTE)
 											| TUTOR(MOVE_SWAGGER)
+											| TUTOR(MOVE_SEISMIC_PUNCH)
 											| TUTOR(MOVE_THUNDER_PUNCH)),
 
     [SPECIES_TYRUNT]        =(TUTOR(MOVE_ROCK_SLIDE)

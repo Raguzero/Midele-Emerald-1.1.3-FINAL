@@ -64,7 +64,7 @@ const struct TotemMon gTotemMons[] =
         .item = ITEM_LEFTOVERS,
         .nature = NATURE_QUIET,
         .abilityNumber = 1, // ICE BODY
-        .statBoosts = {6, 7, 10, 6, 7, 10, 6, 6}, // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
+        .statBoosts = {6, 7, 9, 6, 6, 9, 6, 6}, // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
         .evs = {252, 252, 252, 252, 252, 252},
     },
 	[TOTEM_MEGA_CAMERUPT] =
@@ -119,7 +119,7 @@ const struct TotemMon gTotemMons[] =
         .item = ITEM_LEFTOVERS,
         .nature = NATURE_BRAVE,
         .abilityNumber = 0, // SANDS STREAM
-        .statBoosts = {6, 6, 7, 12, 8, 7, 8, 6}, // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
+        .statBoosts = {6, 6, 7, 12, 7, 7, 8, 6}, // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
         .evs = {252, 252, 252, 252, 252, 252},
     },
     [TOTEM_PRIMARINA] =
@@ -130,7 +130,7 @@ const struct TotemMon gTotemMons[] =
         .item = ITEM_LEFTOVERS,
         .nature = NATURE_CALM,
         .abilityNumber = 1, // CUTE CHARM
-        .statBoosts = {6, 6, 8, 6, 6, 8, 6, 6},  // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
+        .statBoosts = {6, 6, 7, 6, 6, 7, 6, 6},  // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
         .evs = {252, 0, 252, 0, 252, 0},
     },
     [TOTEM_SAPPHIRE] =
