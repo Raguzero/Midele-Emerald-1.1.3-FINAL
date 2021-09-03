@@ -2180,12 +2180,12 @@ static const struct TrainerMonCustomMidele sParty_Wallace_2[] = {
 static const struct TrainerMonCustomMidele sParty_Roxanne1[] = {
     {
     .iv = 31,
-    .lvl = 12,
+    .lvl = 11,
     .species = SPECIES_GEODUDE,
     .nature = NATURE_BRAVE,
     .heldItem = ITEM_ORAN_BERRY,
 	.ability = 1,
-    .moves = {MOVE_ROCK_TOMB, MOVE_DEFENSE_CURL, MOVE_TACKLE, MOVE_SUNNY_DAY},
+    .moves = {MOVE_ROCK_THROW, MOVE_DEFENSE_CURL, MOVE_TACKLE, MOVE_SUNNY_DAY},
 	},
 	{
     .iv = 31,
@@ -2194,7 +2194,7 @@ static const struct TrainerMonCustomMidele sParty_Roxanne1[] = {
     .nature = NATURE_QUIET,
     .heldItem = ITEM_MAGNET,
 	.ability = 1,
-    .moves = {MOVE_TACKLE, MOVE_SPARK, MOVE_ROCK_TOMB, MOVE_FIRE_PUNCH}
+    .moves = {MOVE_TACKLE, MOVE_SPARK, MOVE_ROCK_THROW, MOVE_FIRE_PUNCH}
 	},
     {
     .iv = 31,
@@ -2205,7 +2205,7 @@ static const struct TrainerMonCustomMidele sParty_Roxanne1[] = {
 	},
     {
     .iv = 31,
-    .lvl = 10,
+    .lvl = 9,
     .species = SPECIES_ANORITH,
     .heldItem = ITEM_MYSTIC_WATER,
     .moves = {MOVE_SCRATCH, MOVE_HARDEN, MOVE_ROCK_TOMB, MOVE_WATER_GUN}
@@ -2215,14 +2215,14 @@ static const struct TrainerMonCustomMidele sParty_Roxanne1[] = {
     .lvl = 11,
     .species = SPECIES_ARON,
     .heldItem = ITEM_SOFT_SAND,
-    .moves = {MOVE_TACKLE, MOVE_HARDEN, MOVE_MUD_SLAP, MOVE_ROCK_TOMB}
+    .moves = {MOVE_TACKLE, MOVE_HARDEN, MOVE_MUD_SLAP, MOVE_METAL_CLAW}
 	},
     {
     .iv = 31,
-    .lvl = 14,
+    .lvl = 13,
     .species = SPECIES_NOSEPASS,
     .heldItem = ITEM_ORAN_BERRY,
-    .moves = {MOVE_BLOCK, MOVE_HARDEN, MOVE_TACKLE, MOVE_ROCK_TOMB}
+    .moves = {MOVE_TAUNT, MOVE_HARDEN, MOVE_TACKLE, MOVE_ROCK_TOMB}
     }
 };
 

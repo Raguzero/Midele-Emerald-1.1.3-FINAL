@@ -22,7 +22,6 @@ VerdanturfTown_Mart_Pokemart: @ 82025A0
 	.2byte ITEM_BURN_HEAL
 	.2byte ITEM_ICE_HEAL
 	.2byte ITEM_REPEL
-	.2byte ITEM_X_SPECIAL
 	.2byte ITEM_FLUFFY_TAIL
 	.2byte ITEM_NONE
 	release
@@ -41,10 +40,8 @@ VerdanturfTown_Mart_EventScript_Lass:: @ 82025CC
 	end
 
 VerdanturfTown_Mart_Text_XSpecialIsCrucial: @ 82025D5
-	.string "For any POKéMON match, X SPECIAL\n"
-	.string "is crucial.\p"
-	.string "It jacks up the power of some moves\n"
-	.string "even though it's only for one battle.$"
+	.string "FLUFFY TAIL is perfect for my FURRET,\n" 
+	.string "it will finally be good POKéMON.$"
 
 VerdanturfTown_Mart_Text_NoStrategyGuidesForBattleTent: @ 820264C
 	.string "They don't seem to sell any winning\n"
