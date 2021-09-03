@@ -2218,7 +2218,7 @@ void DoSpecialTrainerBattle(void)
 		if (gTrainerBattleOpponent_A == TRAINER_RED2)
         sTrainerADefeatSpeech = frase_red;
 		CreateTask(Task_StartBattleAfterTransition, 1);
-        PlayChosenOrMusicPlayerBGM(MUS_BATTLE20);
+        PlayChosenOrMusicPlayerBGM(MUS_RG_VS_GYM);
         BattleTransition_StartOnField(sub_80B100C(13));
 		break;
 	// NUEVO RANDOM BATTLE
