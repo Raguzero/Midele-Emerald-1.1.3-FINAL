@@ -41,7 +41,7 @@ VerdanturfTown_Mart_EventScript_Lass:: @ 82025CC
 
 VerdanturfTown_Mart_Text_XSpecialIsCrucial: @ 82025D5
 	.string "FLUFFY TAIL is perfect for my FURRET,\n" 
-	.string "it will finally be good POKéMON.$"
+	.string "it will finally be a good POKéMON.$"
 
 VerdanturfTown_Mart_Text_NoStrategyGuidesForBattleTent: @ 820264C
 	.string "They don't seem to sell any winning\n"
@@ -54,4 +54,3 @@ VerdanturfTown_Mart_Text_NestBallOnWeakenedPokemon: @ 82026C9
 	.string "weakened POKéMON.\p"
 	.string "VERDANTURF is the only place you can\n"
 	.string "buy it.$"
-
