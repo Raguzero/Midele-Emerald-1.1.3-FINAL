@@ -22,7 +22,7 @@
 
 #include "data/probable_moves.h"
 
-#define __DEBUG_AI__ 1
+#define __DEBUG_AI__ DEBUG
 #if __DEBUG_AI__
     #include "string_util.h"
     #include "menu.h"
