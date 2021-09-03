@@ -25,14 +25,6 @@
             "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
             "script": "MicoloLeague_RaguRoom_PlanosSign",
             "type": "sign",
-            "x": 3,
-            "y": 3
-        },
-        {
-            "elevation": 0,
-            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-            "script": "MicoloLeague_RaguRoom_PlanosSign",
-            "type": "sign",
             "x": 4,
             "y": 3
         },
@@ -107,6 +99,14 @@
             "type": "sign",
             "x": 3,
             "y": 7
+        },
+        {
+            "elevation": 0,
+            "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+            "script": "MicoloLeague_RaguRoom_PinguinoPataSign",
+            "type": "sign",
+            "x": 3,
+            "y": 3
         }
     ],
     "connections": null,

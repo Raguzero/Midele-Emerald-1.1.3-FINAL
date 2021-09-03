@@ -1737,7 +1737,7 @@ SapphireGym_Text_GymExplanation:
 	.string "...\p"
 	.string "Oh, entiendo, pero no te preocupes, te\n"
 	.string "explicaré.\p"
-	.string "Este es un gimnasio compuestos por\n"
+	.string "Este es un gimnasio compuesto por\n"
 	.string "idols. Ellas aman la música y sobretodo\l"
 	.string "les gusta armar coreografías, así que\l"
 	.string "si quieres que te dejen pasar, primero\l"
@@ -1782,8 +1782,8 @@ SapphireGym_Text_FirstPuzzle_Explain:
 	.string "Cuando acabe la coreografía, yo te haré\n"
 	.string "una pregunta y tú deberás contestar\l"
 	.string "correctamente.\p"
-	.string "Espero que hayas entendido. ¿Estás\n"
-	.string "preparado?$"
+	.string "Espero que hayas entendido.\n"
+	.string "¿Empezamos?$"
 
 SapphireGym_Text_FirstPuzzle_Decline:
 	.string "¡Entonces no me hagas perder el tiempo\n"
@@ -1800,7 +1800,7 @@ SapphireGym_Text_ShowMew:
 
 SapphireGym_Text_FirstPuzzle_GuessWhoFailed:
 	.string "Responde esta pregunta. ¿Cual de ellos\n"
-	.string "equivocó el paso imitando al anterior?$"
+	.string "se equivocó imitando al anterior?$"
 
 SapphireGym_Text_YouFailed:
 	.string "Si serás, ¡has fallado! No tienes\n"
@@ -1851,15 +1851,15 @@ SapphireGym_Text_SecondPuzzle_Explain:
 	.string "dejaré pasar, ¿vale? Te explico. Me\l"
 	.string "pidieron que ayudara con una\l"
 	.string "coreografía, pero como no se me da bien\l"
-	.string "improvisar registré algunos datos en\l"
+	.string "improvisar, registré algunos datos en\l"
 	.string "estos PCs para que no se me olvidaran.\l"
 	.string "Así que mientras yo reviso los PCs,\l"
 	.string "quiero que tú por favor, pongas\l"
 	.string "atención a mis POKéMON. Ellos bailarán,\l"
 	.string "uno tras uno, imitando al anterior.\l"
-	.string "Cuando acaben, yo te haré una\l"
-	.string "pregunta. Si contestas correctamente,\l"
-	.string "yo te dejaré pasar. ¿De acuerdo?$"
+	.string "Cuando acaben, te haré una pregunta.\l"
+	.string "Si contestas correctamente,\l"
+	.string "te dejaré pasar. ¿De acuerdo?$"
 
 SapphireGym_Text_SecondPuzzle_GuessWhoFailed:
 	.string "Pregunta, ¿cuál grito no está\n"
@@ -1951,9 +1951,9 @@ SapphireGym_Text_ThirdPuzzleGirl_Awaken:
 
 
 SapphireGym_Text_FourthPuzzle_Explain:
-	.string "Hola, bienvenido. Como te habrás dado\n"
-	.string "cuenta las tres chicas de antes te\l"
-	.string "pusieron a prueba.\p"
+	.string "Te doy la bienvenida. Como te habrás\n"
+	.string "dado cuenta las tres chicas de antes\l"
+	.string "te pusieron a prueba.\p"
 	.string "Habiéndose suspendido el espectáculo\n"
 	.string "de idols, no nos queda más remedio que\l"
 	.string "armar otro espectáculo, con los\l"
@@ -1974,7 +1974,7 @@ SapphireGym_Text_FourthPuzzle_Explain:
 
 SapphireGym_Text_FourthPuzzle_GuessWhoFailed:
 	.string "Dime, ¿cuál es el POKéMON que más veces\n"
-	.string "se arrojó al vació?$"
+	.string "se arrojó al vacío?$"
 
 SapphireGym_Text_YouWonFourthPuzzle:
 	.string "¡Está correcto! Tus sentidos están\n"

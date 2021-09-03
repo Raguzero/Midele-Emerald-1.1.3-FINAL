@@ -163,7 +163,7 @@ SapphireGym_Text_SapphIntro:
 	.string "Viniste porque quieres la medalla\n"
 	.string "de este gimnasio, ¿no? Pero\l"
 	.string "tengo un problema...\p"
-	.string "... sucede qué...\p"
+	.string "... sucede que...\p"
 	.string "No, no, olvídalo. Si lo que quieres es\n"
 	.string "luchar, entonces eso haremos.\p"
 	.string "¡Que comience la función!$"

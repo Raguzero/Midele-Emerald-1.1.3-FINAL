@@ -37,7 +37,7 @@ MicoloLeague_RaguRoom_Mudkip::
 	
 MicoloLeague_RaguRoom_NPCmirandoTV::
 	lockall
-	msgbox MicoloLeague_RaguRoom_Text_NPCmirandoTV, MSGBOX_NPC
+	msgbox MicoloLeague_RaguRoom_Text_NPCmirandoTV, MSGBOX_DEFAULT
 	releaseall
 	end
 	
@@ -51,6 +51,10 @@ MicoloLeague_RaguRoom_TeleSign::
 	
 MicoloLeague_RaguRoom_PlanosSign::
 	msgbox MicoloLeague_RaguRoom_Text_PlanosSign, MSGBOX_SIGN
+	end
+	
+MicoloLeague_RaguRoom_PinguinoPataSign::
+	msgbox MicoloLeague_RaguRoom_Text_PinguinoPataSign, MSGBOX_SIGN
 	end
 	
 MicoloLeague_RaguRoom_TumbaSign::
@@ -89,10 +93,15 @@ MicoloLeague_RaguRoom_Text_PlanosSign:
 	.string "papelera a cada uno donde puedan hacer\l"
 	.string "sus necesidades sin interrupciones.\p"
 	
+	.string "Fecha de Lanzamiento de\n"
+	.string "MIDELE EMERALD: AÑO 2020\p"
+	
+	.string "MIDELE EMERALD se retrasa a 2021.\p"
+	
 	.string "Fecha definitiva Lanzamiento de\n"
 	.string "MIDELE EMERALD: JULIO 2021\p"
 	
-	.string "MIDELE EMERALD se retrasa.\p"
+	.string "MIDELE EMERALD se retrasa de nuevo.\p"
 	
 	.string "Fecha definitiva Lanzamiento de\n"
 	.string "MIDELE EMERALD: AGOSTO 2021\p"
@@ -250,4 +259,8 @@ MicoloLeague_RaguRoom_Text_RaguPostBattle:
 	.string "Y no olvides echar un vistazo a los\n" 
 	.string "documentos y a todo lo que he\l" 
 	.string "almacenado aquí.$"
+	
+MicoloLeague_RaguRoom_Text_PinguinoPataSign:
+	.string "Parece un sello con la forma de\n"
+	.string "una pata de pingüino.$"
 	
