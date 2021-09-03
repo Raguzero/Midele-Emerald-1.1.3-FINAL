@@ -2062,6 +2062,7 @@ static void Task_StartBattleAfterTransition(u8 taskId)
 void DoSpecialTrainerBattle(void)
 {
     s32 i;
+    u16 ciberCafePlayedSong;
 
     gBattleScripting.specialTrainerBattleType = gSpecialVar_0x8004;
     switch (gSpecialVar_0x8004)
@@ -2213,14 +2214,23 @@ void DoSpecialTrainerBattle(void)
 		sTrainerADefeatSpeech = frasederrota;
 		break;
 		case SPECIAL_CIBERCAFE:
-        gBattleTypeFlags = BATTLE_TYPE_TRAINER;
-		sTrainerADefeatSpeech = frasederrota;
-		if (gTrainerBattleOpponent_A == TRAINER_RED2)
-        sTrainerADefeatSpeech = frase_red;
-		CreateTask(Task_StartBattleAfterTransition, 1);
-        PlayChosenOrMusicPlayerBGM(MUS_RG_VS_GYM);
-        BattleTransition_StartOnField(sub_80B100C(13));
-		break;
+            switch (gTrainerBattleOpponent_A) {
+                case TRAINER_RED2:
+                case TRAINER_BLUE:
+                case TRAINER_LEAF2:
+                    ciberCafePlayedSong = MUS_RG_VS_LAST;
+                    break;
+                default:
+                    ciberCafePlayedSong = MUS_RG_VS_GYM;
+            }
+            gBattleTypeFlags = BATTLE_TYPE_TRAINER;
+            sTrainerADefeatSpeech = frasederrota;
+            if (gTrainerBattleOpponent_A == TRAINER_RED2)
+            sTrainerADefeatSpeech = frase_red;
+            CreateTask(Task_StartBattleAfterTransition, 1);
+            PlayChosenOrMusicPlayerBGM(ciberCafePlayedSong);
+            BattleTransition_StartOnField(sub_80B100C(13));
+            break;
 	// NUEVO RANDOM BATTLE
     }
 }
