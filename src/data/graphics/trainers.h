@@ -395,10 +395,12 @@ const u32 gTrainerFrontPic_SoldierMiku[] = INCBIN_U32("graphics/trainers/front_p
 const u32 gTrainerFrontPic_Meiko[] = INCBIN_U32("graphics/trainers/front_pics/meiko.4bpp.lz");
 const u32 gTrainerFrontPic_Luka[] = INCBIN_U32("graphics/trainers/front_pics/luka.4bpp.lz");
 const u32 gTrainerFrontPic_Miku[] = INCBIN_U32("graphics/trainers/front_pics/miku.4bpp.lz");
+const u32 gTrainerFrontPic_Dood[] = INCBIN_U32("graphics/trainers/front_pics/dood.4bpp.lz");
 const u32 gTrainerPalette_SoldierMiku[] = INCBIN_U32("graphics/trainers/palettes/soldier_miku.gbapal.lz");
 const u32 gTrainerPalette_Meiko[] = INCBIN_U32("graphics/trainers/palettes/meiko.gbapal.lz");
 const u32 gTrainerPalette_Luka[] = INCBIN_U32("graphics/trainers/palettes/luka.gbapal.lz");
 const u32 gTrainerPalette_Miku[] = INCBIN_U32("graphics/trainers/palettes/miku.gbapal.lz");
+const u32 gTrainerPalette_Dood[] = INCBIN_U32("graphics/trainers/palettes/dood.gbapal.lz");
 
 const u8 gTrainerBackPic_Brendan[] = INCBIN_U8("graphics/trainers/back_pics/brendan_back_pic.4bpp");
 const u8 gTrainerBackPic_May[] = INCBIN_U8("graphics/trainers/back_pics/may_back_pic.4bpp");

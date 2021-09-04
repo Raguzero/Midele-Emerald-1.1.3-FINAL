@@ -4249,6 +4249,7 @@ extern const u32 gTrainerFrontPic_SoldierMiku[];
 extern const u32 gTrainerFrontPic_Meiko[];
 extern const u32 gTrainerFrontPic_Luka[];
 extern const u32 gTrainerFrontPic_Miku[];
+extern const u32 gTrainerFrontPic_Dood[];
 
 extern const u32 gTrainerPalette_Hiker[];
 extern const u32 gTrainerPalette_AquaGruntM[];
@@ -4385,6 +4386,7 @@ extern const u32 gTrainerPalette_SoldierMiku[];
 extern const u32 gTrainerPalette_Meiko[];
 extern const u32 gTrainerPalette_Luka[];
 extern const u32 gTrainerPalette_Miku[];
+extern const u32 gTrainerPalette_Dood[];
 
 extern const u8 gTrainerBackPic_Brendan[];
 extern const u8 gTrainerBackPic_May[];

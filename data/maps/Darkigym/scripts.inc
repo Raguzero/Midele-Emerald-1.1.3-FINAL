@@ -662,8 +662,7 @@ Darkigym_Text_UltramagicDefeat:
     .string "You are all DOOD!$"
 
 Darkigym_Text_UltramagicPostBattle:
-	.string "¡Hey DOOD! ¡Era broma!\n"
-	.string "Yo soy una personal normal.\p"
+	.string "¡Hey, DOOD! ¡Eres fuerte!\p"
 
 	.string "¿Conoces a LAVENDER también?\n"
 	.string "Uy, ehm... yo no conozco a NACHO.\l"
