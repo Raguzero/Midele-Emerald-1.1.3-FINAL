@@ -655,8 +655,8 @@ MicoloHideout_EventScript_ViejoFichas::
 
 
 MicoloHideout_EventScript_ViejoFichas_Text_0:
-	.string "Jojojo... ¿me parece a mí o las fichas de\n"
-	.string "este CASINO son más baratas que las\l"
+	.string "Jojojo... ¿me parece a mí o las COINS\n"
+	.string "del MICOCASINO son más baratas que las\l"
 	.string "del CASINO de MAUVILLE CITY?\p"
 	.string "Por cierto, ¿sigue el loco de los gachas\n"
 	.string "por ahí? Antes se pasaba por aquí,\l"
@@ -686,8 +686,8 @@ MicoloHideout_EventScript_Caballero::
 
 MicoloHideout_EventScript_Caballero_Text_0:
 	.string "No sé quién será ese tal MICOLO, pero\n"
-	.string "debe de tener buen gusto si ha decido\l"
-	.string "invitarme a mí hasta aquí...\p"
+	.string "debe de tener buen gusto si ha\l"
+	.string "decidido invitarme a mí hasta aquí...\p"
 	.string "Ejem, esto del casino está muy bien,\n"
 	.string "pero yo me esperaba... no sé... algo más.\p"
 	.string "¿Dónde está ese tal MICOLO?$"
@@ -700,7 +700,7 @@ MicoloHideout_EventScript_TecnicoTragaperras::
 
 
 MicoloHideout_EventScript_TecnicoTragaperras_Text_0:
-	.string "Dicen que las máquinas de este CASINO\n"
+	.string "Dicen que las máquinas del MICOCASINO\n"
 	.string "dan más premios...\p"
 	.string "O eso te esperarías, pero no. ¿Has visto\n"
 	.string "el código de esas cosas? ¡No entiendo\l"
@@ -810,18 +810,18 @@ MicoloHideout_GameCorner_Text_ThisIsMicoloHideoutGameCorner: @ 8210460
 	.string "Bienvenido al MICOCASINO.$"
 
 MicoloHideout_GameCorner_Text_NeedCoinCaseForCoins: @ 821047E
-	.string "¿Quieres FICHAS?\n"
-	.string "Si quieres comprar FICHAS,\p"
-	.string "necesitarás un MONEDERO.$"
+	.string "¿Quieres COINS?\n"
+	.string "Si quieres comprar COINS,\l"
+	.string "necesitarás un COIN CASE.$"
 
 MicoloHideout_GameCorner_Text_WereYouLookingForCoins: @ 82104DF
-	.string "¿Buscas FICHAS?\p"
-	.string "50 FICHAS son 750¥.\n"
-	.string "¿Quieres alguna?$"
+	.string "¿Buscas COINS?\p"
+	.string "50 COINS son 750¥.\n"
+	.string "¿Te parece bien?$"
 
 MicoloHideout_GameCorner_Text_ThankYouHereAreYourCoins: @ 8210529
 	.string "Muchas gracias.\n"
-	.string "Toma tus FICHAS.$"
+	.string "Toma tus COINS.$"
 
 MicoloHideout_GameCorner_Text_DontHaveEnoughMoney: @ 8210553
 	.string "Um… Parece que no tienes\n"
@@ -829,15 +829,15 @@ MicoloHideout_GameCorner_Text_DontHaveEnoughMoney: @ 8210553
 
 MicoloHideout_GameCorner_Text_DontHaveEnoughCoins: @ 8210553
 	.string "Um… Parece que no tienes suficientes\n"
-	.string "FICHAS…$"
+	.string "COINS…$"
 
 MicoloHideout_GameCorner_Text_CoinCaseIsFull: @ 821057E
 	.string "¿Oh?\n"
-	.string "Tu MONEDERO está lleno.$"
+	.string "Tu COIN CASE está lleno.$"
 
 MicoloHideout_GameCorner_Text_DontNeedCoinsThen: @ 821059A
-	.string "Oh… ¿no necesitas fichas?\n"
-	.string "Disfruta del CASINO.$"
+	.string "Oh… ¿no necesitas COINS?\n"
+	.string "Disfruta del MICOCASINO.$"
 
 MicoloHideout_GameCorner_Text_GetMon::
 	.string "{PLAYER} received {STR_VAR_1}!$"
@@ -864,7 +864,7 @@ MicoloHideout_GameCorner_Text_WhichPrize: @ 821060D
 
 MicoloHideout_GameCorner_Text_ExchangeCoinsForPrizes: @ 82105D7
 	.string "Bienvenido.\p"
-	.string "Aquí puedes intercambiar tus FICHAS\n"
+	.string "Aquí puedes intercambiar tus COINS\n"
 	.string "por premios midélicos.$"
 
 MicoloHideout_Text_WhichDrinkWouldYouLike: @ 822056D

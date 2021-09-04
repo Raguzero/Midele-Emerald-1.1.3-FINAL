@@ -199,7 +199,7 @@ Albermaus_MensajeDerrota:
 Albermaus_DespuesDeBatalla:
 	.string "No sé cuál fue mi peor decisión:\n"
 	.string "empezar a prepararme el PIR\l" 
-	.string "o moderar PxP$"
+	.string "o moderar PxP.$"
 	
 Entropia_AntesBatalla: 
 	.string "Amore, ¿sabías que estamos en la\n"
@@ -269,7 +269,7 @@ Vin_AntesBatalla:
     .string "inquebrantable.\p"
 
     .string "¡Pongámoslo a prueba con una\n"
-    .string "battalla!$"
+    .string "batalla!$"
 	
 Vin_MensajeDerrota: 
 	.string "Aterrizados antes de tiempo...$"
@@ -400,20 +400,22 @@ Fenan_DespuesDeBatalla:
 	.string "insulta a mi padre si k es un jilipollas$"
 
 GymSanty2_Text_Sign:
-	.string "ENCIENDE LOS CUATRO FAROLES\n"
+	.string "ENCIENDE LAS CUATRO ANTORCHAS\n"
 	.string "Y EL CAMINO SE ABRIRÁ$"
 	
 GymSanty2_Text_EncenderFarol:
-	.string "¿Quieres encender el farol?$"
+	.string "¿Quieres encender la antorcha?$"
 	
 GymSanty2_Text_FarolEncendida:
-	.string "Has encendido el farol.$"
+	.string "Has encendido la antorcha.$"
 	
 GymSanty2_Text_FarolEncendida2:
-	.string "El fuego arde en el farol.$"
+	.string "El fuego arde de forma intensa.$"
 
 GymSanty2_Text_CaminoAbierto:
-	.string "Han sido encendidos los 4 faroles.\p"
+	.string "Has encendido las cuatro\n"
+	.string "antorchas. Todas arden con\l"
+	.string "gran intensidad.\p"
 
 	.string "El camino hacia la siguiente sala\n"
 	.string "ha sido desbloqueado.$"

@@ -1265,9 +1265,7 @@ GymGooses_Text_GymStatueCertified:
 	
 GymGooses_TeleportGirl_Text:
 	.string "Si quieres salir del GYM, te puedo\n"
-	.string "regresar a la entrada, pero ten en\l"
-	.string "cuenta que tendrás que empezar el\l"
-	.string "tablero desde el principio.\p"
+	.string "regresar a la entrada.\p"
 
 	.string "¿Quieres que te lleve a la entrada\n"
 	.string "del GYM?$"
