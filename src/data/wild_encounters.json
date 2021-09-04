@@ -3166,9 +3166,9 @@
                                 "species": "SPECIES_TYROGUE"
                             },
                             {
-                                "max_level": 24,
-                                "min_level": 22,
-                                "species": "SPECIES_TYROGUE"
+                                "max_level": 27,
+                                "min_level": 27,
+                                "species": "SPECIES_CAMERUPT"
                             }
                         ]
                     },
@@ -3231,9 +3231,9 @@
                                 "species": "SPECIES_TYROGUE"
                             },
                             {
-                                "max_level": 25,
-                                "min_level": 22,
-                                "species": "SPECIES_TYROGUE"
+                                "max_level": 27,
+                                "min_level": 27,
+                                "species": "SPECIES_CAMERUPT"
                             }
                         ]
                     },
