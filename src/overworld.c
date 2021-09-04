@@ -388,6 +388,7 @@ void DoWhiteOut(void)
 {
     ScriptContext2_RunNewScript(EventScript_WhiteOut);
     HealPlayerParty();
+	ResetTrainerOpponentIds();
     Overworld_ResetStateAfterWhiteOut();
     SetWarpDestinationToLastHealLocation();
     WarpIntoMap();
