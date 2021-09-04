@@ -1765,7 +1765,7 @@ SapphireGym_Text_FirstPuzzle_Explain:
 	.string "Algo extraño está sucediendo al final\n"
 	.string "del gimnasio y la líder SAPPHIRE ha\l"
 	.string "cancelado los espectáculos mientras\l"
-	.string "no se soluciona ese problema. Qué\l"
+	.string "no se soluciona ese problema. Que\l"
 	.string "desgracia, pero no importa,\l"
 	.string "aprovecharé este tiempo para ensayar\l"
 	.string "mis coreografías, así que tendré que\l"
@@ -1790,6 +1790,7 @@ SapphireGym_Text_FirstPuzzle_Decline:
 	.string "y vete a casa!$"
 
 SapphireGym_Text_ShowZigzagoon:
+	.string "Bien, comencemos.\p"
 	.string "Primero, te presento a ¡ZIGZAGOON!$"
 
 SapphireGym_Text_ShowPoochyena:
@@ -1831,7 +1832,8 @@ SapphireGym_Text_FirstPuzzleGirlDefeated:
 	.string "Adelante.$"
 
 SapphireGym_Text_SecondPuzzle_Decline:
-	.string "Está bien, cuando estés listo, regresa.\n"
+	.string "Está bien, cuando tengas todo\n" 
+	.string "listo, regresa.\l"
 	.string "Aquí te espero.$"
 
 SapphireGym_Text_SecondPuzzle_Explain:
@@ -1966,9 +1968,9 @@ SapphireGym_Text_FourthPuzzle_Explain:
 	.string "...\p"
 	.string "Si esa... cosa... sigue ahí, no sé que\n"
 	.string "vamos a hacer... ains...\p"
-	.string "¿Quieres verlo por ti mismo? No te\n"
+	.string "¿Quieres verlo? No te\n"
 	.string "dejaré pasar a menos que me\l"
-	.string "demuestres que estás capacitado para\l"
+	.string "demuestres que eres capaz de\l"
 	.string "afrontar el desafío. Así es, aquí\l"
 	.string "comienza tu prueba.$"
 

@@ -1454,7 +1454,7 @@ PetalburgCity_Gym_Text_GymGuideAdvice: @ 8206542
 	.string "Once you've chosen the door…\n"
 	.string "Well, hey, go for it!\p"
 	.string "By the way, in order to reach the\n"
-	.string "GYM LEADER'S ROOM you'll have to\n"
+	.string "GYM LEADER'S ROOM you'll have to\l"
 	.string "defeat all TRAINERS in this GYM!$"
 
 PetalburgCity_Gym_Text_GymGuidePostVictory: @ 82066F3

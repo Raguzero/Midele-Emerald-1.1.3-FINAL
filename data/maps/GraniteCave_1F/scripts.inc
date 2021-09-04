@@ -129,5 +129,5 @@ DesafiarTotem_Text:
 	.string "la tocas, se convertirá en un POKéMON\l"
 	.string "muy poderoso que se adecuará al máximo\l"
 	.string "nivel de tu equipo.\p"
-	.string "¿Todo listo para este desafio?$"
+	.string "¿Todo listo para este desafío?$"
 
