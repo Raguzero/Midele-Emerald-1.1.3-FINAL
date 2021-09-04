@@ -23849,7 +23849,7 @@ static const struct TrainerMonCustomMidele sParty_Gooses[] = {
     },
     {
     .iv = 31, 
-    .lvl = 85,
+    .lvl = 84,
     .species = SPECIES_ALOLAN_NINETALES,
     .heldItem = ITEM_BRIGHT_POWDER, 
     .nature = NATURE_TIMID, 
@@ -23859,7 +23859,7 @@ static const struct TrainerMonCustomMidele sParty_Gooses[] = {
     },
     {
     .iv = 31, 
-    .lvl = 85,
+    .lvl = 84,
     .species = SPECIES_KOMMO_O,
     .heldItem = ITEM_WHITE_HERB, 
     .nature = NATURE_JOLLY, 
@@ -23869,7 +23869,7 @@ static const struct TrainerMonCustomMidele sParty_Gooses[] = {
     },
     {
     .iv = 31, 
-    .lvl = 85,
+    .lvl = 83,
     .species = SPECIES_ARTICUNO,
     .heldItem = ITEM_LEFTOVERS, 
     .nature = NATURE_TIMID, 
@@ -23879,7 +23879,7 @@ static const struct TrainerMonCustomMidele sParty_Gooses[] = {
     },
     {
     .iv = 31, 
-    .lvl = 85,
+    .lvl = 83,
     .species = SPECIES_WINTASS,
     .heldItem = ITEM_SITRUS_BERRY, 
     .nature = NATURE_ADAMANT, 
