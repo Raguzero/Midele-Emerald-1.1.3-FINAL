@@ -27,5 +27,8 @@ include/constants/map_groups.h: $(MAPS_DIR)/headers.inc ;
 
 $(LAYOUTS_DIR)/layouts.inc: $(LAYOUTS_DIR)/layouts.json
 	$(MAPJSON) layouts emerald $<
+ifeq ($(DDEBUG),1)
+	sed -i 's/LittlerootTown_BrendansHouse_1F\/map.bin/LittlerootTown_BrendansHouse_1F\/map_debug.bin/' $@
+endif
 $(LAYOUTS_DIR)/layouts_table.inc: $(LAYOUTS_DIR)/layouts.inc ;
 include/constants/layouts.h: $(LAYOUTS_DIR)/layouts_table.inc ;
