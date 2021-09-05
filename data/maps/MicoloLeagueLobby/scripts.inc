@@ -435,4 +435,12 @@ MicoloLeagueLobby_Text_ResetTrainerFlagsComplete:
 	.string "han reseteado de forma satisfactoria.$"
 	
 Tutor_Definite_List_Text:
-	.string "DEFINITIVE MOVE TUTOR LIST!$"
+	.string "Entrenador, seguro que durante tu\n"
+	.string "aventura te has encontrado con gente\l"
+	.string "la cual quiso enseñarte movimientos de\l"
+	.string "lo más raros... ¿recuerdas a todos y\l"
+	.string "cada uno de ellos?\p"
+	.string "¿No? ¡Pues qué más da! Yo te ayudaré a\n"
+	.string "recordar...\p"
+	.string "¡la lista de movimientos de tutor\n"
+	.string "definitiva!$"
