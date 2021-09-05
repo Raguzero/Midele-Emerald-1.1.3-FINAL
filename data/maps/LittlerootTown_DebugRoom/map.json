@@ -102,7 +102,7 @@
     "id": "MAP_LITTLEROOT_TOWN_DEBUG_ROOM",
     "layout": "LAYOUT_LITTLEROOT_TOWN_DEBUG_ROOM",
     "map_type": "MAP_TYPE_INDOOR",
-    "music": "MUS_RG_NANA45",
+    "music": "MUS_TETSUJI",
     "name": "LittlerootTown_DebugRoom",
     "object_events": [
         {
