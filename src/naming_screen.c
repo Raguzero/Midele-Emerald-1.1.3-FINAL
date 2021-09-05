@@ -580,7 +580,7 @@ static bool8 sub_80E3604(void)
 {
     RunTextPrinters();
 
-    if (!IsTextPrinterActive(0) && (gMain.newKeys & A_BUTTON))
+    if (!IsTextPrinterActive(0) && ((gMain.newKeys & A_BUTTON) || (gMain.newKeys & B_BUTTON)))
         gNamingScreenData->state = MAIN_STATE_BEGIN_FADE_OUT;
 
     return FALSE;
