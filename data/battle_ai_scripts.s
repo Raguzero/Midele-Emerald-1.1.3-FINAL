@@ -1016,7 +1016,6 @@ AI_CheckViability_CheckEffects:
 	if_effect EFFECT_OHKO, AI_CV_OneHitKO
 	if_effect EFFECT_RAZOR_WIND, AI_CV_ChargeUpMove
 	if_effect EFFECT_TRAP, AI_CV_Trap
-	if_effect EFFECT_HIGH_CRITICAL, AI_CV_HighCrit
 	if_effect EFFECT_CONFUSE, AI_CV_Confuse
 	if_effect EFFECT_ATTACK_UP_2, AI_CV_AttackUp
 	if_effect EFFECT_DEFENSE_UP_2, AI_CV_DefenseUp
@@ -1098,13 +1097,11 @@ AI_CheckViability_CheckEffects:
 	if_effect EFFECT_IMPRISON, AI_CV_Imprison
 	if_effect EFFECT_REFRESH, AI_CV_Refresh
 	if_effect EFFECT_SNATCH, AI_CV_Snatch
-	if_effect EFFECT_BLAZE_KICK, AI_CV_HighCrit
 	if_effect EFFECT_MUD_SPORT, AI_CV_MudSport
 	if_effect EFFECT_OVERHEAT, AI_CV_Overheat
 	if_effect EFFECT_TICKLE, AI_CV_DefenseDown
 	if_effect EFFECT_COSMIC_POWER, AI_CV_CosmicPower
 	if_effect EFFECT_BULK_UP, AI_CV_AttackUp
-	if_effect EFFECT_POISON_TAIL, AI_CV_HighCrit
 	if_effect EFFECT_WATER_SPORT, AI_CV_WaterSport
 	if_effect EFFECT_CALM_MIND, AI_CV_SpAtkUp
 	if_effect EFFECT_DRAGON_DANCE, AI_CV_DragonDance
@@ -2109,20 +2106,6 @@ AI_CV_Trap2:
 	score +1
 
 AI_CV_Trap_End:
-	end
-
-AI_CV_HighCrit:
-	if_type_effectiveness AI_EFFECTIVENESS_x0_25, AI_CV_HighCrit_End
-	if_type_effectiveness AI_EFFECTIVENESS_x0_5, AI_CV_HighCrit_End
-	if_type_effectiveness AI_EFFECTIVENESS_x2, AI_CV_HighCrit2
-	if_type_effectiveness AI_EFFECTIVENESS_x4, AI_CV_HighCrit2
-	if_random_less_than 128, AI_CV_HighCrit_End
-
-AI_CV_HighCrit2:
-	if_random_less_than 128, AI_CV_HighCrit_End
-	score +1
-
-AI_CV_HighCrit_End:
 	end
 
 AI_CV_Swagger:
