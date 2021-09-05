@@ -1765,7 +1765,7 @@ SapphireGym_Text_FirstPuzzle_Explain:
 	.string "Algo extraño está sucediendo al final\n"
 	.string "del gimnasio y la líder SAPPHIRE ha\l"
 	.string "cancelado los espectáculos mientras\l"
-	.string "no se soluciona ese problema. Que\l"
+	.string "no se soluciona ese problema. Qué\l"
 	.string "desgracia, pero no importa,\l"
 	.string "aprovecharé este tiempo para ensayar\l"
 	.string "mis coreografías, así que tendré que\l"
