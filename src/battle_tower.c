@@ -2218,6 +2218,8 @@ void DoSpecialTrainerBattle(void)
                 case TRAINER_RED2:
                 case TRAINER_BLUE:
                 case TRAINER_LEAF2:
+                case TRAINER_CHERYL:
+                case TRAINER_CHERYL_2:
                     ciberCafePlayedSong = MUS_RG_VS_LAST;
                     break;
                 default:

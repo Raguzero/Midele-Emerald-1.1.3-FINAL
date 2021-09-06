@@ -3065,6 +3065,12 @@ extern const u8 gText_Deoxys_Attack[];
 extern const u8 gText_Deoxys_Defense[];
 extern const u8 gText_Deoxys_Speed[];
 
+// CIBERCAFE BATALLA
+
+extern const u8 gText_Lista1[];
+extern const u8 gText_Lista2[];
+extern const u8 gText_ModoNormal[];
+extern const u8 gText_ModoFarmeo[];
 extern const u8 gText_Brock[];
 extern const u8 gText_Misty[];
 extern const u8 gText_LtSurge[];
@@ -3080,6 +3086,7 @@ extern const u8 gText_Lance[];
 extern const u8 gText_Blue2[];
 extern const u8 gText_Red2[];
 extern const u8 gText_Leaf[];
+extern const u8 gText_Cheryl[];
 
 extern const u8 gText_Individual[];
 extern const u8 gText_Dobles[];

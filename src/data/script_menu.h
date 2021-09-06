@@ -937,6 +937,11 @@ static const struct MenuAction MultichoiceList_CiberCafe_Batalla[] =
     {gText_Koga},
     {gText_Blaine},
     {gText_Giovanni},
+    {gText_Exit}
+};
+
+static const struct MenuAction MultichoiceList_CiberCafe_Batalla_2[] =
+{
     {gText_Lorelei},
     {gText_Bruno},
     {gText_Agatha},
@@ -944,6 +949,14 @@ static const struct MenuAction MultichoiceList_CiberCafe_Batalla[] =
     {gText_Blue2},
     {gText_Red2},
     {gText_Leaf},
+    {gText_Cheryl},
+    {gText_Exit}
+};
+
+static const struct MenuAction MultichoiceList_CiberCafe_Batalla_Modos_Especiales[] =
+{
+    {gText_ModoNormal},
+    {gText_ModoFarmeo},
     {gText_Exit}
 };
 
@@ -1108,6 +1121,13 @@ static const struct MenuAction MultichoiceList_IzabeIsland_House3_Documents[] =
 	{gMicomonDocument},  
 };
 
+static const struct MenuAction MultichoiceList_Listas_CiberCafe[] =
+{
+	{gText_Lista1},
+	{gText_Lista2},
+	{gText_Exit},  
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -1270,6 +1290,9 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
 	[MULTI_SAPPHGYM_SECOND_PUZZLE_ANSWERS] =  MULTICHOICE(MultichoiceList_SapphGym_SecondPuzzleAnswers),
 	[MULTI_MOVE_TUTOR_LIST] =  MULTICHOICE(MultichoiceList_Move_Tutor_List),
 	[MULTI_IZABE_HOUSE3_DOCUMENTS] =  MULTICHOICE(MultichoiceList_IzabeIsland_House3_Documents),
+	[MULTI_LISTAS_CIBERCAFE] =  MULTICHOICE(MultichoiceList_Listas_CiberCafe),
+    [MULTI_CIBERCAFE_BATALLA_2]     =MULTICHOICE(MultichoiceList_CiberCafe_Batalla_2),
+    [MULTI_CIBERCAFE_BATALLA_MODOS_ESPECIALES]     =MULTICHOICE(MultichoiceList_CiberCafe_Batalla_Modos_Especiales),
 };
 
 const u8 *const gStdStrings[] =

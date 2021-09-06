@@ -5,6 +5,15 @@ Cibercafe_PCBatalla::
 	msgbox PC_Batalla, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq PC_NoBatalla
+	multichoicegrid 0, 0, MULTI_LISTAS_CIBERCAFE, 2, 0
+	switch VAR_RESULT
+	case 0, PC_LISTA1
+	case 1, PC_LISTA2
+	case 2, PC_NoBatalla
+	case MULTI_B_PRESSED, PC_NoBatalla
+	end
+
+PC_LISTA1::
 	msgbox PC_ChooseEnemy, MSGBOX_DEFAULT
 	multichoicegrid 0, 0, MULTI_CIBERCAFE_BATALLA, 3, 0
 	switch VAR_RESULT
@@ -16,14 +25,23 @@ Cibercafe_PCBatalla::
 	case 5, PC_BatalllaKOGA
 	case 6, PC_BatalllaBLAINE
 	case 7, PC_BatalllaGIOVANNI
-	case 8, PC_BatalllaLORELEI
-	case 9, PC_BatalllaBRUNO
-	case 10, PC_BatalllaAGATHA
-	case 11, PC_BatalllaLANCE
-	case 12, PC_BatalllaBLUE
-	case 13, PC_BatalllaRED
-	case 14, PC_BatalllaLEAF
-	case 15, PC_NoBatalla
+	case 8, PC_NoBatalla
+	case MULTI_B_PRESSED, PC_NoBatalla
+	end
+
+PC_LISTA2::
+	msgbox PC_ChooseEnemy, MSGBOX_DEFAULT
+	multichoicegrid 0, 0, MULTI_CIBERCAFE_BATALLA_2, 3, 0
+	switch VAR_RESULT
+	case 0, PC_BatalllaLORELEI
+	case 1, PC_BatalllaBRUNO
+	case 2, PC_BatalllaAGATHA
+	case 3, PC_BatalllaLANCE
+	case 4, PC_BatalllaBLUE
+	case 5, PC_BatalllaRED
+	case 6, PC_BatalllaLEAF
+	case 7, PC_BatalllaCHERYL
+	case 8, PC_NoBatalla
 	case MULTI_B_PRESSED, PC_NoBatalla
 	end
 	
@@ -252,6 +270,53 @@ PC_BatalllaLEAF::
     call_if_eq PC_BatallaFinLOSS
 	end
 	
+PC_BatalllaCHERYL::
+	msgbox PC_BatallaMODO_Text, MSGBOX_DEFAULT
+	closemessage
+PC_BatalllaCHERYL_CONTINUE::
+	msgbox PC_BatallaMODO_Text2, MSGBOX_DEFAULT
+	multichoicegrid 0, 0, MULTI_CIBERCAFE_BATALLA_MODOS_ESPECIALES, 3, 0
+	switch VAR_RESULT
+	case 0, PC_BatalllaModoNormal
+	case 1, PC_BatalllaModoFarmeo
+	case 2, PC_NoBatalla
+	case MULTI_B_PRESSED, PC_NoBatalla
+	end
+PC_BatalllaModoNormal::
+	msgbox PC_BatallaConfirmarModoNormal, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq PC_BatalllaCHERYL_CONTINUE
+	special HealPlayerParty
+	setvar VAR_0x8004, SPECIAL_CIBERCAFE
+    setvar VAR_0x8005, 0
+	setvar VAR_TRAINER_BATTLE_OPPONENT_A, TRAINER_CHERYL
+    special DoSpecialTrainerBattle
+    waitstate
+	compare VAR_RESULT, B_OUTCOME_DREW
+    call_if_eq PC_BatallaFinDRAW
+    compare VAR_RESULT, B_OUTCOME_WON
+    call_if_eq PC_BatallaFinWIN
+    compare VAR_RESULT, B_OUTCOME_LOST
+    call_if_eq PC_BatallaFinLOSS
+	end
+PC_BatalllaModoFarmeo::
+	msgbox PC_BatallaConfirmarModoFarmeo, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq PC_BatalllaCHERYL_CONTINUE
+	special HealPlayerParty
+	setvar VAR_0x8004, SPECIAL_CIBERCAFE
+    setvar VAR_0x8005, 0
+	setvar VAR_TRAINER_BATTLE_OPPONENT_A, TRAINER_CHERYL_2
+    special DoSpecialTrainerBattle
+    waitstate
+	compare VAR_RESULT, B_OUTCOME_DREW
+    call_if_eq PC_BatallaFinFarmeo
+    compare VAR_RESULT, B_OUTCOME_WON
+    call_if_eq PC_BatallaFinFarmeo
+    compare VAR_RESULT, B_OUTCOME_LOST
+    call_if_eq PC_BatallaFinFarmeo
+	end
+	
 PC_NoBatalla::
 	msgbox PC_NoBatalla_Text
 	release
@@ -261,6 +326,11 @@ PC_Roto::
 	msgbox PC_Roto_Text
 	release
 	end
+	
+PC_BatallaFinFarmeo::
+    special HealPlayerParty
+    release
+    end
 
 PC_BatallaFinWIN::
     special HealPlayerParty
@@ -315,12 +385,16 @@ Micolandia_Cibercafe_NPC4::
 	msgbox Micolandia_Cibercafe_NPC4_Text, MSGBOX_SIGN
 	end
 	
-Micolandia_Cibercafe_NPC5y7::
-	msgbox Micolandia_Cibercafe_NPC5y7_Text, MSGBOX_SIGN
+Micolandia_Cibercafe_NPC5::
+	msgbox Micolandia_Cibercafe_NPC5_Text, MSGBOX_SIGN
 	end
 	
 Micolandia_Cibercafe_NPC6::
 	msgbox Micolandia_Cibercafe_NPC6_Text, MSGBOX_SIGN
+	end
+	
+Micolandia_Cibercafe_NPC7::
+	msgbox Micolandia_Cibercafe_NPC7_Text, MSGBOX_SIGN
 	end
 	
 Micolandia_Cibercafe_Dueno_Text:
@@ -372,9 +446,39 @@ Micolandia_Cibercafe_NPC3_Text:
 Micolandia_Cibercafe_NPC4_Text:
 	.string "¡Noooooo! ¡LANCE es demasiado fuerte!$"
 	
-Micolandia_Cibercafe_NPC5y7_Text:
+Micolandia_Cibercafe_NPC5_Text:
+	.string "¡El Modo Farmeo de CHERYL es GENIAL!\n"
+	.string "¡Con solo equiparles a mis POKéMON Nv1\l"
+	.string "con un LUCKY EGG puedo hacer que suban\l"
+	.string "de nivel a una velocidad asombrosa!\p"
+	
+	.string "Ojalá tuviese un POKéMON intercambiado.\n"
+	.string "Se dice que estos POKéMON suben de\l"
+	.string "nivel mucho más rápido.\p"
+	.string "¿Cuanta Experiencia podrían conseguir?\n"
+	.string "¿¿¿¿60000???? ¡¡MENUDA LOCURA!!$"
+
+Micolandia_Cibercafe_NPC7_Text:
 	.string "...$"
 	
 Micolandia_Cibercafe_NPC6_Text:
 	.string "¡Que vicio esto! ¡Estoy consiguiendo\n"
 	.string "muchos objetos útiles!$"
+	
+PC_BatallaMODO_Text:
+	.string "Esta entrenadora es especial. Puedes\n"
+	.string "elegir entre Modo Normal y Modo Farmeo.\p"
+	
+	.string "El Modo Normal no tiene ninguna\n"
+	.string "particularidad, mientras que el Modo\l"
+	.string "Farmeo es la mejor forma de entrenar\l"
+	.string "a POKéMON con niveles muy bajos.$"
+	
+PC_BatallaMODO_Text2:
+	.string "¿Cual modo de batalla eliges?$"
+	
+PC_BatallaConfirmarModoNormal:
+	.string "¿Eliges el Modo Normal?$"
+
+PC_BatallaConfirmarModoFarmeo:
+	.string "¿Eliges el Modo Farmeo?$"

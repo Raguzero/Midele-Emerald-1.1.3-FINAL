@@ -13853,5 +13853,33 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
         .partySize = ARRAY_COUNT(sParty_Krub2),
         .party = {.ItemCustomMidele = sParty_Krub2},
+    },
+    [TRAINER_CHERYL] =
+    {
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .battleMusic = MUS_RG_VS_LAST,
+        .trainerPic = TRAINER_PIC_CHERYL,
+        .trainerName = _("CHERYL"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
+        .partySize = ARRAY_COUNT(sParty_Cheryl),
+        .party = {.ItemCustomMidele = sParty_Cheryl},
+    },
+    [TRAINER_CHERYL_2] =
+    {
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .battleMusic = MUS_RG_VS_LAST,
+        .trainerPic = TRAINER_PIC_CHERYL,
+        .trainerName = _("CHERYL"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .partySize = ARRAY_COUNT(sParty_Cheryl_2),
+        .party = {.ItemCustomMidele = sParty_Cheryl_2},
     }
 };

@@ -1920,6 +1920,11 @@ const u8 gText_Deoxys_Attack[] =  _("ATTACK");
 const u8 gText_Deoxys_Defense[] = _("DEFENSE");
 const u8 gText_Deoxys_Speed[] =  _("SPEED");
 
+// CIBERCAFE BATTLA
+const u8 gText_Lista1[] =  _("LISTA 1");
+const u8 gText_Lista2[] =  _("LISTA 2");
+const u8 gText_ModoNormal[] =  _("MODO NORMAL");
+const u8 gText_ModoFarmeo[] =  _("MODO FARMEO");
 const u8 gText_Brock[] =  _("BROCK");
 const u8 gText_Misty[] =  _("MISTY");
 const u8 gText_LtSurge[] =  _("LT.SURGE");
@@ -1935,6 +1940,7 @@ const u8 gText_Lance[] =  _("LANCE");
 const u8 gText_Blue2[] =  _("BLUE");
 const u8 gText_Red2[] =  _("RED");
 const u8 gText_Leaf[] =  _("LEAF");
+const u8 gText_Cheryl[] =  _("CHERYL");
 
 // NO COMPRA MTS REPES
 const u8 gText_YouAlreadyHaveThis[] = _("You already have this item.");

@@ -75,7 +75,7 @@ MicoloHideout_SecurityRoom_PC2_Text_0:
 	.string "la isla y se han asentado aquí.\p"
 	.string "Esto cada vez más se empieza a paracer\n"
 	.string "a un poblado loooooooooooool\p"
-	.string "Aprovecharé para crear mia propios\n"
+	.string "Lo aprovecharé para crear mis propios\n"
 	.string "GIMNASIOS y LIGA POKéMON n.n\p"
 	.string "Haciendo que los entrenadores más\n"
 	.string "fuertes vengan aquí, podré utilizarlos\l"
