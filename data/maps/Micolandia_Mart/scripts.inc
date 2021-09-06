@@ -107,12 +107,12 @@ Micolandia_Mart_EventScript_Clerk::
  .align 2	
 
 Micolandia_Mart_Pokemart:
-	.2byte ITEM_POTION
-	.2byte ITEM_POTION
-	.2byte ITEM_POTION
-	.2byte ITEM_POTION
-	.2byte ITEM_POTION
-	.2byte ITEM_POTION
+	.2byte ITEM_DESTINY_KNOT // EV HP.    Cost 0 $
+	.2byte ITEM_DESTINY_KNOT // EV ATK.   Cost 0 $
+	.2byte ITEM_DESTINY_KNOT // EV DEF.   Cost 0 $
+	.2byte ITEM_DESTINY_KNOT // EV SPEED. Cost 0 $
+	.2byte ITEM_DESTINY_KNOT // EV SATK.  Cost 0 $
+	.2byte ITEM_DESTINY_KNOT // EV SDEF.  Cost 0 $
 	.2byte ITEM_NONE
 	release
 	end
