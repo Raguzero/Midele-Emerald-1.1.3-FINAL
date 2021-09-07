@@ -32,6 +32,7 @@ Para instalar el repositorio, ver [INSTALL.md](INSTALL.md).
 - [Red Krow] (Recolor del Sprite Honedge Monado para convertirlo en shiny, y creación de su sprite de Entrenador)
 - [Gooses] (Ideas interesantes en cuanto al postgame)
 - [Micolo] (Ideas interesantes en cuanto a ataques y pokes regalo)
+- [Kefka] (Beta Tester e ideas interesantes)
 
 ## Créditos al resto de personas cuyo código hemos utilizado:
 - Robinlukke https://www.pokecommunity.com/showthread.php?t=435076
