@@ -24,18 +24,18 @@ Install the **devkitARM** toolchain of [devkitPro](https://devkitpro.org/wiki/Ge
 
 To set up the repository:
 
-	git clone https://github.com/pret/pokeemerald
+	git clone https://github.com/Raguzero/Midele-Emerald.git
 	git clone https://github.com/pret/agbcc
 
 	cd ./agbcc
 	./build.sh
-	./install.sh ../pokeemerald
+	./install.sh ../Midele-Emerald
 
-	cd ../pokeemerald
+	cd ../Midele-Emerald
 
-To build **pokeemerald.gba** and confirm it matches the official ROM image:
+To build **mideleemerald.gba** ROM image:
 
-	make compare
+	make
 
 ## Notes
 
@@ -44,10 +44,6 @@ To build **pokeemerald.gba** and confirm it matches the official ROM image:
 * If the repository was previously set up using Cygwin, delete the `.exe` files in the subfolders of the `tools` folder except for `agbcc` and try building again. [Learn the differences between MSYS2 and Cygwin.](https://github.com/msys2/msys2/wiki/How-does-MSYS2-differ-from-Cygwin)
 
 # Guidance
-
-To build **pokeemerald.gba** with your changes:
-
-	make
 
 ## Parallel builds
 
