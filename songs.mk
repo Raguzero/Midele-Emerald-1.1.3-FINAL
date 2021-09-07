@@ -1294,7 +1294,7 @@ $(MID_SUBDIR)/dialgapalkiabattle.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G158 -v95
 
 $(MID_SUBDIR)/undertalemegalovania.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v65
+	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v75
 	
 $(MID_SUBDIR)/cruelangelsthesis.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -v100
