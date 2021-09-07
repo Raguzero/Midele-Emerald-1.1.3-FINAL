@@ -16,6 +16,9 @@ Para instalar el repositorio, ver [INSTALL.md](INSTALL.md).
 - Para ver el registro de versiones, ver [CHANGELOG.md](CHANGELOG.md)
 - Para ver cómo funciona el número de versión, ver [VERSIONING.md](VERSIONING.md)
 
+## Cómo compilar
+Ver [INSTALL.md](INSTALL.md)
+
 ## Colaboradores principales
 
 - [Ragu](https://github.com/Raguzero)
