@@ -154,6 +154,7 @@
 #define TRAINER_PIC_DOOD            135
 #define TRAINER_PIC_CHERYL          136
 #define TRAINER_PIC_BERNKASTEL      137
+#define TRAINER_PIC_EMIL            138
 
 #define TRAINER_BACK_PIC_BRENDAN                0
 #define TRAINER_BACK_PIC_MAY                    1
