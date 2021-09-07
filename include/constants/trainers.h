@@ -109,7 +109,7 @@
 #define TRAINER_PIC_LEAF                  90
 #define TRAINER_PIC_RS_BRENDAN            91
 #define TRAINER_PIC_RS_MAY                92
-#define TRAINER_PIC_LAVENDER             93
+#define TRAINER_PIC_NERD_HGSS             93
 #define TRAINER_PIC_BROCK             	  94
 #define TRAINER_PIC_MISTY                 95
 #define TRAINER_PIC_LT_SURGE              96
@@ -145,13 +145,13 @@
 #define TRAINER_PIC_VADER          126
 #define TRAINER_PIC_MIRORB          127
 #define TRAINER_PIC_REDKROW          128
-#define TRAINER_PIC_SAPPH          129
-#define TRAINER_PIC_MAUS          130
-#define TRAINER_PIC_SOLDIER_MIKU          131
-#define TRAINER_PIC_MEIKO          132
-#define TRAINER_PIC_LUKA          133
-#define TRAINER_PIC_MIKU          134
-#define TRAINER_PIC_DOOD          135
+#define TRAINER_PIC_SAPPH           129
+#define TRAINER_PIC_MAUS            130
+#define TRAINER_PIC_SOLDIER_MIKU    131
+#define TRAINER_PIC_MEIKO           132
+#define TRAINER_PIC_LUKA            133
+#define TRAINER_PIC_MIKU            134
+#define TRAINER_PIC_DOOD            135
 #define TRAINER_PIC_CHERYL          136
 
 #define TRAINER_BACK_PIC_BRENDAN                0
