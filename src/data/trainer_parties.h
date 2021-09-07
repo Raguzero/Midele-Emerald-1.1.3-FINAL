@@ -26177,7 +26177,8 @@ static const struct TrainerMonCustomMidele sParty_Sapph[] = {
     .heldItem = ITEM_FOCUS_SASH,
     .nature = NATURE_TIMID,
     .evs = {0, 0, 0, 252, 6, 252},
-    .moves = {MOVE_THUNDER, MOVE_SURF, MOVE_PSYCHIC, MOVE_RAIN_DANCE}
+    .moves = {MOVE_THUNDER, MOVE_SURF, MOVE_PSYCHIC, MOVE_RAIN_DANCE},
+    .shiny = 1
   },
    {
     .iv = 31,
@@ -26187,7 +26188,8 @@ static const struct TrainerMonCustomMidele sParty_Sapph[] = {
     .heldItem = ITEM_LEFTOVERS,
     .nature = NATURE_MODEST,
     .evs = {252, 0, 0, 252, 6, 0},
-    .moves = {MOVE_THUNDER, MOVE_SURF, MOVE_ICE_BEAM, MOVE_CONFUSE_RAY}
+    .moves = {MOVE_THUNDER, MOVE_SURF, MOVE_ICE_BEAM, MOVE_CONFUSE_RAY},
+    .shiny = 1
   },
     {
     .iv = 31,
@@ -26217,7 +26219,8 @@ static const struct TrainerMonCustomMidele sParty_Sapph[] = {
     .heldItem = ITEM_MYSTIC_WATER,
     .nature = NATURE_MODEST,
     .evs = {6, 0, 0, 252, 0, 252},
-    .moves = {MOVE_ICE_BEAM, MOVE_SURF, MOVE_HYDRO_PUMP, MOVE_RAIN_DANCE}
+    .moves = {MOVE_ICE_BEAM, MOVE_SURF, MOVE_HYDRO_PUMP, MOVE_RAIN_DANCE},
+    .shiny = 1
   },
        {
     .iv = 31,
@@ -26227,7 +26230,8 @@ static const struct TrainerMonCustomMidele sParty_Sapph[] = {
     .heldItem = ITEM_LEFTOVERS,
     .nature = NATURE_BOLD,
     .evs = {252, 0, 252, 6, 0, 0},
-    .moves = {MOVE_CALM_MIND, MOVE_MOONBLAST, MOVE_SOFT_BOILED, MOVE_THUNDER}
+    .moves = {MOVE_CALM_MIND, MOVE_MOONBLAST, MOVE_SOFT_BOILED, MOVE_THUNDER},
+    .shiny = 1
   }
 };
 
