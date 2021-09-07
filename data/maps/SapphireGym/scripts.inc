@@ -1096,53 +1096,53 @@ SapphireGym_EventScript_StartFirstPuzzle_Iteration0:
 SapphireGym_Movement_Iteration0:
 	face_right
 	delay_16
-	delay_16
+	delay_4
 	face_left
 	delay_16
-	delay_16
+	delay_4
 	face_up
 	delay_16
-	delay_16
+	delay_4
 	face_right
 	delay_16
-	delay_16
+	delay_4
 	walk_right
 	delay_16
-	delay_16
+	delay_4
 	walk_up
 	delay_16
-	delay_16
+	delay_4
 	face_up
 	delay_16
-	delay_16
+	delay_4
 	face_right
 	delay_16
-	delay_16
+	delay_4
 	walk_left
 	delay_16
-	delay_16
+	delay_4
 	walk_left
 	delay_16
-	delay_16
+	delay_4
 	face_down
 	delay_16
-	delay_16
+	delay_4
 	face_left
 	delay_16
-	delay_16
+	delay_4
 	walk_right
 	delay_16
-	delay_16
+	delay_4
 	walk_down
 	delay_16
-	delay_16
+	delay_4
 	face_down
 	delay_16
+	delay_4
 	delay_16
+	delay_4
 	delay_16
-	delay_16
-	delay_16
-	delay_16
+	delay_4
 	step_end
 
 SapphireGym_Text_Iteration0:
@@ -1177,50 +1177,50 @@ SapphireGym_EventScript_StartFirstPuzzle_Iteration1:
 SapphireGym_Movement_Iteration1:
 	walk_left
 	delay_16
-	delay_16
+	delay_4
 	face_right
 	delay_16
-	delay_16
+	delay_4
 	walk_right
 	delay_16
-	delay_16
+	delay_4
 	walk_down
 	delay_16
-	delay_16
+	delay_4
 	face_down
 	delay_16
-	delay_16
+	delay_4
 	face_right
 	delay_16
-	delay_16
+	delay_4
 	walk_right
 	delay_16
-	delay_16
+	delay_4
 	face_left
 	delay_16
-	delay_16
+	delay_4
 	walk_up
 	delay_16
-	delay_16
+	delay_4
 	face_left
 	delay_16
-	delay_16
+	delay_4
 	face_up
 	delay_16
-	delay_16
+	delay_4
 	face_down
 	delay_16
-	delay_16
+	delay_4
 	walk_left
 	delay_16
-	delay_16
+	delay_4
 	face_down
 	delay_16
+	delay_4
 	delay_16
+	delay_4
 	delay_16
-	delay_16
-	delay_16
-	delay_16
+	delay_4
 	step_end
 
 SapphireGym_Text_Iteration1:
@@ -1242,105 +1242,105 @@ SapphireGym_EventScript_StartFirstPuzzle_Iteration2:
 SapphireGym_Movement_Iteration2:
 	face_right
 	delay_16
-	delay_16
+	delay_4
 	face_up
 	delay_16
-	delay_16
+	delay_4
 	walk_up
 	delay_16
-	delay_16
+	delay_4
 	face_up
 	delay_16
-	delay_16
+	delay_4
 	face_down
 	delay_16
-	delay_16
+	delay_4
 	face_right
 	delay_16
-	delay_16
+	delay_4
 	walk_left
 	delay_16
-	delay_16
+	delay_4
 	walk_down
 	delay_16
-	delay_16
+	delay_4
 	face_left
 	delay_16
-	delay_16
+	delay_4
 	walk_up
 	delay_16
-	delay_16
+	delay_4
 	face_up
 	delay_16
-	delay_16
+	delay_4
 	walk_right
 	delay_16
-	delay_16
+	delay_4
 	walk_down
 	delay_16
-	delay_16
+	delay_4
 	face_down
 	delay_16
+	delay_4
 	delay_16
+	delay_4
 	delay_16
-	delay_16
-	delay_16
-	delay_16
+	delay_4
 	step_end
 
 SapphireGym_Movement_Iteration2Failed:
 	face_right
 	delay_16
-	delay_16
+	delay_4
 	face_up
 	delay_16
-	delay_16
+	delay_4
 	walk_up
 	delay_16
-	delay_16
+	delay_4
 	face_up
 	delay_16
-	delay_16
+	delay_4
 	face_down
 	delay_16
-	delay_16
+	delay_4
 	face_right
 	delay_16
-	delay_16
+	delay_4
 	walk_left
 	delay_16
-	delay_16
+	delay_4
 	walk_left
 	delay_16
-	delay_16
+	delay_4
 	walk_down
 	delay_16
-	delay_16
+	delay_4
 	face_left
 	delay_16
-	delay_16
+	delay_4
 	walk_up
 	delay_16
-	delay_16
+	delay_4
 	face_up
 	delay_16
-	delay_16
+	delay_4
 	walk_right
 	delay_16
-	delay_16
+	delay_4
 	walk_down
 	delay_16
-	delay_16
+	delay_4
 	walk_right
 	delay_16
-	delay_16
+	delay_4
 	face_down
 	delay_16
+	delay_4
 	delay_16
+	delay_4
 	delay_16
-	delay_16
-	delay_16
-	delay_16
+	delay_4
 	step_end
 
 SapphireGym_Text_Iteration2:
@@ -2021,4 +2021,3 @@ SapphireGym_Text_GymStatueCertified:
 
     .string "SAPPHIRE'S CERTIFIED TRAINERS:\n"
     .string "{PLAYER}$"
-
