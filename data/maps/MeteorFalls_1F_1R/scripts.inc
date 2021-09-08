@@ -384,8 +384,8 @@ MeteorFalls_1F_1R_Text_WhatsTeamMagmaDoingAtMtChimney: @ 822C47D
 	.string "METEORITE at MT. CHIMNEY?$"
 	
 MeteorFalls_1F_1R_Text_Micolo: 
-	.string "MICOLO: Magno y Aquiles, jefes y líderes\n"
-	.string "de los Equipos Magma y Aqua, solo son\l"
+	.string "MICOLO: MAXIE y ARCHIE, jefes y líderes\n"
+	.string "de TEAM MAGMA y TEAM AQUA, solo son\l"
 	.string "dos chiflados con un sueño absurdo y\l"
 	.string "una chorrada de idea.\p"
 

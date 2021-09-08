@@ -383,7 +383,7 @@ Route101_Text_Ragu2:
 	
 	.string "Y este es el momento típico en el que\n"
 	.string "te elogio diciendote que eres genial,\l"
-	.string "que tienes un potencial increible,\l"
+	.string "que tienes un potencial increíble,\l"
 	.string "y te doy 20 REVIVEs por la cara,\l"
 	.string "pero no, no va a ser así, ya que\l"
 	.string "solo eres un NOOB...\l"
@@ -417,11 +417,11 @@ Route101_Text_Ragu3:
 
 	.string "Ahora mismo tus POKéMON no pueden\n"
 	.string "superar el nivel 15 hasta que consigas\l"
-	.string "derrotar al primer lider de GYM.\p"
+	.string "derrotar al primer líder de GYM.\p"
 	
 	.string "Si tienes alguna duda sobre la limitación\n"
 	.string "de nivel, solo tienes que usar el objeto\l"
 	.string "que te acabo de dar.\p"
 	
-	.string "¡Adios! Seguro que nos volveremos a ver.$"
+	.string "¡Adiós! Seguro que nos volveremos a ver.$"
 
