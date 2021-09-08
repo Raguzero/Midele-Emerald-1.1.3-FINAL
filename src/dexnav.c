@@ -1312,9 +1312,9 @@ static void CreateDexNavWildMon(u16 species, u8 potential, u8 level, u8 abilityN
     {
         if (potential > 2)
             SetMonData(mon, MON_DATA_HP_IV + iv[2], &perfectIv);
-        else if (potential > 1)
+        if (potential > 1)
             SetMonData(mon, MON_DATA_HP_IV + iv[1], &perfectIv);
-        else if (potential)
+        if (potential)
             SetMonData(mon, MON_DATA_HP_IV + iv[0], &perfectIv);
     }
 
