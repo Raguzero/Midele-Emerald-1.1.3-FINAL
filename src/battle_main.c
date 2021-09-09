@@ -759,7 +759,8 @@ static void CB2_InitBattleInternal(void)
         CreateNPCTrainerParty(&gEnemyParty[0], gTrainerBattleOpponent_A, TRUE);
         if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
             CreateNPCTrainerParty(&gEnemyParty[3], gTrainerBattleOpponent_B, FALSE);
-        SetWildMonHeldItem();
+        if (!gDexnavBattle) // el DexNav ya asigna item
+            SetWildMonHeldItem();
     }
 
     gMain.inBattle = TRUE;
