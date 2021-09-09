@@ -60,40 +60,44 @@ AI_CheckBadMove_CheckSubstitute:
 AI_CheckBadMove_CheckSubstitute_ScoreMinus2:
 	score -2
 
-AI_CBM_CheckIfNegatesType: @ 82DBF92
-	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
-	if_ability_might_be AI_TARGET, ABILITY_VOLT_ABSORB, CheckIfVoltAbsorbCancelsElectric
-	if_ability_might_be AI_TARGET, ABILITY_LIGHTNING_ROD, CheckIfVoltAbsorbCancelsElectric
-	if_ability_might_be AI_TARGET, ABILITY_MOTOR_DRIVE, CheckIfVoltAbsorbCancelsElectric
-	if_ability_might_be AI_TARGET, ABILITY_WATER_ABSORB, CheckIfWaterAbsorbCancelsWater
-	if_ability_might_be AI_TARGET, ABILITY_DRY_SKIN, CheckIfWaterAbsorbCancelsWater
-	if_ability_might_be AI_TARGET, ABILITY_FLASH_FIRE, CheckIfFlashFireCancelsFire
-	if_ability_might_be AI_TARGET, ABILITY_WONDER_GUARD, CheckIfWonderGuardCancelsMove
-	if_ability_might_be AI_TARGET, ABILITY_LEVITATE, CheckIfLevitateCancelsGroundMove
-	goto AI_CheckBadMove_CheckSoundproof
+AI_CBM_CheckIfNegatesType:
+    if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
+    if_ability_might_be AI_TARGET, ABILITY_WONDER_GUARD, CheckIfWonderGuardCancelsMove
+    get_curr_move_type
+    if_equal_ TYPE_ELECTRIC, CheckVoltAbsorb
+    if_equal_ TYPE_WATER, CheckWaterAbsorb
+    if_equal_ TYPE_FIRE, CheckFlashFire
+    if_equal_ TYPE_GROUND, CheckLevitate
+    if_effect EFFECT_WEATHER_BALL, AI_CBM_CheckIfNegatesType_WeatherBall
+    goto AI_CheckBadMove_CheckSoundproof
 
-CheckIfVoltAbsorbCancelsElectric: @ 82DBFBD
-	get_curr_move_type
-	if_equal_ TYPE_ELECTRIC, Score_Minus12
-	goto AI_CheckBadMove_CheckSoundproof
+AI_CBM_CheckIfNegatesType_WeatherBall:
+    get_weather
+    if_equal AI_WEATHER_RAIN, CheckWaterAbsorb
+    if_equal AI_WEATHER_SUN, CheckFlashFire
+    goto AI_CheckBadMove_CheckSoundproof
 
-CheckIfWaterAbsorbCancelsWater: @ 82DBFCA
-	get_curr_move_type
-	if_equal_ TYPE_WATER, Score_Minus12
-	goto AI_CheckBadMove_CheckSoundproof
+CheckVoltAbsorb:
+    if_ability_might_be AI_TARGET, ABILITY_VOLT_ABSORB, Score_Minus12
+    if_ability_might_be AI_TARGET, ABILITY_LIGHTNING_ROD, Score_Minus12
+    if_ability_might_be AI_TARGET, ABILITY_MOTOR_DRIVE, Score_Minus12
+    goto AI_CheckBadMove_CheckSoundproof
 
-CheckIfFlashFireCancelsFire: @ 82DBFD7
-	get_curr_move_type
-	if_equal_ TYPE_FIRE, Score_Minus12
-	goto AI_CheckBadMove_CheckSoundproof
+CheckWaterAbsorb:
+    if_ability_might_be AI_TARGET, ABILITY_WATER_ABSORB, Score_Minus12
+    if_ability_might_be AI_TARGET, ABILITY_DRY_SKIN, Score_Minus12
+    goto AI_CheckBadMove_CheckSoundproof
 
-CheckIfWonderGuardCancelsMove: @ 82DBFE4
-	if_type_effectiveness AI_EFFECTIVENESS_x2, AI_CheckBadMove_CheckSoundproof
-	goto Score_Minus10
+CheckFlashFire:
+    if_ability_might_be AI_TARGET, ABILITY_FLASH_FIRE, Score_Minus12
+    goto AI_CheckBadMove_CheckSoundproof
 
-CheckIfLevitateCancelsGroundMove: @ 82DBFEF
-	get_curr_move_type
-	if_equal_ TYPE_GROUND, Score_Minus10
+CheckIfWonderGuardCancelsMove:
+    if_type_effectiveness AI_EFFECTIVENESS_x2, AI_CheckBadMove_CheckSoundproof
+    goto Score_Minus10
+
+CheckLevitate:
+    if_ability_might_be AI_TARGET, ABILITY_LEVITATE, Score_Minus10
 
 AI_CheckBadMove_CheckSoundproof: @ 82DBFFE
     if_ability_might_be AI_TARGET, ABILITY_SOUNDPROOF, AI_CheckBadMove_CheckSoundMoves
