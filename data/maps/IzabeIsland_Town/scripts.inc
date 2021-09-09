@@ -48,7 +48,7 @@ IzabeIsland_Town_Text_Expert::
 IzabeIsland_Town_Text_GameboyKid::
 	.string "Qué aburrido...\p"
 	.string "¿Eh? ¿Que a qué estoy jugando?\n"
-	.string "¡A POKéMON EDICIÓN ESPADA y ESCUDO¡\p"
+	.string "¡A POKéMON EDICIÓN ESPADA y ESCUDO!\p"
 	.string "Tal vez debería dejarlo e irme a jugar\n"
 	.string "a las afueras del pueblo...\p"
 	.string "¿Eh? ¿Que qué opino de MASUDA?\p"

@@ -464,7 +464,7 @@ static const u8 sIceStoneDesc[] = _(
 
 // Valuable items
 static const u8 sTinyMushroomDesc[] = _(
-    "Hold item: doubles\n"
+    "Hold item: raises\n"
     "PARAS & PARASECT's\n"
     "ATK, SATK & SPEED.");
 
