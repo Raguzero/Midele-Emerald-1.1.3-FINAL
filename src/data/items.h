@@ -1974,7 +1974,7 @@ const struct Item gItems[] =
     {
         .name = _("RAZZ BERRY"),
         .itemId = ITEM_RAZZ_BERRY,
-        .price = 20000,
+        .price = 5000,
         .description = sRazzBerryDesc,
         .pocket = POCKET_BERRIES,
         .type = 4,
@@ -1986,7 +1986,7 @@ const struct Item gItems[] =
     {
         .name = _("BLUK BERRY"),
         .itemId = ITEM_BLUK_BERRY,
-        .price = 20000,
+        .price = 5000,
         .description = sBlukBerryDesc,
         .pocket = POCKET_BERRIES,
         .type = 4,
@@ -1998,7 +1998,7 @@ const struct Item gItems[] =
     {
         .name = _("NANAB BERRY"),
         .itemId = ITEM_NANAB_BERRY,
-        .price = 20000,
+        .price = 5000,
         .description = sNanabBerryDesc,
         .pocket = POCKET_BERRIES,
         .type = 4,
@@ -2010,7 +2010,7 @@ const struct Item gItems[] =
     {
         .name = _("WEPEAR BERRY"),
         .itemId = ITEM_WEPEAR_BERRY,
-        .price = 20000,
+        .price = 5000,
         .description = sWepearBerryDesc,
         .pocket = POCKET_BERRIES,
         .type = 4,
@@ -2022,7 +2022,7 @@ const struct Item gItems[] =
     {
         .name = _("PINAP BERRY"),
         .itemId = ITEM_PINAP_BERRY,
-        .price = 20000,
+        .price = 5000,
         .description = sPinapBerryDesc,
         .pocket = POCKET_BERRIES,
         .type = 4,
