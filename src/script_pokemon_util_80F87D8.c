@@ -603,6 +603,7 @@ u8 ScriptGiveMon(u16 species, u8 level, u16 item, bool32 hasPokerus, bool32 full
             const u8 iv = 31;
             SetMonData(&mon, i, &iv);
         }
+		CalculateMonStats(&mon);
     }
     sentToPc = GiveMonToPlayer(&mon);
     nationalDexNum = SpeciesToNationalPokedexNum(species);
