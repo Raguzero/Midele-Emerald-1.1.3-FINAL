@@ -11,7 +11,7 @@ Versión inicial.
 Cambios y arreglos de errores de la versión 1.0.1
 
 ### General
-- Ya no se puede ir a Dewford Town si no tienes 2 Medallas y la carta entregada.
+- Ya no se puede ir a Slateport City si no tienes 2 Medallas y la carta entregada.
 
 - Arreglado error en el que si buscabas un Pokémon shiny forzandole la naturaleza con Syncronize, no funcionaba, siempre salía con naturaleza aleatoria.
 
