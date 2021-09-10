@@ -123,7 +123,7 @@ IzabeIsland_MayorHouse_Text_Guard_ThanksForHelp::
 IzabeIsland_MayorHouse_Text_Mayor_ExplainSituation::
 	.string "Oh, no eres de por aquí...\n"
   .string "¿Ah, has venido a ayudar?\p"
-  .string "Soy GARM, el alcade de IZABE.\n"
+  .string "Soy GARM, el alcalde de IZABE.\n"
   .string "Antes de nada me gustaría ponerte a\l"
   .string "prueba.$"
 
