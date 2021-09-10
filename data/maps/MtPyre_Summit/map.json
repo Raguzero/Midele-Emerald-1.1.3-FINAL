@@ -159,8 +159,8 @@
             "script": "MtPyre_Summit_EventScript_Grunt3",
             "trainer_sight_or_berry_tree_id": "3",
             "trainer_type": "1",
-            "x": 21,
-            "y": 11
+            "x": 22,
+            "y": 13
         },
         {
             "elevation": 3,
@@ -172,8 +172,8 @@
             "script": "MtPyre_Summit_EventScript_Grunt4",
             "trainer_sight_or_berry_tree_id": "3",
             "trainer_type": "1",
-            "x": 25,
-            "y": 11
+            "x": 24,
+            "y": 13
         },
         {
             "elevation": 3,
