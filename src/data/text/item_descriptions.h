@@ -652,8 +652,8 @@ static const u8 sBlukBerryDesc[] = _(
 
 static const u8 sNanabBerryDesc[] = _(
     "{POKEBLOCK} ingredient.\n"
-    "Plant in loamy soil\n"
-    "to grow NANAB.");
+    "Hold item: raises\n"
+    "TROPIUS SPE&ATK.");
 
 static const u8 sWepearBerryDesc[] = _(
     "{POKEBLOCK} ingredient.\n"

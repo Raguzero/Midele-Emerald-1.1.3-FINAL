@@ -4992,6 +4992,9 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
 	
 	if (gBattleMons[battler1].item == ITEM_POKE_DOLL && gBattleMons[battler1].species == SPECIES_DELCATTY)
         speedBattler1 *= 1.5;
+
+	if (gBattleMons[battler1].item == ITEM_NANAB_BERRY && gBattleMons[battler1].species == SPECIES_TROPIUS)
+        speedBattler1 *= 1.5;
 	
 	if (gBattleMons[battler1].item == ITEM_CHOICE_SCARF)
         speedBattler1 *= 1.5;
@@ -5054,6 +5057,9 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
         speedBattler2 *= 1.5;
 	
 	if (gBattleMons[battler2].item == ITEM_POKE_DOLL && gBattleMons[battler2].species == SPECIES_DELCATTY)
+        speedBattler2 *= 1.5;
+
+	if (gBattleMons[battler2].item == ITEM_NANAB_BERRY && gBattleMons[battler2].species == SPECIES_TROPIUS)
         speedBattler2 *= 1.5;
 	
 	if (gBattleMons[battler2].item == ITEM_CHOICE_SCARF)

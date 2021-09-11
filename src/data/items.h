@@ -1999,6 +1999,7 @@ const struct Item gItems[] =
         .name = _("NANAB BERRY"),
         .itemId = ITEM_NANAB_BERRY,
         .price = 5000,
+		.holdEffect = HOLD_EFFECT_NANAB_BERRY,
         .description = sNanabBerryDesc,
         .pocket = POCKET_BERRIES,
         .type = 4,

@@ -4221,6 +4221,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         spAttack *= 2, attack *= 2;
     if (attackerHoldEffect == HOLD_EFFECT_STICK && attacker->species == SPECIES_FARFETCHD)
         attack *= 1.5;
+    if (attackerHoldEffect == HOLD_EFFECT_NANAB_BERRY && attacker->species == SPECIES_TROPIUS)
+        attack *= 1.5;
     if (defenderHoldEffect == HOLD_EFFECT_METAL_POWDER && defender->species == SPECIES_DITTO)
         defense *= 2;
     if (attackerHoldEffect == HOLD_EFFECT_THICK_CLUB && (attacker->species == SPECIES_CUBONE || attacker->species == SPECIES_MAROWAK || attacker->species == SPECIES_ALOLAN_MAROWAK))
