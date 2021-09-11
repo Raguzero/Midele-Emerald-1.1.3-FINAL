@@ -1261,22 +1261,42 @@ AI_CV_MirrorMove_EncouragedMovesToMirror: @ 82DCB6C
     .2byte MOVE_SKILL_SWAP
     .2byte -1
 
-@ IA solo para FEAR (no hace nada si no es FEAR)
 @ Comprueba que tiene Endeavor y nivel como máximo 2
+@ En caso contrario, considera que no es FEAR
 AI_CV_QuickAttack::
 	if_level_cond 3, AI_CV_QuickAttackFear_CheckEndeavor
-	end
+    goto AI_CV_QuickAttack_NoFEAR
 
 AI_CV_QuickAttackFear_CheckEndeavor:
 	if_has_move AI_USER, MOVE_ENDEAVOR, AI_CV_QuickAttackFear
-	end
+    goto AI_CV_QuickAttack_NoFEAR
 
+@ IA para FEAR
 @ Quita puntos a no ser que el rival tenga 1 PS
 AI_CV_QuickAttackFear:
 	if_hp_condition TARGET_HAS_1_HP, AI_CV_QuickAttackFear_End   @ recibirá puntos en otra parte porque es suficiente para KO
 	score -4
 AI_CV_QuickAttackFear_End:
 	end
+
+@ IA no FEAR. Tira prioridad (incluye otros movs de prioridad)
+@ si es probable que, de elegir un ataque sin prioridad, no les dé tiempo a atacar
+@ Da más bonus cuando alguno de los pokes está en su primer turno
+AI_CV_QuickAttack_NoFEAR:
+    if_user_faster AI_CV_QuickAttack_End
+    if_can_faint AI_CV_QuickAttack_End @ ya recibe suficiente bonus
+    calculate_nhko AI_TARGET
+    if_more_than 1, AI_CV_QuickAttack_End
+    calculate_nhko AI_TARGET @ se hace dos veces para que solo lo haga si es claro que el rival hace KO
+    if_more_than 1, AI_CV_QuickAttack_End
+@ Se da 5 si alguno de los pokes está en su primer turno (más incertidumbre sobre lo que hará el rival)
+    is_first_turn_for AI_USER
+    if_equal 1, Score_Plus5
+    is_first_turn_for AI_TARGET
+    if_equal 1, Score_Plus5
+    score +1
+AI_CV_QuickAttack_End:
+    end
 	
 AI_CV_WillOWisp:
     if_ability_might_be AI_TARGET, ABILITY_WONDER_GUARD, Score_Plus1
@@ -3201,6 +3221,8 @@ AI_HailResistantAbilities:
 
 AI_CV_FakeOut:
 	call AI_CV_FakeOut_AvoidIfChoicedAndLastMon
+    is_first_turn_for AI_USER
+    if_equal 0, AI_CV_FakeOut_End
 	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_CV_FakeOut_CheckIfSubIsBroken
 	if_ability_might_be AI_TARGET, ABILITY_INNER_FOCUS, AI_CV_FakeOut_End
 	if_ability_might_be AI_TARGET, ABILITY_SHIELD_DUST, AI_CV_FakeOut_End
@@ -3212,6 +3234,17 @@ AI_CV_FakeOut_Double:
 	score +2
 AI_CV_FakeOut_End:
 	end
+
+@ Tira Fake Out a pokes que podrían tener Inner Focus o Shield Dust si no van a tener tiempo de atacar primero
+AI_CV_FakeOut_UseIfInNeed:
+    if_user_faster AI_CV_FakeOut_End
+    if_can_faint AI_CV_FakeOut_End @ ya recibe suficiente bonus
+    calculate_nhko AI_TARGET
+    if_more_than 1, AI_CV_FakeOut_End
+    calculate_nhko AI_TARGET @ se hace dos veces para que solo lo haga si es claro que el rival hace KO
+    if_more_than 1, AI_CV_FakeOut_End
+    score +5
+    goto AI_CV_FakeOut_End
 
 AI_CV_FakeOut_CheckIfSubIsBroken:
     if_can_faint AI_CV_FakeOut_End
