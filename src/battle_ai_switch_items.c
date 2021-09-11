@@ -1339,6 +1339,7 @@ u8 FilterShedinjaIfVulnerable(struct Pokemon *party, s32 firstId, s32 lastId, u8
     {
         struct BattlePokemon currentMon = gBattleMons[gActiveBattler];
 		struct DisableStruct disableStructCopy = gDisableStructs[gActiveBattler];
+				u16 savedCurrentMove = gCurrentMove;
 
         for (i = firstId; i < lastId; i++)
             if ((gBitTable[i] & sheds))
@@ -1363,7 +1364,7 @@ u8 FilterShedinjaIfVulnerable(struct Pokemon *party, s32 firstId, s32 lastId, u8
                 if (vulnerable)
                     vulnerableSheds |= gBitTable[i];
             }
-        
+        gCurrentMove = savedCurrentMove;
         gBattleMons[gActiveBattler] = currentMon;
 		gDisableStructs[gActiveBattler] = disableStructCopy;
     }

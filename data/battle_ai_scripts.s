@@ -2212,6 +2212,7 @@ AI_CV_VitalThrow_End:
 	end
 
 AI_CV_Substitute:
+	if_hp_condition USER_CANNOT_USE_SUB, AI_CV_Substitute_End
 	goto AI_IsHealingAbilityActive
 AI_CV_SubstituteStart:
 	if_target_wont_attack_due_to_truant AI_CV_SubstitutePlus3Continue
@@ -2266,7 +2267,9 @@ AI_CV_Substitute8:
 	score +1
 	goto AI_CV_Substitute_End
 AI_CV_Substitute_SpeedBoost:
+	if_status2 AI_USER, STATUS2_SUBSTITUTE, AI_CV_Substitute_Minus3
 	if_user_faster Score_Plus5
+AI_CV_Substitute_Minus3:
 	score -3
 	goto AI_CV_Substitute_End
 AI_CV_Substitute_End:

@@ -4267,7 +4267,7 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         attack /= 2;
     if (defender->ability == ABILITY_MARVEL_SCALE && defender->status1)
         defense = (150 * defense) / 100;
-	if (defender->ability == ABILITY_DRY_SKIN && (gBattleMoves[gCurrentMove].type == TYPE_FIRE))
+	if (defender->ability == ABILITY_DRY_SKIN && (gBattleMoves[move].type == TYPE_FIRE))
         gBattleMovePower = (125 * gBattleMovePower) / 100;
 	if (defender->ability == ABILITY_PUNK_ROCK && (move == MOVE_SNORE || move == MOVE_OVERDRIVE || move == MOVE_BOOMBURST || move == MOVE_UPROAR || move == MOVE_HYPER_VOICE))
       defense *= 2, spDefense *= 2;
@@ -4295,9 +4295,9 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         gBattleMovePower = (150 * gBattleMovePower) / 100;
     if (type == TYPE_BUG && attacker->ability == ABILITY_SWARM && attacker->hp <= (attacker->maxHP / 3))
         gBattleMovePower = (150 * gBattleMovePower) / 100;
-    if (gBattleMoves[gCurrentMove].effect == EFFECT_EXPLOSION)
+    if (gBattleMoves[move].effect == EFFECT_EXPLOSION)
         defense /= 2;
-	if (gCurrentMove == MOVE_KNOCK_OFF && defender->item && !gWishFutureKnock.knockedOffMons[gBattlerTarget])
+	if (move == MOVE_KNOCK_OFF && defender->item && !gWishFutureKnock.knockedOffMons[gBattlerTarget])
 		spAttack = (spAttack * 3) / 2;
 
     if (IS_TYPE_PHYSICAL(type))
@@ -4403,7 +4403,7 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
             }
 
             // any weather except sun weakens solar beam
-            if ((gBattleWeather & (WEATHER_RAIN_ANY | WEATHER_SANDSTORM_ANY | WEATHER_HAIL_ANY)) && gCurrentMove == MOVE_SOLAR_BEAM)
+            if ((gBattleWeather & (WEATHER_RAIN_ANY | WEATHER_SANDSTORM_ANY | WEATHER_HAIL_ANY)) && move == MOVE_SOLAR_BEAM)
                 damage /= 2;
 
             // sunny

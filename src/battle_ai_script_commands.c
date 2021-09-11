@@ -1731,7 +1731,9 @@ static void Cmd_get_last_used_battler_move(void)
     else
         AI_THINKING_STRUCT->funcResult = gLastMoves[gBattlerTarget];
 
-    gAIScriptPtr += 2;
+    if (AI_THINKING_STRUCT->funcResult == 0xFFFF) // se quedó sin atacar por confusión, entre otras cosas
+        AI_THINKING_STRUCT->funcResult = MOVE_NONE;
+		gAIScriptPtr += 2;
 }
 
 static void Cmd_if_equal_(void) // Same as if_equal.
@@ -2933,6 +2935,7 @@ s32 CalculateNHKO(u16 attackerId, u16 targetId, bool8 attackerIsCurrentAI, u16 c
 	bool8 check_only_considered_move = (consideredMove != MOVE_NONE);
     s32 i;
     s32 best_nhko = 5;     // todo lo que sea peor que 4HKO se lee como 5HKO (incluso daño 0)
+	u16 savedCurrentMove = gCurrentMove;
  
     if (check_only_considered_move)
         movePointer = &consideredMove;
@@ -3051,7 +3054,7 @@ s32 CalculateNHKO(u16 attackerId, u16 targetId, bool8 attackerIsCurrentAI, u16 c
             }
         }
     }
-    
+		gCurrentMove = savedCurrentMove;
     if (((gBattleMons[attackerId].status2 & STATUS2_RECHARGE) || gDisableStructs[attackerId].truantCounter) && best_nhko < 5)
         best_nhko += 1;
     return best_nhko;
