@@ -382,7 +382,7 @@ Route101_Text_Ragu2:
 	.string "potencial para afrontar un gran reto.\p"
 	
 	.string "Y este es el momento típico en el que\n"
-	.string "te elogio diciendote que eres genial,\l"
+	.string "te elogio diciéndote que eres genial,\l"
 	.string "que tienes un potencial increíble,\l"
 	.string "y te doy 20 REVIVEs por la cara,\l"
 	.string "pero no, no va a ser así, ya que\l"
@@ -397,7 +397,7 @@ Route101_Text_Ragu2:
 	
 	.string "Así que, ¿por qué no complicamos todo\n"
 	.string "un poquito? ¿No te gustan los retos?\l"
-	.string "¡A mi me gustan los retos!\p"
+	.string "¡A mí me gustan los retos!\p"
 	
 	.string "¡No digas nada!, te haré entrega de un\n"
 	.string "objeto clave autolimitante de nivel, del\l"

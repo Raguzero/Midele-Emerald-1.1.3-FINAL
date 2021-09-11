@@ -118,8 +118,8 @@ Route102_Text_RouteSignPetalburg: @ 81EC373
 Route102_Text_IsmaPKMIntro:
   .string "Los POKéMON están sobrevalorados, los\n"
   .string "DIGIMON son mejores.\p"
-  .string "¿Eres un de esos POKéMANIACOS...? Nivel\n"
-  .string "de mal rollo al 87%...\p"
+  .string "¿Eres uno de esos POKéMANIACOS...?\n"
+  .string "Nivel de mal rollo al 87%...\p"
   .string "...\p"
   .string "Hora de poner a mi GUILMON a prueba.\n"
   .string "¡Vamos, GUILMON! ¡Poder digital!$"

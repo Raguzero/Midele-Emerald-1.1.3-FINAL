@@ -2243,7 +2243,7 @@ static const struct TrainerMonCustomMidele sParty_Brawly1[] = {
     .species = SPECIES_RIOLU,
     .heldItem = ITEM_SILK_SCARF,
 	.evs = {0, 24, 0, 0, 0, 0},
-    .moves = {MOVE_MACH_PUNCH, MOVE_RAPID_SPIN, MOVE_METAL_CLAW, MOVE_FAKE_OUT}
+    .moves = {MOVE_ROCK_SMASH, MOVE_RAPID_SPIN, MOVE_METAL_CLAW, MOVE_QUICK_ATTACK}
     },
     {
     .iv = 31,
