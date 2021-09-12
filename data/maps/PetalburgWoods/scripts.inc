@@ -500,7 +500,7 @@ PetalburgWoods_Text_HypeantonioIntro:
   .string "En mi tierra natal, PxP, tampoco me\n"
   .string "creyeron.\p"
   .string "Es por eso que he viajado hasta aquí\n"
-  .string "para demostarles su error.\p"
+  .string "para demostrarles su error.\p"
   .string "Una vez lo haga, MELKOR y todo PxP \n"
   .string "se postrarán ante mis teorías.\p"
   .string "¿Sigues sin creerme? Lo siento por ti,\n"

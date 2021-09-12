@@ -536,7 +536,7 @@ Route120_Text_Maestro_ArenaPostBattle:
 	.string "verás un roca gigantesca...\p"
 	
 	.string "Quizás contenga esas ruinas...\n" 
-	.string "legendarias en su interior.\l" 
+	.string "legendarios en su interior.\l" 
 	.string "Pero... ¿dónde estará la entrada?\p"
 
 	.string "Bah, que más da.\p"
