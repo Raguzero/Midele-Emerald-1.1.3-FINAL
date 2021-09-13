@@ -472,7 +472,7 @@ SlateportCity_OceanicMuseum_2F_Text_MicoloAppears:
 	.string "MICOLO: Hola reina n.n\p"
 	.string "DARKRAI: Estos noobs quieren las\n"
 	.string "DEVON GOODS.\p"
-	.string "MEWTWO: Pero las piezas ya no hacen\n"
+	.string "MEWTWO: Pero las GOODS ya no hacen\n"
 	.string "falta para nuestros planes.\p"
 	.string "MOLTRES: ¿Entonces qué hacemos?\p"
 	.string "ARTICUNO: Cállate, pollo frito.\p"

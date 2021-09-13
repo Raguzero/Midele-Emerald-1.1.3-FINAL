@@ -180,7 +180,7 @@ MauvilleRuins_Text_Vader:
 	.string "Toda mi investigación era consistente\n"
 	.string "en cuanto a que REGICE, REGIROCK y\l"
 	.string "REGISTEEL deberían despertar al\l"
-	.string "témido REGIGIGAS...\p" 
+	.string "temido REGIGIGAS...\p" 
 	
 	.string "Pero...\p"
 	

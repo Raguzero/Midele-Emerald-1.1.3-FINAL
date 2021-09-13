@@ -66,7 +66,7 @@ GraniteCave_Text_JZombieDefeat:
 	.string "Buen polvo...$"
 
 GraniteCave_Text_JZombiePostBattle: 
-	.string "Mira chaval o chavala, me da igual\n"
+	.string "Mira, chaval o chavala, me da igual\n"
 	.string "lo que tengas entre tus piernas.\p"
 	
 	.string "¡KALOS SUR existe, y algún día te lo\n"
@@ -130,4 +130,3 @@ DesafiarTotem_Text:
 	.string "muy poderoso que se adecuará al máximo\l"
 	.string "nivel de tu equipo.\p"
 	.string "¿Todo listo para este desafío?$"
-
