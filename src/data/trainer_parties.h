@@ -24570,7 +24570,7 @@ static const struct TrainerMonCustomMidele sParty_Alpha[] = {
     },
 	{
     .iv = 31,
-    .lvl = 94,
+    .lvl = 100,
     .species = SPECIES_HONEDGE_MONADO,
     .heldItem = ITEM_FOCUS_SASH, 
     .nature = NATURE_JOLLY,
