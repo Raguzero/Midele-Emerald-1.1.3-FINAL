@@ -100,6 +100,7 @@ OldaleTown_PokemonCenter_1F_Movement_NPCPCOcupado:
 	walk_left
 	walk_down
 	walk_down
+	walk_down
 	step_end
 
 OldaleTown_PokemonCenter_1F_Text_TrainersCantUsePC: @ 81FC059
