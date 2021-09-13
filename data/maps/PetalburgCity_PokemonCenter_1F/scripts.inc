@@ -36,6 +36,7 @@ PetalburgCity_PokemonCenter_1F_EventScript_Woman:: @ 8207A1C
 	end
 
 PetalburgCity_PokemonCenter_1F_EventScript_SayStarterTypeInfo:: @ 8207A38
+	setflag FLAG_RECEIVED_HM03
 	special PlayerHasSpecialNickname
 	compare VAR_RESULT, TRUE
 	goto_if_eq PetalburgCity_PokemonCenter_1F_EventScript_SayDarkPikaType
