@@ -1172,7 +1172,7 @@ static const struct TrainerMonCustomMidele sParty_MayProfessorBirchsLabTorchic[]
     .heldItem = ITEM_BLACK_BELT,
 	.ability = 1,
 	.evs = {6, 0, 0, 252, 0, 252},
-    .moves = {MOVE_SPORE, MOVE_MACH_PUNCH, MOVE_ROCK_TOMB, MOVE_SWORDS_DANCE} 
+    .moves = {MOVE_STUN_SPORE, MOVE_MACH_PUNCH, MOVE_ROCK_TOMB, MOVE_SWORDS_DANCE} 
     },
     {
     .iv = 31,
@@ -5275,7 +5275,7 @@ static const struct TrainerMonCustomMidele sParty_James2[] = {
     .heldItem = ITEM_BIG_MUSHROOM,
 	.nature = NATURE_IMPISH,
 	.evs = {58, 0, 52, 0, 0, 0},
-    .moves = {MOVE_SPORE, MOVE_SYNTHESIS, MOVE_SLASH, MOVE_FURY_CUTTER}
+    .moves = {MOVE_STUN_SPORE, MOVE_SYNTHESIS, MOVE_SLASH, MOVE_FURY_CUTTER}
     }
 };
 
@@ -5297,7 +5297,7 @@ static const struct TrainerMonCustomMidele sParty_James3[] = {
     .heldItem = ITEM_BIG_MUSHROOM,
 	.nature = NATURE_IMPISH,
 	.evs = {106, 0, 100, 0, 0, 0},
-    .moves = {MOVE_SPORE, MOVE_SYNTHESIS, MOVE_SLASH, MOVE_FURY_CUTTER}
+    .moves = {MOVE_STUN_SPORE, MOVE_SYNTHESIS, MOVE_SLASH, MOVE_FURY_CUTTER}
     }
 };
 
@@ -5319,7 +5319,7 @@ static const struct TrainerMonCustomMidele sParty_James4[] = {
     .heldItem = ITEM_BIG_MUSHROOM,
 	.nature = NATURE_IMPISH,
 	.evs = {158, 0, 152, 0, 0, 0},
-    .moves = {MOVE_SPORE, MOVE_SYNTHESIS, MOVE_SLASH, MOVE_FURY_CUTTER}
+    .moves = {MOVE_STUN_SPORE, MOVE_SYNTHESIS, MOVE_SLASH, MOVE_FURY_CUTTER}
     },
     {
     .iv = 31,
@@ -5360,7 +5360,7 @@ static const struct TrainerMonCustomMidele sParty_James5[] = {
     .heldItem = ITEM_BIG_MUSHROOM,
 	.nature = NATURE_IMPISH,
 	.evs = {252, 0, 252, 0, 6, 0},
-    .moves = {MOVE_SPORE, MOVE_SYNTHESIS, MOVE_LEECH_LIFE, MOVE_CURSE}
+    .moves = {MOVE_STUN_SPORE, MOVE_SYNTHESIS, MOVE_LEECH_LIFE, MOVE_CURSE}
     },
     {
     .iv = 31,
@@ -6646,7 +6646,7 @@ static const struct TrainerMonCustomMidele sParty_Karen5[] = {
 	.nature = NATURE_JOLLY,
 	.ability = 1,
 	.evs = {6, 252, 0, 0, 0, 252},
-    .moves = {MOVE_SPORE, MOVE_MACH_PUNCH, MOVE_ROCK_TOMB, MOVE_SLUDGE_BOMB}
+    .moves = {MOVE_STUN_SPORE, MOVE_MACH_PUNCH, MOVE_ROCK_TOMB, MOVE_SLUDGE_BOMB}
     },
     {
     .iv = 31,
@@ -7090,7 +7090,7 @@ static const struct TrainerMonCustomMidele sParty_Lydia5[] = {
 	.heldItem = ITEM_LEFTOVERS,
 	.nature = NATURE_JOLLY,
 	.evs = {6, 252, 0, 0, 0, 252},
-    .moves = {MOVE_SPORE, MOVE_FOCUS_PUNCH, MOVE_SUBSTITUTE, MOVE_LEECH_SEED}
+    .moves = {MOVE_STUN_SPORE, MOVE_FOCUS_PUNCH, MOVE_SUBSTITUTE, MOVE_LEECH_SEED}
     },
     {
     .iv = 31,
@@ -9189,7 +9189,7 @@ static const struct TrainerMonCustomMidele sParty_Pat[] = {
 	.nature = NATURE_BOLD,
 	.heldItem = ITEM_LEFTOVERS,
 	.evs = {112, 0, 112, 0, 0, 0},
-    .moves = {MOVE_SPORE, MOVE_GIGA_DRAIN, MOVE_LEECH_SEED, MOVE_FAKE_TEARS}
+    .moves = {MOVE_STUN_SPORE, MOVE_GIGA_DRAIN, MOVE_LEECH_SEED, MOVE_FAKE_TEARS}
     },
     {
     .iv = 31,
@@ -12372,7 +12372,7 @@ static const struct TrainerMonCustomMidele sParty_Tony1[] = {
 	.evs = {0, 0, 0, 0, 0, 168},
 	.nature = NATURE_NAIVE,
 	.ability = 1,
-    .moves = {MOVE_SPORE, MOVE_SLASH, MOVE_PSYBEAM, MOVE_GIGA_DRAIN}
+    .moves = {MOVE_STUN_SPORE, MOVE_SLASH, MOVE_PSYBEAM, MOVE_GIGA_DRAIN}
     }
 };
 static const struct TrainerMonCustomMidele sParty_Tony2[] = {
@@ -12393,7 +12393,7 @@ static const struct TrainerMonCustomMidele sParty_Tony2[] = {
 	.evs = {0, 0, 0, 0, 0, 168},
 	.nature = NATURE_NAIVE,
 	.ability = 1,
-    .moves = {MOVE_SPORE, MOVE_SLASH, MOVE_PSYBEAM, MOVE_GIGA_DRAIN}
+    .moves = {MOVE_STUN_SPORE, MOVE_SLASH, MOVE_PSYBEAM, MOVE_GIGA_DRAIN}
     }
 };
 
@@ -12415,7 +12415,7 @@ static const struct TrainerMonCustomMidele sParty_Tony3[] = {
 	.evs = {0, 0, 0, 0, 0, 206},
 	.nature = NATURE_NAIVE,
 	.ability = 1,
-    .moves = {MOVE_SPORE, MOVE_SLASH, MOVE_BRICK_BREAK, MOVE_GIGA_DRAIN}
+    .moves = {MOVE_STUN_SPORE, MOVE_SLASH, MOVE_BRICK_BREAK, MOVE_GIGA_DRAIN}
     }
 };
 
@@ -12446,7 +12446,7 @@ static const struct TrainerMonCustomMidele sParty_Tony4[] = {
 	.evs = {0, 58, 0, 0, 0, 252},
 	.nature = NATURE_NAIVE,
 	.ability = 1,
-    .moves = {MOVE_SPORE, MOVE_SLASH, MOVE_BRICK_BREAK, MOVE_GIGA_DRAIN}
+    .moves = {MOVE_STUN_SPORE, MOVE_SLASH, MOVE_BRICK_BREAK, MOVE_GIGA_DRAIN}
     }
 };
 
@@ -12477,7 +12477,7 @@ static const struct TrainerMonCustomMidele sParty_Tony5[] = {
 	.evs = {0, 252, 0, 6, 0, 252},
 	.nature = NATURE_NAIVE,
 	.ability = 1,
-    .moves = {MOVE_SPORE, MOVE_LEECH_LIFE, MOVE_BRICK_BREAK, MOVE_GIGA_DRAIN}
+    .moves = {MOVE_STUN_SPORE, MOVE_LEECH_LIFE, MOVE_BRICK_BREAK, MOVE_GIGA_DRAIN}
     }
 };
 static const struct TrainerMonCustomMidele sParty_Beth[] = {
@@ -12502,7 +12502,7 @@ static const struct TrainerMonCustomMidele sParty_LisaAndRay[] = {
 	.evs = {168, 0, 0, 0, 0, 0},
 	.ability = 1,
 	.nature = NATURE_ADAMANT,
-    .moves = {MOVE_BRICK_BREAK, MOVE_SPORE, MOVE_AGILITY, MOVE_NATURE_POWER}
+    .moves = {MOVE_BRICK_BREAK, MOVE_STUN_SPORE, MOVE_AGILITY, MOVE_NATURE_POWER}
     },
     {
     .iv = 31,
@@ -19137,7 +19137,7 @@ static const struct TrainerMonCustomMidele sParty_Brawly2[] = {
     .heldItem = ITEM_LEFTOVERS,
 	.evs = {6, 252, 0, 0, 0, 252},
 	.ability = 1,
-    .moves = {MOVE_SPORE, MOVE_SUBSTITUTE, MOVE_MACH_PUNCH, MOVE_ROCK_SLIDE}
+    .moves = {MOVE_STUN_SPORE, MOVE_SUBSTITUTE, MOVE_MACH_PUNCH, MOVE_ROCK_SLIDE}
     },
     {
     .iv = 31,
@@ -19196,7 +19196,7 @@ static const struct TrainerMonCustomMidele sParty_Brawly3[] = {
     .heldItem = ITEM_LEFTOVERS,
 	.evs = {6, 252, 0, 0, 0, 252},
 	.ability = 1,
-    .moves = {MOVE_SPORE, MOVE_SUBSTITUTE, MOVE_MACH_PUNCH, MOVE_ROCK_SLIDE}
+    .moves = {MOVE_STUN_SPORE, MOVE_SUBSTITUTE, MOVE_MACH_PUNCH, MOVE_ROCK_SLIDE}
     },
     {
     .iv = 31,
@@ -19255,7 +19255,7 @@ static const struct TrainerMonCustomMidele sParty_Brawly4[] = {
     .heldItem = ITEM_LEFTOVERS,
 	.evs = {6, 252, 0, 0, 0, 252},
 	.ability = 1,
-    .moves = {MOVE_SPORE, MOVE_SUBSTITUTE, MOVE_MACH_PUNCH, MOVE_ROCK_SLIDE}
+    .moves = {MOVE_STUN_SPORE, MOVE_SUBSTITUTE, MOVE_MACH_PUNCH, MOVE_ROCK_SLIDE}
     },
     {
     .iv = 31,
@@ -19314,7 +19314,7 @@ static const struct TrainerMonCustomMidele sParty_Brawly5[] = {
     .heldItem = ITEM_LEFTOVERS,
 	.evs = {6, 252, 0, 0, 0, 252},
 	.ability = 1,
-    .moves = {MOVE_SPORE, MOVE_SUBSTITUTE, MOVE_MACH_PUNCH, MOVE_ROCK_SLIDE}
+    .moves = {MOVE_STUN_SPORE, MOVE_SUBSTITUTE, MOVE_MACH_PUNCH, MOVE_ROCK_SLIDE}
     },
     {
     .iv = 31,
