@@ -83,11 +83,13 @@ bool8 PlayerHasSpecialNickname(void)
 {
     u8 i;
     bool8 hasSpecialNickname = FALSE;
+    gSpecialVar_Result = FALSE;
     for (i = 0; i < ARRAY_COUNT(gSpecialNames); i++)
     {
         if (StringCompare(gSaveBlock2Ptr->playerName, gSpecialNames[i]) == 0)
         {
             hasSpecialNickname = TRUE;
+            gSpecialVar_Result = TRUE;
             break;
         }
     }

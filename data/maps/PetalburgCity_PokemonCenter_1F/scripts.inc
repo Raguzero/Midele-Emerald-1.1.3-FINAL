@@ -36,12 +36,20 @@ PetalburgCity_PokemonCenter_1F_EventScript_Woman:: @ 8207A1C
 	end
 
 PetalburgCity_PokemonCenter_1F_EventScript_SayStarterTypeInfo:: @ 8207A38
+	special PlayerHasSpecialNickname
+	compare VAR_RESULT, TRUE
+	goto_if_eq PetalburgCity_PokemonCenter_1F_EventScript_SayDarkPikaType
 	compare VAR_STARTER_MON, 0
 	call_if_eq PetalburgCity_PokemonCenter_1F_EventScript_SayTreeckoType
 	compare VAR_STARTER_MON, 1
 	call_if_eq PetalburgCity_PokemonCenter_1F_EventScript_SayTorchicType
 	compare VAR_STARTER_MON, 2
 	call_if_eq PetalburgCity_PokemonCenter_1F_EventScript_SayMudkipType
+	release
+	end
+
+PetalburgCity_PokemonCenter_1F_EventScript_SayDarkPikaType:: @ 8207A5B
+	msgbox PetalburgCity_PokemonCenter_1F_Text_DarkPikaType, MSGBOX_DEFAULT
 	release
 	end
 
@@ -98,3 +106,10 @@ PetalburgCity_PokemonCenter_1F_Text_MudkipIsWaterType: @ 8207CB7
 	.string "But, it's weak against GRASS-type\n"
 	.string "and ICE-type POKéMON.$"
 
+PetalburgCity_PokemonCenter_1F_Text_DarkPikaType:
+	.string "For example, your DARK PIKA\n"
+	.string "is an ELECTRIC and DARK type.\p"
+	.string "It's strong against the\n"
+	.string "ELECTRIC type.\p"
+	.string "But, it's weak against FIGHT-type\n"
+	.string "and GROUND-type POKéMON.$"
