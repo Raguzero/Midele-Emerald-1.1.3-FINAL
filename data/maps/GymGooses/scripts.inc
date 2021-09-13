@@ -1134,8 +1134,8 @@ Quiz7_Text:
 	.string "un NUZLOCKE de EEVEETO?$"
 	
 Quiz8_Text:
-	.string "Según un usuario de PxP,\n" 
-	.string "¿de qué tipo es ENTEI?$"
+	.string "Según un usuario de PxP llamado\n" 
+	.string "MRZERO ¿de qué tipo es ENTEI?$"
 	
 Quiz9_Text:
 	.string "¿Por qué MONOCICLO?$"
@@ -1200,7 +1200,7 @@ GymGooses_Text_GymGuideAdvice:
 	.string "La pruebas de este GYM son:\n"
 	.string "Completar los 3 TABLEROS de DADOS\l"
 	.string "Derrotar al POKéMON TOTEM\l"
-	.string "Derrotar al LIDER de GYM\p"
+	.string "Derrotar al LÍDER de GYM\p"
 	
 	.string "Si consigues superar las pruebas,\n"
 	.string "se te recompensará con la no-oficial\l"
@@ -1239,7 +1239,7 @@ GymGooses_Text_GymGuideAdvice:
 	.string "Casilla Musical: Tus POKéMON pueden\n"
 	.string "caer en un estado alterado aleatorio.\p"	
 
-	.string "En cuanto al LIDER GOOSES, solo te puedo\n"
+	.string "En cuanto al LÍDER GOOSES, solo te puedo\n"
 	.string "decir... ¡Que tengas mucho cuidado\l" 
 	.string "con las congelaciones!\p"
 

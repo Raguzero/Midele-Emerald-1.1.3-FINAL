@@ -81,8 +81,8 @@ IzabeIsland_Outskirts_EventScript_Gooses::
 IzabeIsland_Outskirts_Text_GoosesIntro::
 	.string "...Hola. Otra vez una criatura... Sí...\n"
 	.string "Tienes un aura parecida a aquella que\l"
-	.string "vi en Kanto. ¿O acaso sois el mismo ser?\p"
-	.string "Ah, que descortés, soy gooses, una\n"
+	.string "vi en KANTO. ¿O acaso sois el mismo ser?\p"
+	.string "Ah, que descortés, soy GOOSES, una\n"
 	.string "antigua bruja de gran poder...\p"
 	.string "Oh, qué interesante. ¿Quieres una\n"
 	.string "muestra de mi poder? Fufufu... Sí, en\l"

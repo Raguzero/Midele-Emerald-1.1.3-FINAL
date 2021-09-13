@@ -171,7 +171,7 @@ MauvilleRuins_Text_Vader:
 	
 	.string "Esta es la cueva donde me tiré a\n"
 	.string "tu MADRE, quiero decir... donde\l"
-	.string "reside el poderoso POKÉMON eléctrico\l"
+	.string "reside el poderoso POKéMON eléctrico\l"
 	.string "con el nombre de REGIELEKI.\p"
 	
 	.string "Llevo mucho tiempo investigando a\n"
@@ -192,7 +192,7 @@ MauvilleRuins_Text_Vader:
 	
 	.string "¡Es como si los hubiesen inventado solo\n"
 	.string "para intentar vendernos el DLC de\l"
-	.string "POKÉMON ESPADA y POKEMON ESCUDO!\p"
+	.string "POKéMON ESPADA y POKéMON ESCUDO!\p"
 	
 	.string "Ni siquiera tienen la habilidad CLEAR BODY\n"
 	.string "de REGICE, REGIROCK y REGISTEEL.\p"
@@ -230,7 +230,7 @@ MauvilleRuins_Text_Vader:
 	.string "QUE ILUMINA UN FARO.\p"
 	
 	.string "En mi viaje por JOHTO, me suena haber\n"
-	.string "oido algo sobre cierto POKÉMON que\l"
+	.string "oido algo sobre cierto POKéMON que\l"
 	.string "iluminaba un faro. ¿Cual sería?\p"
 	
 	.string "¡Eso ya tendrás que descubrirlo usando\n"
@@ -241,13 +241,13 @@ MauvilleRuins_Text_Vader:
 	.string "esta puerta.$"
 
 MauvilleRuins_Text_Vader2:
-	.string "AVADER: Gracias por hacerme el\n"
+	.string "A.VADER: Gracias por hacerme el\n"
 	.string "trabajo sucio.\p"
 
 	.string "Ahora voy a llevarme lo que\n"
 	.string "me pertenece.\p"
 	
-	.string "“AVADER usa una MASTER BALL”$"
+	.string "“A.VADER usa una MASTER BALL”$"
 
 MauvilleRuins_Text_Vader3:
 	.string "¿Que habría sido más divertido?\p"
