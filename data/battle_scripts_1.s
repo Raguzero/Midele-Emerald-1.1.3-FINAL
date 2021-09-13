@@ -4747,6 +4747,7 @@ BattleScript_DrySkinDmg::
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
+	tryfaintmon BS_ATTACKER, FALSE, NULL
 	end3
 
 BattleScript_EffectCoil:
