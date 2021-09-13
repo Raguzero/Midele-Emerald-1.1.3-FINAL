@@ -573,3 +573,4 @@ gSpecials:: @ 81DBA64
 	def_special UpdateRandomBattleVictories
 	def_special BufferRandomBattleVictories
 	def_special MideleResetContestStats
+	def_special PlayerHasSpecialNickname
