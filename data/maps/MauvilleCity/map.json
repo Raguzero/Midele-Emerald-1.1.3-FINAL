@@ -98,7 +98,7 @@
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "1",
-            "x": 39,
+            "x": 32,
             "y": 8
         },
         {
@@ -107,7 +107,7 @@
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "1",
-            "x": 39,
+            "x": 32,
             "y": 9
         },
         {
@@ -116,7 +116,7 @@
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "1",
-            "x": 39,
+            "x": 32,
             "y": 10
         },
         {
@@ -125,7 +125,7 @@
             "type": "trigger",
             "var": "VAR_TEMP_0",
             "var_value": "1",
-            "x": 39,
+            "x": 32,
             "y": 11
         }
     ],
@@ -288,7 +288,7 @@
             "script": "MauvilleCity_EventScript_IzabeIslandMan",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
-            "x": 39,
+            "x": 32,
             "y": 7
         }
     ],
