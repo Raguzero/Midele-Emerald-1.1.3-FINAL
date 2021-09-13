@@ -933,7 +933,7 @@ u8 OnlyOneMonLeft(u8 bits)
     // Esencialmente, mira rápido si el número es una potencia de 2
     // La única posibilidad de que un número binario sea potencia de 2
     // es que al restarle 1 su dígito líder pase de 1 a 0
-	return !(b & (b-1));
+	return b && !(b & (b-1));
 }
 
 // Devuelve el único poke que no ha sido filtrado.
