@@ -98,8 +98,11 @@ Micolandia_Mart_EventScript_Clerk::
 	waitmessage
 	special ChoosePartyMon
 	waitstate
+	compare VAR_0x8004, 255
+	goto_if_eq Micolandia_Mart_EventScript_Clerk_Bye
 	copyvar VAR_RESULT, VAR_0x8004
 	evmart Micolandia_Mart_Pokemart
+Micolandia_Mart_EventScript_Clerk_Bye:
 	msgbox Micolandia_EV_Mart_Bye, MSGBOX_DEFAULT
 	release
 	end
@@ -140,4 +143,3 @@ Micolandia_Mart_Text_Boy:
 
 	.string "Se acabó el comprar vitaminas y plantar\n"
 	.string "bayas reductoras de EVs.$"
-
