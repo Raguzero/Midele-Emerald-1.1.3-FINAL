@@ -369,7 +369,7 @@ Script_RandomPrize4::
 	end
 
 Script_RandomPrize5::
-	giveitem ITEM_BIG_PEARL, 4
+	giveitem ITEM_FOCUS_SASH, 3
 	compare VAR_RESULT, FALSE
 	call_if_eq Script_RandomPrize1_BagFull
 	closemessage
