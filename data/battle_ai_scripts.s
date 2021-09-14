@@ -726,6 +726,7 @@ WillOWisp_Synchronize:
 
 AI_CBM_HelpingHand: @ 82DC6E3
 	if_not_double_battle Score_Minus10
+	if_battler_absent AI_USER_PARTNER, Score_Minus10
 	end
 
 AI_CBM_Trick: @ 82DC6EB
