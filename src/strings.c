@@ -1943,7 +1943,7 @@ const u8 gText_Leaf[] =  _("LEAF");
 const u8 gText_Cheryl[] =  _("CHERYL");
 
 // NO COMPRA MTS REPES
-const u8 gText_YouAlreadyHaveThis[] = _("You already have this item.");
+const u8 gText_YouAlreadyHaveThis[] = _("You already have this item.{PAUSE_UNTIL_PRESS}");
 
 // NUEVOS MUÑECOS COMPRABLES POR PB
 const u8 gText_RegirockDoll256BP[] = _("REGIROCK DOLL{CLEAR_TO 0x58}18BP");
