@@ -61,3 +61,68 @@ Cambios y arreglos de errores de la versión 1.0.1
 - Las bayas PINAP, WEPEAR, RAZZ, BLUK, y NANAB fueron reducidas de precio de venta
 
 - Arreglado error que hacía que el Itemfinder no pudiese ser utilizado.
+
+
+## Versión 1.1.0
+
+Cambios y arreglos de errores de la versión 1.1.0.
+
+Debido a los cambios, se recomienda que la partida no esté guardada en los siguientes lugares tras actualizar a esta versión:
+- **ROUTE 127**
+- **SCORCHED SLAB**
+- **MAUVILLE CITY**
+
+### General
+
+- Actualizado TODO SOBRE MIDELE EMERALD.pdf
+
+### Textos
+
+- Corregida falta de ortografía sobre el alcalde de Izabe.
+- Corregidas faltas de ortografía en evento de ruta 101.
+- Corregido texto de NPC de Petalburg Woods.
+- Corregido texto de NPC de Route 120.
+- Corregido texto de NPC de evento de Devon Corp.
+- Corregidos textos de Gooses gym.
+- Corregidos varios textos de Izabe Island.
+- Corregidos textos de Mauville Ruins.
+- Corregidos varios textos de mensajes de batalla.
+- Corregidos varios textos de la POKéDEX.
+- Corregido texto de Granite Cave.
+- Corregido texto de Oceanic Museum 2F.
+- Corregida la frase de la entrenadora GOLDIE que se salía del cuadro de texto.
+- Añadido texto sobre el starter DARK PIKA en el NPC de Petalburg Woods Pokémon Center.
+- Las cartas de los Pokémon de intercambio Salandit, Eevee y Charmander han sido corregidas.
+
+
+### Eventos
+
+- Arreglado error en el que un NPC atravesaba a otro al caminar en un evento de Mt. Pyre.
+- Añadido un paso más al script de movimiento del entrenador que bloquea el PC en Oldale Town.
+- Movido NPC de Izabe en Mauville más a la izquierda.
+- Ahora la tienda del EV changer se cierra correctamente al cancelar la selección de POKéMON.
+
+### Mapas
+
+- Arreglada tileset atravesable en RUTA 127.
+- Corregido un poco el tileset de SCORCHED SLAB.
+
+### Combate
+
+- Corregido el poder de consecutivos Fury Cutter.
+- Corregida la habilidad DRY SKIN que ocasionaba el bug de no desaparecer dicho POKéMON debilitado del campo de batalla al terminarse el combate, por haber sido debilitado por el daño del clima soleado al llevar dicha habilidad.
+- Corregida la IA para que no pierda el tiempo en cálculos innecesarios.
+- Corregida la IA en el cálculo de poder de algunos movimientos (Explosion, Knock Off, fuego vs Dry Skin, etc.)
+- Corregida la IA en el uso de Substituto a poca vida, y de Fake Out y otros ataques de prioridad en algunos momentos clave.
+- Mejorada IA de Helping Hand.
+- Corregido el RIOLU con set ilegal de BRAWLY.
+- Ya no pierdes dinero cuando CHERYL te derrota.
+- Corregidas inconsistencias en algunos equipos de entrenadores (como el hecho de llevar SPORE cuando realmente lo aprenden a mayor nivel).
+
+### Pokémon
+
+- TROPIUS ha sido mejorado y ahora recibe un boost de x1.5 Ataque y Velocidad cuando lleva equipada una NANAB BERRY/BAYA LATANO.
+- Mayor estabilidad en el movepool de algunos POKéMON.
+- Nivel de Pokémon de regalo en Izabe reducido de 45 a 40.
+- Ahora es menos común encontrar a LEDIAN salvaje con el objeto LUCKY PUNCH.
+
