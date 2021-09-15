@@ -36,15 +36,15 @@ const struct Boss gBosses[] =
     {
         .name = gBossNameMasuda,
         .level = 50,
-        .hp = 230,
-        .attack = 170,
-        .defense = 180,
+        .hp = 600,
+        .attack = 257, // Equivalente a 150 BST, 31 IV, 255 EV, LVL 50, NATURE FAVORABLE
+        .defense = 189, // Equivalente a 120 BST, 31 IV, 255 EV, LVL 50, NATURE FAVORABLE
         .spAttack = 10,
-        .spDefense = 200,
-        .speed = 10,
-        .item = ITEM_LEFTOVERS,
-        .moves = {MOVE_PAY_DAY, MOVE_SHADOW_BALL, MOVE_DOOM_DESIRE, MOVE_HAZE},
-        .ability = ABILITY_SHADOW_TAG,
+        .spDefense = 167, // Equivalente a 100 BST, 31 IV, 255 EV, LVL 50, NATURE FAVORABLE
+        .speed = 156, // Equivalente a 90 BST, 31 IV, 255 EV, LVL 50, NATURE FAVORABLE
+        .item = ITEM_SITRUS_BERRY,
+        .moves = {MOVE_PAY_DAY, MOVE_SHADOW_BALL, MOVE_REVENGE, MOVE_GLARE},
+        .ability = ABILITY_ADAPTABILITY,
         .type1 = TYPE_NORMAL,
         .type2 = TYPE_GHOST,
     },
