@@ -946,7 +946,7 @@ LittlerootTown_ProfessorBirchsLab_Text_MayTakeBreakFromFieldwork: @ 81FB528
 	.string "you experienced out there.\p" 
 	
 	.string "I want to know all about you and your\n" 
-	.string "Pokémon, {PLAYER}. But that's not all...\p" 
+	.string "POKéMON, {PLAYER}. But that's not all...\p" 
 	
 	.string "I want you to know all about me\n" 
 	.string "and mine! Do we battle?$"
@@ -963,7 +963,7 @@ LittlerootTown_ProfessorBirchsLab_Text_BrendanTakeBreakFromFieldwork: @ 81FB58A
 	.string "you experienced out there.\p" 
 	
 	.string "I want to know all about you and your\n" 
-	.string "Pokémon, {PLAYER}. But that's not all...\p" 
+	.string "POKéMON, {PLAYER}. But that's not all...\p" 
 	
 	.string "I want you to know all about me\n" 
 	.string "and mine! Do we battle?$"
@@ -1112,11 +1112,11 @@ LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall: @ 81FBD1A
 LittlerootTown_ProfessorBirchsLab_AfterBrendanMayBattle:	
 	.string "Thanks, {PLAYER}!\p" 
 	
-	.string "Just what I'd expect from a Champion!\n" 
+	.string "Just what I'd expect from a CHAMPION!\n" 
 	.string "Getting to meet so many\l" 
 	.string "different people...\p" 
 	
-	.string "And so many different Pokémon...\n"
+	.string "And so many different POKéMON...\n"
 	.string "It's like... I don't know...\l"
 	.string "It's been really, really fun!\p"
 
