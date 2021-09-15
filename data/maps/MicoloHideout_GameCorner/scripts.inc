@@ -575,9 +575,7 @@ MicoloHideout_EventScript_ExitVendingMachine::
 MicoloHideout_VentaTickets::
 	lock
 	faceplayer
-	checkflag FLAG_SYS_HAS_EON_TICKET 
-	compare VAR_RESULT, TRUE
-	goto_if_eq MicoloHideoutYaCompradoTickets
+	goto_if_set FLAG_SYS_HAS_EON_TICKET, MicoloHideoutYaCompradoTickets
 	showmoneybox 0, 0, 0
 	msgbox MicoloHideout_VentaTickets_Text, MSGBOX_YESNO
 	compare VAR_RESULT, YES

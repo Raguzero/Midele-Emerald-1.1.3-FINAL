@@ -529,6 +529,7 @@ void BattleSetup_StartLegendaryBattle(void)
     case SPECIES_CELEBI:
     case SPECIES_JIRACHI:
         CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_VS_MEW);
+		break;
     case SPECIES_MEWTWO:
         CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_RG_VS_MYU2);
         break;
