@@ -75,7 +75,7 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 ### General
 
 - Actualizado TODO SOBRE MIDELE EMERALD.pdf
-- La experiencia ganada aumenta en 1.5 tras pararse la liga.
+- La experiencia ganada aumenta en 1.5 tras pasarse la liga.
 - Focus Sash sustituye a Big Pearl como premio en Random Battles.
 - Corregidas músicas de Jirachi, Celebi y Mew.
 
@@ -132,4 +132,3 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 - Mayor estabilidad en el movepool de algunos POKéMON.
 - Nivel de Pokémon de regalo en Izabe reducido de 45 a 40.
 - Ahora es menos común encontrar a LEDIAN salvaje con el objeto LUCKY PUNCH.
-
