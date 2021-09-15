@@ -1071,7 +1071,7 @@ LittlerootTown_ProfessorBirchsLab_Text_MayHaveYouGoneToBattleFrontier: @ 81FBC8D
 	.string "you experienced out there.\p" 
 	
 	.string "I want to know all about you and your\n" 
-	.string "Pokémon, {PLAYER}. But that's not all...\p" 
+	.string "POKéMON, {PLAYER}. But that's not all...\p" 
 	
 	.string "I want you to know all about me\n" 
 	.string "and mine! Do we battle?$"
@@ -1087,7 +1087,7 @@ LittlerootTown_ProfessorBirchsLab_Text_BrendanHaveYouGoneToBattleFrontier: @ 81F
 	.string "you experienced out there.\p" 
 	
 	.string "I want to know all about you and your\n" 
-	.string "Pokémon, {PLAYER}. But that's not all...\p" 
+	.string "POKéMON, {PLAYER}. But that's not all...\p" 
 	
 	.string "I want you to know all about me\n" 
 	.string "and mine! Do we battle?$"
