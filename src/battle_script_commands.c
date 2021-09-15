@@ -1336,9 +1336,13 @@ static bool8 AccuracyCalcHelper(u16 move)
 
     gHitMarker &= ~HITMARKER_IGNORE_UNDERWATER;
 
-    if ((WEATHER_HAS_EFFECT && (gBattleWeather & WEATHER_RAIN_ANY) && gBattleMoves[move].effect == EFFECT_THUNDER)
-		|| (((gBattleWeather & WEATHER_HAIL_ANY) && move == MOVE_BLIZZARD))
-     || (gBattleMoves[move].effect == EFFECT_ALWAYS_HIT || gBattleMoves[move].effect == EFFECT_VITAL_THROW || gCurrentMove == MOVE_STRUGGLE))
+    if (
+        (WEATHER_HAS_EFFECT &&
+            (
+                ((gBattleWeather & WEATHER_RAIN_ANY) && gBattleMoves[move].effect == EFFECT_THUNDER)
+             || ((gBattleWeather & WEATHER_HAIL_ANY) && move == MOVE_BLIZZARD)
+            )
+        ) || (gBattleMoves[move].effect == EFFECT_ALWAYS_HIT || gBattleMoves[move].effect == EFFECT_VITAL_THROW || gCurrentMove == MOVE_STRUGGLE))
     {
         JumpIfMoveFailed(7, move);
         return TRUE;
