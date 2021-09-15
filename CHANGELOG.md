@@ -75,6 +75,9 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 ### General
 
 - Actualizado TODO SOBRE MIDELE EMERALD.pdf
+- La experiencia ganada aumenta en 1.5 tras pararse la liga.
+- Focus Sash sustituye a Big Pearl como premio en Random Battles.
+- Corregidas músicas de Jirachi, Celebi y Mew.
 
 ### Textos
 
@@ -101,11 +104,14 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 - Añadido un paso más al script de movimiento del entrenador que bloquea el PC en Oldale Town.
 - Movido NPC de Izabe en Mauville más a la izquierda.
 - Ahora la tienda del EV changer se cierra correctamente al cancelar la selección de POKéMON.
+- La tienda de MT solo permite comprar un MT de cada tipo, y su texto se cierra correctamente.
+- Corregida comprobación del NPC de los tickets de evento.
 
 ### Mapas
 
 - Arreglada tileset atravesable en RUTA 127.
 - Corregido un poco el tileset de SCORCHED SLAB.
+- Corregida tileset atravesable en Santy Gym.
 
 ### Combate
 
@@ -118,6 +124,7 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 - Corregido el RIOLU con set ilegal de BRAWLY.
 - Ya no pierdes dinero cuando CHERYL te derrota.
 - Corregidas inconsistencias en algunos equipos de entrenadores (como el hecho de llevar SPORE cuando realmente lo aprenden a mayor nivel).
+- Mejorado el equilibrio de stats y moveset en bosses.
 
 ### Pokémon
 
