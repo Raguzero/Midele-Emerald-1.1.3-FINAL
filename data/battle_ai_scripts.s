@@ -314,6 +314,7 @@ AI_CBM_AttackUp: @ 82DC348
 
 AI_CBM_DefenseUp: @ 82DC351
 	if_stat_level_equal AI_USER, STAT_DEF, 12, Score_Minus10
+	if_next_turn_target_might_use_move_with_effect EFFECT_HAZE, Score_Minus8
 	if_next_turn_target_might_use_move_with_effect EFFECT_ROAR, AI_CBM_Minus8IfAICanBePhazed
 	end
 
@@ -332,6 +333,7 @@ AI_CBM_Growth:
 
 AI_CBM_SpDefUp: @ 82DC36C
 	if_stat_level_equal AI_USER, STAT_SPDEF, 12, Score_Minus10
+	if_next_turn_target_might_use_move_with_effect EFFECT_HAZE, Score_Minus8
 	if_next_turn_target_might_use_move_with_effect EFFECT_ROAR, AI_CBM_Minus8IfAICanBePhazed
 	end
 
@@ -341,6 +343,7 @@ AI_CBM_AccUp: @ 82DC375
 
 AI_CBM_EvasionUp: @ 82DC37E
 	if_stat_level_equal AI_USER, STAT_EVASION, 12, Score_Minus10
+	if_next_turn_target_might_use_move_with_effect EFFECT_HAZE, Score_Minus8
 	if_next_turn_target_might_use_move_with_effect EFFECT_ROAR, AI_CBM_Minus8IfAICanBePhazed
 	end
 
@@ -767,6 +770,7 @@ AI_CBM_Tickle: @ 82DC729
 AI_CBM_CosmicPower: @ 82DC73A
 	if_stat_level_equal AI_USER, STAT_DEF, 12, Score_Minus10
 	if_stat_level_equal AI_USER, STAT_SPDEF, 12, Score_Minus8
+	if_next_turn_target_might_use_move_with_effect EFFECT_HAZE, Score_Minus8
 	if_next_turn_target_might_use_move_with_effect EFFECT_ROAR, AI_CBM_Minus8IfAICanBePhazed
 	end
 
@@ -1604,7 +1608,11 @@ AI_CV_AccuracyUp_End:
 AI_CV_EvasionUp:
 	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus2
     if_has_move_with_effect AI_TARGET, EFFECT_ALWAYS_HIT, AI_CV_EvasionUp_ScoreDown2
-    if_user_can_probably_boost_safely Score_Plus5
+    get_weather
+    if_equal AI_WEATHER_HAIL, AI_CV_EvasionUp_BlizzardCheck
+    if_equal AI_WEATHER_RAIN, AI_CV_EvasionUp_ThunderCheck
+AI_CV_EvasionUp_NoProblematicWeather:
+	if_user_can_probably_boost_safely Score_Plus5
 	if_hp_less_than AI_USER, 90, AI_CV_EvasionUp2
 	if_random_less_than 100, AI_CV_EvasionUp2
 	score +3
@@ -1650,6 +1658,14 @@ AI_CV_EvasionUp_ScoreDown2:
 
 AI_CV_EvasionUp_End:
 	end
+
+AI_CV_EvasionUp_BlizzardCheck:
+    if_has_move AI_TARGET, MOVE_BLIZZARD, Score_Minus2
+    goto AI_CV_EvasionUp_NoProblematicWeather
+
+AI_CV_EvasionUp_ThunderCheck:
+    if_next_turn_target_might_use_move_with_effect EFFECT_THUNDER, Score_Minus2
+    goto AI_CV_EvasionUp_NoProblematicWeather
 
 AI_CV_AlwaysHit:
 	if_stat_level_more_than AI_TARGET, STAT_EVASION, 10, AI_CV_AlwaysHit_ScoreUp1

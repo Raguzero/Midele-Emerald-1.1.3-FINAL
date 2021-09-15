@@ -758,9 +758,22 @@
     @    ataca el rival, el usuario tiene Restos (o con Rest, Chesto o Lum Berry) y el rival no hace OHKO
     @ (si el usuario es más lento, hace lo mismo pero exigiendo un golpe más)
 	@ No considera seguro boostearse si está intoxicado o si puede recibir Taunt
+    @ o si puede recibir Haze o movs de phazeo
 	.macro if_user_can_probably_boost_safely ptr:req
 	if_user_is_intoxicated_and_does_not_have_baton_pass .AI_user_might_not_be_able_to_boost_safely_\@
     if_status3 AI_USER, STATUS3_PERISH_SONG, .AI_user_might_not_be_able_to_boost_safely_\@
+    if_next_turn_target_might_use_move_with_effect EFFECT_HAZE, .AI_user_might_not_be_able_to_boost_safely_\@
+    if_next_turn_target_might_use_move_with_effect EFFECT_ROAR, .AI_check_if_user_can_be_phazed_\@
+    goto .AI_everything_ok_calculate_nhko_\@
+
+    .AI_check_if_user_can_be_phazed_\@:
+    count_usable_party_mons AI_USER
+    if_equal 0, .AI_everything_ok_calculate_nhko_\@
+    if_ability AI_USER, ABILITY_SUCTION_CUPS, .AI_everything_ok_calculate_nhko_\@
+    if_status3 AI_USER, STATUS3_ROOTED, .AI_everything_ok_calculate_nhko_\@
+    goto .AI_user_might_not_be_able_to_boost_safely_\@
+
+    .AI_everything_ok_calculate_nhko_\@:
 	calculate_nhko AI_TARGET | AI_NHKO_PESSIMISTIC
 	if_effect EFFECT_CURSE, .AI_user_slower_\@
     if_target_faster .AI_user_slower_\@
