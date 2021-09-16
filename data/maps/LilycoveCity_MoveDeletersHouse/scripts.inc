@@ -20,7 +20,7 @@ LilycoveCity_PinkPetalHouse_EventScript_AlreadyReceivedItem::
 	end
 
 LilycoveCity_PinkPetalHouse_Text_GiveItem::
-	.string "Do you like FAIRY-type Pokémon?\p"
+	.string "Do you like FAIRY-type POKéMON?\p"
 	
 	.string "If so, you will be interested in this.$"
 

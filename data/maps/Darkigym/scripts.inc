@@ -811,7 +811,7 @@ Darkigym_Text_DarkMelkorIntro:
 	
 	.string "¡Ahora debo convencer al MELKOR de\n"
 	.string "este mundo para que se una a mí para\l"
-	.string "salvar la SAGA POKÉMON de las garras\l"
+	.string "salvar la SAGA POKéMON de las garras\l"
 	.string "de MASUDA!\p"
 	
 	.string "¡Tenemos que impedir que borre toda la\n"

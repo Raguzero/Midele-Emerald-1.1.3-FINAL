@@ -23,12 +23,12 @@ IzabeIsland_SecretHouse_EventScript_Item_LightBall::
 	
 IzabeIsland_SecretHouse_Text_Trophie1:
 	.string "TROFEO CAMPEÓN JOHTO.\p"
-	.string "EQUIPO POKÉMON: GYARADOS, ARCANINE,\n" 
+	.string "EQUIPO POKéMON: GYARADOS, ARCANINE,\n" 
 	.string "JYNX, CROBAT, DRAGONITE, TYRANITAR$"
 	
 IzabeIsland_SecretHouse_Text_Trophie2:
 	.string "TROFEO CAMPEÓN KANTO.\p" 
-	.string "EQUIPO POKÉMON: SLOWBRO, DUGTRIO,\n" 
+	.string "EQUIPO POKéMON: SLOWBRO, DUGTRIO,\n" 
 	.string "VIKAVOLT, NIDOQUEEN, GOLEM, DARK PIKA$"
 	
 IzabeIsland_SecretHouse_Text_Planos:
