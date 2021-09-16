@@ -51,6 +51,10 @@ MicoloLeagueLobby_EventScript_3::
 MicoloLeagueLobby_EventScript_4::
 	msgbox MicoloLeagueLobby_Text_4, MSGBOX_NPC
 	end
+
+MicoloLeagueLobby_Sign_1::
+	msgbox MicoloLeagueLobby_Text_5, MSGBOX_SIGN
+	end
 	
 MicoloLeagueLobby_EventScript_ResetTrainerFlagsMachine::
 	lock
@@ -444,3 +448,7 @@ Tutor_Definite_List_Text:
 	.string "recordar...\p"
 	.string "¡la lista de movimientos de tutor\n"
 	.string "definitiva!$"
+
+MicoloLeagueLobby_Text_5:
+	.string "“LAVENDER es un BBCITO.\n"
+	.string "Firmado: SAPPHIRE”$"
