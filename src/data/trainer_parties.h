@@ -11023,6 +11023,29 @@ static const struct TrainerMonCustomMidele sParty_Pablo5[] = {
     .moves = {MOVE_HIDDEN_POWER, MOVE_SWORDS_DANCE, MOVE_FURY_CUTTER, MOVE_METAL_CLAW}
     }
 };
+
+static const struct TrainerMonCustomMidele sParty_Brenda[] = {
+    {
+    .iv = 31,
+    .lvl = 47,
+    .species = SPECIES_CURSOLA,
+	.nature = NATURE_BRAVE,
+	.ability = 0,
+	.heldItem = ITEM_SPELL_TAG,
+	.evs = {0, 142, 0, 142, 0, 0},
+    .moves = {MOVE_MIRROR_COAT, MOVE_SHADOW_BALL, MOVE_EARTHQUAKE, MOVE_BLIZZARD}
+    },
+	{
+    .iv = 31,
+    .lvl = 46,
+    .species = SPECIES_SEAKING,
+	.nature = NATURE_NAIVE,
+	.ability = 1,
+	.heldItem = ITEM_SILVER_POWDER,
+	.evs = {0, 128, 0, 56, 0, 100},
+    .moves = {MOVE_MEGAHORN, MOVE_DRILL_RUN, MOVE_ICE_BEAM, MOVE_SURF}
+    },
+};
 // ROUTE 126
 
 
@@ -20836,14 +20859,6 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Dudley[] = {
     .iv = 0,
     .lvl = 33,
     .species = SPECIES_TENTACRUEL,
-    }
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_Brenda[] = {
-    {
-    .iv = 0,
-    .lvl = 34,
-    .species = SPECIES_GOLDEEN,
     }
 };
 
