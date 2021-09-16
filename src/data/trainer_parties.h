@@ -2238,29 +2238,30 @@ static const struct TrainerMonCustomMidele sParty_Brawly1[] = {
     },
     {
     .iv = 31,
-    .lvl = 15,
-	.nature = NATURE_JOLLY,
+    .lvl = 16,
+	.nature = NATURE_NAIVE,
     .species = SPECIES_RIOLU,
-    .heldItem = ITEM_SILK_SCARF,
+    .heldItem = ITEM_BLACK_GLASSES,
 	.evs = {0, 24, 0, 0, 0, 0},
-    .moves = {MOVE_ROCK_SMASH, MOVE_RAPID_SPIN, MOVE_METAL_CLAW, MOVE_QUICK_ATTACK}
+    .moves = {MOVE_ROCK_SMASH, MOVE_RAPID_SPIN, MOVE_METAL_CLAW, MOVE_BITE}
     },
     {
     .iv = 31,
     .lvl = 16,
 	.nature = NATURE_ADAMANT,
     .species = SPECIES_TYROGUE,
+	.initial_status1 = STATUS1_BURN,
     .heldItem = ITEM_BLACK_BELT,
 	.evs = {0, 24, 0, 0, 0, 0},
     .moves = {MOVE_MACH_PUNCH, MOVE_RAPID_SPIN, MOVE_FORESIGHT, MOVE_FAKE_OUT}
     },
     {
     .iv = 31,
-    .lvl = 15,
+    .lvl = 16,
     .species = SPECIES_MACHOP,
   	.evs = {0, 24, 0, 0, 0, 0},
     .heldItem = ITEM_MENTAL_HERB,
-    .moves = {MOVE_KARATE_CHOP, MOVE_FIRE_PUNCH, MOVE_SEISMIC_TOSS, MOVE_BULK_UP},
+    .moves = {MOVE_KARATE_CHOP, MOVE_FIRE_PUNCH, MOVE_ROCK_TOMB, MOVE_BULK_UP},
     .ability = 1},
     {
     .iv = 31,
@@ -2276,7 +2277,7 @@ static const struct TrainerMonCustomMidele sParty_Brawly1[] = {
     .species = SPECIES_MAKUHITA,
     .heldItem = ITEM_ORAN_BERRY,
 	.evs = {24, 0, 0, 0, 0, 0},
-    .moves = {MOVE_ARM_THRUST, MOVE_KNOCK_OFF, MOVE_SAND_ATTACK, MOVE_BULK_UP}
+    .moves = {MOVE_ARM_THRUST, MOVE_FAINT_ATTACK, MOVE_SAND_ATTACK, MOVE_BULK_UP}
     }
 };
 
