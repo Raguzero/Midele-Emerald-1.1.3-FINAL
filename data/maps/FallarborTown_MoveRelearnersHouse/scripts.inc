@@ -26,9 +26,24 @@ FallarborTown_MoveRelearnersHouse_EventScript_ReceivedMon::
 	setflag FLAG_DAILY_RECEIVED_EGG
 	playfanfare MUS_FANFA4
 	message FallarborTown_MoveRelearnersHouse_Text_ReceivedTheEgg
+	random 2
+	switch VAR_RESULT
+	case 0, Script_Huevonoshiny
+	case 1, Script_Huevoshiny25porciento
+	end
+Script_Huevonoshiny::
 	special SetSpeciesAndEggMove
 	waitfanfare
 	giveEgg VAR_0x8004
+	special SetGiftEggMove
+	release
+	end
+Script_Huevoshiny25porciento::
+	special SetSpeciesAndEggMove
+	waitfanfare
+	setflag FLAG_SHINY_CREATION
+	giveEgg VAR_0x8004
+	clearflag FLAG_SHINY_CREATION
 	special SetGiftEggMove
 	release
 	end
