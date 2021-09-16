@@ -271,8 +271,8 @@ ForbiddenForest_Movement_SantygrassJumpaway:
 ForbiddenForest_Text_Celebi:
 	.string "EL CAMINO HACIA EL VIAJERO DEL\n"
 	.string "TIEMPO SOLO SE ABRIRÁ CON LA\l"
-	.string "LLAMADA DEL POKÉMON QUE CONTIENE\l"
-	.string "EL ADN DE TODOS Y DEL POKÉMON QUE\l"
+	.string "LLAMADA DEL POKéMON QUE CONTIENE\l"
+	.string "EL ADN DE TODOS Y DEL POKéMON QUE\l"
 	.string "PUEDE CONCEDER CUALQUIER DESEO$"
 	
 ForbiddenForest_Text_Celebi2:
@@ -280,8 +280,8 @@ ForbiddenForest_Text_Celebi2:
 	.string "EL VIAJERO DEL TIEMPO QUIERE VERTE$"
 
 ForbiddenForest_Text_EzecuterIntro: 
-	.string "Dicen que por aquí se esconde.\n"
-	.string "un Pokémon legendario.$"
+	.string "Dicen que por aquí se esconde un\n"
+	.string "POKéMON legendario.$"
 
 ForbiddenForest_Text_EzecuterDefeat: 
 	.string "¡¡¡Eres bochornoso!!!$"
@@ -324,7 +324,7 @@ ForbiddenForest_Text_MercibokuPostBattle:
 	.string "una gordita? =P$"
 	
 Kefky_AntesBatalla: 
-	.string "Yo solo uso un Pokémon si es mono.$"
+	.string "Yo solo uso un POKéMON si es mono.$"
 
 Kefky_MensajeDerrota: 
 	.string "¿A que eran monos?$"
@@ -409,7 +409,7 @@ ElPrincipe_DespuesDeBatalla:
 	.string "no tienes imaginación!$"
 	
 ElPrincipe_Text_MasdeunPokemon: // BATALLA DOBLE
-	.string "Así que solo llevas un Pokémon?\n"
+	.string "Así que solo llevas un POKéMON?\n"
 	.string "No puedo luchar contigo, entonces.\p"
 
 	.string "Mi estrategia de la FLOR DEL FIRMAMENTO\n"
@@ -432,7 +432,7 @@ CharizardFan_DespuesDeBatalla:
 	.string "¿Qué por qué solo quiero cosas nuevas\n"
 	.string "para CHARIZARD?\p"
 
-	.string "Porque CHARIZARD es el mejor POKÉMON\n" 
+	.string "Porque CHARIZARD es el mejor POKéMON\n" 
 	.string "de la saga.\p"
 	
 	.string "Le pediré a GF una MEGA CHARIZARD Z.\p"
@@ -493,7 +493,7 @@ Grim_AntesBatalla:
 	.string "va ni te viene y seguro que y\l" 
 	.string "solo buscas combatir.\p"
 	
-	.string "Mis Pokémon no es que sean los\n" 
+	.string "Mis POKéMON no es que sean los\n" 
 	.string "más fuertes, pero son los que\l" 
 	.string "han crecido a mi lado. ¡Veamos\l" 
 	.string "de qué pasta estás hecho!$"  

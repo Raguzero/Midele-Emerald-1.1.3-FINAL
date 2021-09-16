@@ -50,8 +50,8 @@ ScorchedSlab_B2F_EventScript_CloseEntei::
 	return
 
 ScorchedSlab_B2F_Text_Totemaparece:
-	.string "RHYPERIOR, the TOTEM Pokémon\n"
-	.string "has appeared!$"
+	.string "RHYPERIOR, the TOTEM POKéMON of\n"
+	.string "SCORCHED SLAB, has appeared!$"
 
 ScorchedSlab_B2F_Text_Totemderrotado:
 	.string "RHYPERIOR disappeared...$"
@@ -74,9 +74,9 @@ ScorchedSlab_B2F_Text_BotonesPostBattle:
 	.string "maximo por favor dejen esto.$"
 
 ScorchedSlab_B2F_Text_HypeantonioIntro: 
-	.string "Hola, soy Hypeantonio, ¿me recuerdas?\p"
+	.string "Hola, soy HYPEANTONIO, ¿me recuerdas?\p"
 
-	.string "Nos vimos en Petalburg Woods hace un\n"
+	.string "Nos vimos en PETALBURG WOODS hace un\n"
 	.string "tiempo.\p"
 
 	.string "Se dice que esta cueva tiene este\n"
@@ -95,7 +95,7 @@ ScorchedSlab_B2F_Text_HypeantonioIntro:
 
 	.string "...\p"
 
-	.string "Zygarde es un Pokémon que representa\n" 
+	.string "ZYGARDE es un POKéMON que representa\n" 
 	.string "los diversos estados del humano en\l" 
 	.string "función de ciertos patrones.\p"
 
@@ -116,7 +116,7 @@ ScorchedSlab_B2F_Text_HypeantonioDefeat:
 ScorchedSlab_B2F_Text_HypeantonioPostBattle:
 	.string "Como iba diciendo:\p"
 
-	.string "Zygarde es un Pokémon que representa\n" 
+	.string "ZYGARDE es un POKéMON que representa\n" 
 	.string "los diversos estados del humano en\l" 
 	.string "función de ciertos patrones.\p"
 
@@ -148,7 +148,7 @@ ScorchedSlab_B2F_Text_HypeantonioPostBattle:
 	.string "(Media hora después)\p"
 
 	.string "Y por tanto, la Joya del Sol permite\n" 
-	.string "a los Pokémon despertar su lado humano.\p" 
+	.string "a los POKéMON despertar su lado humano.\p" 
 
 	.string "Es un fragmento de la energía del Sol,\n" 
 	.string "capaz de realizar la Humanización.\p"

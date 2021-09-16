@@ -304,8 +304,8 @@ NewMauville_Inside_Text_SteppedOnSwitchGeneratorStopped: @ 8237932
 	.string "stopped…$"
 
 NewMauville_Inside_Text_Totemaparece:
-	.string "TOXTRICITY, the TOTEM Pokémon of\n"
-	.string "NewMauville, has appeared!$"
+	.string "TOXTRICITY, the TOTEM POKéMON of\n"
+	.string "NEW MAUVILLE, has appeared!$"
 
 NewMauville_Inside_Text_Totemderrotado:
 	.string "TOXTRICITY disappeared...$"

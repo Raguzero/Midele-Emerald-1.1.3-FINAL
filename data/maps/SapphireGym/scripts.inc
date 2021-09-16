@@ -2010,12 +2010,12 @@ SapphireGym_Text_FourthPuzzleGirl_Defeated:
 	.string "resto no nos incumbe.$"
 	
 SapphireGym_Text_GymStatue:
-    .string "POKEMON GYM Nº2\n"
+    .string "POKéMON GYM Nº2\n"
     .string "LEADER: SAPPHIRE\l"
     .string "“TEMÁTICA: BURBUJA RÍTMICA”$"
 
 SapphireGym_Text_GymStatueCertified:
-    .string "POKEMON GYM Nº2\n"
+    .string "POKéMON GYM Nº2\n"
     .string "LEADER: SAPPHIRE\l"
     .string "“TEMÁTICA: BURBUJA RÍTMICA”\p"
 

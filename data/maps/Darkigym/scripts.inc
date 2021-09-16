@@ -1253,12 +1253,12 @@ Darkigym_Text_ExplainBadgeTakeThis:
 	.string "la MICOLIGA.$"
 	
 Darkigym_Text_GymStatue:
-	.string "POKEMON GYM Nº4\n"
+	.string "POKéMON GYM Nº4\n"
 	.string "LEADER: DARKIZARD\l"
 	.string "“TEMÁTICA: MAL ROLLO Y BUENROLLO”$"
 
 Darkigym_Text_GymStatueCertified:
-	.string "POKEMON GYM Nº4\n"
+	.string "POKéMON GYM Nº4\n"
 	.string "LEADER: DARKIZARD\l"
 	.string "“TEMÁTICA: MAL ROLLO Y BUENROLLO”\p"
 
@@ -1276,8 +1276,8 @@ Darkigym_Text_Teleport_Final:
 	.string "Parece que la baldosa no hace nada.$"
 
 Darkigym_Text_Totemaparece:
-	.string "TYRANITAR, the TOTEM Pokémon\n"
-	.string "has appeared!$"
+	.string "TYRANITAR, the TOTEM POKéMON of\n"
+	.string "DARKI GYM, has appeared!$"
 	
 Darkigym_Text_Totemderrotado:
 	.string "TYRANITAR disappeared...$"

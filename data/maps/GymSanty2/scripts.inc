@@ -264,7 +264,7 @@ Vin_AntesBatalla:
     .string "llegar hasta las nubes.\p"
 
     .string "Todos los viajes por los aires\n"
-    .string "que he realizado con mis Pokémon\l"
+    .string "que he realizado con mis POKéMON\l"
     .string "nos han dado un vínculo\l"
     .string "inquebrantable.\p"
 
@@ -277,7 +277,7 @@ Vin_MensajeDerrota:
 Vin_DespuesDeBatalla:
 	.string "¡Gracias por tan buena batalla!\p"
 
-	.string "Gane o pierda, una batalla Pokémon\n"
+	.string "Gane o pierda, una batalla POKéMON\n"
     .string "en los aires siempre me hace sentir\l"
      .string "mucho más feliz.$"
 	 
@@ -288,15 +288,15 @@ Ghaddar_AntesBatalla:
 	
 Ghaddar_MensajeDerrota: 
 	.string "Los Gachas...Han ganado...\n"
-	.string "Sword&Shield...Pokémon Go...\p"
+	.string "Sword&Shield...POKéMON Go...\p"
 
 	.string "Es el futuro que nos espera...$"
 	
 Ghaddar_DespuesDeBatalla:
 	.string "Está claro que has pagado extra\n"
-	.string "para tener esos Pokémon.\p"
+	.string "para tener esos POKéMON.\p"
 
-	.string "Mis Pokémon han sido entrenados\n"
+	.string "Mis POKéMON han sido entrenados\n"
 	.string "con CARIÑO y ESFUERZO.\p"
 
 	.string "Nada de evs ni ivs ni tonterías\n"
@@ -349,7 +349,7 @@ Felipex88_DespuesDeBatalla:
 	.string "¡GHAMA A GUNA GAMBUGANCIA!$"
 	
 Felipex88_Text_MasdeunPokemon: // BATALLA DOBLE
-	.string "¿Así que solo llevas un Pokémon?\p"
+	.string "¿Así que solo llevas un POKéMON?\p"
 	.string "Prefiero cortarme la lengua que usar\n"
 	.string "mi equipo en BATALLA INDIVIDUAL.$"	
 	
@@ -421,8 +421,8 @@ GymSanty2_Text_CaminoAbierto:
 	.string "ha sido desbloqueado.$"
 	
 GymSanty2_Text_Totemaparece:
-	.string "M-CAMERUPT, the TOTEM Pokémon\n"
-	.string "has appeared!$"
+	.string "M-CAMERUPT, the TOTEM POKéMON of\n"
+	.string "SANTYGRASS GYM, has appeared!$"
 	
 GymSanty2_Text_Totemderrotado:
 	.string "M-CAMERUPT disappeared...$"

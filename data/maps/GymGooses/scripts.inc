@@ -1251,12 +1251,12 @@ GymGooses_Text_GymGuidePostVictory:
 	.string "vencido a GOOSES!$"
 	
 GymGooses_Text_GymStatue:
-	.string "POKEMON GYM Nº3\n"
+	.string "POKéMON GYM Nº3\n"
 	.string "LEADER: GOOSES\l"
 	.string "“TEMÁTICA: FRÍO INVERNAL”$"
 
 GymGooses_Text_GymStatueCertified:
-	.string "POKEMON GYM Nº3\n"
+	.string "POKéMON GYM Nº3\n"
 	.string "LEADER: GOOSES\l"
 	.string "“TEMÁTICA: FRÍO INVERNAL”\p"
 
@@ -1391,8 +1391,8 @@ GymGooses_Text_ExplainBadgeTakeThis:
 	.string "necesitarás!$"
 	
 GymGooses_Text_Totemaparece:
-	.string "M-GLALIE, the TOTEM Pokémon\n"
-	.string "has appeared!$"
+	.string "M-GLALIE, the TOTEM POKéMON of\n"
+	.string "GOOSES GYM, has appeared!$"
 	
 GymGooses_Text_Totemderrotado:
 	.string "M-GLALIE disappeared...$"

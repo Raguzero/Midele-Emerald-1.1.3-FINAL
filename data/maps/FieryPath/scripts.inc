@@ -177,7 +177,7 @@ Fiery_Path_Text_PacochefPostBattle:
 	.string "aún más perversas.\p" 
 	
 	.string "Ha corrompido por completo el ADN de\n" 
-	.string "muchos Pokémon y este es el resultado,\l" 
+	.string "muchos POKéMON y este es el resultado,\l" 
 	.string "los TOTEM.\p" 
 	
 	.string "Llevo mucho tiempo infiltrado en su\n" 
@@ -347,8 +347,8 @@ Fiery_Path_Text_DobleCPostBattle:
 	.string "a caer de culo, pedazo de NOOB!$"
 
 Fiery_Path_Text_Totemaparece:
-	.string "CENTISKORCH, the TOTEM Pokémon of\n" 
-	.string "Fiery Path, has appeared!$"
+	.string "CENTISKORCH, the TOTEM POKéMON of\n" 
+	.string "FIERY PATH, has appeared!$"
 	
 Fiery_Path_Text_Totemderrotado:
 	.string "CENTISKORCH disappeared...$"

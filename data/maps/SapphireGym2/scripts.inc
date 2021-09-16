@@ -119,7 +119,7 @@ SapphireGym2_EventScript_SapphRematchDefeated::
 	end
 
 SapphireGym2_Text_TotemAppears:
-	.string "DARK PIKA, the TOTEM Pokémon of\n" 
+	.string "DARK PIKA, the TOTEM POKéMON of\n" 
 	.string "SAPPHIRE GYM, has appeared!$"
 
 SapphireGym2_Text_TotemDisappears:

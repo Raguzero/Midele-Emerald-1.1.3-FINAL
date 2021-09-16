@@ -29,7 +29,7 @@ Underwater4_EventScript_Totem2::
     @ Combate contra totem.	
 	
 Underwater4_Text_Totemaparece:
-	.string "PRIMARINA, the TOTEM Pokémon\n"
+	.string "PRIMARINA, the TOTEM POKéMON\n"
 	.string "has appeared!$"
 
 Underwater4_Text_Totemderrotado:

@@ -282,12 +282,12 @@ GymSanty_Text_SantyPostBattle:
 	.string "hierba quemada!$"
 
 GymSanty_Text_GymStatue:
-	.string "POKEMON GYM Nº1\n"
+	.string "POKéMON GYM Nº1\n"
 	.string "LEADER: SANTYGRASS\l"
 	.string "“TEMÁTICA: HIERBA QUEMADA”$"
 
 GymSanty_Text_GymStatueCertified:
-	.string "POKEMON GYM Nº1\n"
+	.string "POKéMON GYM Nº1\n"
 	.string "LEADER: SANTYGRASS\l"
 	.string "“TEMÁTICA: HIERBA QUEMADA”\p"
 

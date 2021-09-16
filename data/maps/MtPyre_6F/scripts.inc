@@ -96,8 +96,8 @@ MtPyre_6F_Text_CedricPostBattle: @ 8231F5C
 	.string "It's dirty and I won't try it again…$"
 	
 MtPyre_6F_Text_Totemaparece:
-	.string "M-ABSOL, the TOTEM Pokémon\n"
-	.string "has appeared!$"
+	.string "M-ABSOL, the TOTEM POKéMON of\n"
+	.string "MT PYRE, has appeared!$"
 	
 MtPyre_6F_Text_Totemderrotado:
 	.string "M-ABSOL disappeared...$"

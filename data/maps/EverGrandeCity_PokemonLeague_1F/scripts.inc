@@ -442,7 +442,7 @@ RANDOMCC_Batalla:
 	
 	.string "Esta simulación consiste\n"
 	.string "en una batalla individual\l"
-	.string "o dobles, con pokemon con\l"
+	.string "o dobles, con POKéMON con\l"
 	.string "sets totalmente aleatorios.\p"
 	
 	.string "Tanto tu equipo como el\n"
@@ -460,7 +460,7 @@ RANDOM_Batalla:
 	.string "Esta simulación consiste\n"
 	.string "en una batalla individual\l"
 	.string "o dobles, contra un rival\l"
-	.string "que usará pokemon con sets\l"
+	.string "que usará POKéMON con sets\l"
 	.string "totalmente aleatorios.\p"
 	
 	.string "Si consigues la victoria,\n"

@@ -15,7 +15,6 @@ ScorchedSlab_B3F_EventScript_TryRemoveEntei:: @ 8238FCD
 	return
 
 ScorchedSlab_B3F_OnTransition: @ 8238FE1
-	//setflag FLAG_LANDMARK_ANCIENT_TOMB
 	call_if_unset FLAG_CAUGHT_ENTEI, ScorchedSlab_B3F_EventScript_TryShowEntei
 	end
 
