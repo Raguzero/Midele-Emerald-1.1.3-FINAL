@@ -809,6 +809,38 @@ static u8 ChooseMoveOrAction_Singles(void)
                 AI_THINKING_STRUCT->switchMon = TRUE;
                 return AI_CHOICE_SWITCH;
             }
+		// Considera cambiar si corre peligro ante el rival y hay opciones mejores por ahí
+        if (AICanSwitchAssumingEnoughPokemon())
+        {
+            bool8 directDamageAttack = gBattleMoves[move].power > 0;
+            bool8 ignoreFocusPunch = directDamageAttack && 
+                   (gBattleMoves[move].accuracy == 0
+                    || (gBattleMoves[move].accuracy >= 80 && ((gBattleMons[sBattler_AI].ability == ABILITY_KEEN_EYE 
+					|| gBattleMons[gBattlerTarget].statStages[STAT_EVASION] < 9) && gBattleMons[sBattler_AI].statStages[STAT_ACC] > 4))
+                    || (WEATHER_HAS_EFFECT && (((gBattleWeather & WEATHER_RAIN_ANY) && gBattleMoves[move].effect == EFFECT_THUNDER) || ((gBattleWeather & WEATHER_HAIL_ANY) && move == MOVE_BLIZZARD)))
+                   );
+            u8 nhko_taken = CalculateNHKO(gBattlerTarget, sBattler_AI, FALSE, MOVE_NONE, FALSE, ignoreFocusPunch);
+            bool8 ai_is_faster = gBattleMoves[move].effect == EFFECT_QUICK_ATTACK || gBattleMoves[move].effect == EFFECT_FAKE_OUT || GetWhoStrikesFirst(sBattler_AI, gBattlerTarget, TRUE) == 0;
+            u8 attacks_until_ko = nhko_taken - (ai_is_faster ? 0 : 1);
+
+            // Si recibe OHKO y es más lento, considera cambiar
+            // También cambia si escoge un ataque que hace poco daño o que tiene
+            // pocos puntos y va a ser el último o penúltimo que le dé tiempo a ejecutar
+            // (si es último, poco daño es peor que 2HKO y pocos puntos es menos de 99;
+            // si es penúltimo, poco daño es peor que 4HKO y pocos puntos es menos de 97)
+            if (
+                ((nhko_taken == 1 && !ai_is_faster)
+             || (attacks_until_ko < 2
+                 && (
+                     (directDamageAttack && gBattleMoves[move].effect != EFFECT_OHKO && gBattleMoves[move].effect != EFFECT_COUNTER && gBattleMoves[move].effect != EFFECT_MIRROR_COAT && CalculateNHKO(sBattler_AI, gBattlerTarget, TRUE, move, FALSE, FALSE) > 2*attacks_until_ko)
+                      || currentMoveArray[0] <= 100 - 2*attacks_until_ko
+                    )
+               )) && GetMostSuitableMonToSwitchInto_NotChangingIsAcceptable() != PARTY_SIZE)
+            {
+                AI_THINKING_STRUCT->switchMon = TRUE;
+                return AI_CHOICE_SWITCH;
+            }
+        }
         // El poke lleva muchos turnos intoxicado, mejor cambiar
         if (gBattleMons[sBattler_AI].status1 & STATUS1_TOXIC_POISON
             && ((gBattleMons[sBattler_AI].status1 & 0xF00) >> 8) >= 4 // lleva al menos 4 turnos de daño y por tanto va a perder más de un 25% (al menos un 31,25%) de sus PS

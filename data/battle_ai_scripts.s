@@ -350,17 +350,20 @@ AI_CBM_EvasionUp: @ 82DC37E
 AI_CBM_AttackDown: @ 82DC387
     if_target_might_have_a_sub_before_our_attack Score_Minus10
 	if_stat_level_equal AI_TARGET, STAT_ATK, 0, Score_Minus10
+	if_side_affecting AI_TARGET, SIDE_STATUS_MIST, Score_Minus10
     if_ability_might_be AI_TARGET, ABILITY_HYPER_CUTTER, Score_Minus10
 	goto CheckIfAbilityBlocksStatChange
 
 AI_CBM_DefenseDown: @ 82DC39C
     if_target_might_have_a_sub_before_our_attack Score_Minus10
 	if_stat_level_equal AI_TARGET, STAT_DEF, 0, Score_Minus10
+	if_side_affecting AI_TARGET, SIDE_STATUS_MIST, Score_Minus10
 	goto CheckIfAbilityBlocksStatChange
 
 AI_CBM_SpeedDown: @ 82DC3A9
     if_target_might_have_a_sub_before_our_attack Score_Minus10
 	if_stat_level_equal AI_TARGET, STAT_SPEED, 0, Score_Minus10
+	if_side_affecting AI_TARGET, SIDE_STATUS_MIST, Score_Minus10
 	if_ability_might_be AI_TARGET, ABILITY_SPEED_BOOST, Score_Minus10
 	if_move MOVE_COTTON_SPORE, AI_CBM_SpeedDown_Overcoat
 	goto CheckIfAbilityBlocksStatChange
@@ -371,16 +374,19 @@ AI_CBM_SpeedDown_Overcoat:
 AI_CBM_SpAtkDown: @ 82DC3BF
     if_target_might_have_a_sub_before_our_attack Score_Minus10
 	if_stat_level_equal AI_TARGET, STAT_SPATK, 0, Score_Minus10
+	if_side_affecting AI_TARGET, SIDE_STATUS_MIST, Score_Minus10
 	goto CheckIfAbilityBlocksStatChange
 
 AI_CBM_SpDefDown: @ 82DC3CC
     if_target_might_have_a_sub_before_our_attack Score_Minus10
 	if_stat_level_equal AI_TARGET, STAT_SPDEF, 0, Score_Minus10
+	if_side_affecting AI_TARGET, SIDE_STATUS_MIST, Score_Minus10
 	goto CheckIfAbilityBlocksStatChange
 
 AI_CBM_AccDown: @ 82DC3D9
     if_target_might_have_a_sub_before_our_attack Score_Minus10
 	if_stat_level_equal AI_TARGET, STAT_ACC, 0, Score_Minus10
+	if_side_affecting AI_TARGET, SIDE_STATUS_MIST, Score_Minus10
     if_ability_might_be AI_TARGET, ABILITY_KEEN_EYE, Score_Minus10
     if_ability_might_be AI_TARGET, ABILITY_NO_GUARD, Score_Minus10
 	goto CheckIfAbilityBlocksStatChange
@@ -388,6 +394,7 @@ AI_CBM_AccDown: @ 82DC3D9
 AI_CBM_EvasionDown: @ 82DC3EE
     if_target_might_have_a_sub_before_our_attack Score_Minus10
 	if_stat_level_equal AI_TARGET, STAT_EVASION, 0, Score_Minus10
+	if_side_affecting AI_TARGET, SIDE_STATUS_MIST, Score_Minus10
 	goto CheckIfAbilityBlocksStatChange
 
 CheckIfAbilityBlocksStatChange: @ 82DC3F6
@@ -3767,6 +3774,19 @@ AI_CV_Sandstorm_End:
 AI_TryToFaint:
 	if_target_is_ally AI_Ret
 	if_can_faint AI_TryToFaint_TryToEncourageQuickAttack
+@ Quita puntos a ataques que hagan poco daño al rival (3 si 6% o menos, 2 si 20% o menos, 1 si 40% o menos)
+@ Esto evita que la IA use ataques flojos y hace que en dobles ataque a los que más daño hace
+        get_considered_move_power
+        if_equal 0, AI_TryToFaint_BonusToMostPowerfulAttack
+        if_effect EFFECT_OHKO, AI_TryToFaint_BonusToMostPowerfulAttack
+        get_curr_dmg_hp_percent
+        if_more_than 40, AI_TryToFaint_BonusToMostPowerfulAttack
+        score -1
+        if_more_than 20, AI_TryToFaint_BonusToMostPowerfulAttack
+        score -1
+        if_more_than 6, AI_TryToFaint_BonusToMostPowerfulAttack
+        score -1
+AI_TryToFaint_BonusToMostPowerfulAttack:
 	get_how_powerful_move_is
 	if_equal MOVE_NOT_MOST_POWERFUL, Score_Minus1
 	if_equal MOVE_POWER_DISCOURAGED_AND_NOT_MOST_POWERFUL, Score_Minus2

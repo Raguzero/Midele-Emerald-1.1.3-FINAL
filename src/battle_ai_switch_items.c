@@ -1713,7 +1713,7 @@ u8 GetMostSuitableMonToSwitchInto(bool8 notChangingIsPossible, bool8 notChanging
         APPLY_FILTER(FilterOpponentCanBeTrappedAndDefeated, FALSE);
 		APPLY_FILTER(FilterRevengeKill, FALSE);
         APPLY_FILTER(FilterKOTaking1Hit, FALSE);
-        APPLY_FILTER(FilterKOTaking2Hits, FALSE);
+        APPLY_FILTER(FilterKOTaking2Hits, notChangingIsAcceptable);
         APPLY_FILTER(FilterTakesMostHits, FALSE);
         APPLY_FILTER(FilterKOsInLessHits, FALSE);
     }
