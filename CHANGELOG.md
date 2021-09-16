@@ -93,6 +93,7 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 - Corregidos varios textos de la POKéDEX.
 - Corregido texto de Granite Cave.
 - Corregido texto de Oceanic Museum 2F.
+- Corregidos textos sobre POKéMON de Littleroot Town lab.
 - Corregida la frase de la entrenadora GOLDIE que se salía del cuadro de texto.
 - Añadido texto sobre el starter DARK PIKA en el NPC de Petalburg Woods Pokémon Center.
 - Las cartas de los Pokémon de intercambio Salandit, Eevee y Charmander han sido corregidas.
@@ -121,6 +122,8 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 - Corregida la IA en el cálculo de poder de algunos movimientos (Explosion, Knock Off, fuego vs Dry Skin, etc.)
 - Corregida la IA en el uso de Substituto a poca vida, y de Fake Out y otros ataques de prioridad en algunos momentos clave.
 - Mejorada IA de Helping Hand.
+- Diversas mejores de la IA (switch, combates dobles, MIST...)
+- Corregido cierto error de Blizzard en clima de granizo.
 - Corregido el RIOLU con set ilegal de BRAWLY.
 - Ya no pierdes dinero cuando CHERYL te derrota.
 - Corregidas inconsistencias en algunos equipos de entrenadores (como el hecho de llevar SPORE cuando realmente lo aprenden a mayor nivel).
