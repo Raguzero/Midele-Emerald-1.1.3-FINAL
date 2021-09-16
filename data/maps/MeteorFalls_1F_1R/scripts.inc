@@ -391,15 +391,15 @@ MeteorFalls_1F_1R_Text_Micolo:
 
 
 	.string "El TEAM MAGMA quiere invocar\n"
-	.string "al Pokémon legendario GROUDON\l"
+	.string "al POKéMON legendario GROUDON\l"
 	.string "para secar los mares y hacer\l"
 	.string "que la humanidad tenga\l"
 	.string "mayor tierra donde vivir.\p"
 	
 	.string "Mientras que el TEAM AQUA quiere\n"
-	.string "invocar al Pokémon legendario KYOGRE\l"
+	.string "invocar al POKéMON legendario KYOGRE\l"
 	.string "para que haya mas cantidad de mar\l"
-	.string "donde puedan vivir los Pokémon.\p"
+	.string "donde puedan vivir los POKéMON.\p"
 
 	.string "Sus planes no tienen ninguna\n"
 	.string "lógica. ¡Piénsalo!\p"	

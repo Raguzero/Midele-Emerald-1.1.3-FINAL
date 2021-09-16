@@ -82,7 +82,7 @@ SlateportCity_NameRatersHouse_Text_PleasedToRateMonNickname: @ 8209B8E
 	.string "Hi!, I'm one of PROF. BIRCH's AIDES.\p"
 	
 	.string "I'm in charge of collecting\n"
-	.string "information about the Pokedex.\p"
+	.string "information about the POKéDEX.\p"
 
 	.string "I'll reward you as you catch new\n" 
 	.string "POKéMON!$"
@@ -91,7 +91,7 @@ SlateportCity_Fin_Investigacion_Text:
 	.string "Hi!, I'm one of PROF. BIRCH's AIDES.\p"
 	
 	.string "Thanks for your help, with this\n" 
-	.string "amount of Pokémon that you have\l" 
+	.string "amount of POKéMON that you have\l" 
 	.string "shown me, it is enough.$"
 	
 NoTienesPremioTeJodes_Text:

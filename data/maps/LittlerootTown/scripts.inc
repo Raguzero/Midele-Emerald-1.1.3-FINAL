@@ -1161,7 +1161,7 @@ LittlerootTown_Text_Teleport:
 	.string "ha montado una competición llamada\l"
 	.string "MICOLIGA que consiste en obtener la\l"
 	.string "medalla de los 4 GYMs para poder\l"
-	.string "participar en la Liga Pokémon más\l" 
+	.string "participar en la Liga POKéMON más\l" 
 	.string "poderosa que hayas visto jamás.\p"
 	
 	.string "También encontrarás allí a los\n"
@@ -1214,7 +1214,7 @@ LittlerootTown_Text_Teleport_4:
 	.string "ha montado una competición llamada\l"
 	.string "MICOLIGA que consiste en obtener la\l"
 	.string "medalla de los 4 GYMs para poder\l"
-	.string "participar en la Liga Pokémon más\l" 
+	.string "participar en la Liga POKéMON más\l" 
 	.string "poderosa que hayas visto jamás.\p"
 	
 	.string "También encontrarás allí a los\n"
