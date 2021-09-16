@@ -4498,6 +4498,9 @@ void ItemUseCB_ReduceEV(u8 taskId, TaskFunc task)
         }
         DisplayPartyMenuMessage(gStringVar4, TRUE);
         schedule_bg_copy_tilemap_to_vram(2);
+       if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(gSpecialVar_ItemId, 1))
+        gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+       else
         gTasks[taskId].func = task;
     }
 }
@@ -4644,6 +4647,9 @@ static void TryUsePPItem(u8 taskId)
         PlaySE(SE_SELECT);
         DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
         schedule_bg_copy_tilemap_to_vram(2);
+    if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(gSpecialVar_ItemId, 1))
+        gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+    else
         gTasks[taskId].func = Task_ClosePartyMenuAfterText;
     }
     else
@@ -4657,6 +4663,9 @@ static void TryUsePPItem(u8 taskId)
         GetMedicineItemEffectMessage(item);
         DisplayPartyMenuMessage(gStringVar4, TRUE);
         schedule_bg_copy_tilemap_to_vram(2);
+    if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(gSpecialVar_ItemId, 1))
+        gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+    else
         gTasks[taskId].func = Task_ClosePartyMenuAfterText;
     }
 }
@@ -4972,6 +4981,9 @@ void ItemUseCB_Candy(u8 taskId, TaskFunc task)
         gPartyMenuUseExitCallback = FALSE;
         DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
         schedule_bg_copy_tilemap_to_vram(2);
+    if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD)
+        gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+    else
         gTasks[taskId].func = task;
     }
     else
@@ -5109,6 +5121,9 @@ static void PartyMenuTryEvolution(u8 taskId)
     }
     else
     {
+    if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(gSpecialVar_ItemId, 1))
+        gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+    else
         gTasks[taskId].func = Task_ClosePartyMenuAfterText;
     }
 }
@@ -5241,6 +5256,9 @@ void ItemUseCB_EvolutionStone(u8 taskId, TaskFunc task)
         gPartyMenuUseExitCallback = FALSE;
         DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
         schedule_bg_copy_tilemap_to_vram(2);
+    if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(gSpecialVar_ItemId, 1))
+        gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+    else
         gTasks[taskId].func = task;
     }
     else
@@ -6509,7 +6527,10 @@ void Task_AbilityCapsule(u8 taskId)
             PlaySE(SE_SELECT);
             DisplayPartyMenuMessage(gText_WontHaveEffect, 1);
             schedule_bg_copy_tilemap_to_vram(2);
-            gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+		if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(gSpecialVar_ItemId, 1))
+			gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+			else
+			gTasks[taskId].func = Task_ClosePartyMenuAfterText;
             return;
         }
         gPartyMenuUseExitCallback = TRUE;
