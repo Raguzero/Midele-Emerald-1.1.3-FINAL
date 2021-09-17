@@ -319,6 +319,8 @@ MicoloLeagueLobby_EventScript_GuardCheck::
 	compare VAR_STATE_MICOLANDIA, 3
 	goto_if_eq MicoloLeagueLobby_EventScript_GuardCheck_2
 	msgbox MicoloLeagueLobby_EventScript_GuardCheck_Text_0, MSGBOX_NPC
+	compare VAR_FACING, DIR_NORTH
+	call_if_ne MicoloLeagueLobby_EventScript_GuardCheck_MovePlayerDown
 	applymovement 8, MicoloLeagueLobby_Movement_Guard1
 	applymovement 10, MicoloLeagueLobby_Movement_Guard2
 	waitmovement 0
@@ -334,6 +336,11 @@ MicoloLeagueLobby_EventScript_GuardCheck_2:
 	msgbox MicoloLeagueLobby_EventScript_GuardCheck_Text_0, MSGBOX_NPC
 	goto MicoloLeagueLobby_EventScript_GuardCheck_1
 
+MicoloLeagueLobby_EventScript_GuardCheck_MovePlayerDown:
+	applymovement EVENT_OBJ_ID_PLAYER, MicoloLeagueLobby_Movement_PlayerDown
+	waitmovement 0
+	return
+
 
 MicoloLeagueLobby_Movement_Guard1:
 	walk_left
@@ -343,6 +350,11 @@ MicoloLeagueLobby_Movement_Guard1:
 MicoloLeagueLobby_Movement_Guard2:
 	walk_right
     face_down
+	step_end
+
+MicoloLeagueLobby_Movement_PlayerDown:
+	walk_down
+	face_up
 	step_end
 
 MicoloLeagueLobby_EventScript_GuardCheck_Text_0:

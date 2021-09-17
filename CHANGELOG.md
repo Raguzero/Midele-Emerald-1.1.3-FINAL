@@ -76,8 +76,6 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 
 - Actualizado TODO SOBRE MIDELE EMERALD.pdf
 - La experiencia ganada aumenta en 1.5 tras pasarse la liga.
-- Focus Sash sustituye a Big Pearl como premio en Random Battles.
-- Corregidas músicas de Jirachi, Celebi y Mew.
 
 ### Textos
 
@@ -98,6 +96,9 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 - Añadido texto sobre el starter DARK PIKA en el NPC de Petalburg Woods Pokémon Center.
 - Las cartas de los Pokémon de intercambio Salandit, Eevee y Charmander han sido corregidas.
 
+### Sonido
+- Corregidas músicas de Jirachi, Celebi y Mew.
+- Añadida música de WALLY al MUSIC PLAYER.
 
 ### Eventos
 
@@ -107,6 +108,7 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 - Ahora la tienda del EV changer se cierra correctamente al cancelar la selección de POKéMON.
 - La tienda de MT solo permite comprar un MT de cada tipo, y su texto se cierra correctamente.
 - Corregida comprobación del NPC de los tickets de evento.
+- Arreglado error en el que los guardias de la liga te atravesaban al hablarles desde izquierda/derecha.
 
 ### Mapas
 
@@ -128,6 +130,7 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 - Ya no pierdes dinero cuando CHERYL te derrota.
 - Corregidas inconsistencias en algunos equipos de entrenadores (como el hecho de llevar SPORE cuando realmente lo aprenden a mayor nivel).
 - Mejorado el equilibrio de stats y moveset en bosses.
+- Modificado el equipo de BRAWLY.
 
 ### Pokémon
 
@@ -135,3 +138,9 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 - Mayor estabilidad en el movepool de algunos POKéMON.
 - Nivel de Pokémon de regalo en Izabe reducido de 45 a 40.
 - Ahora es menos común encontrar a LEDIAN salvaje con el objeto LUCKY PUNCH.
+- 25% de shiny en los huevos obtenidos en FALLARBOR mediante Heart Scale.
+
+### Objetos
+
+- Focus Sash sustituye a Big Pearl como premio en Random Battles.
+- Varios objetos de tipo medicina pueden ser usados de forma repetida desde el menú.
