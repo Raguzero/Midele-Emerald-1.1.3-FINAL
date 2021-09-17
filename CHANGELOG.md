@@ -76,7 +76,6 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 
 - Actualizado TODO SOBRE MIDELE EMERALD.pdf
 - La experiencia ganada aumenta en 1.5 tras pasarse la liga.
-- Corregidas músicas de Jirachi, Celebi y Mew.
 
 ### Textos
 
@@ -97,6 +96,9 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 - Añadido texto sobre el starter DARK PIKA en el NPC de Petalburg Woods Pokémon Center.
 - Las cartas de los Pokémon de intercambio Salandit, Eevee y Charmander han sido corregidas.
 
+### Sonido
+- Corregidas músicas de Jirachi, Celebi y Mew.
+- Añadida música de WALLY al MUSIC PLAYER.
 
 ### Eventos
 
