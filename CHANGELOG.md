@@ -109,28 +109,35 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 - La tienda de MT solo permite comprar un MT de cada tipo, y su texto se cierra correctamente.
 - Corregida comprobación del NPC de los tickets de evento.
 - Arreglado error en el que los guardias de la liga te atravesaban al hablarles desde izquierda/derecha.
+- Añadida confirmación adicional al NPC de resetear entrenadores.
 
 ### Mapas
 
 - Arreglada tileset atravesable en RUTA 127.
 - Corregido un poco el tileset de SCORCHED SLAB.
 - Corregida tileset atravesable en Santy Gym.
+- Eliminada hierba al lado de las estructuras del ACRO CYCLE.
+- Añadidas colisiones a tiles negras de SapphGym.
 
 ### Combate
 
 - Corregido el poder de consecutivos Fury Cutter.
 - Corregida la habilidad DRY SKIN que ocasionaba el bug de no desaparecer dicho POKéMON debilitado del campo de batalla al terminarse el combate, por haber sido debilitado por el daño del clima soleado al llevar dicha habilidad.
-- Corregida la IA para que no pierda el tiempo en cálculos innecesarios.
-- Corregida la IA en el cálculo de poder de algunos movimientos (Explosion, Knock Off, fuego vs Dry Skin, etc.)
-- Corregida la IA en el uso de Substituto a poca vida, y de Fake Out y otros ataques de prioridad en algunos momentos clave.
-- Mejorada IA de Helping Hand.
-- Diversas mejores de la IA (switch, combates dobles, MIST...)
 - Corregido cierto error de Blizzard en clima de granizo.
 - Corregido el RIOLU con set ilegal de BRAWLY.
 - Ya no pierdes dinero cuando CHERYL te derrota.
 - Corregidas inconsistencias en algunos equipos de entrenadores (como el hecho de llevar SPORE cuando realmente lo aprenden a mayor nivel).
 - Mejorado el equilibrio de stats y moveset en bosses.
 - Modificado el equipo de BRAWLY.
+
+### IA
+- Corregida la IA para que no pierda el tiempo en cálculos innecesarios.
+- Corregida la IA en el cálculo de poder de algunos movimientos (Explosion, Knock Off, fuego vs Dry Skin, etc.)
+- Corregida la IA en el uso de Substituto a poca vida, y de Fake Out y otros ataques de prioridad en algunos momentos clave.
+- Mejorada IA de Helping Hand.
+- Diversas mejores de la IA (switch, combates dobles, MIST...)
+- Correciones en la IA de Sleep Talk y Rest.
+- Mejorada la IA a la hora de cambiar el Pokémon.
 
 ### Pokémon
 
@@ -139,6 +146,7 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 - Nivel de Pokémon de regalo en Izabe reducido de 45 a 40.
 - Ahora es menos común encontrar a LEDIAN salvaje con el objeto LUCKY PUNCH.
 - 25% de shiny en los huevos obtenidos en FALLARBOR mediante Heart Scale.
+- 50% de shiny en DARK PIKA y WINTASS de casino. Además, DARK PIKA se obtiene al nivel 5.
 
 ### Objetos
 
