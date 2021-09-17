@@ -66,7 +66,14 @@ MicoloLeagueLobby_EventScript_ResetTrainerFlagsMachine::
 	msgbox MicoloLeagueLobby_Text_ResetTrainerFlagsMachineNO, MSGBOX_DEFAULT
 	release
 	end
-MicoloLeagueLobby_EventScript_ResetTrainerYES:
+MicoloLeagueLobby_EventScript_ResetTrainerYES::
+	msgbox MicoloLeagueLobby_Text_ResetTrainerFlagsMachineConfirmo, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq MicoloLeagueLobby_EventScript_ResetTrainerYESConfirmo
+	msgbox MicoloLeagueLobby_Text_ResetTrainerFlagsMachineNO, MSGBOX_DEFAULT
+	release
+	end	
+MicoloLeagueLobby_EventScript_ResetTrainerYESConfirmo::	
 	msgbox MicoloLeagueLobby_Text_ResetTrainerFlagsComplete, MSGBOX_DEFAULT	
 	cleartrainerflag TRAINER_ENTROPIA
 	cleartrainerflag TRAINER_UTALAWEA
@@ -440,6 +447,12 @@ MicoloLeagueLobby_Text_ResetTrainerFlagsMachine:
 
 MicoloLeagueLobby_Text_ResetTrainerFlagsMachinePregunta:
 	.string "¿Quieres usar la máquina para resetear\n"
+	.string "los encuentros de los entrenadores\l"
+	.string "especiales de MIDELE EMERALD?$"
+	
+MicoloLeagueLobby_Text_ResetTrainerFlagsMachineConfirmo:
+	.string "Te lo preguntaré de nuevo, ¿De verdad\n"
+	.string "quieres usar la máquina para resetear\l"
 	.string "los encuentros de los entrenadores\l"
 	.string "especiales de MIDELE EMERALD?$"
 	
