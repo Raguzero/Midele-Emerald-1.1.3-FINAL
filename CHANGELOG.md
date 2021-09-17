@@ -71,6 +71,9 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 - **ROUTE 127**
 - **SCORCHED SLAB**
 - **MAUVILLE CITY**
+- **MONOCYCLE ROUTE**
+- **SANTY GYM**
+- **SAPPH GYM**
 
 ### General
 
@@ -135,7 +138,7 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 - Corregida la IA en el cálculo de poder de algunos movimientos (Explosion, Knock Off, fuego vs Dry Skin, etc.)
 - Corregida la IA en el uso de Substituto a poca vida, y de Fake Out y otros ataques de prioridad en algunos momentos clave.
 - Mejorada IA de Helping Hand.
-- Diversas mejores de la IA (switch, combates dobles, MIST...)
+- Diversas mejores de la IA (combates dobles, MIST...)
 - Correciones en la IA de Sleep Talk y Rest.
 - Mejorada la IA a la hora de cambiar el Pokémon.
 
