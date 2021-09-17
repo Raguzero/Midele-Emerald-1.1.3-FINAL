@@ -332,8 +332,10 @@ MicoloHideout_GameCorner_EventScript_DARK_PIKA:
 	message MicoloHideout_GameCorner_Text_GetMon
 	waitfanfare
 	waitmessage
-	givemon SPECIES_DARK_PIKACHU, 90, ITEM_NONE
+	setflag FLAG_SHINY_CREATION
+	givemon SPECIES_DARK_PIKACHU, 5, ITEM_NONE
 	bufferspeciesname 1, SPECIES_DARK_PIKACHU
+	clearflag FLAG_SHINY_CREATION
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	call_if_eq Common_EventScript_NameReceivedPartyMon
@@ -356,8 +358,10 @@ MicoloHideout_GameCorner_EventScript_WINTASS:
 	message MicoloHideout_GameCorner_Text_GetMon
 	waitfanfare
 	waitmessage
+	setflag FLAG_SHINY_CREATION
 	givemon SPECIES_WINTASS, 90, ITEM_NONE
 	bufferspeciesname 1, SPECIES_WINTASS
+	clearflag FLAG_SHINY_CREATION
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	call_if_eq Common_EventScript_NameReceivedPartyMon
