@@ -108,6 +108,34 @@ static bool8 ShouldSwitchIfWonderGuard(void)
     else
         party = gEnemyParty;
 
+    // Si lo hay, mete un poke que meta clima para eliminar al Shedinja rival
+    if (gBattleMons[GetBattlerAtPosition(opposingPosition)].species == SPECIES_SHEDINJA)
+        for (i = firstId; i < lastId; i++)
+        {
+            u16 species;
+            u8 monAbility;
+            if (GetMonData(&party[i], MON_DATA_HP) == 0)
+                continue;
+            if (GetMonData(&party[i], MON_DATA_SPECIES2) == SPECIES_NONE)
+                continue;
+            if (GetMonData(&party[i], MON_DATA_SPECIES2) == SPECIES_EGG)
+                continue;
+            if (i == gBattlerPartyIndexes[gActiveBattler])
+                continue;
+
+            species = GetMonData(&party[i], MON_DATA_SPECIES);
+            if (GetMonData(&party[i], MON_DATA_ABILITY_NUM) != 0)
+                monAbility = gBaseStats[species].abilities[1];
+            else
+                monAbility = gBaseStats[species].abilities[0];
+            if (monAbility == ABILITY_SAND_STREAM || monAbility == ABILITY_SNOW_WARNING)
+            {
+                *(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler) = i;
+                BtlController_EmitTwoReturnValues(1, B_ACTION_SWITCH, 0);
+                return TRUE;
+            }
+        }
+
     // Find a Pokemon in the party that has a super effective move.
     for (i = firstId; i < lastId; i++)
     {
