@@ -724,11 +724,11 @@ static u8 ChooseMoveOrAction_Singles(void)
            cap -= 3;
 		for (i = 0; i < MAX_MON_MOVES; i++)
         {
-            if (AI_THINKING_STRUCT->score[i] > cap)
+            if (AI_THINKING_STRUCT->score[i] > cap && gBattleMons[sBattler_AI].moves[i] != MOVE_SLEEP_TALK)
                 break;
         }
         for (i_2 = 0; i_2 < MAX_MON_MOVES; i_2++)
-            if (AI_THINKING_STRUCT->score[i_2] > cap - 2)
+            if (AI_THINKING_STRUCT->score[i_2] > cap - 2 && gBattleMons[sBattler_AI].moves[i_2] != MOVE_SLEEP_TALK)
                 break;
 
         if (i_2 == MAX_MON_MOVES)
@@ -834,6 +834,7 @@ static u8 ChooseMoveOrAction_Singles(void)
                  && (
                      (directDamageAttack && gBattleMoves[move].effect != EFFECT_OHKO && gBattleMoves[move].effect != EFFECT_COUNTER && gBattleMoves[move].effect != EFFECT_MIRROR_COAT && CalculateNHKO(sBattler_AI, gBattlerTarget, TRUE, move, FALSE, FALSE) > 2*attacks_until_ko)
                       || currentMoveArray[0] <= 100 - 2*attacks_until_ko
+                      || move == MOVE_SLEEP_TALK
                     )
                )) && GetMostSuitableMonToSwitchInto_NotChangingIsAcceptable() != PARTY_SIZE)
             {

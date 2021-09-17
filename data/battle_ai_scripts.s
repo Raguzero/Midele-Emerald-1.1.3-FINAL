@@ -2099,7 +2099,7 @@ AI_CV_Rest2:
 	if_random_less_than 70, AI_CV_Rest6
 
 AI_CV_Rest3:
-	score -3
+	score -7
 	goto AI_CV_Rest_End
 
 AI_CV_Rest4:
@@ -2108,7 +2108,7 @@ AI_CV_Rest4:
 	if_random_less_than 50, AI_CV_Rest6
 
 AI_CV_Rest5:
-	score -3
+	score -5
 	goto AI_CV_Rest_End
 
 AI_CV_Rest6:
