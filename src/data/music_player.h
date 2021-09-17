@@ -300,6 +300,7 @@ static const u16 sMusicTableBeforeMicoloHideout[] = {
     // XY/ORAS
     XYWILDBATTLE,
     ZINNIATHEME,
+    WALLYBATTLETHEME,
     
     // SM
     SMWILDBATTLE,
@@ -388,6 +389,7 @@ static const u16 sMusicTableFinal[] = {
     // XY ORAS
     XYWILDBATTLE,
     ZINNIATHEME,
+    WALLYBATTLETHEME,
     // SM
     SMWILDBATTLE,
     
