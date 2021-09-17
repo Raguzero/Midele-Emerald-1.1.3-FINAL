@@ -238,6 +238,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectHealPulse
 	.4byte BattleScript_EffectRecoilStruggleNewGen
 	.4byte BattleScript_EffectShoreUp
+	.4byte BattleScript_EffectAllStatsUpHit
 	.4byte BattleScript_PowderMoveNoEffect
 
 BattleScript_EffectSpeedUp::

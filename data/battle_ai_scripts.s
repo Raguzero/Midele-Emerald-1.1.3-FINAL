@@ -247,7 +247,7 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_PROTECT, AI_CBM_Protect
 	if_effect EFFECT_HEAL_BELL, AI_CBM_HealBell
 	if_effect EFFECT_HEAL_PULSE, Score_Minus5
-	if_effect EFFECT_MIDELE_POWER Score_Plus10
+	if_effect EFFECT_MIDELE_POWER Score_Plus2
 	if_effect EFFECT_YAWN, AI_CBM_Sleep
 	if_effect EFFECT_MIMIC, AI_CBM_Mimic
 	if_effect EFFECT_TEETER_DANCE, AI_CBM_Confuse
