@@ -78,7 +78,7 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 ### General
 
 - Actualizado TODO SOBRE MIDELE EMERALD.pdf
-- La experiencia ganada aumenta en 1.5 tras pasarse la liga.
+- La experiencia ganada aumenta x1.5 tras pasarse la liga.
 
 ### Textos
 
@@ -139,12 +139,13 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 - Corregida la IA en el uso de Substituto a poca vida, y de Fake Out y otros ataques de prioridad en algunos momentos clave.
 - Mejorada IA de Helping Hand.
 - Diversas mejores de la IA (combates dobles, MIST...)
-- Correciones en la IA de Sleep Talk y Rest.
+- Correcciones en la IA de Sleep Talk y Rest.
 - Mejorada la IA a la hora de cambiar el Pokémon.
 
 ### Pokémon
 
 - TROPIUS ha sido mejorado y ahora recibe un boost de x1.5 Ataque y Velocidad cuando lleva equipada una NANAB BERRY/BAYA LATANO.
+- Ahora TROPIUS salvaje puede llevar equipada la NANAB BERRY/BAYA LATANO.
 - Mayor estabilidad en el movepool de algunos POKéMON.
 - Nivel de Pokémon de regalo en Izabe reducido de 45 a 40.
 - Ahora es menos común encontrar a LEDIAN salvaje con el objeto LUCKY PUNCH.
