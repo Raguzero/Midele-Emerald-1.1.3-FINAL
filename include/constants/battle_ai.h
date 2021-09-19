@@ -40,6 +40,7 @@
 #define TARGET_WITH_LEFTIES_WONT_LOSE_HP_IF_WE_USE_ENDEAVOR 1
 #define TARGET_CANNOT_USE_SUB          2
 #define USER_CANNOT_USE_SUB            3
+#define TARGET_HAS_1_MAX_HP            4
 
 #define AI_NHKO_PESSIMISTIC 4
 

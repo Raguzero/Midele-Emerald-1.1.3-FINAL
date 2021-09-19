@@ -712,9 +712,24 @@
     .endm
 	
 	.macro if_this_attack_might_be_the_last ptr:req
+    if_has_move_with_effect AI_TARGET, EFFECT_ALWAYS_HIT, AI_CV_EvasionUp_ScoreDown2
+    @ Si tiene la Evasión subida, tiene una pequeña probabilidad de jugársela
+    @ (7/8 a +2 o +3, 49/64 a +4 o más)
+    @ (la probabilidad de jugársela en alguno de los turnos en los que se está 
+    @ subiendo la Evasión hasta +6 es de aproximadamente un 49%)
+    if_stat_level_less_than AI_USER, STAT_EVASION, 8, .AI_skip_evasion_check_\@
+    if_random_less_than 32, \ptr
+    if_stat_level_less_than AI_USER, STAT_EVASION, 10, .AI_skip_evasion_check_\@
+    if_random_less_than 32, \ptr
+    .AI_skip_evasion_check_\@:
     calculate_nhko AI_TARGET
-    if_equal 1, \ptr
+	if_equal 1, .AI_attack_is_the_last_unless_faster_and_with_sub\@
     if_more_than 2, .AI_attack_is_probably_not_the_last_\@
+    if_status2 AI_USER, STATUS2_SUBSTITUTE, .AI_attack_is_probably_not_the_last_\@
+    if_target_faster \ptr
+    goto .AI_attack_is_probably_not_the_last_\@
+    .AI_attack_is_the_last_unless_faster_and_with_sub\@:
+    if_not_status2 AI_USER, STATUS2_SUBSTITUTE, \ptr
     if_target_faster \ptr
 	.AI_attack_is_probably_not_the_last_\@:
     .endm
@@ -844,9 +859,12 @@
     .endm
 	
 	.macro if_user_is_intoxicated_and_does_not_have_baton_pass ptr:req
-    if_not_status AI_USER, STATUS1_TOXIC_POISON, .AI_no_toxic_\@
-    if_doesnt_have_move_with_effect AI_USER, EFFECT_BATON_PASS, \ptr
-    .AI_no_toxic_\@:
+    if_not_status AI_USER, STATUS1_TOXIC_POISON, .AI_no_problem_with_toxic_\@
+    if_has_move_with_effect AI_USER, EFFECT_BATON_PASS, .AI_no_problem_with_toxic_\@
+    if_has_move_with_effect AI_USER, EFFECT_REST, .AI_no_problem_with_toxic_\@
+    if_has_move_with_effect AI_USER, EFFECT_REFRESH, .AI_no_problem_with_toxic_\@
+    goto \ptr
+    .AI_no_problem_with_toxic_\@:
     .endm
 	
     .macro if_move_is_useless_when_choiced ptr:req

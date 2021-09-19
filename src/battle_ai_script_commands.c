@@ -16,6 +16,7 @@
 #include "constants/battle_ai.h"
 #include "constants/battle_move_effects.h"
 #include "constants/boss_battles.h"
+#include "constants/items.h"
 #include "constants/moves.h"
 #include "constants/species.h"
 #include "sound.h"
@@ -638,6 +639,8 @@ bool32 OurShedinjaIsVulnerable(u32 battlerAI, u32 opposingBattler, u16 considere
 			case EFFECT_FLATTER:
 		    case EFFECT_LEECH_SEED:
             case EFFECT_WILL_O_WISP:
+            case EFFECT_SANDSTORM:
+            case EFFECT_HAIL:
                 return TRUE;
         }
     }
@@ -714,6 +717,20 @@ static u8 ChooseMoveOrAction_Singles(void)
 #endif
 // Consider switching if all moves are worthless to use.
     if (AI_THINKING_STRUCT->aiFlags & (AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_PREFER_BATON_PASS)
+        && !(
+             // no cambia si tiene Evasión a +6 o el rival no puede hacerle nada
+             // y el rival está intoxicado o maldito
+             ((gBattleMons[gBattlerTarget].status1 & STATUS1_TOXIC_POISON) || (gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED))
+          && (gBattleMons[sBattler_AI].statStages[STAT_EVASION] == 12 || CalculateNHKO(gBattlerTarget, sBattler_AI, FALSE, MOVE_NONE, TRUE, FALSE) >= 5)
+            )
+        && !(
+             // Tampoco cambia si el rival está atrapado y afectado por Perish Song (y no está a punto de saltar)
+             // o atrapado y puede agotar sus PP
+             (((gStatuses3[gBattlerTarget] & STATUS3_PERISH_SONG)
+                && gDisableStructs[gBattlerTarget].perishSongTimer != 0)
+              || gBattleMons[sBattler_AI].item == ITEM_LEPPA_BERRY)
+          && (gBattleMons[gBattlerTarget].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
+            )
 		&& AICanSwitchAssumingEnoughPokemon())
     {
         s32 cap = AI_THINKING_STRUCT->aiFlags & (AI_SCRIPT_CHECK_VIABILITY) ? 95 : 93;
@@ -810,7 +827,16 @@ static u8 ChooseMoveOrAction_Singles(void)
                 return AI_CHOICE_SWITCH;
             }
 		// Considera cambiar si corre peligro ante el rival y hay opciones mejores por ahí
-        if (AICanSwitchAssumingEnoughPokemon())
+        if (!(
+              // no cambia si tiene Evasión alta y el rival está intoxicado o maldito
+             // o si tiene un sustituto o va a protegerse o usar Endure, o si es FEAR
+			  gBattleMons[sBattler_AI].statStages[STAT_EVASION] >= 9 // +3 o más
+           && ((gBattleMons[gBattlerTarget].status1 & STATUS1_TOXIC_POISON) || (gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED))
+             )
+            && !(gBattleMons[sBattler_AI].status2 & STATUS2_SUBSTITUTE)
+            && gBattleMoves[move].effect != EFFECT_PROTECT && gBattleMoves[move].effect != EFFECT_ENDURE
+            && !(gBattleMons[sBattler_AI].level <= 2) // probable FEAR
+            && AICanSwitchAssumingEnoughPokemon())
         {
             bool8 directDamageAttack = gBattleMoves[move].power > 0;
             bool8 ignoreFocusPunch = directDamageAttack && 
@@ -1200,6 +1226,12 @@ static void Cmd_if_hp_condition(void)
     {
     case TARGET_HAS_1_HP: // comprueba si el rival tiene 1 PS
         if (gBattleMons[gBattlerTarget].hp == 1)
+            gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
+        else
+            gAIScriptPtr += 6;
+        break;
+    case TARGET_HAS_1_MAX_HP: // comprueba si el rival tiene 1 como PS máximos
+        if (gBattleMons[gBattlerTarget].maxHP == 1)
             gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
         else
             gAIScriptPtr += 6;

@@ -35,7 +35,8 @@ static bool8 ShouldSwitchIfAllBadMoves(void)
 
 static bool8 ShouldSwitchIfForcedToUseStruggle(void)
 {
-    if (CheckMoveLimitations(gActiveBattler, 0, 0xFF) == 0xF) // no hay movimientos disponibles (es lo que se usa en AreAllMovesUnusable en battle_util.c)
+    if (CheckMoveLimitations(gActiveBattler, 0, 0xFF) == 0xF // no hay movimientos disponibles (es lo que se usa en AreAllMovesUnusable en battle_util.c)
+        && gBattleMons[GetBattlerAtPosition(BATTLE_OPPOSITE(GetBattlerPosition(gActiveBattler)))].hp > 1)
     {
         *(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler) = PARTY_SIZE;
         BtlController_EmitTwoReturnValues(1, B_ACTION_SWITCH, 0);
@@ -59,6 +60,27 @@ static bool8 ShouldSwitchIfPerishSong(void)
     }
 }
 
+static bool8 NonDamagingMoveIsGoodAgainstWonderGuardOpponent(u16 move, u8 opposingBattler)
+{
+        switch(gBattleMoves[move].effect) {
+            case EFFECT_TOXIC:
+                return gBattleMons[opposingBattler].species == SPECIES_SHEDINJA && !(gBattleMons[opposingBattler].status1 & STATUS1_ANY);
+            case EFFECT_WILL_O_WISP:
+            case EFFECT_POISON:
+                if ((gBattleMons[opposingBattler].status1 & STATUS1_ANY)) break;
+                // fall through
+            case EFFECT_SANDSTORM:
+            case EFFECT_HAIL:
+            case EFFECT_LEECH_SEED:
+            case EFFECT_CONFUSE:
+            case EFFECT_TEETER_DANCE:
+            case EFFECT_SWAGGER:
+            case EFFECT_FLATTER:
+                return gBattleMons[opposingBattler].species == SPECIES_SHEDINJA && gBattleMons[opposingBattler].hp == 1;
+        }
+    return FALSE;
+}
+
 static bool8 ShouldSwitchIfWonderGuard(void)
 {
     u8 opposingPosition;
@@ -78,12 +100,18 @@ static bool8 ShouldSwitchIfWonderGuard(void)
     if (gBattleMons[GetBattlerAtPosition(opposingPosition)].ability != ABILITY_WONDER_GUARD)
         return FALSE;
 
+    if (CheckMoveLimitations(gActiveBattler, 0, 0xFF) == 0xF && gBattleMons[GetBattlerAtPosition(opposingPosition)].hp == 1)
+        return FALSE; // va a caer por Struggle
+
     // Check if Pokemon has a super effective move.
     for (opposingBattler = GetBattlerAtPosition(opposingPosition), i = 0; i < MAX_MON_MOVES; i++)
     {
         move = gBattleMons[gActiveBattler].moves[i];
         if (move == MOVE_NONE)
             continue;
+
+       if (NonDamagingMoveIsGoodAgainstWonderGuardOpponent(move, opposingBattler))
+           return FALSE;
 
         moveFlags = AI_TypeCalc(move, gBattleMons[opposingBattler].species, gBattleMons[opposingBattler].ability);
         if (moveFlags & MOVE_RESULT_SUPER_EFFECTIVE)
@@ -153,12 +181,23 @@ static bool8 ShouldSwitchIfWonderGuard(void)
 
         for (opposingBattler = GetBattlerAtPosition(opposingPosition), j = 0; j < MAX_MON_MOVES; j++)
         {
+			bool8 usefulMove = FALSE;
             move = GetMonData(&party[i], MON_DATA_MOVE1 + j);
             if (move == MOVE_NONE)
                 continue;
+		
+       if (NonDamagingMoveIsGoodAgainstWonderGuardOpponent(move, opposingBattler))
+           usefulMove = TRUE;
+
+            if (!usefulMove && gBattleMoves[move].power > 0)
+            {
 
             moveFlags = AI_TypeCalc(move, gBattleMons[opposingBattler].species, gBattleMons[opposingBattler].ability);
-            if (moveFlags & MOVE_RESULT_SUPER_EFFECTIVE && Random() % 3 < 2)
+				if ((moveFlags & MOVE_RESULT_SUPER_EFFECTIVE) && !(moveFlags & MOVE_RESULT_DOESNT_AFFECT_FOE))
+                    usefulMove = TRUE;
+            }
+
+            if (usefulMove && Random() % 3 < 2)
             {
                 // We found a mon.
                 *(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler) = i;
@@ -1363,7 +1402,9 @@ u8 FilterShedinjaIfVulnerable(struct Pokemon *party, s32 firstId, s32 lastId, u8
             if (species == SPECIES_SHEDINJA)
                 sheds |= gBitTable[i];
         }
-    if (sheds)
+    if (sheds && ((gBattleWeather & WEATHER_SANDSTORM_ANY) || (gBattleWeather & WEATHER_HAIL_ANY)) && !(!(gBattleWeather & WEATHER_SANDSTORM_PERMANENT) && gWishFutureKnock.weatherDuration == 1)) // si hay arena o granizo y no está a punto de acabar
+        vulnerableSheds = sheds; // entonces todos los Shedinja son vulnerables
+    else if (sheds)
     {
         struct BattlePokemon currentMon = gBattleMons[gActiveBattler];
 		struct DisableStruct disableStructCopy = gDisableStructs[gActiveBattler];
@@ -1561,6 +1602,64 @@ u8 FilterKOTaking2Hits(struct Pokemon *party, s32 firstId, s32 lastId, u8 filter
     return filteredMons;
 }
 
+u8 FilterCanAttackWonderGuardOpponent(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][4])
+{
+    s32 i;
+    u8 monsWithoutDamagingWeather = 0;
+    bool8 someMonHasDamagingWeather = FALSE;
+
+    if (gBattleMons[opposingBattler].ability == ABILITY_WONDER_GUARD)
+        for (i = firstId; i < lastId; i++)
+            if (!(gBitTable[i] & filteredMons))
+            {
+                bool8 hasANonDamagingUsefulMove = FALSE;
+                s32 j;
+                u16 move;
+
+                // Mira si puede meter un clima que dañe al rival
+                if (gBattleMons[opposingBattler].hp == 1)
+                {
+                    u16 species = GetMonData(&party[i], MON_DATA_SPECIES);
+                    u8 monAbility;
+
+                    if (GetMonData(&party[i], MON_DATA_ABILITY_NUM) != 0)
+                        monAbility = gBaseStats[species].abilities[1];
+                    else
+                        monAbility = gBaseStats[species].abilities[0];
+
+                    if (monAbility == ABILITY_SAND_STREAM || monAbility == ABILITY_SNOW_WARNING)
+                    {
+                        someMonHasDamagingWeather = TRUE;
+                        continue;
+                    }
+                    monsWithoutDamagingWeather |= gBitTable[i];
+                }
+
+                // Mira si le hace algo mejor que 5HKO (y por tanto le hace algo)
+                if (nhko[i][1] < 5)
+                    continue;
+
+                // Mira si puede dañar con algún movimiento que no sea de daño directo
+                for (j = 0; !hasANonDamagingUsefulMove && j < MAX_MON_MOVES; j++)
+                {
+                    move = GetMonData(&party[i], MON_DATA_MOVE1 + j);
+                    if (NonDamagingMoveIsGoodAgainstWonderGuardOpponent(move, opposingBattler))
+                        hasANonDamagingUsefulMove = TRUE;
+                }
+
+                // Si ha llegado hasta aquí, es que no puede atacar salvo a lo sumo con movs que no sean de daño
+                if (!hasANonDamagingUsefulMove)
+                    filteredMons |= gBitTable[i];
+            }
+
+    // Si algún poke convoca clima y, si entra, causaría daño ese mismo turno, prefiere meter uno de esos
+    if (someMonHasDamagingWeather && (gBattleMainFunc != BattleTurnPassed || gBattleStruct->turnCountersTracker < 7))
+	// 7 es ENDTURN_SANDSTORM
+        return filteredMons | monsWithoutDamagingWeather;
+
+    return filteredMons;
+}
+
 u8 FilterTakesMostHits(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][4])
 {
     u8 max_hits_taken = 1;
@@ -1742,6 +1841,7 @@ u8 GetMostSuitableMonToSwitchInto(bool8 notChangingIsPossible, bool8 notChanging
 		APPLY_FILTER(FilterRevengeKill, FALSE);
         APPLY_FILTER(FilterKOTaking1Hit, FALSE);
         APPLY_FILTER(FilterKOTaking2Hits, notChangingIsAcceptable);
+        APPLY_FILTER(FilterCanAttackWonderGuardOpponent, FALSE);
         APPLY_FILTER(FilterTakesMostHits, FALSE);
         APPLY_FILTER(FilterKOsInLessHits, FALSE);
     }
