@@ -7558,7 +7558,7 @@ static u16 DoGetBattleBGM(void)
     else {
     u16 species = SpeciesToNationalPokedexNum(GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, 0));
     if (species >= SPECIES_CHIKORITA && species <= SPECIES_CELEBI) return WILD;
-    if (species >= SPECIES_BULBASAUR && species <= SPECIES_MEWTWO) return MUS_RG_VS_YASEI;
+    if (species >= SPECIES_BULBASAUR && species <= SPECIES_MEW) return MUS_RG_VS_YASEI;
 	if (species == NATIONAL_DEX_YAMASK ||
 	species == NATIONAL_DEX_COFAGRIGUS ||
 	species == NATIONAL_DEX_GOLETT ||
