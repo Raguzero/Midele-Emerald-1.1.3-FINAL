@@ -5300,7 +5300,7 @@ void ItemUseCB_FormChange(u8 taskId, TaskFunc task)
         PlayCry2(forme, 0, 0x7D, 0xA);
         SetMonData(mon, MON_DATA_SPECIES, &forme);
         FreeAndDestroyMonIconSprite(&gSprites[sPartyMenuBoxes[gPartyMenu.slotId].monSpriteId]);
-        CreatePartyMonIconSpriteParameterized(forme, GetMonData(mon, MON_DATA_PERSONALITY), &sPartyMenuBoxes[gPartyMenu.slotId], 0, FALSE);
+        CreatePartyMonIconSpriteParameterized(forme, GetMonData(mon, MON_DATA_PERSONALITY), &sPartyMenuBoxes[gPartyMenu.slotId], 1, FALSE);
         CalculateMonStats(mon);
         GetMonNickname(mon, gStringVar1);
         StringExpandPlaceholders(gStringVar4, ChangedForm);
