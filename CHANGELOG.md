@@ -98,6 +98,7 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 - Corregida la frase de la entrenadora GOLDIE que se salía del cuadro de texto.
 - Añadido texto sobre el starter DARK PIKA en el NPC de Petalburg Woods Pokémon Center.
 - Las cartas de los Pokémon de intercambio Salandit, Eevee y Charmander han sido corregidas.
+- Corregido texto post-intercambio en IZABE que podía hacer crashear el juego.
 
 ### Sonido
 - Corregidas músicas de Jirachi, Celebi y Mew.
