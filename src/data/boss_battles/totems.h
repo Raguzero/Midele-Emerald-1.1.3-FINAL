@@ -142,6 +142,6 @@ const struct TotemMon gTotemMons[] =
         .nature = NATURE_MODEST,
         .abilityNumber = 0, // INTIMIDATE
         .statBoosts = {6, 6, 8, 6, 6, 8, 6, 6}, // HP, ATK, DEF, SPEED, SATK, SDEF, PRECISION, EVASION
-        .evs = {0, 0, 0, 252, 0, 252},
+        .evs = {252, 252, 252, 252, 252, 252},
     }
 };
