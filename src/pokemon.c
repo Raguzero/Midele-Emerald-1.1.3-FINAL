@@ -7739,8 +7739,11 @@ static u16 DoGetBattleBGM(void)
 	species == NATIONAL_DEX_MRRIME ||
 	species == NATIONAL_DEX_RUNERIGUS ||		
 	species == NATIONAL_DEX_PERSERKER ||
-	species == NATIONAL_DEX_HONEDGE_MONADO ||
 	species == NATIONAL_DEX_CURSOLA) return SWORDSHIELDWILD;
+    if (species == NATIONAL_DEX_HONEDGE_MONADO)
+    {
+        return ZANZATHEME;
+    }
     return MUS_BATTLE27;
   }
 }
