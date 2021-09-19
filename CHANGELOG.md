@@ -103,6 +103,8 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 ### Sonido
 - Corregidas músicas de Jirachi, Celebi y Mew.
 - Añadida música de WALLY al MUSIC PLAYER.
+- Cambiada música de MEW salvaje.
+- Cambiada música de HONEDGE salvaje.
 
 ### Eventos
 
@@ -114,6 +116,7 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 - Corregida comprobación del NPC de los tickets de evento.
 - Arreglado error en el que los guardias de la liga te atravesaban al hablarles desde izquierda/derecha.
 - Añadida confirmación adicional al NPC de resetear entrenadores.
+- Cambiado el sprite de Micolo en Meteor Falls.
 
 ### Mapas
 
@@ -152,6 +155,7 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 - Ahora es menos común encontrar a LEDIAN salvaje con el objeto LUCKY PUNCH.
 - 25% de shiny en los huevos obtenidos en FALLARBOR mediante Heart Scale.
 - 50% de shiny en DARK PIKA y WINTASS de casino. Además, DARK PIKA se obtiene al nivel 5.
+- Nerf TOTEM DARK PIKA: ya no tiene todos los EVs maximizados.
 
 ### Objetos
 
