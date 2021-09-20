@@ -79,6 +79,7 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 
 - Actualizado TODO SOBRE MIDELE EMERALD.pdf
 - La experiencia ganada aumenta x1.5 tras pasarse la liga.
+- Corregida la POKéDEX AREA que no mostraba los POKéMON salvajes de IZABE CAVE.
 
 ### Textos
 
@@ -99,6 +100,8 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 - Añadido texto sobre el starter DARK PIKA en el NPC de Petalburg Woods Pokémon Center.
 - Las cartas de los Pokémon de intercambio Salandit, Eevee y Charmander han sido corregidas.
 - Corregido texto post-intercambio en IZABE que podía hacer crashear el juego.
+- Corregido texto que mencionaba varias veces el mismo POKéMON prohibido en las reglas de edificios de Battle Frontier.
+- Modificado el texto del diploma de la POKéDEX HOENN y NACIONAL, que ahora menciona MIDELE EMERALD en vez de GAME FREAK.
 
 ### Sonido
 - Corregidas músicas de Jirachi, Celebi y Mew.
@@ -117,6 +120,7 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 - Arreglado error en el que los guardias de la liga te atravesaban al hablarles desde izquierda/derecha.
 - Añadida confirmación adicional al NPC de resetear entrenadores.
 - Cambiado el sprite de Micolo en Meteor Falls.
+- Corregida la máquina expendedora de MICOLO HIDEOUT.
 
 ### Mapas
 
@@ -135,16 +139,22 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 - Ya no pierdes dinero cuando CHERYL te derrota.
 - Corregidas inconsistencias en algunos equipos de entrenadores (como el hecho de llevar SPORE cuando realmente lo aprenden a mayor nivel).
 - Mejorado el equilibrio de stats y moveset en bosses.
-- Modificado el equipo de BRAWLY.
+- Revisión y modificación de equipos de los Lideres de Gym de HOENN.
+- Revisión y modificación de equipos de la ELITE FOUR, y ahora la revancha tiene niveles entre 88-94 en vez de 70-76
+- Corregido el mensaje de activación de Quick Claw que hacia que no se mostrase en algunas situaciones, mientras que en otras se mostraba con otro objeto distinto a Quick Claw.
 
 ### IA
 - Corregida la IA para que no pierda el tiempo en cálculos innecesarios.
 - Corregida la IA en el cálculo de poder de algunos movimientos (Explosion, Knock Off, fuego vs Dry Skin, etc.)
-- Corregida la IA en el uso de Substituto a poca vida, y de Fake Out y otros ataques de prioridad en algunos momentos clave.
+- Corregida la IA en el uso de Midele Power, de Substituto a poca vida, y de Fake Out y otros ataques de prioridad en algunos momentos clave.
 - Mejorada IA de Helping Hand.
-- Diversas mejores de la IA (combates dobles, MIST...)
+- Diversas mejoras de la IA (combates dobles, Vital Throw, Evasion Boost Moves, Defensive Boost Moves, y Mist)
 - Correcciones en la IA de Sleep Talk y Rest.
-- Mejorada la IA a la hora de cambiar el Pokémon.
+- Mejoras y correciones en la IA a la hora de cambiar el Pokémon.
+- Mejorada la IA a la hora de enfrentarse a SHEDINJA.
+- Mejorada la IA a la hora de usar Struggle en situaciones beneficiosas.
+- Corregido el spam de Disable ante Pokemon dormidos.
+- Correciones en la IA de FEAR, Heal Moves, Charge Moves (solarbeam, bounce, etc.)
 
 ### Pokémon
 
@@ -155,7 +165,8 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 - Ahora es menos común encontrar a LEDIAN salvaje con el objeto LUCKY PUNCH.
 - 25% de shiny en los huevos obtenidos en FALLARBOR mediante Heart Scale.
 - 50% de shiny en DARK PIKA y WINTASS de casino. Además, DARK PIKA se obtiene al nivel 5.
-- Nerf TOTEM DARK PIKA: ya no tiene todos los EVs maximizados.
+- Ahora los POKéMON salvajes de MAGMA HIDEOUT tienen mayor nivel (eran demasiado bajos para ese punto del juego).
+- Ahora aparece SNORUNT salvaje en IZABE CAVE
 
 ### Objetos
 
