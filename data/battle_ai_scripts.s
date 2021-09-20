@@ -2393,7 +2393,11 @@ AI_CV_Recharge_End:
 	end
 
 AI_CV_Disable:
+    if_target_not_expected_to_sleep AI_CV_Disable_TargetNotSleeping
+    goto AI_CV_Disable_OpponentIsNotExpectedToAttack
+AI_CV_Disable_TargetNotSleeping:
 	if_target_faster AI_CV_Disable_End
+AI_CV_Disable_OpponentIsNotExpectedToAttack:
 	get_last_used_bank_move AI_TARGET
 	get_move_power_from_result
 	if_equal 0, AI_CV_Disable2
