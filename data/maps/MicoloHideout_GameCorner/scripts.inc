@@ -504,22 +504,26 @@ MicoloHideout_EventScript_RemoveMoneyPPMax::
 
 MicoloHideout_EventScript_TryBuyDrink::
 	compare VAR_TEMP_1, 0
-	call_if_eq MicoloHideout_EventScript_CheckMoneyLeftovers
-	compare VAR_TEMP_1, 1
-	call_if_eq MicoloHideout_EventScript_CheckMoneyFocusSash
-	compare VAR_TEMP_1, 2
 	call_if_eq MicoloHideout_EventScript_CheckMoneySacredAsh
+	compare VAR_TEMP_1, 1
+	call_if_eq MicoloHideout_EventScript_CheckMoneyPPMax
+	compare VAR_TEMP_1, 2
+	call_if_eq MicoloHideout_EventScript_CheckMoneyLeftovers
+    compare VAR_TEMP_1, 3
+	call_if_eq MicoloHideout_EventScript_CheckMoneyFocusSash
 	compare VAR_RESULT, FALSE
 	goto_if_eq MicoloHideout_EventScript_NotEnoughMoneyForDrink
 	checkitemspace VAR_TEMP_0, 1
 	compare VAR_RESULT, FALSE
 	goto_if_eq MicoloHideout_EventScript_NoRoomForDrink
 	compare VAR_TEMP_1, 0
-	call_if_eq MicoloHideout_EventScript_RemoveMoneyLeftovers
-	compare VAR_TEMP_1, 1
-	call_if_eq MicoloHideout_EventScript_RemoveMoneyFocusSash
-	compare VAR_TEMP_1, 2
 	call_if_eq MicoloHideout_EventScript_RemoveMoneySacredAsh
+	compare VAR_TEMP_1, 1
+	call_if_eq MicoloHideout_EventScript_RemoveMoneyPPMax
+	compare VAR_TEMP_1, 2
+	call_if_eq MicoloHideout_EventScript_RemoveMoneyLeftovers
+	compare VAR_TEMP_1, 3
+	call_if_eq MicoloHideout_EventScript_RemoveMoneyFocusSash
 	updatemoneybox 0, 0
 	bufferitemname 0, VAR_TEMP_0
 	playse SE_JIHANKI
