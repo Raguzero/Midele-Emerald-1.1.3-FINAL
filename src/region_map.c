@@ -142,6 +142,7 @@ static const u16 sRegionMap_SpecialPlaceLocations[][2] =
     {MAPSEC_ABANDONED_SHIP,            MAPSEC_ROUTE_108},
     {MAPSEC_OLDALE_RUINS,            MAPSEC_ROUTE_103},
     {MAPSEC_MAUVILLE_RUINS,            MAPSEC_ROUTE_110},
+    {MAPSEC_IZABE_CAVE,            MAPSEC_IZABE_ISLAND},
     {MAPSEC_NONE,                      MAPSEC_NONE}
 };
 
