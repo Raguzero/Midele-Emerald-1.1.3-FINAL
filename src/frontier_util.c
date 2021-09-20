@@ -2091,7 +2091,8 @@ static void CheckPartyIneligibility(void)
         gSpecialVar_0x8004 = TRUE;
         count = 0;
         for (i = 0; gFrontierBannedSpecies[i] != 0xFFFF; i++)
-            count = AppendCaughtBannedMonSpeciesName(gFrontierBannedSpecies[i], count, caughtBannedMons);
+            if (gFrontierBannedSpecies[i] != SPECIES_DEOXYS_ATTACK && gFrontierBannedSpecies[i] != SPECIES_DEOXYS_DEFENSE && gFrontierBannedSpecies[i] != SPECIES_DEOXYS_SPEED && gFrontierBannedSpecies[i] != SPECIES_ARMOR_MEWTWO)
+                count = AppendCaughtBannedMonSpeciesName(gFrontierBannedSpecies[i], count, caughtBannedMons);
 
         if (count == 0)
         {
