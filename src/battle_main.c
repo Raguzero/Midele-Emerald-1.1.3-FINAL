@@ -5018,7 +5018,8 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
     if (holdEffect == HOLD_EFFECT_QUICK_CLAW && gRandomTurnNumber < (0xFFFF * holdEffectParam) / 100)
 	{
 		speedBattler1 = UINT_MAX;
-		gProtectStructs[battler1].quickclaw = TRUE;
+        if (!ignoreChosenMoves)
+            gProtectStructs[battler1].quickclaw = TRUE;
 	}
 
     // check second battlerId's speed
@@ -5084,7 +5085,8 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
     if (holdEffect == HOLD_EFFECT_QUICK_CLAW && gRandomTurnNumber < (0xFFFF * holdEffectParam) / 100)
 	{
 		speedBattler2 = UINT_MAX;
-		gProtectStructs[battler2].quickclaw = TRUE;
+        if (!ignoreChosenMoves)
+            gProtectStructs[battler2].quickclaw = TRUE;
 	}
 
     if (ignoreChosenMoves)
@@ -5331,11 +5333,7 @@ static void CheckQuickClawActivation(void)
             gActiveBattler = gBattlerAttacker = gBattleStruct->quickClawBattlerId;
             gBattleStruct->quickClawBattlerId++;
 			 if (gChosenActionByBattler[gActiveBattler] == B_ACTION_USE_MOVE
-              && gChosenMoveByBattler[gActiveBattler] != MOVE_FOCUS_PUNCH   // quick claw message doesn't need to activate here
-			  && gProtectStructs[gActiveBattler].quickclaw
-			  && !(gBattleMons[gActiveBattler].status1 & STATUS1_SLEEP)
-              && !(gDisableStructs[gBattlerAttacker].truantCounter)
-              && !(gProtectStructs[gActiveBattler].noValidMoves))
+			  && gProtectStructs[gActiveBattler].quickclaw)
 			  {
 			gProtectStructs[gActiveBattler].quickclaw = FALSE;
             gLastUsedItem = gBattleMons[gActiveBattler].item;
