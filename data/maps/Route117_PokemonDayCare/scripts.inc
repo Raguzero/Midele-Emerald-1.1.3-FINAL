@@ -84,7 +84,7 @@ Route117_PokemonDayCare_Text_Vladiland_BeforeBattle:
 	.string "Así que te interesan estas cosas de\n"
 	.string "crianza de POKéMON... a tu edad.\p"
 	
-	.string "Que interesante... ¡MUY INTERESANTE!\n"
+	.string "Qué interesante... ¡MUY INTERESANTE!\n"
 	.string "Mjmjmjmjmjmjmjmjjmjmjm...\p"
 	
 	.string "Bien, te explicaré en qué consiste,\n"
@@ -103,17 +103,17 @@ Route117_PokemonDayCare_Text_Vladiland_Defeated:
 	.string "sin ropa?$"
 
 Route117_PokemonDayCare_Text_Vladiland_AfterBattle:
-	.string "Bueno, para que veas cuanto te aprecio,\n"
-	.string "dejame ofrecerte un regalo.\p"
+	.string "Bueno, para que veas cuánto te aprecio,\n"
+	.string "déjame ofrecerte un regalo.\p"
 
 	.string "Con esto serás el rey o la reina...\n"
 	.string "(No me gusta hacer distinciones) de\l"
-	.string "esta guarderia de POKéMON.$"
+	.string "esta guardería de POKéMON.$"
 	
 Route117_PokemonDayCare_Text_Vladiland_Text_TakeDitto: 
 	.string "¡Este DITTO que te he regalado es\n"
 	.string "perfecto para que los POKéMON hagan\l"
-	.string "sus cositas y saquen crias\l" 
+	.string "sus cositas y saquen crías\l" 
 	.string "como conejos!\p"
 	
 	.string "Dale tan buen uso como yo te daría a ti\n"
