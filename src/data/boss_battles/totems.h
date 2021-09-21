@@ -60,7 +60,7 @@ const struct TotemMon gTotemMons[] =
     {
         .species = SPECIES_MEGA_GLALIE,
         .minLevel = 80,
-        .moves = {MOVE_BLIZZARD, MOVE_EARTHQUAKE, MOVE_SUPER_FANG, MOVE_CRUNCH},
+        .moves = {MOVE_BLIZZARD, MOVE_EARTHQUAKE, MOVE_WATER_PULSE, MOVE_CRUNCH},
         .item = ITEM_LEFTOVERS,
         .nature = NATURE_QUIET,
         .abilityNumber = 1, // ICE BODY
