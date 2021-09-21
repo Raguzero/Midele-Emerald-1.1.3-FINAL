@@ -144,7 +144,7 @@ Micolandia_EventScript_TopoVigilante::
 	lock
 	faceplayer
 	compare VAR_STATE_MICOLANDIA, 0
-	call_if_ne Micolandia_EventScript_TopoVigilante2
+	goto_if_ne Micolandia_EventScript_TopoVigilante2
 	goto_if_set FLAG_DEFEATED_DARKI_GYM, Micolandia_EventScript_TopoCombate
 	msgbox Micolandia_Text_TopoVigilante, MSGBOX_DEFAULT
 	release
@@ -162,6 +162,7 @@ Micolandia_EventScript_TopoCombate::
 	setvar VAR_STATE_MICOLANDIA, 1
 	applymovement 5, Micolandia_Topo_Movement
 	waitmovement 0
+    call Micolandia_EventScript_SetGuardUnblockingDoor
 	releaseall
 	end
 	
