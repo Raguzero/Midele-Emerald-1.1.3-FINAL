@@ -329,7 +329,7 @@ Fiery_Path_Text_DobleCIntro:
 	
 	.string "Y sobre todo, lo voy a gozar\n"
 	.string "por ver la cara que van a poner\l" 
-	.string "los NOOBS como tu cuando descubran\l"
+	.string "los NOOBS como tú cuando descubran\l"
 	.string "lo que hemos preparado.\p"
 	
 	.string "¡JAJAJAJAJAJAJA!\p"
