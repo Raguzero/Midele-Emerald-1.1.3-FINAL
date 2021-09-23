@@ -398,7 +398,7 @@ MeteorFalls_1F_1R_Text_Micolo:
 	
 	.string "Mientras que el TEAM AQUA quiere\n"
 	.string "invocar al POKéMON legendario KYOGRE\l"
-	.string "para que haya mas cantidad de mar\l"
+	.string "para que haya más cantidad de mar\l"
 	.string "donde puedan vivir los POKéMON.\p"
 
 	.string "Sus planes no tienen ninguna\n"
@@ -418,7 +418,7 @@ MeteorFalls_1F_1R_Text_Micolo:
 	
 	.string "Pero no te preocupes,\n"
 	.string "todos sus planes saldrán mal\l"
-	.string "porque tu les pararás los pies...\l"
+	.string "porque tú les pararás los pies...\l"
 	.string "¡Humilla a sus reclutas sin piedad!\p"
 	
 	.string "...\p"
