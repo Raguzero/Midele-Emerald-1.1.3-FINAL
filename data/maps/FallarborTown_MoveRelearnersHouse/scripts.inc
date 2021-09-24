@@ -83,7 +83,7 @@ FallarborTown_MoveRelearnersHouse_Text_ThankYou:
 	.string "of this EGG!$"
 
 FallarborTown_MoveRelearnersHouse_Text_ReceivedTheEgg:
-	.string "{PLAYER} handed over one HEART SCALE\n"
+	.string "{PLAYER} handed over three HEART SCALE\n"
 	.string "in exchange.\p"
 
 	.string "{PLAYER} received the EGG.$"
