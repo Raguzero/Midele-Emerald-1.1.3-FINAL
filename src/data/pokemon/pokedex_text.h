@@ -3337,7 +3337,7 @@ const u8 gRegidragoPokedexText[] = _(
 const u8 gWintassPokedexText[] = _(
     "Emerged from the snow from a past winter.\n" 
 	"Its body is covered of branches, stones\n" 
-	"and snowmans that people made before\n" 
+	"and snowmen that people made before\n" 
 	"WINTASS came to life.");
 	
 const u8 gGoomyPokedexText[] = _(
