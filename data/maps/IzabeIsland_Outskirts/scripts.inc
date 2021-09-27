@@ -98,7 +98,7 @@ IzabeIsland_Outskirts_Text_GoosesDefeat::
 
 IzabeIsland_Outskirts_Text_GoosesPostBattle::
 	.string "Ha sido un buen combate, joven, pero no\n"
-	.string "creas que me has derrotado aún fufufu.\p"
+	.string "creas que me has derrotado aún, fufufu.\p"
 	.string "Has pasado una prueba... haz crecer tu\n"
 	.string "fuerza y tus convicciones y búscame en\l"
 	.string "mi gimnasio, allí te mostraré lo que es\l"
@@ -110,7 +110,7 @@ IzabeIsland_Outskirts_Text_GoosesPostBattle::
 	.string "hay varios secretos del mundo que\l"
 	.string "estoy a punto de resolver... y tengo\l"
 	.string "varios planes en los que entrometerme\l"
-	.string "fufufu.$"
+	.string "...fufufu.$"
 
 IzabeIsland_Outskirts_EventScript_Fisherman::
 	trainerbattle_single TRAINER_IZABE_FISHERMAN, IzabeIsland_Outskirts_Text_FishermanIntro, IzabeIsland_Outskirts_Text_FishermanDefeat
