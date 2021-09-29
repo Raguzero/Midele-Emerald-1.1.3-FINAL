@@ -82,15 +82,15 @@ ScorchedSlab_B2F_Text_HypeantonioIntro:
 	.string "Se dice que esta cueva tiene este\n"
 	.string "efecto de clima soleado debido a\l"
 	.string "que su estructura está formada por\l"
-	.string "piedras fuego y piedras solares.\p"
+	.string "FIRE STONE y SUN STONE.\p"
 
 	.string "Debido a ello, el reflejo de toda esa\n"
 	.string "cantidad de piedras simulan los rayos\l"
 	.string "del sol, lo que hace que aquí haya un\l"
-	.string "calor bochornoso, como si estuvieramos\l"
+	.string "calor bochornoso, como si estuviéramos\l"
 	.string "a aire libre a pleno sol de Agosto.\p"
 
-	.string "Pero yo tengo una teoría mucho mas real.\n"
+	.string "Pero yo tengo una teoría mucho más real.\n"
 	.string "¿Quieres que la cuente?\p"
 
 	.string "...\p"
