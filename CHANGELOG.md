@@ -201,6 +201,7 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 ### Mapas
 
 - Arreglada colisión de escaleras automáticas de Micolandia.
+- Modificada hierba de Izabe Island Outskirts.
 
 ### Combates
 
