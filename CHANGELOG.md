@@ -172,3 +172,36 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 
 - Focus Sash sustituye a Big Pearl como premio en Random Battles.
 - Varios objetos de tipo medicina pueden ser usados de forma repetida desde el menú.
+
+
+## Versión 1.1.1
+
+Cambios y arreglos de errores de la versión 1.1.1
+
+Debido a los cambios, se recomienda que la partida no esté guardada en los siguientes lugares tras actualizar a esta versión:
+- Micolo League Lobby
+
+**Nota**: debido a una de las correciones, las MTs de una de las tiendas de Lilycove aparecerán como no compradas aunque ya hayan sido compradas en saves previos a esta versión.
+
+### Textos
+
+- Corregida faltas de ortografía de Route 117 Daycare.
+- Corregidas faltas de ortografía de Fiery Path.
+- Corregido texto en la casa de HEART SCALE.
+- El nombre del rival en la agenda del Pokénav ahora es "RIVAL" (antes era BRENDAN o MAY e ignoraba el nombre dado por el jugador).
+- Corregidos algunos textos de combate.
+- Corregido texto de la dex de WINTASS (snowmans -> snowmen)
+- Corregido texto de NPC de Socorched Slab.
+
+### Eventos
+
+- Ahora el NPC Topo se queda fijo en su sitio tras recargar el mapa después de derrotarle y que se mueva de sitio.
+- Ahora comprar en una de las tiendas de MT de Lilycove no hace que la otra tienda no te venda MTs.
+
+### Mapas
+
+- Arreglada colisión de escaleras automáticas de Micolandia.
+
+### Combates
+
+- Modificado moveset de Totem Glalie; tenía un ataque que no puede ser usado en batallas de totems.
