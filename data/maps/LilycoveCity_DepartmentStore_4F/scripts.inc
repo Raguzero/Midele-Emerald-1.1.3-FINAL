@@ -38,7 +38,7 @@ LilycoveCity_DepartmentStore_4F_EventScript_ClerkRight:: @ 821FE2C
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
-	pokemart LilycoveCity_DepartmentStore_4F_Pokemart_DefenseTMs, 1
+	pokemart LilycoveCity_DepartmentStore_4F_Pokemart_DefenseTMs, 2
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
@@ -69,4 +69,3 @@ LilycoveCity_DepartmentStore_4F_Text_FiftyDifferentTMs: @ 821FEC7
 LilycoveCity_DepartmentStore_4F_Text_PokemonOnlyHaveFourMoves: @ 821FF2D
 	.string "I'd like to get all the different TMs,\n"
 	.string "but a POKéMON learns only four moves.$"
-
