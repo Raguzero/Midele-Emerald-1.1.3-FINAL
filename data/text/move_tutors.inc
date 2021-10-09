@@ -242,7 +242,7 @@ MoveTutor_Text_SeismicPunchTeach:
 	.string "Ayudo a mi tito a enseñar a POKéMON\n" 
 	.string "un movimiento increíble. Se llama\l" 
 	.string "SEISMIC PUNCH y es un poderoso\l" 
-	.string "movimiento creado por mi tito Micolo.\p"
+	.string "movimiento creado por mi tito MICOLO.\p"
 
 	.string "¿Quieres que un POKéMON tuyo aprenda\n" 
 	.string "el movimiento?$"

@@ -72,5 +72,4 @@ Route126_Sign_MicoloSign::
 
 Route126_Sign_MicoloSign_Text_0:
 	.string "Hay algo garabateado en el cartel...\p"
-	.string "“Micolo estuvo aquí n.n”$"
-
+	.string "“MICOLO estuvo aquí n.n”$"

@@ -182,7 +182,7 @@ LilycoveCity_MelkorHouse_EventScript_PCPokexperto_Text:
 	.string "...\p"
 	.string "...\p"
 	.string "Cargando foros Pokéxperto...\p"
-	.string "Cargando comentarios flood de Micolo y\n"
+	.string "Cargando comentarios flood de MICOLO y\n"
 	.string "poke-xavi...\p"
 	.string "Cargando calendario de eventos\n"
 	.string "bugeado... (quedan -1230 días para el\l"
