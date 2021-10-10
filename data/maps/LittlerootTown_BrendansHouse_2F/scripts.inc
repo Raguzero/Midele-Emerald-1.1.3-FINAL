@@ -376,7 +376,7 @@ LittlerootTown_PlayersHouse_2F_Text_JZombieIntro::
 	
 	.string "Soy JZOMBIE, al que venciste en\n"
 	.string "GRANITE CAVE hace tiempo y del que\l"
-	.string "te reiste de todas sus teorías de\l"
+	.string "te reíste de todas sus teorías de\l"
 	.string "la existencia de KALOS SUR.\p"
 	
 	.string "Te dije que cuando descubriese donde\n"
@@ -386,7 +386,7 @@ LittlerootTown_PlayersHouse_2F_Text_JZombieIntro::
 	.string "tal paliza que haré que tus familiares\l"
 	.string "te visiten en tu entierro.\p"
 
-	.string "ESTA VEZ NO PODRÁS ESCAPAR DE MÍ!\p"
+	.string "¡ESTA VEZ NO PODRÁS ESCAPAR DE MÍ!\p"
 
 	.string "¡COMIENZA A REZAR!$"
 
