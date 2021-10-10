@@ -24,13 +24,13 @@ SkyPillar_5F_Text_DUNKIntro:
 	.string "Vas a despertar a RAYQUAZA, pero...\n"
 	.string "¡ESO ES UNA LOCURA! ¡ABORTA MISIÓN YA!\p"
 	
-	.string "¡No sabemos que efectos causará si lo\n"
+	.string "¡No sabemos qué efectos causará si lo\n"
 	.string "despertamos para calmar a GROUDON y\l"
 	.string "KYOGRE!\p"
 	
 	.string "...\p"
 	
-	.string "¿Cambio climático? Que tonterias...$"
+	.string "¿Cambio climático? Qué tonterías...$"
 
 SkyPillar_5F_Text_DUNKDefeat: 
 	.string "Te lo estoy diciendo: ¡No existe\n"
@@ -38,4 +38,3 @@ SkyPillar_5F_Text_DUNKDefeat:
 
 SkyPillar_5F_Text_DUNKPostBattle:
 	.string "Pero... si despiertas a RAYQUAZA...$"
-
