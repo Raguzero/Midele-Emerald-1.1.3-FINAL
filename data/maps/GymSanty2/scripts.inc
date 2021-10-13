@@ -212,7 +212,7 @@ Entropia_AntesBatalla:
     .string "¡No puedes decirme eso y quedarte\n"
     .string "tan tranquilo!\p"
 
-    .string "Eso va a cambiar cuando te pateé el culo\n"
+    .string "Eso va a cambiar cuando te patée el culo\n"
 	.string "Hm.$"
 	
 Entropia_MensajeDerrota: 
@@ -287,8 +287,8 @@ Ghaddar_AntesBatalla:
 	.string "¡¡A ALGUIEN QUE JUEGA GACHAS!!$"
 	
 Ghaddar_MensajeDerrota: 
-	.string "Los Gachas...Han ganado...\n"
-	.string "Sword&Shield...POKéMON Go...\p"
+	.string "Los Gachas... Han ganado...\n"
+	.string "Sword&Shield... POKéMON Go...\p"
 
 	.string "Es el futuro que nos espera...$"
 	
@@ -299,7 +299,7 @@ Ghaddar_DespuesDeBatalla:
 	.string "Mis POKéMON han sido entrenados\n"
 	.string "con CARIÑO y ESFUERZO.\p"
 
-	.string "Nada de evs ni ivs ni tonterías\n"
+	.string "Nada de EVs ni IVs ni tonterías.\n"
 	.string "Puro AMOR.\p"
 
 	.string "¡HACHA AL GACHA!$"

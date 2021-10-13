@@ -421,7 +421,7 @@ Darkigym_Text_RedSecretariaPostBattle:
 	.string "te resta avanzar.$"
 	
 Darkigym_Text_KizardeIntro: 
-	.string "¡Alto Ahí! Pequeña ardilla,\n"
+	.string "¡Alto ahí! Pequeña ardilla,\n"
 	.string "¿cómo osas entrar en la guarida\l"
 	.string "del gran cientifico loco\l"
 	.string "D. KIZARDE?\p"
@@ -603,7 +603,7 @@ Darkigym_Text_AnthonyPostBattle:
 	.string "¡GIGA DRILL BREAKER!$"
 	
 Darkigym_Text_DranixIntro:
-	.string "Espero que hayas traido Autan...\p"
+	.string "Espero que hayas traído Autan...\p"
 	
 	.string "¡Porque tu cuerpo será acribillado\n"
 	.string "por las picaduras de mi ejercito\l"
@@ -649,7 +649,7 @@ Darkigym_Text_UltramagicIntro:
 	.string "¡Ey DOOD!\n"
 	.string "¿Conoces a LAVENDER?\p"
 
-	.string "¡La POLICIA de JOHTO lo está\n" 
+	.string "¡La POLICÍA de JOHTO lo está\n" 
 	.string "buscando! ¡Y a mí también, DOOD!\p"
 	
 	.string "¡Un momento, esto no son las carataras\n"
@@ -752,7 +752,7 @@ Darkigym_Text_FurryIntro:
 	.string "...\p"
 	
 	.string "Sniff... Sniff...\n"
-	.string "¡Tu también hueles a hacks...!\p" 
+	.string "¡Tú también hueles a hacks...!\p" 
 
 	.string "¡MALDITOS HACKERS! ¡OS VAIS A ENTERAR!\p"
 	
@@ -988,7 +988,7 @@ Darkigym_Text_TiloAlolaDefeat:
 
 Darkigym_Text_TiloAlolaPostBattle:
 	.string "¡Quién diría que me encontraría con\n" 
-	.string "una persona tan increíble como tu!\p"
+	.string "una persona tan increíble como tú!\p"
 	
 	.string "¿Que nos acabamos de conocer? Da igual,\n" 
 	.string "soy tu más grande admira-\l" 

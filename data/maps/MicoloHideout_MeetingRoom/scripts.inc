@@ -108,7 +108,7 @@ Addri2_AntesBatalla:
 Addri2_MensajeDerrota: 
 	.string "...\p"
 
-	.string "¿QUÉ NO SOY UN GAMER?\p"
+	.string "¿QUE NO SOY UN GAMER?\p"
 
     .string "Si te contesto a esto me gano warn,\n" 
 	.string "así que simplemente te dejo estar,\l" 
@@ -141,7 +141,7 @@ Addri2_DespuesDeBatalla:
 	.string "pulsar cierto botón. Vuelve otro día, y\l"
 	.string "reflexiona sobre lo que te he dicho.\p"
 
-	.string "Lo entendiste? Porque si quieres te\n" 
+	.string "¿Lo entendiste? Porque si quieres te\n" 
 	.string "hago un croquis...$"
 	
 MicoloHideout_MeetingRoom_Text_HatharIntro: 

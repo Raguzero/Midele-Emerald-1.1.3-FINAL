@@ -462,7 +462,7 @@ Micolandia_Cibercafe_NPC7_Text:
 	.string "...$"
 	
 Micolandia_Cibercafe_NPC6_Text:
-	.string "¡Que vicio esto! ¡Estoy consiguiendo\n"
+	.string "¡Qué vicio esto! ¡Estoy consiguiendo\n"
 	.string "muchos objetos útiles!$"
 	
 PC_BatallaMODO_Text:
@@ -475,7 +475,7 @@ PC_BatallaMODO_Text:
 	.string "a POKéMON con niveles muy bajos.$"
 	
 PC_BatallaMODO_Text2:
-	.string "¿Cual modo de batalla eliges?$"
+	.string "¿Cuál modo de batalla eliges?$"
 	
 PC_BatallaConfirmarModoNormal:
 	.string "¿Eliges el Modo Normal?$"

@@ -168,7 +168,7 @@ GymSanty_Text_GymGuideAdvice2:
 	.string "3 pruebas:\l"
 	.string "Derrotar a todos los entrenadores\l"
 	.string "Derrotar al POKéMON TOTEM\l"
-	.string "Derrotar al LIDER de GYM\p"
+	.string "Derrotar al LÍDER de GYM\p"
 	
     .string "Pero las pruebas pueden cambiar\n"
 	.string "dependiendo de las ideas del líder.$"
@@ -180,7 +180,7 @@ GymSanty_Text_GymGuideAdvice3:
 	.string "se te recompensará con la no-oficial\l"
 	.string "MEDALLA HIERBA QUEMADA.\p"
 
-	.string "Por cierto, el LIDER SANTYGRASS es un\n"
+	.string "Por cierto, el LÍDER SANTYGRASS es un\n"
 	.string "maestro del olor a hierba quemada y del\l"
 	.string "shifteo.\p"
 
@@ -275,7 +275,7 @@ GymSanty_Text_SantyPostBattle:
 	.string "A ti aún te quedan muchos entrenadores\n"
 	.string "por vencer.\p"
 	
-	.string "Mientras que a mi, aún me quedan\n"
+	.string "Mientras que a mí, aún me quedan\n"
 	.string "muchas hierbas por quemar.\p"
 	
 	.string "¡No hay nada mejor que el olor a\n"
@@ -283,12 +283,12 @@ GymSanty_Text_SantyPostBattle:
 
 GymSanty_Text_GymStatue:
 	.string "POKéMON GYM Nº1\n"
-	.string "LEADER: SANTYGRASS\l"
+	.string "LÍDER: SANTYGRASS\l"
 	.string "“TEMÁTICA: HIERBA QUEMADA”$"
 
 GymSanty_Text_GymStatueCertified:
 	.string "POKéMON GYM Nº1\n"
-	.string "LEADER: SANTYGRASS\l"
+	.string "LÍDER: SANTYGRASS\l"
 	.string "“TEMÁTICA: HIERBA QUEMADA”\p"
 
 	.string "SANTYGRASS'S CERTIFIED TRAINERS:\n"

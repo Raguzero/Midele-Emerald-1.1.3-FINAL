@@ -216,7 +216,7 @@ SapphireGym2_Text_SapphPostBattle:
 	.string "estaremos eternamente agradecidas.$"
 
 SapphireGym2_Text_SapphRematchIntro:
-	.string "Hola, que tal, ¿cómo has estado? ¿Qué?\n"
+	.string "Hola, qué tal, ¿cómo has estado? ¿Qué?\n"
 	.string "¿Quieres una revancha? ¡Estaba\l"
 	.string "esperando que lo dijeras! ¡Me gustaría\l"
 	.string "emplearme a fondo y también ver cuánto\l"

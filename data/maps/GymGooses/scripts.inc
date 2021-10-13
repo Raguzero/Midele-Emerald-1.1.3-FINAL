@@ -1252,12 +1252,12 @@ GymGooses_Text_GymGuidePostVictory:
 	
 GymGooses_Text_GymStatue:
 	.string "POKéMON GYM Nº3\n"
-	.string "LEADER: GOOSES\l"
+	.string "LÍDER: GOOSES\l"
 	.string "“TEMÁTICA: FRÍO INVERNAL”$"
 
 GymGooses_Text_GymStatueCertified:
 	.string "POKéMON GYM Nº3\n"
-	.string "LEADER: GOOSES\l"
+	.string "LÍDER: GOOSES\l"
 	.string "“TEMÁTICA: FRÍO INVERNAL”\p"
 
 	.string "GOOSES'S CERTIFIED TRAINERS:\n"
@@ -1384,7 +1384,7 @@ GymGooses_Text_ExplainBadgeTakeThis:
 	.string "para afrontar el reto de DARKIZARD, en\l"
 	.string "el último GYM. Ese necio ha permitido\l"
 	.string "que el HATE sobre DPP y ALOLA le\l"
-	.string "consumieran y desbordarán. Debes\l"
+	.string "consumiera y desbordara. Debes\l"
 	.string "pararle y detener sus planes, LYLIA no\l"
 	.string "hizo nada malo.\p"
 	.string "Te deseo la mejor de las suertes... ¡La\n"

@@ -262,7 +262,7 @@ Micolandia_Text_Marihuana:
 	.string "POKéMON salvajes.\p"
 
 	.string "Pero si fumas de eso serás tú quien\n"
-	.string	"acabará bien salvaje. ¡jeje!$"
+	.string	"acabará bien salvaje. ¡Jeje!$"
 
 Micolandia_Text_BienvenidaSign:
 	.string "¡Bienvenido a MICOLANDIA!\p"
@@ -282,22 +282,22 @@ Micolandia_Text_LigaSign:
 	
 Micolandia_GymNoroesteSign:
 	.string "POKéMON GYM Nº1\n"
-	.string "LEADER: SANTYGRASS\l"
+	.string "LÍDER: SANTYGRASS\l"
 	.string "“TEMÁTICA: HIERBA QUEMADA”$"
 
 Micolandia_GymSuroesteSign:
 	.string "POKéMON GYM Nº2\n"
-	.string "LEADER: SAPPHIRE\l"
+	.string "LÍDER: SAPPHIRE\l"
 	.string "“TEMÁTICA: BURBUJA RÍTMICA”$"
 
 Micolandia_GymSuresteSign:
 	.string "POKéMON GYM Nº3\n"
-	.string "LEADER: GOOSES\l"
+	.string "LÍDER: GOOSES\l"
 	.string "“TEMÁTICA: FRÍO INVERNAL”$"
 	
 Micolandia_GymNoresteSign:
 	.string "POKéMON GYM Nº4\n"
-	.string "LEADER: DARKIZARD\l"
+	.string "LÍDER: DARKIZARD\l"
 	.string "“TEMÁTICA: BUENROLLO y MALROLLO”$"
 	
 Micolandia_CibercafeSign:
@@ -343,7 +343,7 @@ Micolandia_Text_GymSantySign:
 Micolandia_Text_GymDarkiSign:
 	.string "Solo está permitido el paso\n"
 	.string "a quienes hayan derrotado al\l"
-	.string "LIDER GOOSES y obtenido su medalla.$"
+	.string "LÍDER GOOSES y obtenido su medalla.$"
 	
 Micolandia_Text_GymDarkiSign2:
 	.string "¡Vaya! ¿Ya derrotaste a GOOSES?\n"
@@ -364,12 +364,12 @@ Micolandia_Text_GymDarkiSign2:
 Micolandia_Text_GymSapphSign:
 	.string "Solo está permitido el paso\n"
 	.string "a quienes hayan derrotado al\l"
-	.string "LIDER SANTYGRASS y obtenido su medalla.$"
+	.string "LÍDER SANTYGRASS y obtenido su medalla.$"
 	
 Micolandia_Text_GymGoosesSign:
 	.string "Solo está permitido el paso\n"
 	.string "a quienes hayan derrotado a la\l"
-	.string "LIDER SAPPHIRE y obtenido su medalla.$"
+	.string "LÍDER SAPPHIRE y obtenido su medalla.$"
 
 Micolandia_Dueno_de_Kirlia_Text:
 	.string "La única forma de salir de aquí\n"

@@ -290,7 +290,7 @@ ForbiddenForest_Text_EzecuterPostBattle:
 	.string "Eres totalmente bochornoso.$"
 	
 ForbiddenForest_Text_PuffuIntro: 
-	.string "Hola, ¿Eres fan de los Puffus?$"
+	.string "Hola, ¿eres fan de los Puffus?$"
 
 ForbiddenForest_Text_PuffuDefeat: 
 	.string "¿Por qué has hecho daño a los\n"
@@ -354,7 +354,7 @@ ElPrincipe_MensajeDerrota:
 	.string "FIRMAMENTO... con los 4 climas\l"
 	.string "ha sido desarmada...\p"
 
-	.string "No puedes saber que tipo de\n"
+	.string "No puedes saber qué tipo de\n"
 	.string "WEATHER BALL usa mi ROSERADE\l"
 	.string "contra ti...\p"
 
@@ -449,14 +449,14 @@ Tenshinhan_AntesBatalla:
 
 Tenshinhan_MensajeDerrota: 
 	.string "Vaya, pues sí que me has ganado, hora\n" 
-	.string "de volver a la tumba otros 5 años$"
+	.string "de volver a la tumba otros 5 años.$"
  
 Tenshinhan_DespuesDeBatalla:
 	.string "Siempre digo que lo dejo y aquí me ves,\n" 
 	.string "hablándote a través de una hackrom\l" 
 	.string "diciéndote estás tonterías.\p"
 	
-	.string "Pero aquí sigo. Jejeje$"
+	.string "Pero aquí sigo. Jejeje.$"
 
 Grim_AntesBatalla: 
 	.string "Hola, viajero. Por tu aspecto y\n" 
@@ -598,7 +598,7 @@ ForbiddenForest_Text_Santygrass_TalkToHimself:
 	.string "Qué extraño es este bosque...\p"
 
 	.string "Por mucho que lo intente quemar...\n"
-	.string "¡Las llamas se vuelven a apagar!\p"
+	.string "¡las llamas se vuelven a apagar!\p"
 	
 	.string "Siento como si el mismísimo TIEMPO\n"
 	.string "volviese hacia atrás cada vez que\l"
@@ -612,7 +612,7 @@ ForbiddenForest_Text_Santygrass_Talks:
 	.string "ahí!\p"
 
 	.string "Así que eres {PLAYER} ¿eh?\n"
-	.string "He oido cosas impresionantes de tí.\p"
+	.string "He oído cosas impresionantes de tí.\p"
 	
 	.string "Yo soy SANTYGRASS, uno de los cuatro\n"
 	.string "líderes de GYM de MICOLANDIA.\l"
@@ -622,5 +622,5 @@ ForbiddenForest_Text_Santygrass_Talks:
 	.string "GIMNASIO para esperar tu desafío.\l"
 	.string "¡No te lo pondré fácil!\p"
 
-	.string "Y recuerda: ¡No hay nada mejor\n"
+	.string "Y recuerda: ¡no hay nada mejor\n"
 	.string "que el olor a hierba quemada!$"
