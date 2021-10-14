@@ -206,3 +206,44 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 ### Combates
 
 - Modificado moveset de Totem Glalie; tenía un ataque que no puede ser usado en batallas de totems.
+
+
+## Versión 1.1.2
+
+
+
+Cambios y arreglos de errores de la versión 1.1.2
+
+
+
+Debido a los cambios, se recomienda que la partida no esté guardada en los siguientes lugares tras actualizar a esta versión:
+
+- Gym Darkizard
+
+- Route 127
+
+
+
+### Textos
+
+
+
+- Corregidos muuuuchos textos.
+
+
+
+### Eventos
+
+
+
+- Añadido NPC en Gym Darkizard que permite teletransportar fuera del gym, por si ocurre algún bug raro.
+
+
+
+### Mapas
+
+
+
+- Añadidas más zonas de aguas en las partes de la ROUTE 127 donde pueden aparecer puntos de buceo con los que se acceden a la MARINE CAVE.
+
+
