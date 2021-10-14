@@ -379,6 +379,56 @@ Darkigym_EventScript_Tilo_Derrotado::
 	msgbox Darkigym_Text_TiloAlolaPostBattle2, MSGBOX_NPC
 	release
 	end
+
+DarkiGym_EventScript_TeleportFeature::
+	lock
+	msgbox DarkiGym_EventScript_TeleportFeature_Text_0, MSGBOX_NPC
+	msgbox DarkiGym_EventScript_TeleportFeature_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq DarkiGym_EventScript_TeleportFeature_1
+	msgbox DarkiGym_EventScript_TeleportFeature_Text_3, MSGBOX_NPC
+	return
+
+DarkiGym_EventScript_TeleportFeature_1:
+	msgbox DarkiGym_EventScript_TeleportFeature_Text_2, MSGBOX_NPC
+	warp MAP_MICOLANDIA_POKEMON_CENTER1F, 0, 0, 0
+	return
+
+
+DarkiGym_EventScript_TeleportFeature_Text_0:
+	.string "El loco de este GIMNASIO ha logrado\n"
+	.string "distorsionar el espacio-tiempo. Sí,\l"
+	.string "como en SINNOH, irónico.\p"
+	.string "Cambios de sexo, desapariciones de\n"
+	.string "monturas de SURF, imposibilidad de\l"
+	.string "utilizar CASCADA... esos son algunos de\l"
+	.string "los efectos de todo este caos...\p"
+	.string "Sí, son FEATURES, no BUGS. De todas\n"
+	.string "formas, si crees estar atascado en el\l"
+	.string "GIMNASIO debido a una de estas\l"
+	.string "FEATURES, puedo teletransportarte\l"
+	.string "fuera del recinto. Con suerte tus\l"
+	.string "problemas se arreglarán.\p"
+	.string "Con suerte.$"
+
+DarkiGym_EventScript_TeleportFeature_Text_1:
+	.string "¿Quieres que te teletransporte fuera\n"
+	.string "del GIMNASIO?$"
+
+DarkiGym_EventScript_TeleportFeature_Text_2:
+	.string "Midele te salve, reina, llena eres de\n"
+	.string "autismo, el Mico es contigo.\p"
+	.string "Bendita tu eres, entre todas las\n"
+	.string "mideles, y bendito es el fruto de tu\l"
+	.string "vientre, DARK PIKA.\p"
+	.string "Santa Midele, madre de Micolo, ruega por\n"
+	.string "nosotros, micoleadores, ahora y en la\l"
+	.string "hora de nuestros bugs.\p"
+	.string "DORIME.$"
+
+DarkiGym_EventScript_TeleportFeature_Text_3:
+	.string "Cagaste, wey.$"
+
 	
 Darkigym_Text_RedSecretariaIntro: 
 	.string "¿Espera, eres un humano?\p"
