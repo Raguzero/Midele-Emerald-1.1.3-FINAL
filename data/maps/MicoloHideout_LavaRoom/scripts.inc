@@ -135,7 +135,7 @@ MicoloHideout_LavaRoom_Text_EEVEETOIntro:
 	.string "Mi Abomasnow al fin ha alcanzado\n" 
 	.string "el poder de la Megaevolución.\p"
 
-    .string "Preparate para sentir el poder\n"
+    .string "¡Prepárate para sentir el poder\n"
     .string "del invierno!$"
 
 MicoloHideout_LavaRoom_Text_EEVEETODefeat: 
@@ -179,7 +179,7 @@ MicoloHideout_LavaRoom_Text_PhentPostBattle:
 	.string "Este trabajo es... literalmente...\n"
 	.string "¡MIERDA!\p"
 
-	.string "Mmm... tal vez pueda investigar porque\n"
+	.string "Mmm... tal vez pueda investigar por qué\n"
 	.string "existen REGIELEKI y REGIDRAGO.\p"
 	
 	.string "Si los REGIS originales siempre fueron\n"

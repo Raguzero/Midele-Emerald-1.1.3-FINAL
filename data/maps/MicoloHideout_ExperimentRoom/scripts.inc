@@ -213,7 +213,7 @@ MicoloHideout_ExperimentRoom_Text_CursedSlowbroPostBattle:
 	.string "al resto no han sancionado.$"
 
 MicoloHideout_ExperimentRoom_Text_Javisoto2Intro: 
-	.string "Buenas, ¿cuando harán el evento de\n" 
+	.string "Buenas, ¿cuándo harán el evento de\n" 
 	.string "la Flauta Azur y del Floette Eterno?\p" 
 	
 	.string "Aún estoy esperando estos eventos.$"

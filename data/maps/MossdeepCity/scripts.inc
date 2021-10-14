@@ -467,7 +467,7 @@ MossdeepCity_Text_SootopolisNewGymLeader: @ 81E5581
 	.string "mentored WALLACE.$"
 
 PEDIR_DESEO:
-	.string "Do you want to make a WISH??$"
+	.string "Do you want to make a WISH?$"
 
 NODESEAR:
     .string "...$"

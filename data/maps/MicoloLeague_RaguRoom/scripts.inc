@@ -73,7 +73,7 @@ MicoloLeague_RaguRoom_Text_EsclavoSign:
 	.string "¡ATENCIÓN!\p" 
 	
 	.string "Prohibido lanzar comida a los\n"
-	.string "esclavos, no sabemos como pueden\l"
+	.string "esclavos, no sabemos cómo pueden\l"
 	.string "reaccionar ante los visitantes.$"
 
 MicoloLeague_RaguRoom_Text_TeleSign:
