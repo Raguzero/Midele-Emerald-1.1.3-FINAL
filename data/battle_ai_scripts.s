@@ -2408,7 +2408,8 @@ AI_CV_Disable_End:
 	end
 
 AI_CV_Counter:
-	if_target_wont_attack_due_to_truant Score_Minus10
+    if_hp_condition USER_HAS_1_HP, Score_Minus10
+    if_target_wont_attack_due_to_truant Score_Minus10
     get_possible_categories_of_foes_attacks
     if_equal AI_SPECIAL_ONLY, Score_Minus10
     if_equal AI_NO_DAMAGING_MOVES, Score_Minus10
@@ -3128,7 +3129,8 @@ AI_CV_PsychUp_End:
 	end
 
 AI_CV_MirrorCoat:
-	if_target_wont_attack_due_to_truant Score_Minus10
+    if_hp_condition USER_HAS_1_HP, Score_Minus10
+    if_target_wont_attack_due_to_truant Score_Minus10
     get_possible_categories_of_foes_attacks
     if_equal AI_PHYSICAL_ONLY, Score_Minus10
     if_equal AI_NO_DAMAGING_MOVES, Score_Minus10
