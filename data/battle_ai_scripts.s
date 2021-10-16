@@ -1638,10 +1638,8 @@ AI_CV_AccuracyUp_End:
 
 AI_CV_EvasionUp:
     if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
-    if_has_move_with_effect AI_TARGET, EFFECT_ALWAYS_HIT, Score_Minus5
-    if_type AI_USER, TYPE_GHOST, AI_CV_EvasionUp_SkipVitalThrow
-    if_has_move_with_effect AI_TARGET, EFFECT_VITAL_THROW, Score_Minus5
-AI_CV_EvasionUp_SkipVitalThrow:
+    if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_ALWAYS_HIT, Score_Minus5
+    if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_VITAL_THROW, Score_Minus5
     if_ability AI_USER, ABILITY_NO_GUARD, Score_Minus5
     if_ability_might_be AI_TARGET, ABILITY_NO_GUARD, Score_Minus5
     get_weather
@@ -1851,10 +1849,8 @@ AI_CV_AccuracyDownFromChance:
 	end
 
 AI_CV_AccuracyDown: @ 82DCF0C
-    if_has_move_with_effect AI_TARGET, EFFECT_ALWAYS_HIT, Score_Minus5
-    if_type AI_USER, TYPE_GHOST, AI_CV_AccuracyDown_SkipVitalThrow
-    if_has_move_with_effect AI_TARGET, EFFECT_VITAL_THROW, Score_Minus5
-AI_CV_AccuracyDown_SkipVitalThrow:
+    if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_ALWAYS_HIT, Score_Minus5
+    if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_VITAL_THROW, Score_Minus5
     if_ability AI_USER, ABILITY_NO_GUARD, Score_Minus5
     if_ability_might_be AI_TARGET, ABILITY_NO_GUARD, Score_Minus5
 	if_user_can_probably_boost_safely Score_Plus2
@@ -2916,7 +2912,7 @@ AI_CV_Endure_NoWeatherDamageExpected:
 	if_hp_less_than AI_USER, 8, AI_CV_Endure2
 	if_hp_less_than AI_USER, 14, AI_CV_Endure4
 	if_hp_less_than AI_USER, 35, AI_CV_Endure3
-	if_doesnt_have_move_with_effect AI_USER, EFFECT_FLAIL, AI_CV_Endure2
+	if_doesnt_have_non_ineffective_move_with_effect AI_USER, EFFECT_FLAIL, AI_CV_Endure2
 	score +1
 	goto AI_CV_Endure_End
 	
@@ -2960,7 +2956,7 @@ AI_CV_Endure4:
 	goto AI_CV_Endure_End
 
 AI_CV_Endure3:
-	if_has_move_with_effect AI_USER, EFFECT_FLAIL, Score_Plus2
+	if_has_non_ineffective_move_with_effect AI_USER, EFFECT_FLAIL, Score_Plus2
 	if_random_less_than 70, AI_CV_Endure_End
 	score +1
 
