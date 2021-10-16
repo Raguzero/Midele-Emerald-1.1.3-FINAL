@@ -2641,6 +2641,29 @@ AI_CV_DestinyBond:
 	if_ability AI_USER, ABILITY_STURDY, Score_Minus2
 	if_holds_item AI_USER, ITEM_FOCUS_SASH, Score_Minus2
 AI_CV_DestinyBond_SkipSturdyOrSashCheck:
+	if_user_has_revealed_move MOVE_DESTINY_BOND, AI_CV_DestinyBond_MoveHasBeenRevealed
+	goto AI_CV_DestinyBond_1
+
+@ El rival sabe que tenemos Destiny Bond: no hay sorpresa posible.
+@ Conviene reducir el uso de Destiny Bond para evitar fundir los PP
+@ y para evitar que el rival se aproveche de que la IA pierde el tiempo,
+@ boosteándose o metiendo Spikes por ejemplo.
+@ Para ello, una vez que la IA revela Destiny Bond,
+@ la IA tiene un 20% de no considerar usarlo cada turno si el rival usó un movimiento de daño,
+@ y un 70% de no considerar usarlo cada turno si usó uno que no es de daño o acaba de entrar.
+@ El tener un 30% de tirar Destiny Bond a partir del segundo hace que los 7 PP restantes de
+@ Destiny Bond se acaben poco antes que unos supuestos 23 PP de un ataque del oponente.
+AI_CV_DestinyBond_MoveHasBeenRevealed:
+	is_first_turn_for AI_TARGET
+	if_equal 1, AI_CV_DestinyBond_MoveHasBeenRevealed_TargetDidNotAttack
+	get_last_used_bank_move AI_TARGET
+	get_move_power_from_result
+	if_equal 0, AI_CV_DestinyBond_MoveHasBeenRevealed_TargetDidNotAttack
+	if_random_less_than 50, Score_Minus2 @ ~20% de no tirar Destiny Bond
+	goto AI_CV_DestinyBond_1
+AI_CV_DestinyBond_MoveHasBeenRevealed_TargetDidNotAttack:
+	if_random_less_than 180, Score_Minus2 @ ~70% de no tirar Destiny Bond
+AI_CV_DestinyBond_1:
 	if_this_attack_might_be_the_last Score_Plus2
 	if_hp_more_than AI_USER, 70, AI_CV_DestinyBond_End
 	if_random_less_than 128, AI_CV_DestinyBond2
