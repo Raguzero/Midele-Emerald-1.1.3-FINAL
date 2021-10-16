@@ -732,11 +732,11 @@
     .endm
 	
 	.macro if_this_attack_might_be_the_last ptr:req
-    if_has_move_with_effect AI_TARGET, EFFECT_ALWAYS_HIT, AI_CV_EvasionUp_ScoreDown2
     @ Si tiene la Evasión subida, tiene una pequeña probabilidad de jugársela
     @ (7/8 a +2 o +3, 49/64 a +4 o más)
     @ (la probabilidad de jugársela en alguno de los turnos en los que se está 
     @ subiendo la Evasión hasta +6 es de aproximadamente un 49%)
+    if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_ALWAYS_HIT, .AI_skip_evasion_check_\@
     if_stat_level_less_than AI_USER, STAT_EVASION, 8, .AI_skip_evasion_check_\@
     if_random_less_than 32, \ptr
     if_stat_level_less_than AI_USER, STAT_EVASION, 10, .AI_skip_evasion_check_\@
