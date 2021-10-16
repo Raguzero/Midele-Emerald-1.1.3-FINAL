@@ -184,6 +184,9 @@ static void Cmd_if_battler_absent(void);
 static void Cmd_get_possible_categories_of_foes_attacks(void);
 static void Cmd_if_perish_song_not_about_to_trigger(void);
 static void Cmd_if_high_change_to_break_sub_and_keep_hitting(void);
+static void Cmd_if_user_has_revealed_move(void);
+static void Cmd_if_has_non_ineffective_move_with_effect(void);
+static void Cmd_if_doesnt_have_non_ineffective_move_with_effect(void);
 
 // ewram
 EWRAM_DATA const u8 *gAIScriptPtr = NULL;
@@ -295,18 +298,21 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_if_holds_item,                              // 0x62
     Cmd_get_hazards_count,                          // 0x63
     Cmd_get_curr_dmg_hp_percent,                    // 0x64
-    Cmd_if_hp_condition,                       // 0x65
-	Cmd_if_accuracy_less_than,                      // 0x66
-	Cmd_if_not_expected_to_sleep,                   // 0x67
+    Cmd_if_hp_condition,                            // 0x65
+    Cmd_if_accuracy_less_than,                      // 0x66
+    Cmd_if_not_expected_to_sleep,                   // 0x67
     Cmd_if_receiving_wish,                          // 0x68
-	Cmd_if_target_wont_attack_due_to_truant,        // 0x69
-	Cmd_if_trick_fails_in_this_type_of_battle,        // 0x6A
-	Cmd_calculate_nhko,        // 0x6B
-	Cmd_if_next_turn_target_might_use_move_with_effect,        // 0x6C
-	Cmd_if_battler_absent,   // 0x6D
-	Cmd_get_possible_categories_of_foes_attacks,   // 0x6E
-	Cmd_if_perish_song_not_about_to_trigger,   // 0x6F
-	Cmd_if_high_change_to_break_sub_and_keep_hitting,   // 0x70
+    Cmd_if_target_wont_attack_due_to_truant,                // 0x69
+    Cmd_if_trick_fails_in_this_type_of_battle,              // 0x6A
+    Cmd_calculate_nhko,                                     // 0x6B
+    Cmd_if_next_turn_target_might_use_move_with_effect,     // 0x6C
+    Cmd_if_battler_absent,                                  // 0x6D
+    Cmd_get_possible_categories_of_foes_attacks,            // 0x6E
+    Cmd_if_perish_song_not_about_to_trigger,                // 0x6F
+    Cmd_if_high_change_to_break_sub_and_keep_hitting,       // 0x70
+    Cmd_if_user_has_revealed_move,                          // 0x71
+    Cmd_if_has_non_ineffective_move_with_effect,            // 0x72
+    Cmd_if_doesnt_have_non_ineffective_move_with_effect,    // 0x73
 };
 
 static const u16 sDiscouragedPowerfulMoveEffects[] =
@@ -552,6 +558,22 @@ void CalculategBattleMoveDamageFromgCurrentMove(u8 attackerId, u8 targetId, u8 s
         if (gBattleMoveDamage == 0)
             gBattleMoveDamage = 1; // Salvo inmunidad, el daño siempre es al menos 1
     }
+}
+
+s32 CalculateDamageFromMove(u8 attackerId, u8 targetId, u16 move, u8 simulatedRng)
+{
+    s32 savedgBattleMoveDamage = gBattleMoveDamage;
+    u16 savedgCurrentMove = gCurrentMove;
+    s32 damage;
+
+    gCurrentMove = move;
+    CalculategBattleMoveDamageFromgCurrentMove(attackerId, targetId, simulatedRng)
+    damage = gBattleMoveDamage;
+
+    gCurrentMove = savedgCurrentMove;
+    gBattleMoveDamage = savedgBattleMoveDamage;
+
+    return damage;
 }
 
 s32 CalculatenHKOFromgCurrentMove(u8 attackerId, u8 targetId, u8 simulatedRng, s32 best_nhko)
@@ -1226,6 +1248,12 @@ static void Cmd_if_hp_condition(void)
     {
     case TARGET_HAS_1_HP: // comprueba si el rival tiene 1 PS
         if (gBattleMons[gBattlerTarget].hp == 1)
+            gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
+        else
+            gAIScriptPtr += 6;
+        break;
+    case USER_HAS_1_HP: // comprueba si la IA tiene 1 PS
+        if (gBattleMons[sBattler_AI].hp == 1)
             gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
         else
             gAIScriptPtr += 6;
@@ -3341,4 +3369,109 @@ static void Cmd_if_high_change_to_break_sub_and_keep_hitting(void)
 
     if (target_damage <= gBattleMoveDamage)
         gAIScriptPtr = T1_READ_PTR(gAIScriptPtr - 4);
+}
+
+static void Cmd_if_user_has_revealed_move(void)
+{
+    s32 i;
+    const u16 *movePtr = (u16 *)(gAIScriptPtr + 1);
+
+    for (i = 0; i < MAX_MON_MOVES; i++)
+        //if (FOES_MOVE_HISTORY(sBattler_AI)[i] == *movePtr) // esto serviría si se registrasen los ataques que va usando la IA, pero no es el caso en general
+        // Lo siguiente puede fallar si el rival ha visto el movimiento de otra forma (Transform)
+        // o si tiene 10 o menos PP máximos y se recuperó con Leppa Berry
+        if (gBattleMons[sBattler_AI].moves[i] == *movePtr && gBattleMons[sBattler_AI].pp[i] < CalculatePPWithBonus(*movePtr, gBattleMons[sBattler_AI].ppBonuses, i))
+            break;
+
+    if (i == MAX_MON_MOVES)
+        gAIScriptPtr += 7;
+    else
+        gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 3);
+}
+
+static void Cmd_if_has_non_ineffective_move_with_effect(void)
+{
+    s32 i;
+    u8 moveLimitations;
+
+    switch (gAIScriptPtr[1])
+    {
+    case AI_USER:
+    case AI_USER_PARTNER:
+        moveLimitations = CheckMoveLimitations(sBattler_AI, 0, MOVE_LIMITATION_PP);
+        for (i = 0; i < MAX_MON_MOVES; i++)
+        {
+            if (gBattleMons[sBattler_AI].moves[i] != 0 && gBattleMoves[gBattleMons[sBattler_AI].moves[i]].effect == gAIScriptPtr[2]
+                && !(gBitTable[i] & moveLimitations) && CalculateDamageFromMove(sBattler_AI, gBattlerTarget, gBattleMons[sBattler_AI].moves[i], 0) > 0)
+                break;
+        }
+        if (i == MAX_MON_MOVES)
+            gAIScriptPtr += 7;
+        else
+            gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 3);
+        break;
+    case AI_TARGET:
+    case AI_TARGET_PARTNER:
+        moveLimitations = CheckMoveLimitations(gBattlerTarget, 0, MOVE_LIMITATION_PP);
+        for (i = 0; i < MAX_MON_MOVES; i++)
+        {
+            if (FOES_MOVE_HISTORY(gBattlerTarget)[i] && gBattleMoves[FOES_MOVE_HISTORY(gBattlerTarget)[i]].effect == gAIScriptPtr[2])
+            {
+                s32 j;
+                for (j = 0; j < MAX_MON_MOVES; j++)
+                    if (FOES_MOVE_HISTORY(gBattlerTarget)[i] == gBattleMons[gBattlerTarget].moves[j] && !(gBitTable[j] & moveLimitations))
+                        break;
+                if (j != MAX_MON_MOVES && CalculateDamageFromMove(gBattlerTarget, sBattler_AI, gBattleMons[gBattlerTarget].moves[j], 0) > 0)
+                    break;
+            }
+        }
+        if (i == MAX_MON_MOVES)
+            gAIScriptPtr += 7;
+        else
+            gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 3);
+        break;
+    }
+}
+static void Cmd_if_doesnt_have_non_ineffective_move_with_effect(void)
+{
+    s32 i;
+    u8 moveLimitations;
+
+    switch (gAIScriptPtr[1])
+    {
+    case AI_USER:
+    case AI_USER_PARTNER:
+        moveLimitations = CheckMoveLimitations(sBattler_AI, 0, MOVE_LIMITATION_PP);
+        for (i = 0; i < MAX_MON_MOVES; i++)
+        {
+            if(gBattleMons[sBattler_AI].moves[i] != 0 && gBattleMoves[gBattleMons[sBattler_AI].moves[i]].effect == gAIScriptPtr[2]
+                && !(gBitTable[i] & moveLimitations) && CalculateDamageFromMove(sBattler_AI, gBattlerTarget, gBattleMons[sBattler_AI].moves[i], 0) > 0)
+                break;
+        }
+        if (i != MAX_MON_MOVES)
+            gAIScriptPtr += 7;
+        else
+            gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 3);
+        break;
+    case AI_TARGET:
+    case AI_TARGET_PARTNER:
+        moveLimitations = CheckMoveLimitations(gBattlerTarget, 0, MOVE_LIMITATION_PP);
+        for (i = 0; i < MAX_MON_MOVES; i++)
+        {
+            if (FOES_MOVE_HISTORY(gBattlerTarget)[i] && gBattleMoves[FOES_MOVE_HISTORY(gBattlerTarget)[i]].effect == gAIScriptPtr[2])
+            {
+                s32 j;
+                for (j = 0; j < MAX_MON_MOVES; j++)
+                    if (FOES_MOVE_HISTORY(gBattlerTarget)[i] == gBattleMons[gBattlerTarget].moves[j] && !(gBitTable[j] & moveLimitations))
+                        break;
+                if (j != MAX_MON_MOVES && CalculateDamageFromMove(gBattlerTarget, sBattler_AI, gBattleMons[gBattlerTarget].moves[j], 0) > 0)
+                    break;
+            }
+        }
+        if (i != MAX_MON_MOVES)
+            gAIScriptPtr += 7;
+        else
+            gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 3);
+        break;
+    }
 }

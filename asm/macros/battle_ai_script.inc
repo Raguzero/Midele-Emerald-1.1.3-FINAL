@@ -630,6 +630,26 @@
     .4byte \ptr
     .endm
 
+    .macro if_user_has_revealed_move move:req, ptr:req
+    .byte 0x71
+    .2byte \move
+    .4byte \ptr
+    .endm
+
+	.macro if_has_non_ineffective_move_with_effect battler:req, param1:req, param2:req
+	.byte 0x72
+	.byte \battler
+	.byte \param1
+	.4byte \param2
+	.endm
+
+	.macro if_doesnt_have_non_ineffective_move_with_effect battler:req, param1:req, param2:req
+	.byte 0x73
+	.byte \battler
+	.byte \param1
+	.4byte \param2
+	.endm
+
 @ useful script macros
 	.macro get_curr_move_type
 	get_type AI_TYPE_MOVE
