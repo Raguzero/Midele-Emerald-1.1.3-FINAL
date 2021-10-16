@@ -2637,8 +2637,13 @@ AI_CV_SleepTalk_UseToWakeUpIfNecessary:
 
 AI_CV_DestinyBond:
 	score -1
-	if_status2 AI_USER, STATUS2_SUBSTITUTE, AI_CV_DestinyBond_End
+	if_status2 AI_USER, STATUS2_SUBSTITUTE, Score_Minus2
 	if_target_faster AI_CV_DestinyBond_End
+	if_status2 AI_TARGET, STATUS2_RECHARGE, Score_Minus2
+	if_hp_less_than AI_USER, 100, AI_CV_DestinyBond_SkipSturdyOrSashCheck
+	if_ability AI_USER, ABILITY_STURDY, Score_Minus2
+	if_holds_item AI_USER, ITEM_FOCUS_SASH, Score_Minus2
+AI_CV_DestinyBond_SkipSturdyOrSashCheck:
 	if_this_attack_might_be_the_last Score_Plus2
 	if_hp_more_than AI_USER, 70, AI_CV_DestinyBond_End
 	if_random_less_than 128, AI_CV_DestinyBond2
