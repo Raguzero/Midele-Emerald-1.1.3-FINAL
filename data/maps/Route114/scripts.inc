@@ -157,7 +157,7 @@ SlateportCity_EventScript_FossilShop:: @ 81DD16A
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
-	pokemart SlateportCity_PokemartFossil, 1
+	pokemart SlateportCity_PokemartFossil, 3
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
@@ -286,4 +286,3 @@ Route114_Text_FossilManiacsHouseSign: @ 81F28DB
 
 Route114_Text_LanettesHouse: @ 81F2910
 	.string "LANETTE'S HOUSE$"
-
