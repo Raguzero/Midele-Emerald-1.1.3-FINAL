@@ -567,7 +567,7 @@ s32 CalculateDamageFromMove(u8 attackerId, u8 targetId, u16 move, u8 simulatedRn
     s32 damage;
 
     gCurrentMove = move;
-    CalculategBattleMoveDamageFromgCurrentMove(attackerId, targetId, simulatedRng)
+    CalculategBattleMoveDamageFromgCurrentMove(attackerId, targetId, simulatedRng);
     damage = gBattleMoveDamage;
 
     gCurrentMove = savedgCurrentMove;
