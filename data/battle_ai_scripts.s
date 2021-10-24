@@ -2641,6 +2641,7 @@ AI_CV_DestinyBond:
 	if_ability AI_USER, ABILITY_STURDY, Score_Minus2
 	if_holds_item AI_USER, ITEM_FOCUS_SASH, Score_Minus2
 AI_CV_DestinyBond_SkipSturdyOrSashCheck:
+	if_status2 AI_TARGET, STATUS2_MULTIPLETURNS, AI_CV_DestinyBond_1
 	if_user_has_revealed_move MOVE_DESTINY_BOND, AI_CV_DestinyBond_MoveHasBeenRevealed
 	goto AI_CV_DestinyBond_1
 
