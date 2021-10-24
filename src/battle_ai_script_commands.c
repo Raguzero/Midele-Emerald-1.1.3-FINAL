@@ -3374,13 +3374,13 @@ static void Cmd_if_high_change_to_break_sub_and_keep_hitting(void)
 static void Cmd_if_user_has_revealed_move(void)
 {
     s32 i;
-    const u16 *movePtr = (u16 *)(gAIScriptPtr + 1);
+    u16 move = T1_READ_16(gAIScriptPtr + 1);
 
     for (i = 0; i < MAX_MON_MOVES; i++)
-        //if (FOES_MOVE_HISTORY(sBattler_AI)[i] == *movePtr) // esto serviría si se registrasen los ataques que va usando la IA, pero no es el caso en general
+        //if (FOES_MOVE_HISTORY(sBattler_AI)[i] == move) // esto serviría si se registrasen los ataques que va usando la IA, pero no es el caso en general
         // Lo siguiente puede fallar si el rival ha visto el movimiento de otra forma (Transform)
         // o si tiene 10 o menos PP máximos y se recuperó con Leppa Berry
-        if (gBattleMons[sBattler_AI].moves[i] == *movePtr && gBattleMons[sBattler_AI].pp[i] < CalculatePPWithBonus(*movePtr, gBattleMons[sBattler_AI].ppBonuses, i))
+        if (gBattleMons[sBattler_AI].moves[i] == move && gBattleMons[sBattler_AI].pp[i] < CalculatePPWithBonus(move, gBattleMons[sBattler_AI].ppBonuses, i))
             break;
 
     if (i == MAX_MON_MOVES)
