@@ -904,3 +904,9 @@
     if_holds_item AI_USER, ITEM_CHOICE_SPECS, \ptr
     if_holds_item AI_USER, ITEM_CHOICE_SCARF, \ptr
     .endm
+
+    .macro if_target_probably_cannot_repeat_last_effect param:req
+    if_next_turn_target_might_use_move_with_effect AI_LAST_EFFECT_BY_TARGET, .AI_target_might_repeat_efect_\@
+    goto \param
+    .AI_target_might_repeat_efect_\@:
+    .endm

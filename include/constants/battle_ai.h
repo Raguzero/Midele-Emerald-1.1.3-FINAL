@@ -45,6 +45,8 @@
 
 #define AI_NHKO_PESSIMISTIC 4
 
+#define AI_LAST_EFFECT_BY_TARGET 0xFF
+
 // get_possible_categories_of_foes_attacks
 #define AI_PHYSICAL_ONLY 0
 #define AI_ONLY_PHYSICAL_KNOWN 1

@@ -3186,6 +3186,10 @@ static void Cmd_if_next_turn_target_might_use_move_with_effect(void)
 {
     s32 i;
     u8 moveLimitations = CheckMoveLimitations(gBattlerTarget, 0, MOVE_LIMITATION_CHOICE-1);
+    u8 effect = *(gAIScriptPtr + 1);
+
+    if (effect == AI_LAST_EFFECT_BY_TARGET)
+        effect = gBattleMoves[gLastMoves[gBattlerTarget]].effect;
 
     gAIScriptPtr += 6; // será sobreescrito si el objetivo sí podrá usar un movimiento con el efecto
 
@@ -3197,7 +3201,7 @@ static void Cmd_if_next_turn_target_might_use_move_with_effect(void)
 
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
-        if (FOES_MOVE_HISTORY(gBattlerTarget)[i] && gBattleMoves[FOES_MOVE_HISTORY(gBattlerTarget)[i]].effect == *(gAIScriptPtr - 5))
+        if (FOES_MOVE_HISTORY(gBattlerTarget)[i] && gBattleMoves[FOES_MOVE_HISTORY(gBattlerTarget)[i]].effect == effect)
         {
             s32 j;
             for (j = 0; j < MAX_MON_MOVES; j++)
