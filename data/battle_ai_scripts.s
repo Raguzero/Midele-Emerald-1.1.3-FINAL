@@ -2407,6 +2407,29 @@ AI_CV_Disable2:
 AI_CV_Disable_End:
 	end
 
+
+@ Si el rival le usa movimientos con estos efectos a la IA y esta
+@ tira Counter o Mirror Coat, conviene que la IA no lo
+@ siga usando, o el rival se puede poner a +6 y dar OHKO
+@ o puede volverse muy difícil acertar con estos movimientos
+AI_CV_ExcellentEffectsToUseAgainstCounterAndMirrorCoat:
+    .byte EFFECT_ATTACK_UP
+    .byte EFFECT_SPECIAL_ATTACK_UP
+    .byte EFFECT_ATTACK_UP_2
+    .byte EFFECT_SPECIAL_ATTACK_UP_2
+    .byte EFFECT_BULK_UP
+    .byte EFFECT_CALM_MIND
+    .byte EFFECT_QUIVER_DANCE
+    .byte EFFECT_COIL
+    .byte EFFECT_DRAGON_DANCE
+    .byte EFFECT_ATTACK_SPATK_UP
+    .byte EFFECT_SPECIAL_ATTACK_UP_3
+AI_CV_EvasionUpEffects:
+    .byte EFFECT_EVASION_UP
+    .byte EFFECT_EVASION_UP_2
+    .byte EFFECT_MINIMIZE
+    .byte -1
+
 AI_CV_Counter:
     if_hp_condition USER_HAS_1_HP, Score_Minus10
     if_target_wont_attack_due_to_truant Score_Minus10
@@ -2421,6 +2444,35 @@ AI_CV_Counter_TargetNotSleeping:
 	if_status AI_TARGET, STATUS1_FREEZE, AI_CV_Counter_ScoreDown3
 	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_Counter_ScoreDown3
 	if_status2 AI_TARGET, STATUS2_CONFUSION, AI_CV_Counter_ScoreDown3
+	if_target_taunted AI_CV_Counter1
+	if_user_has_revealed_move MOVE_COUNTER, AI_CV_Counter_MoveHasBeenRevealed
+	goto AI_CV_Counter1
+AI_CV_Counter_MoveHasBeenRevealed:
+	get_last_used_bank_move AI_TARGET
+	get_move_effect_from_result
+	if_not_in_bytes AI_CV_ExcellentEffectsToUseAgainstCounterAndMirrorCoat, AI_CV_Counter1
+@ El rival de la IA podría boostearse hasta dar OHKO o hacerse casi intocable:
+@ conviene no usar este ataque salvo si se puede aguantar un golpe por Sturdy o sash;
+@ y aun así conviene no usarlos siempre porque el rival podría agotar los PP,
+@ por lo que se considera una pequeña probabilidad (6,25%) de ahorrar un PP
+@ que puede provocar que los PP de este movimiento terminen después si ambos tienen 32 PP.
+@ La probabilidad de que esto suceda alguna vez en al menos 32 oportunidades es de un 87,3%
+	if_in_bytes AI_CV_EvasionUpEffects, AI_CV_Counter_ScoreDown3
+	if_random_less_than 16, AI_CV_Counter_ScoreDown3
+	if_hp_less_than AI_USER, 100, AI_CV_Counter_NoSturdyOrSash
+	if_ability AI_USER, ABILITY_STURDY, AI_CV_Counter1
+	if_holds_item AI_USER, ITEM_FOCUS_SASH, AI_CV_Counter1
+AI_CV_Counter_NoSturdyOrSash:
+@ Si el rival está a +6 y aun así la IA no ve venir un OHKO,
+@ tiene un 46,875% de considerar usar este ataque cada turno.
+@ Esto permite que, probablemente, no se agoten los PP de este movimiento
+@ antes que los de Meditate o Howl, o los de otros ataques con 32 PP
+@ (lo que incluye SD, NP, QD, BU, CM, DD) ante un rival con Pressure
+	if_stat_level_less_than AI_TARGET, STAT_ATK, 12, AI_CV_Counter_ScoreDown3
+	calculate_nhko AI_TARGET | AI_NHKO_PESSIMISTIC
+	if_equal 1, AI_CV_Counter_ScoreDown3
+	if_random_less_than 128, AI_CV_Counter_ScoreDown3
+AI_CV_Counter1:
 	if_hp_more_than AI_USER, 30, AI_CV_Counter2
 	if_random_less_than 10, AI_CV_Counter2
 	score -1
@@ -3166,6 +3218,35 @@ AI_CV_MirrorCoat_TargetNotSleeping:
 	if_status AI_TARGET, STATUS1_FREEZE, AI_CV_MirrorCoat_ScoreDown3
 	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_MirrorCoat_ScoreDown3
 	if_status2 AI_TARGET, STATUS2_CONFUSION, AI_CV_MirrorCoat_ScoreDown3
+	if_target_taunted AI_CV_MirrorCoat1
+	if_user_has_revealed_move MOVE_MIRROR_COAT, AI_CV_MirrorCoat_MoveHasBeenRevealed
+	goto AI_CV_MirrorCoat1
+AI_CV_MirrorCoat_MoveHasBeenRevealed:
+	get_last_used_bank_move AI_TARGET
+	get_move_effect_from_result
+	if_not_in_bytes AI_CV_ExcellentEffectsToUseAgainstCounterAndMirrorCoat, AI_CV_MirrorCoat1
+@ El rival de la IA podría boostearse hasta dar OHKO o hacerse casi intocable:
+@ conviene no usar este ataque salvo si se puede aguantar un golpe por Sturdy o sash;
+@ y aun así conviene no usarlos siempre porque el rival podría agotar los PP,
+@ por lo que se considera una pequeña probabilidad (6,25%) de ahorrar un PP
+@ que puede provocar que los PP de este movimiento terminen después si ambos tienen 32 PP.
+@ La probabilidad de que esto suceda alguna vez en al menos 32 oportunidades es de un 87,3%
+	if_in_bytes AI_CV_EvasionUpEffects, AI_CV_MirrorCoat_ScoreDown3
+	if_random_less_than 16, AI_CV_MirrorCoat_ScoreDown3
+	if_hp_less_than AI_USER, 100, AI_CV_MirrorCoat_NoSturdyOrSash
+	if_ability AI_USER, ABILITY_STURDY, AI_CV_MirrorCoat1
+	if_holds_item AI_USER, ITEM_FOCUS_SASH, AI_CV_MirrorCoat1
+AI_CV_MirrorCoat_NoSturdyOrSash:
+@ Si el rival está a +6 y aun así la IA no ve venir un OHKO,
+@ tiene un 46,875% de considerar usar este ataque cada turno.
+@ Esto permite que, probablemente, no se agoten los PP de este movimiento
+@ antes que los de Meditate o Howl, o los de otros ataques con 32 PP
+@ (lo que incluye SD, NP, QD, BU, CM, DD) ante un rival con Pressure
+	if_stat_level_less_than AI_TARGET, STAT_SPATK, 12, AI_CV_MirrorCoat_ScoreDown3
+	calculate_nhko AI_TARGET | AI_NHKO_PESSIMISTIC
+	if_equal 1, AI_CV_MirrorCoat_ScoreDown3
+	if_random_less_than 128, AI_CV_MirrorCoat_ScoreDown3
+AI_CV_MirrorCoat1:
 	if_hp_more_than AI_USER, 30, AI_CV_MirrorCoat2
 	if_random_less_than 10, AI_CV_MirrorCoat2
 	score -1
