@@ -2325,6 +2325,7 @@ AI_CV_Substitute3:
 	score -1
 AI_CV_Substitute4:
 	if_target_faster AI_CV_Substitute_End
+	if_target_probably_cannot_repeat_last_effect AI_CV_Substitute_End
 	get_last_used_bank_move AI_TARGET
 	get_move_effect_from_result
 	if_equal EFFECT_SLEEP, AI_CV_Substitute5
@@ -2451,6 +2452,7 @@ AI_CV_Counter_MoveHasBeenRevealed:
 	get_last_used_bank_move AI_TARGET
 	get_move_effect_from_result
 	if_not_in_bytes AI_CV_ExcellentEffectsToUseAgainstCounterAndMirrorCoat, AI_CV_Counter1
+	if_target_probably_cannot_repeat_last_effect AI_CV_Counter1
 @ El rival de la IA podría boostearse hasta dar OHKO o hacerse casi intocable:
 @ conviene no usar este ataque salvo si se puede aguantar un golpe por Sturdy o sash;
 @ y aun así conviene no usarlos siempre porque el rival podría agotar los PP,
@@ -3225,6 +3227,7 @@ AI_CV_MirrorCoat_MoveHasBeenRevealed:
 	get_last_used_bank_move AI_TARGET
 	get_move_effect_from_result
 	if_not_in_bytes AI_CV_ExcellentEffectsToUseAgainstCounterAndMirrorCoat, AI_CV_MirrorCoat1
+	if_target_probably_cannot_repeat_last_effect AI_CV_MirrorCoat1
 @ El rival de la IA podría boostearse hasta dar OHKO o hacerse casi intocable:
 @ conviene no usar este ataque salvo si se puede aguantar un golpe por Sturdy o sash;
 @ y aun así conviene no usarlos siempre porque el rival podría agotar los PP,
