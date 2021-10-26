@@ -2416,11 +2416,11 @@ AI_CV_Counter:
     if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_SPECIAL, Score_Minus5
     if_equal AI_ONLY_SPECIAL_KNOWN, Score_Minus5
     if_target_not_expected_to_sleep AI_CV_Counter_TargetNotSleeping
-    goto AI_CV_Counter_ScoreDown1
+    goto AI_CV_Counter_ScoreDown3
 AI_CV_Counter_TargetNotSleeping:
-	if_status AI_TARGET, STATUS1_FREEZE, AI_CV_Counter_ScoreDown1
-	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_Counter_ScoreDown1
-	if_status2 AI_TARGET, STATUS2_CONFUSION, AI_CV_Counter_ScoreDown1
+	if_status AI_TARGET, STATUS1_FREEZE, AI_CV_Counter_ScoreDown3
+	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_Counter_ScoreDown3
+	if_status2 AI_TARGET, STATUS2_CONFUSION, AI_CV_Counter_ScoreDown3
 	if_hp_more_than AI_USER, 30, AI_CV_Counter2
 	if_random_less_than 10, AI_CV_Counter2
 	score -1
@@ -2442,7 +2442,7 @@ AI_CV_Counter3:
 AI_CV_Counter4:
 	get_last_used_bank_move AI_TARGET
 	get_move_type_from_result
-	if_not_in_bytes AI_CV_Counter_PhysicalTypeList, AI_CV_Counter_ScoreDown1
+	if_not_in_bytes AI_CV_Counter_PhysicalTypeList, AI_CV_Counter_ScoreDown3
 	if_random_less_than 100, AI_CV_Counter_End
 	score +1
 	goto AI_CV_Counter_End
@@ -2455,8 +2455,8 @@ AI_CV_Counter5:
 AI_CV_Counter6:
 	end
 
-AI_CV_Counter_ScoreDown1:
-	score -1
+AI_CV_Counter_ScoreDown3:
+	score -3
 
 AI_CV_Counter_End:
 	end
@@ -3161,11 +3161,11 @@ AI_CV_MirrorCoat:
     if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_PHYSICAL, Score_Minus5
     if_equal AI_ONLY_PHYSICAL_KNOWN, Score_Minus5
     if_target_not_expected_to_sleep AI_CV_MirrorCoat_TargetNotSleeping
-    goto AI_CV_MirrorCoat_ScoreDown1
+    goto AI_CV_MirrorCoat_ScoreDown3
 AI_CV_MirrorCoat_TargetNotSleeping:
-	if_status AI_TARGET, STATUS1_FREEZE, AI_CV_MirrorCoat_ScoreDown1
-	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_MirrorCoat_ScoreDown1
-	if_status2 AI_TARGET, STATUS2_CONFUSION, AI_CV_MirrorCoat_ScoreDown1
+	if_status AI_TARGET, STATUS1_FREEZE, AI_CV_MirrorCoat_ScoreDown3
+	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_MirrorCoat_ScoreDown3
+	if_status2 AI_TARGET, STATUS2_CONFUSION, AI_CV_MirrorCoat_ScoreDown3
 	if_hp_more_than AI_USER, 30, AI_CV_MirrorCoat2
 	if_random_less_than 10, AI_CV_MirrorCoat2
 	score -1
@@ -3187,7 +3187,7 @@ AI_CV_MirrorCoat3:
 AI_CV_MirrorCoat4:
 	get_last_used_bank_move AI_TARGET
 	get_move_type_from_result
-	if_not_in_bytes AI_CV_MirrorCoat_SpecialTypeList, AI_CV_MirrorCoat_ScoreDown1
+	if_not_in_bytes AI_CV_MirrorCoat_SpecialTypeList, AI_CV_MirrorCoat_ScoreDown3
 	if_random_less_than 100, AI_CV_MirrorCoat_End
 	score +1
 	goto AI_CV_MirrorCoat_End
@@ -3200,8 +3200,8 @@ AI_CV_MirrorCoat5:
 AI_CV_MirrorCoat6:
 	end
 
-AI_CV_MirrorCoat_ScoreDown1:
-	score -1
+AI_CV_MirrorCoat_ScoreDown3:
+	score -3
 
 AI_CV_MirrorCoat_End:
 	end
