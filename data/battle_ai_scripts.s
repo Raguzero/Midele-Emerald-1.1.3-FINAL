@@ -2979,9 +2979,10 @@ AI_CV_Foresight_End:
 
 AI_CV_Endure:
 	if_target_wont_attack_due_to_truant Score_Minus10
-	if_status  AI_USER, STATUS1_PSN_ANY | STATUS1_BURN, AI_CV_EndureUserStatused
+	if_status  AI_USER, STATUS1_PSN_ANY | STATUS1_BURN, AI_CV_Endure_UserWillFaintAfterEnduring
+	if_status3 AI_USER, STATUS3_LEECHSEED, AI_CV_Endure_UserWillFaintAfterEnduring
 	if_status2 AI_USER, STATUS2_CURSED | STATUS2_INFATUATION, AI_CV_EndureUserStatused
-	if_status3 AI_USER, STATUS3_PERISH_SONG | STATUS3_LEECHSEED | STATUS3_YAWN, AI_CV_EndureUserStatused
+	if_status3 AI_USER, STATUS3_PERISH_SONG | STATUS3_YAWN, AI_CV_EndureUserStatused
 	get_weather
 	if_equal AI_WEATHER_HAIL, AI_CV_EndureHail
 	if_equal AI_WEATHER_SANDSTORM, AI_CV_EndureSandstorm
@@ -2994,9 +2995,13 @@ AI_CV_Endure_NoWeatherDamageExpected:
 	if_doesnt_have_non_ineffective_move_with_effect AI_USER, EFFECT_FLAIL, AI_CV_Endure2
 	score +1
 	goto AI_CV_Endure_End
-	
+
 AI_CV_EndureUserStatused:
 	score -2
+	goto AI_CV_Endure4
+
+AI_CV_Endure_UserWillFaintAfterEnduring:
+	score -7
 	goto AI_CV_Endure4
 	
 AI_CV_EndureHail:
@@ -3009,7 +3014,7 @@ AI_CV_EndureHail:
     if_equal TYPE_ICE, AI_CV_Endure_NoWeatherDamageExpected
     get_user_type2
     if_equal TYPE_ICE, AI_CV_Endure_NoWeatherDamageExpected
-    goto AI_CV_Endure2
+    goto AI_CV_Endure_UserWillFaintAfterEnduring
 	
 AI_CV_EndureSandstorm:
 	get_ability AI_USER
@@ -3024,7 +3029,7 @@ AI_CV_EndureSandstorm:
 	if_equal TYPE_ROCK, AI_CV_Endure_NoWeatherDamageExpected
 	if_equal TYPE_GROUND, AI_CV_Endure_NoWeatherDamageExpected
 	if_equal TYPE_STEEL, AI_CV_Endure_NoWeatherDamageExpected
-    goto AI_CV_Endure2
+    goto AI_CV_Endure_UserWillFaintAfterEnduring
 
 AI_CV_Endure2:
 	score -3
