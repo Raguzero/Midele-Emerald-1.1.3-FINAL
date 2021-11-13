@@ -893,7 +893,18 @@ static u8 ChooseMoveOrAction_Singles(void)
         // El poke lleva muchos turnos intoxicado, mejor cambiar
         if (gBattleMons[sBattler_AI].status1 & STATUS1_TOXIC_POISON
             && ((gBattleMons[sBattler_AI].status1 & 0xF00) >> 8) >= 4 // lleva al menos 4 turnos de daño y por tanto va a perder más de un 25% (al menos un 31,25%) de sus PS
-            && currentMoveArray[0] <= 101 // y no escoge un movimiento que alcance los 102 puntos (probable KO)
+            && ( // y no escoge un movimiento que alcance los 102 puntos (probable KO) o cure el estado
+                (currentMoveArray[0] <= 101 && move != MOVE_REST && move != MOVE_REFRESH
+                 && move != MOVE_AROMATHERAPY && move != MOVE_HEAL_BELL)
+             // Los siguientes movimientos casi nunca tiene sentido usarlos
+             // estando intoxicado en un estado avanzado
+             || gBattleMoves[move].effect == EFFECT_RESTORE_HP
+             || gBattleMoves[move].effect == EFFECT_SOFTBOILED
+             || gBattleMoves[move].effect == EFFECT_MOONLIGHT
+             || gBattleMoves[move].effect == EFFECT_MORNING_SUN
+             || gBattleMoves[move].effect == EFFECT_SYNTHESIS
+             || gBattleMoves[move].effect == EFFECT_SHORE_UP
+               )
 			&& AICanSwitchAssumingEnoughPokemon())
 			if (GetMostSuitableMonToSwitchInto_NotChangingIsUnacceptable() != PARTY_SIZE)
             {
