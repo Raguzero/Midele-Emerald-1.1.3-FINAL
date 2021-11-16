@@ -993,8 +993,10 @@ void ItemUseInBattle_PokeBall(u8 taskId)
     } //
     // Don't allow capture of wild mons in MAP_TYPE_NO_CAPTURE_MONS,
     // but allow throwing balls in scripted battles (BATTLE_TYPE_LEGENDARY, BATTLE_TYPE_REGI)
-    else if (GetCurrentMapType() == MAP_TYPE_NO_CAPTURE_MONS
-    && !(gBattleTypeFlags & BATTLE_TYPE_REGI || gBattleTypeFlags & BATTLE_TYPE_LEGENDARY)) {
+    // Additionally, the trainer will not be able to throw balls
+    // to other trainers' mons in order to skip turns
+    else if ((gBattleTypeFlags & BATTLE_TYPE_TRAINER) || (GetCurrentMapType() == MAP_TYPE_NO_CAPTURE_MONS
+    && !(gBattleTypeFlags & BATTLE_TYPE_REGI || gBattleTypeFlags & BATTLE_TYPE_LEGENDARY))) {
         static const u8 sText_MonBelongsToTrainer[] = _("The POKéMON already belongs\nto a TRAINER!\p");
         DisplayItemMessage(taskId, 1, sText_MonBelongsToTrainer, BagMenu_InitListsMenu);
     }
