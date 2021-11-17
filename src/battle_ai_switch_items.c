@@ -1455,6 +1455,36 @@ u8 FilterShedinjaIfVulnerable(struct Pokemon *party, s32 firstId, s32 lastId, u8
     return (filteredMons | vulnerableSheds);
 }
 
+u8 FilterChoiceMonsWayTooWeak(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][4])
+{
+    s32 i, j;
+    u16 item, move;
+
+    for (i = firstId; i < lastId; i++)
+        if (!(gBitTable[i] & filteredMons))
+        {
+            item = GetMonData(&party[i], MON_DATA_HELD_ITEM);
+
+            if (item == ITEM_CHOICE_BAND || item == ITEM_CHOICE_SPECS || item == ITEM_CHOICE_SCARF)
+            {
+                bool8 hasOHKOmove = FALSE;
+
+                for (j = 0; !hasOHKOmove && j < MAX_MON_MOVES; j++)
+                {
+                    move = GetMonData(&party[i], MON_DATA_MOVE1 + j);
+                    if (move != MOVE_NONE && gBattleMoves[move].effect == EFFECT_OHKO)
+                        hasOHKOmove = TRUE;
+                }
+
+                // Excluye al candidato en caso de 5HKO o peor, o de 4HKO siendo más lento
+                if (!hasOHKOmove && nhko[i][1] >= 4 && (nhko[i][1] > 4 || !nhko[i][0]))
+                    filteredMons |= gBitTable[i];
+            }
+        }
+
+    return filteredMons;
+}
+
 u8 FilterChoiceMonsNotPowerfulEnough(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][4])
 {
     s32 i, j;
@@ -1840,6 +1870,7 @@ u8 GetMostSuitableMonToSwitchInto(bool8 notChangingIsPossible, bool8 notChanging
         // También almacena si cada poke es más rápido que el oponente
         PrepareNHKOTable(party, firstId, lastId, filteredMons, opposingBattler, nhko);
 
+        APPLY_FILTER(FilterChoiceMonsWayTooWeak, notChangingIsPossible);
         APPLY_FILTER(FilterChoiceMonsNotPowerfulEnough, notChangingIsAcceptable);
         // Si los filtros eliminaron todas las opciones posibles o no se podía cambiar, no se cambia
         if (!MonsLeft(filteredMons))
