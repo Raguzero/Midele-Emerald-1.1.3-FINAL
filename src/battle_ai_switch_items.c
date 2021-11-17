@@ -1135,6 +1135,7 @@ void PrepareNHKOTable(struct Pokemon *party, s32 firstId, s32 lastId, u8 filtere
         s32 i;
         struct BattlePokemon currentMon = gBattleMons[gActiveBattler];
 		struct DisableStruct disableStructCopy = gDisableStructs[gActiveBattler];
+        u16 partyIndex = gBattlerPartyIndexes[gActiveBattler];
 
         for (i = firstId; i < lastId; i++)
             if (!(gBitTable[i] & filteredMons))
@@ -1142,6 +1143,7 @@ void PrepareNHKOTable(struct Pokemon *party, s32 firstId, s32 lastId, u8 filtere
                 bool8 intimidateApplies;
 
                 PokemonToBattleMon(&party[i], &gBattleMons[gActiveBattler], gCurrentMove == MOVE_BATON_PASS);
+                gBattlerPartyIndexes[gActiveBattler] = i;
                 intimidateApplies = gBattleMons[gActiveBattler].ability == ABILITY_INTIMIDATE && VulnerableToIntimidate(opposingBattler);
                 if (intimidateApplies)
                 gBattleMons[opposingBattler].statStages[STAT_ATK] -= 1;
@@ -1172,6 +1174,7 @@ void PrepareNHKOTable(struct Pokemon *party, s32 firstId, s32 lastId, u8 filtere
         
         gBattleMons[gActiveBattler] = currentMon;
 		gDisableStructs[gActiveBattler] = disableStructCopy;
+        gBattlerPartyIndexes[gActiveBattler] = partyIndex;
     }
 }
 
@@ -1198,6 +1201,7 @@ u8 FilterSwitchInsThatMightGetKOedBeforeEndOfTurn(struct Pokemon *party, s32 fir
         u8 nhko;
         struct BattlePokemon currentMon = gBattleMons[gActiveBattler];
         struct DisableStruct disableStructCopy = gDisableStructs[gActiveBattler];
+        u16 partyIndex = gBattlerPartyIndexes[gActiveBattler];
 
         for (i = firstId; i < lastId; i++)
             if (!(gBitTable[i] & filteredMons))
@@ -1205,6 +1209,7 @@ u8 FilterSwitchInsThatMightGetKOedBeforeEndOfTurn(struct Pokemon *party, s32 fir
                 bool8 intimidateApplies;
 
                 PokemonToBattleMon(&party[i], &gBattleMons[gActiveBattler], gCurrentMove == MOVE_BATON_PASS);
+                gBattlerPartyIndexes[gActiveBattler] = i;
                 intimidateApplies = gBattleMons[gActiveBattler].ability == ABILITY_INTIMIDATE && VulnerableToIntimidate(opposingBattler);
                 if (intimidateApplies)
                     gBattleMons[opposingBattler].statStages[STAT_ATK] -= 1;
@@ -1224,6 +1229,7 @@ u8 FilterSwitchInsThatMightGetKOedBeforeEndOfTurn(struct Pokemon *party, s32 fir
 
         gBattleMons[gActiveBattler] = currentMon;
         gDisableStructs[gActiveBattler] = disableStructCopy;
+        gBattlerPartyIndexes[gActiveBattler] = partyIndex;
     }
 
     return filteredMons;
@@ -1257,6 +1263,7 @@ u8 FilterFragileMonsAgainstPriority(struct Pokemon *party, s32 firstId, s32 last
     {
         struct BattlePokemon currentMon = gBattleMons[gActiveBattler];
         struct DisableStruct disableStructCopy = gDisableStructs[gActiveBattler];
+        u16 partyIndex = gBattlerPartyIndexes[gActiveBattler];
 
         for (i = firstId; i < lastId; i++)
             if (!(gBitTable[i] & filteredMons))
@@ -1264,6 +1271,7 @@ u8 FilterFragileMonsAgainstPriority(struct Pokemon *party, s32 firstId, s32 last
                 bool8 intimidateApplies;
 
                 PokemonToBattleMon(&party[i], &gBattleMons[gActiveBattler], gCurrentMove == MOVE_BATON_PASS);
+                gBattlerPartyIndexes[gActiveBattler] = i;
                 intimidateApplies = gBattleMons[gActiveBattler].ability == ABILITY_INTIMIDATE && VulnerableToIntimidate(opposingBattler);
                 if (intimidateApplies)
                     gBattleMons[opposingBattler].statStages[STAT_ATK] -= 1;
@@ -1303,6 +1311,7 @@ u8 FilterFragileMonsAgainstPriority(struct Pokemon *party, s32 firstId, s32 last
 
         gBattleMons[gActiveBattler] = currentMon;
         gDisableStructs[gActiveBattler] = disableStructCopy;
+        gBattlerPartyIndexes[gActiveBattler] = partyIndex;
     }
 
     return filteredMons;
@@ -1361,10 +1370,12 @@ u8 FilterTruantIfUseless(struct Pokemon *party, s32 firstId, s32 lastId, u8 filt
         {
             struct BattlePokemon currentMon = gBattleMons[gActiveBattler];
 			struct DisableStruct disableStructCopy = gDisableStructs[gActiveBattler];
+            u16 partyIndex = gBattlerPartyIndexes[gActiveBattler];
 			for (i = firstId; i < lastId; i++)
                 if ((gBitTable[i] & truantMons))
                 {
                     PokemonToBattleMon(&party[i], &gBattleMons[gActiveBattler], gCurrentMove == MOVE_BATON_PASS);
+                    gBattlerPartyIndexes[gActiveBattler] = i;
 					PrepareDisableStructForSwitchIn(gActiveBattler, &disableStructCopy);
 
                     if (IsTruantMonVulnerable(gActiveBattler, opposingBattler))
@@ -1373,6 +1384,7 @@ u8 FilterTruantIfUseless(struct Pokemon *party, s32 firstId, s32 lastId, u8 filt
             
             gBattleMons[gActiveBattler] = currentMon;
 			gDisableStructs[gActiveBattler] = disableStructCopy;
+            gBattlerPartyIndexes[gActiveBattler] = partyIndex;
         }
         else // Si el rival no ha atacado, podría anticiparse aunque sea más lento
         {
@@ -1408,6 +1420,7 @@ u8 FilterShedinjaIfVulnerable(struct Pokemon *party, s32 firstId, s32 lastId, u8
     {
         struct BattlePokemon currentMon = gBattleMons[gActiveBattler];
 		struct DisableStruct disableStructCopy = gDisableStructs[gActiveBattler];
+        u16 partyIndex = gBattlerPartyIndexes[gActiveBattler];
 				u16 savedCurrentMove = gCurrentMove;
 
         for (i = firstId; i < lastId; i++)
@@ -1419,6 +1432,7 @@ u8 FilterShedinjaIfVulnerable(struct Pokemon *party, s32 firstId, s32 lastId, u8
                 s32 move_i;
                 u16 move;
                 PokemonToBattleMon(&party[i], &gBattleMons[gActiveBattler], gCurrentMove == MOVE_BATON_PASS);
+                gBattlerPartyIndexes[gActiveBattler] = i;
 				PrepareDisableStructForSwitchIn(gActiveBattler, &disableStructCopy);
 
 	if (HasYetToAttack(opposingBattler))
@@ -1436,6 +1450,7 @@ u8 FilterShedinjaIfVulnerable(struct Pokemon *party, s32 firstId, s32 lastId, u8
         gCurrentMove = savedCurrentMove;
         gBattleMons[gActiveBattler] = currentMon;
 		gDisableStructs[gActiveBattler] = disableStructCopy;
+        gBattlerPartyIndexes[gActiveBattler] = partyIndex;
     }
     return (filteredMons | vulnerableSheds);
 }
@@ -1521,8 +1536,10 @@ u8 FilterOpponentCanBeTrappedAndDefeated(struct Pokemon *party, s32 firstId, s32
                         s32 move_i;
                         struct BattlePokemon currentMon = gBattleMons[gActiveBattler];
                         struct DisableStruct disableStructCopy = gDisableStructs[gActiveBattler];
+                        u16 partyIndex = gBattlerPartyIndexes[gActiveBattler];
 
                         PokemonToBattleMon(&party[i], &gBattleMons[gActiveBattler], gCurrentMove == MOVE_BATON_PASS);
+                        gBattlerPartyIndexes[gActiveBattler] = i;
                         PrepareDisableStructForSwitchIn(gActiveBattler, &disableStructCopy);
 
                         moveLimitations = CheckMoveLimitations(gActiveBattler, 0, 0xFF);
@@ -1533,6 +1550,7 @@ u8 FilterOpponentCanBeTrappedAndDefeated(struct Pokemon *party, s32 firstId, s32
 
                         gBattleMons[gActiveBattler] = currentMon;
                         gDisableStructs[gActiveBattler] = disableStructCopy;
+                        gBattlerPartyIndexes[gActiveBattler] = partyIndex;
                     }
                     if (!canKOwithPursuit)
                         filteredMons |= gBitTable[i];
