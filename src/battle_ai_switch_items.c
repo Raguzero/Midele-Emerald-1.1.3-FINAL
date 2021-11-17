@@ -1592,7 +1592,7 @@ u8 FilterKOTaking1Hit(struct Pokemon *party, s32 firstId, s32 lastId, u8 filtere
 		
 	u8 nhko_taken = nhko[i][2];
             
-            if (num_attacks_taken_until_KO > 1 || nhko_taken < 3 || (!nhko[i][3] && KnowsSomeRecoveryMove(opposingBattler)))
+            if (num_attacks_taken_until_KO > 0 && (num_attacks_taken_until_KO > 1 || nhko_taken < 3 || (!nhko[i][3] && KnowsSomeRecoveryMove(opposingBattler))))
                 filteredMons |= gBitTable[i];
         }
 
@@ -1613,7 +1613,7 @@ u8 FilterKOTaking2Hits(struct Pokemon *party, s32 firstId, s32 lastId, u8 filter
             u8 num_attacks_taken_until_KO = nhko[i][1] - nhko[i][0] + min_opponent_attacks;
             u8 nhko_taken = nhko[i][2];
             
-            if (num_attacks_taken_until_KO > 2 || nhko_taken < 5 || (!nhko[i][3] && KnowsSomeRecoveryMove(opposingBattler)))
+            if (num_attacks_taken_until_KO > 0 && ((!(num_attacks_taken_until_KO <= 1 && nhko_taken >= 3) && (num_attacks_taken_until_KO > 2 || nhko_taken < 5)) || (!nhko[i][3] && KnowsSomeRecoveryMove(opposingBattler))))
                 filteredMons |= gBitTable[i];
         }
 
