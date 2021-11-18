@@ -1638,10 +1638,8 @@ AI_CV_AccuracyUp_End:
 
 AI_CV_EvasionUp:
     if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
-    if_has_move_with_effect AI_TARGET, EFFECT_ALWAYS_HIT, Score_Minus5
-    if_type AI_USER, TYPE_GHOST, AI_CV_EvasionUp_SkipVitalThrow
-    if_has_move_with_effect AI_TARGET, EFFECT_VITAL_THROW, Score_Minus5
-AI_CV_EvasionUp_SkipVitalThrow:
+    if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_ALWAYS_HIT, Score_Minus5
+    if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_VITAL_THROW, Score_Minus5
     if_ability AI_USER, ABILITY_NO_GUARD, Score_Minus5
     if_ability_might_be AI_TARGET, ABILITY_NO_GUARD, Score_Minus5
     get_weather
@@ -1851,10 +1849,8 @@ AI_CV_AccuracyDownFromChance:
 	end
 
 AI_CV_AccuracyDown: @ 82DCF0C
-    if_has_move_with_effect AI_TARGET, EFFECT_ALWAYS_HIT, Score_Minus5
-    if_type AI_USER, TYPE_GHOST, AI_CV_AccuracyDown_SkipVitalThrow
-    if_has_move_with_effect AI_TARGET, EFFECT_VITAL_THROW, Score_Minus5
-AI_CV_AccuracyDown_SkipVitalThrow:
+    if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_ALWAYS_HIT, Score_Minus5
+    if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_VITAL_THROW, Score_Minus5
     if_ability AI_USER, ABILITY_NO_GUARD, Score_Minus5
     if_ability_might_be AI_TARGET, ABILITY_NO_GUARD, Score_Minus5
 	if_user_can_probably_boost_safely Score_Plus2
@@ -2329,6 +2325,7 @@ AI_CV_Substitute3:
 	score -1
 AI_CV_Substitute4:
 	if_target_faster AI_CV_Substitute_End
+	if_target_probably_cannot_repeat_last_effect AI_CV_Substitute_End
 	get_last_used_bank_move AI_TARGET
 	get_move_effect_from_result
 	if_equal EFFECT_SLEEP, AI_CV_Substitute5
@@ -2411,19 +2408,73 @@ AI_CV_Disable2:
 AI_CV_Disable_End:
 	end
 
+
+@ Si el rival le usa movimientos con estos efectos a la IA y esta
+@ tira Counter o Mirror Coat, conviene que la IA no lo
+@ siga usando, o el rival se puede poner a +6 y dar OHKO
+@ o puede volverse muy difícil acertar con estos movimientos
+AI_CV_ExcellentEffectsToUseAgainstCounterAndMirrorCoat:
+    .byte EFFECT_ATTACK_UP
+    .byte EFFECT_SPECIAL_ATTACK_UP
+    .byte EFFECT_ATTACK_UP_2
+    .byte EFFECT_SPECIAL_ATTACK_UP_2
+    .byte EFFECT_BULK_UP
+    .byte EFFECT_CALM_MIND
+    .byte EFFECT_QUIVER_DANCE
+    .byte EFFECT_COIL
+    .byte EFFECT_DRAGON_DANCE
+    .byte EFFECT_ATTACK_SPATK_UP
+    .byte EFFECT_SPECIAL_ATTACK_UP_3
+AI_CV_EvasionUpEffects:
+    .byte EFFECT_EVASION_UP
+    .byte EFFECT_EVASION_UP_2
+    .byte EFFECT_MINIMIZE
+    .byte -1
+
 AI_CV_Counter:
-	if_target_wont_attack_due_to_truant Score_Minus10
+    if_hp_condition USER_HAS_1_HP, Score_Minus10
+    if_target_wont_attack_due_to_truant Score_Minus10
     get_possible_categories_of_foes_attacks
     if_equal AI_SPECIAL_ONLY, Score_Minus10
     if_equal AI_NO_DAMAGING_MOVES, Score_Minus10
     if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_SPECIAL, Score_Minus5
     if_equal AI_ONLY_SPECIAL_KNOWN, Score_Minus5
     if_target_not_expected_to_sleep AI_CV_Counter_TargetNotSleeping
-    goto AI_CV_Counter_ScoreDown1
+    goto AI_CV_Counter_ScoreDown3
 AI_CV_Counter_TargetNotSleeping:
-	if_status AI_TARGET, STATUS1_FREEZE, AI_CV_Counter_ScoreDown1
-	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_Counter_ScoreDown1
-	if_status2 AI_TARGET, STATUS2_CONFUSION, AI_CV_Counter_ScoreDown1
+	if_status AI_TARGET, STATUS1_FREEZE, AI_CV_Counter_ScoreDown3
+	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_Counter_ScoreDown3
+	if_status2 AI_TARGET, STATUS2_CONFUSION, AI_CV_Counter_ScoreDown3
+	if_target_taunted AI_CV_Counter1
+	if_user_has_revealed_move MOVE_COUNTER, AI_CV_Counter_MoveHasBeenRevealed
+	goto AI_CV_Counter1
+AI_CV_Counter_MoveHasBeenRevealed:
+	get_last_used_bank_move AI_TARGET
+	get_move_effect_from_result
+	if_not_in_bytes AI_CV_ExcellentEffectsToUseAgainstCounterAndMirrorCoat, AI_CV_Counter1
+	if_target_probably_cannot_repeat_last_effect AI_CV_Counter1
+@ El rival de la IA podría boostearse hasta dar OHKO o hacerse casi intocable:
+@ conviene no usar este ataque salvo si se puede aguantar un golpe por Sturdy o sash;
+@ y aun así conviene no usarlos siempre porque el rival podría agotar los PP,
+@ por lo que se considera una pequeña probabilidad (6,25%) de ahorrar un PP
+@ que puede provocar que los PP de este movimiento terminen después si ambos tienen 32 PP.
+@ La probabilidad de que esto suceda alguna vez en al menos 32 oportunidades es de un 87,3%
+	if_in_bytes AI_CV_EvasionUpEffects, AI_CV_Counter_ScoreDown3
+	if_random_less_than 16, AI_CV_Counter_ScoreDown3
+	if_hp_less_than AI_USER, 100, AI_CV_Counter_NoSturdyOrSash
+	if_ability AI_USER, ABILITY_STURDY, AI_CV_Counter1
+	if_holds_item AI_USER, ITEM_FOCUS_SASH, AI_CV_Counter1
+AI_CV_Counter_NoSturdyOrSash:
+@ Si el rival está a +6 y aun así la IA no ve venir un OHKO,
+@ tiene un 46,875% de considerar usar este ataque cada turno.
+@ Esto permite que, probablemente, no se agoten los PP de este movimiento
+@ antes que los de Meditate o Howl, o los de otros ataques con 32 PP
+@ (lo que incluye SD, NP, QD, BU, CM, DD) ante un rival con Pressure
+	if_stat_level_less_than AI_TARGET, STAT_ATK, 12, AI_CV_Counter_ScoreDown3
+	calculate_nhko AI_TARGET | AI_NHKO_PESSIMISTIC
+	if_equal 1, AI_CV_Counter_ScoreDown3
+	if_random_less_than 128, AI_CV_Counter_ScoreDown3
+AI_CV_Counter1:
 	if_hp_more_than AI_USER, 30, AI_CV_Counter2
 	if_random_less_than 10, AI_CV_Counter2
 	score -1
@@ -2445,7 +2496,7 @@ AI_CV_Counter3:
 AI_CV_Counter4:
 	get_last_used_bank_move AI_TARGET
 	get_move_type_from_result
-	if_not_in_bytes AI_CV_Counter_PhysicalTypeList, AI_CV_Counter_ScoreDown1
+	if_not_in_bytes AI_CV_Counter_PhysicalTypeList, AI_CV_Counter_ScoreDown3
 	if_random_less_than 100, AI_CV_Counter_End
 	score +1
 	goto AI_CV_Counter_End
@@ -2458,8 +2509,8 @@ AI_CV_Counter5:
 AI_CV_Counter6:
 	end
 
-AI_CV_Counter_ScoreDown1:
-	score -1
+AI_CV_Counter_ScoreDown3:
+	score -3
 
 AI_CV_Counter_End:
 	end
@@ -2637,8 +2688,37 @@ AI_CV_SleepTalk_UseToWakeUpIfNecessary:
 
 AI_CV_DestinyBond:
 	score -1
-	if_status2 AI_USER, STATUS2_SUBSTITUTE, AI_CV_DestinyBond_End
+	if_status2 AI_USER, STATUS2_SUBSTITUTE, Score_Minus2
 	if_target_faster AI_CV_DestinyBond_End
+	if_status2 AI_TARGET, STATUS2_RECHARGE, Score_Minus2
+	if_hp_less_than AI_USER, 100, AI_CV_DestinyBond_SkipSturdyOrSashCheck
+	if_ability AI_USER, ABILITY_STURDY, Score_Minus2
+	if_holds_item AI_USER, ITEM_FOCUS_SASH, Score_Minus2
+AI_CV_DestinyBond_SkipSturdyOrSashCheck:
+	if_status2 AI_TARGET, STATUS2_MULTIPLETURNS, AI_CV_DestinyBond_1
+	if_user_has_revealed_move MOVE_DESTINY_BOND, AI_CV_DestinyBond_MoveHasBeenRevealed
+	goto AI_CV_DestinyBond_1
+
+@ El rival sabe que tenemos Destiny Bond: no hay sorpresa posible.
+@ Conviene reducir el uso de Destiny Bond para evitar fundir los PP
+@ y para evitar que el rival se aproveche de que la IA pierde el tiempo,
+@ boosteándose o metiendo Spikes por ejemplo.
+@ Para ello, una vez que la IA revela Destiny Bond,
+@ la IA tiene un 20% de no considerar usarlo cada turno si el rival usó un movimiento de daño,
+@ y un 70% de no considerar usarlo cada turno si usó uno que no es de daño o acaba de entrar.
+@ El tener un 30% de tirar Destiny Bond a partir del segundo hace que los 7 PP restantes de
+@ Destiny Bond se acaben poco antes que unos supuestos 23 PP de un ataque del oponente.
+AI_CV_DestinyBond_MoveHasBeenRevealed:
+	is_first_turn_for AI_TARGET
+	if_equal 1, AI_CV_DestinyBond_MoveHasBeenRevealed_TargetDidNotAttack
+	get_last_used_bank_move AI_TARGET
+	get_move_power_from_result
+	if_equal 0, AI_CV_DestinyBond_MoveHasBeenRevealed_TargetDidNotAttack
+	if_random_less_than 50, Score_Minus2 @ ~20% de no tirar Destiny Bond
+	goto AI_CV_DestinyBond_1
+AI_CV_DestinyBond_MoveHasBeenRevealed_TargetDidNotAttack:
+	if_random_less_than 180, Score_Minus2 @ ~70% de no tirar Destiny Bond
+AI_CV_DestinyBond_1:
 	if_this_attack_might_be_the_last Score_Plus2
 	if_hp_more_than AI_USER, 70, AI_CV_DestinyBond_End
 	if_random_less_than 128, AI_CV_DestinyBond2
@@ -2899,9 +2979,10 @@ AI_CV_Foresight_End:
 
 AI_CV_Endure:
 	if_target_wont_attack_due_to_truant Score_Minus10
-	if_status  AI_USER, STATUS1_PSN_ANY | STATUS1_BURN, AI_CV_EndureUserStatused
+	if_status  AI_USER, STATUS1_PSN_ANY | STATUS1_BURN, AI_CV_Endure_UserWillFaintAfterEnduring
+	if_status3 AI_USER, STATUS3_LEECHSEED, AI_CV_Endure_UserWillFaintAfterEnduring
 	if_status2 AI_USER, STATUS2_CURSED | STATUS2_INFATUATION, AI_CV_EndureUserStatused
-	if_status3 AI_USER, STATUS3_PERISH_SONG | STATUS3_LEECHSEED | STATUS3_YAWN, AI_CV_EndureUserStatused
+	if_status3 AI_USER, STATUS3_PERISH_SONG | STATUS3_YAWN, AI_CV_EndureUserStatused
 	get_weather
 	if_equal AI_WEATHER_HAIL, AI_CV_EndureHail
 	if_equal AI_WEATHER_SANDSTORM, AI_CV_EndureSandstorm
@@ -2911,12 +2992,16 @@ AI_CV_Endure_NoWeatherDamageExpected:
 	if_hp_less_than AI_USER, 8, AI_CV_Endure2
 	if_hp_less_than AI_USER, 14, AI_CV_Endure4
 	if_hp_less_than AI_USER, 35, AI_CV_Endure3
-	if_doesnt_have_move_with_effect AI_USER, EFFECT_FLAIL, AI_CV_Endure2
+	if_doesnt_have_non_ineffective_move_with_effect AI_USER, EFFECT_FLAIL, AI_CV_Endure2
 	score +1
 	goto AI_CV_Endure_End
-	
+
 AI_CV_EndureUserStatused:
 	score -2
+	goto AI_CV_Endure4
+
+AI_CV_Endure_UserWillFaintAfterEnduring:
+	score -7
 	goto AI_CV_Endure4
 	
 AI_CV_EndureHail:
@@ -2929,7 +3014,7 @@ AI_CV_EndureHail:
     if_equal TYPE_ICE, AI_CV_Endure_NoWeatherDamageExpected
     get_user_type2
     if_equal TYPE_ICE, AI_CV_Endure_NoWeatherDamageExpected
-    goto AI_CV_Endure2
+    goto AI_CV_Endure_UserWillFaintAfterEnduring
 	
 AI_CV_EndureSandstorm:
 	get_ability AI_USER
@@ -2944,7 +3029,7 @@ AI_CV_EndureSandstorm:
 	if_equal TYPE_ROCK, AI_CV_Endure_NoWeatherDamageExpected
 	if_equal TYPE_GROUND, AI_CV_Endure_NoWeatherDamageExpected
 	if_equal TYPE_STEEL, AI_CV_Endure_NoWeatherDamageExpected
-    goto AI_CV_Endure2
+    goto AI_CV_Endure_UserWillFaintAfterEnduring
 
 AI_CV_Endure2:
 	score -3
@@ -2955,7 +3040,7 @@ AI_CV_Endure4:
 	goto AI_CV_Endure_End
 
 AI_CV_Endure3:
-	if_has_move_with_effect AI_USER, EFFECT_FLAIL, Score_Plus2
+	if_has_non_ineffective_move_with_effect AI_USER, EFFECT_FLAIL, Score_Plus2
 	if_random_less_than 70, AI_CV_Endure_End
 	score +1
 
@@ -3127,18 +3212,49 @@ AI_CV_PsychUp_End:
 	end
 
 AI_CV_MirrorCoat:
-	if_target_wont_attack_due_to_truant Score_Minus10
+    if_hp_condition USER_HAS_1_HP, Score_Minus10
+    if_target_wont_attack_due_to_truant Score_Minus10
     get_possible_categories_of_foes_attacks
     if_equal AI_PHYSICAL_ONLY, Score_Minus10
     if_equal AI_NO_DAMAGING_MOVES, Score_Minus10
     if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_PHYSICAL, Score_Minus5
     if_equal AI_ONLY_PHYSICAL_KNOWN, Score_Minus5
     if_target_not_expected_to_sleep AI_CV_MirrorCoat_TargetNotSleeping
-    goto AI_CV_MirrorCoat_ScoreDown1
+    goto AI_CV_MirrorCoat_ScoreDown3
 AI_CV_MirrorCoat_TargetNotSleeping:
-	if_status AI_TARGET, STATUS1_FREEZE, AI_CV_MirrorCoat_ScoreDown1
-	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_MirrorCoat_ScoreDown1
-	if_status2 AI_TARGET, STATUS2_CONFUSION, AI_CV_MirrorCoat_ScoreDown1
+	if_status AI_TARGET, STATUS1_FREEZE, AI_CV_MirrorCoat_ScoreDown3
+	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_MirrorCoat_ScoreDown3
+	if_status2 AI_TARGET, STATUS2_CONFUSION, AI_CV_MirrorCoat_ScoreDown3
+	if_target_taunted AI_CV_MirrorCoat1
+	if_user_has_revealed_move MOVE_MIRROR_COAT, AI_CV_MirrorCoat_MoveHasBeenRevealed
+	goto AI_CV_MirrorCoat1
+AI_CV_MirrorCoat_MoveHasBeenRevealed:
+	get_last_used_bank_move AI_TARGET
+	get_move_effect_from_result
+	if_not_in_bytes AI_CV_ExcellentEffectsToUseAgainstCounterAndMirrorCoat, AI_CV_MirrorCoat1
+	if_target_probably_cannot_repeat_last_effect AI_CV_MirrorCoat1
+@ El rival de la IA podría boostearse hasta dar OHKO o hacerse casi intocable:
+@ conviene no usar este ataque salvo si se puede aguantar un golpe por Sturdy o sash;
+@ y aun así conviene no usarlos siempre porque el rival podría agotar los PP,
+@ por lo que se considera una pequeña probabilidad (6,25%) de ahorrar un PP
+@ que puede provocar que los PP de este movimiento terminen después si ambos tienen 32 PP.
+@ La probabilidad de que esto suceda alguna vez en al menos 32 oportunidades es de un 87,3%
+	if_in_bytes AI_CV_EvasionUpEffects, AI_CV_MirrorCoat_ScoreDown3
+	if_random_less_than 16, AI_CV_MirrorCoat_ScoreDown3
+	if_hp_less_than AI_USER, 100, AI_CV_MirrorCoat_NoSturdyOrSash
+	if_ability AI_USER, ABILITY_STURDY, AI_CV_MirrorCoat1
+	if_holds_item AI_USER, ITEM_FOCUS_SASH, AI_CV_MirrorCoat1
+AI_CV_MirrorCoat_NoSturdyOrSash:
+@ Si el rival está a +6 y aun así la IA no ve venir un OHKO,
+@ tiene un 46,875% de considerar usar este ataque cada turno.
+@ Esto permite que, probablemente, no se agoten los PP de este movimiento
+@ antes que los de Meditate o Howl, o los de otros ataques con 32 PP
+@ (lo que incluye SD, NP, QD, BU, CM, DD) ante un rival con Pressure
+	if_stat_level_less_than AI_TARGET, STAT_SPATK, 12, AI_CV_MirrorCoat_ScoreDown3
+	calculate_nhko AI_TARGET | AI_NHKO_PESSIMISTIC
+	if_equal 1, AI_CV_MirrorCoat_ScoreDown3
+	if_random_less_than 128, AI_CV_MirrorCoat_ScoreDown3
+AI_CV_MirrorCoat1:
 	if_hp_more_than AI_USER, 30, AI_CV_MirrorCoat2
 	if_random_less_than 10, AI_CV_MirrorCoat2
 	score -1
@@ -3160,7 +3276,7 @@ AI_CV_MirrorCoat3:
 AI_CV_MirrorCoat4:
 	get_last_used_bank_move AI_TARGET
 	get_move_type_from_result
-	if_not_in_bytes AI_CV_MirrorCoat_SpecialTypeList, AI_CV_MirrorCoat_ScoreDown1
+	if_not_in_bytes AI_CV_MirrorCoat_SpecialTypeList, AI_CV_MirrorCoat_ScoreDown3
 	if_random_less_than 100, AI_CV_MirrorCoat_End
 	score +1
 	goto AI_CV_MirrorCoat_End
@@ -3173,8 +3289,8 @@ AI_CV_MirrorCoat5:
 AI_CV_MirrorCoat6:
 	end
 
-AI_CV_MirrorCoat_ScoreDown1:
-	score -1
+AI_CV_MirrorCoat_ScoreDown3:
+	score -3
 
 AI_CV_MirrorCoat_End:
 	end

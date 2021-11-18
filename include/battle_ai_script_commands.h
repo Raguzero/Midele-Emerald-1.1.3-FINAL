@@ -18,6 +18,7 @@ void CopyBattlerHistoryForTransformedMon(u8 transformUser, u8 transformTarget);
 void LearnBattlerHistoryFromTransformedMon(u8 transformUser, u8 transformTarget);
 void RecordItemEffectBattle(u8 battlerId, u8 itemEffect);
 void ClearBattlerItemEffectHistory(u8 battlerId);
+void AI_MarkForcedChange(void);
 
 bool32 OurShedinjaIsVulnerable(u32 battlerAI, u32 opposingBattler, u16 consideredMove);
 bool32 IsTruantMonVulnerable(u32 battlerAI, u32 opposingBattler);

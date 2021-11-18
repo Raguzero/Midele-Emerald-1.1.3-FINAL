@@ -202,6 +202,16 @@ struct UsedMoves
     u16 unknown[MAX_MON_MOVES];
 };
 
+struct AI_MemoryStruct
+{
+    u8 lastMoveIndex:2;
+    u8 secondLastMoveIndex:2;
+    u8 opponentChanged:1;
+    u8 enoughPointsDifference:1;
+    u8 switchesDetected:1;
+    u8 triedToPredictSwitches:1;
+};
+
 struct BattleHistory
 {
     struct UsedMoves _usedMoves[2 * PARTY_SIZE];
@@ -209,6 +219,7 @@ struct BattleHistory
     u8 _itemEffects[2 * PARTY_SIZE];
     u16 trainerItems[MAX_BATTLERS_COUNT];
     u8 itemsNo;
+    struct AI_MemoryStruct switchMemory[2];
 };
 
 struct BattleScriptsStack

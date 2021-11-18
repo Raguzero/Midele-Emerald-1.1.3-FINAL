@@ -3631,6 +3631,7 @@ static void Cmd_cleareffectsonfaint(void)
         }
 
         FaintClearSetData(); // Effects like attractions, trapping, etc.
+        AI_MarkForcedChange();
         gBattlescriptCurrInstr += 2;
     }
 }
@@ -8417,6 +8418,8 @@ static void Cmd_forcerandomswitch(void)
 
             if (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER)
                 SwitchPartyOrderInGameMulti(gBattlerTarget, i);
+
+            AI_MarkForcedChange();
         }
     }
     else
@@ -8862,6 +8865,8 @@ static void Cmd_transformdataexecution(void)
 
 		// Si la IA se transforma en el rival, puede ver sus movimientos y habilidad
 		LearnBattlerHistoryFromTransformedMon(gBattlerAttacker, gBattlerTarget);
+
+        AI_MarkForcedChange(); // Evita que la IA tenga en cuenta sus movimientos pasados
 		
         gActiveBattler = gBattlerAttacker;
         BtlController_EmitResetActionMoveSelection(0, RESET_MOVE_SELECTION);
