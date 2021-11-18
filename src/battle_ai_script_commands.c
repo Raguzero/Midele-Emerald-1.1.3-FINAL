@@ -19,7 +19,6 @@
 #include "constants/items.h"
 #include "constants/moves.h"
 #include "constants/species.h"
-#include "sound.h"
 
 #include "data/probable_moves.h"
 
@@ -699,6 +698,7 @@ bool8 AICanSwitchAssumingEnoughPokemon(void)
             && !(gBattleTypeFlags & (BATTLE_TYPE_ARENA | BATTLE_TYPE_PALACE));
 }
 
+#define STORED_AI_MEMORY (BATTLE_HISTORY->switchMemory[sBattler_AI & BIT_SIDE])
 static u8 ChooseMoveOrAction_Singles(void)
 {
     u8 currentMoveArray[MAX_MON_MOVES];
@@ -706,6 +706,9 @@ static u8 ChooseMoveOrAction_Singles(void)
     u8 numOfBestMoves;
     s32 i;
 	u32 flags = AI_THINKING_STRUCT->aiFlags;
+
+    struct AI_MemoryStruct memory = STORED_AI_MEMORY;
+    ((u8*) &STORED_AI_MEMORY)[0] = 0; // se reinicia por si se decide cambiar
 
     RecordLastUsedMoveByTarget();
 
@@ -923,6 +926,138 @@ static u8 ChooseMoveOrAction_Singles(void)
                 return AI_CHOICE_SWITCH;
                }
             }
+
+        // La IA puede considerar repetir su último movimiento si observa que el rival está cambiando.
+        // Para darse cuenta de ello, se mantiene cierta información en memoria
+        if ((!memory.opponentChanged && memory.enoughPointsDifference) || gDisableStructs[sBattler_AI].isFirstTurn)
+            ((u8*) &memory)[0] = 0;
+        else if (gDisableStructs[gBattlerTarget].protectUses > 0)
+        {
+            u8 lastMoveAux = memory.lastMoveIndex;
+            memory.lastMoveIndex = memory.secondLastMoveIndex;
+            memory.secondLastMoveIndex = lastMoveAux;
+            if (!memory.switchesDetected)
+                memory.enoughPointsDifference = 0;
+        }
+        else if (!gDisableStructs[gBattlerTarget].isFirstTurn)
+            ((u8*) &memory)[0] = 0;
+        else
+        {
+            // Es posible que el oponente haya cambiado por Relevo y siendo el
+            // segundo en atacar, en cuyo caso no habría que contarlo como cambio
+            memory.opponentChanged = 1;
+            if (memory.triedToPredictSwitches)
+                memory.enoughPointsDifference = 0;
+        }
+
+        memory.triedToPredictSwitches = 0;
+
+        if (memory.opponentChanged)
+        {
+            if (AI_THINKING_STRUCT->score[chosenMovePos]
+                  - AI_THINKING_STRUCT->score[memory.lastMoveIndex]
+                  >= 6) // el nuevo movimiento supera en al menos 6 puntos el anterior
+            {
+                bool8 previous_turn_had_switches_detected = memory.switchesDetected;
+                memory.switchesDetected = memory.enoughPointsDifference && memory.secondLastMoveIndex == chosenMovePos;
+                memory.secondLastMoveIndex = memory.lastMoveIndex;
+                memory.lastMoveIndex = chosenMovePos;
+                memory.enoughPointsDifference = 1;
+
+                if (memory.switchesDetected && (Random()%2))
+                {
+                    // La IA ha detectado que el rival está cambiando y va a considerar
+                    // repetir ataque si a la IA no le conviene perder el tiempo
+                    // y el movimiento anterior puede ser ejecutado
+                    u16 previous_move = gBattleMons[sBattler_AI].moves[memory.secondLastMoveIndex];
+                    bool8 doNotRepeat = FALSE;
+
+                    // Si el rival ya no puede cambiar, no hace falta repetir
+                    // Podría descartar el cambio erróneamente en caso de Baton Pass de rival más rápido
+                    if (!IS_BATTLER_OF_TYPE(gBattlerTarget, TYPE_GHOST) &&
+                        (
+                            (gBattleMons[sBattler_AI].ability == ABILITY_SHADOW_TAG && !ABILITY_ON_OPPOSING_FIELD(sBattler_AI, ABILITY_SHADOW_TAG))
+                         || (gBattleMons[sBattler_AI].ability == ABILITY_ARENA_TRAP && !IS_BATTLER_OF_TYPE(gBattlerTarget, TYPE_FLYING) && gBattleMons[gBattlerTarget].ability != ABILITY_LEVITATE)
+                         || (gBattleMons[sBattler_AI].ability == ABILITY_MAGNET_PULL && IS_BATTLER_OF_TYPE(gBattlerTarget, TYPE_STEEL))
+                         || (gBattleMons[gBattlerTarget].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
+                        )
+                       )
+                        doNotRepeat = TRUE;
+                    
+                    if (!doNotRepeat)
+                        switch(gBattleMoves[previous_move].target)
+                        {
+                            case MOVE_TARGET_DEPENDS:
+                            case MOVE_TARGET_USER:
+                            case MOVE_TARGET_OPPONENTS_FIELD:
+                                doNotRepeat = TRUE;
+                        }
+                    
+                    if (!doNotRepeat)
+                        switch(gBattleMoves[previous_move].effect)
+                        {
+                            case EFFECT_DISABLE:
+                            case EFFECT_ENCORE:
+                            case EFFECT_SKILL_SWAP:
+                            case EFFECT_HEAL_PULSE:
+                                doNotRepeat = TRUE;
+                        }
+
+                    if (!doNotRepeat && AI_THINKING_STRUCT->score[memory.lastMoveIndex] > 40
+                     && (
+                         (previous_turn_had_switches_detected && (Random()%5)) // tiene un 10% de jugársela si lleva más de un turno seguido aunque no pase nada de lo siguiente
+                      || (gBattleMons[sBattler_AI].status1 & (STATUS1_PSN_ANY | STATUS1_BURN))
+                      || (gBattleMons[sBattler_AI].status2 & STATUS2_CURSED)
+                      || (gStatuses3[sBattler_AI] & STATUS3_LEECHSEED)
+                      || (WEATHER_HAS_EFFECT
+                          && gBattleMons[sBattler_AI].ability != ABILITY_OVERCOAT
+                          && gBattleMons[sBattler_AI].item != ITEM_LEFTOVERS // Restos compensa el clima
+                          && !(gStatuses3[sBattler_AI] & STATUS3_ROOTED)     // Arraigo ídem
+                          && (
+                              ( // la IA pierde PS por arena
+                               (gBattleWeather & WEATHER_SANDSTORM_ANY)
+                               && !IS_BATTLER_OF_TYPE(sBattler_AI, TYPE_GROUND)
+                               && !IS_BATTLER_OF_TYPE(sBattler_AI, TYPE_ROCK)
+                               && !IS_BATTLER_OF_TYPE(sBattler_AI, TYPE_STEEL)
+                               && gBattleMons[sBattler_AI].ability != ABILITY_SAND_VEIL
+				                       && gBattleMons[sBattler_AI].ability != ABILITY_SAND_RUSH
+				                       && gBattleMons[sBattler_AI].ability != ABILITY_SAND_FORCE
+                              )
+                            ||
+                              ( // la IA pierde PS por granizo
+                               (gBattleWeather & WEATHER_HAIL_ANY)
+                               && !IS_BATTLER_OF_TYPE(sBattler_AI, TYPE_ICE)
+                               && gBattleMons[sBattler_AI].ability != ABILITY_SNOW_CLOAK
+				                       && gBattleMons[sBattler_AI].ability != ABILITY_ICE_BODY
+				                       && gBattleMons[sBattler_AI].ability != ABILITY_SLUSH_RUSH
+                              )
+                             )
+                         )
+                      || gBattleMons[sBattler_AI].pp[chosenMovePos] < 8 // la IA empieza a tener pocos PP
+                        )
+                    )
+                    {
+                        // La IA va a probar a repetir movimiento
+                        chosenMovePos = memory.secondLastMoveIndex;
+                        memory.triedToPredictSwitches = 1;
+                    }
+                }
+            }  
+            else // esto incluye que lastMoveIndex == chosenMovePos
+            {
+                memory.lastMoveIndex = chosenMovePos;
+                memory.enoughPointsDifference = 0;
+                memory.opponentChanged = 0;
+                memory.switchesDetected = 0;
+            }
+        }
+        else
+        {
+            memory.lastMoveIndex = chosenMovePos;
+            memory.switchesDetected = 0;
+        }
+
+        STORED_AI_MEMORY = memory;
         return chosenMovePos;
     }
 }
@@ -1199,6 +1334,21 @@ void RecordItemEffectBattle(u8 battlerId, u8 itemEffect)
 void ClearBattlerItemEffectHistory(u8 battlerId)
 {
     FOES_OBSERVED_ITEM_EFFECT(battlerId) = 0;
+}
+
+// La IA toma nota de que, a lo largo del turno, hubo algún cambio obligado
+// (por KO o por Roar/Whirlwind) en alguno de los equipos
+// También se usa en caso de transformación
+void AI_MarkForcedChange(void)
+{
+    s32 i;
+
+    if (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
+        for (i = 0; i < 2; i++)
+        {
+            BATTLE_HISTORY->switchMemory[i].opponentChanged = 0;
+            BATTLE_HISTORY->switchMemory[i].enoughPointsDifference = 1;
+        }
 }
 
 static void Cmd_if_random_less_than(void)
