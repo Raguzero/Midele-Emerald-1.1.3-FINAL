@@ -174,8 +174,10 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 - Varios objetos de tipo medicina pueden ser usados de forma repetida desde el menú.
 
 
-## Versión 1.1.1
 
+
+
+## Versión 1.1.1
 Cambios y arreglos de errores de la versión 1.1.1
 
 Debido a los cambios, se recomienda que la partida no esté guardada en los siguientes lugares tras actualizar a esta versión:
@@ -208,18 +210,16 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 - Modificado moveset de Totem Glalie; tenía un ataque que no puede ser usado en batallas de totems.
 
 
+
+
+
 ## Versión 1.1.2
-
-
-
 Cambios y arreglos de errores de la versión 1.1.2
-
 
 
 Debido a los cambios, se recomienda que la partida no esté guardada en los siguientes lugares tras actualizar a esta versión:
 
 - Gym Darkizard
-
 - Route 127
 
 
@@ -247,3 +247,21 @@ Debido a los cambios, se recomienda que la partida no esté guardada en los sigu
 - Añadidas más zonas de aguas en las partes de la ROUTE 127 donde pueden aparecer puntos de buceo con los que se acceden a la MARINE CAVE.
 
 
+
+## Versión 1.1.3
+Cambios y arreglos de errores de la versión 1.1.3
+
+
+### Combates
+
+
+- Corregido un bug de la IA, lo que significa que ahora la IA funciona mejor.
+- Corregido el bug de la habilidad SLUSH RUSH que hacia que evitase el daño de clima de SANDSTORM en vez de clima HAILSTORM (recordatorio: lo evita solo en Midele, no en juegos oficiales).
+- Se ha eliminado la posibilidad de que el jugador pueda lanzar BALLs al entrenador como medida para pasar turnos y gastar PPs del enemigo.
+- Mejorado el sistema de cambios de POKéMON de la IA
+- Mejorada la IA a la hora de usar ENDURE, DESTINY BOND, COUNTER, MIRROR COAT, Moves de curación de estados, Moves de prioridad, y alguna cosilla más.
+
+### Eventos
+
+
+-Corregido un bug del vendedor de fosiles que impedia comprar un fosil si habias comprado la MT de un vendedor de LILYCOVE CITY (y vicerversa)
