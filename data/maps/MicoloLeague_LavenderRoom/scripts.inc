@@ -255,7 +255,7 @@ MicoloLeague_LavenderRoom_FightLavender_Text_2:
 	.string "aquí...\p"
 	.string "Nah, en realidad no. Solo era un diálogo\n"
 	.string "para hacerme el interesante. Ya sabes.\p"
-	.string "Sea como sea, te agradezco que hallas\n"
+	.string "Sea como sea, te agradezco que hayas\n"
 	.string "llegado hasta aquí. Probablemente\l"
 	.string "haya habido momentos en los que has\l"
 	.string "querido dejarlo, abandonar. Momentos\l"
