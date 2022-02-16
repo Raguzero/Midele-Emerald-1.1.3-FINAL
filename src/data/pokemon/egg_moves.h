@@ -1479,8 +1479,7 @@ const u16 gEggMoves[] = {
               MOVE_ENDURE,
               MOVE_FAINT_ATTACK,
               MOVE_GUST,
-              MOVE_SILVER_WIND,
-			MOVE_ENDURE),
+              MOVE_SILVER_WIND),
 
     egg_moves(TAILLOW,
               MOVE_PURSUIT,
