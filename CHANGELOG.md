@@ -265,3 +265,15 @@ Cambios y arreglos de errores de la versión 1.1.3
 
 
 -Corregido un bug del vendedor de fosiles que impedia comprar un fosil si habias comprado la MT de un vendedor de LILYCOVE CITY (y vicerversa)
+
+
+## Versión 1.1.4
+Cambios y arreglos de errores de la versión 1.1.4
+
+### Textos
+
+- Corregido texto de Lavender.
+
+### Pokémon
+
+- Corregido error en el que Nincada podía ser obtenido con un movimiento huevo repetido.
