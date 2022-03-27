@@ -478,7 +478,7 @@ bool32 IsTruantMonVulnerable(u32 battlerAI, u32 opposingBattler)
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
         u32 move = FOES_MOVE_HISTORY(opposingBattler)[i];
-        if (gBattleMoves[move].effect == EFFECT_PROTECT && move != MOVE_ENDURE)
+        if (gBattleMoves[move].effect == EFFECT_PROTECT)
             return TRUE;
 		if (gBattleMoves[move].effect == EFFECT_SUBSTITUTE
 			&& gBattleMons[opposingBattler].hp > gBattleMons[opposingBattler].maxHP / 4) // tiene PS para meter sub
@@ -610,7 +610,7 @@ bool32 OurShedinjaIsVulnerable(u32 battlerAI, u32 opposingBattler, u16 considere
     u8 moveLimitations = CheckMoveLimitations(opposingBattler, 0, MOVE_LIMITATION_CHOICE-1);
 
     // Si Shedinja elige protegerse, no hace falta huir
-    if (gBattleMoves[consideredMove].effect == EFFECT_PROTECT)
+    if (gBattleMoves[consideredMove].effect == EFFECT_PROTECT && gDisableStructs[battlerAI].protectUses == 0)
         return FALSE;
 
     // Si Shedinja es más rápido y hace KO con el ataque elegido, no hace falta huir
@@ -854,12 +854,21 @@ static u8 ChooseMoveOrAction_Singles(void)
 		// Considera cambiar si corre peligro ante el rival y hay opciones mejores por ahí
         if (!(
               // no cambia si tiene Evasión alta y el rival está intoxicado o maldito
-             // o si tiene un sustituto o va a protegerse o usar Endure, o si es FEAR
-			  gBattleMons[sBattler_AI].statStages[STAT_EVASION] >= 9 // +3 o más
+              // o si tiene un sustituto o es FEAR,
+              // o va a protegerse o usar Endure (y no tiene status que quite PS)
+              gBattleMons[sBattler_AI].statStages[STAT_EVASION] >= 9 // +3 o más
            && ((gBattleMons[gBattlerTarget].status1 & STATUS1_TOXIC_POISON) || (gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED))
              )
             && !(gBattleMons[sBattler_AI].status2 & STATUS2_SUBSTITUTE)
-            && gBattleMoves[move].effect != EFFECT_PROTECT && gBattleMoves[move].effect != EFFECT_ENDURE
+            && !(
+                 (gBattleMoves[move].effect == EFFECT_PROTECT
+                  || (gBattleMoves[move].effect == EFFECT_ENDURE && !(gBattleMons[sBattler_AI].status1 & (STATUS1_PSN_ANY | STATUS1_BURN)))
+                 )
+                 && gDisableStructs[sBattler_AI].protectUses == 0 // si ya lo usó el turno anterior, mejor pensar en cambiar
+                 && !(gBattleMons[sBattler_AI].status1 & STATUS1_TOXIC_POISON)
+                 && !(gBattleMons[sBattler_AI].status2 & STATUS2_CURSED)
+                 && !(gStatuses3[sBattler_AI] & STATUS3_LEECHSEED)
+                )
             && !(gBattleMons[sBattler_AI].level <= 2) // probable FEAR
             && AICanSwitchAssumingEnoughPokemon())
         {
