@@ -1360,7 +1360,6 @@ const u16 gEggMoves[] = {
               MOVE_CROSS_CHOP,
               MOVE_FIRE_PUNCH,
               MOVE_ICE_PUNCH,
-			  MOVE_BARRIER,
 			MOVE_DYNAMIC_PUNCH),
 
     egg_moves(MAGBY,
@@ -1370,7 +1369,6 @@ const u16 gEggMoves[] = {
               MOVE_SCREECH,
               MOVE_CROSS_CHOP,
               MOVE_THUNDER_PUNCH,
-			  MOVE_BARRIER,
 			MOVE_BELLY_DRUM,
 			MOVE_FOCUS_ENERGY,
 			MOVE_MACH_PUNCH),
