@@ -25410,6 +25410,16 @@ static const struct TrainerMonCustomMidele sParty_Ghaddar2[] = {
 static const struct TrainerMonCustomMidele sParty_Kaderete2[] = {
     {
     .iv = 31,
+    .lvl = 100,
+    .species = SPECIES_ELECTRODE,
+    .heldItem = ITEM_CHOICE_BAND,
+    .nature = NATURE_ADAMANT,
+    .evs = {0, 252, 6, 0, 0, 252},
+    .ability = 1, // STATIC
+    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+	{
+    .iv = 31,
     .lvl = 93,
     .species = SPECIES_MANDIBUZZ,
     .heldItem = ITEM_LEFTOVERS,
@@ -25460,15 +25470,6 @@ static const struct TrainerMonCustomMidele sParty_Kaderete2[] = {
     .evs = {0, 0, 6, 252, 0, 252},
     .ability = 0, // LEVITATE
     .moves = {MOVE_FIRE_PUNCH, MOVE_ICE_PUNCH, MOVE_THUNDERBOLT, MOVE_PSYCHIC}
-    },
-    {
-    .iv = 31,
-    .lvl = 100,
-    .species = SPECIES_ELECTRODE,
-    .nature = NATURE_ADAMANT,
-    .evs = {0, 252, 6, 0, 0, 252},
-    .ability = 1, // STATIC
-    .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 };
 static const struct TrainerMonCustomMidele sParty_Furry[] = {
