@@ -350,7 +350,6 @@ const u16 gEggMoves[] = {
               MOVE_AMNESIA,
               MOVE_CONFUSION,
               MOVE_BEAT_UP,
-			  MOVE_AMNESIA,
 			MOVE_HEAD_SMASH,
 			MOVE_POISON_TAIL),
 
@@ -608,7 +607,6 @@ const u16 gEggMoves[] = {
               MOVE_ASTONISH,
               MOVE_WILL_O_WISP,
               MOVE_GRUDGE,
-			  MOVE_ASTONISH,
 			MOVE_DISABLE,
 			MOVE_SCARY_FACE,
 			MOVE_SMOG),
@@ -697,7 +695,6 @@ const u16 gEggMoves[] = {
               MOVE_SWORDS_DANCE,
               MOVE_CURSE,
               MOVE_CRUSH_CLAW,
-			  MOVE_COUNTER,
 			MOVE_SKULL_BASH),
 
     egg_moves(CHANSEY,
@@ -2544,7 +2541,6 @@ const u16 gEggMoves[] = {
 		MOVE_ACID_ARMOR,
 		MOVE_TRICK,
 		MOVE_IMPRISON,
-		MOVE_ASTONISH,
 		MOVE_HELPING_HAND),
 
 	egg_moves(VULLABY,
