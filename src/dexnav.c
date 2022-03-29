@@ -147,6 +147,7 @@ static u8 DexNavTryGenerateMonLevel(u16 species, u8 environment);
 static u8 GetEncounterLevelFromMapData(u16 species, u8 environment);
 static void CreateDexNavWildMon(u16 species, u8 potential, u8 level, u8 abilityNum, u16* moves, u16 item);
 static u8 GetPlayerDistance(s16 x, s16 y);
+static bool8 DexNavPickTile_NTries(u8 environment, u8 areaX, u8 areaY, bool8 smallScan, u16 tries);
 static u8 DexNavPickTile(u8 environment, u8 xSize, u8 ySize, bool8 smallScan);
 static void DexNavProximityUpdate(void);
 static void DexNavDrawIcons(void);
@@ -629,6 +630,17 @@ static void DexNavProximityUpdate(void)
     sDexNavSearchDataPtr->proximity = GetPlayerDistance(sDexNavSearchDataPtr->tileX, sDexNavSearchDataPtr->tileY);
 }
 
+static bool8 DexNavPickTile_NTries(u8 environment, u8 areaX, u8 areaY, bool8 smallScan, u16 tries)
+{
+    u16 current_tries;
+    
+    for (current_tries = 0; current_tries < tries; current_tries++)
+        if (DexNavPickTile(environment, areaX, areaY, smallScan))
+            return TRUE;
+
+    return FALSE;
+}
+
 //Pick a specific tile based on environment
 static bool8 DexNavPickTile(u8 environment, u8 areaX, u8 areaY, bool8 smallScan)
 {
@@ -742,7 +754,9 @@ static bool8 TryStartHiddenMonFieldEffect(u8 environment, u8 xSize, u8 ySize, bo
     u8 currMapType = GetCurrentMapType();
     u8 fldEffId = 0;
     
-    if (DexNavPickTile(environment, xSize, ySize, smallScan))
+    #define MAX_DEXNAV_TRIES 20 // algo menos de medio segundo
+    
+    if (DexNavPickTile_NTries(environment, xSize, ySize, smallScan, MAX_DEXNAV_TRIES))
     {
         u8 metatileBehaviour = MapGridGetMetatileBehaviorAt(sDexNavSearchDataPtr->tileX, sDexNavSearchDataPtr->tileY);
 
@@ -1215,12 +1229,24 @@ static void Task_DexNavSearch(u8 taskId)
         && sDexNavSearchDataPtr->proximity < GetMovementProximityBySearchLevel() && sDexNavSearchDataPtr->movementCount < 2
         && task->tRevealed)
     {
-        bool8 ret;
-        
         FieldEffectStop(&gSprites[sDexNavSearchDataPtr->fldEffSpriteId], sDexNavSearchDataPtr->fldEffId);
-        while (1) {
-            if (TryStartHiddenMonFieldEffect(sDexNavSearchDataPtr->environment, 10, 10, TRUE))
-                break;
+        if (!TryStartHiddenMonFieldEffect(sDexNavSearchDataPtr->environment, 10, 10, TRUE))
+        {
+            // No se pudo encontrar un cuadro: podemos decir que hemos arrinconado al poke.
+            // Se queda en el mismo sitio; volvemos a dibujar el field effect
+            gFieldEffectArguments[0] = sDexNavSearchDataPtr->tileX;
+            gFieldEffectArguments[1] = sDexNavSearchDataPtr->tileY;
+            gFieldEffectArguments[2] = 0xFF; // subpriority
+            gFieldEffectArguments[3] = 2;   //priority
+            sDexNavSearchDataPtr->fldEffSpriteId = FieldEffectStart(sDexNavSearchDataPtr->fldEffId);
+
+            // Se podría hacer que, en lugar de quedarse en el sitio, huya, así:
+            /* 
+            EndDexNavSearchSetupScript(EventScript_PokemonGotAway, taskId);
+            return;
+            */
+            // Incluso se podría hacer que sucediede una cosa u otra según la Speed base o algo,
+            // pero mejor no romper cadenas innecesariamente
         }
         
         sDexNavSearchDataPtr->movementCount++;
