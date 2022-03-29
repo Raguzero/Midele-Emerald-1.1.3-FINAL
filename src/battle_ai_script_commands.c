@@ -542,6 +542,36 @@ bool8 IsMoveSignificantlyAffectedByAccuracyDrops(u16 move)
     return IsAccuracyLowered(-3); // se considera bajada a partir de -3
 }
 
+bool8 sBattler_AIisLosingHPDueToWeather(bool8 ignoreLeftoversAndIngrain)
+{
+    return (WEATHER_HAS_EFFECT
+            && gBattleMons[sBattler_AI].ability != ABILITY_OVERCOAT
+            && (ignoreLeftoversAndIngrain || (
+                      gBattleMons[sBattler_AI].item != ITEM_LEFTOVERS // Restos compensa el clima
+                  && !(gStatuses3[sBattler_AI] & STATUS3_ROOTED)      // Arraigo ídem
+                ))
+            && (
+                ( // la IA pierde PS por arena
+                 (gBattleWeather & WEATHER_SANDSTORM_ANY)
+                 && !IS_BATTLER_OF_TYPE(sBattler_AI, TYPE_GROUND)
+                 && !IS_BATTLER_OF_TYPE(sBattler_AI, TYPE_ROCK)
+                 && !IS_BATTLER_OF_TYPE(sBattler_AI, TYPE_STEEL)
+                 && gBattleMons[sBattler_AI].ability != ABILITY_SAND_VEIL
+                 && gBattleMons[sBattler_AI].ability != ABILITY_SAND_RUSH
+                 && gBattleMons[sBattler_AI].ability != ABILITY_SAND_FORCE
+                )
+              ||
+                ( // la IA pierde PS por granizo
+                 (gBattleWeather & WEATHER_HAIL_ANY)
+                 && !IS_BATTLER_OF_TYPE(sBattler_AI, TYPE_ICE)
+                 && gBattleMons[sBattler_AI].ability != ABILITY_SNOW_CLOAK
+                 && gBattleMons[sBattler_AI].ability != ABILITY_ICE_BODY
+                 && gBattleMons[sBattler_AI].ability != ABILITY_SLUSH_RUSH
+                )
+               )
+           );
+}
+
 void CalculategBattleMoveDamageFromgCurrentMove(u8 attackerId, u8 targetId, u8 simulatedRng)
 {
     gDynamicBasePower = 0;
@@ -903,9 +933,20 @@ static u8 ChooseMoveOrAction_Singles(void)
             }
         }
         // El poke lleva muchos turnos intoxicado, mejor cambiar
+        #define _AI_CURRENT_TOXIC_TURNS_ ((gBattleMons[sBattler_AI].status1 & 0xF00) >> 8)
         if (gBattleMons[sBattler_AI].status1 & STATUS1_TOXIC_POISON
-            && ((gBattleMons[sBattler_AI].status1 & 0xF00) >> 8) >= 4 // lleva al menos 4 turnos de daño y por tanto va a perder más de un 25% (al menos un 31,25%) de sus PS
-            && (currentMoveArray[0] <= 101                            // y no escoge un movimiento que alcance los 102 puntos (probable KO)
+            && (
+                _AI_CURRENT_TOXIC_TURNS_ >= 4 // lleva al menos 4 turnos de daño y por tanto va a perder más de un 25% (al menos un 31,25%) de sus PS
+                || (_AI_CURRENT_TOXIC_TURNS_ == 3 // 3 turnos de daño también es mucho en los siguientes supuestos
+                    && (
+                           (gBattleMons[sBattler_AI].status2 & STATUS2_CURSED) // estar maldito
+                        || (gStatuses3[sBattler_AI] & STATUS3_LEECHSEED)       // tener Leech Seed
+                        || sBattler_AIisLosingHPDueToWeather(FALSE)            // ser dañado por clima y no tener Restos
+                        || ((gBattleMons[sBattler_AI].item != ITEM_LEFTOVERS || sBattler_AIisLosingHPDueToWeather(TRUE)) && (Random()%2)) // o, en caso de no tener Restos o ser dañado por clima pero sí tener Restos, un 50% de cambiar
+                       )
+                   )
+               )
+            && (currentMoveArray[0] <= 101 // y no escoge un movimiento que alcance los 102 puntos (probable KO)
              // Los siguientes movimientos casi nunca tiene sentido usarlos
              // estando intoxicado en un estado avanzado
              || gBattleMoves[move].effect == EFFECT_RESTORE_HP
@@ -1018,30 +1059,7 @@ static u8 ChooseMoveOrAction_Singles(void)
                       || (gBattleMons[sBattler_AI].status1 & (STATUS1_PSN_ANY | STATUS1_BURN))
                       || (gBattleMons[sBattler_AI].status2 & STATUS2_CURSED)
                       || (gStatuses3[sBattler_AI] & STATUS3_LEECHSEED)
-                      || (WEATHER_HAS_EFFECT
-                          && gBattleMons[sBattler_AI].ability != ABILITY_OVERCOAT
-                          && gBattleMons[sBattler_AI].item != ITEM_LEFTOVERS // Restos compensa el clima
-                          && !(gStatuses3[sBattler_AI] & STATUS3_ROOTED)     // Arraigo ídem
-                          && (
-                              ( // la IA pierde PS por arena
-                               (gBattleWeather & WEATHER_SANDSTORM_ANY)
-                               && !IS_BATTLER_OF_TYPE(sBattler_AI, TYPE_GROUND)
-                               && !IS_BATTLER_OF_TYPE(sBattler_AI, TYPE_ROCK)
-                               && !IS_BATTLER_OF_TYPE(sBattler_AI, TYPE_STEEL)
-                               && gBattleMons[sBattler_AI].ability != ABILITY_SAND_VEIL
-				                       && gBattleMons[sBattler_AI].ability != ABILITY_SAND_RUSH
-				                       && gBattleMons[sBattler_AI].ability != ABILITY_SAND_FORCE
-                              )
-                            ||
-                              ( // la IA pierde PS por granizo
-                               (gBattleWeather & WEATHER_HAIL_ANY)
-                               && !IS_BATTLER_OF_TYPE(sBattler_AI, TYPE_ICE)
-                               && gBattleMons[sBattler_AI].ability != ABILITY_SNOW_CLOAK
-				                       && gBattleMons[sBattler_AI].ability != ABILITY_ICE_BODY
-				                       && gBattleMons[sBattler_AI].ability != ABILITY_SLUSH_RUSH
-                              )
-                             )
-                         )
+                      || sBattler_AIisLosingHPDueToWeather(FALSE)
                       || gBattleMons[sBattler_AI].pp[chosenMovePos] < 8 // la IA empieza a tener pocos PP
                         )
                     )
