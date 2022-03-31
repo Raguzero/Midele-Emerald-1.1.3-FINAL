@@ -473,7 +473,8 @@ EverGrandeCity_PokemonLeague_1F_Sign_VictoriasCC::
 	
 Script_RandomPrize1_Text_NoRoomForThis:
 	.string "¿Así que no tienes espacio para esto?\n"
-	.string "¿Pero cuántos objetos distintos llevas?\p"
+	.string "¿Pero cuántos objetos distintos\l"
+	.string "llevas en la mochila?\p"
 
 	.string "Bien, guardaré tu premio, pero tendrás\n"
 	.string "que vencerme de nuevo.\p"
