@@ -3092,6 +3092,10 @@ extern const u8 gText_Cheryl[];
 extern const u8 gText_Individual[];
 extern const u8 gText_Dobles[];
 
+extern const u8 gText_MetroIndividual[];
+extern const u8 gText_MetroDobles[];
+extern const u8 gText_DoNotSwitchInMetroBattles[];
+
 // NO COMPRAR MTS REPES
 extern const u8 gText_YouAlreadyHaveThis[];
 
