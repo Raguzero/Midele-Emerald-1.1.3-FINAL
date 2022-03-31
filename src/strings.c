@@ -1880,6 +1880,9 @@ const u8 gText_Wintass[] = _("WINTASS{CLEAR_TO 0x48}9000 COINS");
 const u8 gText_Catermano[] = _("CATERMANO{CLEAR_TO 0x48}9000 COINS");
 const u8 gText_Individual[] = _("INDIVIDUAL");
 const u8 gText_Dobles[] = _("DOBLES");
+const u8 gText_MetroIndividual[] = _("METRO INDIV");
+const u8 gText_MetroDobles[] = _("METRO DOBLES");
+const u8 gText_DoNotSwitchInMetroBattles[] = _("¡No puedes cambiar libremente\nen una metrobatalla!{PAUSE_UNTIL_PRESS}");
 
 const u8 gText_HardyNature[] = _("HARDY");
 const u8 gText_LonelyNature[] = _("LONELY");

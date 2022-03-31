@@ -3,6 +3,7 @@
 #include "battle_anim.h"
 #include "battle_controllers.h"
 #include "battle_ai_script_commands.h"
+#include "event_data.h"
 #include "pokemon.h"
 #include "random.h"
 #include "util.h"
@@ -631,6 +632,9 @@ static bool8 ShouldSwitch(void)
             return FALSE;
     }
     if (gBattleTypeFlags & BATTLE_TYPE_ARENA)
+        return FALSE;
+
+    if (FlagGet(FLAG_RYU_RANDOMBATTLECCMETRO) == 1)
         return FALSE;
 
     availableToSwitch = 0;

@@ -5927,6 +5927,13 @@ static bool8 TrySwitchInPokemon(void)
         StringExpandPlaceholders(gStringVar4, gText_PkmnAlreadySelected);
         return FALSE;
     }
+    // Si la action es PARTY_ACTION_CHOOSE_MON, el jugador puede elegir no cambiar,
+    // mientras que no puede si la action es PARTY_ACTION_SEND_OUT
+    if (gPartyMenu.action == PARTY_ACTION_CHOOSE_MON && FlagGet(FLAG_RYU_RANDOMBATTLECCMETRO) == 1)
+    {
+        StringExpandPlaceholders(gStringVar4, gText_DoNotSwitchInMetroBattles);
+        return FALSE;
+    }
     if (gPartyMenu.action == PARTY_ACTION_ABILITY_PREVENTS)
     {
         SetMonPreventsSwitchingString();

@@ -2208,30 +2208,58 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 						} while (j < i);
 				CreateMonWithEVSpreadNatureOTID(&gEnemyParty[i], pokeenemy -> species, level, pokeenemy -> nature, 31, pokeenemy -> evSpread, otID);
                 CreateMonWithEVSpreadNatureOTID(&gPlayerParty[i], pokeplayer -> species, level, pokeplayer -> nature, 31, pokeplayer -> evSpread, otID);
-                for (j = 0; j < MAX_MON_MOVES; j++)
-        {
-            SetMonMoveAvoidReturn(&gEnemyParty[i], pokeenemy -> moves[j], j);
-            SetMonMoveAvoidReturn(&gPlayerParty[i], pokeplayer -> moves[j], j);
-        }
+                if (FlagGet(FLAG_RYU_RANDOMBATTLECCMETRO) == 1)
+                {
+                    SetMonMoveAvoidReturn(&gEnemyParty[i], MOVE_METRONOME, 0);
+                    SetMonMoveAvoidReturn(&gPlayerParty[i], MOVE_METRONOME, 0);
+                    for (j = 1; j < MAX_MON_MOVES; j++)
+                    {
+                        SetMonMoveAvoidReturn(&gEnemyParty[i], MOVE_NONE, j);
+                        SetMonMoveAvoidReturn(&gPlayerParty[i], MOVE_NONE, j);
+                    }
+                }
+                else // random battle cc sin Metrónomo
+                    for (j = 0; j < MAX_MON_MOVES; j++)
+                    {
+                        SetMonMoveAvoidReturn(&gEnemyParty[i], pokeenemy -> moves[j], j);
+                        SetMonMoveAvoidReturn(&gPlayerParty[i], pokeplayer -> moves[j], j);
+                    }
 
         SetMonData(&gEnemyParty[i], MON_DATA_FRIENDSHIP, 0);
-        SetMonData(&gEnemyParty[i], MON_DATA_HELD_ITEM, &gBattleFrontierHeldItems[pokeenemy -> itemTableId]);
-				for (j = 0; j < MAX_MON_MOVES; j++)
-                {
-                    u8 maxPp = CalculatePPWithBonus(pokeenemy -> moves[j], 3, 0);
-                    u8 fullpp = 0xFF;
-					SetMonData(&gEnemyParty[i], MON_DATA_PP1 + j, &maxPp);
-					SetMonData(&gEnemyParty[i], MON_DATA_PP_BONUSES, &fullpp);
-                }
         SetMonData(&gPlayerParty[i], MON_DATA_FRIENDSHIP, 0);
-        SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &gBattleFrontierHeldItems[pokeplayer -> itemTableId]); 
-				for (j = 0; j < MAX_MON_MOVES; j++)
-                {
-                    u8 maxPp = CalculatePPWithBonus(pokeplayer -> moves[j], 3, 0);
-                    u8 fullpp = 0xFF;
-					SetMonData(&gPlayerParty[i], MON_DATA_PP1 + j, &maxPp);
-					SetMonData(&gPlayerParty[i], MON_DATA_PP_BONUSES, &fullpp);
-                }
+        
+        if (FlagGet(FLAG_RYU_RANDOMBATTLECCMETRO) == 1)
+        {
+            u16 leppaberry = ITEM_LEPPA_BERRY;
+            u8 maxPp = CalculatePPWithBonus(MOVE_METRONOME, 3, 0);
+            u8 fullpp = 0xFF;
+            SetMonData(&gEnemyParty[i],  MON_DATA_HELD_ITEM,  &leppaberry);
+            SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM,  &leppaberry);
+            SetMonData(&gEnemyParty[i],  MON_DATA_PP1,        &maxPp);
+            SetMonData(&gPlayerParty[i], MON_DATA_PP1,        &maxPp);
+            SetMonData(&gEnemyParty[i],  MON_DATA_PP_BONUSES, &fullpp);
+            SetMonData(&gPlayerParty[i], MON_DATA_PP_BONUSES, &fullpp);
+        }
+        else
+        {
+            SetMonData(&gEnemyParty[i], MON_DATA_HELD_ITEM, &gBattleFrontierHeldItems[pokeenemy -> itemTableId]);
+            SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &gBattleFrontierHeldItems[pokeplayer -> itemTableId]);
+            for (j = 0; j < MAX_MON_MOVES; j++)
+            {
+                u8 maxPp = CalculatePPWithBonus(pokeenemy -> moves[j], 3, 0);
+                u8 fullpp = 0xFF;
+                SetMonData(&gEnemyParty[i], MON_DATA_PP1 + j, &maxPp);
+                SetMonData(&gEnemyParty[i], MON_DATA_PP_BONUSES, &fullpp);
+            }
+
+            for (j = 0; j < MAX_MON_MOVES; j++)
+            {
+                u8 maxPp = CalculatePPWithBonus(pokeplayer -> moves[j], 3, 0);
+                u8 fullpp = 0xFF;
+                SetMonData(&gPlayerParty[i], MON_DATA_PP1 + j, &maxPp);
+                SetMonData(&gPlayerParty[i], MON_DATA_PP_BONUSES, &fullpp);
+            }
+        }
 					break;
                 }
 		// NUEVO RANDOM BATTLE CC
