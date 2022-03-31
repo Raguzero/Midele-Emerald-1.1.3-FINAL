@@ -967,6 +967,15 @@ static const struct MenuAction MultichoiceList_RandomBattle[] =
     {gText_Exit}
 };
 
+static const struct MenuAction MultichoiceList_RandomBattleCC[] =
+{
+    {gText_Individual},
+    {gText_Dobles},
+    {gText_MetroIndividual},
+    {gText_MetroDobles},
+    {gText_Exit}
+};
+
 static const struct MenuAction MultichoiceList_PKMNCentreMovetutor[] =
 {
     {gText_RememberAMove},
@@ -1293,6 +1302,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
 	[MULTI_LISTAS_CIBERCAFE] =  MULTICHOICE(MultichoiceList_Listas_CiberCafe),
     [MULTI_CIBERCAFE_BATALLA_2]     =MULTICHOICE(MultichoiceList_CiberCafe_Batalla_2),
     [MULTI_CIBERCAFE_BATALLA_MODOS_ESPECIALES]     =MULTICHOICE(MultichoiceList_CiberCafe_Batalla_Modos_Especiales),
+    [MULTI_RANDOMBATTLECC]     =MULTICHOICE(MultichoiceList_RandomBattleCC),
 };
 
 const u8 *const gStdStrings[] =
