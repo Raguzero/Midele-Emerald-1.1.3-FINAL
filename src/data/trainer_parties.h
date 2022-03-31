@@ -18643,7 +18643,7 @@ static const struct TrainerMonCustomMidele sParty_Sebastian[] = {
 	.evs = {0, 0, 0, 36, 0, 252},
 	.heldItem = ITEM_FOCUS_SASH,
 	.ability = 1,
-    .moves = {MOVE_SPIKES, MOVE_KNOCK_OFF, MOVE_TEETER_DANCE, MOVE_NEEDLE_ARM}
+    .moves = {MOVE_SPIKES, MOVE_FAINT_ATTACK, MOVE_TEETER_DANCE, MOVE_NEEDLE_ARM}
     },
     {
     .iv = 31,
@@ -23349,7 +23349,7 @@ static const struct TrainerMonCustomMidele sParty_Dunk[] = {
     .nature = NATURE_TIMID,
 	.hpType = TYPE_GRASS,
     .evs = {0, 0, 0, 144, 0, 144},
-    .moves = {MOVE_SURF, MOVE_ICE_BEAM, MOVE_HYPNOSIS, MOVE_HIDDEN_POWER}
+    .moves = {MOVE_SURF, MOVE_ICE_BEAM, MOVE_LOVELY_KISS, MOVE_HIDDEN_POWER}
   },
    {
     .iv = 31,
@@ -26162,7 +26162,7 @@ static const struct TrainerMonCustomMidele sParty_Dunk2[] = {
     .nature = NATURE_TIMID,
 	.hpType = TYPE_GRASS,
     .evs = {0, 0, 0, 144, 0, 144},
-    .moves = {MOVE_SURF, MOVE_ICE_BEAM, MOVE_HYPNOSIS, MOVE_HIDDEN_POWER}
+    .moves = {MOVE_SURF, MOVE_ICE_BEAM, MOVE_LOVELY_KISS, MOVE_HIDDEN_POWER}
   },
    {
     .iv = 31,
@@ -26292,7 +26292,7 @@ static const struct TrainerMonCustomMidele sParty_SapphGymTrainer1[] = {
     .heldItem = ITEM_LEFTOVERS,
     .nature = NATURE_CALM,
     .evs = {252, 0, 0, 0, 252, 6},
-    .moves = {MOVE_MIND_READER, MOVE_FISSURE, MOVE_PERISH_SONG, MOVE_HYPNOSIS}
+    .moves = {MOVE_MIND_READER, MOVE_FISSURE, MOVE_PERISH_SONG, MOVE_LOVELY_KISS}
   }
 };
 
