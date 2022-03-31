@@ -725,7 +725,8 @@ bool8 AICanSwitchAssumingEnoughPokemon(void)
             && !(ABILITY_ON_FIELD2(ABILITY_MAGNET_PULL) && (gBattleMons[sBattler_AI].type1 == TYPE_STEEL || gBattleMons[sBattler_AI].type2 == TYPE_STEEL))
             && !(gBattleMons[sBattler_AI].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION) && (gBattleMons[sBattler_AI].type1 != TYPE_GHOST && gBattleMons[sBattler_AI].type2 != TYPE_GHOST))
             && !(gStatuses3[sBattler_AI] & STATUS3_ROOTED && (gBattleMons[sBattler_AI].type1 != TYPE_GHOST && gBattleMons[sBattler_AI].type2 != TYPE_GHOST))
-            && !(gBattleTypeFlags & (BATTLE_TYPE_ARENA | BATTLE_TYPE_PALACE));
+            && !(gBattleTypeFlags & (BATTLE_TYPE_ARENA | BATTLE_TYPE_PALACE))
+            && FlagGet(FLAG_RYU_RANDOMBATTLECCMETRO) != 1;
 }
 
 #define STORED_AI_MEMORY (BATTLE_HISTORY->switchMemory[sBattler_AI & BIT_SIDE])
