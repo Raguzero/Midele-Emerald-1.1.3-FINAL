@@ -236,11 +236,13 @@ Ryu_StartRandomBattleCC::
 	msgbox RANDOMCC_Batalla, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq NoBattle
-	multichoicegrid 0, 0, MULTI_RANDOMBATTLE, 3, 0
+	multichoicegrid 0, 0, MULTI_RANDOMBATTLECC, 1, 0
 	switch VAR_RESULT
 	case 0, RANDOMCCINDIVIDUAL
 	case 1, RANDOMCCDOBLES
-	case 2, NoBattle
+	case 2, RANDOMCCINDIVIDUALMETRO
+	case 3, RANDOMCCDOBLESMETRO
+	case 4, NoBattle
 	case MULTI_B_PRESSED, NoBattle
 	end
 
@@ -281,7 +283,43 @@ RANDOMCCDOBLES::
     compare VAR_RESULT, B_OUTCOME_FORFEITED
     call_if_eq BF_RandomBattleCleanupLOSSCC
 	end
-	
+
+RANDOMCCINDIVIDUALMETRO::
+    special SavePlayerParty
+	setflag FLAG_RYU_RANDOMBATTLECC
+	setflag FLAG_RYU_RANDOMBATTLECCMETRO
+	msgbox StartingRandomBattleMsg
+	setvar VAR_0x8004, SPECIAL_RANDOM_BATTLE
+    special DoSpecialTrainerBattle
+    waitstate
+    compare VAR_RESULT, B_OUTCOME_DREW
+    call_if_eq BF_RandomBattleCleanupDRAWCCMetro
+    compare VAR_RESULT, B_OUTCOME_WON
+    call_if_eq BF_RandomBattleCleanupWINCCMetro
+    compare VAR_RESULT, B_OUTCOME_LOST
+    call_if_eq BF_RandomBattleCleanupLOSSCCMetro
+    compare VAR_RESULT, B_OUTCOME_FORFEITED
+    call_if_eq BF_RandomBattleCleanupLOSSCCMetro
+	end
+
+RANDOMCCDOBLESMETRO::
+    special SavePlayerParty
+	setflag FLAG_RYU_RANDOMBATTLECC
+	setflag FLAG_RYU_RANDOMBATTLECCMETRO
+	msgbox StartingRandomBattleMsg
+	setvar VAR_0x8004, SPECIAL_RANDOM_BATTLE_2
+    special DoSpecialTrainerBattle
+    waitstate
+    compare VAR_RESULT, B_OUTCOME_DREW
+    call_if_eq BF_RandomBattleCleanupDRAWCCMetro
+    compare VAR_RESULT, B_OUTCOME_WON
+    call_if_eq BF_RandomBattleCleanupWINCCMetro
+    compare VAR_RESULT, B_OUTCOME_LOST
+    call_if_eq BF_RandomBattleCleanupLOSSCCMetro
+    compare VAR_RESULT, B_OUTCOME_FORFEITED
+    call_if_eq BF_RandomBattleCleanupLOSSCCMetro
+	end
+
 NoBattle::
 	msgbox BF_NoBattleMsg
 	closemessage
@@ -291,31 +329,37 @@ NoBattle::
 	end
 
 BF_RandomBattleCleanupWINCC::
-	special LoadPlayerParty
-	clearflag FLAG_RYU_RANDOMBATTLECC
 	setvar VAR_0x800A, UPDATE_VICTORIES_OP_INCREMENT
 	special UpdateRandomBattleVictories
+BF_RandomBattleCleanupWINCCMetro:: @ en metro no se actualiza el contador de victorias
+	special LoadPlayerParty
+	clearflag FLAG_RYU_RANDOMBATTLECC
+	clearflag FLAG_RYU_RANDOMBATTLECCMETRO
 	msgbox Enhorabuena
 	goto Script_RandomPrizes
 	end
 	
 BF_RandomBattleCleanupLOSSCC::
+	setvar VAR_0x800A, UPDATE_VICTORIES_OP_RESET
+	special UpdateRandomBattleVictories
+BF_RandomBattleCleanupLOSSCCMetro:: @ en metro no se actualiza el contador de victorias
 	special LoadPlayerParty
 	msgbox BattleAgain
 	clearflag FLAG_RYU_RANDOMBATTLECC
-	setvar VAR_0x800A, UPDATE_VICTORIES_OP_RESET
-	special UpdateRandomBattleVictories
+	clearflag FLAG_RYU_RANDOMBATTLECCMETRO
 	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
 	release
 	end
 	
 BF_RandomBattleCleanupDRAWCC::
+	setvar VAR_0x800A, UPDATE_VICTORIES_OP_RESET
+	special UpdateRandomBattleVictories
+BF_RandomBattleCleanupDRAWCCMetro:: @ en metro no se actualiza el contador de victorias
 	special LoadPlayerParty
 	msgbox Empate
 	clearflag FLAG_RYU_RANDOMBATTLECC
-	setvar VAR_0x800A, UPDATE_VICTORIES_OP_RESET
-	special UpdateRandomBattleVictories
+	clearflag FLAG_RYU_RANDOMBATTLECCMETRO
 	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
 	release
