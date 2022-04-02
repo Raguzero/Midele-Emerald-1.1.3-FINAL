@@ -1,5 +1,16 @@
 Micolandia_Cibercafe_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Micolandia_Cibercafe_OnTransition
+
 	.byte 0
+
+Micolandia_Cibercafe_OnTransition:
+	call_if_unset FLAG_HIDE_LAVAROOM_GIRATINAMASTER, Micolandia_Cibercafe_EventScript_ManiacInRandomPC
+	end
+
+Micolandia_Cibercafe_EventScript_ManiacInRandomPC::
+	setobjectxyperm 8, 12, 13
+	return
+
 
 Cibercafe_PCBatalla::
 	msgbox PC_Batalla, MSGBOX_YESNO
@@ -44,12 +55,11 @@ PC_LISTA2::
 	case 8, PC_NoBatalla
 	case MULTI_B_PRESSED, PC_NoBatalla
 	end
-	
-PC_BatalllaBROCK::
+
+PC_BatallaLider::
 	special HealPlayerParty
 	setvar VAR_0x8004, SPECIAL_CIBERCAFE
     setvar VAR_0x8005, 0
-	setvar VAR_TRAINER_BATTLE_OPPONENT_A, TRAINER_BROCK
     special DoSpecialTrainerBattle
     waitstate
 	compare VAR_RESULT, B_OUTCOME_DREW
@@ -59,216 +69,88 @@ PC_BatalllaBROCK::
     compare VAR_RESULT, B_OUTCOME_LOST
     call_if_eq PC_BatallaFinLOSS
 	end
+
+Cibercafe_PCRandom::
+  goto_if_unset FLAG_HIDE_LAVAROOM_GIRATINAMASTER, PC_Roto @ no debería ser alcanzable, pero por si acaso
+	msgbox PC_Batalla_Random, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq PC_NoBatalla
+  special PCBatallaRandomSetTrainer
+	special HealPlayerParty
+	setflag FLAG_CIBERCAFE_RANDOM
+	setvar VAR_0x8004, SPECIAL_CIBERCAFE_RANDOM
+    setvar VAR_0x8005, 0
+    special DoSpecialTrainerBattle
+    waitstate
+	clearflag FLAG_CIBERCAFE_RANDOM
+	compare VAR_RESULT, B_OUTCOME_DREW
+    call_if_eq PC_BatallaFinDRAW
+    compare VAR_RESULT, B_OUTCOME_WON
+    call_if_eq PC_BatallaFinFarmeo
+    compare VAR_RESULT, B_OUTCOME_LOST
+    call_if_eq PC_BatallaFinLOSS
+	release
+	end
+
+PC_BatalllaBROCK::
+	setvar VAR_TRAINER_BATTLE_OPPONENT_A, TRAINER_BROCK
+  goto PC_BatallaLider
 	
 PC_BatalllaMISTY::
-	special HealPlayerParty
-	setvar VAR_0x8004, SPECIAL_CIBERCAFE
-    setvar VAR_0x8005, 0
 	setvar VAR_TRAINER_BATTLE_OPPONENT_A, TRAINER_MISTY
-    special DoSpecialTrainerBattle
-    waitstate
-	compare VAR_RESULT, B_OUTCOME_DREW
-    call_if_eq PC_BatallaFinDRAW
-    compare VAR_RESULT, B_OUTCOME_WON
-    call_if_eq PC_BatallaFinWIN
-    compare VAR_RESULT, B_OUTCOME_LOST
-    call_if_eq PC_BatallaFinLOSS
-	end
+  goto PC_BatallaLider
 	
 PC_BatalllaLTSURGE::
-	special HealPlayerParty
-	setvar VAR_0x8004, SPECIAL_CIBERCAFE
-    setvar VAR_0x8005, 0
 	setvar VAR_TRAINER_BATTLE_OPPONENT_A, TRAINER_LTSURGE
-    special DoSpecialTrainerBattle
-    waitstate
-	compare VAR_RESULT, B_OUTCOME_DREW
-    call_if_eq PC_BatallaFinDRAW
-    compare VAR_RESULT, B_OUTCOME_WON
-    call_if_eq PC_BatallaFinWIN
-    compare VAR_RESULT, B_OUTCOME_LOST
-    call_if_eq PC_BatallaFinLOSS
-	end
+  goto PC_BatallaLider
 	
 PC_BatalllaERIKA::
-	special HealPlayerParty
-	setvar VAR_0x8004, SPECIAL_CIBERCAFE
-    setvar VAR_0x8005, 0
 	setvar VAR_TRAINER_BATTLE_OPPONENT_A, TRAINER_ERIKA
-    special DoSpecialTrainerBattle
-    waitstate
-	compare VAR_RESULT, B_OUTCOME_DREW
-    call_if_eq PC_BatallaFinDRAW
-    compare VAR_RESULT, B_OUTCOME_WON
-    call_if_eq PC_BatallaFinWIN
-    compare VAR_RESULT, B_OUTCOME_LOST
-    call_if_eq PC_BatallaFinLOSS
-	end
+  goto PC_BatallaLider
 	
 PC_BatalllaSABRINA::
-	special HealPlayerParty
-	setvar VAR_0x8004, SPECIAL_CIBERCAFE
-    setvar VAR_0x8005, 0
 	setvar VAR_TRAINER_BATTLE_OPPONENT_A, TRAINER_SABRINA
-    special DoSpecialTrainerBattle
-    waitstate
-	compare VAR_RESULT, B_OUTCOME_DREW
-    call_if_eq PC_BatallaFinDRAW
-    compare VAR_RESULT, B_OUTCOME_WON
-    call_if_eq PC_BatallaFinWIN
-    compare VAR_RESULT, B_OUTCOME_LOST
-    call_if_eq PC_BatallaFinLOSS
-	end
+  goto PC_BatallaLider
 	
 PC_BatalllaKOGA::
-	special HealPlayerParty
-	setvar VAR_0x8004, SPECIAL_CIBERCAFE
-    setvar VAR_0x8005, 0
 	setvar VAR_TRAINER_BATTLE_OPPONENT_A, TRAINER_KOGA
-    special DoSpecialTrainerBattle
-    waitstate
-	compare VAR_RESULT, B_OUTCOME_DREW
-    call_if_eq PC_BatallaFinDRAW
-    compare VAR_RESULT, B_OUTCOME_WON
-    call_if_eq PC_BatallaFinWIN
-    compare VAR_RESULT, B_OUTCOME_LOST
-    call_if_eq PC_BatallaFinLOSS
-	end
+  goto PC_BatallaLider
 	
 PC_BatalllaBLAINE::
-	special HealPlayerParty
-	setvar VAR_0x8004, SPECIAL_CIBERCAFE
-    setvar VAR_0x8005, 0
 	setvar VAR_TRAINER_BATTLE_OPPONENT_A, TRAINER_BLAINE
-    special DoSpecialTrainerBattle
-    waitstate
-	compare VAR_RESULT, B_OUTCOME_DREW
-    call_if_eq PC_BatallaFinDRAW
-    compare VAR_RESULT, B_OUTCOME_WON
-    call_if_eq PC_BatallaFinWIN
-    compare VAR_RESULT, B_OUTCOME_LOST
-    call_if_eq PC_BatallaFinLOSS
-	end
+  goto PC_BatallaLider
 	
 PC_BatalllaGIOVANNI::
-	special HealPlayerParty
-	setvar VAR_0x8004, SPECIAL_CIBERCAFE
-    setvar VAR_0x8005, 0
 	setvar VAR_TRAINER_BATTLE_OPPONENT_A, TRAINER_GIOVANNI
-    special DoSpecialTrainerBattle
-    waitstate
-	compare VAR_RESULT, B_OUTCOME_DREW
-    call_if_eq PC_BatallaFinDRAW
-    compare VAR_RESULT, B_OUTCOME_WON
-    call_if_eq PC_BatallaFinWIN
-    compare VAR_RESULT, B_OUTCOME_LOST
-    call_if_eq PC_BatallaFinLOSS
-	end
+  goto PC_BatallaLider
 	
 PC_BatalllaLORELEI::
-	special HealPlayerParty
-	setvar VAR_0x8004, SPECIAL_CIBERCAFE
-    setvar VAR_0x8005, 0
 	setvar VAR_TRAINER_BATTLE_OPPONENT_A, TRAINER_LORELEI
-    special DoSpecialTrainerBattle
-    waitstate
-	compare VAR_RESULT, B_OUTCOME_DREW
-    call_if_eq PC_BatallaFinDRAW
-    compare VAR_RESULT, B_OUTCOME_WON
-    call_if_eq PC_BatallaFinWIN
-    compare VAR_RESULT, B_OUTCOME_LOST
-    call_if_eq PC_BatallaFinLOSS
-	end
+  goto PC_BatallaLider
 	
 PC_BatalllaBRUNO::
-	special HealPlayerParty
-		setvar VAR_0x8004, SPECIAL_CIBERCAFE
-    setvar VAR_0x8005, 0
 	setvar VAR_TRAINER_BATTLE_OPPONENT_A, TRAINER_BRUNO
-    special DoSpecialTrainerBattle
-    waitstate
-	compare VAR_RESULT, B_OUTCOME_DREW
-    call_if_eq PC_BatallaFinDRAW
-    compare VAR_RESULT, B_OUTCOME_WON
-    call_if_eq PC_BatallaFinWIN
-    compare VAR_RESULT, B_OUTCOME_LOST
-    call_if_eq PC_BatallaFinLOSS
-	end
+  goto PC_BatallaLider
 	
 PC_BatalllaAGATHA::
-	special HealPlayerParty
-    setvar VAR_0x8004, SPECIAL_CIBERCAFE
-    setvar VAR_0x8005, 0
 	setvar VAR_TRAINER_BATTLE_OPPONENT_A, TRAINER_AGATHA
-    special DoSpecialTrainerBattle
-    waitstate
-	compare VAR_RESULT, B_OUTCOME_DREW
-    call_if_eq PC_BatallaFinDRAW
-    compare VAR_RESULT, B_OUTCOME_WON
-    call_if_eq PC_BatallaFinWIN
-    compare VAR_RESULT, B_OUTCOME_LOST
-    call_if_eq PC_BatallaFinLOSS
-	end
+  goto PC_BatallaLider
 	
 PC_BatalllaLANCE::
-	special HealPlayerParty
-	setvar VAR_0x8004, SPECIAL_CIBERCAFE
-    setvar VAR_0x8005, 0
 	setvar VAR_TRAINER_BATTLE_OPPONENT_A, TRAINER_LANCE
-    special DoSpecialTrainerBattle
-    waitstate
-	compare VAR_RESULT, B_OUTCOME_DREW
-    call_if_eq PC_BatallaFinDRAW
-    compare VAR_RESULT, B_OUTCOME_WON
-    call_if_eq PC_BatallaFinWIN
-    compare VAR_RESULT, B_OUTCOME_LOST
-    call_if_eq PC_BatallaFinLOSS
-	end
+  goto PC_BatallaLider
 	
 PC_BatalllaBLUE::
-	special HealPlayerParty
-	setvar VAR_0x8004, SPECIAL_CIBERCAFE
-    setvar VAR_0x8005, 0
 	setvar VAR_TRAINER_BATTLE_OPPONENT_A, TRAINER_BLUE
-    special DoSpecialTrainerBattle
-    waitstate
-	compare VAR_RESULT, B_OUTCOME_DREW
-    call_if_eq PC_BatallaFinDRAW
-    compare VAR_RESULT, B_OUTCOME_WON
-    call_if_eq PC_BatallaFinWIN
-    compare VAR_RESULT, B_OUTCOME_LOST
-    call_if_eq PC_BatallaFinLOSS
-	end
+  goto PC_BatallaLider
 	
 PC_BatalllaRED::
-	special HealPlayerParty
-	setvar VAR_0x8004, SPECIAL_CIBERCAFE
-    setvar VAR_0x8005, 0
 	setvar VAR_TRAINER_BATTLE_OPPONENT_A, TRAINER_RED2
-    special DoSpecialTrainerBattle
-    waitstate
-	compare VAR_RESULT, B_OUTCOME_DREW
-    call_if_eq PC_BatallaFinDRAW
-    compare VAR_RESULT, B_OUTCOME_WON
-    call_if_eq PC_BatallaFinWIN
-    compare VAR_RESULT, B_OUTCOME_LOST
-    call_if_eq PC_BatallaFinLOSS
-	end
+  goto PC_BatallaLider
 	
 PC_BatalllaLEAF::
-	special HealPlayerParty
-	setvar VAR_0x8004, SPECIAL_CIBERCAFE
-    setvar VAR_0x8005, 0
 	setvar VAR_TRAINER_BATTLE_OPPONENT_A, TRAINER_LEAF2
-    special DoSpecialTrainerBattle
-    waitstate
-	compare VAR_RESULT, B_OUTCOME_DREW
-    call_if_eq PC_BatallaFinDRAW
-    compare VAR_RESULT, B_OUTCOME_WON
-    call_if_eq PC_BatallaFinWIN
-    compare VAR_RESULT, B_OUTCOME_LOST
-    call_if_eq PC_BatallaFinLOSS
-	end
+  goto PC_BatallaLider
 	
 PC_BatalllaCHERYL::
 	msgbox PC_BatallaMODO_Text, MSGBOX_DEFAULT
@@ -286,19 +168,8 @@ PC_BatalllaModoNormal::
 	msgbox PC_BatallaConfirmarModoNormal, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq PC_BatalllaCHERYL_CONTINUE
-	special HealPlayerParty
-	setvar VAR_0x8004, SPECIAL_CIBERCAFE
-    setvar VAR_0x8005, 0
 	setvar VAR_TRAINER_BATTLE_OPPONENT_A, TRAINER_CHERYL
-    special DoSpecialTrainerBattle
-    waitstate
-	compare VAR_RESULT, B_OUTCOME_DREW
-    call_if_eq PC_BatallaFinDRAW
-    compare VAR_RESULT, B_OUTCOME_WON
-    call_if_eq PC_BatallaFinWIN
-    compare VAR_RESULT, B_OUTCOME_LOST
-    call_if_eq PC_BatallaFinLOSS
-	end
+  goto PC_BatallaLider
 PC_BatalllaModoFarmeo::
 	msgbox PC_BatallaConfirmarModoFarmeo, MSGBOX_YESNO
 	compare VAR_RESULT, NO
@@ -321,7 +192,7 @@ PC_NoBatalla::
 	msgbox PC_NoBatalla_Text
 	release
 	end
-	
+
 PC_Roto::
 	msgbox PC_Roto_Text
 	release
@@ -366,7 +237,16 @@ PC_BatallaFinDRAW::
 	end
 	
 Micolandia_Cibercafe_Dueno_Script::
-	msgbox Micolandia_Cibercafe_Dueno_Text, MSGBOX_NPC
+  lock
+  faceplayer
+	msgbox Micolandia_Cibercafe_Dueno_Text, MSGBOX_DEFAULT
+  goto_if_unset FLAG_HIDE_LAVAROOM_GIRATINAMASTER, Micolandia_Cibercafe_Dueno_Script_GoodLuck
+	msgbox Micolandia_Cibercafe_Dueno_Text_NewPC, MSGBOX_DEFAULT
+  goto Micolandia_Cibercafe_Dueno_Script_End
+Micolandia_Cibercafe_Dueno_Script_GoodLuck::
+	msgbox Micolandia_Cibercafe_Dueno_Text_GoodLuck, MSGBOX_DEFAULT
+Micolandia_Cibercafe_Dueno_Script_End::
+  release
 	end
 	
 Micolandia_Cibercafe_NPC1::
@@ -408,8 +288,21 @@ Micolandia_Cibercafe_Dueno_Text:
 	.string "equipo, así que tenlo en cuenta.\p"
 	
 	.string "Puedes ganar dinero, experiencia y\n"
-	.string "premios si vences en estas batallas.\p"
-	
+	.string "premios si vences en estas batallas.$"
+
+Micolandia_Cibercafe_Dueno_Text_NewPC:
+  .string "Hemos arreglado uno de los PCs,\n"
+  .string "pero ahora está ocupado…\l"
+  .string "Eso sí, el que lo está usando al fin\l"
+  .string "dejó libre el PC de combates aleatorios.\p"
+
+  .string "En ese PC, al entrar a mano derecha,\n"
+  .string "puedes combatir contra entrenadores\l"
+  .string "al azar de MIDELE EMERALD.\p"
+
+  .string "Se eligen entre los entrenadores con 6\n"
+  .string "pokémon, que son subidos al nivel 100.\p"
+Micolandia_Cibercafe_Dueno_Text_GoodLuck:
 	.string "¡Buena suerte!$"
 	
 PC_Enhorabuena:
@@ -421,6 +314,12 @@ PC_Perder:
 
 PC_Batalla:
 	.string "Bienvenido al servidor.\n"
+	.string "¿Quieres realizar una batalla?$"
+	
+PC_Batalla_Random:
+	.string "Bienvenido al servidor aleatorio.\n"
+  .string "Aquí puedes combatir contra un\l"
+  .string "entrenador al azar de MIDELE EMERALD.\l"
 	.string "¿Quieres realizar una batalla?$"
 	
 PC_NoBatalla_Text:

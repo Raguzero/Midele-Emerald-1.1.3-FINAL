@@ -4731,3 +4731,51 @@ void PCBatallaGivePrize(void)
  
     gSpecialVar_Result = 0;
 }
+
+void PCBatallaRandomSetTrainer(void)
+{
+    static const u16 PC_Batalla_Random_Trainers[] =
+    {
+        TRAINER_VLADILAND,
+        TRAINER_KEFKY,
+        TRAINER_JAVISITO_POSTGAME,
+        TRAINER_MERUM,
+        TRAINER_ENTROPIA,
+        TRAINER_UTALAWEA,
+        TRAINER_SANTYGRASS_3,
+        TRAINER_DARKI_MALRO,
+        TRAINER_TENSHINHAN,
+        TRAINER_KAISSER,
+        TRAINER_GOOSES,
+        TRAINER_RED_KROW,
+        TRAINER_GRIM,
+        TRAINER_MAESTRO_ARENA,
+        TRAINER_MANEC,
+        TRAINER_ALPHA,
+        TRAINER_SLOWBRO,
+        TRAINER_DARKI_BUENRO,
+        TRAINER_VIN,
+        TRAINER_DRANIX,
+        TRAINER_PHENT,
+        TRAINER_GHADDAR_2,
+        TRAINER_KADERETE_2,
+        TRAINER_MDRAGON,
+        TRAINER_ALBERMAUS,
+        TRAINER_HATHAR,
+        TRAINER_ADDRI_2,
+        TRAINER_SAPPH,
+        TRAINER_KRUB_2,
+        TRAINER_IZABE_LAVENDER
+    };
+
+    static const s32 NUM_TRAINERS_PC_BATALLA = sizeof(PC_Batalla_Random_Trainers)/sizeof(PC_Batalla_Random_Trainers[0]);
+
+    extern u16 gTrainerBattleOpponent_A;
+    u16 newOpponent;
+
+    do {
+        newOpponent = PC_Batalla_Random_Trainers[Random() % NUM_TRAINERS_PC_BATALLA];
+    } while (newOpponent == gTrainerBattleOpponent_A);
+
+    gTrainerBattleOpponent_A = newOpponent;
+}
