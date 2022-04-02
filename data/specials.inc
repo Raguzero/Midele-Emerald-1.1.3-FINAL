@@ -574,3 +574,4 @@ gSpecials:: @ 81DBA64
 	def_special BufferRandomBattleVictories
 	def_special MideleResetContestStats
 	def_special PlayerHasSpecialNickname
+	def_special PCBatallaRandomSetTrainer
