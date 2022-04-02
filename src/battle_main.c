@@ -2103,7 +2103,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 	 case F_TRAINER_PARTY_CUSTOM_MIDELE:
             {
                 const struct TrainerMonCustomMidele *partyData = gTrainers[trainerNum].party.ItemCustomMidele;
-				u8 mideleLevel;
+                u8 mideleLevel;
 
 		// NUEVO RANDOM BATTLE
                 if (FlagGet(FLAG_RYU_RANDOMBATTLE) == 1)
@@ -2265,7 +2265,11 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 		// NUEVO RANDOM BATTLE CC
 				
                 fixedIV = partyData[i].iv;
-                if (partyData[i].syncLevel == TRUE)
+                if (FlagGet(FLAG_CIBERCAFE_RANDOM) == 1)
+                {
+                    mideleLevel = (partyData[i].lvl <= 2 ? partyData[i].lvl : 100); // si hubiese un poke FEAR, conservará su nivel
+                }
+                else if (partyData[i].syncLevel == TRUE)
                 {
                     u8 playerPartyMaxLevel = GetPlayerPartyMaxLevel();
                     u8 minLevel = partyData[i].lvl;
