@@ -2234,6 +2234,16 @@ void DoSpecialTrainerBattle(void)
             PlayChosenOrMusicPlayerBGM(ciberCafePlayedSong);
             BattleTransition_StartOnField(sub_80B100C(13));
             break;
+		case SPECIAL_CIBERCAFE_RANDOM:
+            gBattleTypeFlags = BATTLE_TYPE_TRAINER;
+            sTrainerADefeatSpeech = frasederrota;
+            CreateTask(Task_StartBattleAfterTransition, 1);
+            ciberCafePlayedSong = gTrainers[gTrainerBattleOpponent_A].battleMusic;
+            if (!ciberCafePlayedSong)
+                ciberCafePlayedSong = MUS_BATTLE20;
+            PlayChosenOrMusicPlayerBGM(ciberCafePlayedSong);
+            BattleTransition_StartOnField(sub_80B100C(13));
+            break;
 	// NUEVO RANDOM BATTLE
     }
 }
