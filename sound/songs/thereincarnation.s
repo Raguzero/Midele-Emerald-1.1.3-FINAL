@@ -3,7 +3,7 @@
 	.equ	thereincarnation_grp, voicegroup185
 	.equ	thereincarnation_pri, 0
 	.equ	thereincarnation_rev, 0
-	.equ	thereincarnation_mvl, 127
+	.equ	thereincarnation_mvl, 103
 	.equ	thereincarnation_key, 0
 	.equ	thereincarnation_tbs, 1
 	.equ	thereincarnation_exg, 0
