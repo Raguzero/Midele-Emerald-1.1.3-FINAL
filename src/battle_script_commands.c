@@ -6550,6 +6550,7 @@ if (gBattleOutcome == B_OUTCOME_WON)
     }
     else if (gTrainerBattleOpponent_A == TRAINER_RANDOM_PARTY || 
 			 gTrainerBattleOpponent_A == TRAINER_RANDOM_PARTY_2 ||
+       FlagGet(FLAG_CIBERCAFE_RANDOM) == 1 ||
 			 gTrainerBattleOpponent_A == TRAINER_BROCK ||
 			 gTrainerBattleOpponent_A == TRAINER_MISTY ||	
 			 gTrainerBattleOpponent_A == TRAINER_LTSURGE ||	
