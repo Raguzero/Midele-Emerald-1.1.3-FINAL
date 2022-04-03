@@ -20811,32 +20811,67 @@ static const struct TrainerMonCustomMidele sParty_Juan5[] = {
 // REVANCHA GYM LIDERES
 
 
-// ENTRENADOR BETA NO USADOS
-static const struct TrainerMonNoItemDefaultMoves sParty_AmyAndLiv3[] = {
-    {
-    .iv = 0,
-    .lvl = 9,
-    .species = SPECIES_PLUSLE,
+static const struct TrainerMonCustomMidele sParty_AmyAndLiv3[] = { // ARCHIE Y MAXIE EQUIPO MAGMA Y AQUA BATALLA FINAL
+	{
+	.iv = 31,
+    .lvl = 92,
+	.nature = NATURE_ADAMANT,
+    .species = SPECIES_GROUDON,
+    .heldItem = ITEM_SOFT_SAND,
+	.evs = {6, 252, 0, 0, 0, 252},
+    .moves = {MOVE_ROCK_SLIDE, MOVE_BODY_SLAM, MOVE_THUNDER_WAVE, MOVE_EARTHQUAKE},
     },
     {
-    .iv = 0,
-    .lvl = 9,
-    .species = SPECIES_MINUN,
+    .iv = 31,
+    .lvl = 93,
+	.nature = NATURE_MODEST,
+    .species = SPECIES_MEGA_CAMERUPT,
+    .heldItem = ITEM_FOCUS_BAND,
+	.evs = {6, 252, 0, 252, 0, 0},
+    .moves = {MOVE_PROTECT, MOVE_HEAT_WAVE, MOVE_YAWN, MOVE_EARTHQUAKE}
+    },
+    {
+    .iv = 31,
+    .lvl = 93,
+	.nature = NATURE_QUIET,
+    .species = SPECIES_WEEZING,
+    .heldItem = ITEM_SITRUS_BERRY,
+	.evs = {6, 252, 0, 252, 0, 0},
+    .moves = {MOVE_WILL_O_WISP, MOVE_HEAT_WAVE, MOVE_THUNDER, MOVE_SLUDGE_BOMB},
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_GruntUnused[] = {
+static const struct TrainerMonCustomMidele sParty_GruntUnused[] = {
     {
-    .iv = 0,
-    .lvl = 31,
-    .species = SPECIES_WAILMER,
+    .iv = 31,
+    .lvl = 92,
+	.nature = NATURE_MODEST,
+    .species = SPECIES_KYOGRE,
+    .heldItem = ITEM_MYSTIC_WATER,
+	.evs = {6, 0, 0, 252, 0, 252},
+    .moves = {MOVE_WATERFALL, MOVE_ICE_BEAM, MOVE_THUNDER, MOVE_PROTECT}
     },
     {
-    .iv = 0,
-    .lvl = 31,
-    .species = SPECIES_ZUBAT,
+    .iv = 31,
+    .lvl = 93,
+	.nature = NATURE_TIMID,
+    .species = SPECIES_MEGA_SHARPEDO,
+    .heldItem = ITEM_FOCUS_SASH,
+	.evs = {0, 0, 0, 252, 0, 252},
+    .moves = {MOVE_CRUNCH, MOVE_HYDRO_PUMP, MOVE_ICE_BEAM, MOVE_DESTINY_BOND}
+	},
+    {
+    .iv = 31,
+    .lvl = 93,
+	.nature = NATURE_JOLLY,
+    .species = SPECIES_CROBAT,
+	.evs = {6, 252, 0, 0, 0, 252},
+    .heldItem = ITEM_SHELL_BELL,
+    .moves = {MOVE_LEECH_LIFE, MOVE_SLUDGE_BOMB, MOVE_CONFUSE_RAY, MOVE_BRAVE_BIRD},
     }
 };
+
+// ENTRENADOR BETA NO USADOS
 
 static const struct TrainerMonNoItemCustomMoves sParty_Lucas2[] = {
     {

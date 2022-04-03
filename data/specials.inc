@@ -575,3 +575,4 @@ gSpecials:: @ 81DBA64
 	def_special MideleResetContestStats
 	def_special PlayerHasSpecialNickname
 	def_special PCBatallaRandomSetTrainer
+	def_special SetupCustomMultiBattle

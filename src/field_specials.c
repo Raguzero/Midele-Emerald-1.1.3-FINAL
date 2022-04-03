@@ -4779,3 +4779,18 @@ void PCBatallaRandomSetTrainer(void)
 
     gTrainerBattleOpponent_A = newOpponent;
 }
+
+// Lee dos entrenadores y sus mensaje de derrota de las variables VAR_0x8004, etc y prepara el combate
+void SetupCustomMultiBattle(void)
+{
+    extern u16 gTrainerBattleOpponent_A, gTrainerBattleOpponent_B;
+    extern u8 gNoOfApproachingTrainers;
+    extern u8 * sTrainerADefeatSpeech;
+    extern u8 * sTrainerBDefeatSpeech;
+
+    gTrainerBattleOpponent_A = gSpecialVar_0x8004;
+    gTrainerBattleOpponent_B = gSpecialVar_0x8005;
+   // sTrainerADefeatSpeech = (u8*) (gSpecialVar_0x8006 | (gSpecialVar_0x8007 << 16));
+    // sTrainerBDefeatSpeech = (u8*) (gSpecialVar_0x8008 | (gSpecialVar_0x8009 << 16));
+    gNoOfApproachingTrainers = 2;
+}

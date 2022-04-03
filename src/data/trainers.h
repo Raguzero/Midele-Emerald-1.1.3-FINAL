@@ -6791,18 +6791,18 @@ const struct Trainer gTrainers[] = {
         .party = {.ItemCustomMidele = sParty_MiuAndYuki},
     },
 
-    [TRAINER_AMY_AND_LIV_3] = // ENTRENADOR BETA
+    [TRAINER_AMY_AND_LIV_3] = // MAXIE EQUIPO MAGMA BATALLA FINAL
     {
-        .partyFlags = 0,
-        .trainerClass = TRAINER_CLASS_TWINS,
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
+        .trainerClass = TRAINER_CLASS_MAGMA_LEADER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_TWINS,
-        .trainerPic = TRAINER_PIC_TWINS,
-        .trainerName = _("AMY & LIV"),
+        .trainerPic = TRAINER_PIC_MAGMA_LEADER_MAXIE,
+        .trainerName = _("MAXIE"),
         .items = {},
         .doubleBattle = TRUE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
         .partySize = ARRAY_COUNT(sParty_AmyAndLiv3),
-        .party = {.NoItemDefaultMoves = sParty_AmyAndLiv3},
+        .party = {.ItemCustomMidele = sParty_AmyAndLiv3},
     },
 
     [TRAINER_GINA_AND_MIA_2] =
@@ -7954,18 +7954,18 @@ const struct Trainer gTrainers[] = {
         .party = {.ItemCustomMidele = sParty_GruntSeafloorCavern5},
     },
 
-    [TRAINER_GRUNT_UNUSED] =
+    [TRAINER_GRUNT_UNUSED] = // ARCHIE EQUIPO AQUA BATALLA FINAL
     {
-        .partyFlags = 0,
-        .trainerClass = TRAINER_CLASS_TEAM_MAGMA,
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
+        .trainerClass = TRAINER_CLASS_AQUA_LEADER,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_AQUA,
-        .trainerPic = TRAINER_PIC_AQUA_GRUNT_F,
-        .trainerName = _("GRUNT"),
+        .trainerPic = TRAINER_PIC_AQUA_LEADER_ARCHIE,
+        .trainerName = _("ARCHIE"),
         .items = {},
-        .doubleBattle = FALSE,
+        .doubleBattle = TRUE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
         .partySize = ARRAY_COUNT(sParty_GruntUnused),
-        .party = {.NoItemDefaultMoves = sParty_GruntUnused},
+        .party = {.ItemCustomMidele = sParty_GruntUnused},
     },
 
     [TRAINER_GRUNT_MT_PYRE_4] =

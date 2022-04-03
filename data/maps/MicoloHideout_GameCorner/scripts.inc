@@ -727,6 +727,12 @@ MicoloHideout_EventScript_MagnoAquiles::
 	applymovement 8, Common_Movement_ExclamationMark
 	waitmovement 0
 	msgbox MicoloHideout_EventScript_MagnoAquiles_Text_3, MSGBOX_DEFAULT
+	msgbox MicoloHideout_EventScript_MagnoAquiles_Text_3_Extra, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq MicoloHideout_EventScript_MagnoAquiles2
+	trainerbattle_multi TRAINER_AMY_AND_LIV_3, TRAINER_GRUNT_UNUSED, MicoloHideout_EventScript_MagnoAquiles_Text_Derrota_1, MicoloHideout_EventScript_MagnoAquiles_Text_Derrota_2 // MAXIE y ARCHIE EQUIPO MAGMA Y AQUA BATALLA FINAL
+	cleartrainerflag TRAINER_AMY_AND_LIV_3
+	cleartrainerflag TRAINER_GRUNT_UNUSED
 	msgbox MicoloHideout_EventScript_MagnoAquiles_Text_4, MSGBOX_DEFAULT
 	msgbox MicoloHideout_EventScript_MagnoAquiles_Text_5, MSGBOX_DEFAULT
 	msgbox MicoloHideout_EventScript_MagnoAquiles_Text_6, MSGBOX_DEFAULT
@@ -736,7 +742,12 @@ MicoloHideout_EventScript_MagnoAquiles::
 	closemessage
 	release
 	return
-
+	
+MicoloHideout_EventScript_MagnoAquiles2:
+	msgbox MicoloHideout_EventScript_MagnoAquiles_Text_3_Extra2, MSGBOX_DEFAULT
+	closemessage
+	release
+	return
 
 MicoloHideout_EventScript_MagnoAquiles_Text_0:
 	.string "MAXIE: ¡Apuesto todo al AZUL!$"
@@ -751,11 +762,31 @@ MicoloHideout_EventScript_MagnoAquiles_Text_2:
 	.string "confundido otra vez de color...$"
 
 MicoloHideout_EventScript_MagnoAquiles_Text_3:
-	.string "MAXIE: ¡Eh! ¡Tú eres aquel chico que\n"
-	.string "detuvo nuestros planes! Si no hubiese\l"
-	.string "sido por ti y por ese MICOLO...$"
+	.string "MAXIE: ¡Eh! ¡Tú eres aquella persona\n"
+	.string "que detuvo nuestros planes!$"
+	
+MicoloHideout_EventScript_MagnoAquiles_Text_3_Extra:
+	.string "ARCHIE: ¡MAXIE! ¡Demostrémosle\n"
+	.string "la fuerza de los juguetitos que\l"
+	.string "nos ha prestado ese MICOLO!\p"
+	.string "MAXIE & ARCHIE: ¡A LUCHAR!$"
+	
+MicoloHideout_EventScript_MagnoAquiles_Text_3_Extra2:
+	.string "MAXIE & ARCHIE: ¡Bah! ¡COBARDE!$"
+	
+MicoloHideout_EventScript_MagnoAquiles_IntroBatalla:
+	.string "MAXIE: ¡ELIJO EL AZUL!$"
+	
+MicoloHideout_EventScript_MagnoAquiles_Text_Derrota_1:
+	.string "MAXIE: ¡Te dije que yo era el ROJO!$"
+	
+MicoloHideout_EventScript_MagnoAquiles_Text_Derrota_2:
+	.string "ARCHIE: ¡Pero si tu elegiste el AZUL!$"
 
 MicoloHideout_EventScript_MagnoAquiles_Text_4:
+	.string "MAXIE: Si no hubiese sido por ti y por\n"
+	.string "ese MICOLO...\p"
+
 	.string "ARCHIE: Creo que no deberías hablar\n"
 	.string "así de MICOLO. Al fin y al cabo, él es\l"
 	.string "quien nos ha dejado refugiarnos aquí\l"

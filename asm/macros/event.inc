@@ -721,6 +721,14 @@
 	.macro trainerbattle_no_intro trainer:req, lose_text:req
 	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, \trainer, 0, \lose_text
 	.endm
+	
+	@ inicia un combate dobles con dos entrenadores y dos mensaje de derrota
+    .macro trainerbattle_multi trainer1:req trainer2:req lose_text1:req lose_text2:req
+    setvar VAR_0x8004, \trainer1
+    setvar VAR_0x8005, \trainer2
+    special SetupCustomMultiBattle
+    trainerbattlebegin
+    .endm
 
 
 	@ Starts a trainer battle using the battle information stored in RAM (usually by trainerbattle, which actually calls this command behind-the-scenes), and blocks script execution until the battle finishes.
