@@ -2857,7 +2857,7 @@ AI_CV_Protect:
 	get_protect_count AI_USER
 	if_more_than 1, AI_CV_Protect_ScoreDown5
     if_no_ability AI_TARGET, ABILITY_TRUANT, AI_CV_Protect_NoChanceToMessWithTruant
-    if_target_wont_attack_due_to_truant AI_CV_Protect_NoChanceToMessWithTruant
+    if_target_wont_attack_due_to_truant AI_CV_Protect_End @ conviene ahorrar Protect para el siguiente turno, y ya se penaliza Protect en AI_CBM_Protect
     if_target_faster Score_Plus5
     score +4
     goto AI_CV_Protect_End
@@ -2885,6 +2885,7 @@ AI_CV_Protect_FasterOpponentIsCharging:
     goto AI_CV_Protect_OpponentIsNotSemiInvulnerableOrRecharge
     @ recibe 3HKO o menos daño: sigue por donde iba en la evaluación de Protect
 AI_CV_Protect_OpponentIsNotSemiInvulnerableOrRecharge:
+	if_next_turn_target_might_use_move_with_effect EFFECT_MIDELE_POWER, AI_CV_Protect_ScoreDown5
 	if_ability AI_USER, ABILITY_SPEED_BOOST, AI_CV_Protect_Boost
 	if_status  AI_USER, STATUS1_PSN_ANY | STATUS1_BURN, AI_CV_ProtectUserStatused
 	if_status2 AI_USER, STATUS2_CURSED | STATUS2_INFATUATION, AI_CV_ProtectUserStatused
