@@ -2920,13 +2920,18 @@ static void Cmd_get_move_effect_from_result(void)
 static void Cmd_get_protect_count(void)
 {
     u8 battlerId;
+    u16 lastMove;
 
     if (gAIScriptPtr[1] == AI_USER)
         battlerId = sBattler_AI;
     else
         battlerId = gBattlerTarget;
 
-    AI_THINKING_STRUCT->funcResult = gDisableStructs[battlerId].protectUses;
+    lastMove = gLastResultingMoves[battlerId];
+    if (lastMove != MOVE_PROTECT && lastMove != MOVE_DETECT && lastMove != MOVE_ENDURE)
+        AI_THINKING_STRUCT->funcResult = 0; // Si el último movimiento usado no fue uno de estos, no van a fallar estos movimientos
+    else
+        AI_THINKING_STRUCT->funcResult = gDisableStructs[battlerId].protectUses;
 
     gAIScriptPtr += 2;
 }
