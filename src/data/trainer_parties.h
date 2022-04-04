@@ -23906,7 +23906,7 @@ static const struct TrainerMonCustomMidele sParty_Gooses[] = {
     .heldItem = ITEM_BRIGHT_POWDER, 
     .nature = NATURE_TIMID, 
     .evs = {0, 0, 0, 252, 4, 252},
-    .ability = 1, // SNOW CLOAK
+    .ability = 1, // SNOW WARNING
     .moves = {MOVE_BLIZZARD, MOVE_NASTY_PLOT, MOVE_MOONBLAST, MOVE_EXTRASENSORY}
     },
     {
@@ -23945,7 +23945,7 @@ static const struct TrainerMonCustomMidele sParty_Gooses[] = {
     .species = SPECIES_WALREIN,
     .heldItem = ITEM_LEFTOVERS, 
     .nature = NATURE_BOLD, 
-    .evs = {0, 232, 252, 0, 24, 0},
+    .evs = {232, 0, 252, 0, 24, 0},
     .ability = 1, // ICE BODY
     .moves = {MOVE_PROTECT, MOVE_SUBSTITUTE, MOVE_SUPER_FANG, MOVE_SURF}
     }

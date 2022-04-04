@@ -73,7 +73,7 @@ GraniteCave_Text_JZombiePostBattle:
 	.string "demostraré! ¡NADIE SE RIE DE MÍ!\p"
 	
 	.string "No te voy a permitir que desbarates\n"
-	.string "mis teorias ni que las insultes.\p"
+	.string "mis teorías ni que las insultes.\p"
 
 	.string "Ya descubriré donde vives, ya...\p"
 	
