@@ -591,10 +591,7 @@ AI_CBM_DamageDuringSleep: @ 82DC5A5
 	end
 
 AI_CBM_CantEscape: @ 82DC5B0
-	get_target_type1
-    if_equal TYPE_GHOST, Score_Minus10
-    get_target_type2
-    if_equal TYPE_GHOST, Score_Minus10
+  if_type AI_TARGET, TYPE_GHOST, Score_Minus10
     if_target_might_have_a_sub_before_our_attack Score_Minus10
 	if_status2 AI_TARGET, STATUS2_ESCAPE_PREVENTION, Score_Minus10
     count_usable_party_mons AI_TARGET
@@ -625,9 +622,10 @@ AI_CBM_PerishSong: @ 82DC5E2
 	count_usable_party_mons AI_USER
 	if_equal 0, Score_Minus10
 AI_CBM_PerishSong_CheckStatusAgain:
-    if_status2 AI_TARGET, STATUS2_ESCAPE_PREVENTION, Score_Plus2
+    if_type AI_TARGET, TYPE_GHOST, Score_Minus8
+    if_status3 AI_TARGET, STATUS3_ROOTED, Score_Plus2
+    if_status2 AI_TARGET, STATUS2_ESCAPE_PREVENTION | STATUS2_WRAPPED, Score_Plus2
     if_has_move_with_effect AI_USER, EFFECT_MEAN_LOOK, Score_Minus8
-    if_status2 AI_TARGET, STATUS2_WRAPPED, Score_Plus2
     if_has_move_with_effect AI_USER, EFFECT_TRAP, Score_Minus8
 	end
 
@@ -2299,7 +2297,12 @@ AI_CV_SubstituteStart:
 	if_target_wont_attack_due_to_truant AI_CV_SubstitutePlus3Continue
 	if_ability AI_USER, ABILITY_SPEED_BOOST, AI_CV_Substitute_SpeedBoost
 	if_status AI_USER, STATUS1_PSN_ANY | STATUS1_BURN, AI_CV_SubstituteMinus1Continue
+  count_usable_party_mons AI_TARGET
+  if_equal 0, AI_CV_Substitute_TargetCannotEscape
+  if_type AI_TARGET, TYPE_GHOST, AI_CV_Substitute1
+  if_status AI_TARGET, STATUS3_ROOTED, AI_CV_Substitute_TargetCannotEscape
 	if_not_status2 AI_TARGET, STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION, AI_CV_Substitute1
+AI_CV_Substitute_TargetCannotEscape:
 	if_status3 AI_TARGET, STATUS3_PERISH_SONG, AI_CV_SubstitutePlus3Continue
 	if_status AI_TARGET, STATUS1_BURN | STATUS1_PSN_ANY, AI_CV_SubstitutePlus1Continue
 	goto AI_CV_Substitute1
@@ -2882,7 +2885,6 @@ AI_CV_Protect_FasterOpponentIsCharging:
     calculate_nhko AI_TARGET
     if_equal 1, Score_Plus5
     if_equal 2, Score_Plus2
-    goto AI_CV_Protect_OpponentIsNotSemiInvulnerableOrRecharge
     @ recibe 3HKO o menos daño: sigue por donde iba en la evaluación de Protect
 AI_CV_Protect_OpponentIsNotSemiInvulnerableOrRecharge:
 	if_next_turn_target_might_use_move_with_effect EFFECT_MIDELE_POWER, AI_CV_Protect_ScoreDown5
@@ -2893,24 +2895,42 @@ AI_CV_Protect_OpponentIsNotSemiInvulnerableOrRecharge:
     if_status3 AI_TARGET, STATUS3_PERISH_SONG, AI_CV_Protect_SkipProtectUserStatusedDueToPerishSong
     if_status3 AI_USER, STATUS3_PERISH_SONG, AI_CV_ProtectUserStatused
 AI_CV_Protect_SkipProtectUserStatusedDueToPerishSong:
-    if_next_turn_target_might_use_move_with_effect EFFECT_RESTORE_HP, AI_CV_Protect3
-	if_next_turn_target_might_use_move_with_effect EFFECT_SOFTBOILED, AI_CV_Protect3
-	if_next_turn_target_might_use_move_with_effect EFFECT_MORNING_SUN, AI_CV_Protect3
-	if_next_turn_target_might_use_move_with_effect EFFECT_MOONLIGHT, AI_CV_Protect3
-	if_next_turn_target_might_use_move_with_effect EFFECT_SHORE_UP, AI_CV_Protect3
-	if_next_turn_target_might_use_move_with_effect EFFECT_SYNTHESIS, AI_CV_Protect3
-    if_next_turn_target_might_use_move_with_effect EFFECT_DEFENSE_CURL, AI_CV_Protect3	
-	if_status AI_TARGET, STATUS1_TOXIC_POISON, AI_CV_Protect_ScoreUp2
+    if_next_turn_target_might_use_move_with_effect EFFECT_RESTORE_HP, AI_CV_Protect_TargetCanHeal
+	if_next_turn_target_might_use_move_with_effect EFFECT_SOFTBOILED, AI_CV_Protect_TargetCanHeal
+	if_next_turn_target_might_use_move_with_effect EFFECT_MORNING_SUN, AI_CV_Protect_TargetCanHeal
+	if_next_turn_target_might_use_move_with_effect EFFECT_MOONLIGHT, AI_CV_Protect_TargetCanHeal
+	if_next_turn_target_might_use_move_with_effect EFFECT_SHORE_UP, AI_CV_Protect_TargetCanHeal
+	if_next_turn_target_might_use_move_with_effect EFFECT_SYNTHESIS, AI_CV_Protect_TargetCanHeal
+	if_next_turn_target_might_use_move_with_effect EFFECT_REST, AI_CV_Protect_TargetCanHeal
+AI_CV_Protect_IgnoreTargetHealing:
 	if_status2 AI_TARGET, STATUS2_CURSED, AI_CV_Protect_ScoreUp2
-	if_status3 AI_TARGET, STATUS3_PERISH_SONG, AI_CV_Protect_ScoreUp2
-	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_Protect_ScoreUp2
+	if_status AI_TARGET, STATUS1_TOXIC_POISON, AI_CV_Protect_ScoreUp2
 	if_status3 AI_TARGET, STATUS3_LEECHSEED, AI_CV_Protect_ScoreUp2
-	if_status3 AI_TARGET, STATUS3_YAWN, AI_CV_Protect_ScoreUp2
+AI_CV_Protect_TargetCanRecoverFromItsCurrentStatus:
 	get_last_used_bank_move AI_TARGET
 	get_move_effect_from_result
 	if_equal EFFECT_LOCK_ON, AI_CV_Protect_ScoreUp2
+	if_status3 AI_TARGET, STATUS3_PERISH_SONG, AI_CV_Protect_TargetUnderPerishSong
+AI_CV_Protect_NoRelevantPerishSong:
 	if_receiving_wish AI_USER, AI_CV_Protect_Wish
+	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_Protect_End
+	if_status3 AI_TARGET, STATUS3_YAWN, AI_CV_Protect_End
 	goto AI_CV_Protect2
+
+AI_CV_Protect_TargetUnderPerishSong:
+  count_usable_party_mons AI_TARGET
+  if_equal 0, AI_CV_Protect_ScoreUp2
+  if_type AI_TARGET, TYPE_GHOST, AI_CV_Protect_TargetUnderPerishSong_ButCanSwitchOut
+  if_status2 AI_TARGET, STATUS2_ESCAPE_PREVENTION | STATUS2_WRAPPED, AI_CV_Protect_ScoreUp2
+  if_status3 AI_TARGET, STATUS3_ROOTED, AI_CV_Protect_ScoreUp2
+AI_CV_Protect_TargetUnderPerishSong_ButCanSwitchOut:
+  if_not_status3 AI_USER, STATUS3_PERISH_SONG, AI_CV_Protect_NoRelevantPerishSong
+  count_usable_party_mons AI_USER
+  if_equal 0, AI_CV_ProtectUserStatused
+  if_type AI_TARGET, TYPE_GHOST, AI_CV_Protect_NoRelevantPerishSong
+  if_status2 AI_USER, STATUS2_ESCAPE_PREVENTION | STATUS2_WRAPPED, AI_CV_ProtectUserStatused
+  if_status3 AI_USER, STATUS3_ROOTED, AI_CV_ProtectUserStatused
+  goto AI_CV_Protect_NoRelevantPerishSong
 
 AI_CV_Protect_ScoreUp2:
 	score +2
@@ -2933,10 +2953,11 @@ AI_CV_ProtectUserStatused:
 	score -3
 	goto AI_CV_Protect4
 	
-AI_CV_Protect3:
-	get_last_used_bank_move AI_TARGET
-	get_move_effect_from_result
-	if_equal EFFECT_LOCK_ON, AI_CV_Protect_End
+AI_CV_Protect_TargetCanHeal:
+  if_hp_more_than AI_TARGET, 65, AI_CV_Protect_IgnoreTargetHealing
+  if_hp_more_than AI_TARGET, 50, AI_CV_Protect_TargetCanRecoverFromItsCurrentStatus
+  score -2
+  goto AI_CV_Protect_TargetCanRecoverFromItsCurrentStatus
 
 AI_CV_Protect_ScoreDown5:
 	score -5
