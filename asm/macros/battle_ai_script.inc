@@ -834,8 +834,8 @@
     if_effect EFFECT_BULK_UP, .AI_check_scenario_B_move_boosts_physical_defense\@
     if_effect EFFECT_CURSE, .AI_check_scenario_B_move_boosts_physical_defense\@
     if_effect EFFECT_COIL, .AI_check_scenario_B_move_boosts_physical_defense\@
-    if_effect EFFECT_CALM_MIND, .AI_check_scenario_B_move_boosts_physical_defense\@
-    if_effect EFFECT_QUIVER_DANCE, .AI_check_scenario_B_move_boosts_physical_defense\@
+    if_effect EFFECT_CALM_MIND, .AI_check_scenario_B_move_boosts_special_defense\@
+    if_effect EFFECT_QUIVER_DANCE, .AI_check_scenario_B_move_boosts_special_defense\@
     goto .AI_user_might_not_be_able_to_boost_safely_\@
 
     .AI_check_scenario_B_move_boosts_physical_defense\@:
