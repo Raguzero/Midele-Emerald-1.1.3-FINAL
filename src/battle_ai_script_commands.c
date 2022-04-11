@@ -910,7 +910,7 @@ static u8 ChooseMoveOrAction_Singles(void)
                     || (WEATHER_HAS_EFFECT && (((gBattleWeather & WEATHER_RAIN_ANY) && gBattleMoves[move].effect == EFFECT_THUNDER) || ((gBattleWeather & WEATHER_HAIL_ANY) && move == MOVE_BLIZZARD)))
                    );
             u8 nhko_taken = CalculateNHKO(gBattlerTarget, sBattler_AI, FALSE, MOVE_NONE, FALSE, ignoreFocusPunch);
-            bool8 ai_is_faster = gBattleMoves[move].effect == EFFECT_QUICK_ATTACK || gBattleMoves[move].effect == EFFECT_FAKE_OUT || GetWhoStrikesFirst(sBattler_AI, gBattlerTarget, TRUE) == 0;
+            bool8 ai_is_faster = (gBattleMoves[move].effect == EFFECT_QUICK_ATTACK || gBattleMoves[move].effect == EFFECT_FAKE_OUT || gBattleMoves[move].effect == EFFECT_MIDELE_POWER || GetWhoStrikesFirst(sBattler_AI, gBattlerTarget, TRUE) == 0) && move != MOVE_COUNTER && move != MOVE_MIRROR_COAT && move != MOVE_VITAL_THROW && move != MOVE_FOCUS_PUNCH;
             u8 attacks_until_ko = nhko_taken - (ai_is_faster ? 0 : 1);
 
             // Si recibe OHKO y es más lento, considera cambiar
@@ -3215,7 +3215,7 @@ static void Cmd_if_trick_fails_in_this_type_of_battle(void)
 // (todos los movimientos conocidos y esperados, si no se conocen los movimientos del atacante)
 s32 CalculateNHKO(u16 attackerId, u16 targetId, bool8 attackerIsCurrentAI, u16 consideredMove, bool8 assumeWorstCaseScenario, bool8 ignoreFocusPunch)
 {
-    u16 * movePointer;
+    const u16 * movePointer;
 	bool8 check_only_considered_move = (consideredMove != MOVE_NONE);
     s32 i;
     s32 best_nhko = 5;     // todo lo que sea peor que 4HKO se lee como 5HKO (incluso daño 0)
