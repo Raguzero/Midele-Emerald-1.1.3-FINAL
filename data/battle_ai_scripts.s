@@ -1324,6 +1324,15 @@ AI_CV_QuickAttack_End:
 	
 AI_CV_WillOWisp:
     if_ability_might_be AI_TARGET, ABILITY_WONDER_GUARD, Score_Plus1
+    get_possible_categories_of_foes_attacks
+    if_equal AI_PHYSICAL_ONLY, Score_Plus1
+    if_equal AI_ONLY_PHYSICAL_KNOWN, Score_Plus1
+    if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_PHYSICAL, Score_Plus1
+    if_equal AI_NO_DAMAGING_MOVES, AI_Ret @ posiblemente no viene mal meterle status a un poke defensivo
+    if_equal AI_BOTH_PHYSICAL_AND_SPECIAL AI_Ret
+    if_equal AI_UNKNOWN_CATEGORIES, AI_Ret
+    calculate_nhko AI_TARGET     @ es un poke que ataca por el lado especial probablemente:
+    if_less_than 3, Score_Minus2 @ si hace mucho daño mejor no perder el tiempo con WoW
     end
 
 AI_CV_RapidSpin:
@@ -2096,11 +2105,12 @@ AI_CV_Toxic_End:
 	end
 
 AI_CV_LightScreen:
-	if_hp_less_than AI_USER, 50, AI_CV_LightScreen_ScoreDown2
-	get_target_type1
-	if_in_bytes AI_CV_LightScreen_SpecialTypeList, AI_CV_LightScreen_End
-	get_target_type2
-	if_in_bytes AI_CV_LightScreen_SpecialTypeList, AI_CV_LightScreen_End
+  get_possible_categories_of_foes_attacks
+  if_equal AI_NO_DAMAGING_MOVES, AI_CV_LightScreen_ScoreDown2
+  if_equal AI_PHYSICAL_ONLY, AI_CV_LightScreen_ScoreDown2
+  if_equal AI_ONLY_PHYSICAL_KNOWN, AI_CV_LightScreen_ScoreDown2
+  if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_PHYSICAL, AI_CV_LightScreen_ScoreDown2
+  if_not_equal AI_UNKNOWN_CATEGORIES, AI_CV_LightScreen_End
 	if_random_less_than 50, AI_CV_LightScreen_End
 
 AI_CV_LightScreen_ScoreDown2:
@@ -2227,11 +2237,12 @@ AI_CV_SwaggerHasPsychUp_End:
 	end
 
 AI_CV_Reflect:
-	if_hp_less_than AI_USER, 50, AI_CV_Reflect_ScoreDown2
-	get_target_type1
-	if_in_bytes AI_CV_Reflect_PhysicalTypeList, AI_CV_Reflect_End
-	get_target_type2
-	if_in_bytes AI_CV_Reflect_PhysicalTypeList, AI_CV_Reflect_End
+  get_possible_categories_of_foes_attacks
+  if_equal AI_NO_DAMAGING_MOVES, AI_CV_Reflect_ScoreDown2
+  if_equal AI_SPECIAL_ONLY, AI_CV_Reflect_ScoreDown2
+  if_equal AI_ONLY_SPECIAL_KNOWN, AI_CV_Reflect_ScoreDown2
+  if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_SPECIAL, AI_CV_Reflect_ScoreDown2
+  if_not_equal AI_UNKNOWN_CATEGORIES, AI_CV_Reflect_End
 	if_random_less_than 50, AI_CV_Reflect_End
 
 AI_CV_Reflect_ScoreDown2:
@@ -2239,18 +2250,6 @@ AI_CV_Reflect_ScoreDown2:
 
 AI_CV_Reflect_End:
 	end
-
-AI_CV_Reflect_PhysicalTypeList:
-    .byte TYPE_NORMAL
-    .byte TYPE_FIGHTING
-    .byte TYPE_FLYING
-    .byte TYPE_POISON
-    .byte TYPE_GROUND
-    .byte TYPE_ROCK
-    .byte TYPE_BUG
-    .byte TYPE_GHOST
-    .byte TYPE_STEEL
-    .byte -1
 
 AI_CV_Poison:
 	if_ability_might_be AI_TARGET, ABILITY_WONDER_GUARD, Score_Plus1
