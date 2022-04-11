@@ -726,6 +726,8 @@
     .macro trainerbattle_multi trainer1:req trainer2:req lose_text1:req lose_text2:req
     setvar VAR_0x8004, \trainer1
     setvar VAR_0x8005, \trainer2
+    settwovarswithword VAR_0x8006, VAR_0x8007, \lose_text1
+    settwovarswithword VAR_0x8008, VAR_0x8009, \lose_text2
     special SetupCustomMultiBattle
     trainerbattlebegin
     .endm
@@ -1735,6 +1737,13 @@
 	.2byte \index
 	.4byte \movements
 	.endm
+
+    .macro settwovarswithword var1:req var2:req value:req
+    .byte 0xe8
+    .2byte \var1
+    .2byte \var2
+    .4byte \value
+    .endm
 
 @ Supplementary
 

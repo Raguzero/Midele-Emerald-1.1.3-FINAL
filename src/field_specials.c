@@ -4790,7 +4790,7 @@ void SetupCustomMultiBattle(void)
 
     gTrainerBattleOpponent_A = gSpecialVar_0x8004;
     gTrainerBattleOpponent_B = gSpecialVar_0x8005;
-   // sTrainerADefeatSpeech = (u8*) (gSpecialVar_0x8006 | (gSpecialVar_0x8007 << 16));
-    // sTrainerBDefeatSpeech = (u8*) (gSpecialVar_0x8008 | (gSpecialVar_0x8009 << 16));
+    sTrainerADefeatSpeech = (u8*) (gSpecialVar_0x8006 | (gSpecialVar_0x8007 << 16));
+    sTrainerBDefeatSpeech = (u8*) (gSpecialVar_0x8008 | (gSpecialVar_0x8009 << 16));
     gNoOfApproachingTrainers = 2;
 }

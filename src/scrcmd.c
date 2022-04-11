@@ -2414,3 +2414,16 @@ bool8 ScrCmd_applyrangemovement(struct ScriptContext *ctx)
     sMovingNpcId = localId;
     return FALSE;
 }
+
+// Almacena una palabra de 32 bits en dos variables (de 16 bits cada una)
+// Los 16 dígitos más significativos van a la segunda variable
+bool8 ScrCmd_settwovarswithword(struct ScriptContext *ctx)
+{
+    u16 *var1 = GetVarPointer(ScriptReadHalfword(ctx));
+    u16 *var2 = GetVarPointer(ScriptReadHalfword(ctx));
+    u32 word = ScriptReadWord(ctx);
+
+    *var1 = (u16) (word);
+    *var2 = (u16) (word >> 16);
+    return FALSE;
+}
