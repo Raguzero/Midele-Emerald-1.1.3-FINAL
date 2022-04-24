@@ -42,6 +42,7 @@
 #define USER_CANNOT_USE_SUB            3
 #define TARGET_HAS_1_MAX_HP            4
 #define USER_HAS_1_HP                  5
+#define USER_CANNOT_USE_BELLY_DRUM     6
 
 #define AI_NHKO_PESSIMISTIC 4
 
