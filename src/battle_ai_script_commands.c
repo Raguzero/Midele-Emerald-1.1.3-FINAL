@@ -1468,6 +1468,12 @@ static void Cmd_if_hp_condition(void)
         else
             gAIScriptPtr += 6;
         break;
+    case USER_CANNOT_USE_BELLY_DRUM: // comprueba si la IA no tiene PS como para usar Tambor
+        if (gBattleMons[sBattler_AI].hp <= gBattleMons[sBattler_AI].maxHP / 2)
+            gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
+        else
+            gAIScriptPtr += 6;
+        break;
     }
 }
 
