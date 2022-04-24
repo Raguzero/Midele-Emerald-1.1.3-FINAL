@@ -527,8 +527,6 @@ AI_CBM_Paralyze: @ 82DC545
     if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
 AI_CBM_Paralyze_SkipEffectiveness:
 	if_ability_might_be AI_TARGET, ABILITY_LIMBER, Score_Minus10
-    if_ability_might_be AI_TARGET, ABILITY_MARVEL_SCALE, Score_Minus8
-    if_ability_might_be AI_TARGET, ABILITY_GUTS, Score_Minus2
     if_status AI_TARGET, STATUS1_ANY, Score_Minus10
 	if_target_might_have_a_sub_before_our_attack Score_Minus10
     if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
@@ -536,7 +534,9 @@ AI_CBM_Paralyze_SkipEffectiveness:
     if_move MOVE_STUN_SPORE, AI_CBM_Paralyze_OverCoat
 AI_CBM_Paralyze_SynchronizeCheck:
     if_ability_might_be AI_TARGET, ABILITY_SYNCHRONIZE, AI_CBM_Paralyze_Synchronize
-AI_CBM_Paralyze_End:
+AI_CBM_Paralyze2:
+    if_ability_might_be AI_TARGET, ABILITY_MARVEL_SCALE, Score_Minus8
+    if_ability_might_be AI_TARGET, ABILITY_GUTS, Score_Minus2
     end
     
 AI_ThunderWave:
@@ -548,12 +548,12 @@ AI_CBM_Paralyze_OverCoat:
 	if_ability_might_be AI_TARGET, ABILITY_OVERCOAT, Score_Minus10
     goto AI_CBM_Paralyze_SynchronizeCheck
 AI_CBM_Paralyze_Synchronize:
-	if_ability AI_USER, ABILITY_GUTS, AI_CBM_Paralyze_End
-	if_ability AI_USER, ABILITY_MARVEL_SCALE, AI_CBM_Paralyze_End
-	if_ability AI_USER, ABILITY_LIMBER, AI_CBM_Paralyze_End
-	if_status AI_USER, STATUS1_ANY, AI_CBM_Paralyze_End
+	if_ability AI_USER, ABILITY_GUTS, AI_CBM_Paralyze2
+	if_ability AI_USER, ABILITY_MARVEL_SCALE, AI_CBM_Paralyze2
+	if_ability AI_USER, ABILITY_LIMBER, AI_CBM_Paralyze2
+	if_status AI_USER, STATUS1_ANY, AI_CBM_Paralyze2
 	score -5
-    goto AI_CBM_Paralyze_End
+    goto AI_CBM_Paralyze2
 
 AI_CBM_Substitute: @ 82DC568
     if_hp_condition USER_CANNOT_USE_SUB, Score_Minus10
