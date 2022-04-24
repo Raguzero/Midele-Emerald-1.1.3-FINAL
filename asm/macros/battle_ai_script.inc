@@ -778,13 +778,20 @@
     .AI_no_free_setup_\@:
     .endm
 	
-	.macro if_target_not_expected_to_sleep ptr:req
+	.macro if_target_not_expected_to_sleep_during_next_turn ptr:req
     if_not_status AI_TARGET, STATUS1_SLEEP, \ptr
     @ Comprueba si el status de sueño es 5 (101 en binario), en cuyo caso va a despertar
     if_not_status AI_TARGET, 1, .AI_target_might_be_sleeping_\@
     if_status AI_TARGET, 2, .AI_target_might_be_sleeping_\@
     if_status AI_TARGET, 4, \ptr
     .AI_target_might_be_sleeping_\@:
+    .endm
+	
+	.macro if_target_not_expected_to_be_asleep_assuming_equal_priority ptr:req
+    if_not_status AI_TARGET, STATUS1_SLEEP, \ptr
+    if_user_faster .AI_target_might_be_sleeping2_\@
+    if_target_not_expected_to_sleep_during_next_turn \ptr
+    .AI_target_might_be_sleeping2_\@:
     .endm
 	
    @ Determina que el usuario puede boostearse tranquilamente:
@@ -814,7 +821,7 @@
 	if_effect EFFECT_CURSE, .AI_user_slower_\@
     if_target_faster .AI_user_slower_\@
 
-    if_target_not_expected_to_sleep .AI_user_faster_target_not_sleeping_\@
+    if_not_status AI_TARGET, STATUS1_SLEEP, .AI_user_faster_target_not_sleeping_\@
     if_has_move_with_effect AI_TARGET, EFFECT_SLEEP_TALK, .AI_user_faster_target_not_sleeping_\@
     if_more_than 2, \ptr
     .AI_user_faster_target_not_sleeping_\@:
@@ -864,7 +871,7 @@
     .AI_user_slower_\@:
     if_next_turn_target_might_use_move_with_effect EFFECT_TAUNT, .AI_user_might_not_be_able_to_boost_safely_\@
 
-    if_target_not_expected_to_sleep .AI_user_slower_target_not_sleeping_\@
+    if_target_not_expected_to_sleep_during_next_turn .AI_user_slower_target_not_sleeping_\@
 	
 	if_has_move_with_effect AI_TARGET, EFFECT_SLEEP_TALK, .AI_user_slower_target_not_sleeping_\@
     if_more_than 3, \ptr
@@ -909,4 +916,10 @@
     if_next_turn_target_might_use_move_with_effect AI_LAST_EFFECT_BY_TARGET, .AI_target_might_repeat_efect_\@
     goto \param
     .AI_target_might_repeat_efect_\@:
+    .endm
+
+    .macro if_doesnt_hold_item battler:req, param1:req, param2:req
+    if_holds_item \battler, \param1, .AI_item_is_actually_held_\@
+    goto \param2
+    .AI_item_is_actually_held_\@:
     .endm
