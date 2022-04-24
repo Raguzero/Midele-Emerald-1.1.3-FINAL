@@ -276,6 +276,11 @@ AI_CBM_Sleep_Overcoat:
 AI_CBM_Explosion: @ 82DC2F7
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
     if_ability_might_be AI_TARGET, ABILITY_DAMP, Score_Minus10
+	count_usable_party_mons AI_USER
+	if_not_equal 0, AI_CBM_Explosion_NotOneVsMany
+	count_usable_party_mons AI_TARGET
+	if_not_equal 0, Score_Minus10
+AI_CBM_Explosion_NotOneVsMany:
     if_target_might_have_a_sub_before_our_attack Score_Minus8
     if_next_turn_target_might_use_move_with_effect EFFECT_PROTECT, AI_CBM_Explosion_TargetHasProtect
     goto AI_CBM_Explosion_TargetNotExpectedToUseProtect
@@ -284,10 +289,6 @@ AI_CBM_Explosion_TargetHasProtect:
     if_equal 0, Score_Minus8
     if_equal 1, Score_Minus2
 AI_CBM_Explosion_TargetNotExpectedToUseProtect:
-	count_usable_party_mons AI_USER
-	if_not_equal 0, AI_CBM_Explosion_End
-	count_usable_party_mons AI_TARGET
-	if_not_equal 0, Score_Minus10
 	goto Score_Minus1
 
 AI_CBM_Explosion_End: @ 82DC31A
@@ -300,13 +301,13 @@ AI_CBM_Nightmare: @ 82DC31B
 	end
 
 AI_CBM_DreamEater: @ 82DC330
-	if_not_status AI_TARGET, STATUS1_SLEEP, Score_Minus8
-    if_target_might_have_a_sub_before_our_attack Score_Minus10
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
+	if_target_not_expected_to_be_asleep_assuming_equal_priority Score_Minus10
+	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
 	end
 
 AI_CBM_BellyDrum: @ 82DC341
-	if_hp_less_than AI_USER, 51, Score_Minus10
+	if_hp_condition USER_CANNOT_USE_BELLY_DRUM, Score_Minus10
 
 AI_CBM_AttackUp: @ 82DC348
 	if_stat_level_equal AI_USER, STAT_ATK, 12, Score_Minus10
@@ -507,15 +508,15 @@ AI_CBM_Mist: @ 82DC507
 	end
 
 AI_CBM_FocusEnergy: @ 82DC512
-	if_this_attack_might_be_the_last Score_Minus5
 	if_status2 AI_USER, STATUS2_FOCUS_ENERGY, Score_Minus10
+	if_this_attack_might_be_the_last Score_Minus5
 	end
 
 AI_CBM_Confuse: @ 82DC51D
-	if_status2 AI_TARGET, STATUS2_CONFUSION, Score_Minus5
     if_target_might_have_a_sub_before_our_attack Score_Minus10
 	if_ability_might_be AI_TARGET, ABILITY_OWN_TEMPO, Score_Minus10
 	if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
+	if_status2 AI_TARGET, STATUS2_CONFUSION, Score_Minus5
 	end
 
 AI_CBM_Reflect: @ 82DC53A
@@ -569,13 +570,13 @@ AI_CBM_Minus8IfAICanBePhazed:
     goto Score_Minus8
 
 AI_CBM_LeechSeed: @ 82DC57A
-	if_ability_might_be AI_TARGET, ABILITY_LIQUID_OOZE, Score_Minus10
     if_target_might_have_a_sub_before_our_attack Score_Minus10
 	if_status3 AI_TARGET, STATUS3_LEECHSEED, Score_Minus10
 	get_target_type1
 	if_equal TYPE_GRASS, Score_Minus10
 	get_target_type2
 	if_equal TYPE_GRASS, Score_Minus10
+	if_ability_might_be AI_TARGET, ABILITY_LIQUID_OOZE, Score_Minus8
 	end
 
 AI_CBM_Disable: @ 82DC595
@@ -599,9 +600,20 @@ AI_CBM_CantEscape: @ 82DC5B0
 	end
 
 AI_CBM_Curse: @ 82DC5BB
+	if_type AI_USER, TYPE_GHOST, AI_CBM_Curse_Ghost
 	if_stat_level_equal AI_USER, STAT_ATK, 12, Score_Minus10
 	if_stat_level_equal AI_USER, STAT_DEF, 12, Score_Minus8
+AI_CBM_Curse_End:
 	end
+
+AI_CBM_Curse_Ghost:
+	if_hp_condition USER_CANNOT_USE_BELLY_DRUM, AI_CBM_Curse_Ghost_UserWillFaint
+	goto AI_CBM_Curse_End
+
+AI_CBM_Curse_Ghost_UserWillFaint:
+	count_usable_party_mons AI_USER
+	if_equal 0, Score_Minus10
+	goto AI_CBM_Curse_End
 
 AI_CBM_Spikes: @ 82DC5CC
 	count_usable_party_mons AI_TARGET
@@ -833,6 +845,10 @@ AI_CBM_HealBell2:
 AI_CBM_Taunt:
 	if_ability_might_be AI_TARGET, ABILITY_OBLIVIOUS, Score_Minus10
 	if_target_taunted Score_Minus10
+	calculate_nhko AI_TARGET
+	if_equal 1, Score_Minus2
+	get_possible_categories_of_foes_attacks
+	if_equal AI_NO_DAMAGING_MOVES, Score_Plus2
     is_first_turn_for AI_USER
     if_equal 1, AI_CBM_TauntFast
 	goto AI_CBM_Taunt_End
@@ -1727,7 +1743,7 @@ AI_CV_AlwaysHit_End:
 	end
 
 AI_CV_AttackDown: @ 82DCDF8
-	if_stat_level_equal AI_TARGET, STAT_ATK, 6, AI_CV_AttackDown3
+	if_stat_level_more_than AI_TARGET, STAT_ATK, 6, AI_CV_AttackDown3
 	score -1
 	if_hp_more_than AI_USER, 90, AI_CV_AttackDown2
 	score -1
@@ -1742,24 +1758,20 @@ AI_CV_AttackDown3: @ 82DCE1B
 	score -2
 
 AI_CV_AttackDown4: @ 82DCE24
-	get_target_type1
-	if_in_bytes AI_CV_AttackDown_UnknownTypeList, AI_CV_AttackDown_End
-	get_target_type2
-	if_in_bytes AI_CV_AttackDown_UnknownTypeList, AI_CV_AttackDown_End
+	get_possible_categories_of_foes_attacks
+	if_equal AI_PHYSICAL_ONLY, AI_CV_AttackDown_End
+	if_equal AI_ONLY_PHYSICAL_KNOWN, AI_CV_AttackDown_End
+	if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_PHYSICAL, AI_CV_AttackDown_End
+	if_equal AI_BOTH_PHYSICAL_AND_SPECIAL AI_CV_AttackDown5
+	if_equal AI_UNKNOWN_CATEGORIES, AI_CV_AttackDown5
+	goto AI_CV_AttackDown_ScoreMinus2 @ no tiene ataques de daño o son probablemente especiales
+AI_CV_AttackDown5:
 	if_random_less_than 50, AI_CV_AttackDown_End
+AI_CV_AttackDown_ScoreMinus2:
 	score -2
 
 AI_CV_AttackDown_End: @ 82DCE42
 	end
-
-AI_CV_AttackDown_UnknownTypeList:
-    .byte TYPE_NORMAL
-    .byte TYPE_FIGHTING
-    .byte TYPE_GROUND
-    .byte TYPE_ROCK
-    .byte TYPE_BUG
-    .byte TYPE_STEEL
-    .byte -1
 
 AI_CV_DefenseDown:
 	if_hp_less_than AI_USER, 70, AI_CV_DefenseDown2
@@ -1797,7 +1809,7 @@ AI_CV_SpeedDown_End: @ 82DCE96
 	end
 
 AI_CV_SpAtkDown:
-	if_stat_level_equal AI_TARGET, STAT_ATK, 6, AI_CV_SpAtkDown3
+	if_stat_level_more_than AI_TARGET, STAT_SPATK, 6, AI_CV_SpAtkDown3
 	score -1
 	if_hp_more_than AI_USER, 90, AI_CV_SpAtkDown2
 	score -1
@@ -1812,27 +1824,20 @@ AI_CV_SpAtkDown3:
 	score -2
 
 AI_CV_SpAtkDown4:
-	get_target_type1
-	if_in_bytes AI_CV_SpAtkDown_SpecialTypeList, AI_CV_SpAtkDown_End
-	get_target_type2
-	if_in_bytes AI_CV_SpAtkDown_SpecialTypeList, AI_CV_SpAtkDown_End
+	get_possible_categories_of_foes_attacks
+	if_equal AI_SPECIAL_ONLY, AI_CV_SpAtkDown_End
+	if_equal AI_ONLY_SPECIAL_KNOWN, AI_CV_SpAtkDown_End
+	if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_SPECIAL, AI_CV_SpAtkDown_End
+	if_equal AI_BOTH_PHYSICAL_AND_SPECIAL AI_CV_SpAtkDown5
+	if_equal AI_UNKNOWN_CATEGORIES, AI_CV_SpAtkDown5
+	goto AI_CV_SpAtkDown_ScoreMinus2 @ no tiene ataques de daño o son probablemente físicos
+AI_CV_SpAtkDown5:
 	if_random_less_than 50, AI_CV_SpAtkDown_End
+AI_CV_SpAtkDown_ScoreMinus2:
 	score -2
 
 AI_CV_SpAtkDown_End: @ 82DCEE1
 	end
-
-AI_CV_SpAtkDown_SpecialTypeList: @ 82DCEE2
-    .byte TYPE_FIRE
-    .byte TYPE_WATER
-    .byte TYPE_GRASS
-    .byte TYPE_ELECTRIC
-    .byte TYPE_PSYCHIC
-    .byte TYPE_ICE
-    .byte TYPE_DRAGON
-    .byte TYPE_DARK
-    .byte TYPE_FAIRY
-    .byte -1
 
 AI_CV_SpDefDown: @ 82DCEEB
 	if_hp_less_than AI_USER, 70, AI_CV_SpDefDown2
@@ -2392,7 +2397,7 @@ AI_CV_Recharge_End:
 	end
 
 AI_CV_Disable:
-    if_target_not_expected_to_sleep AI_CV_Disable_TargetNotSleeping
+    if_target_not_expected_to_be_asleep_assuming_equal_priority AI_CV_Disable_TargetNotSleeping
     goto AI_CV_Disable_OpponentIsNotExpectedToAttack
 AI_CV_Disable_TargetNotSleeping:
 	if_target_faster AI_CV_Disable_End
@@ -2441,7 +2446,7 @@ AI_CV_Counter:
     if_equal AI_NO_DAMAGING_MOVES, Score_Minus10
     if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_SPECIAL, Score_Minus5
     if_equal AI_ONLY_SPECIAL_KNOWN, Score_Minus5
-    if_target_not_expected_to_sleep AI_CV_Counter_TargetNotSleeping
+    if_target_not_expected_to_sleep_during_next_turn AI_CV_Counter_TargetNotSleeping
     goto AI_CV_Counter_ScoreDown3
 AI_CV_Counter_TargetNotSleeping:
 	if_status AI_TARGET, STATUS1_FREEZE, AI_CV_Counter_ScoreDown3
@@ -2545,7 +2550,7 @@ AI_CV_Encore_TargetIsFaster:
     get_last_used_bank_move AI_TARGET
     if_not_equal MOVE_NONE, AI_CV_Encore_TargetIsFaster_TargetHasAttackedOrIsExpectedToAttack
     if_status AI_TARGET, STATUS1_FREEZE, Score_Minus5
-    if_target_not_expected_to_sleep AI_CV_Encore_TargetIsFaster_TargetHasAttackedOrIsExpectedToAttack
+    if_target_not_expected_to_sleep_during_next_turn AI_CV_Encore_TargetIsFaster_TargetHasAttackedOrIsExpectedToAttack
     goto Score_Minus5
 
 AI_CV_Encore_TargetIsFaster_TargetHasAttackedOrIsExpectedToAttack:
@@ -3193,6 +3198,8 @@ AI_CV_SunnyDay_End:
 	end
 
 AI_CV_BellyDrum:
+	if_hp_condition USER_CANNOT_USE_BELLY_DRUM, AI_CV_BellyDrum_ScoreDown2
+	if_status2 AI_USER, STATUS2_SUBSTITUTE, Score_Plus1
 	if_hp_less_than AI_USER, 90, AI_CV_BellyDrum_ScoreDown2
 	goto AI_CV_BellyDrum_End
 
@@ -3240,7 +3247,7 @@ AI_CV_MirrorCoat:
     if_equal AI_NO_DAMAGING_MOVES, Score_Minus10
     if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_PHYSICAL, Score_Minus5
     if_equal AI_ONLY_PHYSICAL_KNOWN, Score_Minus5
-    if_target_not_expected_to_sleep AI_CV_MirrorCoat_TargetNotSleeping
+    if_target_not_expected_to_sleep_during_next_turn AI_CV_MirrorCoat_TargetNotSleeping
     goto AI_CV_MirrorCoat_ScoreDown3
 AI_CV_MirrorCoat_TargetNotSleeping:
 	if_status AI_TARGET, STATUS1_FREEZE, AI_CV_MirrorCoat_ScoreDown3
@@ -3546,7 +3553,7 @@ AI_CV_FocusPunch_SkipFreezeCheck:
     if_stat_level_more_than AI_USER, STAT_EVASION, 10, AI_CV_FocusPunch_End
 AI_CV_FocusPunch_SkipAccuracyAndPrecisionCheck1:
     score -1
-    if_target_not_expected_to_sleep AI_CV_FocusPunch_NotExpectedToSleep
+    if_target_not_expected_to_sleep_during_next_turn AI_CV_FocusPunch_NotExpectedToSleep
     goto AI_CV_FocusPunch_End
 AI_CV_FocusPunch_NotExpectedToSleep:
     if_not_status AI_TARGET, STATUS1_PARALYSIS, AI_CV_FocusPunch_NoParafuseOrParalove
