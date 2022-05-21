@@ -49,6 +49,8 @@ AI_CheckBadMove:
 	if_target_is_ally AI_Ret
 	if_move MOVE_FISSURE, AI_CBM_CheckIfNegatesType
 	if_move MOVE_HORN_DRILL, AI_CBM_CheckIfNegatesType
+	if_move MOVE_GUILLOTINE, AI_CBM_CheckIfNegatesType
+    if_move MOVE_FUTURE_SIGHT, AI_CheckBadMove_CheckSoundproof
 	get_how_powerful_move_is
 	if_equal 0, AI_CheckBadMove_CheckSoundproof
     if_equal MOVE_POWER_DISCOURAGED, AI_CheckBadMove_CheckSubstitute
@@ -687,7 +689,7 @@ AI_CBM_SunnyDay: @ 82DC661
 AI_CBM_FutureSight: @ 82DC669
 	if_side_affecting AI_TARGET, SIDE_STATUS_FUTUREATTACK, Score_Minus12
 	if_side_affecting AI_USER, SIDE_STATUS_FUTUREATTACK, Score_Minus12
-	score +5
+	score -1
 	end
 
 AI_CBM_FakeOut: @ 82DC680
