@@ -6711,6 +6711,13 @@ void CursorCb_MoveItemCallback(u8 taskId)
             PlaySE(SE_HAZURE);
             return;
         }
+		
+        if(GetMonData(&gPlayerParty[gPartyMenu.slotId2], MON_DATA_HELD_ITEM) >= ITEM_ORANGE_MAIL
+        && GetMonData(&gPlayerParty[gPartyMenu.slotId2], MON_DATA_HELD_ITEM) <= ITEM_RETRO_MAIL)
+        {
+            PlaySE(SE_HAZURE);
+            return;
+        }
 
         PlaySE(SE_SELECT);
         gPartyMenu.action = PARTY_ACTION_CHOOSE_MON;
