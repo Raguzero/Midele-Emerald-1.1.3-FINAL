@@ -73,7 +73,7 @@ MicoloHideout_SecurityRoom_PC2_Text_0:
 	.string "“REPORTE MICOLANDIA 2”\p"
 	.string "“Han comenzado a venir entrenadores a\n"
 	.string "la isla y se han asentado aquí.\p"
-	.string "Esto cada vez más se empieza a paracer\n"
+	.string "Esto cada vez más se empieza a parecer\n"
 	.string "a un poblado loooooooooooool\p"
 	.string "Lo aprovecharé para crear mis propios\n"
 	.string "GIMNASIOS y LIGA POKéMON n.n\p"
