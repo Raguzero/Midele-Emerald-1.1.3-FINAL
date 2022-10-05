@@ -9517,7 +9517,7 @@ static void Cmd_healpartystatus(void)
 
 static void Cmd_cursetarget(void)
 {
-    if (gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED)
+    if (gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED || gBossBattleFlags == BATTLE_TYPE_BOSS || gBossBattleFlags == BATTLE_TYPE_TOTEM)
     {
         gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
     }
