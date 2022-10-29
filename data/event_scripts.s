@@ -585,6 +585,7 @@ gStdScripts_End:: @ 81DC2CC
 
 EventScript_WhiteOut:: @ 8271857
 	call EverGrandeCity_HallOfFame_EventScript_ResetEliteFour
+	call MicoloLeague_FinalRoom_GameEndFlags
 	goto EventScript_ResetMrBriney
 	end
 
