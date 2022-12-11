@@ -310,35 +310,27 @@ AI_CBM_DreamEater: @ 82DC330
 
 AI_CBM_BellyDrum: @ 82DC341
 	if_hp_condition USER_CANNOT_USE_BELLY_DRUM, Score_Minus10
-
 AI_CBM_AttackUp: @ 82DC348
 	if_stat_level_equal AI_USER, STAT_ATK, 12, Score_Minus10
 	end
 
 AI_CBM_DefenseUp: @ 82DC351
 	if_stat_level_equal AI_USER, STAT_DEF, 12, Score_Minus10
-	if_next_turn_target_might_use_move_with_effect EFFECT_HAZE, Score_Minus8
-	if_next_turn_target_might_use_move_with_effect EFFECT_ROAR, AI_CBM_Minus8IfAICanBePhazed
-	end
+	goto AI_CBM_DefenseOrEvasion_CheckIfOpponentCanPhaze
 
 AI_CBM_SpeedUp: @ 82DC35A
 	if_stat_level_equal AI_USER, STAT_SPEED, 12, Score_Minus10
 	end
-
-AI_CBM_SpAtkUp: @ 82DC363
-	if_stat_level_equal AI_USER, STAT_SPATK, 12, Score_Minus10
-	end
 	
 AI_CBM_Growth:
 	if_stat_level_not_equal AI_USER, STAT_ATK, 12, AI_Ret
+AI_CBM_SpAtkUp: @ 82DC363
 	if_stat_level_equal AI_USER, STAT_SPATK, 12, Score_Minus10
 	end
 
 AI_CBM_SpDefUp: @ 82DC36C
 	if_stat_level_equal AI_USER, STAT_SPDEF, 12, Score_Minus10
-	if_next_turn_target_might_use_move_with_effect EFFECT_HAZE, Score_Minus8
-	if_next_turn_target_might_use_move_with_effect EFFECT_ROAR, AI_CBM_Minus8IfAICanBePhazed
-	end
+	goto AI_CBM_DefenseOrEvasion_CheckIfOpponentCanPhaze
 
 AI_CBM_AccUp: @ 82DC375
 	if_stat_level_equal AI_USER, STAT_ACC, 12, Score_Minus10
@@ -346,6 +338,7 @@ AI_CBM_AccUp: @ 82DC375
 
 AI_CBM_EvasionUp: @ 82DC37E
 	if_stat_level_equal AI_USER, STAT_EVASION, 12, AI_CBM_EvasionUp_Minus10or8
+AI_CBM_DefenseOrEvasion_CheckIfOpponentCanPhaze:
 	if_next_turn_target_might_use_move_with_effect EFFECT_HAZE, Score_Minus8
 	if_next_turn_target_might_use_move_with_effect EFFECT_ROAR, AI_CBM_Minus8IfAICanBePhazed
 	end
@@ -360,6 +353,7 @@ AI_CBM_EvasionUp_Minus10or8:
 
 AI_CBM_AttackDown: @ 82DC387
     if_target_might_have_a_sub_before_our_attack Score_Minus10
+AI_CBM_AttackDown_SkipSub:
 	if_stat_level_equal AI_TARGET, STAT_ATK, 0, Score_Minus10
 	if_side_affecting AI_TARGET, SIDE_STATUS_MIST, Score_Minus10
     if_ability_might_be AI_TARGET, ABILITY_HYPER_CUTTER, Score_Minus10
@@ -368,6 +362,7 @@ AI_CBM_AttackDown: @ 82DC387
 AI_CBM_DefenseDown: @ 82DC39C
     if_target_might_have_a_sub_before_our_attack Score_Minus10
 	if_stat_level_equal AI_TARGET, STAT_DEF, 0, Score_Minus10
+AI_CBM_DefenseDown_SkipSubAndStatCheck:
 	if_side_affecting AI_TARGET, SIDE_STATUS_MIST, Score_Minus10
 	goto CheckIfAbilityBlocksStatChange
 
@@ -603,14 +598,12 @@ AI_CBM_CantEscape: @ 82DC5B0
 
 AI_CBM_Curse: @ 82DC5BB
 	if_type AI_USER, TYPE_GHOST, AI_CBM_Curse_Ghost
-	if_stat_level_equal AI_USER, STAT_ATK, 12, Score_Minus10
-	if_stat_level_equal AI_USER, STAT_DEF, 12, Score_Minus8
-AI_CBM_Curse_End:
-	end
+	goto AI_CBM_BulkUp
 
 AI_CBM_Curse_Ghost:
 	if_hp_condition USER_CANNOT_USE_BELLY_DRUM, AI_CBM_Curse_Ghost_UserWillFaint
-	goto AI_CBM_Curse_End
+AI_CBM_Curse_End:
+	end
 
 AI_CBM_Curse_Ghost_UserWillFaint:
 	count_usable_party_mons AI_USER
@@ -790,20 +783,15 @@ AI_CBM_MudSport: @ 82DC71E
 	end
 
 AI_CBM_Tickle: @ 82DC729
-	if_stat_level_equal AI_TARGET, STAT_ATK, 0, Score_Minus10
-	if_stat_level_equal AI_TARGET, STAT_DEF, 0, Score_Minus8
-	end
+	if_stat_level_equal AI_TARGET, STAT_DEF, 0, AI_CBM_AttackDown_SkipSub
+	goto AI_CBM_DefenseDown_SkipSubAndStatCheck
 
 AI_CBM_CosmicPower: @ 82DC73A
-	if_stat_level_equal AI_USER, STAT_DEF, 12, Score_Minus10
-	if_stat_level_equal AI_USER, STAT_SPDEF, 12, Score_Minus8
-	if_next_turn_target_might_use_move_with_effect EFFECT_HAZE, Score_Minus8
-	if_next_turn_target_might_use_move_with_effect EFFECT_ROAR, AI_CBM_Minus8IfAICanBePhazed
-	end
+	if_stat_level_equal AI_USER, STAT_DEF, 12, AI_CBM_SpDefUp
+	goto AI_CBM_DefenseOrEvasion_CheckIfOpponentCanPhaze
 
 AI_CBM_BulkUp: @ 82DC74B
-	if_stat_level_equal AI_USER, STAT_ATK, 12, Score_Minus10
-	if_stat_level_equal AI_USER, STAT_DEF, 12, Score_Minus8
+	if_stat_level_equal AI_USER, STAT_ATK, 12, AI_CBM_DefenseUp
 	end
 
 AI_CBM_WaterSport: @ 82DC75C
@@ -811,19 +799,15 @@ AI_CBM_WaterSport: @ 82DC75C
 	end
 
 AI_CBM_CalmMind: @ 82DC767
-	if_stat_level_equal AI_USER, STAT_SPATK, 12, Score_Minus10
-	if_stat_level_equal AI_USER, STAT_SPDEF, 12, Score_Minus8
+	if_stat_level_equal AI_USER, STAT_SPATK, 12, AI_CBM_SpDefUp
 	end
 
 AI_CBM_DragonDance: @ 82DC778
-	if_stat_level_equal AI_USER, STAT_ATK, 12, Score_Minus10
-	if_stat_level_equal AI_USER, STAT_SPEED, 12, Score_Minus8
+	if_stat_level_equal AI_USER, STAT_SPEED, 12, AI_CBM_AttackUp
 	end
 	
 AI_CBM_QuiverDance:
-	if_stat_level_not_equal AI_USER, STAT_SPATK, 12, AI_Ret
-	if_stat_level_not_equal AI_USER, STAT_SPDEF, 12, AI_Ret
-	if_stat_level_equal AI_USER, STAT_SPEED, 12, Score_Minus10
+	if_stat_level_equal AI_USER, STAT_SPEED, 12, AI_CBM_CalmMind
 	end
 	
 AI_CBM_LockOn:
@@ -868,9 +852,7 @@ AI_CBM_Protect:
 	end
 	
 AI_CBM_Coil:
-	if_stat_level_not_equal AI_USER, STAT_ATK, 12, AI_Ret
-	if_stat_level_not_equal AI_USER, STAT_DEF, 12, AI_Ret
-	if_stat_level_equal AI_USER, STAT_ACC, 12, Score_Minus10
+	if_stat_level_equal AI_USER, STAT_ACC, 12, AI_CBM_BulkUp
 	end
 	
 AI_CBM_Mimic:
