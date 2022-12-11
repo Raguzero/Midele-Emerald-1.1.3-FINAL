@@ -911,7 +911,7 @@ static u8 ChooseMoveOrAction_Singles(void)
                     || (WEATHER_HAS_EFFECT && (((gBattleWeather & WEATHER_RAIN_ANY) && gBattleMoves[move].effect == EFFECT_THUNDER) || ((gBattleWeather & WEATHER_HAIL_ANY) && move == MOVE_BLIZZARD)))
                    );
             u8 nhko_taken = CalculateNHKO(gBattlerTarget, sBattler_AI, FALSE, MOVE_NONE, FALSE, ignoreFocusPunch);
-            bool8 ai_is_faster = gBattleMoves[move].effect == EFFECT_QUICK_ATTACK || gBattleMoves[move].effect == EFFECT_FAKE_OUT || GetWhoStrikesFirst(sBattler_AI, gBattlerTarget, TRUE) == 0;
+            bool8 ai_is_faster = (gBattleMoves[move].effect == EFFECT_QUICK_ATTACK || gBattleMoves[move].effect == EFFECT_FAKE_OUT || gBattleMoves[move].effect == EFFECT_MIDELE_POWER || GetWhoStrikesFirst(sBattler_AI, gBattlerTarget, TRUE) == 0) && move != MOVE_COUNTER && move != MOVE_MIRROR_COAT && move != MOVE_VITAL_THROW && move != MOVE_FOCUS_PUNCH;
             u8 attacks_until_ko = nhko_taken - (ai_is_faster ? 0 : 1);
 
             // Si recibe OHKO y es más lento, considera cambiar
@@ -1465,6 +1465,12 @@ static void Cmd_if_hp_condition(void)
         break;
     case USER_CANNOT_USE_SUB: // comprueba si la IA no tiene PS como para usar Sustituto
         if (gBattleMons[sBattler_AI].hp <= gBattleMons[sBattler_AI].maxHP / 4)
+            gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
+        else
+            gAIScriptPtr += 6;
+        break;
+    case USER_CANNOT_USE_BELLY_DRUM: // comprueba si la IA no tiene PS como para usar Tambor
+        if (gBattleMons[sBattler_AI].hp <= gBattleMons[sBattler_AI].maxHP / 2)
             gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
         else
             gAIScriptPtr += 6;
@@ -2921,13 +2927,18 @@ static void Cmd_get_move_effect_from_result(void)
 static void Cmd_get_protect_count(void)
 {
     u8 battlerId;
+    u16 lastMove;
 
     if (gAIScriptPtr[1] == AI_USER)
         battlerId = sBattler_AI;
     else
         battlerId = gBattlerTarget;
 
-    AI_THINKING_STRUCT->funcResult = gDisableStructs[battlerId].protectUses;
+    lastMove = gLastResultingMoves[battlerId];
+    if (lastMove != MOVE_PROTECT && lastMove != MOVE_DETECT && lastMove != MOVE_ENDURE)
+        AI_THINKING_STRUCT->funcResult = 0; // Si el último movimiento usado no fue uno de estos, no van a fallar estos movimientos
+    else
+        AI_THINKING_STRUCT->funcResult = gDisableStructs[battlerId].protectUses;
 
     gAIScriptPtr += 2;
 }
@@ -3211,7 +3222,7 @@ static void Cmd_if_trick_fails_in_this_type_of_battle(void)
 // (todos los movimientos conocidos y esperados, si no se conocen los movimientos del atacante)
 s32 CalculateNHKO(u16 attackerId, u16 targetId, bool8 attackerIsCurrentAI, u16 consideredMove, bool8 assumeWorstCaseScenario, bool8 ignoreFocusPunch)
 {
-    u16 * movePointer;
+    const u16 * movePointer;
 	bool8 check_only_considered_move = (consideredMove != MOVE_NONE);
     s32 i;
     s32 best_nhko = 5;     // todo lo que sea peor que 4HKO se lee como 5HKO (incluso daño 0)
