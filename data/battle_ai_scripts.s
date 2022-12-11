@@ -1519,6 +1519,8 @@ AI_CV_SpAtkUp_End: @ 82DCCAD
 	end
 
 AI_CV_Growth:
+	if_stat_level_equal AI_USER, STAT_SPATK, 12, AI_CV_AttackUp
+	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
 	if_free_setup_turn Score_Plus5
 	if_user_can_probably_boost_safely Score_Plus5
     if_this_attack_might_be_the_last Score_Minus5
@@ -1545,6 +1547,7 @@ AI_CV_Growth_End:
 	end
 	
 AI_CV_CosmicPower:
+    if_stat_level_equal AI_USER, STAT_SPDEF, 12, AI_CV_DefenseUp
     if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
     if_stat_level_less_than AI_USER, STAT_SPDEF, 8, AI_CV_CosmicPower_DoNotCheckIfThisAttackMightBeTheLast
     if_stat_level_less_than AI_USER, STAT_DEF, 8, AI_CV_CosmicPower_DoNotCheckIfThisAttackMightBeTheLast
@@ -2810,10 +2813,7 @@ AI_CV_Thief_EncourageItemsToSteal:
     .byte -1
 
 AI_CV_Curse:
-	get_user_type1
-	if_equal TYPE_GHOST, AI_CV_Curse4
-	get_user_type2
-	if_equal TYPE_GHOST, AI_CV_Curse4
+	if_type AI_USER, TYPE_GHOST, AI_CV_Curse_Ghost
     if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
 	if_user_can_probably_boost_safely Score_Plus5
     if_user_faster AI_CV_Curse_CheckIfThisAttackMightBeTheLast
@@ -2836,7 +2836,7 @@ AI_CV_Curse3:
 	score +1
 	goto AI_CV_Curse_End
 
-AI_CV_Curse4:
+AI_CV_Curse_Ghost:
     if_target_might_have_a_sub_before_our_attack Score_Minus10
 	if_hp_more_than AI_USER, 80, AI_CV_Curse_End
 	score -1
