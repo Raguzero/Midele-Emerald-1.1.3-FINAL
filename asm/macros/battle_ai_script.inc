@@ -888,6 +888,7 @@
 	
 	.macro if_user_is_intoxicated_and_does_not_have_baton_pass ptr:req
     if_not_status AI_USER, STATUS1_TOXIC_POISON, .AI_no_problem_with_toxic_\@
+    if_ability AI_USER, ABILITY_SHED_SKIN, .AI_no_problem_with_toxic_\@
     if_has_move_with_effect AI_USER, EFFECT_BATON_PASS, .AI_no_problem_with_toxic_\@
     if_has_move_with_effect AI_USER, EFFECT_REST, .AI_no_problem_with_toxic_\@
     if_has_move_with_effect AI_USER, EFFECT_REFRESH, .AI_no_problem_with_toxic_\@
