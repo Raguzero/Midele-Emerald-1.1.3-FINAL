@@ -1016,10 +1016,10 @@ AI_CheckViability_CheckEffects:
 	if_effect EFFECT_EXPLOSION, AI_CV_Explosion
 	if_effect EFFECT_DREAM_EATER, AI_CV_DreamEater
 	if_effect EFFECT_MIRROR_MOVE, AI_CV_MirrorMove
-	if_effect EFFECT_ATTACK_UP, AI_CV_AttackUp
+	if_effect EFFECT_ATTACK_UP, AI_CV_AttackUp_NotSwordsDance
 	if_effect EFFECT_DEFENSE_UP, AI_CV_DefenseUp
 	if_effect EFFECT_SPEED_UP, AI_CV_SpeedUp
-	if_effect EFFECT_SPECIAL_ATTACK_UP, AI_CV_SpAtkUp
+	if_effect EFFECT_SPECIAL_ATTACK_UP, AI_CV_SpAtkUp_NotNastyPlotOrTailGlow
 	if_effect EFFECT_SPECIAL_DEFENSE_UP, AI_CV_SpDefUp
 	if_effect EFFECT_ACCURACY_UP, AI_CV_AccuracyUp
 	if_effect EFFECT_EVASION_UP, AI_CV_EvasionUp
@@ -1043,11 +1043,11 @@ AI_CheckViability_CheckEffects:
 	if_effect EFFECT_RAZOR_WIND, AI_CV_ChargeUpMove
 	if_effect EFFECT_TRAP, AI_CV_Trap
 	if_effect EFFECT_CONFUSE, AI_CV_Confuse
-	if_effect EFFECT_ATTACK_UP_2, AI_CV_AttackUp
+	if_effect EFFECT_ATTACK_UP_2, AI_CV_SwordsDance
 	if_effect EFFECT_DEFENSE_UP_2, AI_CV_DefenseUp
 	if_effect EFFECT_SPEED_UP_2, AI_CV_SpeedUp
-	if_effect EFFECT_SPECIAL_ATTACK_UP_2, AI_CV_SpAtkUp
-	if_effect EFFECT_SPECIAL_ATTACK_UP_3, AI_CV_SpAtkUp
+	if_effect EFFECT_SPECIAL_ATTACK_UP_2, AI_CV_SpAtkUpNPTG
+	if_effect EFFECT_SPECIAL_ATTACK_UP_3, AI_CV_SpAtkUpNPTG
 	if_effect EFFECT_ATTACK_SPATK_UP, AI_CV_Growth
 	if_effect EFFECT_SPECIAL_DEFENSE_UP_2, AI_CV_SpDefUp
 	if_effect EFFECT_ACCURACY_UP_2, AI_CV_AccuracyUp
@@ -1127,17 +1127,17 @@ AI_CheckViability_CheckEffects:
 	if_effect EFFECT_OVERHEAT, AI_CV_Overheat
 	if_effect EFFECT_TICKLE, AI_CV_DefenseDown
 	if_effect EFFECT_COSMIC_POWER, AI_CV_CosmicPower
-	if_effect EFFECT_BULK_UP, AI_CV_AttackUp
+	if_effect EFFECT_BULK_UP, AI_CV_AttackUp_NotSwordsDance
 	if_effect EFFECT_WATER_SPORT, AI_CV_WaterSport
-	if_effect EFFECT_CALM_MIND, AI_CV_SpAtkUp
+	if_effect EFFECT_CALM_MIND, AI_CV_SpAtkUp_NotNastyPlotOrTailGlow
 	if_effect EFFECT_DRAGON_DANCE, AI_CV_DragonDance
 	if_effect EFFECT_SANDSTORM, AI_CV_Sandstorm
 	if_effect EFFECT_QUICK_ATTACK, AI_CV_QuickAttack @ para FEAR, incluye ExtremeSpeed y Mach Punch
 	if_effect EFFECT_WILL_O_WISP, AI_CV_WillOWisp
 	if_effect EFFECT_RAPID_SPIN, AI_CV_RapidSpin
 	if_effect EFFECT_ROLLOUT, AI_CV_Rollout
-	if_effect EFFECT_COIL, AI_CV_AttackUp
-	if_effect EFFECT_QUIVER_DANCE, AI_CV_SpAtkUp
+	if_effect EFFECT_COIL, AI_CV_AttackUp_NotSwordsDance
+	if_effect EFFECT_QUIVER_DANCE, AI_CV_SpAtkUp_NotNastyPlotOrTailGlow
 	if_effect EFFECT_STOCKPILE, AI_CV_CosmicPower
 	end
 
@@ -1367,7 +1367,9 @@ AI_CV_Rollout3:
 	if_status AI_TARGET, STATUS1_SLEEP | STATUS1_FREEZE, Score_Plus2
 	end
 
-AI_CV_AttackUp: @ 82DCBBC
+AI_CV_AttackUp_NotSwordsDance:
+	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
+AI_CV_SwordsDance: @ 82DCBBC
 	if_free_setup_turn Score_Plus5
 	if_user_can_probably_boost_safely Score_Plus5
 	if_this_attack_might_be_the_last Score_Minus5
@@ -1493,7 +1495,9 @@ AI_CV_SpeedUp2: @ 82DCC6A
 AI_CV_SpeedUp_End: @ 82DCC72
 	end
 
-AI_CV_SpAtkUp: @ 82DCC73
+AI_CV_SpAtkUp_NotNastyPlotOrTailGlow:
+	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
+AI_CV_SpAtkUpNPTG: @ 82DCC73
 	if_free_setup_turn Score_Plus5
 	if_user_can_probably_boost_safely Score_Plus5
     if_this_attack_might_be_the_last Score_Minus5
@@ -1519,7 +1523,7 @@ AI_CV_SpAtkUp_End: @ 82DCCAD
 	end
 
 AI_CV_Growth:
-	if_stat_level_equal AI_USER, STAT_SPATK, 12, AI_CV_AttackUp
+	if_stat_level_equal AI_USER, STAT_SPATK, 12, AI_CV_AttackUp_NotSwordsDance
 	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
 	if_free_setup_turn Score_Plus5
 	if_user_can_probably_boost_safely Score_Plus5
@@ -3907,6 +3911,7 @@ AI_CV_WaterSport_End:
 	end
 
 AI_CV_DragonDance:
+	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
     if_free_setup_turn Score_Plus5
 	if_user_can_probably_boost_safely Score_Plus5
 	if_target_faster AI_CV_DragonDance2
