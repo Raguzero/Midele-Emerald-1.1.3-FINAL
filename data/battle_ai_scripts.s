@@ -52,7 +52,7 @@ AI_CheckBadMove:
 	if_move MOVE_GUILLOTINE, AI_CBM_CheckIfNegatesType
     if_move MOVE_FUTURE_SIGHT, AI_CheckBadMove_CheckSoundproof
 	get_how_powerful_move_is
-	if_equal 0, AI_CheckBadMove_CheckSoundproof
+	if_equal MOVE_HAS_ZERO_OR_UNPREDICTABLE_POWER, AI_CheckBadMove_CheckSoundproof
     if_equal MOVE_POWER_DISCOURAGED, AI_CheckBadMove_CheckSubstitute
     if_equal MOVE_POWER_DISCOURAGED_AND_NOT_MOST_POWERFUL, AI_CheckBadMove_CheckSubstitute
     goto AI_CBM_CheckIfNegatesType
@@ -3991,7 +3991,7 @@ AI_TryToFaint_BonusToMostPowerfulAttack:
 	get_how_powerful_move_is
 	if_equal MOVE_NOT_MOST_POWERFUL, Score_Minus1
 	if_equal MOVE_POWER_DISCOURAGED_AND_NOT_MOST_POWERFUL, Score_Minus2
-	if_equal 0, AI_Ret
+	if_equal MOVE_HAS_ZERO_OR_UNPREDICTABLE_POWER, AI_Ret
 	if_type_effectiveness AI_EFFECTIVENESS_x4, AI_TryToFaint_DoubleSuperEffective
 	end
 
@@ -4201,7 +4201,7 @@ AI_SetupFirstTurn_SetupEffectsToEncourage:
 AI_PreferStrongestMove:
 	if_target_is_ally AI_Ret
 	get_how_powerful_move_is
-	if_not_equal 0, AI_PreferStrongestMove_End
+	if_not_equal MOVE_HAS_ZERO_OR_UNPREDICTABLE_POWER, AI_PreferStrongestMove_End
 	if_random_less_than 100, AI_PreferStrongestMove_End
 	score +2
 
@@ -4245,7 +4245,7 @@ AI_PreferBatonPass:
 	count_usable_party_mons AI_USER
 	if_equal 0, AI_PreferBatonPassEnd
 	get_how_powerful_move_is
-	if_not_equal 0, AI_PreferBatonPassEnd
+	if_not_equal MOVE_HAS_ZERO_OR_UNPREDICTABLE_POWER, AI_PreferBatonPassEnd
 	if_has_move_with_effect AI_USER, EFFECT_BATON_PASS, AI_PreferBatonPass_GoForBatonPass
 	if_random_less_than 80, AI_Risky_End
 
@@ -4310,7 +4310,7 @@ AI_DoubleBattle:
 
 AI_DoubleBattlePartnerHasHelpingHand:
 	get_how_powerful_move_is
-	if_not_equal 0, Score_Plus1
+	if_not_equal MOVE_HAS_ZERO_OR_UNPREDICTABLE_POWER, Score_Plus1
 	end
 
 AI_DoubleBattleCheckUserStatus:

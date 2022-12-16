@@ -2004,7 +2004,7 @@ static void Cmd_get_how_powerful_move_is(void)
     }
     else
     {
-        AI_THINKING_STRUCT->funcResult = 0; // Highly discouraged in terms of power.
+        AI_THINKING_STRUCT->funcResult = MOVE_HAS_ZERO_OR_UNPREDICTABLE_POWER; // Highly discouraged in terms of power.
     }
 
     gAIScriptPtr++;
