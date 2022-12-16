@@ -44,6 +44,10 @@
 #define FOES_OBSERVED_ABILITY(opponentId) (BATTLE_HISTORY->_abilities[HISTORY_INDEX(opponentId)])
 #define FOES_OBSERVED_ITEM_EFFECT(opponentId) (BATTLE_HISTORY->_itemEffects[HISTORY_INDEX(opponentId)])
 #define AI_CAN_ESTIMATE_DAMAGE(move) (gBattleMoves[move].power > 1 || (gBattleMoves[move].power == 1 && gBattleMoves[move].effect != EFFECT_OHKO && move != MOVE_COUNTER && move != MOVE_MIRROR_COAT && move != MOVE_BIDE))
+#define PROTECT_WONT_FAIL_FOR(battlerId) ((   gLastResultingMoves[battlerId] != MOVE_PROTECT \
+                                           && gLastResultingMoves[battlerId] != MOVE_DETECT  \
+                                           && gLastResultingMoves[battlerId] != MOVE_ENDURE) \
+                                         || gDisableStructs[battlerId].protectUses == 0)
 
 // AI states
 enum
@@ -640,7 +644,7 @@ bool32 OurShedinjaIsVulnerable(u32 battlerAI, u32 opposingBattler, u16 considere
     u8 moveLimitations = CheckMoveLimitations(opposingBattler, 0, MOVE_LIMITATION_CHOICE-1);
 
     // Si Shedinja elige protegerse, no hace falta huir
-    if (gBattleMoves[consideredMove].effect == EFFECT_PROTECT && gDisableStructs[battlerAI].protectUses == 0)
+    if (gBattleMoves[consideredMove].effect == EFFECT_PROTECT && PROTECT_WONT_FAIL_FOR(battlerAI))
         return FALSE;
 
     // Si Shedinja es más rápido y hace KO con el ataque elegido, no hace falta huir
@@ -895,7 +899,7 @@ static u8 ChooseMoveOrAction_Singles(void)
                  (gBattleMoves[move].effect == EFFECT_PROTECT
                   || (gBattleMoves[move].effect == EFFECT_ENDURE && !(gBattleMons[sBattler_AI].status1 & (STATUS1_PSN_ANY | STATUS1_BURN)))
                  )
-                 && gDisableStructs[sBattler_AI].protectUses == 0 // si ya lo usó el turno anterior, mejor pensar en cambiar
+                 && PROTECT_WONT_FAIL_FOR(sBattler_AI) // si ya lo usó el turno anterior, mejor pensar en cambiar
                  && !(gBattleMons[sBattler_AI].status1 & STATUS1_TOXIC_POISON)
                  && !(gBattleMons[sBattler_AI].status2 & STATUS2_CURSED)
                  && !(gStatuses3[sBattler_AI] & STATUS3_LEECHSEED)
@@ -982,7 +986,7 @@ static u8 ChooseMoveOrAction_Singles(void)
         // Para darse cuenta de ello, se mantiene cierta información en memoria
         if ((!memory.opponentChanged && memory.enoughPointsDifference) || gDisableStructs[sBattler_AI].isFirstTurn)
             ((u8*) &memory)[0] = 0;
-        else if (gDisableStructs[gBattlerTarget].protectUses > 0)
+        else if (!PROTECT_WONT_FAIL_FOR(gBattlerTarget)) // si el rival se protegió con éxito
         {
             u8 lastMoveAux = memory.lastMoveIndex;
             memory.lastMoveIndex = memory.secondLastMoveIndex;
