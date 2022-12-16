@@ -3430,8 +3430,8 @@ AI_CV_FakeOut:
     is_first_turn_for AI_USER
     if_equal 0, AI_CV_FakeOut_End
 	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_CV_FakeOut_CheckIfSubIsBroken
-	if_ability_might_be AI_TARGET, ABILITY_INNER_FOCUS, AI_CV_FakeOut_End
-	if_ability_might_be AI_TARGET, ABILITY_SHIELD_DUST, AI_CV_FakeOut_End
+	if_ability_might_be AI_TARGET, ABILITY_INNER_FOCUS, AI_CV_FakeOut_UseIfInNeed
+	if_ability_might_be AI_TARGET, ABILITY_SHIELD_DUST, AI_CV_FakeOut_UseIfInNeed
 	if_double_battle AI_CV_FakeOut_Double
     if_user_choiced AI_CV_FakeOut_Double
 	score +5
@@ -3441,7 +3441,7 @@ AI_CV_FakeOut_Double:
 AI_CV_FakeOut_End:
 	end
 
-@ Tira Fake Out a pokes que podrían tener Inner Focus o Shield Dust si no van a tener tiempo de atacar primero
+@ Tira Fake Out a pokes que podrían tener Inner Focus o Shield Dust si no va a tener tiempo de atacar primero
 AI_CV_FakeOut_UseIfInNeed:
     if_user_faster AI_CV_FakeOut_End
     if_can_faint AI_CV_FakeOut_End @ ya recibe suficiente bonus
