@@ -14,6 +14,8 @@
 #include "constants/battle_move_effects.h"
 #include "constants/species.h"
 
+#define ALL_MONS_FILTERED 0x3F
+
 // this file's functions
 static bool8 HasSuperEffectiveMoveAgainstOpponents(bool8 noRng);
 static bool8 FindMonWithFlagsAndSuperEffective(u8 flags, u8 moduloPercent);
@@ -824,7 +826,7 @@ static u32 GetBestMonDefensive(struct Pokemon *party, s32 firstId, s32 lastId, u
     s32 i, bits = 0;
     u16 chosenSpecies;
 
-    while (bits != 0x3F) // All mons were checked.
+    while (bits != ALL_MONS_FILTERED) // All mons were checked.
     {
         u8 bestDmg = 255;
         s32 bestMonId = PARTY_SIZE;
@@ -896,7 +898,7 @@ static u32 GetBestMonDefensive(struct Pokemon *party, s32 firstId, s32 lastId, u
         }
         else
         {
-            bits = 0x3F; // No viable mon to switch.
+            bits = ALL_MONS_FILTERED; // No viable mon to switch.
         }
     }
 
@@ -910,7 +912,7 @@ static u32 GetBestMonOffensive(struct Pokemon *party, s32 firstId, s32 lastId, u
 	u8 bestDmg;
     u16 move;
 
-	while (invalidMons != 0x3F) // All mons are invalid.
+	while (invalidMons != ALL_MONS_FILTERED) // All mons are invalid.
     {
         bestDmg = 0;
         bestMonId = 6;
@@ -965,7 +967,7 @@ static u32 GetBestMonOffensive(struct Pokemon *party, s32 firstId, s32 lastId, u
         }
         else
         {
-            invalidMons = 0x3F; // No viable mon to switch.
+            invalidMons = ALL_MONS_FILTERED; // No viable mon to switch.
         }
     }
     return PARTY_SIZE;
@@ -995,12 +997,12 @@ void PrepareDisableStructForSwitchIn(u32 battler, const struct DisableStruct * d
 // Evalúa si quedan pokes sin filtrar
 u8 MonsLeft(u8 bits)
 {
-    return bits != 0x3F;
+    return bits != ALL_MONS_FILTERED;
 }
 // Evalúa si quedó un solo poke sin filtrar
 u8 OnlyOneMonLeft(u8 bits)
 {
-    u32 b = (~bits) & 0x3F;
+    u32 b = (~bits) & ALL_MONS_FILTERED;
     // Esencialmente, mira rápido si el número es una potencia de 2
     // La única posibilidad de que un número binario sea potencia de 2
     // es que al restarle 1 su dígito líder pase de 1 a 0
@@ -1014,7 +1016,7 @@ s32 GetUnfilteredMon(u8 bits)
     s32 i;
 
     for (i = 0; i < PARTY_SIZE; i++)
-        if (bits == ((~gBitTable[i]) & 0x3F))
+        if (bits == ((~gBitTable[i]) & ALL_MONS_FILTERED))
             return i;
 
     return PARTY_SIZE; // no debería suceder
