@@ -2295,7 +2295,7 @@ AI_CV_SubstituteStart:
   count_usable_party_mons AI_TARGET
   if_equal 0, AI_CV_Substitute_TargetCannotEscape
   if_type AI_TARGET, TYPE_GHOST, AI_CV_Substitute1
-  if_status AI_TARGET, STATUS3_ROOTED, AI_CV_Substitute_TargetCannotEscape
+  if_status3 AI_TARGET, STATUS3_ROOTED, AI_CV_Substitute_TargetCannotEscape
 	if_not_status2 AI_TARGET, STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION, AI_CV_Substitute1
 AI_CV_Substitute_TargetCannotEscape:
 	if_status3 AI_TARGET, STATUS3_PERISH_SONG, AI_CV_SubstitutePlus3Continue
@@ -2363,10 +2363,12 @@ AI_IsHealingAbilityActive:
 	goto AI_CV_SubstituteStart
 
 AI_HealHail:
+	get_weather
 	if_equal AI_WEATHER_HAIL, AI_CV_SubstitutePlus1Continue
 	end
 
 AI_HealRain:
+	get_weather
 	if_equal AI_WEATHER_RAIN, AI_CV_SubstitutePlus1Continue
 	end
 
