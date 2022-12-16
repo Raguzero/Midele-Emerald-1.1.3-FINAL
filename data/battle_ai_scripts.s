@@ -3971,7 +3971,7 @@ AI_TargetIsRemovedByWeather:
 	
 AI_TryToFaint:
 	if_target_is_ally AI_Ret
-	if_can_faint AI_TryToFaint_TryToEncourageQuickAttack
+	if_can_faint AI_TryToFaint_ConsiderEncouragingKOingMove
 @ Quita puntos a ataques que hagan poco daño al rival (3 si 6% o menos, 2 si 20% o menos, 1 si 40% o menos)
 @ Esto evita que la IA use ataques flojos y hace que en dobles ataque a los que más daño hace
         get_considered_move_power
@@ -4000,7 +4000,7 @@ AI_TryToFaint_DoubleSuperEffective:
 	score +2
 	end
 
-AI_TryToFaint_TryToEncourageQuickAttack:
+AI_TryToFaint_ConsiderEncouragingKOingMove:
     if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_TryToFaint_CheckFakeOutWithSub
     if_effect EFFECT_PURSUIT, AI_TryToFaint_PursuitAndFakeOutBonus
     goto AI_TryToFaint_CheckFakeOutWithNoSub
@@ -4018,22 +4018,23 @@ AI_TryToFaint_CheckFakeOutWithNoSub:
 AI_TryToFaint_PursuitAndFakeOutBonus:
     score +3
 AI_TryToFaint_SkipPlus3Bonus:
-    if_not_effect EFFECT_SOLARBEAM, AI_TryToFaint_NotSolarBeamOnSun
+    if_not_effect EFFECT_SOLARBEAM, AI_TryToFaint_NotSolarBeam
     get_weather
     if_not_equal AI_WEATHER_SUN, AI_TryToFaint_End
-AI_TryToFaint_NotSolarBeamOnSun:
+AI_TryToFaint_NotSolarBeam:
     if_effect EFFECT_RAZOR_WIND, AI_TryToFaint_End
     if_effect EFFECT_SKY_ATTACK, AI_TryToFaint_End
     if_effect EFFECT_SKULL_BASH, AI_TryToFaint_End
 	if_effect EFFECT_FOCUS_PUNCH, AI_TryToFaint_FocusPunch
-    if_effect EFFECT_SUPERPOWER, AI_TryToFaint_WhiteHerb
-    if_effect EFFECT_OVERHEAT, AI_TryToFaint_WhiteHerb
-    if_effect EFFECT_RECOIL_50, AI_TryToFaint_DiscourageRecoil50 @ LIGHT OF RUIN, HEAD SMASH
-    if_effect EFFECT_DOUBLE_EDGE, AI_TryToFaint_DiscourageRecoil33 @ DOUBLE EDGE, BRAVE BIRD, VOLT TACKLE
-    if_effect EFFECT_RECOIL, AI_TryToFaint_DiscourageRecoil25 @ TAKE DOWN, SUBMISION
-    if_effect EFFECT_VITAL_THROW, AI_TryToFaint_DiscourageLowPriorityMovesIfUserIsFaster
-    if_effect EFFECT_REVENGE, AI_TryToFaint_DiscourageLowPriorityMovesIfUserIsFaster
-	if_effect EFFECT_EXPLOSION, AI_TryToFaint_EncourageExplosionIfOpponentHasOneMonLeft
+    if_effect EFFECT_SUPERPOWER, AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy
+    if_effect EFFECT_OVERHEAT, AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy
+    if_effect EFFECT_RAMPAGE, AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy @ THRASH, OUTRAGE, PETAL DANCE
+    if_effect EFFECT_RECOIL_50, AI_TryToFaint_Recoil50 @ LIGHT OF RUIN, HEAD SMASH
+    if_effect EFFECT_DOUBLE_EDGE, AI_TryToFaint_Recoil33 @ DOUBLE EDGE, BRAVE BIRD, VOLT TACKLE
+    if_effect EFFECT_RECOIL, AI_TryToFaint_Recoil25 @ TAKE DOWN, SUBMISION
+    if_effect EFFECT_VITAL_THROW, AI_TryToFaint_LowPriorityMove
+    if_effect EFFECT_REVENGE, AI_TryToFaint_LowPriorityMove
+	if_effect EFFECT_EXPLOSION, AI_TryToFaint_Explosion
 	if_high_change_to_break_sub_and_keep_hitting AI_TryToFaint_ExtraPointForBreakingSubAndKeepHitting
 	if_not_effect EFFECT_QUICK_ATTACK, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
 	score +2
@@ -4057,39 +4058,39 @@ AI_TryToFaint_FocusPunch:
     if_status2 AI_TARGET, STATUS2_CONFUSION, AI_TryToFaint_ScoreUp1
     goto AI_TryToFaint_End
 
-AI_TryToFaint_WhiteHerb:
-	get_hold_effect AI_USER
-    if_equal HOLD_EFFECT_RESTORE_STATS, Score_Minus1
-    goto AI_TryToFaint_IncreaseScoreDependingOnAccuracy
-	
-AI_TryToFaint_DiscourageRecoil50:
+AI_TryToFaint_Recoil50:
+    if_ability AI_USER, ABILITY_ROCK_HEAD, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
     if_hp_more_than AI_USER, 30, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
-    if_ability AI_USER, ABILITY_ROCK_HEAD, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
-    score -1  @ Recibirá un punto menos que un ataque de la misma precisión
-    goto AI_TryToFaint_IncreaseScoreDependingOnAccuracy
+    goto AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy
 	
-AI_TryToFaint_DiscourageRecoil33:
+AI_TryToFaint_Recoil33:
+    if_ability AI_USER, ABILITY_ROCK_HEAD, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
     if_hp_more_than AI_USER, 20, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
-    if_ability AI_USER, ABILITY_ROCK_HEAD, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
-    score -1  @ Recibirá un punto menos que un ataque de la misma precisión
-    goto AI_TryToFaint_IncreaseScoreDependingOnAccuracy
+    goto AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy
 	
-AI_TryToFaint_DiscourageRecoil25:
-    if_hp_more_than AI_USER, 15, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
+AI_TryToFaint_Recoil25:
     if_ability AI_USER, ABILITY_ROCK_HEAD, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
-    score -1  @ Recibirá un punto menos que un ataque de la misma precisión
-    goto AI_TryToFaint_IncreaseScoreDependingOnAccuracy
+    if_hp_more_than AI_USER, 15, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
+    goto AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy
 
-AI_TryToFaint_DiscourageLowPriorityMovesIfUserIsFaster:
+AI_TryToFaint_LowPriorityMove:
     if_target_faster AI_TryToFaint_IncreaseScoreDependingOnAccuracy
     score -2  @ Recibirá dos puntos menos que un ataque de la misma precisión
     goto AI_TryToFaint_IncreaseScoreDependingOnAccuracy
 
+AI_TryToFaint_Explosion:
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_TryToFaint_End
+    if_next_turn_target_might_use_move_with_effect EFFECT_PROTECT, AI_TryToFaint_Explosion_TargetHasProtect
+    goto AI_TryToFaint_EncourageExplosionIfOpponentHasOneMonLeft
+
+AI_TryToFaint_Explosion_TargetHasProtect:
+    get_protect_count AI_TARGET
+    if_equal 0, AI_TryToFaint_End
 AI_TryToFaint_EncourageExplosionIfOpponentHasOneMonLeft:
-	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_TryToFaint_SkipExplosionEncourage
     count_usable_party_mons AI_TARGET
     if_not_equal 0, AI_TryToFaint_End
-AI_TryToFaint_SkipExplosionEncourage:
+
+AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy:
     score -1  @ Recibirá un punto menos que un ataque de la misma precisión
 	
 AI_TryToFaint_IncreaseScoreDependingOnAccuracy:
