@@ -1674,9 +1674,17 @@ void PrepareDynamicMoveTypeAndDamageForAI_CalcDmg(u8 attacker, u8 defender)
 	else if (gCurrentMove == MOVE_LOW_KICK)
         gDynamicBasePower = CalculateWeightDamagePower(defender);
     else if (gCurrentMove == MOVE_RETURN)
+    {
         gDynamicBasePower = 10 * (gBattleMons[attacker].friendship) / 25;
+        if (gDynamicBasePower == 0)
+            gDynamicBasePower = 1;
+    }
     else if (gCurrentMove == MOVE_FRUSTRATION)
+    {
         gDynamicBasePower = 10 * (255 - gBattleMons[attacker].friendship) / 25;
+        if (gDynamicBasePower == 0)
+            gDynamicBasePower = 1;
+    }
     else if (gBattleMoves[gCurrentMove].effect == EFFECT_FLAIL)
         gDynamicBasePower = CalculateFlailPower(attacker);
     else if (gCurrentMove == MOVE_PRESENT)
