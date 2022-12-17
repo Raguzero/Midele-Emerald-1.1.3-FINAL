@@ -171,7 +171,7 @@ MicoloLeague_RaguRoom_Text_PCSign:
 	.string "ha llevado todos los experimentos,\l"
 	.string "incluyendo el PODER MIDELAR.\p"
 	
-	.string "DARKI MALRO ha conseguido un ejercito\n"
+	.string "DARKI MALRO ha conseguido un ejército\n"
 	.string "de esbirros de otros mundos gracias\l" 
 	.string "al uso de una máquina con un\l"
 	.string "desmesurado poder que ha desequilibrado\l"
@@ -229,10 +229,10 @@ MicoloLeague_RaguRoom_Text_RaguIntro:
 	.string "Pero, dejando de lado todo esto, debes\n"
 	.string "tener un potencial enorme para haber\l"
 	.string "llegado hasta aquí... Me intriga ver de\l" 
-	.string "que eres capaz.\p"
+	.string "qué eres capaz.\p"
 	
 	.string "Bien, ¡prepárate para un combate\n"
-	.string "sin igual, vas a comprender porque me\l" 
+	.string "sin igual, vas a comprender por qué me\l" 
 	.string "llaman MAESTRO HAX!$"
 
 MicoloLeague_RaguRoom_Text_RaguDefeat: 
@@ -241,7 +241,7 @@ MicoloLeague_RaguRoom_Text_RaguDefeat:
 	.string "¡Necesito aplastar un PIKACHU\n"
 	.string "con mis propias manos!\p"
 	
-	.string "¡DONDE ESTÁ! DONDE ESTÁ!\p"
+	.string "¡DÓNDE ESTÁ! ¡DÓNDE ESTÁ!\p"
 	
 	.string "Ostiaaaaa... pero si ya lo\n" 
 	.string "maté...\p"
