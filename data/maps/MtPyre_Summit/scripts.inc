@@ -792,7 +792,7 @@ MtPyre_Summit_EventScript_Micolo_Text_0:
 	.string "darles una paliza.\p"
 	.string "Hablando de palizas, me acaban de\n"
 	.string "entrar ganas de combatir contra ti y\l"
-	.string "ver como has mejorado.\p"
+	.string "ver cómo has mejorado.\p"
 	.string "¿Estás preparado para ello? Hora de\n"
 	.string "comprobarlo n.n$"
 
