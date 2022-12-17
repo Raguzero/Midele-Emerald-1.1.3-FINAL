@@ -518,7 +518,7 @@ Route120_Text_Maestro_ArenaIntro:
 	.string "POKéMON!\p"
 	
 	.string "Pero la pregunta es...\n"
-	.string "¿Qué hace un noob como tu por aquí?\p"
+	.string "¿Qué hace un noob como tú por aquí?\p"
 	
 	.string "¡Jo Jo! ¡Vaya paliza te vas a llevar!$"
 
@@ -528,7 +528,7 @@ Route120_Text_Maestro_ArenaDefeat:
 	.string "Me has pillado con mi equipo de\n" 
 	.string "exploración, ¡no se vale!\p" 
 	
-	.string "¡La próxima vez te enseñaré porque\n"
+	.string "¡La próxima vez te enseñaré por qué\n"
 	.string "fui CAMPEÓN NACIONAL DE DPP!$"
  
 Route120_Text_Maestro_ArenaPostBattle:
@@ -539,10 +539,10 @@ Route120_Text_Maestro_ArenaPostBattle:
 	.string "legendarios en su interior.\l" 
 	.string "Pero... ¿dónde estará la entrada?\p"
 
-	.string "Bah, que más da.\p"
+	.string "Bah, qué más da.\p"
 	
 	.string "Esa roca gigantesca... es IMPOSIBLE\n" 
 	.string "que contenga nada importante.\p"
 	
-	.string "¡Si te lo dice, yo, el gran MAESTRO\n"
+	.string "¡Si te lo digo yo, el gran MAESTRO\n"
 	.string "ARENA, está clarísimo que es así!$"

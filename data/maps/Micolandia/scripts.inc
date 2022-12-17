@@ -357,7 +357,7 @@ Micolandia_Text_GymDarkiSign2:
 	.string "mientras terminamos los preparativos?\l"
 	.string "Hace poco que acabaron de construirla.\p"
 	
-	.string "Espero que tengas un ACROCYCLE, sino\n"
+	.string "Espero que tengas un ACROCYCLE, si no\n"
 	.string "visita MAUVILLE CITY, seguro que\l"
 	.string "tienen uno para ti.$"
 	

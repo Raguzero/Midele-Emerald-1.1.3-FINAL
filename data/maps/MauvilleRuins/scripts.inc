@@ -199,7 +199,7 @@ MauvilleRuins_Text_Vader:
 	
 	.string "Tampoco se parecen sus Movepool a los\n"
 	.string "suyos, al no poder aprender CURSE,\l" 
-	.string "ni SUPER POWER.\p"
+	.string "ni SUPERPOWER.\p"
 	
 	.string "¡Maldito MASUDA!, ¿Por qué te cargaste el\n"
 	.string "LORE de HOENN y SINNOH?\p"
@@ -230,14 +230,14 @@ MauvilleRuins_Text_Vader:
 	.string "QUE ILUMINA UN FARO.\p"
 	
 	.string "En mi viaje por JOHTO, me suena haber\n"
-	.string "oido algo sobre cierto POKéMON que\l"
-	.string "iluminaba un faro. ¿Cual sería?\p"
+	.string "oído algo sobre cierto POKéMON que\l"
+	.string "iluminaba un faro. ¿Cuál sería?\p"
 	
 	.string "¡Eso ya tendrás que descubrirlo usando\n"
 	.string "tu cerebro de mosquito!\p"
 	
-	.string "Hablame de nuevo si quieres escuchar de\n"
-	.string "nuevo toda mi autistada, y el como abrir\l"
+	.string "Háblame de nuevo si quieres escuchar de\n"
+	.string "nuevo toda mi autistada, y el cómo abrir\l"
 	.string "esta puerta.$"
 
 MauvilleRuins_Text_Vader2:
@@ -250,13 +250,13 @@ MauvilleRuins_Text_Vader2:
 	.string "“A.VADER usa una MASTER BALL”$"
 
 MauvilleRuins_Text_Vader3:
-	.string "¿Que habría sido más divertido?\p"
+	.string "¿Qué habría sido más divertido?\p"
 	
 	.string "¿Abrir la puerta sellada yo mismo?\p"
 
-	.string "O... ¿Dejar que un NOOB como tu lo\n"
-	.string "hiciera por mi para después trolearle\l"
-	.string "robandole a REGIELEKI delante de sus\l"
+	.string "O... ¿Dejar que un NOOB como tú lo\n"
+	.string "hiciera por mí para después trolearle\l"
+	.string "robándole a REGIELEKI delante de sus\l"
 	.string "narices?\p"
 	
 	.string "¡Está claro que lo segundo! ¡JAJAJAJA!\p"

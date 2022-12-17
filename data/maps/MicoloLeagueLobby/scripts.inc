@@ -377,7 +377,7 @@ MicoloLeagueLobby_EventScript_GuardCheck_Text_0:
 	.string "no podrás salir hasta completar la\l"
 	.string "MICOLIGA... o perder.\p"
 	.string "Si estás preparado, entra por esa\n"
-	.string "puerta, pero si no eres mas que otro\l"
+	.string "puerta, pero si no eres más que otro\l"
 	.string "cobarde, llora, y vuelve a casa con tu\l"
 	.string "mamá.$"
 
@@ -438,10 +438,10 @@ MicoloLeagueLobby_Text_ResetTrainerFlagsMachine:
 	.string "los entrenadores especiales, yo puedo\l"
 	.string "hacer ese deseo realidad.\p"
 	
-	.string "Ten en cuenta, que no todos los\n"
+	.string "Ten en cuenta que no todos los\n"
 	.string "entrenadores especiales son\l"
 	.string "reseteables, y que no podrás elegir\l"
-	.string "cuales quieres resetear.\p"
+	.string "cuáles quieres resetear.\p"
 	
 	.string "¡Van todos en el pack!$"
 
