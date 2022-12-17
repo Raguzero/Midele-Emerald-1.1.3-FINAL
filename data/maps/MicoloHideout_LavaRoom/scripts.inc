@@ -256,7 +256,7 @@ MicoloHideout_LavaRoom_Text_MaestroArenaDefeat:
 	.string "¡NO VALE! ¡HAX! ¡TRAMPOSO! ToT$"
 
 MicoloHideout_LavaRoom_Text_MaestroArenaPostBattle:
-	.string "¿Pero por qué? ¿Como yo, el grandioso\n"
+	.string "¿Pero por qué? ¿Cómo yo, el grandioso\n"
 	.string "MAESTRO ARENA ha sido derrotado?\p"
 
 	.string "¿Por qué mi estrategia TSS no funcionó\n"
@@ -267,8 +267,8 @@ MicoloHideout_LavaRoom_Text_MaestroArenaPostBattle:
 	
 	.string "Es una estrategia que desespera a\n"
 	.string "cualquier tipo de rival que no esté\l"
-	.string "preparado, porque irá perdiendo mas\l"
-	.string "y mas puntos de salud casi sin darse\l"
+	.string "preparado, porque irá perdiendo más\l"
+	.string "y más puntos de salud casi sin darse\l"
 	.string "cuenta ¡JAJAJAJAJAJAJA!$"
 
 MicoloHideout_LavaRoom_Text_GiratinaMaster_MusicPlayerUpgrade:
