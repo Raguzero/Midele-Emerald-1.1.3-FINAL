@@ -1050,7 +1050,7 @@ MauvilleCity_GameCorner_Text_Ghaddar:
 	
 	.string "Y bien, ¿en qué bando estás?\p"
 	
-	.string "¿Estas a FAVOR de los GACHAS?$"
+	.string "¿Estás a FAVOR de los GACHAS?$"
 	
 MauvilleCity_GameCorner_Text_Ghaddar_ENCONTRA:
 	.string "¡HACHA al GACHA!\p"
@@ -1087,7 +1087,7 @@ MauvilleCity_GameCorner_Text_Ghaddar_FALTAEMPATIA:
 	.string "¡Sabes muy bien que la tengo!\p"
 	
 	.string "¡Estás cometiendo un grave error\n"
-	.string "poniendote del lado de los GACHAS!$"
+	.string "poniéndote del lado de los GACHAS!$"
 
 MauvilleCity_GameCorner_Text_ThisIsMauvilleGameCorner: @ 8210460
 	.string "This is MAUVILLE GAME CORNER.$"
