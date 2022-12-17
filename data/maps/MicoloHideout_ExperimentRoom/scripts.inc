@@ -493,6 +493,6 @@ PC_NoBatallaTotem_Text:
 	.string "Vuelve cuando quieras.$"
 	
 PC_ChooseTotem:
-	.string "Elige contra cual TOTEM quieres\n"
+	.string "Elige contra cuál TOTEM quieres\n"
 	.string "combatir.$"
 	

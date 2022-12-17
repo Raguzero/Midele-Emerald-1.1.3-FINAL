@@ -101,7 +101,7 @@ Addri2_AntesBatalla:
 	.string "He crecido mucho como GAMER para\n"
 	.string "poder llegar hasta aquí.\p"
 
-    .string "Solo un poco mas, y entonces...\n"
+    .string "Solo un poco más, y entonces...\n"
 	.string "¡Me convertiré en el GAMER\l"
 	.string "LEGENDARIO!$"
 	
@@ -152,7 +152,7 @@ MicoloHideout_MeetingRoom_Text_HatharDefeat:
  
 MicoloHideout_MeetingRoom_Text_HatharPostBattle:
     .string "Podría haberte ganado,\n"
-    .string "si no estuviese recuperandome\l" 
+    .string "si no estuviese recuperándome\l" 
 	.string "de mi vesícula.$"
 	
 MicoloHideout_MeetingRoom_Text_KadereteIntro: 

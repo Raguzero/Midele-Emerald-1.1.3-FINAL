@@ -1157,7 +1157,7 @@ LittlerootTown_Text_Teleport:
 	.string "contar el BATTLE FRONTIER, que no sé\l"
 	.string "si ya conocerás.\p"
 	
-	.string "MICOLO, es el dueño de dicho lugar, donde\n"
+	.string "MICOLO es el dueño de dicho lugar, donde\n"
 	.string "ha montado una competición llamada\l"
 	.string "MICOLIGA que consiste en obtener la\l"
 	.string "medalla de los 4 GYMs para poder\l"
@@ -1178,7 +1178,7 @@ LittlerootTown_Text_Teleport:
 
 LittlerootTown_Text_Teleport_2:
 	.string "¿Te he convencido?\n"
-	.string "¿Quieres que lleve a MICOLANDIA?$"
+	.string "¿Quieres que te lleve a MICOLANDIA?$"
 
 LittlerootTown_Text_UpdateLevelCap:	
 	.string "Bien, entonces deja que te actualice\n"
@@ -1200,7 +1200,7 @@ LittlerootTown_Text_Teleport_3:
 	.string "({PLAYER} huele el cloroformo y se desmaya)$"
 	
 LittlerootTown_Text_Teleport_4:
-	.string "¡Así que quieres oir de nuevo la\n"
+	.string "¡Así que quieres oír de nuevo la\n"
 	.string "explicación sobre MICOLANDIA!\p"
 	
 	.string "Bien, deja que te cuente:\p"
@@ -1210,7 +1210,7 @@ LittlerootTown_Text_Teleport_4:
 	.string "contar el BATTLE FRONTIER, que no sé\l"
 	.string "si ya conocerás.\p"
 	
-	.string "MICOLO, es el dueño de dicho lugar, donde\n"
+	.string "MICOLO es el dueño de dicho lugar, donde\n"
 	.string "ha montado una competición llamada\l"
 	.string "MICOLIGA que consiste en obtener la\l"
 	.string "medalla de los 4 GYMs para poder\l"

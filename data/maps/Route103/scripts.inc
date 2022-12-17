@@ -667,12 +667,12 @@ Route103_Text_AlteringCaveNPC:
 	.string "Eso puede ocasionar un problema\n"
 	.string "para atrapar a los POKéMON que buscas.\p"
 	
-	.string "¡Pero no tienes de que preocuparte!\p"
+	.string "¡Pero no tienes de qué preocuparte!\p"
 	
 	.string "Con mis poderes psíquicos, por un\n"
 	.string "módico precio de 20000¥, cambiaré\p"
 	.string "la forma en que funciona esta cueva\n"
-	.string "para elegir que tipo de POKéMON\p"
+	.string "para elegir qué tipo de POKéMON\p"
 	.string "especiales quieres hacer aparecer.\p"
 	
 	.string "¿Qué te parece? ¿Aceptas el trato?$"

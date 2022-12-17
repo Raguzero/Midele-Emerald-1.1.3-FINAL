@@ -402,7 +402,7 @@ Route101_Text_Ragu2:
 	.string "¡No digas nada!, te haré entrega de un\n"
 	.string "objeto clave autolimitante de nivel, del\l"
 	.string "que no te podrás desprender hasta que\l"
-	.string "te puedas liberar tu mismo de las\l"
+	.string "te puedas liberar tú mismo de las\l"
 	.string "cadenas que te limitan.$"
 	
 Route101_Text_Ragu3:

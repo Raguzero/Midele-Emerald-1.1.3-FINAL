@@ -332,7 +332,7 @@ PC_ChooseEnemy:
 	.string "Elige un contrincante.$"
 	
 Micolandia_Cibercafe_NPC1_Text:
-	.string "¡Qué dificil es este simulador!$"
+	.string "¡Qué difícil es este simulador!$"
 	
 Micolandia_Cibercafe_NPC2_Text:
 	.string "¡Esto me servirá como entrenamiento\n"
