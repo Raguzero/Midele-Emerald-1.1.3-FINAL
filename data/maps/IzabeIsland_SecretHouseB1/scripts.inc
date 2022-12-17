@@ -73,7 +73,7 @@ DesafiarMasuda_Text:
 	.string "cualquier cosa con POKéMON de nombre,\l"
 	.string "debería largarme y dejarlo a su bola...\p"
 	.string "Oye, tú, joven, seguro que me das la\n"
-	.string "razon... vosotros ya no tenéis tiempo\l"
+	.string "razón... vosotros ya no tenéis tiempo\l"
 	.string "para esto, preferís vuestros móviles y\l"
 	.string "apenas tenéis dos neuronas para\l"
 	.string "juntar... ¿por qué querría la gente\l"
