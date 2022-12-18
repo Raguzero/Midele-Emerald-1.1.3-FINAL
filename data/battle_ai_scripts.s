@@ -2017,12 +2017,8 @@ AI_CV_Roar2_CheckSpeedForPossibleDragonDance:
     if_stat_level_more_than AI_TARGET, STAT_SPEED, 6, AI_CV_Roar3
 AI_CV_Roar2:
 	if_random_less_than 128, AI_CV_Roar_End
-	score +2
-	goto AI_CV_Roar_End	
-	
 AI_CV_Roar3:
 	score +2
-
 AI_CV_Roar_End:
 	end
 
@@ -2288,6 +2284,8 @@ AI_CV_Paralyze_End:
 
 AI_CV_VitalThrow:
     if_target_faster AI_CV_AlwaysHit
+	calculate_nhko AI_TARGET
+	if_equal 1, Score_Minus2
 	if_hp_more_than AI_USER, 60, AI_CV_VitalThrow_End
 	if_hp_less_than AI_USER, 40, AI_CV_VitalThrow2
 	if_random_less_than 180, AI_CV_VitalThrow_End
@@ -3739,9 +3737,13 @@ AI_CV_Recycle_ItemsToEncourage:
     .byte -1
 
 AI_CV_Revenge:
-	if_status AI_TARGET, STATUS1_SLEEP, AI_CV_Revenge_ScoreDown2
+	if_target_not_expected_to_sleep_during_next_turn AI_CV_Revenge_TargetNotExpectedToSleep
+	goto AI_CV_Revenge_ScoreDown2
+AI_CV_Revenge_TargetNotExpectedToSleep:
 	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_Revenge_ScoreDown2
 	if_status2 AI_TARGET, STATUS2_CONFUSION, AI_CV_Revenge_ScoreDown2
+	calculate_nhko AI_TARGET
+	if_equal 1, AI_CV_Revenge_ScoreDown2
 	if_random_less_than 180, AI_CV_Revenge_ScoreDown2
 	score +2
 	goto AI_CV_Revenge_End
