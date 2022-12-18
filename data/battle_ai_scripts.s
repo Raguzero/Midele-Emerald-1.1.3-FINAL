@@ -2675,28 +2675,9 @@ AI_CV_LockOn_End:
 	end
 
 AI_CV_SleepTalk:
-    if_not_expected_to_sleep AI_CV_SleepTalk_NotExpectedToSleep
+    if_not_expected_to_sleep Score_Minus8
     score +10
-AI_CV_SleepTalk_End:
     end
-
-@ La IA no cambia para evitar tirar Sleep Talk excepto si está dormida a punto de despertar,
-@ con objeto elegido, en una situación en la que no recibe KO del rival y no siendo el último poke
-AI_CV_SleepTalk_NotExpectedToSleep:
-    if_not_status AI_USER, STATUS1_SLEEP, AI_CV_SleepTalk_Discourage
-    calculate_nhko AI_TARGET
-    if_equal 1, AI_CV_SleepTalk_Discourage
-    count_usable_party_mons AI_USER
-    if_equal 0, AI_CV_SleepTalk_Discourage
-    if_user_choiced AI_CV_SleepTalk_UseToWakeUpIfNecessary
-
-AI_CV_SleepTalk_Discourage:
-    goto Score_Minus8
-
-AI_CV_SleepTalk_UseToWakeUpIfNecessary:
-    if_random_less_than 128, AI_CV_SleepTalk_Discourage @ 50% de cambiar a pesar de que está a punto de despertar
-	score +1 @ Junto con el -5 en caso de choiced a los movs que no son de daño, 96: insuficiente para cambiar
-    goto AI_CV_SleepTalk_End
 
 AI_CV_DestinyBond:
 	score -1
