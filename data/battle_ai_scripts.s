@@ -1750,8 +1750,8 @@ AI_CV_AttackDown3: @ 82DCE1B
 
 AI_CV_AttackDown4: @ 82DCE24
 	get_possible_categories_of_foes_attacks
-	if_equal AI_PHYSICAL_ONLY, AI_CV_AttackDown_End
-	if_equal AI_ONLY_PHYSICAL_KNOWN, AI_CV_AttackDown_End
+	if_equal AI_PHYSICAL_ONLY, AI_CV_AttackDown_Plus2IfLastMonAgainstSeveral
+	if_equal AI_ONLY_PHYSICAL_KNOWN, AI_CV_AttackDown_Plus2IfLastMonAgainstSeveral
 	if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_PHYSICAL, AI_CV_AttackDown_End
 	if_equal AI_BOTH_PHYSICAL_AND_SPECIAL AI_CV_AttackDown5
 	if_equal AI_UNKNOWN_CATEGORIES, AI_CV_AttackDown5
@@ -1763,6 +1763,13 @@ AI_CV_AttackDown_ScoreMinus2:
 
 AI_CV_AttackDown_End: @ 82DCE42
 	end
+
+AI_CV_AttackDown_Plus2IfLastMonAgainstSeveral:
+	count_usable_party_mons AI_TARGET
+	if_more_than 0, AI_CV_AttackDown_End
+	count_usable_party_mons AI_USER
+	if_more_than 0, Score_Plus2
+	goto AI_CV_AttackDown_End
 
 AI_CV_DefenseDown:
 	if_hp_less_than AI_USER, 70, AI_CV_DefenseDown2
@@ -1816,8 +1823,8 @@ AI_CV_SpAtkDown3:
 
 AI_CV_SpAtkDown4:
 	get_possible_categories_of_foes_attacks
-	if_equal AI_SPECIAL_ONLY, AI_CV_SpAtkDown_End
-	if_equal AI_ONLY_SPECIAL_KNOWN, AI_CV_SpAtkDown_End
+	if_equal AI_SPECIAL_ONLY, AI_CV_SpAtkDown_Plus2IfLastMonAgainstSeveral
+	if_equal AI_ONLY_SPECIAL_KNOWN, AI_CV_SpAtkDown_Plus2IfLastMonAgainstSeveral
 	if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_SPECIAL, AI_CV_SpAtkDown_End
 	if_equal AI_BOTH_PHYSICAL_AND_SPECIAL AI_CV_SpAtkDown5
 	if_equal AI_UNKNOWN_CATEGORIES, AI_CV_SpAtkDown5
@@ -1829,6 +1836,13 @@ AI_CV_SpAtkDown_ScoreMinus2:
 
 AI_CV_SpAtkDown_End: @ 82DCEE1
 	end
+
+AI_CV_SpAtkDown_Plus2IfLastMonAgainstSeveral:
+	count_usable_party_mons AI_TARGET
+	if_more_than 0, AI_CV_SpAtkDown_End
+	count_usable_party_mons AI_USER
+	if_more_than 0, Score_Plus2
+	goto AI_CV_SpAtkDown_End
 
 AI_CV_SpDefDown: @ 82DCEEB
 	if_hp_less_than AI_USER, 70, AI_CV_SpDefDown2
