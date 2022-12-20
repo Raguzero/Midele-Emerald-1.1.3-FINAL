@@ -17996,6 +17996,30 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
     },
+	
+    [SPECIES_KLEAVOR] =
+    {
+        .baseHP        = 70,
+        .baseAttack    = 130,
+        .baseDefense   = 95,
+        .baseSpeed     = 85,
+        .baseSpAttack  = 45,
+        .baseSpDefense = 75,
+        .type1 = TYPE_BUG,
+        .type2 = TYPE_ROCK,
+        .catchRate = 25,
+        .expYield = 175,
+        .evYield_Attack    = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 25,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_BUG,
+        .eggGroup2 = EGG_GROUP_BUG,
+        .abilities = {ABILITY_SWARM, ABILITY_SHEER_FORCE},
+        .bodyColor = BODY_COLOR_BROWN,
+        .noFlip = FALSE,
+    },
 
     [SPECIES_BOSS] =
     {

@@ -6359,4 +6359,11 @@ extern const u32 gPokedexMenuList_Gfx[];
 extern const u8 gPokedexStatsScreen_Tilemap[];
 extern const u8 gPokedexScreenSelectBarSubmenu_Tilemap_Clear[];
 
+extern const u32 gMonStillFrontPic_Kleavor[];
+extern const u32 gMonFrontPic_Kleavor[];
+extern const u32 gMonPalette_Kleavor[];
+extern const u32 gMonBackPic_Kleavor[];
+extern const u32 gMonShinyPalette_Kleavor[];
+extern const u8 gMonIcon_Kleavor[];
+
 #endif //GUARD_GRAPHICS_H

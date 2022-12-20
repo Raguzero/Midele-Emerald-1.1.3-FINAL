@@ -6399,6 +6399,13 @@ static const union AnimCmd sAnim_UNOWN_QMARK_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_KLEAVOR_1[] =
+{
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 20),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd *const sAnims_NONE[] ={
     sAnim_GeneralFrame0,
     sAnim_NONE_1,
@@ -9625,6 +9632,11 @@ static const union AnimCmd *const sAnims_UNOWN_QMARK[] ={
     sAnim_UNOWN_QMARK_1,
 };
 
+static const union AnimCmd *const sAnims_KLEAVOR[] ={
+    sAnim_GeneralFrame0,
+    sAnim_KLEAVOR_1,
+};
+
 #define ANIM_CMD(name)             [SPECIES_##name] = sAnims_##name
 #define ANIM_CMD_FULL(name, anims) [SPECIES_##name] = anims
 
@@ -10294,4 +10306,5 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(UNOWN_Z),
     ANIM_CMD(UNOWN_EMARK),
     ANIM_CMD(UNOWN_QMARK),
+	   ANIM_CMD(KLEAVOR),
 };

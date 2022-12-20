@@ -421,3 +421,5 @@ const u32 gMonFrontPic_UnownY[] = INCBIN_U32("graphics/pokemon/unown/anim_front_
 const u32 gMonFrontPic_UnownZ[] = INCBIN_U32("graphics/pokemon/unown/anim_front_z.4bpp.lz");
 const u32 gMonFrontPic_UnownExclamationMark[] = INCBIN_U32("graphics/pokemon/unown/anim_front_exclamation_mark.4bpp.lz");
 const u32 gMonFrontPic_UnownQuestionMark[] = INCBIN_U32("graphics/pokemon/unown/anim_front_question_mark.4bpp.lz");
+
+const u32 gMonFrontPic_Kleavor[] = INCBIN_U32("graphics/pokemon/kleavor/anim_front.4bpp.lz");

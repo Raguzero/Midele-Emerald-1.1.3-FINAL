@@ -3313,4 +3313,9 @@ const struct MonCoords gMonBackPicCoords[] =
         .size = 0x47,
         .y_offset = 0x06,
     },
+    [SPECIES_KLEAVOR] =
+    {
+        .size = 0x78,
+        .y_offset = 1,
+    },
 };

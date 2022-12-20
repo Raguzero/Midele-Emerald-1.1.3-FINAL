@@ -4069,3 +4069,10 @@ const u8 gMonIcon_UnownExclamationMark[] = INCBIN_U8("graphics/pokemon/unown/ico
 const u32 gMonStillFrontPic_UnownQuestionMark[] = INCBIN_U32("graphics/pokemon/unown/front_question_mark.4bpp.lz");
 const u32 gMonBackPic_UnownQuestionMark[] = INCBIN_U32("graphics/pokemon/unown/back_question_mark.4bpp.lz");
 const u8 gMonIcon_UnownQuestionMark[] = INCBIN_U8("graphics/pokemon/unown/icon_question_mark.4bpp");
+
+
+const u32 gMonStillFrontPic_Kleavor[] = INCBIN_U32("graphics/pokemon/kleavor/front.4bpp.lz");
+const u32 gMonPalette_Kleavor[] = INCBIN_U32("graphics/pokemon/kleavor/normal.gbapal.lz");
+const u32 gMonBackPic_Kleavor[] = INCBIN_U32("graphics/pokemon/kleavor/back.4bpp.lz");
+const u32 gMonShinyPalette_Kleavor[] = INCBIN_U32("graphics/pokemon/kleavor/shiny.gbapal.lz");
+const u8 gMonIcon_Kleavor[] = INCBIN_U8("graphics/pokemon/kleavor/icon.4bpp");
