@@ -4104,9 +4104,13 @@ AI_TryToFaint_ScoreUp2:
     score +1
 AI_TryToFaint_ScoreUp1:
     score +1
+    if_will_faint AI_TryToFaint_SkipMinus1ToMovesThatMightNotKO
+    score -1 @ evita que use un mov que pueda no dar KO si hay otro de igual precisión que da KO seguro
+AI_TryToFaint_SkipMinus1ToMovesThatMightNotKO:
     if_not_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_TryToFaint_ConsiderBonusToMostDamagingAttack
     if_user_choiced AI_TryToFaint_GiveBonusToMostDamagingAttack
     goto AI_TryToFaint_End
+
 AI_TryToFaint_ConsiderBonusToMostDamagingAttack:
     if_user_faster AI_TryToFaint_End
     if_has_a_50_percent_hp_recovery_move AI_TARGET, AI_TryToFaint_GiveBonusToMostDamagingAttack
