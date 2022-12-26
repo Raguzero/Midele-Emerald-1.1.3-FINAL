@@ -190,6 +190,7 @@ static void Cmd_if_high_change_to_break_sub_and_keep_hitting(void);
 static void Cmd_if_user_has_revealed_move(void);
 static void Cmd_if_has_non_ineffective_move_with_effect(void);
 static void Cmd_if_doesnt_have_non_ineffective_move_with_effect(void);
+static void Cmd_if_move_is_contactless(void);
 
 // ewram
 EWRAM_DATA const u8 *gAIScriptPtr = NULL;
@@ -316,6 +317,7 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_if_user_has_revealed_move,                          // 0x71
     Cmd_if_has_non_ineffective_move_with_effect,            // 0x72
     Cmd_if_doesnt_have_non_ineffective_move_with_effect,    // 0x73
+    Cmd_if_move_is_contactless,                             // 0x74
 };
 
 static const u16 sDiscouragedPowerfulMoveEffects[] =
@@ -3693,4 +3695,12 @@ static void Cmd_if_doesnt_have_non_ineffective_move_with_effect(void)
             gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 3);
         break;
     }
+}
+
+static void Cmd_if_move_is_contactless(void)
+{
+    if (gBattleMoves[AI_THINKING_STRUCT->moveConsidered].flags & FLAG_MAKES_CONTACT)
+        gAIScriptPtr += 5;
+    else
+        gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 1);
 }

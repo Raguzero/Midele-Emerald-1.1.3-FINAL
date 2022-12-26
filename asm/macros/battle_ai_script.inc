@@ -651,6 +651,11 @@
 	.4byte \param2
 	.endm
 
+	.macro if_move_is_contactless ptr:req
+	.byte 0x74
+	.4byte \ptr
+	.endm
+
 @ useful script macros
 	.macro get_curr_move_type
 	get_type AI_TYPE_MOVE
@@ -937,3 +942,9 @@
 	  .macro if_has_some_chance_to_faint ptr:req
     if_can_faint_with_threshold AI_FAINT_THRESHOLD_OPTIMISTIC, \ptr
 	  .endm
+
+    .macro if_move_makes_contact ptr:req
+    if_move_is_contactless .AI_move_is_contactless_\@
+    goto \ptr
+    .AI_move_is_contactless_\@:
+    .endm
