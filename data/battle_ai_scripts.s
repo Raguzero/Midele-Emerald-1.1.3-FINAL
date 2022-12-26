@@ -4041,6 +4041,21 @@ AI_TryToFaint_NotSolarBeam:
     if_effect EFFECT_VITAL_THROW, AI_TryToFaint_LowPriorityMove
     if_effect EFFECT_REVENGE, AI_TryToFaint_LowPriorityMove
 	if_effect EFFECT_EXPLOSION, AI_TryToFaint_Explosion
+AI_TryToFaint_CheckContact:
+    if_move_is_contactless AI_TryToFaint_SkipContactCheck
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_TryToFaint_SkipContactCheck
+    if_ability_might_be AI_TARGET, ABILITY_ROUGH_SKIN, AI_TryToFaint_RoughSkinIronBarbs
+    if_ability_might_be AI_TARGET, ABILITY_IRON_BARBS, AI_TryToFaint_RoughSkinIronBarbs
+    if_ability_might_be AI_TARGET, ABILITY_MUMMY, AI_TryToFaint_TransmittingAbility
+    if_ability_might_be AI_TARGET, ABILITY_WANDERING_SPIRIT, AI_TryToFaint_TransmittingAbility
+    if_ability_might_be AI_TARGET, ABILITY_GOOEY, AI_TryToFaint_Gooey
+    if_ability_might_be AI_TARGET, ABILITY_TANGLING_HAIR, AI_TryToFaint_Gooey
+    if_ability_might_be AI_TARGET, ABILITY_PERISH_BODY, AI_TryToFaint_PerishBody
+    if_ability_might_be AI_TARGET, ABILITY_EFFECT_SPORE, AI_TryToFaint_EffectSpore
+    if_ability_might_be AI_TARGET, ABILITY_POISON_POINT, AI_TryToFaint_PoisonPoint
+    if_ability_might_be AI_TARGET, ABILITY_STATIC, AI_TryToFaint_Static
+    if_ability_might_be AI_TARGET, ABILITY_FLAME_BODY, AI_TryToFaint_FlameBody
+AI_TryToFaint_SkipContactCheck:
 	if_high_change_to_break_sub_and_keep_hitting AI_TryToFaint_ExtraPointForBreakingSubAndKeepHitting
 	if_not_effect EFFECT_QUICK_ATTACK, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
 	score +2
@@ -4051,7 +4066,7 @@ AI_TryToFaint_NegativeEffectThatDoesNotMatterIfCanFinishBattle:
 	if_not_equal 0, AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy
 	if_target_faster AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy
 	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy
-	if_will_faint AI_TryToFaint_IncreaseScoreDependingOnAccuracy
+	if_will_faint AI_TryToFaint_CheckContact
 	goto AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy
 
 AI_TryToFaint_ExtraPointForBreakingSubAndKeepHitting:
@@ -4072,23 +4087,84 @@ AI_TryToFaint_FocusPunch:
     if_status2 AI_TARGET, STATUS2_CONFUSION, AI_TryToFaint_ScoreUp1
     goto AI_TryToFaint_End
 
+AI_TryToFaint_TransmittingAbility:
+    if_ability AI_USER, ABILITY_TRUANT, AI_TryToFaint_SkipContactCheck
+    if_ability AI_USER, ABILITY_SLOW_START, AI_TryToFaint_SkipContactCheck
+    goto AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy
+
+AI_TryToFaint_Gooey:
+    count_usable_party_mons AI_TARGET
+    if_not_equal 0, AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy
+    if_target_faster AI_TryToFaint_SkipContactCheck
+    if_will_faint AI_TryToFaint_SkipContactCheck
+    goto AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy
+
+AI_TryToFaint_PerishBody:
+    count_usable_party_mons AI_USER
+    if_not_equal 0, AI_TryToFaint_SkipContactCheck
+    count_usable_party_mons AI_TARGET
+    if_not_equal 0, AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy
+    goto AI_TryToFaint_SkipContactCheck
+
+AI_TryToFaint_PoisonPoint:
+	if_status AI_USER, STATUS1_ANY, AI_TryToFaint_SkipContactCheck
+	if_ability AI_USER, ABILITY_IMMUNITY, AI_TryToFaint_SkipContactCheck
+	if_type AI_USER, TYPE_POISON, AI_TryToFaint_SkipContactCheck
+	if_type AI_USER, TYPE_STEEL, AI_TryToFaint_SkipContactCheck
+	if_side_affecting AI_USER, SIDE_STATUS_SAFEGUARD, AI_TryToFaint_SkipContactCheck
+	goto AI_TryToFaint_CheckIfStatusDoesNotMatter
+
+AI_TryToFaint_Static:
+	if_status AI_USER, STATUS1_ANY, AI_TryToFaint_SkipContactCheck
+	if_ability AI_USER, ABILITY_LIMBER, AI_TryToFaint_SkipContactCheck
+	if_side_affecting AI_USER, SIDE_STATUS_SAFEGUARD, AI_TryToFaint_SkipContactCheck
+	goto AI_TryToFaint_CheckIfStatusDoesNotMatter
+
+AI_TryToFaint_FlameBody:
+	if_status AI_USER, STATUS1_ANY, AI_TryToFaint_SkipContactCheck
+	if_ability AI_USER, ABILITY_WATER_VEIL, AI_TryToFaint_SkipContactCheck
+	if_type AI_USER, TYPE_FIRE, AI_TryToFaint_SkipContactCheck
+	if_side_affecting AI_USER, SIDE_STATUS_SAFEGUARD, AI_TryToFaint_SkipContactCheck
+	goto AI_TryToFaint_CheckIfStatusDoesNotMatter
+
+AI_TryToFaint_EffectSpore:
+	if_status AI_USER, STATUS1_ANY, AI_TryToFaint_SkipContactCheck
+	if_side_affecting AI_USER, SIDE_STATUS_SAFEGUARD, AI_TryToFaint_SkipContactCheck
+AI_TryToFaint_CheckIfStatusDoesNotMatter:
+	if_will_faint AI_TryToFaint_CheckIfStatusDoesNotMatter2
+	goto AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy
+
+AI_TryToFaint_CheckIfStatusDoesNotMatter2:
+	count_usable_party_mons AI_TARGET
+	if_equal 0, AI_TryToFaint_SkipContactCheck
+	if_ability AI_USER, ABILITY_GUTS, AI_TryToFaint_CheckHPForGuts
+	goto AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy
+
+AI_TryToFaint_CheckHPForGuts:
+	if_hp_less_than AI_USER, 25, AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy
+	goto AI_TryToFaint_SkipContactCheck
+
+AI_TryToFaint_RoughSkinIronBarbs:
+	if_hp_less_than AI_USER, 13, AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy
+	goto AI_TryToFaint_SkipContactCheck
+
 AI_TryToFaint_Recoil50:
-    if_ability AI_USER, ABILITY_ROCK_HEAD, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
-    if_hp_more_than AI_USER, 30, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
+    if_ability AI_USER, ABILITY_ROCK_HEAD, AI_TryToFaint_CheckContact
+    if_hp_more_than AI_USER, 30, AI_TryToFaint_CheckContact
     goto AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy
 	
 AI_TryToFaint_Recoil33:
-    if_ability AI_USER, ABILITY_ROCK_HEAD, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
-    if_hp_more_than AI_USER, 20, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
+    if_ability AI_USER, ABILITY_ROCK_HEAD, AI_TryToFaint_CheckContact
+    if_hp_more_than AI_USER, 20, AI_TryToFaint_CheckContact
     goto AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy
 	
 AI_TryToFaint_Recoil25:
-    if_ability AI_USER, ABILITY_ROCK_HEAD, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
-    if_hp_more_than AI_USER, 15, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
+    if_ability AI_USER, ABILITY_ROCK_HEAD, AI_TryToFaint_CheckContact
+    if_hp_more_than AI_USER, 15, AI_TryToFaint_CheckContact
     goto AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy
 
 AI_TryToFaint_LowPriorityMove:
-    if_target_faster AI_TryToFaint_IncreaseScoreDependingOnAccuracy
+    if_target_faster AI_TryToFaint_CheckContact
     score -2  @ Recibirá dos puntos menos que un ataque de la misma precisión
     goto AI_TryToFaint_IncreaseScoreDependingOnAccuracy
 
