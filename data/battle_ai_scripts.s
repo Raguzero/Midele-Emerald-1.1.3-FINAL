@@ -4032,9 +4032,9 @@ AI_TryToFaint_NotSolarBeam:
     if_effect EFFECT_SKY_ATTACK, AI_TryToFaint_End
     if_effect EFFECT_SKULL_BASH, AI_TryToFaint_End
 	if_effect EFFECT_FOCUS_PUNCH, AI_TryToFaint_FocusPunch
-    if_effect EFFECT_SUPERPOWER, AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy
-    if_effect EFFECT_OVERHEAT, AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy
-    if_effect EFFECT_RAMPAGE, AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy @ THRASH, OUTRAGE, PETAL DANCE
+    if_effect EFFECT_SUPERPOWER, AI_TryToFaint_NegativeEffectThatDoesNotMatterIfCanFinishBattle
+    if_effect EFFECT_OVERHEAT, AI_TryToFaint_NegativeEffectThatDoesNotMatterIfCanFinishBattle
+    if_effect EFFECT_RAMPAGE, AI_TryToFaint_NegativeEffectThatDoesNotMatterIfCanFinishBattle @ THRASH, OUTRAGE, PETAL DANCE
     if_effect EFFECT_RECOIL_50, AI_TryToFaint_Recoil50 @ LIGHT OF RUIN, HEAD SMASH
     if_effect EFFECT_DOUBLE_EDGE, AI_TryToFaint_Recoil33 @ DOUBLE EDGE, BRAVE BIRD, VOLT TACKLE
     if_effect EFFECT_RECOIL, AI_TryToFaint_Recoil25 @ TAKE DOWN, SUBMISION
@@ -4045,6 +4045,14 @@ AI_TryToFaint_NotSolarBeam:
 	if_not_effect EFFECT_QUICK_ATTACK, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
 	score +2
 	goto AI_TryToFaint_IncreaseScoreDependingOnAccuracy
+
+AI_TryToFaint_NegativeEffectThatDoesNotMatterIfCanFinishBattle:
+	count_usable_party_mons AI_TARGET
+	if_not_equal 0, AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy
+	if_target_faster AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy
+	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy
+	if_will_faint AI_TryToFaint_IncreaseScoreDependingOnAccuracy
+	goto AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy
 
 AI_TryToFaint_ExtraPointForBreakingSubAndKeepHitting:
     score +1
