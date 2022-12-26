@@ -357,9 +357,10 @@
 	.4byte \param3
 	.endm
 
-	.macro if_can_faint param0:req
+	.macro if_can_faint_with_threshold param0:req ptr:req
 	.byte 0x3d
-	.4byte \param0
+	.byte \param0
+	.4byte \ptr
 	.endm
 
 	.macro if_cant_faint param0:req
@@ -924,3 +925,15 @@
     goto \param2
     .AI_item_is_actually_held_\@:
     .endm
+
+	  .macro if_can_faint ptr:req
+    if_can_faint_with_threshold AI_FAINT_THRESHOLD_RANDOM, \ptr
+	  .endm
+
+	  .macro if_will_faint ptr:req
+    if_can_faint_with_threshold AI_FAINT_THRESHOLD_PESSIMISTIC, \ptr
+	  .endm
+
+	  .macro if_has_some_chance_to_faint ptr:req
+    if_can_faint_with_threshold AI_FAINT_THRESHOLD_OPTIMISTIC, \ptr
+	  .endm

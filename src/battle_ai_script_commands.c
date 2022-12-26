@@ -135,7 +135,7 @@ static void Cmd_if_stat_level_less_than(void);
 static void Cmd_if_stat_level_more_than(void);
 static void Cmd_if_stat_level_equal(void);
 static void Cmd_if_stat_level_not_equal(void);
-static void Cmd_if_can_faint(void);
+static void Cmd_if_can_faint_with_threshold(void);
 static void Cmd_if_cant_faint(void);
 static void Cmd_if_has_move(void);
 static void Cmd_if_doesnt_have_move(void);
@@ -261,7 +261,7 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_if_stat_level_more_than,                    // 0x3A
     Cmd_if_stat_level_equal,                        // 0x3B
     Cmd_if_stat_level_not_equal,                    // 0x3C
-    Cmd_if_can_faint,                               // 0x3D
+    Cmd_if_can_faint_with_threshold,                // 0x3D
     Cmd_if_cant_faint,                              // 0x3E
     Cmd_if_has_move,                                // 0x3F
     Cmd_if_doesnt_have_move,                        // 0x40
@@ -2503,25 +2503,38 @@ static void Cmd_if_stat_level_not_equal(void)
         gAIScriptPtr += 8;
 }
 
-static void Cmd_if_can_faint(void)
+static void Cmd_if_can_faint_with_threshold(void)
 {
+    u8 threshold;
+    u8 threshold_arg = gAIScriptPtr[1];
     u16 target_damage = gBattleMons[gBattlerTarget].hp;
     if ((gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE) && gDisableStructs[gBattlerTarget].substituteHP)
         target_damage = gDisableStructs[gBattlerTarget].substituteHP;
 
     if (!AI_CAN_ESTIMATE_DAMAGE(AI_THINKING_STRUCT->moveConsidered))
     {
-        gAIScriptPtr += 5;
+        gAIScriptPtr += 6;
         return;
     }
 
+    switch(threshold_arg) {
+        case AI_FAINT_THRESHOLD_PESSIMISTIC:
+            threshold = 85;
+            break;
+        case AI_FAINT_THRESHOLD_OPTIMISTIC:
+            threshold = 100;
+            break;
+        default: // AI_FAINT_THRESHOLD_RANDOM
+            threshold = AI_THINKING_STRUCT->simulatedRNG[AI_THINKING_STRUCT->movesetIndex];
+    }
+
     gCurrentMove = AI_THINKING_STRUCT->moveConsidered;
-    CalculategBattleMoveDamageFromgCurrentMove(sBattler_AI, gBattlerTarget, AI_THINKING_STRUCT->simulatedRNG[AI_THINKING_STRUCT->movesetIndex]);
+    CalculategBattleMoveDamageFromgCurrentMove(sBattler_AI, gBattlerTarget, threshold);
 
     if (target_damage <= gBattleMoveDamage)
-        gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 1);
+        gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
     else
-        gAIScriptPtr += 5;
+        gAIScriptPtr += 6;
 }
 
 static void Cmd_if_cant_faint(void)

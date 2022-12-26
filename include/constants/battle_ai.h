@@ -47,6 +47,11 @@
 
 #define AI_NHKO_PESSIMISTIC 4
 
+// if_can_faint_with_threshold
+#define AI_FAINT_THRESHOLD_PESSIMISTIC 0
+#define AI_FAINT_THRESHOLD_RANDOM      1
+#define AI_FAINT_THRESHOLD_OPTIMISTIC  2
+
 #define AI_LAST_EFFECT_BY_TARGET 0xFF
 
 // get_possible_categories_of_foes_attacks
