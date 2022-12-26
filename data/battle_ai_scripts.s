@@ -1788,13 +1788,20 @@ AI_CV_DefenseDown_End:
 
 AI_CV_SpeedDownFromChance: @ 82DCE6B
 	if_ability AI_USER, ABILITY_SHEER_FORCE, AI_Ret
-	if_ability AI_TARGET, ABILITY_SHIELD_DUST, AI_Ret
-	if_move MOVE_ICY_WIND, AI_CV_SpeedDown
-	if_move MOVE_ROCK_TOMB, AI_CV_SpeedDown
-	if_move MOVE_MUD_SHOT, AI_CV_SpeedDown
-	if_move MOVE_ELECTROWEB, AI_CV_SpeedDown
+	if_move MOVE_ICY_WIND, AI_CV_SpeedDownAsAGuaranteedSecondaryEffect
+	if_move MOVE_ROCK_TOMB, AI_CV_SpeedDownAsAGuaranteedSecondaryEffect
+	if_move MOVE_MUD_SHOT, AI_CV_SpeedDownAsAGuaranteedSecondaryEffect
+	if_move MOVE_ELECTROWEB, AI_CV_SpeedDownAsAGuaranteedSecondaryEffect
 	end
 
+AI_CV_SpeedDownAsAGuaranteedSecondaryEffect:
+	if_side_affecting AI_TARGET, SIDE_STATUS_MIST, AI_Ret
+	if_ability_might_be AI_TARGET, ABILITY_SHIELD_DUST, AI_Ret
+	if_stat_level_equal AI_TARGET, STAT_SPEED, 0, AI_Ret
+	if_ability_might_be AI_TARGET, ABILITY_SPEED_BOOST, AI_Ret
+	if_ability_might_be AI_TARGET, ABILITY_CLEAR_BODY, AI_Ret
+	if_ability_might_be AI_TARGET, ABILITY_WHITE_SMOKE, AI_Ret
+	if_target_might_have_a_sub_before_our_attack AI_Ret
 AI_CV_SpeedDown: @ 82DCE81
 	if_target_faster AI_CV_SpeedDown2
 	goto AI_CV_SpeedDown_End
