@@ -812,7 +812,20 @@ static void BuyEVMenuPrintItemDescription(s32 item, bool8 onInit, struct ListMen
 
     if (item != -2)
     {
-        description = gText_ExpandedPlaceholder_Empty;
+        u8 pos = gSpecialVar_0x8004;
+        u8 hp = GetMonData(&gPlayerParty[pos], MON_DATA_HP_EV, NULL);
+        u8 atk = GetMonData(&gPlayerParty[pos], MON_DATA_ATK_EV, NULL);
+        u8 def = GetMonData(&gPlayerParty[pos], MON_DATA_DEF_EV, NULL);
+        u8 spe = GetMonData(&gPlayerParty[pos], MON_DATA_SPEED_EV, NULL);
+        u8 spa = GetMonData(&gPlayerParty[pos], MON_DATA_SPATK_EV, NULL);
+        u8 spd = GetMonData(&gPlayerParty[pos], MON_DATA_SPDEF_EV, NULL);
+        s16 remaining = 510 - hp - atk - def - spe - spa - spd;
+
+        if (remaining < 0) remaining = 0;
+
+        ConvertIntToDecimalStringN(gStringVar1, remaining, STR_CONV_MODE_RIGHT_ALIGN, 3);
+        StringExpandPlaceholders(gStringVar4, gText_UnassignedEVsVar1);
+        description = gStringVar4;
     }
     else
     {
@@ -1749,6 +1762,7 @@ static void BuyEVMenuReturnToItemList(u8 taskId)
     ClearDialogWindowAndFrameToTransparent(5, 0);
     BuyMenuPrintCursor(tListTaskId, 1);
     PutWindowTilemap(1);
+    BuyEVMenuPrintItemDescription(0, FALSE, NULL); // actualiza los EVs restantes
     PutWindowTilemap(2);
     schedule_bg_copy_tilemap_to_vram(0);
     BuyMenuAddScrollIndicatorArrows();
