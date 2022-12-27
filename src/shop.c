@@ -112,6 +112,7 @@ static void Task_HandleShopMenuBuy(u8 taskId);
 static void Task_HandleShopMenuSell(u8 taskId);
 static void BuyEVMenuPrintItemDescription(s32 item, bool8 onInit, struct ListMenu *list);
 static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, struct ListMenu *list);
+static void BuyEVMenuPrintEVsInList(u8 windowId, s32 item, u8 y, u8 itemPos);
 static void BuyMenuPrintPriceInList(u8 windowId, s32 item, u8 y, u8 itemPos);
 
 static const struct EVYesNoFuncTable sShopPurchaseEVYesNoFuncs =
@@ -171,7 +172,7 @@ static const struct ListMenuTemplate sEVShopBuyMenuListTemplate =
 {
     .items = NULL,
     .moveCursorFunc = BuyEVMenuPrintItemDescription,
-    .itemPrintFunc = NULL,
+    .itemPrintFunc = BuyEVMenuPrintEVsInList,
     .totalItems = 0,
     .maxShowed = 0,
     .windowId = 1,
@@ -881,6 +882,25 @@ bool8 GetSetItemBought(u8 storeId, u16 itemPos, u8 caseId)
     }
 
     return FALSE;
+}
+
+static void BuyEVMenuPrintEVsInList(u8 windowId, s32 item, u8 y, u8 itemPos)
+{
+    u8 x;
+    u8 pos = gSpecialVar_0x8004;
+    u16 currentstat = GetMonData(&gPlayerParty[pos], MON_DATA_HP_EV + itemPos, NULL);
+
+    if (item != -2)
+    {
+        ConvertIntToDecimalStringN(gStringVar1, currentstat, STR_CONV_MODE_RIGHT_ALIGN, 3);
+        x = GetStringRightAlignXOffset(7, gStringVar1, 0x58);
+        AddTextPrinterParameterized4(windowId, 7, x, y, 0, 0, sShopBuyMenuTextColors[1], -1, gStringVar1);
+        
+        currentstat = GetMonData(&gPlayerParty[pos], MON_DATA_MAX_HP + itemPos, NULL);
+        ConvertIntToDecimalStringN(gStringVar1, currentstat, STR_CONV_MODE_RIGHT_ALIGN, 3);
+        x = GetStringRightAlignXOffset(7, gStringVar1, 0x78);
+        AddTextPrinterParameterized4(windowId, 7, x, y, 0, 0, sShopBuyMenuTextColors[1], -1, gStringVar1);
+    }
 }
 
 static void BuyMenuPrintPriceInList(u8 windowId, s32 item, u8 y, u8 itemPos)
@@ -1617,6 +1637,7 @@ static void BuyEVMenuTryMakePurchase(u8 taskId)
 
 	SetMonData(&gPlayerParty[pos], MON_DATA_HP_EV + gShopDataPtr->selectedRow, &tItemCount);
 	CalculateMonStats(&gPlayerParty[pos]);
+	RedrawListMenu(tListTaskId); // actualiza los EVs mostrados
 	PutWindowTilemap(1);
 	BuyMenuDisplayMessage(taskId, gText_HereYouGoThankYou, BuyEVMenuWaitForABAfterConfirming);
 }
