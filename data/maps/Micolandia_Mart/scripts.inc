@@ -128,8 +128,8 @@ Micolandia_EV_Mart:
 	
 	.string "IT'S FREE!\p"
 
-	.string "Así que, ¿Cuales EVS quieres cambiar\n"
-	.string "a cual POKéMON?$"
+	.string "Así que, ¿a qué POKéMON quieres\n"
+	.string "cambiarle los EVs?$"
 	
 Micolandia_EV_Mart_Bye:
 	.string "¡Hasta pronto!$"
