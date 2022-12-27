@@ -1536,7 +1536,7 @@ static void Task_BuyHowManyEVDialogueHandleInput(u8 taskId)
             StringCopy(gStringVar1, sEVShopItems[gShopDataPtr->selectedRow]);
             ConvertIntToDecimalStringN(gStringVar2, tItemCount, STR_CONV_MODE_LEFT_ALIGN, 3);
             ConvertIntToDecimalStringN(gStringVar3, gShopDataPtr->totalCost, STR_CONV_MODE_LEFT_ALIGN, 6);
-            BuyMenuDisplayMessage(taskId, gText_YouWantedVar1, BuyEVMenuConfirmPurchase);
+            BuyMenuDisplayMessage(taskId, gText_DoYouWantToSetVar1EVToVar2, BuyEVMenuConfirmPurchase);
         }
         else if (JOY_NEW(B_BUTTON))
         {
