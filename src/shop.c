@@ -371,27 +371,31 @@ static const u8 sShopBuyMenuTextColors[][3] =
     {0, 3, 2}
 };
 
-static u8 CreateEVShopMenu(u8 martType)
+static u8 CreateEVShopMenu(bool8 first_time)
 {
-    int numMenuItems;
-	struct WindowTemplate winTemplate;
 
     ScriptContext2_Enable();
-    gMartInfo.martType = martType;
+    gMartInfo.martType = MART_TYPE_NORMAL;
 
-	winTemplate = sShopMenuWindowTemplates[1];
-	winTemplate.width = GetMaxWidthInMenuTable(sShopMenuActions_BuyEVQuit, ARRAY_COUNT(sShopMenuActions_BuyEVQuit));
-	gMartInfo.windowId = AddWindow(&winTemplate);
-	gMartInfo.menuActions = sShopMenuActions_BuyEVQuit;
-	numMenuItems = ARRAY_COUNT(sShopMenuActions_BuyEVQuit);
+    if (!first_time) {
+        int numMenuItems;
+        struct WindowTemplate winTemplate;
+ 
+        winTemplate = sShopMenuWindowTemplates[1];
+        winTemplate.width = GetMaxWidthInMenuTable(sShopMenuActions_BuyEVQuit, ARRAY_COUNT(sShopMenuActions_BuyEVQuit));
+        gMartInfo.windowId = AddWindow(&winTemplate);
+        gMartInfo.menuActions = sShopMenuActions_BuyEVQuit;
+        numMenuItems = ARRAY_COUNT(sShopMenuActions_BuyEVQuit);
 
-    SetStandardWindowBorderStyle(gMartInfo.windowId, 0);
-    PrintMenuTable(gMartInfo.windowId, numMenuItems, gMartInfo.menuActions);
-    InitMenuInUpperLeftCornerPlaySoundWhenAPressed(gMartInfo.windowId, numMenuItems, 0);
-    PutWindowTilemap(gMartInfo.windowId);
-    CopyWindowToVram(gMartInfo.windowId, 1);
+        SetStandardWindowBorderStyle(gMartInfo.windowId, 0);
+        PrintMenuTable(gMartInfo.windowId, numMenuItems, gMartInfo.menuActions);
+        InitMenuInUpperLeftCornerPlaySoundWhenAPressed(gMartInfo.windowId, numMenuItems, 0);
+        PutWindowTilemap(gMartInfo.windowId);
+        CopyWindowToVram(gMartInfo.windowId, 1);
 
-    return CreateTask(Task_ShopMenu, 8);
+        return CreateTask(Task_ShopMenu, 8);
+    } else
+        return CreateTask(Task_HandleShopMenuBuyEV, 8);
 }
 
 static u8 CreateShopMenu(u8 martType)
@@ -590,7 +594,7 @@ static void Task_ReturnToShopMenu(u8 taskId)
 
 static void ShowEVShopMenuAfterExitingBuyOrSellMenu(u8 taskId)
 {
-    CreateEVShopMenu(gMartInfo.martType);
+    CreateEVShopMenu(FALSE);
     DestroyTask(taskId);
 }
 
@@ -1914,7 +1918,7 @@ static void RecordItemPurchase(u8 taskId)
 
 void CreateEVMartMenu(const u16 *itemsForSale)
 {
-    CreateEVShopMenu(MART_TYPE_NORMAL);
+    CreateEVShopMenu(TRUE);
     SetEVShopItemsForSale(itemsForSale);
     ClearItemPurchases();
     SetShopMenuCallback(EnableBothScriptContexts);
