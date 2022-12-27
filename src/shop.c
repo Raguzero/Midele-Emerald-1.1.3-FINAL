@@ -101,10 +101,12 @@ static void BuyMenuPrintItemQuantityAndPrice(u8 taskId);
 static void Task_BuyHowManyEVDialogueHandleInput(u8 taskId);
 static void Task_BuyHowManyDialogueHandleInput(u8 taskId);
 static void BuyMenuSubtractMoney(u8 taskId);
+static void BuyEVMenuWaitForABAfterConfirming(u8 taskId);
 static void RecordItemPurchase(u8 taskId);
 static void Task_ReturnToItemListAfterItemPurchase(u8 taskId);
 static void Task_ReturnToItemListAfterTMShopPurchase(u8 taskId);
 static void Task_ReturnToItemListAfterDecorationPurchase(u8 taskId);
+static void Task_ReturnToItemListAfterEVPurchase(u8 taskId);
 static void Task_HandleShopMenuBuyEV(u8 taskId);
 static void Task_HandleShopMenuBuy(u8 taskId);
 static void Task_HandleShopMenuSell(u8 taskId);
@@ -1599,11 +1601,11 @@ static void BuyEVMenuTryMakePurchase(u8 taskId)
 	s16 *data = gTasks[taskId].data;
 	u8 pos = gSpecialVar_0x8004;
 
-    PutWindowTilemap(1);
 
 	SetMonData(&gPlayerParty[pos], MON_DATA_HP_EV + gShopDataPtr->selectedRow, &tItemCount);
 	CalculateMonStats(&gPlayerParty[pos]);
-	BuyMenuDisplayMessage(taskId, gText_HereYouGoThankYou, BuyEVMenuReturnToItemList);
+	PutWindowTilemap(1);
+	BuyMenuDisplayMessage(taskId, gText_HereYouGoThankYou, BuyEVMenuWaitForABAfterConfirming);
 }
 
 static void BuyMenuTryMakePurchase(u8 taskId)
@@ -1657,6 +1659,11 @@ static void BuyMenuTryMakePurchase(u8 taskId)
     }
 }
 
+static void BuyEVMenuWaitForABAfterConfirming(u8 taskId)
+{
+    gTasks[taskId].func = Task_ReturnToItemListAfterEVPurchase;
+}
+
 static void BuyMenuSubtractMoney(u8 taskId)
 {
     IncrementGameStat(GAME_STAT_SHOPPED);
@@ -1700,6 +1707,17 @@ static void Task_ReturnToItemListAfterItemPurchase(u8 taskId)
         {
             BuyMenuReturnToItemList(taskId);
         }
+    }
+}
+
+static void Task_ReturnToItemListAfterEVPurchase(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+
+    if (gMain.newKeys & (A_BUTTON | B_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        BuyEVMenuReturnToItemList(taskId);
     }
 }
 
