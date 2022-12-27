@@ -24,6 +24,7 @@
 #include "overworld.h"
 #include "palette.h"
 #include "party_menu.h"
+#include "pokemon_icon.h"
 #include "scanline_effect.h"
 #include "script.h"
 #include "shop.h"
@@ -73,6 +74,7 @@ static void BuyEVMenuDecompressBgGraphics(void);
 static void BuyMenuDecompressBgGraphics(void);
 static void BuyEVMenuSetListEntry(struct ListMenuItem *menuItem, u16 item, u8 *name);
 static void BuyMenuSetListEntry(struct ListMenuItem*, u16, u8*);
+static void BuyEVMenuAddMonIcon();
 static void BuyMenuAddItemIcon(u16, u8);
 static void BuyMenuRemoveItemIcon(u16, u8);
 static void BuyMenuPrint(u8 windowId, const u8 *text, u8 x, u8 y, s8 speed, u8 colorSet);
@@ -646,6 +648,7 @@ static void CB2_InitBuyEVMenu(void)
         FillBgTilemapBufferRect_Palette0(3, 0, 0, 0, 0x20, 0x20);
         BuyMenuInitWindows();
         BuyEVMenuDecompressBgGraphics();
+        BuyEVMenuAddMonIcon();
         gMain.state++;
         break;
     case 1:
@@ -981,6 +984,25 @@ static void BuyMenuPrintCursor(u8 scrollIndicatorsTaskId, u8 colorSet)
     BuyMenuPrint(1, gText_SelectorArrow2, 0, y, 0, colorSet);
 }
 
+static void BuyEVMenuAddMonIcon()
+{
+    u8 spriteId;
+    u8 *spriteIdPtr = &gShopDataPtr->itemSpriteIds[0];
+    u8 pos = gSpecialVar_0x8004;
+    u16 species = GetMonData(&gPlayerParty[pos], MON_DATA_SPECIES2);
+    
+    if (*spriteIdPtr != 0xFF)
+        return;
+
+    LoadMonIconPalette(species);
+    spriteId = CreateMonIcon(species, SpriteCB_MonIcon, 20, 81, 4, GetMonData(&gPlayerParty[pos], MON_DATA_PERSONALITY), FALSE);
+    if (spriteId != MAX_SPRITES)
+    {
+        *spriteIdPtr = spriteId;
+        gSprites[spriteId].oam.priority = 1;
+    }
+}
+
 static void BuyMenuAddItemIcon(u16 item, u8 iconSlot)
 {
     u8 spriteId;
@@ -1066,8 +1088,8 @@ static void BuyMenuInitBgs(void)
 
 static void BuyEVMenuDecompressBgGraphics(void)
 {
-    decompress_and_copy_tile_data_to_vram(1, gBuyMenuFrame_Gfx, 0x3A0, 0x3E3, 0);
-    LZDecompressWram(gBuyEVMenuFrame_Tilemap, gShopDataPtr->tilemapBuffers[0]);
+    decompress_and_copy_tile_data_to_vram(1, gBuyEVMenuFrame_Gfx, 0x3A0, 0x3E3, 0);
+    LZDecompressWram(gBuyMenuFrame_Tilemap, gShopDataPtr->tilemapBuffers[0]);
     LoadCompressedPalette(gMenuMoneyPal, 0xC0, 0x20);
 }
 

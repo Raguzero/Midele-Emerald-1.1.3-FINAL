@@ -5439,6 +5439,7 @@ extern const u32 gUnknown_08D97CF4[];
 extern const u32 gStatusGfx_Icons[];
 extern const u32 gStatusPal_Icons[];
 
+extern const u32 gBuyEVMenuFrame_Gfx[];
 extern const u32 gBuyMenuFrame_Gfx[];
 extern const u32 gBuyEVMenuFrame_Tilemap[];
 extern const u32 gBuyMenuFrame_Tilemap[];
