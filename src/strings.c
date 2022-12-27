@@ -353,6 +353,7 @@ const u8 gText_Var1IsItThatllBeVar2[] = _("{STR_VAR_1}, is it?\nThat'll be ¥{ST
 const u8 gText_YouWantedVar1[] = _("You wanted {STR_VAR_1}?");
 const u8 gText_YouWantedVar1ThatllBeVar2[] = _("You wanted {STR_VAR_1}?\nThat'll be ¥{STR_VAR_2}. Will that be okay?");
 const u8 gText_DoYouWantToSetVar1EVToVar2[] = _("Do you want to set {STR_VAR_1} EV to {STR_VAR_2}?");
+const u8 gText_DoYouWantToSetEVsOfAnotherMon[] = _("¿Quieres cambiar los EVs de algún\notro POKéMON?");
 const u8 gText_UnassignedEVsVar1[] = _("Unassigned EVs: {STR_VAR_1}");
 const u8 gText_HereYouGoThankYou[] = _("Here you go!\nThank you very much.");
 const u8 gText_ThankYouIllSendItHome[] = _("Thank you!\nI'll send it to your home PC.");

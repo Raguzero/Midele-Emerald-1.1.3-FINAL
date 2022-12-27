@@ -1005,6 +1005,7 @@ extern const u8 gText_YouWantedVar1ThatllBeVar2[];
 extern const u8 gText_InBagVar1[];
 extern const u8 gText_YouWantedVar1[];
 extern const u8 gText_DoYouWantToSetVar1EVToVar2[];
+extern const u8 gText_DoYouWantToSetEVsOfAnotherMon[];
 extern const u8 gText_UnassignedEVsVar1[];
 extern const u8 gText_Var1AndYouWantedVar2[];
 extern const u8 gText_HereYouGoThankYou[];

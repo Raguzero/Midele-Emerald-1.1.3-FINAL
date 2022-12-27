@@ -51,6 +51,7 @@ EWRAM_DATA struct ItemSlot gMartPurchaseHistory[3] = {0};
 
 static void Task_ShopMenu(u8 taskId);
 static void Task_HandleShopMenuQuit(u8 taskId);
+static void Task_HandleEVShopMenuChooseAnotherMon(u8 taskId);
 static void CB2_InitBuyEVMenu(void);
 static void CB2_InitBuyMenu(void);
 static void Task_GoToBuyOrSellMenu(u8 taskId);
@@ -131,8 +132,8 @@ static const struct YesNoFuncTable sShopPurchaseYesNoFuncs =
 
 static const struct MenuAction sShopMenuActions_BuyEVQuit[] =
 {
-    { gText_ShopBuy, {.void_u8=Task_HandleShopMenuBuyEV} },
-    { gText_ShopQuit, {.void_u8=Task_HandleShopMenuQuit} }
+    { gText_Yes, {.void_u8=Task_HandleEVShopMenuChooseAnotherMon} },
+    { gText_No, {.void_u8=Task_HandleShopMenuQuit} }
 };
 
 static const struct MenuAction sShopMenuActions_BuySellQuit[] =
@@ -548,6 +549,12 @@ static void Task_HandleShopMenuQuit(u8 taskId)
         gMartInfo.callback();
 }
 
+static void Task_HandleEVShopMenuChooseAnotherMon(u8 taskId)
+{
+    gSpecialVar_0x8004 = 200; // Esto le indica al script que quiere elegir otro mon
+    Task_HandleShopMenuQuit(taskId);
+}
+
 static void Task_GoToBuyOrSellMenu(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
@@ -577,7 +584,7 @@ static void Task_ReturnToEVShopMenu(u8 taskId)
         if (gMartInfo.martType == MART_TYPE_DECOR2)
             DisplayItemMessageOnField(taskId, gText_CanIHelpWithAnythingElse, ShowEVShopMenuAfterExitingBuyOrSellMenu);
         else
-            DisplayItemMessageOnField(taskId, gText_AnythingElseICanHelp, ShowEVShopMenuAfterExitingBuyOrSellMenu);
+            DisplayItemMessageOnField(taskId, gText_DoYouWantToSetEVsOfAnotherMon, ShowEVShopMenuAfterExitingBuyOrSellMenu);
     }
 }
 
