@@ -744,7 +744,7 @@ static void BuyEVMenuBuildListMenuTemplate(void)
     for (i = 0; i < gMartInfo.itemCount; i++)
         BuyEVMenuSetListEntry(&gUnknown_02039F74[i], gMartInfo.itemList[i], gUnknown_02039F78[i]);
 
-    StringCopy(gUnknown_02039F78[i], gText_Cancel2);
+    StringCopy(gUnknown_02039F78[i], gText_Confirm3);
     gUnknown_02039F74[i].name = gUnknown_02039F78[i];
     gUnknown_02039F74[i].id = -2;
 
@@ -825,7 +825,6 @@ static void BuyEVMenuPrintItemDescription(s32 item, bool8 onInit, struct ListMen
     if (onInit != TRUE)
         PlaySE(SE_SELECT);
 
-    if (item != -2)
     {
         u8 pos = gSpecialVar_0x8004;
         u8 hp = GetMonData(&gPlayerParty[pos], MON_DATA_HP_EV, NULL);
@@ -841,10 +840,6 @@ static void BuyEVMenuPrintItemDescription(s32 item, bool8 onInit, struct ListMen
         ConvertIntToDecimalStringN(gStringVar1, remaining, STR_CONV_MODE_RIGHT_ALIGN, 3);
         StringExpandPlaceholders(gStringVar4, gText_UnassignedEVsVar1);
         description = gStringVar4;
-    }
-    else
-    {
-        description = gText_QuitShopping;
     }
 
     FillWindowPixelBuffer(2, PIXEL_FILL(0));
