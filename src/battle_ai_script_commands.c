@@ -3404,6 +3404,7 @@ static void Cmd_if_next_turn_target_might_use_move_with_effect(void)
     s32 i;
     u8 moveLimitations = CheckMoveLimitations(gBattlerTarget, 0, MOVE_LIMITATION_CHOICE-1);
     u8 effect = *(gAIScriptPtr + 1);
+    bool8 allMovesKnown = TRUE; // se cambiará a FALSE si no es cierto
 
     if (effect == AI_LAST_EFFECT_BY_TARGET)
         effect = gBattleMoves[gLastMoves[gBattlerTarget]].effect;
@@ -3418,7 +3419,9 @@ static void Cmd_if_next_turn_target_might_use_move_with_effect(void)
 
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
-        if (FOES_MOVE_HISTORY(gBattlerTarget)[i] && gBattleMoves[FOES_MOVE_HISTORY(gBattlerTarget)[i]].effect == effect)
+        if (!FOES_MOVE_HISTORY(gBattlerTarget)[i])
+            allMovesKnown = FALSE;
+        else if (gBattleMoves[FOES_MOVE_HISTORY(gBattlerTarget)[i]].effect == effect)
         {
             s32 j;
             for (j = 0; j < MAX_MON_MOVES; j++)
@@ -3428,6 +3431,24 @@ static void Cmd_if_next_turn_target_might_use_move_with_effect(void)
                 break;
         }
     }
+
+    // Si el rival es un Smeargle que nos ha hecho Lock-On, es muy evidente lo que va a pasar.
+    // La IA asumirá que está a punto de recibir un movimiento OHKO compatible
+    // salvo si ya conoce los movimientos que puede usar y no es posible tal cosa,
+    // o si la habilidad del mon de la IA es Sturdy, o Wonder Guard en un Shedinja,
+    // o la diferencia de niveles impide que funcione el movimiento OHKO
+    if (i == MAX_MON_MOVES
+        && effect == EFFECT_OHKO
+        && !allMovesKnown
+        && (gStatuses3[sBattler_AI] & STATUS3_ALWAYS_HITS)
+        && gDisableStructs[sBattler_AI].battlerWithSureHit == gBattlerTarget
+        && gBattleMons[gBattlerTarget].species == SPECIES_SMEARGLE
+        && gBattleMons[sBattler_AI].level <= gBattleMons[gBattlerTarget].level
+        && gBattleMons[sBattler_AI].ability != ABILITY_STURDY
+        && !(gBattleMons[sBattler_AI].ability == ABILITY_WONDER_GUARD
+             && gBattleMons[sBattler_AI].species == SPECIES_SHEDINJA
+            ))
+            i = 0; // se asume que OHKO al canto
 
     if (i != MAX_MON_MOVES)
         gAIScriptPtr = T1_READ_PTR(gAIScriptPtr - 4);
