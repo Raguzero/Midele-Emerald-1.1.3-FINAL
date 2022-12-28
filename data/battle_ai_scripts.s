@@ -1656,6 +1656,8 @@ AI_CV_EvasionUp:
     if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_VITAL_THROW, Score_Minus5
     if_ability AI_USER, ABILITY_NO_GUARD, Score_Minus5
     if_ability_might_be AI_TARGET, ABILITY_NO_GUARD, Score_Minus5
+    if_ability_might_be AI_TARGET, ABILITY_KEEN_EYE, Score_Minus5
+    if_status2 AI_USER, STATUS2_FORESIGHT, Score_Minus5
     get_weather
     if_equal AI_WEATHER_HAIL, AI_CV_EvasionUp_BlizzardCheck
     if_equal AI_WEATHER_RAIN, AI_CV_EvasionUp_ThunderCheck
@@ -1869,14 +1871,27 @@ AI_CV_SpDefDown_End: @ 82DCF0B
 AI_CV_AccuracyDownFromChance:
 	if_ability AI_USER, ABILITY_SHEER_FORCE, AI_Ret
 	if_ability AI_TARGET, ABILITY_SHIELD_DUST, AI_Ret
-	if_move MOVE_MUD_SLAP, AI_CV_AccuracyDown
+	if_move MOVE_MUD_SLAP, AI_CV_AccuracyDown_MudSlap
 	end
+
+AI_CV_AccuracyDown_MudSlap:
+    if_target_might_have_a_sub_before_our_attack AI_Ret
+    if_stat_level_equal AI_TARGET, STAT_ACC, 0, AI_Ret
+    if_side_affecting AI_TARGET, SIDE_STATUS_MIST, AI_Ret
+    if_ability_might_be AI_TARGET, ABILITY_KEEN_EYE, AI_Ret
+    if_ability_might_be AI_TARGET, ABILITY_NO_GUARD, AI_Ret
+    if_ability_might_be AI_TARGET, ABILITY_CLEAR_BODY, AI_Ret
+    if_ability_might_be AI_TARGET, ABILITY_WHITE_SMOKE, AI_Ret
+    if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_ALWAYS_HIT, AI_Ret
+    if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_VITAL_THROW, AI_Ret
+    if_ability AI_USER, ABILITY_NO_GUARD, AI_Ret
+    goto AI_CV_AccuracyDown_SkipMinus
 
 AI_CV_AccuracyDown: @ 82DCF0C
     if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_ALWAYS_HIT, Score_Minus5
     if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_VITAL_THROW, Score_Minus5
     if_ability AI_USER, ABILITY_NO_GUARD, Score_Minus5
-    if_ability_might_be AI_TARGET, ABILITY_NO_GUARD, Score_Minus5
+AI_CV_AccuracyDown_SkipMinus:
 	if_user_can_probably_boost_safely Score_Plus2
 	if_hp_less_than AI_USER, 70, AI_CV_AccuracyDown2
 	if_hp_more_than AI_TARGET, 70, AI_CV_AccuracyDownIfOpponentCannotSwitch
@@ -2672,6 +2687,8 @@ AI_CV_Snore_End:
 
 AI_CV_LockOn:
 	if_doesnt_have_move_with_effect AI_USER, EFFECT_OHKO, AI_CV_LockOn_NoChanceToOHKOInFreeTurn
+	if_ability_might_be AI_TARGET, ABILITY_STURDY, AI_CV_LockOn_NoChanceToOHKOInFreeTurn
+	if_level_cond AI_LEVEL_IS_LESS_THAN_TARGETS, AI_CV_LockOn_NoChanceToOHKOInFreeTurn
     if_free_setup_turn Score_Plus2
 AI_CV_LockOn_NoChanceToOHKOInFreeTurn:
 	if_this_attack_might_be_the_last Score_Minus5
