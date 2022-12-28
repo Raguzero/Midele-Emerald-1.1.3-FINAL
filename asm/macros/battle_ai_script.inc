@@ -738,12 +738,18 @@
     .endm
 	
 	.macro if_this_attack_might_be_the_last ptr:req
+    if_status3 AI_USER, STATUS3_ALWAYS_HITS, .AI_locked_on_\@
     @ Si tiene la Evasión subida, tiene una pequeña probabilidad de jugársela
     @ (7/8 a +2 o +3, 49/64 a +4 o más)
     @ (la probabilidad de jugársela en alguno de los turnos en los que se está 
     @ subiendo la Evasión hasta +6 es de aproximadamente un 49%)
-    if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_ALWAYS_HIT, .AI_skip_evasion_check_\@
     if_stat_level_less_than AI_USER, STAT_EVASION, 8, .AI_skip_evasion_check_\@
+    if_status2 AI_USER, STATUS2_FORESIGHT, .AI_skip_evasion_check_\@
+    if_ability AI_USER, ABILITY_NO_GUARD, .AI_skip_evasion_check_\@
+    if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_ALWAYS_HIT, .AI_skip_evasion_check_\@
+    if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_VITAL_THROW, .AI_skip_evasion_check_\@
+    if_ability_might_be AI_TARGET, ABILITY_KEEN_EYE, .AI_skip_evasion_check_\@
+    if_ability_might_be AI_TARGET, ABILITY_NO_GUARD, .AI_skip_evasion_check_\@
     if_random_less_than 32, \ptr
     if_stat_level_less_than AI_USER, STAT_EVASION, 10, .AI_skip_evasion_check_\@
     if_random_less_than 32, \ptr
@@ -754,6 +760,12 @@
     if_status2 AI_USER, STATUS2_SUBSTITUTE, .AI_attack_is_probably_not_the_last_\@
     if_target_faster \ptr
     goto .AI_attack_is_probably_not_the_last_\@
+    .AI_locked_on_\@:
+    if_ability AI_USER, ABILITY_STURDY, .AI_skip_evasion_check_\@
+    if_ability AI_USER, ABILITY_WONDER_GUARD, .AI_skip_evasion_check_\@
+    if_level_cond AI_LEVEL_IS_GREATER_THAN_TARGETS, .AI_skip_evasion_check_\@
+    if_next_turn_target_might_use_move_with_effect EFFECT_OHKO, .AI_attack_is_the_last_unless_faster_and_with_sub\@
+    goto .AI_skip_evasion_check_\@
     .AI_attack_is_the_last_unless_faster_and_with_sub\@:
     if_not_status2 AI_USER, STATUS2_SUBSTITUTE, \ptr
     if_target_faster \ptr
@@ -813,13 +825,19 @@
     if_status3 AI_USER, STATUS3_PERISH_SONG, .AI_user_might_not_be_able_to_boost_safely_\@
     if_next_turn_target_might_use_move_with_effect EFFECT_HAZE, .AI_user_might_not_be_able_to_boost_safely_\@
     if_next_turn_target_might_use_move_with_effect EFFECT_ROAR, .AI_check_if_user_can_be_phazed_\@
+    .AI_no_problem_with_phazing_\@:
+    if_not_status3 AI_USER, STATUS3_ALWAYS_HITS, .AI_everything_ok_calculate_nhko_\@
+    if_ability AI_USER, ABILITY_STURDY, .AI_everything_ok_calculate_nhko_\@
+    if_ability AI_USER, ABILITY_WONDER_GUARD, .AI_everything_ok_calculate_nhko_\@
+    if_level_cond AI_LEVEL_IS_GREATER_THAN_TARGETS, .AI_everything_ok_calculate_nhko_\@
+    if_next_turn_target_might_use_move_with_effect EFFECT_OHKO, .AI_user_might_not_be_able_to_boost_safely_\@
     goto .AI_everything_ok_calculate_nhko_\@
 
     .AI_check_if_user_can_be_phazed_\@:
     count_usable_party_mons AI_USER
-    if_equal 0, .AI_everything_ok_calculate_nhko_\@
-    if_ability AI_USER, ABILITY_SUCTION_CUPS, .AI_everything_ok_calculate_nhko_\@
-    if_status3 AI_USER, STATUS3_ROOTED, .AI_everything_ok_calculate_nhko_\@
+    if_equal 0, .AI_no_problem_with_phazing_\@
+    if_ability AI_USER, ABILITY_SUCTION_CUPS, .AI_no_problem_with_phazing_\@
+    if_status3 AI_USER, STATUS3_ROOTED, .AI_no_problem_with_phazing_\@
     goto .AI_user_might_not_be_able_to_boost_safely_\@
 
     .AI_everything_ok_calculate_nhko_\@:
