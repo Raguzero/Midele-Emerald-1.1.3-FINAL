@@ -482,7 +482,7 @@ AI_CBM_LightScreen: @ 82DC4C5
 AI_CBM_OneHitKO: @ 82DC4D0
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
     if_ability_might_be AI_TARGET, ABILITY_STURDY, Score_Minus10
-	if_level_cond 1, Score_Minus10
+	if_level_cond AI_LEVEL_IS_LESS_THAN_TARGETS, Score_Minus10
     if_target_might_have_a_sub_before_our_attack Score_Minus5
 	end
 
@@ -1286,7 +1286,7 @@ AI_CV_MirrorMove_EncouragedMovesToMirror: @ 82DCB6C
 @ Comprueba que tiene Endeavor y nivel como máximo 2
 @ En caso contrario, considera que no es FEAR
 AI_CV_QuickAttack::
-	if_level_cond 3, AI_CV_QuickAttackFear_CheckEndeavor
+	if_level_cond AI_LEVEL_IS_AT_MOST_2, AI_CV_QuickAttackFear_CheckEndeavor
     goto AI_CV_QuickAttack_NoFEAR
 
 AI_CV_QuickAttackFear_CheckEndeavor:
@@ -3763,7 +3763,7 @@ AI_CV_KnockOff_End:
 	end
 
 AI_CV_Endeavor:
-	if_level_cond 3, AI_CV_Endeavor_assumeFEAR
+	if_level_cond AI_LEVEL_IS_AT_MOST_2, AI_CV_Endeavor_assumeFEAR
 	if_hp_less_than AI_TARGET, 70, AI_CV_Endeavor_ScoreDown1
 	if_target_faster AI_CV_Endeavor2
 	if_hp_more_than AI_USER, 40, AI_CV_Endeavor_ScoreDown1

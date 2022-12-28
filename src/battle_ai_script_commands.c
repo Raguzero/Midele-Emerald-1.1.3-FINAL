@@ -3007,25 +3007,25 @@ static void Cmd_if_level_cond(void)
 {
     switch (gAIScriptPtr[1])
     {
-    case 0: // greater than
+    case AI_LEVEL_IS_GREATER_THAN_TARGETS:
         if (gBattleMons[sBattler_AI].level > gBattleMons[gBattlerTarget].level)
             gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
         else
             gAIScriptPtr += 6;
         break;
-    case 1: // less than
+    case AI_LEVEL_IS_LESS_THAN_TARGETS:
         if (gBattleMons[sBattler_AI].level < gBattleMons[gBattlerTarget].level)
             gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
         else
             gAIScriptPtr += 6;
         break;
-    case 2: // equal
+    case AI_LEVEL_IS_EQUAL_TO_TARGETS:
         if (gBattleMons[sBattler_AI].level == gBattleMons[gBattlerTarget].level)
             gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
         else
             gAIScriptPtr += 6;
         break;
-    case 3: // AI level is 2 or less
+    case AI_LEVEL_IS_AT_MOST_2:
         if (gBattleMons[sBattler_AI].level <= 2)
             gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
         else
