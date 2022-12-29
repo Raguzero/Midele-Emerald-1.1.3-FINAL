@@ -2781,9 +2781,10 @@ AI_CV_Flail_End:
 	end
 	
 AI_CV_HealBell:
-    if_status_in_party AI_USER, STATUS1_ANY, AI_CV_HealBell_End
-    if_not_status AI_USER, STATUS1_ANY, Score_Minus5
     if_this_attack_might_be_the_last Score_Minus5
+    if_status AI_USER, STATUS1_TOXIC_POISON, Score_Plus1
+    if_status_in_party AI_USER, STATUS1_ANY, AI_CV_HealBell_End
+    if_not_status AI_USER, STATUS1_PSN_ANY | STATUS1_BURN | STATUS1_PARALYSIS, Score_Minus5
 AI_CV_HealBell_End:
     end
 
