@@ -2111,6 +2111,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                     u8 playerPartyMaxLevel = GetPlayerPartyMaxLevel();
 					u8 minLevel = 60;
 					u8 level = max(playerPartyMaxLevel, minLevel);
+					u8 zerofriendship = 0;
 				const struct FacilityMon * pokeenemy;
 					do {
 					pokeenemy = &gBattleFrontierMons[Random() % NUM_FRONTIER_MONS];
@@ -2123,7 +2124,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             SetMonMoveAvoidReturn(&gEnemyParty[i], pokeenemy -> moves[j], j);
         }
 
-        SetMonData(&gEnemyParty[i], MON_DATA_FRIENDSHIP, 0);
+        SetMonData(&gEnemyParty[i], MON_DATA_FRIENDSHIP, &zerofriendship);
         SetMonData(&gEnemyParty[i], MON_DATA_HELD_ITEM, &gBattleFrontierHeldItems[pokeenemy -> itemTableId]);
 				for (j = 0; j < MAX_MON_MOVES; j++)
                 {
@@ -2140,6 +2141,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 if (FlagGet(FLAG_RANDOMBATTLE_GYMGOOSES) == 1)
                 {
                     u8 level;
+                    u8 zerofriendship = 0;
                     const struct FacilityMon * pokeenemy;
 
                     if (FlagGet(FLAG_RANDOMBATTLE_GYMSAPPH) == 1)
@@ -2175,7 +2177,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                         SetMonMoveAvoidReturn(&gEnemyParty[i], pokeenemy -> moves[j], j);
                     }
 
-                    SetMonData(&gEnemyParty[i], MON_DATA_FRIENDSHIP, 0);
+                    SetMonData(&gEnemyParty[i], MON_DATA_FRIENDSHIP, &zerofriendship);
                     SetMonData(&gEnemyParty[i], MON_DATA_HELD_ITEM, &gBattleFrontierHeldItems[pokeenemy -> itemTableId]);
                     for (j = 0; j < MAX_MON_MOVES; j++)
                     {
@@ -2193,6 +2195,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 if (FlagGet(FLAG_RYU_RANDOMBATTLECC) == 1)
                 {
 					 u8 level = 100;
+					 u8 zerofriendship = 0;
 					u32 otID = T1_READ_32(gSaveBlock2Ptr->playerTrainerId);
 				const struct FacilityMon * pokeenemy;
 				const struct FacilityMon * pokeplayer;
@@ -2225,8 +2228,8 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                         SetMonMoveAvoidReturn(&gPlayerParty[i], pokeplayer -> moves[j], j);
                     }
 
-        SetMonData(&gEnemyParty[i], MON_DATA_FRIENDSHIP, 0);
-        SetMonData(&gPlayerParty[i], MON_DATA_FRIENDSHIP, 0);
+        SetMonData(&gEnemyParty[i], MON_DATA_FRIENDSHIP, &zerofriendship);
+        SetMonData(&gPlayerParty[i], MON_DATA_FRIENDSHIP, &zerofriendship);
         
         if (FlagGet(FLAG_RYU_RANDOMBATTLECCMETRO) == 1)
         {
