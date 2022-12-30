@@ -1662,6 +1662,14 @@ AI_CV_EvasionUp:
     if_equal AI_WEATHER_HAIL, AI_CV_EvasionUp_BlizzardCheck
     if_equal AI_WEATHER_RAIN, AI_CV_EvasionUp_ThunderCheck
 AI_CV_EvasionUp_NoProblematicWeather:
+	if_not_status3 AI_USER, STATUS3_ALWAYS_HITS, AI_CV_EvasionUp_NotLockedOn
+	if_status2 AI_USER, STATUS2_SUBSTITUTE, AI_CV_EvasionUp_NotLockedOn
+	calculate_nhko AI_TARGET
+	if_equal 1, AI_CV_EvasionUp_ScoreDown2
+	if_ability AI_USER, ABILITY_STURDY, AI_CV_EvasionUp_NotLockedOn
+	if_level_cond AI_LEVEL_IS_GREATER_THAN_TARGETS, AI_CV_EvasionUp_NotLockedOn
+	if_next_turn_target_might_use_move_with_effect EFFECT_OHKO, AI_CV_EvasionUp_ScoreDown2
+AI_CV_EvasionUp_NotLockedOn:
 	if_user_can_probably_boost_safely Score_Plus5
 	if_hp_less_than AI_USER, 90, AI_CV_EvasionUp2
 	if_random_less_than 100, AI_CV_EvasionUp2
