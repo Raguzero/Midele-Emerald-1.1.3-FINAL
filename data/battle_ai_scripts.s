@@ -269,6 +269,7 @@ AI_CBM_Sleep: @ 82DC2D4
     if_move MOVE_SPORE, AI_CBM_Sleep_Overcoat
 AI_CBM_Sleep_NoProblemWithOvercoat:
     if_ability_might_be AI_TARGET, ABILITY_EARLY_BIRD, Score_Minus5
+    if_ability_might_be AI_TARGET, ABILITY_SHED_SKIN, Score_Minus5
     if_has_move_with_effect AI_TARGET, EFFECT_SLEEP_TALK, Score_Minus3
     end
 AI_CBM_Sleep_Overcoat:
@@ -1142,14 +1143,20 @@ AI_CheckViability_CheckEffects:
 	end
 
 AI_CV_Sleep: @ 82DCA92
+	if_target_faster AI_CV_SleepSkipBonusToSpore
+	if_move MOVE_SPORE, AI_CV_SleepPlus1or2
+AI_CV_SleepSkipBonusToSpore:
 	if_has_move_with_effect AI_USER, EFFECT_DREAM_EATER, AI_CV_SleepEncourageSlpDamage
 	if_has_move_with_effect AI_USER, EFFECT_NIGHTMARE, AI_CV_SleepEncourageSlpDamage
 	goto AI_CV_Sleep_End
 
+AI_CV_SleepPlus1or2:
+	score +1
+	if_free_setup_turn AI_CV_SleepPlus1
 AI_CV_SleepEncourageSlpDamage: @ 82DCAA5
 	if_random_less_than 128, AI_CV_Sleep_End
+AI_CV_SleepPlus1:
 	score +1
-
 AI_CV_Sleep_End: @ 82DCAAD
 	end
 
