@@ -2215,6 +2215,7 @@ AI_CV_OneHitKO:
 	if_status3 AI_TARGET, STATUS3_ALWAYS_HITS, Score_Plus3
     if_ability AI_USER, ABILITY_NO_GUARD, Score_Plus3
     if_ability AI_TARGET, ABILITY_NO_GUARD, Score_Plus3
+    if_has_move_with_effect AI_USER, EFFECT_LOCK_ON, Score_Minus3
 	end
 
 AI_CV_Trap:
@@ -2701,12 +2702,34 @@ AI_CV_Snore_End:
     end
 
 AI_CV_LockOn:
+	if_doesnt_have_move AI_USER, MOVE_SPORE, AI_CV_LockOn_SkipMinus1ForSpore
+	if_status AI_TARGET, STATUS1_SLEEP, AI_CV_LockOn_SkipMinus1ForSpore
+	score -1
+AI_CV_LockOn_SkipMinus1ForSpore:
 	if_doesnt_have_move_with_effect AI_USER, EFFECT_OHKO, AI_CV_LockOn_NoChanceToOHKOInFreeTurn
 	if_ability_might_be AI_TARGET, ABILITY_STURDY, AI_CV_LockOn_NoChanceToOHKOInFreeTurn
 	if_level_cond AI_LEVEL_IS_LESS_THAN_TARGETS, AI_CV_LockOn_NoChanceToOHKOInFreeTurn
     if_free_setup_turn Score_Plus2
 AI_CV_LockOn_NoChanceToOHKOInFreeTurn:
+	if_status AI_TARGET, STATUS1_FREEZE, AI_CV_LockOn_TargetMightNotAttackNextTurn
+	if_status2 AI_TARGET, STATUS2_CONFUSION | STATUS2_INFATUATION, AI_CV_LockOn_TargetMightNotAttackNextTurn
+	if_target_not_expected_to_sleep_during_next_turn AI_CV_LockOn_TargetShouldHaveNoProblemAttacking
+AI_CV_LockOn_TargetMightNotAttackNextTurn:
+	if_this_attack_might_be_the_last Score_Minus3
+	goto AI_CV_LockOn_CalculateNHKOincludingOHKOmoves
+
+AI_CV_LockOn_TargetShouldHaveNoProblemAttacking:
 	if_this_attack_might_be_the_last Score_Minus5
+AI_CV_LockOn_CalculateNHKOincludingOHKOmoves:
+	if_ability_might_be AI_TARGET, ABILITY_STURDY, AI_CV_LockOn_CalculateNHKO
+	if_level_cond AI_LEVEL_IS_LESS_THAN_TARGETS, AI_CV_LockOn_CalculateNHKO
+	if_has_move_with_effect AI_USER, EFFECT_OHKO, AI_CV_LockOn_SkipMinus1ForNotDoingEnoughDamage
+AI_CV_LockOn_CalculateNHKO:
+	calculate_nhko
+	if_more_than 2, Score_Minus3
+	if_equal 1, AI_CV_LockOn_SkipMinus1ForNotDoingEnoughDamage
+	score -1
+AI_CV_LockOn_SkipMinus1ForNotDoingEnoughDamage:
 	if_random_less_than 128, AI_CV_LockOn_End
 	score +2
 
