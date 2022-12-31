@@ -1085,6 +1085,7 @@ AI_CheckViability_CheckEffects:
 	if_effect EFFECT_MINIMIZE, AI_CV_EvasionUp
 	if_effect EFFECT_CURSE, AI_CV_Curse
 	if_effect EFFECT_PROTECT, AI_CV_Protect
+	if_effect EFFECT_SPIKES, AI_CV_Spikes
 	if_effect EFFECT_FORESIGHT, AI_CV_Foresight
 	if_effect EFFECT_ENDURE, AI_CV_Endure
 	if_effect EFFECT_BATON_PASS, AI_CV_BatonPass
@@ -3029,6 +3030,51 @@ AI_CV_Protect_Boost2:
 
 AI_CV_Protect_End:
 	end
+
+AI_CV_Spikes:
+	count_usable_party_mons AI_USER
+	if_less_than 2, AI_CV_Spikes_NoWorthSingleTurnOfSetup
+	if_status AI_TARGET, STATUS1_FREEZE, AI_CV_Spikes_ConsiderSafeSetup
+	calculate_nhko AI_TARGET | AI_NHKO_PESSIMISTIC
+	if_less_than  3, AI_CV_Spikes_NoWorthSafeSetup
+	if_more_than  3, AI_CV_Spikes_ConsiderSafeSetup
+	if_target_faster AI_CV_Spikes_NoWorthSafeSetup
+AI_CV_Spikes_ConsiderSafeSetup:
+	if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_RAPID_SPIN, Score_Minus2
+	if_random_less_than 100, AI_CV_Spikes_End
+	if_not_side_affecting AI_TARGET, SIDE_STATUS_SPIKES, AI_CV_Spikes_Plus1
+	get_hazards_count AI_TARGET, EFFECT_SPIKES
+	if_equal 3, AI_CV_Spikes_End
+	goto AI_CV_Spikes_Plus1
+
+AI_CV_Spikes_NoWorthSafeSetup:
+	if_free_setup_turn AI_CV_Spikes_ConsiderSingleTurnOfSetup
+AI_CV_Spikes_NoWorthSingleTurnOfSetup:
+	if_this_attack_might_be_the_last AI_CV_Spikes_ConsiderSacrifice
+	if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_RAPID_SPIN, Score_Minus2
+	count_usable_party_mons AI_USER
+	if_equal 0, Score_Minus1
+AI_CV_Spikes_End:
+	end
+
+AI_CV_Spikes_ConsiderSacrifice:
+	count_usable_party_mons AI_USER
+	if_less_than 2, Score_Minus5
+	if_less_than 4, Score_Minus3
+	if_equal     4, Score_Minus2
+	if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_RAPID_SPIN, Score_Minus2
+	goto Score_Minus1
+
+AI_CV_Spikes_ConsiderSingleTurnOfSetup:
+	if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_RAPID_SPIN, Score_Minus2
+	if_random_less_than 100, AI_CV_Spikes_End
+	if_not_side_affecting AI_TARGET, SIDE_STATUS_SPIKES, AI_CV_Spikes_Plus1
+	if_random_less_than 128, AI_CV_Spikes_End
+	get_hazards_count AI_TARGET, EFFECT_SPIKES
+	if_more_than 1, AI_CV_Spikes_End
+AI_CV_Spikes_Plus1:
+	score +1
+	goto AI_CV_Spikes_End
 
 AI_CV_Foresight:
 	get_target_type1
