@@ -1183,6 +1183,7 @@ const u32 gUnknown_08D9AF44[] = INCBIN_U32("graphics/unknown/unknown_D9AF44.gbap
 const u32 gBagSwapLineGfx[] = INCBIN_U32("graphics/interface/bag_swap.4bpp.lz");
 const u32 gBagSwapLinePal[] = INCBIN_U32("graphics/interface/bag_swap.gbapal.lz");
 
+const u32 gBuyEVMenuFrame_Gfx[] = INCBIN_U32("graphics/interface/ev_mart_frame.4bpp.lz");
 const u32 gBuyMenuFrame_Gfx[] = INCBIN_U32("graphics/interface/mart_frame.4bpp.lz");
 const u32 gMenuMoneyPal[] = INCBIN_U32("graphics/interface/mart_frame.gbapal.lz");
 const u32 gBuyEVMenuFrame_Tilemap[] = INCBIN_U32("graphics/interface/ev_mart_frame.bin.lz");

@@ -24,6 +24,7 @@
 #include "overworld.h"
 #include "palette.h"
 #include "party_menu.h"
+#include "pokemon_icon.h"
 #include "scanline_effect.h"
 #include "script.h"
 #include "shop.h"
@@ -50,6 +51,7 @@ EWRAM_DATA struct ItemSlot gMartPurchaseHistory[3] = {0};
 
 static void Task_ShopMenu(u8 taskId);
 static void Task_HandleShopMenuQuit(u8 taskId);
+static void Task_HandleEVShopMenuChooseAnotherMon(u8 taskId);
 static void CB2_InitBuyEVMenu(void);
 static void CB2_InitBuyMenu(void);
 static void Task_GoToBuyOrSellMenu(u8 taskId);
@@ -73,6 +75,7 @@ static void BuyEVMenuDecompressBgGraphics(void);
 static void BuyMenuDecompressBgGraphics(void);
 static void BuyEVMenuSetListEntry(struct ListMenuItem *menuItem, u16 item, u8 *name);
 static void BuyMenuSetListEntry(struct ListMenuItem*, u16, u8*);
+static void BuyEVMenuAddMonIcon();
 static void BuyMenuAddItemIcon(u16, u8);
 static void BuyMenuRemoveItemIcon(u16, u8);
 static void BuyMenuPrint(u8 windowId, const u8 *text, u8 x, u8 y, s8 speed, u8 colorSet);
@@ -95,26 +98,36 @@ static void BuyMenuReturnToItemList(u8 taskId);
 static void Task_BuyHowManyEVDialogueInit(u8 taskId);
 static void Task_BuyHowManyDialogueInit(u8 taskId);
 static void BuyEVMenuConfirmPurchase(u8 taskId);
+static void BuyEVMenuConfirmSuboptimalEVs(u8 taskId);
 static void BuyMenuConfirmPurchase(u8 taskId);
 static void BuyEVMenuPrintItemQuantityAndPrice(u8 taskId);
 static void BuyMenuPrintItemQuantityAndPrice(u8 taskId);
 static void Task_BuyHowManyEVDialogueHandleInput(u8 taskId);
 static void Task_BuyHowManyDialogueHandleInput(u8 taskId);
 static void BuyMenuSubtractMoney(u8 taskId);
+static void BuyEVMenuWaitForABAfterConfirming(u8 taskId);
 static void RecordItemPurchase(u8 taskId);
 static void Task_ReturnToItemListAfterItemPurchase(u8 taskId);
 static void Task_ReturnToItemListAfterTMShopPurchase(u8 taskId);
 static void Task_ReturnToItemListAfterDecorationPurchase(u8 taskId);
+static void Task_ReturnToItemListAfterEVPurchase(u8 taskId);
 static void Task_HandleShopMenuBuyEV(u8 taskId);
 static void Task_HandleShopMenuBuy(u8 taskId);
 static void Task_HandleShopMenuSell(u8 taskId);
 static void BuyEVMenuPrintItemDescription(s32 item, bool8 onInit, struct ListMenu *list);
 static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, struct ListMenu *list);
+static void BuyEVMenuPrintEVsInList(u8 windowId, s32 item, u8 y, u8 itemPos);
 static void BuyMenuPrintPriceInList(u8 windowId, s32 item, u8 y, u8 itemPos);
 
 static const struct EVYesNoFuncTable sShopPurchaseEVYesNoFuncs =
 {
     BuyEVMenuTryMakePurchase,
+    BuyEVMenuReturnToItemList
+};
+
+static const struct EVYesNoFuncTable sShopConfirmSuboptimalEVYesNoFuncs =
+{
+    ExitEVBuyMenu,
     BuyEVMenuReturnToItemList
 };
 
@@ -126,8 +139,8 @@ static const struct YesNoFuncTable sShopPurchaseYesNoFuncs =
 
 static const struct MenuAction sShopMenuActions_BuyEVQuit[] =
 {
-    { gText_ShopBuy, {.void_u8=Task_HandleShopMenuBuyEV} },
-    { gText_ShopQuit, {.void_u8=Task_HandleShopMenuQuit} }
+    { gText_Yes, {.void_u8=Task_HandleEVShopMenuChooseAnotherMon} },
+    { gText_No, {.void_u8=Task_HandleShopMenuQuit} }
 };
 
 static const struct MenuAction sShopMenuActions_BuySellQuit[] =
@@ -169,7 +182,7 @@ static const struct ListMenuTemplate sEVShopBuyMenuListTemplate =
 {
     .items = NULL,
     .moveCursorFunc = BuyEVMenuPrintItemDescription,
-    .itemPrintFunc = NULL,
+    .itemPrintFunc = BuyEVMenuPrintEVsInList,
     .totalItems = 0,
     .maxShowed = 0,
     .windowId = 1,
@@ -366,27 +379,31 @@ static const u8 sShopBuyMenuTextColors[][3] =
     {0, 3, 2}
 };
 
-static u8 CreateEVShopMenu(u8 martType)
+static u8 CreateEVShopMenu(bool8 first_time)
 {
-    int numMenuItems;
-	struct WindowTemplate winTemplate;
 
     ScriptContext2_Enable();
-    gMartInfo.martType = martType;
+    gMartInfo.martType = MART_TYPE_NORMAL;
 
-	winTemplate = sShopMenuWindowTemplates[1];
-	winTemplate.width = GetMaxWidthInMenuTable(sShopMenuActions_BuyEVQuit, ARRAY_COUNT(sShopMenuActions_BuyEVQuit));
-	gMartInfo.windowId = AddWindow(&winTemplate);
-	gMartInfo.menuActions = sShopMenuActions_BuyEVQuit;
-	numMenuItems = ARRAY_COUNT(sShopMenuActions_BuyEVQuit);
+    if (!first_time) {
+        int numMenuItems;
+        struct WindowTemplate winTemplate;
+ 
+        winTemplate = sShopMenuWindowTemplates[1];
+        winTemplate.width = GetMaxWidthInMenuTable(sShopMenuActions_BuyEVQuit, ARRAY_COUNT(sShopMenuActions_BuyEVQuit));
+        gMartInfo.windowId = AddWindow(&winTemplate);
+        gMartInfo.menuActions = sShopMenuActions_BuyEVQuit;
+        numMenuItems = ARRAY_COUNT(sShopMenuActions_BuyEVQuit);
 
-    SetStandardWindowBorderStyle(gMartInfo.windowId, 0);
-    PrintMenuTable(gMartInfo.windowId, numMenuItems, gMartInfo.menuActions);
-    InitMenuInUpperLeftCornerPlaySoundWhenAPressed(gMartInfo.windowId, numMenuItems, 0);
-    PutWindowTilemap(gMartInfo.windowId);
-    CopyWindowToVram(gMartInfo.windowId, 1);
+        SetStandardWindowBorderStyle(gMartInfo.windowId, 0);
+        PrintMenuTable(gMartInfo.windowId, numMenuItems, gMartInfo.menuActions);
+        InitMenuInUpperLeftCornerPlaySoundWhenAPressed(gMartInfo.windowId, numMenuItems, 0);
+        PutWindowTilemap(gMartInfo.windowId);
+        CopyWindowToVram(gMartInfo.windowId, 1);
 
-    return CreateTask(Task_ShopMenu, 8);
+        return CreateTask(Task_ShopMenu, 8);
+    } else
+        return CreateTask(Task_HandleShopMenuBuyEV, 8);
 }
 
 static u8 CreateShopMenu(u8 martType)
@@ -539,6 +556,12 @@ static void Task_HandleShopMenuQuit(u8 taskId)
         gMartInfo.callback();
 }
 
+static void Task_HandleEVShopMenuChooseAnotherMon(u8 taskId)
+{
+    gSpecialVar_0x8004 = 200; // Esto le indica al script que quiere elegir otro mon
+    Task_HandleShopMenuQuit(taskId);
+}
+
 static void Task_GoToBuyOrSellMenu(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
@@ -568,7 +591,7 @@ static void Task_ReturnToEVShopMenu(u8 taskId)
         if (gMartInfo.martType == MART_TYPE_DECOR2)
             DisplayItemMessageOnField(taskId, gText_CanIHelpWithAnythingElse, ShowEVShopMenuAfterExitingBuyOrSellMenu);
         else
-            DisplayItemMessageOnField(taskId, gText_AnythingElseICanHelp, ShowEVShopMenuAfterExitingBuyOrSellMenu);
+            DisplayItemMessageOnField(taskId, gText_DoYouWantToSetEVsOfAnotherMon, ShowEVShopMenuAfterExitingBuyOrSellMenu);
     }
 }
 
@@ -585,7 +608,7 @@ static void Task_ReturnToShopMenu(u8 taskId)
 
 static void ShowEVShopMenuAfterExitingBuyOrSellMenu(u8 taskId)
 {
-    CreateEVShopMenu(gMartInfo.martType);
+    CreateEVShopMenu(FALSE);
     DestroyTask(taskId);
 }
 
@@ -643,6 +666,7 @@ static void CB2_InitBuyEVMenu(void)
         FillBgTilemapBufferRect_Palette0(3, 0, 0, 0, 0x20, 0x20);
         BuyMenuInitWindows();
         BuyEVMenuDecompressBgGraphics();
+        BuyEVMenuAddMonIcon();
         gMain.state++;
         break;
     case 1:
@@ -727,7 +751,7 @@ static void BuyEVMenuBuildListMenuTemplate(void)
     for (i = 0; i < gMartInfo.itemCount; i++)
         BuyEVMenuSetListEntry(&gUnknown_02039F74[i], gMartInfo.itemList[i], gUnknown_02039F78[i]);
 
-    StringCopy(gUnknown_02039F78[i], gText_Cancel2);
+    StringCopy(gUnknown_02039F78[i], gText_Confirm3);
     gUnknown_02039F74[i].name = gUnknown_02039F78[i];
     gUnknown_02039F74[i].id = -2;
 
@@ -805,20 +829,38 @@ static void BuyMenuSetListEntry(struct ListMenuItem *menuItem, u16 item, u8 *nam
 static void BuyEVMenuPrintItemDescription(s32 item, bool8 onInit, struct ListMenu *list)
 {
     const u8 *description;
+
+    u8 pos = gSpecialVar_0x8004;
+    u8  hp = GetMonData(&gPlayerParty[pos], MON_DATA_HP_EV, NULL);
+    u8 atk = GetMonData(&gPlayerParty[pos], MON_DATA_ATK_EV, NULL);
+    u8 def = GetMonData(&gPlayerParty[pos], MON_DATA_DEF_EV, NULL);
+    u8 spe = GetMonData(&gPlayerParty[pos], MON_DATA_SPEED_EV, NULL);
+    u8 spa = GetMonData(&gPlayerParty[pos], MON_DATA_SPATK_EV, NULL);
+    u8 spd = GetMonData(&gPlayerParty[pos], MON_DATA_SPDEF_EV, NULL);
+    s16 remaining = 510 - hp - atk - def - spe - spa - spd;
+    if (remaining < 0) remaining = 0;
+
     if (onInit != TRUE)
         PlaySE(SE_SELECT);
 
-    if (item != -2)
-    {
-        description = gText_ExpandedPlaceholder_Empty;
-    }
-    else
-    {
-        description = gText_QuitShopping;
-    }
+
+    ConvertIntToDecimalStringN(gStringVar1, remaining, STR_CONV_MODE_RIGHT_ALIGN, 3);
+    StringExpandPlaceholders(gStringVar4, gText_UnassignedEVsVar1);
+    description = gStringVar4;
 
     FillWindowPixelBuffer(2, PIXEL_FILL(0));
     BuyMenuPrint(2, description, 3, 1, 0, 0);
+
+    if (list->selectedRow < 6 && ((hp % 4) + (atk % 4) + (def % 4) + (spe % 4) + (spa % 4) + (spd % 4)) > 2)
+    {
+        u8 evs_wasted_in_current_stat = (GetMonData(&gPlayerParty[pos], MON_DATA_HP_EV + list->selectedRow, NULL) % 4);
+        if (evs_wasted_in_current_stat)
+        {
+            ConvertIntToDecimalStringN(gStringVar1, evs_wasted_in_current_stat, STR_CONV_MODE_LEFT_ALIGN, 1);
+            StringExpandPlaceholders(gStringVar4, gText_WastedEVsInThisStatVar1);
+            BuyMenuPrint(2, gStringVar4, 3, 17, 0, 0);
+        }
+    }
 }
 
 static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, struct ListMenu *list)
@@ -866,6 +908,25 @@ bool8 GetSetItemBought(u8 storeId, u16 itemPos, u8 caseId)
     }
 
     return FALSE;
+}
+
+static void BuyEVMenuPrintEVsInList(u8 windowId, s32 item, u8 y, u8 itemPos)
+{
+    u8 x;
+    u8 pos = gSpecialVar_0x8004;
+    u16 currentstat = GetMonData(&gPlayerParty[pos], MON_DATA_HP_EV + itemPos, NULL);
+
+    if (item != -2)
+    {
+        ConvertIntToDecimalStringN(gStringVar1, currentstat, STR_CONV_MODE_RIGHT_ALIGN, 3);
+        x = GetStringRightAlignXOffset(7, gStringVar1, 0x58);
+        AddTextPrinterParameterized4(windowId, 7, x, y, 0, 0, sShopBuyMenuTextColors[1], -1, gStringVar1);
+        
+        currentstat = GetMonData(&gPlayerParty[pos], MON_DATA_MAX_HP + itemPos, NULL);
+        ConvertIntToDecimalStringN(gStringVar1, currentstat, STR_CONV_MODE_RIGHT_ALIGN, 3);
+        x = GetStringRightAlignXOffset(7, gStringVar1, 0x78);
+        AddTextPrinterParameterized4(windowId, 7, x, y, 0, 0, sShopBuyMenuTextColors[1], -1, gStringVar1);
+    }
 }
 
 static void BuyMenuPrintPriceInList(u8 windowId, s32 item, u8 y, u8 itemPos)
@@ -944,6 +1005,25 @@ static void BuyMenuPrintCursor(u8 scrollIndicatorsTaskId, u8 colorSet)
 {
     u8 y = ListMenuGetYCoordForPrintingArrowCursor(scrollIndicatorsTaskId);
     BuyMenuPrint(1, gText_SelectorArrow2, 0, y, 0, colorSet);
+}
+
+static void BuyEVMenuAddMonIcon()
+{
+    u8 spriteId;
+    u8 *spriteIdPtr = &gShopDataPtr->itemSpriteIds[0];
+    u8 pos = gSpecialVar_0x8004;
+    u16 species = GetMonData(&gPlayerParty[pos], MON_DATA_SPECIES2);
+    
+    if (*spriteIdPtr != 0xFF)
+        return;
+
+    LoadMonIconPalette(species);
+    spriteId = CreateMonIcon(species, SpriteCB_MonIcon, 20, 81, 4, GetMonData(&gPlayerParty[pos], MON_DATA_PERSONALITY), FALSE);
+    if (spriteId != MAX_SPRITES)
+    {
+        *spriteIdPtr = spriteId;
+        gSprites[spriteId].oam.priority = 1;
+    }
 }
 
 static void BuyMenuAddItemIcon(u16 item, u8 iconSlot)
@@ -1031,8 +1111,8 @@ static void BuyMenuInitBgs(void)
 
 static void BuyEVMenuDecompressBgGraphics(void)
 {
-    decompress_and_copy_tile_data_to_vram(1, gBuyMenuFrame_Gfx, 0x3A0, 0x3E3, 0);
-    LZDecompressWram(gBuyEVMenuFrame_Tilemap, gShopDataPtr->tilemapBuffers[0]);
+    decompress_and_copy_tile_data_to_vram(1, gBuyEVMenuFrame_Gfx, 0x3A0, 0x3E3, 0);
+    LZDecompressWram(gBuyMenuFrame_Tilemap, gShopDataPtr->tilemapBuffers[0]);
     LoadCompressedPalette(gMenuMoneyPal, 0xC0, 0x20);
 }
 
@@ -1297,7 +1377,27 @@ static void Task_BuyEVMenu(u8 taskId)
             break;
         case LIST_CANCEL:
             PlaySE(SE_SELECT);
-            ExitEVBuyMenu(taskId);
+            
+            {
+                u8 pos = gSpecialVar_0x8004;
+                u8  hp = GetMonData(&gPlayerParty[pos], MON_DATA_HP_EV, NULL);
+                u8 atk = GetMonData(&gPlayerParty[pos], MON_DATA_ATK_EV, NULL);
+                u8 def = GetMonData(&gPlayerParty[pos], MON_DATA_DEF_EV, NULL);
+                u8 spe = GetMonData(&gPlayerParty[pos], MON_DATA_SPEED_EV, NULL);
+                u8 spa = GetMonData(&gPlayerParty[pos], MON_DATA_SPATK_EV, NULL);
+                u8 spd = GetMonData(&gPlayerParty[pos], MON_DATA_SPDEF_EV, NULL);
+                
+                u8 wasted_evs = (hp % 4) + (atk % 4) + (def % 4) + (spe % 4) + (spa % 4) + (spd % 4);
+                
+                if (wasted_evs > 2)
+                {
+                    ClearWindowTilemap(2);
+                    ConvertIntToDecimalStringN(gStringVar1, wasted_evs, STR_CONV_MODE_LEFT_ALIGN, 2);
+                    BuyMenuDisplayMessage(taskId, gText_Var1EVsAreWastedDoYouWantToConfirmThisEVSpread, BuyEVMenuConfirmSuboptimalEVs);
+                }
+                else
+                    ExitEVBuyMenu(taskId);
+            }
             break;
         default:
             PlaySE(SE_SELECT);
@@ -1450,17 +1550,17 @@ static void Task_BuyMenu(u8 taskId)
 static void Task_BuyHowManyEVDialogueInit(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
-	u8 pos = gSpecialVar_0x8004;
-	u8 hp = GetMonData(&gPlayerParty[pos], MON_DATA_HP_EV, NULL);
-	u8 atk = GetMonData(&gPlayerParty[pos], MON_DATA_ATK_EV, NULL);
-	u8 def = GetMonData(&gPlayerParty[pos], MON_DATA_DEF_EV, NULL);
-	u8 spe = GetMonData(&gPlayerParty[pos], MON_DATA_SPEED_EV, NULL);
-	u8 spa = GetMonData(&gPlayerParty[pos], MON_DATA_SPATK_EV, NULL);
-	u8 spd = GetMonData(&gPlayerParty[pos], MON_DATA_SPDEF_EV, NULL);
+    u8 pos = gSpecialVar_0x8004;
+    u8  hp = GetMonData(&gPlayerParty[pos], MON_DATA_HP_EV, NULL);
+    u8 atk = GetMonData(&gPlayerParty[pos], MON_DATA_ATK_EV, NULL);
+    u8 def = GetMonData(&gPlayerParty[pos], MON_DATA_DEF_EV, NULL);
+    u8 spe = GetMonData(&gPlayerParty[pos], MON_DATA_SPEED_EV, NULL);
+    u8 spa = GetMonData(&gPlayerParty[pos], MON_DATA_SPATK_EV, NULL);
+    u8 spd = GetMonData(&gPlayerParty[pos], MON_DATA_SPDEF_EV, NULL);
 
     u16 quantityInBag = CountTotalItemQuantityInBag(tItemId);
     u16 maxQuantity;
-	s16 remaining;
+    s16 remaining;
 
     // DrawStdFrameWithCustomTileAndPalette(3, FALSE, 1, 13);
     // ConvertIntToDecimalStringN(gStringVar1, quantityInBag, STR_CONV_MODE_RIGHT_ALIGN, 4);
@@ -1471,7 +1571,7 @@ static void Task_BuyHowManyEVDialogueInit(u8 taskId)
     BuyEVMenuPrintItemQuantityAndPrice(taskId);
     schedule_bg_copy_tilemap_to_vram(0);
 
-	remaining = 508 - hp - atk - def - spe - spa - spd + tItemCount;
+    remaining = 508 - hp - atk - def - spe - spa - spd + tItemCount;
 
     if (remaining < 0) remaining = 0;
     if (remaining > 252) remaining = 252;
@@ -1534,7 +1634,7 @@ static void Task_BuyHowManyEVDialogueHandleInput(u8 taskId)
             StringCopy(gStringVar1, sEVShopItems[gShopDataPtr->selectedRow]);
             ConvertIntToDecimalStringN(gStringVar2, tItemCount, STR_CONV_MODE_LEFT_ALIGN, 3);
             ConvertIntToDecimalStringN(gStringVar3, gShopDataPtr->totalCost, STR_CONV_MODE_LEFT_ALIGN, 6);
-            BuyMenuDisplayMessage(taskId, gText_YouWantedVar1, BuyEVMenuConfirmPurchase);
+            BuyMenuDisplayMessage(taskId, gText_DoYouWantToSetVar1EVToVar2, BuyEVMenuConfirmPurchase);
         }
         else if (JOY_NEW(B_BUTTON))
         {
@@ -1589,6 +1689,11 @@ static void BuyEVMenuConfirmPurchase(u8 taskId)
     CreateEVYesNoMenuWithCallbacks(taskId, &sShopBuyMenuYesNoWindowTemplates, 1, 0, 0, 1, 13, &sShopPurchaseEVYesNoFuncs);
 }
 
+static void BuyEVMenuConfirmSuboptimalEVs(u8 taskId)
+{
+    CreateEVYesNoMenuWithCallbacks(taskId, &sShopBuyMenuYesNoWindowTemplates, 1, 0, 0, 1, 13, &sShopConfirmSuboptimalEVYesNoFuncs);
+}
+
 static void BuyMenuConfirmPurchase(u8 taskId)
 {
     CreateYesNoMenuWithCallbacks(taskId, &sShopBuyMenuYesNoWindowTemplates, 1, 0, 0, 1, 13, &sShopPurchaseYesNoFuncs);
@@ -1599,11 +1704,12 @@ static void BuyEVMenuTryMakePurchase(u8 taskId)
 	s16 *data = gTasks[taskId].data;
 	u8 pos = gSpecialVar_0x8004;
 
-    PutWindowTilemap(1);
 
 	SetMonData(&gPlayerParty[pos], MON_DATA_HP_EV + gShopDataPtr->selectedRow, &tItemCount);
 	CalculateMonStats(&gPlayerParty[pos]);
-	BuyMenuDisplayMessage(taskId, gText_HereYouGoThankYou, BuyEVMenuReturnToItemList);
+	RedrawListMenu(tListTaskId); // actualiza los EVs mostrados
+	PutWindowTilemap(1);
+	BuyMenuDisplayMessage(taskId, gText_HereYouGoThankYou, BuyEVMenuWaitForABAfterConfirming);
 }
 
 static void BuyMenuTryMakePurchase(u8 taskId)
@@ -1657,6 +1763,11 @@ static void BuyMenuTryMakePurchase(u8 taskId)
     }
 }
 
+static void BuyEVMenuWaitForABAfterConfirming(u8 taskId)
+{
+    gTasks[taskId].func = Task_ReturnToItemListAfterEVPurchase;
+}
+
 static void BuyMenuSubtractMoney(u8 taskId)
 {
     IncrementGameStat(GAME_STAT_SHOPPED);
@@ -1703,6 +1814,17 @@ static void Task_ReturnToItemListAfterItemPurchase(u8 taskId)
     }
 }
 
+static void Task_ReturnToItemListAfterEVPurchase(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+
+    if (gMain.newKeys & (A_BUTTON | B_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        BuyEVMenuReturnToItemList(taskId);
+    }
+}
+
 static void Task_ReturnToItemListAfterTMShopPurchase(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
@@ -1731,6 +1853,7 @@ static void BuyEVMenuReturnToItemList(u8 taskId)
     ClearDialogWindowAndFrameToTransparent(5, 0);
     BuyMenuPrintCursor(tListTaskId, 1);
     PutWindowTilemap(1);
+    BuyEVMenuPrintItemDescription(0, FALSE, (void*) gTasks[tListTaskId].data); // actualiza los EVs restantes
     PutWindowTilemap(2);
     schedule_bg_copy_tilemap_to_vram(0);
     BuyMenuAddScrollIndicatorArrows();
@@ -1839,7 +1962,7 @@ static void RecordItemPurchase(u8 taskId)
 
 void CreateEVMartMenu(const u16 *itemsForSale)
 {
-    CreateEVShopMenu(MART_TYPE_NORMAL);
+    CreateEVShopMenu(TRUE);
     SetEVShopItemsForSale(itemsForSale);
     ClearItemPurchases();
     SetShopMenuCallback(EnableBothScriptContexts);

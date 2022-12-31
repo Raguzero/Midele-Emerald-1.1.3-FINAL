@@ -95,6 +95,7 @@ Micolandia_Mart_EventScript_Clerk::
 	lock
 	faceplayer
 	msgbox Micolandia_EV_Mart, MSGBOX_DEFAULT
+Micolandia_Mart_EventScript_Clerk_SelectMon:
 	waitmessage
 	special ChoosePartyMon
 	waitstate
@@ -102,6 +103,8 @@ Micolandia_Mart_EventScript_Clerk::
 	goto_if_eq Micolandia_Mart_EventScript_Clerk_Bye
 	copyvar VAR_RESULT, VAR_0x8004
 	evmart Micolandia_Mart_Pokemart
+	compare VAR_0x8004, 200
+  goto_if_eq Micolandia_Mart_EventScript_Clerk_SelectMon
 Micolandia_Mart_EventScript_Clerk_Bye:
 	msgbox Micolandia_EV_Mart_Bye, MSGBOX_DEFAULT
 	release
@@ -128,8 +131,8 @@ Micolandia_EV_Mart:
 	
 	.string "IT'S FREE!\p"
 
-	.string "Así que, ¿Cuales EVS quieres cambiar\n"
-	.string "a cual POKéMON?$"
+	.string "Así que, ¿a qué POKéMON quieres\n"
+	.string "cambiarle los EVs?$"
 	
 Micolandia_EV_Mart_Bye:
 	.string "¡Hasta pronto!$"
