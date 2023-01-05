@@ -1339,11 +1339,13 @@ AI_CV_WillOWisp:
     if_equal AI_PHYSICAL_ONLY, Score_Plus1
     if_equal AI_ONLY_PHYSICAL_KNOWN, Score_Plus1
     if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_PHYSICAL, Score_Plus1
-    if_equal AI_NO_DAMAGING_MOVES, AI_Ret @ posiblemente no viene mal meterle status a un poke defensivo
+    if_equal AI_NO_DAMAGING_MOVES, AI_CV_WillOWisp_DiscourageIfTargetHasRest @ posiblemente no viene mal meterle status a un poke defensivo que no tenga Rest
     if_equal AI_BOTH_PHYSICAL_AND_SPECIAL AI_Ret
     if_equal AI_UNKNOWN_CATEGORIES, AI_Ret
     calculate_nhko AI_TARGET     @ es un poke que ataca por el lado especial probablemente:
     if_less_than 3, Score_Minus2 @ si hace mucho daño mejor no perder el tiempo con WoW
+AI_CV_WillOWisp_DiscourageIfTargetHasRest:
+    if_has_move_with_effect AI_TARGET, EFFECT_REST, Score_Minus2
     end
 
 AI_CV_RapidSpin:
@@ -2127,7 +2129,7 @@ AI_CV_Heal6:
 AI_CV_Heal_End:
 	end
 
-AI_CV_Toxic:
+AI_CV_Toxic: @ También lo usa Leech Seed
 	if_ability_might_be AI_TARGET, ABILITY_WONDER_GUARD, Score_Plus2
 	if_user_has_no_attacking_moves AI_CV_Toxic3
 	if_hp_more_than AI_USER, 50, AI_CV_Toxic2
@@ -2300,6 +2302,7 @@ AI_CV_Reflect_End:
 	end
 
 AI_CV_Poison:
+	if_has_move_with_effect AI_TARGET, EFFECT_REST, Score_Minus2
 	if_ability_might_be AI_TARGET, ABILITY_WONDER_GUARD, Score_Plus1
 	if_hp_less_than AI_USER, 50, AI_CV_Poison_ScoreDown1
 	if_hp_more_than AI_TARGET, 50, AI_CV_Poison_End
