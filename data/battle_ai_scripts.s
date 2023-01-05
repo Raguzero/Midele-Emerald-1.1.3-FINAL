@@ -262,7 +262,7 @@ AI_CBM_Sleep: @ 82DC2D4
     if_ability_might_be AI_TARGET, ABILITY_INSOMNIA, Score_Minus10
     if_ability_might_be AI_TARGET, ABILITY_VITAL_SPIRIT, Score_Minus10
     if_target_might_have_a_sub_before_our_attack Score_Minus10
-	if_status AI_TARGET, STATUS1_ANY, Score_Minus10
+	if_target_expected_to_be_statused_assuming_equal_priority Score_Minus10
 	if_status3 AI_TARGET, STATUS3_YAWN, Score_Minus10
     if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
     if_move MOVE_SLEEP_POWDER, AI_CBM_Sleep_Overcoat
@@ -299,8 +299,8 @@ AI_CBM_Explosion_End: @ 82DC31A
 
 AI_CBM_Nightmare: @ 82DC31B
 	if_status2 AI_TARGET, STATUS2_NIGHTMARE, Score_Minus10
-    if_target_might_have_a_sub_before_our_attack Score_Minus10
-	if_not_status AI_TARGET, STATUS1_SLEEP, Score_Minus8
+	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
+	if_target_not_expected_to_sleep_during_next_turn Score_Minus8
 	end
 
 AI_CBM_DreamEater: @ 82DC330
@@ -447,7 +447,7 @@ AI_CBM_Toxic: @ 82DC48C
 AI_CBM_Toxic_SkipTypeCheck:
     if_ability_might_be AI_TARGET, ABILITY_IMMUNITY, Score_Minus10
     if_target_might_have_a_sub_before_our_attack Score_Minus10
-	if_status AI_TARGET, STATUS1_ANY, Score_Minus10
+	if_target_expected_to_be_statused_assuming_equal_priority Score_Minus10
 	if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
     if_effect EFFECT_TOXIC, AI_CBM_Toxic_SkipMarvelScaleCheck
     if_ability_might_be AI_TARGET, ABILITY_MARVEL_SCALE, Score_Minus8
@@ -463,7 +463,7 @@ AI_CBM_Toxic_Synchronize:
 	if_ability AI_USER, ABILITY_TOXIC_BOOST, AI_CBM_Toxic_End
 	if_ability AI_USER, ABILITY_MARVEL_SCALE, AI_CBM_Toxic_End
 	if_ability AI_USER, ABILITY_IMMUNITY, AI_CBM_Toxic_End
-	if_status AI_USER, STATUS1_ANY, AI_CBM_Toxic_End
+	if_status AI_USER, STATUS1_PSN_ANY | STATUS1_BURN | STATUS1_PARALYSIS, AI_CBM_Toxic_End
 	get_user_type1
 	if_equal TYPE_STEEL, AI_CBM_Toxic_End
 	if_equal TYPE_POISON, AI_CBM_Toxic_End
@@ -526,7 +526,7 @@ AI_CBM_Paralyze: @ 82DC545
     if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
 AI_CBM_Paralyze_SkipEffectiveness:
 	if_ability_might_be AI_TARGET, ABILITY_LIMBER, Score_Minus10
-    if_status AI_TARGET, STATUS1_ANY, Score_Minus10
+    if_target_expected_to_be_statused_assuming_equal_priority Score_Minus10
 	if_target_might_have_a_sub_before_our_attack Score_Minus10
     if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
     if_move MOVE_THUNDER_WAVE, AI_ThunderWave
@@ -550,7 +550,7 @@ AI_CBM_Paralyze_Synchronize:
 	if_ability AI_USER, ABILITY_GUTS, AI_CBM_Paralyze2
 	if_ability AI_USER, ABILITY_MARVEL_SCALE, AI_CBM_Paralyze2
 	if_ability AI_USER, ABILITY_LIMBER, AI_CBM_Paralyze2
-	if_status AI_USER, STATUS1_ANY, AI_CBM_Paralyze2
+	if_status AI_USER, STATUS1_PSN_ANY | STATUS1_BURN | STATUS1_PARALYSIS, AI_CBM_Paralyze2
 	score -5
     goto AI_CBM_Paralyze2
 
@@ -724,7 +724,7 @@ AI_CBM_Torment: @ 82DC6A9
 AI_CBM_WillOWisp: @ 82DC6B4
     if_ability_might_be AI_TARGET, ABILITY_FLASH_FIRE, Score_Minus10
     if_ability_might_be AI_TARGET, ABILITY_WATER_VEIL, Score_Minus10
-	if_status AI_TARGET, STATUS1_ANY, Score_Minus10
+	if_target_expected_to_be_statused_assuming_equal_priority Score_Minus10
     if_target_might_have_a_sub_before_our_attack Score_Minus10
 	get_target_type1
     if_equal TYPE_FIRE, Score_Minus10
@@ -740,7 +740,7 @@ WillOWisp_Synchronize:
 	if_ability AI_USER, ABILITY_GUTS, AI_CBM_WillOWisp_End
 	if_ability AI_USER, ABILITY_MARVEL_SCALE, AI_CBM_WillOWisp_End
 	if_ability AI_USER, ABILITY_WATER_VEIL, AI_CBM_WillOWisp_End
-	if_status AI_USER, STATUS1_ANY, AI_CBM_WillOWisp_End
+	if_status AI_USER, STATUS1_PSN_ANY | STATUS1_BURN | STATUS1_PARALYSIS, AI_CBM_WillOWisp_End
 	get_user_type1
     if_equal TYPE_FIRE, AI_CBM_WillOWisp_End
     get_user_type2
@@ -824,7 +824,7 @@ AI_CBM_HealBellEnd:
 	end
 @ Don't use Heal Bell to heal a partner that has Soundproof
 AI_CBM_HealBell2:
-	if_status AI_USER, STATUS1_ANY, AI_CBM_HealBellEnd
+	if_status AI_USER, STATUS1_PSN_ANY | STATUS1_BURN | STATUS1_PARALYSIS, AI_CBM_HealBellEnd
 	if_not_status AI_USER_PARTNER, STATUS1_ANY, AI_CBM_HealBellEnd
 	if_ability AI_USER_PARTNER, ABILITY_SOUNDPROOF, Score_Minus3
 	goto AI_CBM_HealBellEnd
@@ -849,7 +849,10 @@ AI_CBM_Protect:
 	if_more_than 2, Score_Minus10
 	if_target_wont_attack_due_to_truant Score_Minus10
 	if_status AI_TARGET, STATUS1_FREEZE, Score_Minus8
-	if_status AI_TARGET, STATUS1_SLEEP, Score_Minus5
+	if_target_not_expected_to_sleep_during_next_turn AI_CBM_Protect_End
+	if_next_turn_target_might_use_move_with_effect EFFECT_SLEEP_TALK, Score_Minus3
+	score -5
+AI_CBM_Protect_End:
 	end
 	
 AI_CBM_Coil:
@@ -1362,7 +1365,7 @@ AI_CV_RapidSpin_End:
     end
 	
 AI_CV_Rollout:
-	if_status AI_USER, STATUS1_ANY, Score_Minus10
+	if_status AI_USER, STATUS1_PSN_ANY | STATUS1_BURN | STATUS1_PARALYSIS, Score_Minus10
 	if_status2 AI_USER, STATUS2_CONFUSION | STATUS2_INFATUATION, Score_Minus10
 	if_stat_level_less_than AI_USER, STAT_ACC, 6, Score_Minus5
 	if_stat_level_more_than AI_TARGET, STAT_EVASION, 6, Score_Minus5
@@ -2386,7 +2389,7 @@ AI_CV_Substitute4:
 	if_equal EFFECT_LEECH_SEED, AI_CV_Substitute7
 	goto AI_CV_Substitute_End
 AI_CV_Substitute5:
-	if_not_status AI_USER, STATUS1_ANY, AI_CV_Substitute8
+	if_not_status AI_USER, STATUS1_PSN_ANY | STATUS1_BURN | STATUS1_PARALYSIS, AI_CV_Substitute8
 	goto AI_CV_Substitute_End
 AI_CV_Substitute6:
 	if_not_status2 AI_USER, STATUS2_CONFUSION, AI_CV_Substitute8
@@ -2704,7 +2707,7 @@ AI_CV_Snore_End:
 
 AI_CV_LockOn:
 	if_doesnt_have_move AI_USER, MOVE_SPORE, AI_CV_LockOn_SkipMinus1ForSpore
-	if_status AI_TARGET, STATUS1_SLEEP, AI_CV_LockOn_SkipMinus1ForSpore
+	if_target_expected_to_be_statused_assuming_equal_priority AI_CV_LockOn_SkipMinus1ForSpore
 	score -1
 AI_CV_LockOn_SkipMinus1ForSpore:
 	if_doesnt_have_move_with_effect AI_USER, EFFECT_OHKO, AI_CV_LockOn_NoChanceToOHKOInFreeTurn
@@ -3918,7 +3921,7 @@ AI_CV_Imprison_End:
 	end
 
 AI_CV_Refresh:
-    if_not_status AI_USER, STATUS1_ANY, Score_Minus8
+    if_not_status AI_USER, STATUS1_PSN_ANY | STATUS1_PARALYSIS | STATUS1_BURN, Score_Minus8
     if_this_attack_might_be_the_last Score_Minus5
     goto Score_Plus3
 
@@ -4184,7 +4187,9 @@ AI_TryToFaint_FocusPunch:
     if_status AI_TARGET, STATUS1_FREEZE, AI_TryToFaint_ScoreUp2
     if_stat_level_more_than AI_USER, STAT_EVASION, 8, AI_TryToFaint_ScoreUp1
     if_stat_level_less_than AI_TARGET, STAT_ACC, 4, AI_TryToFaint_ScoreUp1
-	if_status AI_TARGET, STATUS1_SLEEP, AI_TryToFaint_ScoreUp1
+    if_target_not_expected_to_sleep_during_next_turn AI_TryToFaint_FocusPunch_SkipPlus1AgainstAsleepMons
+    goto AI_TryToFaint_ScoreUp1
+AI_TryToFaint_FocusPunch_SkipPlus1AgainstAsleepMons:
     if_status2 AI_TARGET, STATUS2_INFATUATION, AI_TryToFaint_ScoreUp1
     if_status2 AI_TARGET, STATUS2_CONFUSION, AI_TryToFaint_ScoreUp1
     goto AI_TryToFaint_End
@@ -4209,7 +4214,7 @@ AI_TryToFaint_PerishBody:
     goto AI_TryToFaint_SkipContactCheck
 
 AI_TryToFaint_PoisonPoint:
-	if_status AI_USER, STATUS1_ANY, AI_TryToFaint_SkipContactCheck
+	if_status AI_USER, STATUS1_PSN_ANY | STATUS1_BURN | STATUS1_PARALYSIS, AI_TryToFaint_SkipContactCheck
 	if_ability AI_USER, ABILITY_IMMUNITY, AI_TryToFaint_SkipContactCheck
 	if_type AI_USER, TYPE_POISON, AI_TryToFaint_SkipContactCheck
 	if_type AI_USER, TYPE_STEEL, AI_TryToFaint_SkipContactCheck
@@ -4217,20 +4222,20 @@ AI_TryToFaint_PoisonPoint:
 	goto AI_TryToFaint_CheckIfStatusDoesNotMatter
 
 AI_TryToFaint_Static:
-	if_status AI_USER, STATUS1_ANY, AI_TryToFaint_SkipContactCheck
+	if_status AI_USER, STATUS1_PSN_ANY | STATUS1_BURN | STATUS1_PARALYSIS, AI_TryToFaint_SkipContactCheck
 	if_ability AI_USER, ABILITY_LIMBER, AI_TryToFaint_SkipContactCheck
 	if_side_affecting AI_USER, SIDE_STATUS_SAFEGUARD, AI_TryToFaint_SkipContactCheck
 	goto AI_TryToFaint_CheckIfStatusDoesNotMatter
 
 AI_TryToFaint_FlameBody:
-	if_status AI_USER, STATUS1_ANY, AI_TryToFaint_SkipContactCheck
+	if_status AI_USER, STATUS1_PSN_ANY | STATUS1_BURN | STATUS1_PARALYSIS, AI_TryToFaint_SkipContactCheck
 	if_ability AI_USER, ABILITY_WATER_VEIL, AI_TryToFaint_SkipContactCheck
 	if_type AI_USER, TYPE_FIRE, AI_TryToFaint_SkipContactCheck
 	if_side_affecting AI_USER, SIDE_STATUS_SAFEGUARD, AI_TryToFaint_SkipContactCheck
 	goto AI_TryToFaint_CheckIfStatusDoesNotMatter
 
 AI_TryToFaint_EffectSpore:
-	if_status AI_USER, STATUS1_ANY, AI_TryToFaint_SkipContactCheck
+	if_status AI_USER, STATUS1_PSN_ANY | STATUS1_BURN | STATUS1_PARALYSIS, AI_TryToFaint_SkipContactCheck
 	if_side_affecting AI_USER, SIDE_STATUS_SAFEGUARD, AI_TryToFaint_SkipContactCheck
 AI_TryToFaint_CheckIfStatusDoesNotMatter:
 	if_will_faint AI_TryToFaint_CheckIfStatusDoesNotMatter2
