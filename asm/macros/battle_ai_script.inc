@@ -966,3 +966,11 @@
     goto \ptr
     .AI_move_is_contactless_\@:
     .endm
+
+  @ Permite que la IA tire status cuando es claro que el objetivo va a despertarse
+	.macro if_target_expected_to_be_statused_assuming_equal_priority ptr:req
+    if_status AI_TARGET, STATUS1_ANY & (~STATUS1_SLEEP), \ptr
+    if_target_not_expected_to_be_asleep_assuming_equal_priority .AI_target_not_statused_\@
+    goto \ptr
+    .AI_target_not_statused_\@:
+    .endm
