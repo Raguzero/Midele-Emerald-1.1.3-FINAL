@@ -974,3 +974,11 @@
     goto \ptr
     .AI_target_not_statused_\@:
     .endm
+
+	.macro if_might_heal_with_natural_cure battler:req, ptr:req
+    if_no_ability \battler, ABILITY_NATURAL_CURE, .AI_target_cannot_heal_with_natural_cure_\@
+    if_status3 \battler, STATUS3_ROOTED, .AI_target_cannot_heal_with_natural_cure_\@
+    count_usable_party_mons \battler
+    if_more_than 0, \ptr
+    .AI_target_cannot_heal_with_natural_cure_\@:
+    .endm
