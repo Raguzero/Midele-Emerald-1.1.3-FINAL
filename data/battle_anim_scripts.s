@@ -10498,6 +10498,7 @@ Move_MIDELE_POWER:
 	delay 1
 	createsprite gUnknown_085956C0, ANIM_TARGET, 2, 16, 12
 	delay 20
+	unloadspritegfx ANIM_TAG_RAIN_DROPS
 	createsprite gUnknown_085956C0, ANIM_TARGET, 6, -16, -32
 	playsewithpan SE_W086, SOUND_PAN_TARGET
 	delay 1
@@ -10537,6 +10538,7 @@ Move_MIDELE_POWER:
 	waitbgfadeout
 	setarg 7, -1
 	waitbgfadein
+	unloadspritegfx ANIM_TAG_LIGHTNING
 	
 	@ Surf
 	createvisualtask AnimTask_CreateSurfWave, 2, FALSE
@@ -10587,6 +10589,7 @@ Move_MIDELE_POWER:
 	createvisualtask sub_8116620, 10, 4, 1, 10, 0, RGB(25, 31, 0)
 	call UnsetSolarbeamBg
 	waitforvisualfinish
+	unloadspritegfx ANIM_TAG_SUNLIGHT
 	
 	@ Eruption
 	loadspritegfx ANIM_TAG_WARM_ROCK
@@ -10642,6 +10645,7 @@ Move_MIDELE_POWER:
 	playsewithpan SE_W221B, SOUND_PAN_TARGET
 	createsprite gUnknown_085953F8, ANIM_TARGET, 2, 0, 0, 70, 16, 0, 1
 	delay 10
+	unloadspritegfx ANIM_TAG_WARM_ROCK
 	playsewithpan SE_W221B, SOUND_PAN_TARGET
 	createsprite gUnknown_085953F8, ANIM_TARGET, 2, 16, 0, 80, 16, 0, 1
 	delay 1
@@ -10667,12 +10671,14 @@ Move_MIDELE_POWER:
 	delay 1
 	createsprite gUnknown_08595410, ANIM_TARGET, 2, 0, 0, 30, 30, 3, 1
 	waitforvisualfinish
+	unloadspritegfx ANIM_TAG_FIRE_PLUME
 	
 	@ Sandstorm
 	loadspritegfx ANIM_TAG_FLYING_DIRT
 	playsewithpan SE_W201, 0
 	createvisualtask AnimTask_LoadSandstormBackground, 5, FALSE
 	delay 16
+	unloadspritegfx ANIM_TAG_FIRE
 	createsprite gBattleAnimSpriteTemplate_8596BA0, ANIM_ATTACKER, 40, 10, 2304, 96, 0
 	delay 10
 	createsprite gBattleAnimSpriteTemplate_8596BA0, ANIM_ATTACKER, 40, 90, 2048, 96, 0
@@ -10695,6 +10701,7 @@ Move_MIDELE_POWER:
 	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 3, 1, RGB_BLACK, 14, 0x7FFF, 14
 	delay 16
 	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 3, 1, RGB_BLACK, 14, 0x7FFF, 14
+	unloadspritegfx ANIM_TAG_FLYING_DIRT
 	
 	@ Fissure
 	loadspritegfx ANIM_TAG_MUD_SAND
@@ -10721,6 +10728,7 @@ Move_MIDELE_POWER:
 	waitbgfadeout
 	setarg 7, -1
 	waitbgfadein
+	unloadspritegfx ANIM_TAG_MUD_SAND
 	
 	@ Hail
 	loadspritegfx ANIM_TAG_HAIL
@@ -10733,7 +10741,6 @@ Move_MIDELE_POWER:
 	createvisualtask sub_8116620, 10, 1, 3, 6, 0, RGB_BLACK
 	
 	@ Blizzard
-	loadspritegfx ANIM_TAG_ICE_CRYSTALS
 	monbg ANIM_DEF_PARTNER
 	createvisualtask AnimTask_GetAttackerSide, 2
 	jumprettrue BlizzardAgainstPlayerMidele
@@ -10756,6 +10763,8 @@ BlizzardContinueMidele:
 	setarg 7, -1
 	waitbgfadein
 	clearmonbg ANIM_DEF_PARTNER
+	unloadspritegfx ANIM_TAG_HAIL
+	unloadspritegfx ANIM_TAG_ICE_CRYSTALS
 	
 	@ Aeroblast
 	loadspritegfx ANIM_TAG_AIR_WAVE_2
@@ -10778,6 +10787,8 @@ BlizzardContinueMidele:
 	blendoff
 	delay 0
 	call UnsetSkyBg
+	unloadspritegfx ANIM_TAG_AIR_WAVE_2
+	unloadspritegfx ANIM_TAG_IMPACT
 	
 	@ Explosion
 	loadspritegfx ANIM_TAG_EXPLOSION
@@ -10794,7 +10805,6 @@ BlizzardContinueMidele:
 	delay 50
 	createvisualtask sub_8116620, 10, 1, 3, 16, 0, RGB_WHITE
 	createvisualtask sub_8117F10, 2
-	loadspritegfx ANIM_TAG_EXPLOSION
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 3, 0, 16, RGB_WHITE
 	waitforvisualfinish
 	delay 10
@@ -10836,6 +10846,7 @@ BlizzardContinueMidele:
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 4, 0, 15, 1
 	createvisualtask AnimTask_ScaleMonAndRestore, 5, -5, -5, 15, ANIM_TARGET, 1
 	waitforvisualfinish
+	unloadspritegfx ANIM_TAG_EXPLOSION
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 4, 0, 24, 1
 	waitforvisualfinish
 	clearmonbg ANIM_DEF_PARTNER
