@@ -3186,7 +3186,7 @@ static void Cmd_if_accuracy_less_than(void)
 
 static void Cmd_if_not_expected_to_sleep(void)
 {
-    if (!(gBattleMons[AI_USER].status1 & STATUS1_SLEEP) || (gBattleMons[AI_USER].status1 & STATUS1_SLEEP) == 5)
+    if (!(gBattleMons[sBattler_AI].status1 & STATUS1_SLEEP) || (gBattleMons[sBattler_AI].status1 & STATUS1_SLEEP) == 5)
         gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 1);
     else
         gAIScriptPtr += 5;
