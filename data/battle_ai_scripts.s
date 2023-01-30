@@ -1800,15 +1800,24 @@ AI_CV_AttackDown_Plus2IfLastMonAgainstSeveral:
 	goto AI_CV_AttackDown_End
 
 AI_CV_DefenseDown:
+	if_stat_level_more_than AI_TARGET, STAT_DEF, 2, AI_CV_DefenseDown_SkipFirstMinus1
+	score -1
+AI_CV_DefenseDown_SkipFirstMinus1:
+	if_has_move_with_effect AI_TARGET, EFFECT_DEFENSE_UP_2, AI_CV_DefenseDown2
 	if_hp_less_than AI_USER, 70, AI_CV_DefenseDown2
-	if_stat_level_more_than AI_TARGET, STAT_DEF, 3, AI_CV_DefenseDown3
+	if_stat_level_more_than AI_TARGET, STAT_DEF, 5, AI_CV_DefenseDown3
+	if_stat_level_less_than AI_TARGET, STAT_DEF, 4, AI_CV_DefenseDown2
+	if_random_less_than 100, AI_CV_DefenseDown3
 
 AI_CV_DefenseDown2:
 	if_random_less_than 50, AI_CV_DefenseDown3
 	score -2
 
 AI_CV_DefenseDown3:
+	if_hp_condition TARGET_HAS_1_MAX_HP, Score_Minus3
 	if_hp_more_than AI_TARGET, 70, AI_CV_DefenseDown_End
+	if_has_move_with_effect AI_TARGET, EFFECT_REST, AI_CV_DefenseDown_End
+	if_has_a_50_percent_hp_recovery_move AI_TARGET, AI_CV_DefenseDown_End
 	score -2
 
 AI_CV_DefenseDown_End:
@@ -1880,15 +1889,24 @@ AI_CV_SpAtkDown_Plus2IfLastMonAgainstSeveral:
 	goto AI_CV_SpAtkDown_End
 
 AI_CV_SpDefDown: @ 82DCEEB
+	if_stat_level_more_than AI_TARGET, STAT_SPDEF, 2, AI_CV_SpDefDown_SkipFirstMinus1
+	score -1
+AI_CV_SpDefDown_SkipFirstMinus1:
+	if_has_move_with_effect AI_TARGET, EFFECT_SPECIAL_DEFENSE_UP_2, AI_CV_SpDefDown2
 	if_hp_less_than AI_USER, 70, AI_CV_SpDefDown2
-	if_stat_level_more_than AI_TARGET, STAT_SPDEF, 3, AI_CV_SpDefDown3
+	if_stat_level_more_than AI_TARGET, STAT_SPDEF, 5, AI_CV_SpDefDown3
+	if_stat_level_less_than AI_TARGET, STAT_SPDEF, 4, AI_CV_SpDefDown2
+	if_random_less_than 100, AI_CV_SpDefDown3
 
 AI_CV_SpDefDown2: @ 82DCEFA
 	if_random_less_than 50, AI_CV_SpDefDown3
 	score -2
 
 AI_CV_SpDefDown3: @ 82DCF02
+	if_hp_condition TARGET_HAS_1_MAX_HP, Score_Minus3
 	if_hp_more_than AI_TARGET, 70, AI_CV_SpDefDown_End
+	if_has_move_with_effect AI_TARGET, EFFECT_REST, AI_CV_SpDefDown_End
+	if_has_a_50_percent_hp_recovery_move AI_TARGET, AI_CV_SpDefDown_End
 	score -2
 
 AI_CV_SpDefDown_End: @ 82DCF0B
