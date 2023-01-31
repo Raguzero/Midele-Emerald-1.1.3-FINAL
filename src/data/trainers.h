@@ -12979,7 +12979,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_DARKI_MALRO] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_LEADER,
+        .trainerClass = TRAINER_CLASS_LEADER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .battleMusic = DELTARUNCHAOSK,
         .trainerPic = TRAINER_PIC_DARKIMALRO,
