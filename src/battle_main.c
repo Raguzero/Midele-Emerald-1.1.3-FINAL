@@ -5464,6 +5464,7 @@ static void HandleEndTurn_BattleWon(void)
             PlayBGM(MUS_KACHI4);
             break;
         case TRAINER_CLASS_LEADER:
+        case TRAINER_CLASS_LEADER_MIDELE:
             PlayBGM(MUS_KACHI3);
             break;
         default:
