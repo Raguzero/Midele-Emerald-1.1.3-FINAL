@@ -2076,6 +2076,44 @@ AI_CV_Roar:
 	if_stat_level_more_than AI_TARGET, STAT_SPATK, 6, AI_CV_Roar2
 	if_stat_level_more_than AI_TARGET, STAT_SPDEF, 7, AI_CV_Roar2
 	if_stat_level_more_than AI_TARGET, STAT_EVASION, 7, AI_CV_Roar2
+	if_not_side_affecting AI_TARGET, SIDE_STATUS_SPIKES, AI_CV_Roar_Discourage
+	if_ability_might_be AI_TARGET, ABILITY_LEVITATE, AI_CV_Roar_SpikesWontFaintTheTarget
+	if_type AI_TARGET, TYPE_FLYING, AI_CV_Roar_SpikesWontFaintTheTarget
+	if_hp_condition TARGET_HAS_1_MAX_HP, Score_Plus2
+	if_has_a_50_percent_hp_recovery_move AI_TARGET, AI_CV_Roar_SpikesWontFaintTheTarget
+	get_hazards_count AI_TARGET, EFFECT_SPIKES
+	if_equal 3, AI_CV_Roar_Spikes_3
+	if_equal 2, AI_CV_Roar_Spikes_2
+	if_equal 1, AI_CV_Roar_Spikes_1
+	goto AI_CV_Roar_Discourage
+
+AI_CV_Roar_SpikesWillFaintTheTarget:
+	goto Score_Minus1
+
+AI_CV_Roar_Spikes_3:
+	if_hp_condition TARGET_CANNOT_USE_SUB, AI_CV_Roar_SpikesWillFaintTheTarget
+	goto AI_CV_Roar_SpikesWontFaintTheTarget
+
+AI_CV_Roar_Spikes_2:
+	if_hp_less_than AI_TARGET, 16, AI_CV_Roar_SpikesWillFaintTheTarget
+	goto AI_CV_Roar_SpikesWontFaintTheTarget
+
+AI_CV_Roar_Spikes_1:
+	if_hp_less_than AI_TARGET, 12, AI_CV_Roar_SpikesWillFaintTheTarget
+AI_CV_Roar_SpikesWontFaintTheTarget:
+	if_status AI_TARGET, STATUS1_TOXIC_POISON, AI_CV_Roar_Discourage
+	if_status2 AI_TARGET, STATUS2_CURSED | STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION, AI_CV_Roar_Discourage
+	if_status3 AI_TARGET, STATUS3_PERISH_SONG | STATUS3_LEECHSEED | STATUS3_YAWN, AI_CV_Roar_Discourage
+	if_target_faster AI_CV_Roar_ConsiderRoarIfSpikesAndDamagingMovesAreWeak
+	calculate_nhko AI_TARGET
+	if_equal 1, AI_CV_Roar_Discourage
+AI_CV_Roar_ConsiderRoarIfSpikesAndDamagingMovesAreWeak:
+	get_hazards_count AI_TARGET, EFFECT_SPIKES
+	if_equal 3, Score_Minus1
+	if_equal 2, Score_Minus2
+	if_equal 0, AI_CV_Roar_Discourage
+	if_random_less_than 160, Score_Minus2
+AI_CV_Roar_Discourage:
 	score -3
 	goto AI_CV_Roar_End
 
