@@ -2192,23 +2192,41 @@ AI_CV_Heal_End:
 
 AI_CV_Toxic: @ También lo usa Leech Seed
 	if_ability_might_be AI_TARGET, ABILITY_WONDER_GUARD, Score_Plus2
+	if_this_attack_might_be_the_last AI_CV_Toxic_FirstMinus1
 	if_user_has_no_attacking_moves AI_CV_Toxic3
 	if_hp_more_than AI_USER, 50, AI_CV_Toxic2
+	if_has_move_with_effect AI_USER, EFFECT_PROTECT, AI_CV_Toxic2
 	if_random_less_than 50, AI_CV_Toxic2
-	score -3
+AI_CV_Toxic_FirstMinus1:
+	score -1
 
 AI_CV_Toxic2:
+	if_has_move_with_effect AI_TARGET, EFFECT_REST, AI_CV_Toxic_SecondMinus1
+	if_has_a_50_percent_hp_recovery_move AI_TARGET, AI_CV_Toxic_SecondMinus1
 	if_hp_more_than AI_TARGET, 50, AI_CV_Toxic3
+	calculate_nhko
+	if_more_than 3, AI_CV_Toxic3
 	if_random_less_than 50, AI_CV_Toxic3
-	score -3
+AI_CV_Toxic_SecondMinus1:
+	score -1
 
 AI_CV_Toxic3:
-	if_has_move_with_effect AI_USER, EFFECT_SPECIAL_DEFENSE_UP, AI_CV_Toxic4
+	calculate_nhko AI_TARGET
+	if_less_than 3, AI_CV_Toxic_End
+	if_more_than 4, AI_CV_Toxic4
+	if_equal 3, AI_CV_Toxic3_SkipSpeedAndLeechSeedCheck
+	if_user_faster AI_CV_Toxic4
+	if_move MOVE_LEECH_SEED, AI_CV_Toxic4
+AI_CV_Toxic3_SkipSpeedAndLeechSeedCheck:
+	if_has_a_50_percent_hp_recovery_move AI_USER, AI_CV_Toxic4
+	if_has_move_with_effect AI_USER, MOVE_REST, AI_CV_Toxic4
 	if_has_move_with_effect AI_USER, EFFECT_PROTECT, AI_CV_Toxic4
 	goto AI_CV_Toxic_End
 
 AI_CV_Toxic4:
 	if_random_less_than 60, AI_CV_Toxic_End
+	if_has_move_with_effect AI_TARGET, EFFECT_REST, Score_Plus1
+	if_has_a_50_percent_hp_recovery_move AI_TARGET, Score_Plus1
 	score +2
 
 AI_CV_Toxic_End:
