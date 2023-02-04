@@ -1053,7 +1053,7 @@ AI_CheckViability_CheckEffects:
 	if_effect EFFECT_REST, AI_CV_Rest
 	if_effect EFFECT_OHKO, AI_CV_OneHitKO
 	if_effect EFFECT_RAZOR_WIND, AI_CV_ChargeUpMove
-	if_effect EFFECT_TRAP, AI_CV_Trap
+	if_effect EFFECT_TRAP, AI_CV_PartialTrap
 	if_effect EFFECT_CONFUSE, AI_CV_Confuse
 	if_effect EFFECT_ATTACK_UP_2, AI_CV_SwordsDance
 	if_effect EFFECT_DEFENSE_UP_2, AI_CV_DefenseUp
@@ -2283,6 +2283,65 @@ AI_CV_OneHitKO:
     if_ability AI_USER, ABILITY_NO_GUARD, Score_Plus3
     if_ability AI_TARGET, ABILITY_NO_GUARD, Score_Plus3
     if_has_move_with_effect AI_USER, EFFECT_LOCK_ON, Score_Minus3
+	end
+
+AI_CV_PartialTrap:
+	if_status2 AI_TARGET, STATUS2_WRAPPED | STATUS2_MULTIPLETURNS | STATUS2_ESCAPE_PREVENTION, AI_CV_PartialTrap_End
+  if_type AI_TARGET, TYPE_GHOST, AI_CV_PartialTrap_End
+	if_target_might_have_a_sub_before_our_attack AI_CV_PartialTrap_End
+	count_usable_party_mons AI_TARGET
+	if_equal 0, AI_CV_PartialTrap_End
+	if_this_attack_might_be_the_last AI_CV_PartialTrap_End
+	if_has_move_with_effect AI_TARGET, EFFECT_ROAR, AI_CV_PartialTrap_IgnoreTrapUnlessUserCannotBePhazed
+AI_CV_PartialTrap_UserCannotBePhazed:
+	if_status AI_TARGET, STATUS1_TOXIC_POISON, AI_CV_PartialTrap_TargetReallyAffected
+	if_status2 AI_TARGET, STATUS2_CURSED, AI_CV_PartialTrap_TargetReallyAffected
+	if_status3 AI_TARGET, STATUS3_PERISH_SONG, AI_CV_PartialTrap_TargetReallyAffected
+	if_status AI_TARGET, STATUS1_POISON | STATUS1_BURN, AI_CV_PartialTrap_TargetAffected
+	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_PartialTrap_TargetAffected
+	if_status3 AI_TARGET, STATUS3_LEECHSEED | STATUS3_YAWN, AI_CV_PartialTrap_TargetAffected
+	goto AI_CV_PartialTrap_End
+
+AI_CV_PartialTrap_IgnoreTrapUnlessUserCannotBePhazed:
+	if_ability AI_USER, ABILITY_SUCTION_CUPS, AI_CV_PartialTrap_UserCannotBePhazed
+	if_ability AI_USER, ABILITY_SOUNDPROOF, AI_CV_PartialTrap_IgnoreTrapIfPhazingMoveIsWhirlwind
+	goto AI_CV_PartialTrap_End
+
+AI_CV_PartialTrap_IgnoreTrapIfPhazingMoveIsWhirlwind:
+	if_has_move AI_TARGET, MOVE_WHIRLWIND, AI_CV_PartialTrap_End
+	goto AI_CV_PartialTrap_UserCannotBePhazed
+
+AI_CV_PartialTrap_TargetReallyAffected:
+	calculate_nhko AI_TARGET
+	if_more_than 3, AI_CV_PartialTrap_ScorePlus1or2
+	if_less_than 2, AI_CV_PartialTrap_End
+	if_equal 2, AI_CV_PartialTrap_BalancedScenario
+	if_has_move_with_effect AI_USER, EFFECT_PROTECT, AI_CV_PartialTrap_ScorePlus1or2
+	if_has_a_50_percent_hp_recovery_move AI_USER, AI_CV_PartialTrap_ScorePlus1or2
+	if_has_move_with_effect AI_USER, EFFECT_REST, AI_CV_PartialTrap_ScorePlus1or2
+	goto AI_CV_PartialTrap_ScorePlus1
+
+AI_CV_PartialTrap_TargetAffected:
+	calculate_nhko AI_TARGET | AI_NHKO_PESSIMISTIC
+	if_more_than 3, AI_CV_PartialTrap_ScorePlus1
+	if_less_than 3, AI_CV_PartialTrap_End
+AI_CV_PartialTrap_BalancedScenario:
+	if_has_move_with_effect AI_USER, EFFECT_PROTECT, AI_CV_PartialTrap_ScorePlus1maybe
+	if_has_a_50_percent_hp_recovery_move AI_USER, AI_CV_PartialTrap_ScorePlus1maybe
+	if_has_move_with_effect AI_USER, EFFECT_REST, AI_CV_PartialTrap_ScorePlus1maybe
+	goto AI_CV_PartialTrap_End
+
+AI_CV_PartialTrap_ScorePlus1maybe:
+	if_random_less_than 128, Score_Plus1
+	goto AI_CV_PartialTrap_End
+
+AI_CV_PartialTrap_ScorePlus1or2:
+	if_random_less_than 128, Score_Plus2
+	goto Score_Plus1
+
+AI_CV_PartialTrap_ScorePlus1:
+	score +1
+AI_CV_PartialTrap_End:
 	end
 
 AI_CV_Trap:
