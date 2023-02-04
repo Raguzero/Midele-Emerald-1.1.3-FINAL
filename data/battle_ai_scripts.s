@@ -4236,21 +4236,38 @@ AI_TryToFaint:
         if_more_than 40, AI_TryToFaint_BonusToMostPowerfulAttack
         score -1
         if_more_than 20, AI_TryToFaint_BonusToMostPowerfulAttack
+        if_effect EFFECT_MIDELE_POWER, AI_TryToFaint_CheckIfTargetOHKOsUser
+        if_effect EFFECT_TRAP, AI_TryToFaint_CheckIfPartialTrappingMoveWillDealDamage
+        if_move MOVE_APPLE_ACID, AI_TryToFaint_CheckIfTargetsAttackCouldFinishTheBattle
+        if_move MOVE_GRAV_APPLE, AI_TryToFaint_CheckIfTargetsAttackCouldFinishTheBattle
+AI_TryToFaint_SkipCheckingMovesWithSecondaryEffect:
         score -1
+AI_TryToFaint_SkipOnePenaltyForWeakMovesDueToSecondaryEffects:
         if_more_than 6, AI_TryToFaint_BonusToMostPowerfulAttack
         score -1
 AI_TryToFaint_BonusToMostPowerfulAttack:
 	get_how_powerful_move_is
 	if_equal MOVE_NOT_MOST_POWERFUL, Score_Minus1
 	if_equal MOVE_POWER_DISCOURAGED_AND_NOT_MOST_POWERFUL, Score_Minus2
-	if_equal MOVE_HAS_ZERO_OR_UNPREDICTABLE_POWER, AI_Ret
-	if_type_effectiveness AI_EFFECTIVENESS_x4, AI_TryToFaint_DoubleSuperEffective
 	end
 
-AI_TryToFaint_DoubleSuperEffective:
-	if_random_less_than 80, AI_TryToFaint_End
-	score +2
-	end
+AI_TryToFaint_CheckIfPartialTrappingMoveWillDealDamage:
+	if_status2 AI_TARGET, STATUS2_WRAPPED, AI_TryToFaint_SkipCheckingMovesWithSecondaryEffect
+	if_target_might_have_a_sub_before_our_attack AI_TryToFaint_SkipCheckingMovesWithSecondaryEffect
+AI_TryToFaint_CheckIfTargetOHKOsUser:
+	calculate_nhko AI_TARGET
+	if_equal 1, AI_TryToFaint_ProbablyIrrelevantSecondaryEffect
+	get_curr_dmg_hp_percent
+	goto AI_TryToFaint_SkipOnePenaltyForWeakMovesDueToSecondaryEffects
+
+AI_TryToFaint_CheckIfTargetsAttackCouldFinishTheBattle:
+	count_usable_party_mons AI_USER
+	if_equal 0, AI_TryToFaint_CheckIfTargetOHKOsUser
+	goto AI_TryToFaint_SkipOnePenaltyForWeakMovesDueToSecondaryEffects
+
+AI_TryToFaint_ProbablyIrrelevantSecondaryEffect:
+	get_curr_dmg_hp_percent
+	goto AI_TryToFaint_SkipCheckingMovesWithSecondaryEffect
 
 AI_TryToFaint_ConsiderEncouragingKOingMove:
     if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_TryToFaint_CheckFakeOutWithSub
