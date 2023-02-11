@@ -1468,7 +1468,10 @@ AI_CV_DefenseUp_PhysicalTypes: @ 82DCC53
     .byte -1
 
 AI_CV_SpeedUp: @ 82DCC5D
+	count_usable_party_mons AI_USER
+	if_equal 0, AI_CV_SpeedUp_NoBatonPass
 	if_has_move_with_effect AI_USER, EFFECT_BATON_PASS, AI_CV_SpeedUp_HasBatonPass
+AI_CV_SpeedUp_NoBatonPass:
 @ Evita subirse Velocidad si tardará más de 3 turnos en dar KO al rival,
 @ si el rival mete OHKO, o si el rival mete 2HKO y no le mete OHKO
    calculate_nhko
@@ -1479,24 +1482,33 @@ AI_CV_SpeedUp: @ 82DCC5D
    calculate_nhko
    if_more_than 1, Score_Minus3
 AI_CV_SpeedUp_SkipOHKOCheck:
+    if_ability AI_USER, ABILITY_SHED_SKIN, AI_CV_SpeedUp_SkipParalysisCheck
+    if_not_status AI_USER, STATUS1_PARALYSIS, AI_CV_SpeedUp_SkipParalysisCheck
+    score -2
+AI_CV_SpeedUp_SkipParalysisCheck:
     if_target_faster AI_CV_SpeedUp2
-@ Si es más rápido, evita usar agilidad a no ser que:
-@ 1.- pueda meterle 2HKO al rival
-@ 2.- no espere caer en menos de 4 golpes del rival
-@ 3.- esté a +0 o menos de Velocidad
-@ en cuyo caso puede intentar usar Agilidad
+@ Si ya es más rápido, evita subirse Velocidad a no ser que pase todo lo siguiente:
+@ 1.- puede meterle 2HKO al rival
+@ 2.- no espera caer en menos de 4 golpes del rival
+@ 3.- está a +0 o menos de Velocidad
+@ 4.- el rival no es el último poke
+@ 5.- el rival no tiene Encore
+@ en cuyo caso puede intentar subirse Velocidad, aunque con un poco menos de ganas
+    count_usable_party_mons AI_TARGET
+    if_equal 0, AI_CV_SpeedUp_AlreadyFasterAndNoChanceToSweep
+    if_has_move_with_effect AI_TARGET, EFFECT_ENCORE, AI_CV_SpeedUp_AlreadyFasterAndNoChanceToSweep
+    if_stat_level_more_than AI_USER, STAT_SPEED, 6, AI_CV_SpeedUp_AlreadyFasterAndNoChanceToSweep
     calculate_nhko
     if_more_than 2, AI_CV_SpeedUp_AlreadyFasterAndNoChanceToSweep
     calculate_nhko AI_TARGET
     if_less_than 4, AI_CV_SpeedUp_AlreadyFasterAndNoChanceToSweep
-    if_stat_level_more_than AI_USER, STAT_SPEED, 6, AI_CV_SpeedUp_AlreadyFasterAndNoChanceToSweep
-    if_random_less_than 170, AI_CV_SpeedUp2
+    if_random_less_than 170, AI_CV_SpeedUp2WithPenalty
 AI_CV_SpeedUp_AlreadyFasterAndNoChanceToSweep:
 	score -3
 	goto AI_CV_SpeedUp_End
 
 @ Si tiene Baton Pass, los criterios anteriores se sustituyen por:
-@ no tirar Agility si espera recibir KO o si está ya a +4
+@ no subirse Velocidad si espera recibir KO o si está ya a +4
 @ por lo menos (en general, de sobra para outspeedear casi todo)
 @ Además, le resta 1 punto (pero continúa evaluando) si ya está a +2 o +3
 AI_CV_SpeedUp_HasBatonPass:
@@ -1504,6 +1516,7 @@ AI_CV_SpeedUp_HasBatonPass:
     if_equal 1, Score_Minus3
     if_stat_level_more_than AI_USER, STAT_SPEED, 9, Score_Minus3
     if_stat_level_less_than AI_USER, STAT_SPEED, 8, AI_CV_SpeedUp2
+AI_CV_SpeedUp2WithPenalty:
     score -1 @ (sigue)
 AI_CV_SpeedUp2: @ 82DCC6A
 	if_free_setup_turn_assuming_target_will_be_slower Score_Plus5
