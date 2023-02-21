@@ -3640,6 +3640,12 @@ static void Cmd_if_has_non_ineffective_move_with_effect(void)
     {
     case AI_USER:
     case AI_USER_PARTNER:
+        if (gAIScriptPtr[2] == EFFECT_OHKO && (gBattleMons[sBattler_AI].level < gBattleMons[gBattlerTarget].level || gBattleMons[gBattlerTarget].ability == ABILITY_STURDY))
+        {
+            gAIScriptPtr += 7;
+            break;
+        }
+            
         moveLimitations = CheckMoveLimitations(sBattler_AI, 0, MOVE_LIMITATION_PP);
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
@@ -3654,6 +3660,12 @@ static void Cmd_if_has_non_ineffective_move_with_effect(void)
         break;
     case AI_TARGET:
     case AI_TARGET_PARTNER:
+        if (gAIScriptPtr[2] == EFFECT_OHKO && (gBattleMons[gBattlerTarget].level < gBattleMons[sBattler_AI].level || gBattleMons[sBattler_AI].ability == ABILITY_STURDY))
+        {
+            gAIScriptPtr += 7;
+            break;
+        }
+
         moveLimitations = CheckMoveLimitations(gBattlerTarget, 0, MOVE_LIMITATION_PP);
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
@@ -3674,6 +3686,7 @@ static void Cmd_if_has_non_ineffective_move_with_effect(void)
         break;
     }
 }
+
 static void Cmd_if_doesnt_have_non_ineffective_move_with_effect(void)
 {
     s32 i;
@@ -3683,10 +3696,15 @@ static void Cmd_if_doesnt_have_non_ineffective_move_with_effect(void)
     {
     case AI_USER:
     case AI_USER_PARTNER:
+        if (gAIScriptPtr[2] == EFFECT_OHKO && (gBattleMons[sBattler_AI].level < gBattleMons[gBattlerTarget].level || gBattleMons[gBattlerTarget].ability == ABILITY_STURDY))
+        {
+            gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 3);
+            break;
+        }
         moveLimitations = CheckMoveLimitations(sBattler_AI, 0, MOVE_LIMITATION_PP);
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
-            if(gBattleMons[sBattler_AI].moves[i] != 0 && gBattleMoves[gBattleMons[sBattler_AI].moves[i]].effect == gAIScriptPtr[2]
+            if (gBattleMons[sBattler_AI].moves[i] != 0 && gBattleMoves[gBattleMons[sBattler_AI].moves[i]].effect == gAIScriptPtr[2]
                 && !(gBitTable[i] & moveLimitations) && CalculateDamageFromMove(sBattler_AI, gBattlerTarget, gBattleMons[sBattler_AI].moves[i], 0) > 0)
                 break;
         }
@@ -3697,6 +3715,12 @@ static void Cmd_if_doesnt_have_non_ineffective_move_with_effect(void)
         break;
     case AI_TARGET:
     case AI_TARGET_PARTNER:
+        if (gAIScriptPtr[2] == EFFECT_OHKO && (gBattleMons[gBattlerTarget].level < gBattleMons[sBattler_AI].level || gBattleMons[sBattler_AI].ability == ABILITY_STURDY))
+        {
+            gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 3);
+            break;
+        }
+
         moveLimitations = CheckMoveLimitations(gBattlerTarget, 0, MOVE_LIMITATION_PP);
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
