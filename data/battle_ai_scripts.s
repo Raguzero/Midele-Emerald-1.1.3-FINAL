@@ -2864,7 +2864,7 @@ AI_CV_LockOn:
 	if_target_expected_to_be_statused_assuming_equal_priority AI_CV_LockOn_SkipMinus1ForSpore
 	score -1
 AI_CV_LockOn_SkipMinus1ForSpore:
-	if_doesnt_have_move_with_effect AI_USER, EFFECT_OHKO, AI_CV_LockOn_NoChanceToOHKOInFreeTurn
+	if_doesnt_have_non_ineffective_move_with_effect AI_USER, EFFECT_OHKO, AI_CV_LockOn_NoChanceToOHKOInFreeTurn
 	if_ability_might_be AI_TARGET, ABILITY_STURDY, AI_CV_LockOn_NoChanceToOHKOInFreeTurn
 	if_level_cond AI_LEVEL_IS_LESS_THAN_TARGETS, AI_CV_LockOn_NoChanceToOHKOInFreeTurn
     if_free_setup_turn Score_Plus2
@@ -2881,7 +2881,7 @@ AI_CV_LockOn_TargetShouldHaveNoProblemAttacking:
 AI_CV_LockOn_CalculateNHKOincludingOHKOmoves:
 	if_ability_might_be AI_TARGET, ABILITY_STURDY, AI_CV_LockOn_CalculateNHKO
 	if_level_cond AI_LEVEL_IS_LESS_THAN_TARGETS, AI_CV_LockOn_CalculateNHKO
-	if_has_move_with_effect AI_USER, EFFECT_OHKO, AI_CV_LockOn_SkipMinus1ForNotDoingEnoughDamage
+	if_has_non_ineffective_move_with_effect AI_USER, EFFECT_OHKO, AI_CV_LockOn_SkipMinus1ForNotDoingEnoughDamage
 AI_CV_LockOn_CalculateNHKO:
 	calculate_nhko
 	if_more_than 2, Score_Minus3
