@@ -917,23 +917,39 @@ static u8 ChooseMoveOrAction_Singles(void)
                     || (WEATHER_HAS_EFFECT && (((gBattleWeather & WEATHER_RAIN_ANY) && gBattleMoves[move].effect == EFFECT_THUNDER) || ((gBattleWeather & WEATHER_HAIL_ANY) && move == MOVE_BLIZZARD)))
                    );
             u8 nhko_taken = CalculateNHKO(gBattlerTarget, sBattler_AI, FALSE, MOVE_NONE, FALSE, ignoreFocusPunch);
-            bool8 ai_is_faster = (gBattleMoves[move].effect == EFFECT_QUICK_ATTACK || gBattleMoves[move].effect == EFFECT_FAKE_OUT || gBattleMoves[move].effect == EFFECT_MIDELE_POWER || GetWhoStrikesFirst(sBattler_AI, gBattlerTarget, TRUE) == 0) && move != MOVE_COUNTER && move != MOVE_MIRROR_COAT && move != MOVE_VITAL_THROW && move != MOVE_FOCUS_PUNCH;
+            bool8 ai_is_faster = gBattleMoves[move].effect == EFFECT_QUICK_ATTACK || gBattleMoves[move].effect == EFFECT_MIDELE_POWER // se excluye Fake Out porque solo puede usarse un turno
+              || (GetWhoStrikesFirst(sBattler_AI, gBattlerTarget, TRUE) == 0
+                  && !(nhko_taken == 1 && gBattleMoves[move].priority < 0)); // sí, Focus Punch tiene -3
             u8 attacks_until_ko = nhko_taken - (ai_is_faster ? 0 : 1);
 
-            // Si recibe OHKO y es más lento, considera cambiar
-            // También cambia si escoge un ataque que hace poco daño o que tiene
-            // pocos puntos y va a ser el último o penúltimo que le dé tiempo a ejecutar
-            // (si es último, poco daño es peor que 2HKO y pocos puntos es menos de 99;
-            // si es penúltimo, poco daño es peor que 4HKO y pocos puntos es menos de 97)
-            if (
-                ((nhko_taken == 1 && !ai_is_faster)
-             || (attacks_until_ko < 2
-                 && (
-                     (directDamageAttack && gBattleMoves[move].effect != EFFECT_OHKO && gBattleMoves[move].effect != EFFECT_COUNTER && gBattleMoves[move].effect != EFFECT_MIRROR_COAT && CalculateNHKO(sBattler_AI, gBattlerTarget, TRUE, move, FALSE, FALSE) > 2*attacks_until_ko)
-                      || currentMoveArray[0] <= 100 - 2*attacks_until_ko
-                      || move == MOVE_SLEEP_TALK
-                    )
-               )) && GetMostSuitableMonToSwitchInto_NotChangingIsAcceptable() != PARTY_SIZE)
+            if ((
+                 (attacks_until_ko == 0 && move != MOVE_FAKE_OUT) // Si recibe OHKO y es más lento, considera cambiar
+              || (attacks_until_ko <= 2
+                  // También cambia si escoge un ataque que hace poco daño o que tiene
+                  // pocos puntos y va a ser el último o penúltimo que le dé tiempo a ejecutar
+                  // (si es último, poco daño es peor que 2HKO y pocos puntos es menos de 99;
+                  // si es penúltimo, poco daño es peor que 4HKO y pocos puntos es menos de 97)
+                  && !(move == MOVE_FAKE_OUT && currentMoveArray[0] > 101) // si es Fake Out y hará retroceder o es KO, la IA lo usa sin problemas
+                  && (
+                      (directDamageAttack && AI_CAN_ESTIMATE_DAMAGE(move) && gBattleMoves[move].effect != EFFECT_OHKO && move != MOVE_COUNTER && move != MOVE_MIRROR_COAT && CalculateNHKO(sBattler_AI, gBattlerTarget, TRUE, move, FALSE, FALSE) > 2*attacks_until_ko)
+                       || currentMoveArray[0] <= 100 - 2*attacks_until_ko
+                       || move == MOVE_SLEEP_TALK
+                     )
+                 )
+              || (nhko_taken == 1                                        // También cambia si recibe OHKO
+                  && move == MOVE_SUBSTITUTE                             // y va a tirar sub por segunda vez
+                  && gLastResultingMoves[sBattler_AI] == MOVE_SUBSTITUTE // (para evitar spamearlo)
+                  && gBattleMons[sBattler_AI].item != ITEM_LIECHI_BERRY  // y no tiene una pinch berry
+                  && gBattleMons[sBattler_AI].item != ITEM_PETAYA_BERRY
+                  && gBattleMons[sBattler_AI].item != ITEM_SALAC_BERRY
+                  && !(gBattleMons[gBattlerTarget].status1 & STATUS1_TOXIC_POISON) // y el rival no palma PS
+                  && !(gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED)
+                  && !(   // ni el poke de la IA se está recuperando con Leech Seed al rival junto con Restos
+                          (gStatuses3[gBattlerTarget] & STATUS3_LEECHSEED)
+                       && (gStatuses3[gBattlerTarget] & STATUS3_LEECHSEED_BATTLER) == sBattler_AI
+                       && gBattleMons[sBattler_AI].item == ITEM_LEFTOVERS)
+                      )
+                ) && GetMostSuitableMonToSwitchInto_NotChangingIsAcceptable() != PARTY_SIZE)
             {
                 AI_THINKING_STRUCT->switchMon = TRUE;
                 return AI_CHOICE_SWITCH;
