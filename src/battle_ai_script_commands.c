@@ -48,6 +48,7 @@
                                            && gLastResultingMoves[battlerId] != MOVE_DETECT  \
                                            && gLastResultingMoves[battlerId] != MOVE_ENDURE) \
                                          || gDisableStructs[battlerId].protectUses == 0)
+#define FIRST_IS_LEECH_SEEDING_SECOND(idfirst, idsecond) ((gStatuses3[idsecond] & STATUS3_LEECHSEED) && (gStatuses3[idsecond] & STATUS3_LEECHSEED_BATTLER) == idfirst)
 
 // AI states
 enum
@@ -945,8 +946,7 @@ static u8 ChooseMoveOrAction_Singles(void)
                   && !(gBattleMons[gBattlerTarget].status1 & STATUS1_TOXIC_POISON) // y el rival no palma PS
                   && !(gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED)
                   && !(   // ni el poke de la IA se está recuperando con Leech Seed al rival junto con Restos
-                          (gStatuses3[gBattlerTarget] & STATUS3_LEECHSEED)
-                       && (gStatuses3[gBattlerTarget] & STATUS3_LEECHSEED_BATTLER) == sBattler_AI
+                          FIRST_IS_LEECH_SEEDING_SECOND(sBattler_AI, gBattlerTarget)
                        && gBattleMons[sBattler_AI].item == ITEM_LEFTOVERS)
                       )
                 ) && GetMostSuitableMonToSwitchInto_NotChangingIsAcceptable() != PARTY_SIZE)
