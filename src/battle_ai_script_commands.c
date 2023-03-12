@@ -923,18 +923,30 @@ static u8 ChooseMoveOrAction_Singles(void)
                   && !(nhko_taken == 1 && gBattleMoves[move].priority < 0)); // sí, Focus Punch tiene -3
             u8 attacks_until_ko = nhko_taken - (ai_is_faster ? 0 : 1);
 
+            if (attacks_until_ko > 1 && gBattleMoves[move].effect == EFFECT_EXPLOSION)
+                attacks_until_ko = 1;
+            else if ((gStatuses3[sBattler_AI] & STATUS3_PERISH_SONG) && gDisableStructs[sBattler_AI].perishSongTimer + 1 < attacks_until_ko)
+                attacks_until_ko = 1 + gDisableStructs[sBattler_AI].perishSongTimer;
+
+            if (attacks_until_ko > 1 && (gStatuses3[sBattler_AI] & STATUS3_YAWN))
+                attacks_until_ko -= 1; // probablemente más
+
             if ((
                  (attacks_until_ko == 0 && move != MOVE_FAKE_OUT) // Si recibe OHKO y es más lento, considera cambiar
               || (attacks_until_ko <= 2
                   // También cambia si escoge un ataque que hace poco daño o que tiene
                   // pocos puntos y va a ser el último o penúltimo que le dé tiempo a ejecutar
                   // (si es último, poco daño es peor que 2HKO y pocos puntos es menos de 99;
-                  // si es penúltimo, poco daño es peor que 4HKO y pocos puntos es menos de 97)
+                  //  si es penúltimo, poco daño es peor que 4HKO (que 3HKO si el rival tiene
+                  //   menos de 2/3 de los PS o nos usa Leech Seed) y pocos puntos es menos de 97)
                   && !(move == MOVE_FAKE_OUT && currentMoveArray[0] > 101) // si es Fake Out y hará retroceder o es KO, la IA lo usa sin problemas
                   && (
-                      (directDamageAttack && AI_CAN_ESTIMATE_DAMAGE(move) && gBattleMoves[move].effect != EFFECT_OHKO && move != MOVE_COUNTER && move != MOVE_MIRROR_COAT && CalculateNHKO(sBattler_AI, gBattlerTarget, TRUE, move, FALSE, FALSE) > 2*attacks_until_ko)
-                       || currentMoveArray[0] <= 100 - 2*attacks_until_ko
-                       || move == MOVE_SLEEP_TALK
+                        move == MOVE_SLEEP_TALK
+                     || currentMoveArray[0] <= 100 - 2*attacks_until_ko
+                     ||
+                       (directDamageAttack && AI_CAN_ESTIMATE_DAMAGE(move)
+                        && CalculateNHKO(sBattler_AI, gBattlerTarget, TRUE, move, FALSE, FALSE) >= 2*attacks_until_ko + ((attacks_until_ko == 2 && (gBattleMons[gBattlerTarget].hp * 3 < 2 * gBattleMons[gBattlerTarget].maxHP || FIRST_IS_LEECH_SEEDING_SECOND(gBattlerTarget, sBattler_AI))) ? 0 : 1)
+                       )
                      )
                  )
               || (nhko_taken == 1                                        // También cambia si recibe OHKO
