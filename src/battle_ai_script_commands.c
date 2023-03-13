@@ -49,6 +49,8 @@
                                            && gLastResultingMoves[battlerId] != MOVE_ENDURE) \
                                          || gDisableStructs[battlerId].protectUses == 0)
 #define FIRST_IS_LEECH_SEEDING_SECOND(idfirst, idsecond) ((gStatuses3[idsecond] & STATUS3_LEECHSEED) && (gStatuses3[idsecond] & STATUS3_LEECHSEED_BATTLER) == idfirst)
+#define NOT_EXPECTED_TO_SLEEP_DURING_NEXT_TURN(battlerId) (!(gBattleMons[battlerId].status1 & STATUS1_SLEEP) || (gBattleMons[battlerId].status1 & STATUS1_SLEEP) == 5)
+#define EXPECTED_TO_SLEEP_DURING_NEXT_TURN(battlerId) (!NOT_EXPECTED_TO_SLEEP_DURING_NEXT_TURN(battlerId))
 
 // AI states
 enum
@@ -937,15 +939,16 @@ static u8 ChooseMoveOrAction_Singles(void)
                   // También cambia si escoge un ataque que hace poco daño o que tiene
                   // pocos puntos y va a ser el último o penúltimo que le dé tiempo a ejecutar
                   // (si es último, poco daño es peor que 2HKO y pocos puntos es menos de 99;
-                  //  si es penúltimo, poco daño es peor que 4HKO (que 3HKO si el rival tiene
-                  //   menos de 2/3 de los PS o nos usa Leech Seed) y pocos puntos es menos de 97)
+                  //  si es penúltimo, poco daño es peor que 4HKO (que 3HKO si está paralizado,
+                  //   congelado, durmiendo, intoxicado, confuso, maldito o enamorado, o si el rival
+                  //   tiene menos de 2/3 de los PS o nos usa Leech Seed) y pocos puntos es menos de 97)
                   && !(move == MOVE_FAKE_OUT && currentMoveArray[0] > 101) // si es Fake Out y hará retroceder o es KO, la IA lo usa sin problemas
                   && (
                         move == MOVE_SLEEP_TALK
                      || currentMoveArray[0] <= 100 - 2*attacks_until_ko
                      ||
                        (directDamageAttack && AI_CAN_ESTIMATE_DAMAGE(move)
-                        && CalculateNHKO(sBattler_AI, gBattlerTarget, TRUE, move, FALSE, FALSE) >= 2*attacks_until_ko + ((attacks_until_ko == 2 && (gBattleMons[gBattlerTarget].hp * 3 < 2 * gBattleMons[gBattlerTarget].maxHP || FIRST_IS_LEECH_SEEDING_SECOND(gBattlerTarget, sBattler_AI))) ? 0 : 1)
+                        && CalculateNHKO(sBattler_AI, gBattlerTarget, TRUE, move, FALSE, FALSE) >= 2*attacks_until_ko + ((attacks_until_ko == 2 && (gBattleMons[gBattlerTarget].hp * 3 < 2 * gBattleMons[gBattlerTarget].maxHP || FIRST_IS_LEECH_SEEDING_SECOND(gBattlerTarget, sBattler_AI) || EXPECTED_TO_SLEEP_DURING_NEXT_TURN(sBattler_AI) || gBattleMons[sBattler_AI].status1 & (STATUS1_TOXIC_POISON | STATUS1_FREEZE | STATUS1_PARALYSIS) || gBattleMons[sBattler_AI].status2 & (STATUS2_CONFUSION | STATUS2_INFATUATION | STATUS2_CURSED))) ? 0 : 1)
                        )
                      )
                  )
@@ -3214,7 +3217,7 @@ static void Cmd_if_accuracy_less_than(void)
 
 static void Cmd_if_not_expected_to_sleep(void)
 {
-    if (!(gBattleMons[sBattler_AI].status1 & STATUS1_SLEEP) || (gBattleMons[sBattler_AI].status1 & STATUS1_SLEEP) == 5)
+    if (NOT_EXPECTED_TO_SLEEP_DURING_NEXT_TURN(sBattler_AI))
         gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 1);
     else
         gAIScriptPtr += 5;
