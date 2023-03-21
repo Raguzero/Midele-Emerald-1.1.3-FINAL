@@ -738,6 +738,45 @@ bool8 AICanSwitchAssumingEnoughPokemon(void)
             && FlagGet(FLAG_RYU_RANDOMBATTLECCMETRO) != 1;
 }
 
+bool8 gBattlerTargetKnowsMoveWithEffect(u8 effect)
+{
+    s32 i;
+    u8 moveLimitations = CheckMoveLimitations(gBattlerTarget, 0, MOVE_LIMITATION_PP);
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        if (FOES_MOVE_HISTORY(gBattlerTarget)[i] && gBattleMoves[FOES_MOVE_HISTORY(gBattlerTarget)[i]].effect == effect)
+        {
+            s32 j;
+            for (j = 0; j < MAX_MON_MOVES; j++)
+                if (FOES_MOVE_HISTORY(gBattlerTarget)[i] == gBattleMons[gBattlerTarget].moves[j] && !(gBitTable[j] & moveLimitations))
+                    break;
+            if (j != MAX_MON_MOVES)
+                break;
+        }
+    }
+    return i != MAX_MON_MOVES;
+}
+
+// Mejor que usar la función de arriba 6 veces
+bool8 gBattlerTargetKnows50HPRecoveryMove()
+{
+    s32 i;
+    u8 moveLimitations = CheckMoveLimitations(gBattlerTarget, 0, MOVE_LIMITATION_PP);
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        if (FOES_MOVE_HISTORY(gBattlerTarget)[i] && (gBattleMoves[FOES_MOVE_HISTORY(gBattlerTarget)[i]].effect == EFFECT_RESTORE_HP || gBattleMoves[FOES_MOVE_HISTORY(gBattlerTarget)[i]].effect == EFFECT_SOFTBOILED || gBattleMoves[FOES_MOVE_HISTORY(gBattlerTarget)[i]].effect == EFFECT_MORNING_SUN || gBattleMoves[FOES_MOVE_HISTORY(gBattlerTarget)[i]].effect == EFFECT_MOONLIGHT || gBattleMoves[FOES_MOVE_HISTORY(gBattlerTarget)[i]].effect == EFFECT_SHORE_UP || gBattleMoves[FOES_MOVE_HISTORY(gBattlerTarget)[i]].effect == EFFECT_SYNTHESIS))
+        {
+            s32 j;
+            for (j = 0; j < MAX_MON_MOVES; j++)
+                if (FOES_MOVE_HISTORY(gBattlerTarget)[i] == gBattleMons[gBattlerTarget].moves[j] && !(gBitTable[j] & moveLimitations))
+                    break;
+            if (j != MAX_MON_MOVES)
+                break;
+        }
+    }
+    return i != MAX_MON_MOVES;
+}
+
 #define STORED_AI_MEMORY (BATTLE_HISTORY->switchMemory[sBattler_AI & BIT_SIDE])
 static u8 ChooseMoveOrAction_Singles(void)
 {
@@ -941,14 +980,15 @@ static u8 ChooseMoveOrAction_Singles(void)
                   // (si es último, poco daño es peor que 2HKO y pocos puntos es menos de 99;
                   //  si es penúltimo, poco daño es peor que 4HKO (que 3HKO si está paralizado,
                   //   congelado, durmiendo, intoxicado, confuso, maldito o enamorado, o si el rival
-                  //   tiene menos de 2/3 de los PS o nos usa Leech Seed) y pocos puntos es menos de 97)
+                  //   tiene menos de 2/3 de los PS, puede curarse o nos usa Leech Seed)
+                  //  y pocos puntos es menos de 97)
                   && !(move == MOVE_FAKE_OUT && currentMoveArray[0] > 101) // si es Fake Out y hará retroceder o es KO, la IA lo usa sin problemas
                   && (
                         move == MOVE_SLEEP_TALK
                      || currentMoveArray[0] <= 100 - 2*attacks_until_ko
                      ||
                        (directDamageAttack && AI_CAN_ESTIMATE_DAMAGE(move)
-                        && CalculateNHKO(sBattler_AI, gBattlerTarget, TRUE, move, FALSE, FALSE) >= 2*attacks_until_ko + ((attacks_until_ko == 2 && (gBattleMons[gBattlerTarget].hp * 3 < 2 * gBattleMons[gBattlerTarget].maxHP || FIRST_IS_LEECH_SEEDING_SECOND(gBattlerTarget, sBattler_AI) || EXPECTED_TO_SLEEP_DURING_NEXT_TURN(sBattler_AI) || gBattleMons[sBattler_AI].status1 & (STATUS1_TOXIC_POISON | STATUS1_FREEZE | STATUS1_PARALYSIS) || gBattleMons[sBattler_AI].status2 & (STATUS2_CONFUSION | STATUS2_INFATUATION | STATUS2_CURSED))) ? 0 : 1)
+                        && CalculateNHKO(sBattler_AI, gBattlerTarget, TRUE, move, FALSE, FALSE) >= 2*attacks_until_ko + ((attacks_until_ko == 2 && (gBattleMons[gBattlerTarget].hp * 3 < 2 * gBattleMons[gBattlerTarget].maxHP || FIRST_IS_LEECH_SEEDING_SECOND(gBattlerTarget, sBattler_AI) || EXPECTED_TO_SLEEP_DURING_NEXT_TURN(sBattler_AI) || gBattleMons[sBattler_AI].status1 & (STATUS1_TOXIC_POISON | STATUS1_FREEZE | STATUS1_PARALYSIS) || gBattleMons[sBattler_AI].status2 & (STATUS2_CONFUSION | STATUS2_INFATUATION | STATUS2_CURSED) || gBattlerTargetKnows50HPRecoveryMove() || gBattlerTargetKnowsMoveWithEffect(EFFECT_REST))) ? 0 : 1)
                        )
                      )
                  )
