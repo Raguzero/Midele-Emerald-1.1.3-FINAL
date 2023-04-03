@@ -636,13 +636,34 @@ AI_CBM_PerishSong: @ 82DC5E2
 	if_equal 0, Score_Plus2
 	count_usable_party_mons AI_USER
 	if_equal 0, Score_Minus10
-AI_CBM_PerishSong_CheckStatusAgain:
+AI_CBM_PerishSong_IgnoreNumberOfMons:
+	if_stat_level_more_than AI_TARGET, STAT_ATK, 7, AI_CBM_PerishSong_EncouragePhazing
+	if_stat_level_more_than AI_TARGET, STAT_DEF, 8, AI_CBM_PerishSong_EncouragePhazing
+	if_stat_level_more_than AI_TARGET, STAT_SPATK, 7, AI_CBM_PerishSong_EncouragePhazing
+	if_stat_level_more_than AI_TARGET, STAT_SPDEF, 8, AI_CBM_PerishSong_EncouragePhazing
+	if_stat_level_more_than AI_TARGET, STAT_EVASION, 8, AI_CBM_PerishSong_EncouragePhazing
+	if_stat_level_more_than AI_TARGET, STAT_ATK, 6, AI_CBM_PerishSong_CheckSpeedForPossibleDragonDance
+	if_stat_level_more_than AI_TARGET, STAT_DEF, 7, AI_CBM_PerishSong_ConsiderPhazing
+	if_stat_level_more_than AI_TARGET, STAT_SPATK, 6, AI_CBM_PerishSong_ConsiderPhazing
+	if_stat_level_more_than AI_TARGET, STAT_SPDEF, 7, AI_CBM_PerishSong_ConsiderPhazing
+	if_stat_level_more_than AI_TARGET, STAT_EVASION, 7, AI_CBM_PerishSong_ConsiderPhazing
+AI_CBM_PerishSong_SkipPhazing:
     if_type AI_TARGET, TYPE_GHOST, Score_Minus8
     if_status3 AI_TARGET, STATUS3_ROOTED, Score_Plus2
     if_status2 AI_TARGET, STATUS2_ESCAPE_PREVENTION | STATUS2_WRAPPED, Score_Plus2
-    if_has_move_with_effect AI_USER, EFFECT_MEAN_LOOK, Score_Minus8
-    if_has_move_with_effect AI_USER, EFFECT_TRAP, Score_Minus8
+    if_has_move_with_effect AI_USER, EFFECT_MEAN_LOOK, Score_Minus5
+    if_has_move_with_effect AI_USER, EFFECT_TRAP, Score_Minus5
+AI_CBM_PerishSong_End:
 	end
+
+AI_CBM_PerishSong_CheckSpeedForPossibleDragonDance:
+	if_stat_level_more_than AI_TARGET, STAT_SPEED, 6, AI_CBM_PerishSong_EncouragePhazing
+AI_CBM_PerishSong_ConsiderPhazing:
+	if_has_move_with_effect AI_TARGET, EFFECT_BATON_PASS, AI_CBM_PerishSong_EncouragePhazing
+	if_random_less_than 128, AI_CBM_PerishSong_SkipPhazing
+AI_CBM_PerishSong_EncouragePhazing:
+	score +1
+	goto AI_CBM_PerishSong_End
 
 AI_CBM_Sandstorm: @ 82DC5ED
 	get_weather
@@ -5156,7 +5177,7 @@ AI_UsePerishSongEvenIfLastPokemon:
     count_usable_party_mons AI_USER
     if_not_equal 0, AI_UsePerishSongEvenIfLastPokemon_End
     score +10
-	goto AI_CBM_PerishSong_CheckStatusAgain
+	goto AI_CBM_PerishSong_IgnoreNumberOfMons
 AI_UsePerishSongEvenIfLastPokemon_End:
     end
 
