@@ -650,7 +650,7 @@ AI_CBM_PerishSong_IgnoreNumberOfMons:
 AI_CBM_PerishSong_SkipPhazing:
     if_type AI_TARGET, TYPE_GHOST, Score_Minus8
     if_status3 AI_TARGET, STATUS3_ROOTED, Score_Plus2
-    if_status2 AI_TARGET, STATUS2_ESCAPE_PREVENTION | STATUS2_WRAPPED, Score_Plus2
+    if_status2 AI_TARGET, STATUS2_ESCAPE_PREVENTION | 0x8000, Score_Plus2 @ con 0x8000 se determina si quedan al menos 4 turnos de Wrap y similares
     if_has_move_with_effect AI_USER, EFFECT_MEAN_LOOK, Score_Minus5
     if_has_move_with_effect AI_USER, EFFECT_TRAP, Score_Minus5
 AI_CBM_PerishSong_End:
