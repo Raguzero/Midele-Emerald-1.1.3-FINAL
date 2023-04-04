@@ -26712,3 +26712,431 @@ static const struct TrainerMonCustomMidele sParty_Cheryl_2[] = {
     .moves = {MOVE_MEMENTO, MOVE_HAZE, MOVE_NONE, MOVE_NONE}
     }
 };
+static const struct TrainerMonCustomMidele sParty_Micomode_Ezecuter[] = {
+    {
+    .iv = 31,
+    .lvl = 4,
+    .species = SPECIES_VULPIX,
+	.heldItem = ITEM_NONE,
+    .ability = 1,
+    .nature = NATURE_MODEST,
+	.evs = {252, 0, 6, 252, 0, 0},
+    .moves = {MOVE_EMBER, MOVE_SPITE, MOVE_SUNNY_DAY, MOVE_SWIFT}
+    },
+    {
+    .iv = 31,
+    .lvl = 3,
+    .species = SPECIES_EXEGGCUTE,
+	.heldItem = ITEM_SILK_SCARF,
+    .ability = 0,
+    .nature = NATURE_MODEST,
+	.evs = {128, 0, 0, 252, 0, 128},
+    .moves = {MOVE_BARRAGE, MOVE_HYPNOSIS, MOVE_SUNNY_DAY, MOVE_NONE},
+    },
+    {
+    .iv = 31,
+    .lvl = 4,
+    .species = SPECIES_MAGBY,
+	.heldItem = ITEM_NONE,
+    .nature = NATURE_LONELY,
+	.evs = {0, 252, 0, 252, 0, 6},
+    .moves = {MOVE_EMBER, MOVE_KARATE_CHOP, MOVE_SUNNY_DAY, MOVE_NONE},
+    }
+};
+static const struct TrainerMonCustomMidele sParty_MicomodeElPrincipe[] = {
+    {
+    .iv = 31,  
+    .lvl = 5,
+    .species = SPECIES_BUDEW,
+	.heldItem = ITEM_NONE, 
+	.nature = NATURE_IMPISH,
+	.ability = 0,
+	.evs = {252, 0, 0, 6, 0, 252},  
+    .moves = {MOVE_WEATHER_BALL, MOVE_RAZOR_LEAF, MOVE_SUNNY_DAY, MOVE_PROTECT}
+	},
+    {
+    .iv = 31,  
+    .lvl = 4,
+    .species = SPECIES_SNOVER,
+	.heldItem = ITEM_FOCUS_SASH, 
+	.nature = NATURE_ADAMANT,
+	.ability = 1,
+	.evs = {6, 252, 252, 0, 0, 0},  
+    .moves = {MOVE_ICY_WIND, MOVE_POUND, MOVE_MAGICAL_LEAF, MOVE_HAIL}
+	},
+    {
+    .iv = 31,  
+    .lvl = 4,
+    .species = SPECIES_ELECTRIKE,
+	.heldItem = ITEM_NONE, 
+	.nature = NATURE_TIMID,
+	.evs = {6, 0, 0, 252, 0, 252},  
+    .moves = {MOVE_RAIN_DANCE, MOVE_SHOCK_WAVE, MOVE_SUBSTITUTE, MOVE_SWIFT}
+	},
+    {
+    .iv = 31,  
+    .lvl = 4,
+    .species = SPECIES_HIPPOPOTAS,
+	.heldItem = ITEM_LEFTOVERS, 
+	.nature = NATURE_ADAMANT,
+	.evs = {0, 252, 0, 6, 0, 252},  
+    .moves = {MOVE_SANDSTORM, MOVE_MUD_SLAP, MOVE_ROCK_TOMB, MOVE_SAND_ATTACK}
+	},
+    {
+    .iv = 31,  
+    .lvl = 6,
+    .species = SPECIES_CYNDAQUIL,
+	.heldItem = ITEM_CHARCOAL, 
+	.nature = NATURE_MODEST,
+	.evs = {6, 0, 0, 252, 0, 252},  
+    .moves = {MOVE_SMOKESCREEN, MOVE_EMBER, MOVE_FURY_SWIPES, MOVE_SUNNY_DAY}
+	}
+};
+static const struct TrainerMonCustomMidele sParty_MicomodeKefky[] = {
+    {
+    .iv = 31,  
+    .lvl = 6,
+    .species = SPECIES_GROOKEY,
+	.heldItem = ITEM_LEFTOVERS, 
+	.nature = NATURE_ADAMANT,
+	.evs = {6, 252, 0, 0, 0, 252},  
+    .moves = {MOVE_SWORDS_DANCE, MOVE_ROCK_SMASH, MOVE_SCRATCH, MOVE_VINE_WHIP}
+	},
+    {
+    .iv = 31,  
+    .lvl = 7,
+    .species = SPECIES_SLAKOTH,
+	.heldItem = ITEM_CHOICE_BAND, 
+	.nature = NATURE_ADAMANT,
+	.shiny = TRUE,
+	.evs = {6, 252, 0, 0, 0, 252},  
+    .moves = {MOVE_SCRATCH, MOVE_ROCK_TOMB, MOVE_DYNAMIC_PUNCH, MOVE_NONE}
+	},
+    {
+    .iv = 31,  
+    .lvl = 6,
+    .species = SPECIES_MANKEY,
+	.heldItem = ITEM_CHOICE_SCARF, 
+	.nature = NATURE_JOLLY,
+	.evs = {6, 252, 0, 0, 0, 252},  
+    .moves = {MOVE_KARATE_CHOP, MOVE_SCRATCH, MOVE_AERIAL_ACE, MOVE_NONE}
+	},
+    {
+    .iv = 31,  
+    .lvl = 6,
+    .species = SPECIES_CHIMCHAR,
+	.heldItem = ITEM_SILK_SCARF, 
+	.nature = NATURE_NAIVE,
+	.evs = {0, 252, 0, 6, 0, 252},  
+    .moves = {MOVE_EMBER, MOVE_SCRATCH, MOVE_FAKE_OUT, MOVE_LEER}
+	},
+    {
+    .iv = 31,  
+    .lvl = 7,
+    .species = SPECIES_AIPOM,
+	.heldItem = ITEM_SILK_SCARF, 
+	.nature = NATURE_JOLLY,
+	.ability = 0,
+	.evs = {6, 252, 0, 0, 0, 252},  
+    .moves = {MOVE_FAKE_OUT, MOVE_SCRATCH, MOVE_MUD_SLAP, MOVE_TICKLE}
+	},
+    {
+    .iv = 0,  
+    .lvl = 10,
+    .species = SPECIES_BUTTERFREE,
+	.heldItem = ITEM_SILK_SCARF, 
+	.nature = NATURE_ADAMANT,
+	.ability = 0,
+	.evs = {0, 0, 0, 0, 0, 0},  
+    .moves = {MOVE_GUST, MOVE_CONFUSION, MOVE_TACKLE, MOVE_STRING_SHOT}
+	}
+};
+
+static const struct TrainerMonCustomMidele sParty_MicomodeCharizardFan[] = {
+    {
+    .iv = 31,  
+    .lvl = 6,
+    .species = SPECIES_CHARMANDER,
+	.heldItem = ITEM_LEFTOVERS, 
+	.nature = NATURE_TIMID,
+	.evs = {252, 0, 6, 0, 0, 252},  
+    .moves = {MOVE_TOXIC, MOVE_EMBER, MOVE_PROTECT, MOVE_ATTRACT}
+	},
+    {
+    .iv = 31,  
+    .lvl = 7,
+    .species = SPECIES_CHARMANDER,
+	.heldItem = ITEM_POWER_HERB, 
+	.nature = NATURE_NAIVE,
+	.evs = {6, 0, 0, 252, 0, 252},  
+    .moves = {MOVE_ROCK_TOMB, MOVE_EMBER, MOVE_SOLAR_BEAM, MOVE_SUNNY_DAY}
+	},
+    {
+    .iv = 31,  
+    .lvl = 8,
+    .species = SPECIES_CHARMANDER,
+	.heldItem = ITEM_SHARP_BEAK, 
+	.nature = NATURE_ADAMANT,
+	.evs = {6, 252, 0, 0, 0, 252},  
+	.shiny = 1,
+    .moves = {MOVE_DRAGON_DANCE, MOVE_AERIAL_ACE, MOVE_FURY_CUTTER, MOVE_SWIFT}
+	}
+};
+
+static const struct TrainerMonCustomMidele sParty_MicomodePuffu[] = {
+  {
+    .iv = 31,
+    .lvl = 7,
+    .species = SPECIES_SPHEAL,
+    .heldItem = ITEM_NONE,
+    .nature = NATURE_CALM,
+    .evs = {252, 0, 6, 0, 252, 0},
+    .moves = {MOVE_YAWN, MOVE_POWDER_SNOW, MOVE_WHIRLPOOL, MOVE_NONE}
+  },
+  {
+    .iv = 31,
+    .lvl = 7,
+    .species = SPECIES_SEEL,
+    .heldItem = ITEM_MYSTIC_WATER,
+    .nature = NATURE_BOLD,
+    .evs = {252, 0, 252, 0, 6, 0},
+    .moves = {MOVE_WHIRLPOOL, MOVE_PERISH_SONG, MOVE_PROTECT, MOVE_HEADBUTT}
+	},
+  {
+    .iv = 31,
+    .lvl = 8,
+    .species = SPECIES_SEEL,
+    .heldItem = ITEM_NEVER_MELT_ICE,
+    .nature = NATURE_BRAVE,
+    .evs = {6, 252, 0, 252, 0, 0},
+    .moves = {MOVE_DISABLE, MOVE_WATER_PULSE, MOVE_ICICLE_SPEAR, MOVE_FAKE_OUT}
+	},
+  {
+    .iv = 31,
+    .lvl = 8,
+    .species = SPECIES_SPHEAL,
+    .heldItem = ITEM_NONE,
+    .nature = NATURE_BRAVE,
+    .evs = {6, 252, 0, 252, 0, 0},
+    .moves = {MOVE_ROCK_SMASH, MOVE_ICY_WIND, MOVE_ROCK_TOMB, MOVE_NONE}
+	}
+};
+
+static const struct TrainerMonCustomMidele sParty_MicomodeMerciboku[] = {
+  {
+    .iv = 31,
+    .lvl = 7,
+    .species = SPECIES_MACHOP,
+    .shiny = 1,
+	.ability = 1,
+    .heldItem = ITEM_CHARCOAL,
+    .nature = NATURE_QUIET,
+    .evs = {128, 128, 0, 252, 0, 6},
+    .moves = {MOVE_ICE_PUNCH, MOVE_FIRE_PUNCH, MOVE_KARATE_CHOP, MOVE_ATTRACT}
+  },
+  {
+    .iv = 31,
+    .lvl = 8,
+    .species = SPECIES_CLEFFA,
+    .heldItem = ITEM_LUM_BERRY,
+    .nature = NATURE_MODEST,
+    .evs = {252, 0, 252, 6, 0, 0},
+    .moves = {MOVE_FLAMETHROWER, MOVE_ICY_WIND, MOVE_METRONOME, MOVE_ATTRACT}
+	},
+  {
+    .iv = 31,
+    .lvl = 8,
+    .species = SPECIES_RALTS,
+    .ability = 1,
+    .heldItem = ITEM_MENTAL_HERB,
+    .nature = NATURE_BOLD,
+    .evs = {128, 0, 128, 0, 0, 252},
+    .moves = {MOVE_ATTRACT, MOVE_CHARM, MOVE_CONFUSION, MOVE_FAIRY_WIND}
+	},
+  {
+    .iv = 31,
+    .lvl = 8,
+    .species = SPECIES_NIDORAN_F,
+    .ability = 1,
+    .heldItem = ITEM_LEFTOVERS,
+    .nature = NATURE_RELAXED,
+    .evs = {252, 0, 6, 0, 252, 0},
+    .moves = {MOVE_SWEET_KISS, MOVE_ATTRACT, MOVE_POISON_TAIL, MOVE_PURSUIT}
+	}
+};
+
+static const struct TrainerMonCustomMidele sParty_MicomodeTenshinhan[] = {
+    {
+    .iv = 31,  
+    .lvl = 8, 
+    .species = SPECIES_FERROSEED,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_IMPISH, 
+	.evs = {252, 0, 252, 0, 6, 0},  
+	.ability = 0,
+    .moves = {MOVE_LEECH_SEED, MOVE_THUNDER_WAVE, MOVE_GIGA_DRAIN, MOVE_SPIKES}
+    },
+    {
+    .iv = 31,  
+    .lvl = 9, 
+    .species = SPECIES_ELEKID,
+	.heldItem = ITEM_MAGNET,
+	.nature = NATURE_NAIVE, 
+	.evs = {0, 100, 0, 156, 0, 252},  
+	.ability = 0,
+    .moves = {MOVE_SHOCK_WAVE, MOVE_PURSUIT, MOVE_LIGHT_SCREEN, MOVE_KARATE_CHOP}
+    },
+    {
+    .iv = 31,  
+    .lvl = 8, 
+    .species = SPECIES_DUSKULL,
+	.heldItem = ITEM_LEFTOVERS,
+	.nature = NATURE_ADAMANT,
+	.evs = {252, 252, 6, 0, 0, 0}, 
+	.ability = 0,
+    .moves = {MOVE_SHADOW_SNEAK, MOVE_FAINT_ATTACK, MOVE_PAIN_SPLIT, MOVE_DISABLE}
+    },
+    {
+    .iv = 31, 
+    .lvl = 7,
+    .species = SPECIES_CARVANHA,
+	.heldItem = ITEM_FOCUS_SASH,
+	.nature = NATURE_ADAMANT,
+	.evs = {0, 6, 0, 252, 0, 252},    
+	.ability = 0,
+    .moves = {MOVE_WATER_PULSE, MOVE_BITE, MOVE_RAGE, MOVE_NONE}
+    },
+    {
+    .iv = 31,  
+    .lvl = 8, 
+    .species = SPECIES_YANMA,
+	.heldItem = ITEM_SILK_SCARF,
+	.nature = NATURE_ADAMANT, 
+	.evs = {6, 252, 0, 0, 0, 252},  
+	.ability = 0,
+    .moves = {MOVE_SWORDS_DANCE, MOVE_QUICK_ATTACK, MOVE_AERIAL_ACE, MOVE_SILVER_WIND}
+    },
+    {
+    .iv = 31,  
+    .lvl = 9, 
+    .species = SPECIES_CHIMCHAR,
+	.heldItem = ITEM_CHARCOAL,
+	.nature = NATURE_MODEST, 
+	.evs = {0, 100, 0, 156, 0, 252},  
+	.ability = 0, 
+    .moves = {MOVE_EMBER, MOVE_SCRATCH, MOVE_ENCORE, MOVE_FAKE_OUT}
+    }
+};
+
+static const struct TrainerMonCustomMidele sParty_MicomodeGrim[] = { 
+	{
+	.iv = 31,
+	.lvl = 11, 
+	.species = SPECIES_STARYU, 
+	.heldItem = ITEM_LEFTOVERS,  
+	.nature = NATURE_TIMID,
+	.evs = {0, 4, 0, 252, 0, 252},
+	.ability = 1, 
+	.moves = {MOVE_HARDEN, MOVE_WATER_GUN, MOVE_ICY_WIND, MOVE_RAIN_DANCE} 
+	}, 
+	{ 
+	.iv = 31,
+	.lvl = 9, 
+	.species = SPECIES_MUNCHLAX, 
+	.heldItem = ITEM_LEFTOVERS, 
+	.nature = NATURE_CAREFUL,
+	.evs = {144, 96, 132, 0, 136, 0},
+	.ability = 0, 
+	.moves = {MOVE_TACKLE, MOVE_DEFENSE_CURL, MOVE_ROLLOUT, MOVE_LICK} 
+	}, 
+	{ 
+	.iv = 31,
+	.lvl = 9, 
+	.species = SPECIES_GASTLY, 
+	.heldItem = ITEM_LEFTOVERS, 
+	.nature = NATURE_TIMID,
+	.evs = {4, 0, 0, 252, 0, 252},
+	.ability = 0, 
+	.moves = {MOVE_HYPNOSIS, MOVE_SPITE, MOVE_PSYWAVE, MOVE_LICK} 
+	}, 
+	{ 
+	.iv = 31,
+	.lvl = 10, 
+	.species = SPECIES_FEEBAS, 
+	.heldItem = ITEM_LEFTOVERS, 
+	.nature = NATURE_BOLD,
+	.evs = {252, 0, 252, 0, 4, 0},
+	.ability = 0, 
+	.moves = {MOVE_WATER_PULSE, MOVE_RAIN_DANCE, MOVE_DRAGON_BREATH, MOVE_HYPNOSIS} 
+	}
+};
+
+static const struct TrainerMonCustomMidele sParty_MicomodeJProgamer[] = {
+	{
+	.iv = 31,
+	.lvl = 9, 
+	.species = SPECIES_KOFFING, 
+	.heldItem = ITEM_POISON_BARB,  
+	.nature = NATURE_BRAVE,
+	.evs = {0, 252, 6, 252, 0, 0},
+	.moves = {MOVE_SMOG, MOVE_PSYBEAM, MOVE_SHOCK_WAVE, MOVE_POISON_GAS} 
+	},
+	{
+	.iv = 31,
+	.lvl = 8, 
+	.species = SPECIES_SLOWPOKE, 
+	.heldItem = ITEM_BRIGHT_POWDER,  
+	.nature = NATURE_CAREFUL,
+	.evs = {252, 0, 6, 0, 252, 0},
+	.moves = {MOVE_WATER_PULSE, MOVE_THUNDER_WAVE, MOVE_CURSE, MOVE_STOMP} 
+	},
+	{
+	.iv = 31,
+	.lvl = 9, 
+	.species = SPECIES_MAREEP, 
+	.heldItem = ITEM_MAGNET,  
+	.nature = NATURE_JOLLY,
+	.evs = {0, 252, 6, 0, 0, 252},
+	.ability = 1,
+	.moves = {MOVE_THUNDER_WAVE, MOVE_THUNDER_SHOCK, MOVE_BODY_SLAM, MOVE_FLASH} 
+	},
+	{
+	.iv = 31,
+	.lvl = 10, 
+	.species = SPECIES_WYNAUT, 
+	.heldItem = ITEM_NONE,  
+	.nature = NATURE_JOLLY,
+	.evs = {252, 0, 6, 0, 0, 252},
+	.moves = {MOVE_COUNTER, MOVE_CHARM, MOVE_ENCORE, MOVE_MIRROR_COAT} 
+	}
+};
+
+static const struct TrainerMonCustomMidele sParty_MicomodeCastillo[] = {
+	{
+    .iv = 31,
+    .lvl = 7,
+    .species = SPECIES_SANDYGAST,
+    .heldItem = ITEM_LEFTOVERS,
+    .nature = NATURE_SASSY,
+    .evs = {128, 128, 128, 0, 128, 0},
+    .moves = {MOVE_SAND_ATTACK, MOVE_SANDSTORM, MOVE_ROCK_TOMB, MOVE_ASTONISH}
+    },
+    {
+    .iv = 31,
+    .lvl = 6, 
+    .species = SPECIES_SPINDA,
+    .heldItem = ITEM_LUM_BERRY, 
+    .nature = NATURE_ADAMANT, 
+    .evs = {252, 252, 0, 0, 0, 4},
+    .moves = {MOVE_ENCORE, MOVE_UPROAR, MOVE_ROCK_SMASH, MOVE_SUBSTITUTE}
+    },
+    {
+    .iv = 31,
+    .lvl = 9, 
+    .species = SPECIES_IGGLYBUFF,
+    .heldItem = ITEM_ORAN_BERRY, 
+    .nature = NATURE_RELAXED, 
+    .evs = {0, 0, 252, 6, 252, 0},
+    .moves = {MOVE_SING, MOVE_FLAMETHROWER, MOVE_SOLAR_BEAM, MOVE_MEGA_KICK}
+    }
+};

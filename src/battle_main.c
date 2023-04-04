@@ -2102,8 +2102,12 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 		// NUEVO PARA CUSTOM TRAINER
 	 case F_TRAINER_PARTY_CUSTOM_MIDELE:
             {
-                const struct TrainerMonCustomMidele *partyData = gTrainers[trainerNum].party.ItemCustomMidele;
                 u8 mideleLevel;
+				const struct TrainerMonCustomMidele *partyData;
+			if (FlagGet(FLAG_UNUSED_0x2AE) == 1)
+				partyData = gMicoModeTrainers[trainerNum].party.ItemCustomMidele;
+			else
+				partyData = gTrainers[trainerNum].party.ItemCustomMidele;
 
 		// NUEVO RANDOM BATTLE
                 if (FlagGet(FLAG_RYU_RANDOMBATTLE) == 1)
