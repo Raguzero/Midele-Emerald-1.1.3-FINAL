@@ -5736,8 +5736,8 @@
                                 "species": "SPECIES_MEDITITE"
                             },
                             {
-                                "max_level": 42,
-                                "min_level": 39,
+                                "max_level": 38,
+                                "min_level": 35,
                                 "species": "SPECIES_DREEPY"
                             },
                             {
@@ -5746,8 +5746,8 @@
                                 "species": "SPECIES_MEDITITE"
                             },
                             {
-                                "max_level": 42,
-                                "min_level": 42,
+                                "max_level": 38,
+                                "min_level": 36,
                                 "species": "SPECIES_DREEPY"
                             }
                         ]
@@ -15266,7 +15266,7 @@
                             {
                                 "max_level": 50,
                                 "min_level": 45,
-                                "species": "SPECIES_PAWNIARD"
+                                "species": "SPECIES_BISHARP"
                             },
                             {
                                 "max_level": 50,
@@ -15291,7 +15291,7 @@
                             {
                                 "max_level": 50,
                                 "min_level": 45,
-                                "species": "SPECIES_DEINO"
+                                "species": "SPECIES_ZWEILOUS"
                             }
                         ]
                     },
@@ -15335,7 +15335,7 @@
                             {
                                 "max_level": 50,
                                 "min_level": 45,
-                                "species": "SPECIES_PAWNIARD"
+                                "species": "SPECIES_BISHARP"
                             },
                             {
                                 "max_level": 50,
@@ -15360,7 +15360,7 @@
                             {
                                 "max_level": 50,
                                 "min_level": 45,
-                                "species": "SPECIES_DEINO"
+                                "species": "SPECIES_ZWEILOUS"
                             }
                         ]
                     },
@@ -15489,7 +15489,7 @@
                             {
                                 "max_level": 50,
                                 "min_level": 45,
-                                "species": "SPECIES_PAWNIARD"
+                                "species": "SPECIES_BISHARP"
                             },
                             {
                                 "max_level": 50,
@@ -15514,7 +15514,7 @@
                             {
                                 "max_level": 50,
                                 "min_level": 45,
-                                "species": "SPECIES_DEINO"
+                                "species": "SPECIES_ZWEILOUS"
                             }
                         ]
                     },
