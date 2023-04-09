@@ -1701,6 +1701,9 @@ void AI_CalcDmg(u8 attacker, u8 defender)
 	if (gBattleMons[defender].ability == ABILITY_BATTLE_ARMOR || gBattleMons[defender].ability == ABILITY_SHELL_ARMOR || (gStatuses3[attacker] & STATUS3_CANT_SCORE_A_CRIT))
         gCritMultiplier = 1;
 
+    if (gBattleMoves[gCurrentMove].effect == EFFECT_BRICK_BREAK)
+        sideStatus &= ~(SIDE_STATUS_REFLECT | SIDE_STATUS_LIGHTSCREEN);
+
 	gBattleMoveDamage = CalculateBaseDamage(&gBattleMons[attacker], &gBattleMons[defender], gCurrentMove,
                                             sideStatus, gDynamicBasePower,
                                             gBattleStruct->dynamicMoveType, attacker, defender);
