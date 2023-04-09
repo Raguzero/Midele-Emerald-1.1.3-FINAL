@@ -1131,6 +1131,31 @@ bool8 KnowsSomeRecoveryMove(u32 opposingBattler)
     return FALSE;
 }
 
+#define IGNORE_REFLECT_AND_LIGHT_SCREEN_IF_ABOUT_TO_FINISH(targets_side) \
+{                                                                        \
+  if ((gSideStatuses[targets_side] & SIDE_STATUS_REFLECT)                \
+      && gSideTimers[targets_side].reflectTimer == 1)                    \
+    gSideStatuses[targets_side] &= ~SIDE_STATUS_REFLECT;                 \
+  if ((gSideStatuses[targets_side] & SIDE_STATUS_LIGHTSCREEN)            \
+      && gSideTimers[targets_side].lightscreenTimer == 1)                \
+    gSideStatuses[targets_side] &= ~SIDE_STATUS_LIGHTSCREEN;             \
+}
+
+#define SET_WEATHER(ability) {              \
+  if (ability == ABILITY_DRIZZLE)           \
+    gBattleWeather = WEATHER_RAIN_ANY;      \
+  if (ability == ABILITY_SAND_STREAM)       \
+    gBattleWeather = WEATHER_SANDSTORM_ANY; \
+  if (ability == ABILITY_DROUGHT)           \
+    gBattleWeather = WEATHER_SUN_ANY;       \
+  if (ability == ABILITY_SNOW_WARNING)      \
+    gBattleWeather = WEATHER_HAIL_ANY;      \
+}
+
+#define IGNORE_WEATHER_IF_ABOUT_TO_FINISH() { \
+  if (gWishFutureKnock.weatherDuration == 1 && !(gBattleWeather & (WEATHER_RAIN_PERMANENT | WEATHER_SANDSTORM_PERMANENT | WEATHER_SUN_PERMANENT | WEATHER_HAIL_PERMANENT))) gBattleWeather = 0; \
+}
+
 // Prepara una tabla con tres entradas para cada poke del equipo:
 // si es más rápido que el rival, qué nHKO le hace al rival, qué nHKO espera
 // recibir del rival y si le quita un 56.25% de los PS con algún ataque
@@ -1142,6 +1167,14 @@ void PrepareNHKOTable(struct Pokemon *party, s32 firstId, s32 lastId, u8 filtere
         struct BattlePokemon currentMon = gBattleMons[gActiveBattler];
 		struct DisableStruct disableStructCopy = gDisableStructs[gActiveBattler];
         u16 partyIndex = gBattlerPartyIndexes[gActiveBattler];
+        const u16 AISideStatuses = gSideStatuses[GetBattlerSide(gActiveBattler)];
+        const u16 oppositeSideStatuses = gSideStatuses[GetBattlerSide(opposingBattler)];
+        const u16 weather = gBattleWeather;
+        const bool8 opponentHasYetToAttack = HasYetToAttack(opposingBattler);
+
+        IGNORE_REFLECT_AND_LIGHT_SCREEN_IF_ABOUT_TO_FINISH(GetBattlerSide(opposingBattler));
+        if (!opponentHasYetToAttack)
+            IGNORE_REFLECT_AND_LIGHT_SCREEN_IF_ABOUT_TO_FINISH(GetBattlerSide(gActiveBattler));
 
         for (i = firstId; i < lastId; i++)
             if (!(gBitTable[i] & filteredMons))
@@ -1155,17 +1188,21 @@ void PrepareNHKOTable(struct Pokemon *party, s32 firstId, s32 lastId, u8 filtere
                 gBattleMons[opposingBattler].statStages[STAT_ATK] -= 1;
 				PrepareDisableStructForSwitchIn(gActiveBattler, &disableStructCopy);
 				TransformIfImposter(gActiveBattler, opposingBattler);
+                SET_WEATHER(gBattleMons[gActiveBattler].ability);
 
-                // Guarda en la primera posición un 1 si es más rápido que el rival
+                // Guarda en la primera posición un 1 si es más rápido que el rival.
+                // Guarda en la segunda posición el nHKO que le hace al rival,
+                // y en la tercera el que espera recibir del rival
+                if (!opponentHasYetToAttack) IGNORE_WEATHER_IF_ABOUT_TO_FINISH();
+                nhko[i][2] = CalculateNHKO(opposingBattler, gActiveBattler, FALSE, MOVE_NONE, FALSE, TRUE);
+                if (opponentHasYetToAttack) IGNORE_WEATHER_IF_ABOUT_TO_FINISH();
+
                 if (GetWhoStrikesFirst(gActiveBattler, opposingBattler, TRUE) == 0)
                     nhko[i][0] = 1;
                 else
                     nhko[i][0] = 0;
 
-                // Guarda en la segunda posición el nHKO que le hace al rival,
-                // y en la tercera el que espera recibir del rival
                 nhko[i][1] = CalculateNHKO(gActiveBattler, opposingBattler, TRUE, MOVE_NONE, FALSE, TRUE);
-                nhko[i][2] = CalculateNHKO(opposingBattler, gActiveBattler, FALSE, MOVE_NONE, FALSE, TRUE);
 
                 {
                     u16 current_opponent_hp = gBattleMons[opposingBattler].hp;
@@ -1176,11 +1213,15 @@ void PrepareNHKOTable(struct Pokemon *party, s32 firstId, s32 lastId, u8 filtere
 
 			   if (intimidateApplies)
                gBattleMons[opposingBattler].statStages[STAT_ATK] += 1;
+
+          gBattleWeather = weather;
 			}
         
         gBattleMons[gActiveBattler] = currentMon;
 		gDisableStructs[gActiveBattler] = disableStructCopy;
         gBattlerPartyIndexes[gActiveBattler] = partyIndex;
+        gSideStatuses[GetBattlerSide(gActiveBattler)] = AISideStatuses;
+        gSideStatuses[GetBattlerSide(opposingBattler)] = oppositeSideStatuses;
     }
 }
 
@@ -1192,6 +1233,7 @@ u8 FilterSwitchInsThatMightGetKOedBeforeEndOfTurn(struct Pokemon *party, s32 fir
     u16 move = gLastMoves[opposingBattler];
     u8 moveLimitations;
     s32 i;
+    const u16 weather = gBattleWeather;
 
     if (!HasYetToAttack(opposingBattler) || move == MOVE_NONE || gBattleMoves[move].power == 0 || gDisableStructs[gActiveBattler].isFirstTurn != 0)
         return filteredMons;
@@ -1222,6 +1264,7 @@ u8 FilterSwitchInsThatMightGetKOedBeforeEndOfTurn(struct Pokemon *party, s32 fir
 
                 PrepareDisableStructForSwitchIn(gActiveBattler, &disableStructCopy);
                 TransformIfImposter(gActiveBattler, opposingBattler);
+                SET_WEATHER(gBattleMons[gActiveBattler].ability);
 
                 nhko = CalculateNHKO(opposingBattler, gActiveBattler, FALSE, move, FALSE, FALSE);
 				
@@ -1231,6 +1274,8 @@ u8 FilterSwitchInsThatMightGetKOedBeforeEndOfTurn(struct Pokemon *party, s32 fir
 
                 if (intimidateApplies)
                     gBattleMons[opposingBattler].statStages[STAT_ATK] += 1;
+
+                gBattleWeather = weather;
             }
 
         gBattleMons[gActiveBattler] = currentMon;
@@ -1270,6 +1315,12 @@ u8 FilterFragileMonsAgainstPriority(struct Pokemon *party, s32 firstId, s32 last
         struct BattlePokemon currentMon = gBattleMons[gActiveBattler];
         struct DisableStruct disableStructCopy = gDisableStructs[gActiveBattler];
         u16 partyIndex = gBattlerPartyIndexes[gActiveBattler];
+        const u16 AISideStatuses = gSideStatuses[GetBattlerSide(gActiveBattler)];
+        const u16 oppositeSideStatuses = gSideStatuses[GetBattlerSide(opposingBattler)];
+        const u16 weather = gBattleWeather;
+
+        IGNORE_REFLECT_AND_LIGHT_SCREEN_IF_ABOUT_TO_FINISH(GetBattlerSide(opposingBattler));
+        IGNORE_REFLECT_AND_LIGHT_SCREEN_IF_ABOUT_TO_FINISH(GetBattlerSide(gActiveBattler));
 
         for (i = firstId; i < lastId; i++)
             if (!(gBitTable[i] & filteredMons))
@@ -1284,6 +1335,8 @@ u8 FilterFragileMonsAgainstPriority(struct Pokemon *party, s32 firstId, s32 last
 
                 PrepareDisableStructForSwitchIn(gActiveBattler, &disableStructCopy);
                 TransformIfImposter(gActiveBattler, opposingBattler);
+                SET_WEATHER(gBattleMons[gActiveBattler].ability);
+                IGNORE_WEATHER_IF_ABOUT_TO_FINISH();
 
                 skipMon = FALSE;
 
@@ -1313,11 +1366,15 @@ u8 FilterFragileMonsAgainstPriority(struct Pokemon *party, s32 firstId, s32 last
 
                 if (intimidateApplies)
                     gBattleMons[opposingBattler].statStages[STAT_ATK] += 1;
+
+                gBattleWeather = weather;
             }
 
         gBattleMons[gActiveBattler] = currentMon;
         gDisableStructs[gActiveBattler] = disableStructCopy;
         gBattlerPartyIndexes[gActiveBattler] = partyIndex;
+        gSideStatuses[GetBattlerSide(gActiveBattler)] = AISideStatuses;
+        gSideStatuses[GetBattlerSide(opposingBattler)] = oppositeSideStatuses;
     }
 
     return filteredMons;
@@ -1420,7 +1477,7 @@ u8 FilterShedinjaIfVulnerable(struct Pokemon *party, s32 firstId, s32 lastId, u8
             if (species == SPECIES_SHEDINJA)
                 sheds |= gBitTable[i];
         }
-    if (sheds && ((gBattleWeather & WEATHER_SANDSTORM_ANY) || (gBattleWeather & WEATHER_HAIL_ANY)) && !(!(gBattleWeather & WEATHER_SANDSTORM_PERMANENT) && gWishFutureKnock.weatherDuration == 1)) // si hay arena o granizo y no está a punto de acabar
+    if (sheds && (gBattleWeather & (WEATHER_SANDSTORM_ANY | WEATHER_HAIL_ANY)) && !(!(gBattleWeather & (WEATHER_SANDSTORM_PERMANENT | WEATHER_HAIL_PERMANENT)) && gWishFutureKnock.weatherDuration == 1)) // si hay arena o granizo y no está a punto de acabar
         vulnerableSheds = sheds; // entonces todos los Shedinja son vulnerables
     else if (sheds)
     {
@@ -1428,6 +1485,11 @@ u8 FilterShedinjaIfVulnerable(struct Pokemon *party, s32 firstId, s32 lastId, u8
 		struct DisableStruct disableStructCopy = gDisableStructs[gActiveBattler];
         u16 partyIndex = gBattlerPartyIndexes[gActiveBattler];
 				u16 savedCurrentMove = gCurrentMove;
+        const u16 oppositeSideStatuses = gSideStatuses[GetBattlerSide(opposingBattler)];
+        const u16 weather = gBattleWeather;
+
+        IGNORE_REFLECT_AND_LIGHT_SCREEN_IF_ABOUT_TO_FINISH(GetBattlerSide(opposingBattler));
+        IGNORE_WEATHER_IF_ABOUT_TO_FINISH();
 
         for (i = firstId; i < lastId; i++)
             if ((gBitTable[i] & sheds))
@@ -1457,6 +1519,8 @@ u8 FilterShedinjaIfVulnerable(struct Pokemon *party, s32 firstId, s32 lastId, u8
         gBattleMons[gActiveBattler] = currentMon;
 		gDisableStructs[gActiveBattler] = disableStructCopy;
         gBattlerPartyIndexes[gActiveBattler] = partyIndex;
+        gSideStatuses[GetBattlerSide(opposingBattler)] = oppositeSideStatuses;
+        gBattleWeather = weather;
     }
     return (filteredMons | vulnerableSheds);
 }
@@ -1573,10 +1637,16 @@ u8 FilterOpponentCanBeTrappedAndDefeated(struct Pokemon *party, s32 firstId, s32
                         struct BattlePokemon currentMon = gBattleMons[gActiveBattler];
                         struct DisableStruct disableStructCopy = gDisableStructs[gActiveBattler];
                         u16 partyIndex = gBattlerPartyIndexes[gActiveBattler];
+                        const u16 oppositeSideStatuses = gSideStatuses[GetBattlerSide(opposingBattler)];
+                        const u16 weather = gBattleWeather;
 
                         PokemonToBattleMon(&party[i], &gBattleMons[gActiveBattler], gCurrentMove == MOVE_BATON_PASS);
                         gBattlerPartyIndexes[gActiveBattler] = i;
                         PrepareDisableStructForSwitchIn(gActiveBattler, &disableStructCopy);
+
+                        IGNORE_REFLECT_AND_LIGHT_SCREEN_IF_ABOUT_TO_FINISH(GetBattlerSide(opposingBattler));
+                        SET_WEATHER(gBattleMons[gActiveBattler].ability);
+                        IGNORE_WEATHER_IF_ABOUT_TO_FINISH();
 
                         moveLimitations = CheckMoveLimitations(gActiveBattler, 0, 0xFF);
                         if (CalculateNHKO(gActiveBattler, opposingBattler, TRUE, MOVE_PURSUIT, FALSE, FALSE) == 1)
@@ -1587,6 +1657,8 @@ u8 FilterOpponentCanBeTrappedAndDefeated(struct Pokemon *party, s32 firstId, s32
                         gBattleMons[gActiveBattler] = currentMon;
                         gDisableStructs[gActiveBattler] = disableStructCopy;
                         gBattlerPartyIndexes[gActiveBattler] = partyIndex;
+                        gSideStatuses[GetBattlerSide(opposingBattler)] = oppositeSideStatuses;
+                        gBattleWeather = weather;
                     }
                     if (!canKOwithPursuit)
                         filteredMons |= gBitTable[i];
