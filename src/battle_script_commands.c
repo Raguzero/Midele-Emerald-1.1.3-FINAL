@@ -1693,6 +1693,24 @@ void PrepareDynamicMoveTypeAndDamageForAI_CalcDmg(u8 attacker, u8 defender)
         gDynamicBasePower = 71;   // potencia promedio de Magnitud
 }
 
+// Aplica los modificadores de daño por tipos teniendo en cuenta que tendrá STAB si la habilidad es Protean
+u8 TypeCalc_HandleProtean(u16 move, u8 attacker, u8 defender)
+{
+    if (gBattleMons[attacker].ability == ABILITY_PROTEAN)
+    {
+        u8 flags;
+        u8 type1 = gBattleMons[attacker].type1, type2 = gBattleMons[attacker].type2;
+
+        gBattleMons[attacker].type1 = gBattleMons[attacker].type2 = gBattleMoves[move].type;
+        flags = TypeCalc(move, attacker, defender);
+
+        gBattleMons[attacker].type1 = type1;
+        gBattleMons[attacker].type2 = type2;
+        return flags;
+    }
+    return TypeCalc(move, attacker, defender);
+}
+
 void AI_CalcDmg(u8 attacker, u8 defender)
 {
     u16 sideStatus = gSideStatuses[GET_BATTLER_SIDE(defender)];
@@ -1708,7 +1726,7 @@ void AI_CalcDmg(u8 attacker, u8 defender)
                                             sideStatus, gDynamicBasePower,
                                             gBattleStruct->dynamicMoveType, attacker, defender);
     gDynamicBasePower = 0;
-    flags = TypeCalc(gCurrentMove, attacker, defender);
+    flags = TypeCalc_HandleProtean(gCurrentMove, attacker, defender);
     if (flags & (MOVE_RESULT_MISSED | MOVE_RESULT_DOESNT_AFFECT_FOE)) {
         gBattleMoveDamage = 0;
         return;
