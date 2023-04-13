@@ -618,9 +618,16 @@ s32 CalculatenHKOFromgCurrentMove(u8 attackerId, u8 targetId, u8 simulatedRng, s
 {
     s32 n;
     s32 divisor = 1, adder = 0;
-
+    s32 targetHP = gBattleMons[targetId].hp;
 
     CalculategBattleMoveDamageFromgCurrentMove(attackerId, targetId, simulatedRng);
+
+    // Si tiene sustituto, considera que tiene que bajar más PS.
+    // Los PS que se añaden son el daño que provoca por el número de golpes
+    // necesarios para eliminar el sustituto; de forma que tras ese número
+    // de golpes queden los PS actuales del poke
+    if (gBattleMoveDamage > 0 && (gBattleMons[targetId].status2 & STATUS2_SUBSTITUTE) && gDisableStructs[targetId].substituteHP > 0)
+        targetHP += gBattleMoveDamage*(1 + (gDisableStructs[targetId].substituteHP-1)/gBattleMoveDamage);
 
     // Multiplica por 2 si es un mov de dos turnos, y resta un turno si está ejecutándose
     switch (gBattleMoves[gCurrentMove].effect) {
@@ -634,9 +641,9 @@ s32 CalculatenHKOFromgCurrentMove(u8 attackerId, u8 targetId, u8 simulatedRng, s
             if ((gBattleMons[attackerId].status2 & STATUS2_MULTIPLETURNS) && gCurrentMove == gLastMoves[attackerId])
                 adder = 1;
     }
-	
+
     for (n = 1; n < best_nhko; n++)
-		if (gBattleMons[targetId].hp <= ((n+adder)/divisor) * gBattleMoveDamage)
+        if (targetHP <= ((n+adder)/divisor) * gBattleMoveDamage)
             return n;
 
     return best_nhko;
