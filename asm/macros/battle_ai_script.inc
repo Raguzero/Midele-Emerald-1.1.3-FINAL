@@ -738,7 +738,14 @@
     .endm
 	
 	.macro if_this_attack_might_be_the_last ptr:req
-    if_status3 AI_USER, STATUS3_ALWAYS_HITS, .AI_locked_on_\@
+    if_not_status3 AI_USER, STATUS3_ALWAYS_HITS, .AI_not_locked_on_\@
+    if_ability AI_USER, ABILITY_STURDY, .AI_skip_evasion_check_\@
+    if_ability AI_USER, ABILITY_WONDER_GUARD, .AI_skip_evasion_check_\@
+    if_level_cond AI_LEVEL_IS_GREATER_THAN_TARGETS, .AI_skip_evasion_check_\@
+    if_status2 AI_USER, STATUS2_SUBSTITUTE, .AI_skip_evasion_check_\@
+    if_next_turn_target_might_use_move_with_effect EFFECT_OHKO, \ptr
+    goto .AI_skip_evasion_check_\@
+    .AI_not_locked_on_\@:
     @ Si tiene la Evasión subida, tiene una pequeña probabilidad de jugársela
     @ (7/8 a +2 o +3, 49/64 a +4 o más)
     @ (la probabilidad de jugársela en alguno de los turnos en los que se está 
@@ -755,19 +762,8 @@
     if_random_less_than 32, \ptr
     .AI_skip_evasion_check_\@:
     calculate_nhko AI_TARGET
-	if_equal 1, .AI_attack_is_the_last_unless_faster_and_with_sub\@
+    if_equal 1, \ptr
     if_more_than 2, .AI_attack_is_probably_not_the_last_\@
-    if_status2 AI_USER, STATUS2_SUBSTITUTE, .AI_attack_is_probably_not_the_last_\@
-    if_target_faster \ptr
-    goto .AI_attack_is_probably_not_the_last_\@
-    .AI_locked_on_\@:
-    if_ability AI_USER, ABILITY_STURDY, .AI_skip_evasion_check_\@
-    if_ability AI_USER, ABILITY_WONDER_GUARD, .AI_skip_evasion_check_\@
-    if_level_cond AI_LEVEL_IS_GREATER_THAN_TARGETS, .AI_skip_evasion_check_\@
-    if_next_turn_target_might_use_move_with_effect EFFECT_OHKO, .AI_attack_is_the_last_unless_faster_and_with_sub\@
-    goto .AI_skip_evasion_check_\@
-    .AI_attack_is_the_last_unless_faster_and_with_sub\@:
-    if_not_status2 AI_USER, STATUS2_SUBSTITUTE, \ptr
     if_target_faster \ptr
 	.AI_attack_is_probably_not_the_last_\@:
     .endm
