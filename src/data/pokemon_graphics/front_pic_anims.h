@@ -6406,6 +6406,115 @@ static const union AnimCmd sAnim_KLEAVOR_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_WYRDEER_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_URSALUNA_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_SNEASLER_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_OVERQWIL_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_GROWLITHE_HISUIAN_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_ARCANINE_HISUIAN_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_VOLTORB_HISUIAN_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_ELECTRODE_HISUIAN_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_TYPHLOSION_HISUIAN_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_QWILFISH_HISUIAN_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_SNEASEL_HISUIAN_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_SLIGGOO_HISUIAN_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_GOODRA_HISUIAN_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_DECIDUEYE_HISUIAN_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_SLOWPOKE_GALARIAN_1[] =
+{
+    ANIMCMD_FRAME(0, 20),
+    ANIMCMD_FRAME(1, 50),
+    ANIMCMD_FRAME(0, 20),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_SLOWBRO_GALARIAN_1[] =
+{
+    ANIMCMD_FRAME(1, 50),
+    ANIMCMD_FRAME(1, 45),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_END,
+};
+
+
+static const union AnimCmd sAnim_SLOWKING_GALARIAN_1[] =
+{
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 20),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd *const sAnims_NONE[] ={
     sAnim_GeneralFrame0,
     sAnim_NONE_1,
@@ -9637,6 +9746,91 @@ static const union AnimCmd *const sAnims_KLEAVOR[] ={
     sAnim_KLEAVOR_1,
 };
 
+static const union AnimCmd *const sAnims_WYRDEER[] ={
+    sAnim_GeneralFrame0,
+    sAnim_WYRDEER_1,
+};
+
+static const union AnimCmd *const sAnims_URSALUNA[] ={
+    sAnim_GeneralFrame0,
+    sAnim_URSALUNA_1,
+};
+
+static const union AnimCmd *const sAnims_SNEASLER[] ={
+    sAnim_GeneralFrame0,
+    sAnim_SNEASLER_1,
+};
+
+static const union AnimCmd *const sAnims_OVERQWIL[] ={
+    sAnim_GeneralFrame0,
+    sAnim_OVERQWIL_1,
+};
+
+static const union AnimCmd *const sAnims_GROWLITHE_HISUIAN[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GROWLITHE_HISUIAN_1,
+};
+
+static const union AnimCmd *const sAnims_ARCANINE_HISUIAN[] ={
+    sAnim_GeneralFrame0,
+    sAnim_ARCANINE_HISUIAN_1,
+};
+
+static const union AnimCmd *const sAnims_VOLTORB_HISUIAN[] ={
+    sAnim_GeneralFrame0,
+    sAnim_VOLTORB_HISUIAN_1,
+};
+
+static const union AnimCmd *const sAnims_ELECTRODE_HISUIAN[] ={
+    sAnim_GeneralFrame0,
+    sAnim_ELECTRODE_HISUIAN_1,
+};
+
+static const union AnimCmd *const sAnims_TYPHLOSION_HISUIAN[] ={
+    sAnim_GeneralFrame0,
+    sAnim_TYPHLOSION_HISUIAN_1,
+};
+
+static const union AnimCmd *const sAnims_QWILFISH_HISUIAN[] ={
+    sAnim_GeneralFrame0,
+    sAnim_QWILFISH_HISUIAN_1,
+};
+
+static const union AnimCmd *const sAnims_SNEASEL_HISUIAN[] ={
+    sAnim_GeneralFrame0,
+    sAnim_SNEASEL_HISUIAN_1,
+};
+
+static const union AnimCmd *const sAnims_SLIGGOO_HISUIAN[] ={
+    sAnim_GeneralFrame0,
+    sAnim_SLIGGOO_HISUIAN_1,
+};
+
+static const union AnimCmd *const sAnims_GOODRA_HISUIAN[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GOODRA_HISUIAN_1,
+};
+
+static const union AnimCmd *const sAnims_DECIDUEYE_HISUIAN[] ={
+    sAnim_GeneralFrame0,
+    sAnim_DECIDUEYE_HISUIAN_1,
+};
+
+static const union AnimCmd *const sAnims_SLOWPOKE_GALARIAN[] ={
+    sAnim_GeneralFrame0,
+    sAnim_SLOWPOKE_GALARIAN_1,
+};
+
+static const union AnimCmd *const sAnims_SLOWBRO_GALARIAN[] ={
+    sAnim_GeneralFrame0,
+    sAnim_SLOWBRO_GALARIAN_1,
+};
+
+static const union AnimCmd *const sAnims_SLOWKING_GALARIAN[] ={
+    sAnim_GeneralFrame0,
+    sAnim_SLOWKING_GALARIAN_1,
+};
+
 #define ANIM_CMD(name)             [SPECIES_##name] = sAnims_##name
 #define ANIM_CMD_FULL(name, anims) [SPECIES_##name] = anims
 
@@ -10306,5 +10500,22 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(UNOWN_Z),
     ANIM_CMD(UNOWN_EMARK),
     ANIM_CMD(UNOWN_QMARK),
-	   ANIM_CMD(KLEAVOR),
+	ANIM_CMD(KLEAVOR),
+    ANIM_CMD(WYRDEER),
+    ANIM_CMD(URSALUNA),
+    ANIM_CMD(SNEASLER),
+    ANIM_CMD(OVERQWIL),
+    ANIM_CMD(GROWLITHE_HISUIAN),
+    ANIM_CMD(ARCANINE_HISUIAN),
+    ANIM_CMD(VOLTORB_HISUIAN),
+    ANIM_CMD(ELECTRODE_HISUIAN),
+    ANIM_CMD(TYPHLOSION_HISUIAN),
+    ANIM_CMD(QWILFISH_HISUIAN),
+    ANIM_CMD(SNEASEL_HISUIAN),
+    ANIM_CMD(SLIGGOO_HISUIAN),
+    ANIM_CMD(GOODRA_HISUIAN),
+    ANIM_CMD(DECIDUEYE_HISUIAN),
+    ANIM_CMD(SLOWPOKE_GALARIAN),
+    ANIM_CMD(SLOWBRO_GALARIAN),
+    ANIM_CMD(SLOWKING_GALARIAN),
 };

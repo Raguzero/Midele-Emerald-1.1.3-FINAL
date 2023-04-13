@@ -3417,3 +3417,28 @@ const u8 gHonedgeMonadoPokedexText[] = _(
 	"MICOLO's trusted scientist with high\n" 
 	"autism.\n"
 	"It does cut deep enough.");
+	
+const u8 gKleavorPokedexText[] = _(
+    "A violent creature that fells towering\n"
+	"trees with its crude axes and shields\n"
+	"itself with hard stone.");
+	
+const u8 gWyrdeerPokedexText[] = _(
+    "The fur shed from its beard retains heat\n"
+	"well and is a highly useful material for\n"
+	"winter clothing.");
+
+const u8 gUrsalunaPokedexText[] = _(
+    "Swampy terrain gave URSALUNA its burly\n"
+	"physique and newfound capacity to\n"
+	"manipulate peat at will.");
+	
+const u8 gSneaslerPokedexText[] = _(
+    "It has virulent poison and daunting\n"
+	"physical prowess. Preferring solitude,\n"
+	"this species does not form packs.");
+	
+const u8 gOverqwilPokedexText[] = _(
+    "Its lancelike spikes and savage\n"
+	"temperament have earned it the\n"
+	"nickname sea fiend.");

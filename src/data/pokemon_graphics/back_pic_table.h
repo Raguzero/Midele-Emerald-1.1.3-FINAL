@@ -634,6 +634,24 @@ const struct CompressedSpriteSheet gMonBackPicTable[] =
     SPECIES_SPRITE(DARK_PIKACHU, gMonBackPic_Dark_Pikachu),
     SPECIES_SPRITE(ARMOR_MEWTWO, gMonBackPic_Armor_Mewtwo),
     SPECIES_SPRITE(HONEDGE_MONADO, gMonBackPic_Honedge_Monado),
+	SPECIES_SPRITE(KLEAVOR, gMonBackPic_Kleavor),
+    SPECIES_SPRITE(WYRDEER, gMonBackPic_Wyrdeer),
+    SPECIES_SPRITE(URSALUNA, gMonBackPic_Ursaluna),
+    SPECIES_SPRITE(SNEASLER, gMonBackPic_Sneasler),
+    SPECIES_SPRITE(OVERQWIL, gMonBackPic_Overqwil),
+    SPECIES_SPRITE(GROWLITHE_HISUIAN, gMonBackPic_GrowlitheHisuian),
+    SPECIES_SPRITE(ARCANINE_HISUIAN, gMonBackPic_ArcanineHisuian),
+    SPECIES_SPRITE(VOLTORB_HISUIAN, gMonBackPic_VoltorbHisuian),
+    SPECIES_SPRITE(ELECTRODE_HISUIAN, gMonBackPic_ElectrodeHisuian),
+    SPECIES_SPRITE(TYPHLOSION_HISUIAN, gMonBackPic_TyphlosionHisuian),
+    SPECIES_SPRITE(QWILFISH_HISUIAN, gMonBackPic_QwilfishHisuian),
+    SPECIES_SPRITE(SNEASEL_HISUIAN, gMonBackPic_SneaselHisuian),
+    SPECIES_SPRITE(SLIGGOO_HISUIAN, gMonBackPic_SliggooHisuian),
+    SPECIES_SPRITE(GOODRA_HISUIAN, gMonBackPic_GoodraHisuian),
+    SPECIES_SPRITE(DECIDUEYE_HISUIAN, gMonBackPic_DecidueyeHisuian),
+    SPECIES_SPRITE(SLOWPOKE_GALARIAN, gMonBackPic_SlowpokeGalarian),
+    SPECIES_SPRITE(SLOWBRO_GALARIAN, gMonBackPic_SlowbroGalarian),
+    SPECIES_SPRITE(SLOWKING_GALARIAN, gMonBackPic_SlowkingGalarian),
 // NUEVOS POKES
     SPECIES_SPRITE(EGG, gMonStillFrontPic_Egg),
     SPECIES_SPRITE(UNOWN_B, gMonBackPic_UnownB),
@@ -663,7 +681,6 @@ const struct CompressedSpriteSheet gMonBackPicTable[] =
     SPECIES_SPRITE(UNOWN_Z, gMonBackPic_UnownZ),
     SPECIES_SPRITE(UNOWN_EMARK, gMonBackPic_UnownExclamationMark),
     SPECIES_SPRITE(UNOWN_QMARK, gMonBackPic_UnownQuestionMark),
- SPECIES_SPRITE(KLEAVOR, gMonBackPic_Kleavor),
 };
 
 const struct CompressedSpriteSheet gMonBackPicTableFemale[] =

@@ -3316,6 +3316,91 @@ const struct MonCoords gMonBackPicCoords[] =
     [SPECIES_KLEAVOR] =
     {
         .size = 0x78,
-        .y_offset = 1,
+        .y_offset = 5,
+    },
+	[SPECIES_WYRDEER] =
+    {
+        .size = 0x78,
+        .y_offset = 0,
+    },
+    [SPECIES_URSALUNA] =
+    {
+        .size = 0x78,
+        .y_offset = 15,
+    },
+    [SPECIES_SNEASLER] =
+    {
+        .size = 0x78,
+        .y_offset = 0,
+    },
+    [SPECIES_OVERQWIL] =
+    {
+        .size = 0x78,
+        .y_offset = 9,
+    },
+    [SPECIES_GROWLITHE_HISUIAN] =
+    {
+        .size = 0x66,
+        .y_offset = 9,
+    },
+    [SPECIES_ARCANINE_HISUIAN] =
+    {
+        .size = 0x78,
+        .y_offset = 4,
+    },
+    [SPECIES_VOLTORB_HISUIAN] =
+    {
+        .size = 0x55,
+        .y_offset = 10,
+    },
+    [SPECIES_ELECTRODE_HISUIAN] =
+    {
+        .size = 0x65,
+        .y_offset = 7,
+    },
+    [SPECIES_TYPHLOSION_HISUIAN] =
+    {
+        .size = 0x78,
+        .y_offset = 2,
+    },
+    [SPECIES_QWILFISH_HISUIAN] =
+    {
+        .size = 0x78,
+        .y_offset = 13,
+    },
+    [SPECIES_SNEASEL_HISUIAN] =
+    {
+        .size = 0x78,
+        .y_offset = 7,
+    },
+    [SPECIES_SLIGGOO_HISUIAN] =
+    {
+        .size = 0x78,
+        .y_offset = 3,
+    },
+    [SPECIES_GOODRA_HISUIAN] =
+    {
+        .size = 0x78,
+        .y_offset = 0,
+    },
+    [SPECIES_DECIDUEYE_HISUIAN] =
+    {
+        .size = 0x78,
+        .y_offset = 0,
+    },
+    [SPECIES_SLOWPOKE_GALARIAN] =
+    {
+        .size = 0x85,
+        .y_offset = 0x0e,
+    },
+    [SPECIES_SLOWBRO_GALARIAN] =
+    {
+        .size = 0x86,
+        .y_offset = 0x0a,
+    },
+    [SPECIES_SLOWKING_GALARIAN] =
+    {
+        .size = 0x66,
+        .y_offset = 0x08,
     },
 };

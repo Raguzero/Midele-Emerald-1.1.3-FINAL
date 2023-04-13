@@ -6794,4 +6794,64 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 256,
         .trainerOffset = 0,
     },
+	
+    [NATIONAL_DEX_KLEAVOR] =
+    {
+        .categoryName = _("AXE"),
+        .height = 18,
+        .weight = 890,
+        .description = gKleavorPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+	
+    [NATIONAL_DEX_WYRDEER] =
+    {
+        .categoryName = _("BIG HORN"),
+        .height = 18,
+        .weight = 951,
+        .description = gWyrdeerPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+	
+    [NATIONAL_DEX_URSALUNA] =
+    {
+        .categoryName = _("PEAT"),
+        .height = 24,
+        .weight = 2900,
+        .description = gUrsalunaPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+	
+    [NATIONAL_DEX_SNEASLER] =
+    {
+        .categoryName = _("FREE CLIMB"),
+        .height = 13,
+        .weight = 430,
+        .description = gSneaslerPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+	
+    [NATIONAL_DEX_OVERQWIL] =
+    {
+        .categoryName = _("PIN CLUSTER"),
+        .height = 25,
+        .weight = 605,
+        .description = gOverqwilPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
 };

@@ -241,6 +241,10 @@ const u16 gEggMovesSpecies[] = {
   SPECIES_SOLOSIS,
   SPECIES_VULLABY,
   SPECIES_DRILBUR,
+  SPECIES_GROWLITHE_HISUIAN,
+  SPECIES_QWILFISH_HISUIAN,
+  SPECIES_SNEASEL_HISUIAN,
+  SPECIES_SLOWPOKE_GALARIAN,
 };
 
 const u16 gEggMoves[] = {
@@ -2556,7 +2560,32 @@ const u16 gEggMoves[] = {
 		MOVE_SLASH,
 		MOVE_METAL_SOUND,
 		MOVE_SUBMISSION,
-		MOVE_SKULL_BASH),		
+		MOVE_SKULL_BASH),
+
+    egg_moves(GROWLITHE_HISUIAN,
+            MOVE_THRASH,
+            MOVE_HEAD_SMASH,
+			MOVE_COVET,
+			MOVE_DOUBLE_EDGE,
+			MOVE_DOUBLE_KICK,
+			MOVE_MORNING_SUN),
+
+    egg_moves(QWILFISH_HISUIAN,
+              MOVE_FLAIL,
+              MOVE_HAZE,
+              MOVE_BUBBLE_BEAM,
+              MOVE_SUPERSONIC,
+              MOVE_ASTONISH),
+
+    egg_moves(SNEASEL_HISUIAN,
+              MOVE_COUNTER,
+              MOVE_FAKE_OUT),	
+
+    egg_moves(SLOWPOKE_GALARIAN,
+              MOVE_BELLY_DRUM,
+              MOVE_FUTURE_SIGHT,
+              MOVE_STOMP,
+			MOVE_BLOCK),			  
 		
     EGG_MOVES_TERMINATOR
 };
