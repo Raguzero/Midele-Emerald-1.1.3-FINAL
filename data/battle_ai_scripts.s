@@ -2183,17 +2183,18 @@ AI_CV_HealWeather_ScoreDown2:
 	score -2
 
 AI_CV_Heal:
-	if_hp_equal AI_USER, 100, AI_CV_Heal3
+	if_hp_equal AI_USER, 100, AI_CV_Heal3_PlentyOfHP
 	if_target_faster AI_CV_Heal4
 	
 AI_CV_Heal2:
 	if_hp_less_than AI_USER, 50, AI_CV_Heal5
-	if_hp_more_than AI_USER, 80, AI_CV_Heal3
+	if_hp_more_than AI_USER, 80, AI_CV_Heal3_PlentyOfHP
 	if_random_less_than 70, AI_CV_Heal5
 
-AI_CV_Heal3:
-    if_user_faster Score_Minus8
+AI_CV_Heal3_PlentyOfHP:
+    if_status2 AI_USER, STATUS2_SUBSTITUTE, Score_Minus8
     if_stat_level_more_than AI_USER, STAT_EVASION, 9, Score_Minus8
+    if_user_faster Score_Minus8
     calculate_nhko AI_TARGET | AI_NHKO_PESSIMISTIC
     if_more_than 4, Score_Minus8
     if_equal 4, Score_Minus5
@@ -2203,9 +2204,9 @@ AI_CV_Heal3:
 
 AI_CV_Heal4:
 	if_hp_less_than AI_USER, 70, AI_CV_Heal5
-    if_hp_more_than AI_USER, 90, AI_CV_Heal3
+    if_hp_more_than AI_USER, 90, AI_CV_Heal3_PlentyOfHP
 	if_random_less_than 30, AI_CV_Heal5
-	goto AI_CV_Heal3
+	goto AI_CV_Heal3_PlentyOfHP
 
 AI_CV_Heal5:
      if_next_turn_target_might_use_move_with_effect EFFECT_SNATCH, AI_CV_Heal5b
@@ -2216,7 +2217,7 @@ AI_CV_Heal5b:
 AI_CV_Heal6:
     if_hp_less_than AI_USER, 40, Score_Plus2
     calculate_nhko AI_TARGET
-    if_more_than 3, AI_CV_Heal3
+    if_more_than 3, AI_CV_Heal3_PlentyOfHP
     if_equal 3, AI_CV_Heal_End
 	if_random_less_than 20, AI_CV_Heal_End
 	score +2
@@ -3101,13 +3102,13 @@ AI_CV_Protect_NoChanceToMessWithTruant:
     goto Score_Plus5
 
 AI_CV_Protect_OpponentIsNotSemiInvulnerable:
-    if_not_status2 AI_TARGET, STATUS2_MULTIPLETURNS, AI_CV_Protect_OpponentIsNotSemiInvulnerableOrRecharge
+    if_not_status2 AI_TARGET, STATUS2_MULTIPLETURNS, AI_CV_Protect_OpponentIsNotInAMultiturnAttack
     if_target_faster AI_CV_Protect_FasterOpponentIsCharging
 
 @ La IA es más rápida: se protege si recibe OHKO y no puede meterlo antes
     calculate_nhko AI_TARGET
     if_equal 1, Score_Plus2
-    goto AI_CV_Protect_OpponentIsNotSemiInvulnerableOrRecharge
+    goto AI_CV_Protect_OpponentIsNotInAMultiturnAttack
 
 @ La IA es más lenta: se protege si recibe OHKO o si recibe 2HKO y no puede meter OHKO
 AI_CV_Protect_FasterOpponentIsCharging:
@@ -3115,7 +3116,7 @@ AI_CV_Protect_FasterOpponentIsCharging:
     if_equal 1, Score_Plus5
     if_equal 2, Score_Plus2
     @ recibe 3HKO o menos daño: sigue por donde iba en la evaluación de Protect
-AI_CV_Protect_OpponentIsNotSemiInvulnerableOrRecharge:
+AI_CV_Protect_OpponentIsNotInAMultiturnAttack:
 	if_next_turn_target_might_use_move_with_effect EFFECT_MIDELE_POWER, AI_CV_Protect_ScoreDown5
 	if_ability AI_USER, ABILITY_SPEED_BOOST, AI_CV_Protect_Boost
 	if_status  AI_USER, STATUS1_PSN_ANY | STATUS1_BURN, AI_CV_ProtectUserStatused
