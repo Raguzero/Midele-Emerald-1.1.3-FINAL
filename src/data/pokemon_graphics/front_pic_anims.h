@@ -5175,17 +5175,25 @@ static const union AnimCmd sAnim_HYDREIGON_1[] =
 static const union AnimCmd sAnim_JANGMO_O_1[] =
 {
     ANIMCMD_FRAME(0, 1),
+    ANIMCMD_FRAME(1, 25),
+    ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
 
 static const union AnimCmd sAnim_HAKAMO_O_1[] =
 {
-    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 10),
     ANIMCMD_END,
 };
 
 static const union AnimCmd sAnim_KOMMO_O_1[] =
 {
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 20),
+    ANIMCMD_FRAME(0, 20),
+    ANIMCMD_FRAME(1, 20),
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
@@ -5273,6 +5281,8 @@ static const union AnimCmd sAnim_EELEKTROSS_1[] =
 
 static const union AnimCmd sAnim_GRUBBIN_1[] =
 {
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_FRAME(1, 15),
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
@@ -5460,12 +5470,16 @@ static const union AnimCmd sAnim_GRIMMSNARL_1[] =
 
 static const union AnimCmd sAnim_SALANDIT_1[] =
 {
-    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 50),
+    ANIMCMD_FRAME(0, 10),
     ANIMCMD_END,
 };
 
 static const union AnimCmd sAnim_SALAZZLE_1[] =
 {
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 30),
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
@@ -5565,11 +5579,15 @@ static const union AnimCmd sAnim_STOUTLAND_1[] =
 static const union AnimCmd sAnim_SIZZLIPEDE_1[] =
 {
     ANIMCMD_FRAME(0, 1),
+    ANIMCMD_FRAME(1, 25),
+    ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
 
 static const union AnimCmd sAnim_CENTISKORCH_1[] =
 {
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_FRAME(1, 35),
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
@@ -5596,6 +5614,8 @@ static const union AnimCmd sAnim_CORVISQUIRE_1[] =
 
 static const union AnimCmd sAnim_CORVIKNIGHT_1[] =
 {
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_FRAME(1, 50),
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
@@ -5817,13 +5837,17 @@ static const union AnimCmd sAnim_DRAGALGE_1[] =
 
 static const union AnimCmd sAnim_STUFFUL_1[] =
 {
-    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 44),
+    ANIMCMD_FRAME(0, 10),
     ANIMCMD_END,
 };
 
 static const union AnimCmd sAnim_BEWEAR_1[] =
 {
-    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_FRAME(0, 20),
+    ANIMCMD_FRAME(1, 60),
+    ANIMCMD_FRAME(0, 10),
     ANIMCMD_END,
 };
 

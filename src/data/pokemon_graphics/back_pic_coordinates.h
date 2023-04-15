@@ -2760,7 +2760,7 @@ const struct MonCoords gMonBackPicCoords[] =
     [SPECIES_SIZZLIPEDE] =
     {
         .size = 0x64,
-        .y_offset = 0xa,
+        .y_offset = 0x13,
     },
     [SPECIES_CENTISKORCH] =
     {
@@ -2780,7 +2780,7 @@ const struct MonCoords gMonBackPicCoords[] =
     [SPECIES_CORVIKNIGHT] =
     {
         .size = 0x78,
-        .y_offset = 0x02,
+        .y_offset = 0x04,
     },
     [SPECIES_HAWLUCHA] =
     {
@@ -2825,7 +2825,7 @@ const struct MonCoords gMonBackPicCoords[] =
     [SPECIES_FLAPPLE] =
     {
         .size = 0x64,
-        .y_offset = 0x12,
+        .y_offset = 0x10,
     },
     [SPECIES_APPLETUN] =
     {
