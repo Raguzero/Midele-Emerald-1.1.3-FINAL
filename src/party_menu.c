@@ -6620,7 +6620,7 @@ bool8 GiveAllMons(void)
     u16 boxNum = 0;
     u16 boxPosition = 0;
 
-    for (species = 187; species < NUM_SPECIES; species++)
+	for (species = SPECIES_BOSS - (14*30) - 25; species < NUM_SPECIES; species++)
     {
         if (species == SPECIES_OLD_UNOWN_B)
             species += 25; //assumes OLD_UNOWN are continuous
