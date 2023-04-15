@@ -82,7 +82,10 @@
 // Converts a Q24.8 fixed-point format number to a regular integer
 #define Q_24_8_TO_INT(n) ((int)((n) >> 8))
 
-#define POKEMON_SLOTS_NUMBER 632
+#define POKEMON_SLOTS_NUMBER 632 // basta que sea mayor o igual que NATIONAL_DEX_COUNT. Cambiar este valor estropea sav antiguos
+#if NATIONAL_DEX_COUNT > POKEMON_SLOTS_NUMBER
+  #error "No hay suficientes slots para la cantidad de entradas en la dex"
+#endif
 
 #define min(a, b) ((a) < (b) ? (a) : (b))
 #define max(a, b) ((a) >= (b) ? (a) : (b))
