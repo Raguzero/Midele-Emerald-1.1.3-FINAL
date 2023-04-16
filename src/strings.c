@@ -2059,6 +2059,7 @@ const u8 gText_EVO_NONE[]                           = _("There is no evolution f
 
 // Pokemon center move tutor/name rater menu
 const u8 gText_RememberAMove[] = _("REMEMBER A MOVE");
+const u8 gText_LearnANewMove[] = _("LEARN A NEW MOVE");
 const u8 gText_ForgetAMove[] = _("FORGET A MOVE");
 const u8 gText_RateANickname[] = _("RATE A NICKNAME");
 
@@ -2168,3 +2169,35 @@ const u8 gCatermanoDocument[] = _("Investigación 2: CATERMANO");
 const u8 gMicomonDocument[] = _("Investigación 3: MICOMON"); 
 
 const u8 gText_LevelCap[] = _("Tus POKéMON no pueden superar el nivel:\n{STR_VAR_1}{PAUSE_UNTIL_PRESS}");
+
+// Move Tutors
+
+// Multichoice strings when selecting a set of tutor moves to choose from
+const u8 gText_TutorMoveSet1[] = _("TUTOR MOVES SET 1");
+const u8 gText_TutorMoveSet2[] = _("TUTOR MOVES SET 2");
+const u8 gText_TutorMoveSet3[] = _("TUTOR MOVES SET 3");
+const u8 gText_TutorMoveSet4[] = _("TUTOR MOVES SET 4");
+const u8 gText_TutorMoveSet5[] = _("TUTOR MOVES SET 5");
+const u8 gText_TutorMoveSet6[] = _("TUTOR MOVES SET 6");
+const u8 gText_TutorMoveSet7[] = _("TUTOR MOVES SET 7");
+
+
+const u8 gText_FuryCutter[] = _("FURY CUTTER");
+const u8 gText_Rollout[] = _("ROLLOUT");
+const u8 gText_SeismicToss[] = _("SEISMIC TOSS");
+const u8 gText_Swift[] = _("SWIFT");
+const u8 gText_Mimic[] = _("MIMIC");
+const u8 gText_MudSlap[] = _("MUD-SLAP");
+const u8 gText_Metronome[] = _("METRONOME");
+const u8 gText_PsychUp[] = _("PSYCH UP");
+const u8 gText_Counter[] = _("COUNTER");
+const u8 gText_DefenseCurl2[] = _("DEFENSE CURL");
+const u8 gText_Swagger[] = _("SWAGGER");
+const u8 gText_IcyWind[] = _("ICY WIND");
+const u8 gText_SoftBoiled[] = _("SOFT-BOILED");
+const u8 gText_FirePunch[] = _("FIRE PUNCH");
+const u8 gText_IcePunch[] = _("ICE PUNCH");
+const u8 gText_ThunderPunch[] = _("THUNDERPUNCH");
+const u8 gText_BodySlam[] = _("BODY SLAM");
+const u8 gText_DynamicPunch[] = _("DYNAMICPUNCH");
+const u8 gText_DoubleEdge[] = _("DOUBLE-EDGE");

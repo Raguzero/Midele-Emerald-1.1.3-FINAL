@@ -979,6 +979,7 @@ static const struct MenuAction MultichoiceList_RandomBattleCC[] =
 static const struct MenuAction MultichoiceList_PKMNCentreMovetutor[] =
 {
     {gText_RememberAMove},
+    {gText_LearnANewMove},
     {gText_ForgetAMove},
     {gText_RateANickname},
     {gText_Exit},
@@ -1105,22 +1106,6 @@ static const struct MenuAction MultichoiceList_SapphGym_SecondPuzzleAnswers[] =
     {gTextZigzagoon},
     {gTextMew},
     {gTextKirlia},
-};
-
-static const struct MenuAction MultichoiceList_Move_Tutor_List[] =
-{
-	{gExplosionTutor},
-	{gDoubleEdgeTutor},
-	{gDynamicPunchTutor},  
-	{gSubstituteTutor},  
-	{gSleepTalkTutor},  
-	{gMetronomeTutor},  
-	{gMimicTutor},  
-	{gFuryCutterTutor},  
-	{gRolloutTutor},  
-	{gSwaggerTutor},  
-	{gChooseRightTutorMove},  
-	{gChooseLeftTutorMove}, 
 };
 
 static const struct MenuAction MultichoiceList_IzabeIsland_House3_Documents[] =
@@ -1297,7 +1282,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
 	[MULTI_TOTEM_BATTLE_LIST] =  MULTICHOICE(MultichoiceList_Totem_Battle_List),
 	[MULTI_SAPPHGYM_FIRST_PUZZLE_ANSWERS] =  MULTICHOICE(MultichoiceList_SapphGym_FirstPuzzleAnswers),
 	[MULTI_SAPPHGYM_SECOND_PUZZLE_ANSWERS] =  MULTICHOICE(MultichoiceList_SapphGym_SecondPuzzleAnswers),
-	[MULTI_MOVE_TUTOR_LIST] =  MULTICHOICE(MultichoiceList_Move_Tutor_List),
+	[MULTI_MOVE_TUTOR_LIST] =  MULTICHOICE(MultichoiceList_Exit),
 	[MULTI_IZABE_HOUSE3_DOCUMENTS] =  MULTICHOICE(MultichoiceList_IzabeIsland_House3_Documents),
 	[MULTI_LISTAS_CIBERCAFE] =  MULTICHOICE(MultichoiceList_Listas_CiberCafe),
     [MULTI_CIBERCAFE_BATALLA_2]     =MULTICHOICE(MultichoiceList_CiberCafe_Batalla_2),
@@ -1408,4 +1393,16 @@ static const u8 *const sWirelessOptions_NoRecordMixBerryCrush[] =
     CableClub_Text_YouMayTradeHere,
     CableClub_Text_YouMayBattleHere,
     CableClub_Text_CancelSelectedItem,
+};
+
+static const u8 *const sPKMNCenterTutorListOptions[PKMNCENTER_MOVE_TUTOR_SELECTION_COUNT] =
+{
+    [PKMNCENTER_MOVE_TUTOR_SELECTION_1]     = gText_TutorMoveSet1,
+    [PKMNCENTER_MOVE_TUTOR_SELECTION_2]     = gText_TutorMoveSet2,
+    [PKMNCENTER_MOVE_TUTOR_SELECTION_3]     = gText_TutorMoveSet3,
+    [PKMNCENTER_MOVE_TUTOR_SELECTION_4]     = gText_TutorMoveSet4,
+    [PKMNCENTER_MOVE_TUTOR_SELECTION_5]     = gText_TutorMoveSet5,
+    [PKMNCENTER_MOVE_TUTOR_SELECTION_6]     = gText_TutorMoveSet6,
+    [PKMNCENTER_MOVE_TUTOR_SELECTION_7]     = gText_TutorMoveSet7,
+    [PKMNCENTER_MOVE_TUTOR_SELECTION_EXIT]  = gText_Exit,
 };

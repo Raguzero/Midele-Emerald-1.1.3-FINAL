@@ -713,28 +713,6 @@ extern const u8 gText_BattlePyramid[];
 extern const u8 gText_RankingHall[];
 extern const u8 gText_ExchangeService[];
 
-// Battle Frontier Move Tutors
-extern const u8 gText_Softboiled16BP[];
-extern const u8 gText_SeismicToss24BP[];
-extern const u8 gText_DreamEater24BP[];
-extern const u8 gText_MegaPunch24BP[];
-extern const u8 gText_MegaKick48BP[];
-extern const u8 gText_BodySlam48BP[];
-extern const u8 gText_RockSlide48BP[];
-extern const u8 gText_Counter48BP[];
-extern const u8 gText_ThunderWave48BP[];
-extern const u8 gText_SwordsDance48BP[];
-extern const u8 gText_DefenseCurl16BP[];
-extern const u8 gText_Snore24BP[];
-extern const u8 gText_MudSlap24BP[];
-extern const u8 gText_Swift24BP[];
-extern const u8 gText_IcyWind24BP[];
-extern const u8 gText_Endure48BP[];
-extern const u8 gText_PsychUp48BP[];
-extern const u8 gText_IcePunch48BP[];
-extern const u8 gText_ThunderPunch48BP[];
-extern const u8 gText_FirePunch48BP[];
-
 extern const u8 gText_SlateportCity[];
 extern const u8 gText_BattleFrontier[];
 extern const u8 gText_SouthernIsland[];
@@ -3196,6 +3174,7 @@ extern const u8 gText_EVO_NONE[];
 
 // POKEMON CENTER GEN 8
 extern const u8 gText_RememberAMove[];
+extern const u8 gText_LearnANewMove[];
 extern const u8 gText_ForgetAMove[];
 extern const u8 gText_RateANickname[];
 
@@ -3290,5 +3269,74 @@ extern const u8 gChooseLeftTutorMove[];
 extern const u8 gDarkPikaDocument[]; 
 extern const u8 gCatermanoDocument[]; 
 extern const u8 gMicomonDocument[]; 
+
+extern const u8 gText_FuryCutter[];
+extern const u8 gText_Rollout[];
+extern const u8 gText_SeismicToss24BP[];
+extern const u8 gText_Swift24BP[];
+extern const u8 gText_Mimic[];
+extern const u8 gText_MudSlap24BP[];
+extern const u8 gText_Metronome[];
+extern const u8 gText_PsychUp48BP[];
+extern const u8 gText_Counter48BP[];
+extern const u8 gText_DefenseCurl16BP[];
+extern const u8 gText_Endure48BP[];
+extern const u8 gText_Swagger[];
+extern const u8 gText_IcyWind24BP[];
+extern const u8 gText_MegaPunch24BP[];
+extern const u8 gText_Snore24BP[];
+extern const u8 gText_Softboiled16BP[];
+extern const u8 gText_ThunderPunch48BP[];
+extern const u8 gText_FirePunch48BP[];
+extern const u8 gText_IcePunch48BP[];
+extern const u8 gText_BodySlam48BP[];
+extern const u8 gText_DynamicPunch[];
+extern const u8 gText_MegaKick48BP[];
+extern const u8 gText_RockSlide48BP[];
+extern const u8 gText_DreamEater24BP[];
+extern const u8 gText_ThunderWave48BP[];
+extern const u8 gText_DoubleEdge[];
+extern const u8 gText_SwordsDance48BP[];
+
+// Options used to select a set of tutor moves
+extern const u8 gText_TutorMoveSet1[];
+extern const u8 gText_TutorMoveSet2[];
+extern const u8 gText_TutorMoveSet3[];
+extern const u8 gText_TutorMoveSet4[];
+extern const u8 gText_TutorMoveSet5[];
+extern const u8 gText_TutorMoveSet6[];
+extern const u8 gText_TutorMoveSet7[];
+
+// Pokemon Center move tutor strings
+extern const u8 PokemonCenterMoveTutor_Text_FuryCutterDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_RolloutDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_SeismicTossDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_SwiftDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_MimicDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_MudSlapDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_MetronomeDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_PsychUpDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_CounterDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_DefenseCurlDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_EndureDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_SwaggerDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_IcyWindDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_MegaPunchDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_SnoreDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_SoftBoiledDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_ThunderPunchDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_FirePunchDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_IcePunchDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_BodySlamDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_DynamicPunchDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_MegaKickDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_RockSlideDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_DreamEaterDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_ThunderWaveDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_DoubleEdgeDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_ExplosionDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_SleepTalkDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_SubstituteDesc[];
+extern const u8 PokemonCenterMoveTutor_Text_SwordsDanceDesc[];
 
 #endif // GUARD_STRINGS_H

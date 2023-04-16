@@ -4,11 +4,12 @@ BattleFrontier_Lounge7_MapScripts:: @ 8265254
 BattleFrontier_Lounge7_EventScript_LeftMoveTutor:: @ 8265255
 	lock
 	faceplayer
-	setvar VAR_TEMP_C, SCROLL_MULTI_BF_MOVE_TUTOR_1
-	goto_if_set FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR, BattleFrontier_Lounge7_EventScript_AlreadyMetLeftTutor
+	//setvar VAR_TEMP_C, SCROLL_MULTI_BF_MOVE_TUTOR_1
+	//goto_if_set FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR, BattleFrontier_Lounge7_EventScript_AlreadyMetLeftTutor
 	msgbox BattleFrontier_Lounge7_Text_LeftTutorIntro, MSGBOX_DEFAULT
-	setflag FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR
-	goto BattleFrontier_Lounge7_EventScript_ChooseLeftTutorMove
+	//setflag FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR
+	//goto BattleFrontier_Lounge7_EventScript_ChooseLeftTutorMove
+	release
 	end
 
 BattleFrontier_Lounge7_EventScript_AlreadyMetLeftTutor:: @ 8265276
@@ -118,11 +119,12 @@ BattleFrontier_Lounge7_EventScript_SwordsDance:: @ 826543A
 BattleFrontier_Lounge7_EventScript_RightMoveTutor:: @ 8265445
 	lock
 	faceplayer
-	setvar VAR_TEMP_C, SCROLL_MULTI_BF_MOVE_TUTOR_2
-	goto_if_set FLAG_MET_FRONTIER_SWIMMER_MOVE_TUTOR, BattleFrontier_Lounge7_EventScript_AlreadyMetRightTutor
+	//setvar VAR_TEMP_C, SCROLL_MULTI_BF_MOVE_TUTOR_2
+	//goto_if_set FLAG_MET_FRONTIER_SWIMMER_MOVE_TUTOR, BattleFrontier_Lounge7_EventScript_AlreadyMetRightTutor
 	msgbox BattleFrontier_Lounge7_Text_RightTutorIntro, MSGBOX_DEFAULT
-	setflag FLAG_MET_FRONTIER_SWIMMER_MOVE_TUTOR
-	goto BattleFrontier_Lounge7_EventScript_ChooseRightTutorMove
+	//setflag FLAG_MET_FRONTIER_SWIMMER_MOVE_TUTOR
+	//goto BattleFrontier_Lounge7_EventScript_ChooseRightTutorMove
+	release
 	end
 
 BattleFrontier_Lounge7_EventScript_AlreadyMetRightTutor:: @ 8265466
@@ -301,11 +303,11 @@ BattleFrontier_Lounge7_Text_LeftTutorIntro: @ 82656ED
 	.string "What is it now?\n"
 	.string "You don't believe me.\p"
 	.string "I'm not like that blowhard woman over\n"
-	.string "there. I'm actually talented!\p"
-	.string "Let me prove it to you.\n"
-	.string "I can teach your POKéMON special and\l"
-	.string "yet cute moves.\p"
-	.string "IT'S FREE!$"
+	.string "there. I'm actually talented!$"
+	//.string "Let me prove it to you.\n"
+	//.string "I can teach your POKéMON special and\l"
+	//.string "yet cute moves.\p"
+	//.string "IT'S FREE!$"
 	//.string "But my lessons don't come free.\n"
 	//.string "How about paying for the moves I teach\l"
 	//.string "with a wee bit of Battle Points?$"
@@ -351,11 +353,11 @@ BattleFrontier_Lounge7_Text_RightTutorIntro: @ 8265A6C
 	.string "What's wrong?\n"
 	.string "You don't believe me.\p"
 	.string "I'm not like that buffoonish woman over\n"
-	.string "there. I'm actually experienced!\p"
-	.string "I can prove it to you.\n"
-	.string "I can teach your POKéMON hard and\l"
-	.string "yet pretty moves.\p"
-	.string "IT'S FREE!$"
+	.string "there. I'm actually experienced!$"
+	//.string "I can prove it to you.\n"
+	//.string "I can teach your POKéMON hard and\l"
+	//.string "yet pretty moves.\p"
+	//.string "IT'S FREE!$"
 	//string "But my lessons don't come free.\n"
 	//.string "How about paying for the moves I teach\l"
 	//.string "with a wee bit of Battle Points?$"
@@ -384,102 +386,153 @@ BattleFrontier_Lounge7_Text_LadiesWereStrongAndBeautiful: @ 8265D17
 	.string "but feel this…\p"
 	.string "Time is so cruel…$"
 
-BattleFrontier_Lounge7_Text_SoftboiledDesc:: @ 8265E30
-	.string "Recovers up to\n"
-	.string "half the user's\n"
-	.string "maximum HP.$"
 
-BattleFrontier_Lounge7_Text_SeismicTossDesc:: @ 8265E5B
+PokemonCenterMoveTutor_Text_FuryCutterDesc::
+	.string "An attack that\n"
+	.string "intensifies on\n"
+	.string "successive hits.$"
+
+PokemonCenterMoveTutor_Text_RolloutDesc::
+	.string "An attack that\n"
+	.string "intensifies each\n"
+	.string "turn.$"
+
+PokemonCenterMoveTutor_Text_SeismicTossDesc::
 	.string "Inflicts damage\n"
 	.string "identical to the\n"
 	.string "user's level.$"
 
-BattleFrontier_Lounge7_Text_DreamEaterDesc:: @ 8265E8A
-	.string "Recovers half the\n"
-	.string "damage inflicted\n"
-	.string "on a sleeping foe.$"
-
-BattleFrontier_Lounge7_Text_MegaPunchDesc:: @ 8265EC0
-	.string "A strong punch\n"
-	.string "thrown with\n"
-	.string "incredible power.$"
-
-BattleFrontier_Lounge7_Text_MegaKickDesc:: @ 8265EED
-	.string "An extremely\n"
-	.string "powerful kick with\n"
-	.string "intense force.$"
-
-BattleFrontier_Lounge7_Text_BodySlamDesc:: @ 8265F1C
-	.string "A full-body slam\n"
-	.string "that may cause\n"
-	.string "paralysis.$"
-
-BattleFrontier_Lounge7_Text_RockSlideDesc:: @ 8265F47
-	.string "Large boulders\n"
-	.string "are hurled. May\n"
-	.string "cause flinching.$"
-
-BattleFrontier_Lounge7_Text_CounterDesc:: @ 8265F77
-	.string "Retaliates any\n"
-	.string "physical hit with\n"
-	.string "double the power.$"
-
-BattleFrontier_Lounge7_Text_ThunderWaveDesc:: @ 8265FAA
-	.string "A weak jolt of\n"
-	.string "electricity that\n"
-	.string "paralyzes the foe.$"
-
-BattleFrontier_Lounge7_Text_SwordsDanceDesc:: @ 8265FDD
-	.string "A fighting dance\n"
-	.string "that sharply\n"
-	.string "raises ATTACK.$"
-
-BattleFrontier_Lounge7_Text_DefenseCurlDesc:: @ 826600A
-	.string "Curls up to con-\n"
-	.string "ceal weak spots\n"
-	.string "and raise DEFENSE.$"
-
-BattleFrontier_Lounge7_Text_SnoreDesc:: @ 826603E
-	.string "A loud attack\n"
-	.string "that can be used\n"
-	.string "only while asleep.$"
-
-BattleFrontier_Lounge7_Text_MudSlapDesc:: @ 8266070
-	.string "Hurls mud in the\n"
-	.string "foe's face to re-\n"
-	.string "duce its accuracy.$"
-
-BattleFrontier_Lounge7_Text_SwiftDesc:: @ 82660A6
+PokemonCenterMoveTutor_Text_SwiftDesc::
 	.string "Sprays star-\n"
 	.string "shaped rays\n"
 	.string "that never miss.$"
 
-BattleFrontier_Lounge7_Text_IcyWindDesc:: @ 82660D0
-	.string "A chilling attack\n"
-	.string "that lowers the\n"
-	.string "foe's SPEED.$"
+PokemonCenterMoveTutor_Text_MimicDesc::
+	.string "Copies a move used\n"
+	.string "by the foe for\n"
+	.string "one battle.$"
+
+PokemonCenterMoveTutor_Text_MudSlapDesc::
+	.string "Hurls mud in the\n"
+	.string "foe's face to re-\n"
+	.string "duce its accuracy.$"
+
+PokemonCenterMoveTutor_Text_MetronomeDesc::
+	.string "Waggles a finger\n"
+	.string "to use any move\n"
+	.string "at random.$"
+
+PokemonCenterMoveTutor_Text_PsychUpDesc::
+	.string "Copies the foe's\n"
+	.string "effect(s) and\n"
+	.string "gives to the user.$"
+
+PokemonCenterMoveTutor_Text_CounterDesc::
+	.string "Retaliates any\n"
+	.string "physical hit with\n"
+	.string "double the power.$"
+
+PokemonCenterMoveTutor_Text_DefenseCurlDesc::
+	.string "Curls up to con-\n"
+	.string "ceal weak spots\n"
+	.string "and raise Defense.$"
 
 BattleFrontier_Lounge7_Text_EndureDesc:: @ 82660FF
 	.string "Endures any at-\n"
 	.string "tack for 1 turn,\n"
 	.string "leaving 1HP.$"
 
-BattleFrontier_Lounge7_Text_PsychUpDesc:: @ 826612D
-	.string "Copies the foe's\n"
-	.string "effect(s) and\n"
-	.string "gives to the user.$"
+PokemonCenterMoveTutor_Text_SwaggerDesc::
+	.string "Confuses target,\n"
+	.string "but sharply raises\n"
+	.string "its Attack stat.$"
 
-BattleFrontier_Lounge7_Text_IcePunchDesc:: @ 826615F
-	.string "An icy punch\n"
-	.string "that may\n"
-	.string "freeze the foe.$"
+PokemonCenterMoveTutor_Text_IcyWindDesc::
+	.string "A chilling attack\n"
+	.string "that lowers the\n"
+	.string "foe's Speed.$"
+	
+BattleFrontier_Lounge7_Text_MegaPunchDesc:: @ 8265EC0
+	.string "A strong punch\n"
+	.string "thrown with\n"
+	.string "incredible power.$"
+	
+BattleFrontier_Lounge7_Text_SnoreDesc:: @ 826603E
+	.string "A loud attack\n"
+	.string "that can be used\n"
+	.string "only while asleep.$"
 
-BattleFrontier_Lounge7_Text_ThunderPunchDesc:: @ 8266185
+PokemonCenterMoveTutor_Text_SoftBoiledDesc::
+	.string "Recovers up to\n"
+	.string "half the user's\n"
+	.string "maximum HP.$"
+
+PokemonCenterMoveTutor_Text_ThunderPunchDesc::
 	.string "An electrified\n"
 	.string "punch that may\n"
 	.string "paralyze the foe.$"
 
-BattleFrontier_Lounge7_Text_FirePunchDesc:: @ 82661B5
+PokemonCenterMoveTutor_Text_FirePunchDesc::
 	.string "A fiery punch\n"
 	.string "that may burn\n"
 	.string "the foe.$"
+
+PokemonCenterMoveTutor_Text_IcePunchDesc::
+	.string "An icy punch\n"
+	.string "that may\n"
+	.string "freeze the foe.$"
+
+PokemonCenterMoveTutor_Text_BodySlamDesc::
+	.string "A full-body slam\n"
+	.string "that may cause\n"
+	.string "paralysis.$"
+
+PokemonCenterMoveTutor_Text_DynamicPunchDesc::
+	.string "Powerful move.\n"
+	.string "Cause confusion,\n"
+	.string "but inaccurate.$"
+	
+BattleFrontier_Lounge7_Text_MegaKickDesc:: @ 8265EED
+	.string "An extremely\n"
+	.string "powerful kick with\n"
+	.string "intense force.$"
+	
+BattleFrontier_Lounge7_Text_RockSlideDesc:: @ 8265F47
+	.string "Large boulders\n"
+	.string "are hurled. May\n"
+	.string "cause flinching.$"
+
+BattleFrontier_Lounge7_Text_DreamEaterDesc:: @ 8265E8A
+	.string "Recovers half the\n"
+	.string "damage inflicted\n"
+	.string "on a sleeping foe.$"
+
+BattleFrontier_Lounge7_Text_ThunderWaveDesc:: @ 8265FAA
+	.string "A weak jolt of\n"
+	.string "electricity that\n"
+	.string "paralyzes the foe.$"
+
+PokemonCenterMoveTutor_Text_DoubleEdgeDesc::
+	.string "A life-risking\n"
+	.string "tackle that also\n"
+	.string "hurts the user.$"
+
+PokemonCenterMoveTutor_Text_ExplosionDesc::
+    .string "Inflicts severe\n"
+	.string "damage but makes\n"
+    .string "the user faint.$"
+
+PokemonCenterMoveTutor_Text_SleepTalkDesc::
+    .string "Uses an available\n"
+	.string "move randomly\n"
+	.string "while asleep.$"
+
+PokemonCenterMoveTutor_Text_SubstituteDesc::
+    .string "Creates a decoy\n"
+	.string "using 1/4 of the\n"
+    .string "user's maximum HP.$"
+	
+BattleFrontier_Lounge7_Text_SwordsDanceDesc:: @ 8265FDD
+	.string "A fighting dance\n"
+	.string "that sharply\n"
+	.string "raises ATTACK.$"
