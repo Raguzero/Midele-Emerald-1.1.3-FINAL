@@ -56,7 +56,7 @@ Ver [INSTALL.md](INSTALL.md)
 - daniilS / Samu / ghoulslash (Fix Snow Weather)
 - Jaizu (Wild Battle Custom script https://whackahack.com/foro/threads/comando-setwildbattle-con-movimientos-propios.64981/ )
 - LOuroboros (Made a sound effect play when the Player walks in tall grass or sand  https://github.com/LOuroboros)
-- BuffelSaft (AI Changes, Reduced sample rates of Cry Mons, LGPE Style Bonus Premier Balls)
+- BuffelSaft (AI Changes, Reduced sample rates of Cry Mons, LGPE Style Bonus Premier Balls, Move Tutor Pokecenter)
 - lightgod87 (https://github.com/pret/pokeemerald/wiki/Better-White-Out-Money-Calculation)
 - Contributors to https://www.pokecommunity.com/showthread.php?t=368703
 - Skeli / CFRU source (Bag Sorting https://github.com/ghoulslash/pokeemerald/commit/e168e54fb9fa625e0e8c00bf566f5ca30ba59440#diff-cc0f38050a07a3da5c53a0f20e71431dR2553 )
