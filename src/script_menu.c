@@ -594,7 +594,7 @@ bool8 ScriptMenu_CreatePKMNCenterMoveTutorMultichoice(void)
 // Used to add more move tutor options as the player earns more badges
 static void CreatePKMNCenterMoveListMultichoice(void)
 {
-    u8 selectionCount = 0;
+    u8 selectionCount = 1;
     u8 count;
     u32 pixelWidth;
     u8 width;
@@ -602,7 +602,8 @@ static void CreatePKMNCenterMoveListMultichoice(void)
     u32 i = 0;
     u32 j;
 
-    for (i = 0; i < PKMNCENTER_MOVE_TUTOR_SELECTION_COUNT; i++)
+     sPKMNCenterMoveTutorLists[0] = 0;
+	for (i = 1; i < PKMNCENTER_MOVE_TUTOR_SELECTION_COUNT; i++)
     {
         sPKMNCenterMoveTutorLists[i] = 0xFF;
     }
@@ -611,11 +612,11 @@ static void CreatePKMNCenterMoveListMultichoice(void)
 
     // Add one option to menu for each obtained badge
 
-    for (i = 0; i < 7; i++)
+    for (i = 0; i < 6; i++)
     {
-        if (FlagGet(FLAG_BADGE01_GET + i)) // OR if (!FlagGet(FLAG_BADGE01_GET + i)) ???
+        if (FlagGet(FLAG_BADGE01_GET + i))
         {
-            sPKMNCenterMoveTutorLists[selectionCount] = i;
+            sPKMNCenterMoveTutorLists[selectionCount] = i+1;
             selectionCount++;
         }
     } 

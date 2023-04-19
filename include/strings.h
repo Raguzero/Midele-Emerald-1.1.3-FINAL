@@ -3306,6 +3306,8 @@ extern const u8 gText_TutorMoveSet4[];
 extern const u8 gText_TutorMoveSet5[];
 extern const u8 gText_TutorMoveSet6[];
 extern const u8 gText_TutorMoveSet7[];
+extern const u8 gText_TutorMoveSet8[];
+extern const u8 gText_TutorMoveSet9[];
 
 // Pokemon Center move tutor strings
 extern const u8 PokemonCenterMoveTutor_Text_FuryCutterDesc[];

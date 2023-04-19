@@ -47,8 +47,10 @@
 #define SCROLL_MULTI_PC_TUTOR_SET_5                       17
 #define SCROLL_MULTI_PC_TUTOR_SET_6                       18
 #define SCROLL_MULTI_PC_TUTOR_SET_7                       19
-#define SCROLL_MULTI_PC_TUTOR_SET_SELECT                  20
-#define SCROLL_MULTI_POKE_CENTER_TUTOR                    21
+#define SCROLL_MULTI_PC_TUTOR_SET_8                       20
+#define SCROLL_MULTI_PC_TUTOR_SET_9                       21
+#define SCROLL_MULTI_PC_TUTOR_SET_SELECT                  22
+#define SCROLL_MULTI_POKE_CENTER_TUTOR                    23
 
 #define MAX_SCROLL_MULTI_ON_SCREEN 6
 #define MAX_SCROLL_MULTI_LENGTH 16

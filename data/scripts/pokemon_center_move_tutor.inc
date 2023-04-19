@@ -83,7 +83,9 @@ PKMN_Center_Move_Tutor_MoveTutorMenu::
 	case 4, PKMN_Center_Move_Tutor_MoveList5
 	case 5, PKMN_Center_Move_Tutor_MoveList6
 	case 6, PKMN_Center_Move_Tutor_MoveList7
-	case 7, PKMN_Center_Move_Tutor_ExitReturn
+	case 7, PKMN_Center_Move_Tutor_MoveList8
+	case 8, PKMN_Center_Move_Tutor_MoveList9
+	case 9, PKMN_Center_Move_Tutor_ExitReturn
 	case MULTI_B_PRESSED, PKMN_Center_Move_Tutor_ExitReturn
 	releaseall
 	end
@@ -91,7 +93,7 @@ PKMN_Center_Move_Tutor_MoveTutorMenu::
 PKMN_Center_Move_Tutor_MoveList1::
 	setvar VAR_TEMP_C, SCROLL_MULTI_PC_TUTOR_SET_1
 	setvar VAR_TEMP_E, 0
-	setvar VAR_TEMP_F, 6
+	setvar VAR_TEMP_F, 5
 	setvar VAR_0x8004, SCROLL_MULTI_PC_TUTOR_SET_1
 	setvar VAR_0x8006, 0
 	goto PKMN_Center_Move_Tutor_ChooseMove
@@ -99,7 +101,7 @@ PKMN_Center_Move_Tutor_MoveList1::
 PKMN_Center_Move_Tutor_MoveList2::
 	setvar VAR_TEMP_C, SCROLL_MULTI_PC_TUTOR_SET_2
 	setvar VAR_TEMP_E, 1
-	setvar VAR_TEMP_F, 5
+	setvar VAR_TEMP_F, 4
 	setvar VAR_0x8004, SCROLL_MULTI_PC_TUTOR_SET_2
 	setvar VAR_0x8006, 0
 	goto PKMN_Center_Move_Tutor_ChooseMove
@@ -107,7 +109,7 @@ PKMN_Center_Move_Tutor_MoveList2::
 PKMN_Center_Move_Tutor_MoveList3::
 	setvar VAR_TEMP_C, SCROLL_MULTI_PC_TUTOR_SET_3
 	setvar VAR_TEMP_E, 2
-	setvar VAR_TEMP_F, 4
+	setvar VAR_TEMP_F, 3
 	setvar VAR_0x8004, SCROLL_MULTI_PC_TUTOR_SET_3
 	setvar VAR_0x8006, 0
 	goto PKMN_Center_Move_Tutor_ChooseMove
@@ -139,8 +141,24 @@ PKMN_Center_Move_Tutor_MoveList6::
 PKMN_Center_Move_Tutor_MoveList7::
 	setvar VAR_TEMP_C, SCROLL_MULTI_PC_TUTOR_SET_7
 	setvar VAR_TEMP_E, 6
-	setvar VAR_TEMP_F, 6
+	setvar VAR_TEMP_F, 3
 	setvar VAR_0x8004, SCROLL_MULTI_PC_TUTOR_SET_7
+	setvar VAR_0x8006, 0
+	goto PKMN_Center_Move_Tutor_ChooseMove
+	
+PKMN_Center_Move_Tutor_MoveList8::
+	setvar VAR_TEMP_C, SCROLL_MULTI_PC_TUTOR_SET_8
+	setvar VAR_TEMP_E, 7
+	setvar VAR_TEMP_F, 3
+	setvar VAR_0x8004, SCROLL_MULTI_PC_TUTOR_SET_8
+	setvar VAR_0x8006, 0
+	goto PKMN_Center_Move_Tutor_ChooseMove
+	
+PKMN_Center_Move_Tutor_MoveList9::
+	setvar VAR_TEMP_C, SCROLL_MULTI_PC_TUTOR_SET_9
+	setvar VAR_TEMP_E, 8
+	setvar VAR_TEMP_F, 3
+	setvar VAR_0x8004, SCROLL_MULTI_PC_TUTOR_SET_9
 	setvar VAR_0x8006, 0
 	goto PKMN_Center_Move_Tutor_ChooseMove
 

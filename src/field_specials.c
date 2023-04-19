@@ -2412,16 +2412,6 @@ void ShowScrollableMultichoice(void)
             break;
         case SCROLL_MULTI_PC_TUTOR_SET_1:
             task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
-            task->tNumItems = 7;
-            task->tLeft = 17;
-            task->tTop = 1;
-            task->tWidth = 14;
-            task->tHeight = 12;
-            task->tKeepOpenAfterSelect = FALSE;
-            task->tTaskId = taskId;
-            break;
-        case SCROLL_MULTI_PC_TUTOR_SET_2:
-            task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
             task->tNumItems = 6;
             task->tLeft = 17;
             task->tTop = 1;
@@ -2430,7 +2420,7 @@ void ShowScrollableMultichoice(void)
             task->tKeepOpenAfterSelect = FALSE;
             task->tTaskId = taskId;
             break;
-        case SCROLL_MULTI_PC_TUTOR_SET_3:
+        case SCROLL_MULTI_PC_TUTOR_SET_2:
             task->tMaxItemsOnScreen = 5;
             task->tNumItems = 5;
             task->tLeft = 17;
@@ -2440,31 +2430,25 @@ void ShowScrollableMultichoice(void)
             task->tKeepOpenAfterSelect = FALSE;
             task->tTaskId = taskId;
             break;
+        case SCROLL_MULTI_PC_TUTOR_SET_3:
         case SCROLL_MULTI_PC_TUTOR_SET_4:
         case SCROLL_MULTI_PC_TUTOR_SET_5:
         case SCROLL_MULTI_PC_TUTOR_SET_6:
+        case SCROLL_MULTI_PC_TUTOR_SET_7:
+        case SCROLL_MULTI_PC_TUTOR_SET_8:
+        case SCROLL_MULTI_PC_TUTOR_SET_9:
             task->tMaxItemsOnScreen = 4;
             task->tNumItems = 4;
             task->tLeft = 17;
             task->tTop = 1;
             task->tWidth = 14;
-            task->tHeight = 12;
-            task->tKeepOpenAfterSelect = FALSE;
-            task->tTaskId = taskId;
-            break;
-        case SCROLL_MULTI_PC_TUTOR_SET_7:
-            task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
-            task->tNumItems = 7;
-            task->tLeft = 17;
-            task->tTop = 1;
-            task->tWidth = 14;
-            task->tHeight = 12;
+            task->tHeight = 8;
             task->tKeepOpenAfterSelect = FALSE;
             task->tTaskId = taskId;
             break;
         case SCROLL_MULTI_PC_TUTOR_SET_SELECT:
             task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
-            task->tNumItems = 8;
+            task->tNumItems = 10;
             task->tLeft = 19;
             task->tTop = 1;
             task->tWidth = 12;
@@ -2478,7 +2462,7 @@ void ShowScrollableMultichoice(void)
             task->tLeft = 20;
             task->tTop = 1;
             task->tWidth = 14;
-            task->tHeight = 12;
+            task->tHeight = 10;
             task->tKeepOpenAfterSelect = FALSE;
             task->tTaskId = taskId;
             break;
@@ -2623,7 +2607,6 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
     [SCROLL_MULTI_PC_TUTOR_SET_1] = 
     {
         gText_DefenseCurl16BP,
-        gText_IcyWind24BP,
         gText_Metronome,
         gText_Mimic,
         gText_MudSlap24BP,
@@ -2633,8 +2616,7 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
     [SCROLL_MULTI_PC_TUTOR_SET_2] = 
     {
         gText_Counter48BP,
-		gText_Endure48BP,
-        gText_Rollout,
+        gText_IcyWind24BP,
         gText_Swagger,
         gText_Swift24BP,
         gText_Exit
@@ -2642,39 +2624,49 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
     [SCROLL_MULTI_PC_TUTOR_SET_3] = 
     {
         gText_FuryCutter,
-		gText_MegaPunch24BP,
-        gText_SeismicToss24BP,
+        gText_Rollout,
 		gText_Snore24BP,
         gText_Exit
     },
     [SCROLL_MULTI_PC_TUTOR_SET_4] = 
+    {
+		gText_Endure48BP,
+		gText_MegaPunch24BP,
+        gText_SeismicToss24BP,
+        gText_Exit
+    },
+    [SCROLL_MULTI_PC_TUTOR_SET_5] = 
+    {
+		gText_DreamEater24BP,
+        gText_BodySlam48BP,
+		gText_RockSlide48BP,
+        gText_Exit
+    },
+    [SCROLL_MULTI_PC_TUTOR_SET_6] = 
     {
         gText_FirePunch48BP,
         gText_IcePunch48BP,
         gText_ThunderPunch48BP,
         gText_Exit
     },
-    [SCROLL_MULTI_PC_TUTOR_SET_5] = 
+    [SCROLL_MULTI_PC_TUTOR_SET_7] = 
     {
-        gText_BodySlam48BP,
-        gText_DynamicPunch,
-		gText_RockSlide48BP,
+		gText_MegaKick48BP,
+		gSleepTalkTutor,
+		gSubstituteTutor,
         gText_Exit
     },
-    [SCROLL_MULTI_PC_TUTOR_SET_6] = 
+    [SCROLL_MULTI_PC_TUTOR_SET_8] = 
     {
-		gText_DreamEater24BP,
-		gText_MegaKick48BP,
+        gText_DynamicPunch,
+        gText_DoubleEdge,
 		gText_ThunderWave48BP,
         gText_Exit
     },
-    [SCROLL_MULTI_PC_TUTOR_SET_7] = 
+    [SCROLL_MULTI_PC_TUTOR_SET_9] = 
     {
-        gText_DoubleEdge,
 		gExplosionTutor,
-		gSleepTalkTutor,
         gText_Softboiled16BP,
-		gSubstituteTutor,
 		gText_SwordsDance48BP,
         gText_Exit
     },
@@ -2687,6 +2679,8 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_TutorMoveSet5,
         gText_TutorMoveSet6,
         gText_TutorMoveSet7,
+        gText_TutorMoveSet8,
+        gText_TutorMoveSet9,
         gText_Exit
     },
     [SCROLL_MULTI_POKE_CENTER_TUTOR] = 
@@ -3256,7 +3250,6 @@ static void HideFrontierExchangeCornerItemIcon(u16 menu, u16 unused)
 static const u16 sPokemonCenter_TutorMoves1[] =
 {
 	MOVE_DEFENSE_CURL,
-	MOVE_ICY_WIND,
 	MOVE_METRONOME,
 	MOVE_MIMIC,
 	MOVE_MUD_SLAP,
@@ -3266,8 +3259,7 @@ static const u16 sPokemonCenter_TutorMoves1[] =
 static const u16 sPokemonCenter_TutorMoves2[] =
 {
 	MOVE_COUNTER,
-	MOVE_ENDURE,
-	MOVE_ROLLOUT,
+	MOVE_ICY_WIND,
 	MOVE_SWAGGER,
 	MOVE_SWIFT
 };
@@ -3275,39 +3267,49 @@ static const u16 sPokemonCenter_TutorMoves2[] =
 static const u16 sPokemonCenter_TutorMoves3[] =
 {
 	MOVE_FURY_CUTTER,
-	MOVE_MEGA_PUNCH,
-	MOVE_SEISMIC_TOSS,
+	MOVE_ROLLOUT,
 	MOVE_SNORE
 };
 
 static const u16 sPokemonCenter_TutorMoves4[] =
+{
+	MOVE_ENDURE,
+	MOVE_MEGA_PUNCH,
+	MOVE_SEISMIC_TOSS,
+};
+
+static const u16 sPokemonCenter_TutorMoves5[] =
+{
+    MOVE_DREAM_EATER,
+	MOVE_BODY_SLAM,
+	MOVE_ROCK_SLIDE
+};
+
+static const u16 sPokemonCenter_TutorMoves6[] =
 {
 	MOVE_FIRE_PUNCH,
 	MOVE_ICE_PUNCH,
 	MOVE_THUNDER_PUNCH
 };
 
-static const u16 sPokemonCenter_TutorMoves5[] =
+static const u16 sPokemonCenter_TutorMoves7[] =
 {
-	MOVE_BODY_SLAM,
-	MOVE_DYNAMIC_PUNCH,
-	MOVE_ROCK_SLIDE
+	MOVE_MEGA_KICK,
+	MOVE_SLEEP_TALK,
+	MOVE_SUBSTITUTE
 };
 
-static const u16 sPokemonCenter_TutorMoves6[] =
+static const u16 sPokemonCenter_TutorMoves8[] =
 {
-    MOVE_DREAM_EATER,
-	MOVE_MEGA_KICK,
+	MOVE_DYNAMIC_PUNCH,
+	MOVE_DOUBLE_EDGE,
 	MOVE_THUNDER_WAVE
 };
 
-static const u16 sPokemonCenter_TutorMoves7[] =
+static const u16 sPokemonCenter_TutorMoves9[] =
 {
-	MOVE_DOUBLE_EDGE,
 	MOVE_EXPLOSION,
-	MOVE_SLEEP_TALK,
 	MOVE_SOFT_BOILED,
-	MOVE_SUBSTITUTE,
 	MOVE_SWORDS_DANCE
 };
 
@@ -3336,6 +3338,12 @@ void BufferBattleFrontierTutorMoveName(void)
     case 6:
         StringCopy(gStringVar1, gMoveNames[sPokemonCenter_TutorMoves7[gSpecialVar_0x8004]]);
         break;
+    case 7:
+        StringCopy(gStringVar1, gMoveNames[sPokemonCenter_TutorMoves8[gSpecialVar_0x8004]]);
+        break;
+    case 8:
+        StringCopy(gStringVar1, gMoveNames[sPokemonCenter_TutorMoves9[gSpecialVar_0x8004]]);
+        break;
     }
 }
 
@@ -3352,7 +3360,7 @@ static void ShowBattleFrontierTutorWindow(u8 menu, u16 selection)
         .baseBlock = 28,
     };
 
-    if ((menu >= SCROLL_MULTI_PC_TUTOR_SET_1) && (menu <= SCROLL_MULTI_PC_TUTOR_SET_7))
+    if ((menu >= SCROLL_MULTI_PC_TUTOR_SET_1) && (menu <= SCROLL_MULTI_PC_TUTOR_SET_9))
     {
         if (gSpecialVar_0x8006 == 0)
         {
@@ -3368,7 +3376,6 @@ static void ShowBattleFrontierTutorMoveDescription(u8 menu, u16 selection)
 static const u8 *const sPokemonCenter_TutorMoveDescriptions1[] = 
     {        
         PokemonCenterMoveTutor_Text_DefenseCurlDesc,
-        PokemonCenterMoveTutor_Text_IcyWindDesc,
         PokemonCenterMoveTutor_Text_MetronomeDesc,
         PokemonCenterMoveTutor_Text_MimicDesc,
         PokemonCenterMoveTutor_Text_MudSlapDesc,
@@ -3379,8 +3386,7 @@ static const u8 *const sPokemonCenter_TutorMoveDescriptions1[] =
 	static const u8 *const sPokemonCenter_TutorMoveDescriptions2[] = 
     {        
 		PokemonCenterMoveTutor_Text_CounterDesc,
-		BattleFrontier_Lounge7_Text_EndureDesc,
-		PokemonCenterMoveTutor_Text_RolloutDesc,
+        PokemonCenterMoveTutor_Text_IcyWindDesc,
         PokemonCenterMoveTutor_Text_SwaggerDesc,
         PokemonCenterMoveTutor_Text_SwiftDesc,
         gText_Exit,
@@ -3389,48 +3395,60 @@ static const u8 *const sPokemonCenter_TutorMoveDescriptions1[] =
 	static const u8 *const sPokemonCenter_TutorMoveDescriptions3[] = 
     {        
 		PokemonCenterMoveTutor_Text_FuryCutterDesc,
-        BattleFrontier_Lounge7_Text_MegaPunchDesc,
-        PokemonCenterMoveTutor_Text_SeismicTossDesc,
+		PokemonCenterMoveTutor_Text_RolloutDesc,
         BattleFrontier_Lounge7_Text_SnoreDesc,
         gText_Exit,
 	};
 
 	static const u8 *const sPokemonCenter_TutorMoveDescriptions4[] = 
     {        
-        PokemonCenterMoveTutor_Text_FirePunchDesc,
-        PokemonCenterMoveTutor_Text_IcePunchDesc,
-        PokemonCenterMoveTutor_Text_ThunderPunchDesc,
+		BattleFrontier_Lounge7_Text_EndureDesc,
+        BattleFrontier_Lounge7_Text_MegaPunchDesc,
+        PokemonCenterMoveTutor_Text_SeismicTossDesc,
         gText_Exit,
 	};
 
 	static const u8 *const sPokemonCenter_TutorMoveDescriptions5[] = 
-    {        
+    {
+        BattleFrontier_Lounge7_Text_DreamEaterDesc,        
         PokemonCenterMoveTutor_Text_BodySlamDesc,
-        PokemonCenterMoveTutor_Text_DynamicPunchDesc,
         BattleFrontier_Lounge7_Text_RockSlideDesc,
         gText_Exit,
 	};
 
 	static const u8 *const sPokemonCenter_TutorMoveDescriptions6[] = 
     {      
-        BattleFrontier_Lounge7_Text_DreamEaterDesc,
-        BattleFrontier_Lounge7_Text_MegaKickDesc,
-        BattleFrontier_Lounge7_Text_ThunderWaveDesc,
+        PokemonCenterMoveTutor_Text_FirePunchDesc,
+        PokemonCenterMoveTutor_Text_IcePunchDesc,
+        PokemonCenterMoveTutor_Text_ThunderPunchDesc,
         gText_Exit,
 	};
 
 	static const u8 *const sPokemonCenter_TutorMoveDescriptions7[] = 
-    {        
-        PokemonCenterMoveTutor_Text_DoubleEdgeDesc,
-        PokemonCenterMoveTutor_Text_ExplosionDesc,
+    {   
+        BattleFrontier_Lounge7_Text_MegaKickDesc,
         PokemonCenterMoveTutor_Text_SleepTalkDesc,
-        PokemonCenterMoveTutor_Text_SoftBoiledDesc,
         PokemonCenterMoveTutor_Text_SubstituteDesc,
+        gText_Exit,
+	};
+	
+	static const u8 *const sPokemonCenter_TutorMoveDescriptions8[] = 
+    {        
+        PokemonCenterMoveTutor_Text_DynamicPunchDesc,
+        PokemonCenterMoveTutor_Text_DoubleEdgeDesc,
+        BattleFrontier_Lounge7_Text_ThunderWaveDesc,	
+        gText_Exit,
+	};
+	
+	static const u8 *const sPokemonCenter_TutorMoveDescriptions9[] = 
+    {      
+        PokemonCenterMoveTutor_Text_ExplosionDesc,	
+        PokemonCenterMoveTutor_Text_SoftBoiledDesc,
         BattleFrontier_Lounge7_Text_SwordsDanceDesc,
         gText_Exit,
 	};
 
-    if ((menu >= SCROLL_MULTI_PC_TUTOR_SET_1) && (menu <= SCROLL_MULTI_PC_TUTOR_SET_7))
+    if ((menu >= SCROLL_MULTI_PC_TUTOR_SET_1) && (menu <= SCROLL_MULTI_PC_TUTOR_SET_9))
     {
         FillWindowPixelRect(sTutorMoveAndElevatorWindowId, PIXEL_FILL(1), 0, 0, 120, 48);                                                            
         // Replace this with switch case to accommodate new tutors
@@ -3456,7 +3474,13 @@ static const u8 *const sPokemonCenter_TutorMoveDescriptions1[] =
                 break;
             case SCROLL_MULTI_PC_TUTOR_SET_7:
                 AddTextPrinterParameterized(sTutorMoveAndElevatorWindowId, 1, sPokemonCenter_TutorMoveDescriptions7[selection], 0, 1, 0, NULL);
+                break;
+            case SCROLL_MULTI_PC_TUTOR_SET_8:
+                AddTextPrinterParameterized(sTutorMoveAndElevatorWindowId, 1, sPokemonCenter_TutorMoveDescriptions8[selection], 0, 1, 0, NULL);
                 break;        
+            case SCROLL_MULTI_PC_TUTOR_SET_9:
+                AddTextPrinterParameterized(sTutorMoveAndElevatorWindowId, 1, sPokemonCenter_TutorMoveDescriptions9[selection], 0, 1, 0, NULL);
+                break;        				
         }
     }
 }
@@ -3579,6 +3603,30 @@ void GetBattleFrontierTutorMoveIndex(void)
             do
             {
                 if (gTutorMoves[i] == sPokemonCenter_TutorMoves7[moveIndex])
+                {
+                    gSpecialVar_0x8005 = i;
+                    break;
+                }
+                i++;
+            } while (i < TUTOR_MOVE_COUNT);
+            break;
+        case 7:
+            i = 0;
+            do
+            {
+                if (gTutorMoves[i] == sPokemonCenter_TutorMoves8[moveIndex])
+                {
+                    gSpecialVar_0x8005 = i;
+                    break;
+                }
+                i++;
+            } while (i < TUTOR_MOVE_COUNT);
+            break;
+        case 8:
+            i = 0;
+            do
+            {
+                if (gTutorMoves[i] == sPokemonCenter_TutorMoves9[moveIndex])
                 {
                     gSpecialVar_0x8005 = i;
                     break;

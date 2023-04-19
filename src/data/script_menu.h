@@ -1404,5 +1404,7 @@ static const u8 *const sPKMNCenterTutorListOptions[PKMNCENTER_MOVE_TUTOR_SELECTI
     [PKMNCENTER_MOVE_TUTOR_SELECTION_5]     = gText_TutorMoveSet5,
     [PKMNCENTER_MOVE_TUTOR_SELECTION_6]     = gText_TutorMoveSet6,
     [PKMNCENTER_MOVE_TUTOR_SELECTION_7]     = gText_TutorMoveSet7,
+    [PKMNCENTER_MOVE_TUTOR_SELECTION_8]     = gText_TutorMoveSet8,
+    [PKMNCENTER_MOVE_TUTOR_SELECTION_9]     = gText_TutorMoveSet9,
     [PKMNCENTER_MOVE_TUTOR_SELECTION_EXIT]  = gText_Exit,
 };
