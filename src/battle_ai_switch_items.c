@@ -1205,9 +1205,13 @@ void PrepareNHKOTable(struct Pokemon *party, s32 firstId, s32 lastId, u8 filtere
                 nhko[i][1] = CalculateNHKO(gActiveBattler, opposingBattler, TRUE, MOVE_NONE, FALSE, TRUE);
 
                 {
+                    // Guarda en la cuarta posición si le haría OHKO al rival con un 56,25% de los PS
+                    // (o 2HKO si tiene sub)
                     u16 current_opponent_hp = gBattleMons[opposingBattler].hp;
+                    bool8 hasSub = (gBattleMons[opposingBattler].status2 & STATUS2_SUBSTITUTE) && gDisableStructs[opposingBattler].substituteHP > 0;
+
                     gBattleMons[opposingBattler].hp = (gBattleMons[opposingBattler].maxHP * 9) / 16 + 1;
-                    nhko[i][3] = CalculateNHKO(gActiveBattler, opposingBattler, TRUE, MOVE_NONE, FALSE, TRUE) == 1 ? 1 : 0;
+                    nhko[i][3] = (CalculateNHKO(gActiveBattler, opposingBattler, TRUE, MOVE_NONE, FALSE, TRUE) == (hasSub ? 2 : 1)) ? 1 : 0;
                     gBattleMons[opposingBattler].hp = current_opponent_hp;
                 }
 
