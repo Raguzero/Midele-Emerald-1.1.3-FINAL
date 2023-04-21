@@ -15,6 +15,7 @@
 #include "constants/species.h"
 
 #define ALL_MONS_FILTERED 0x3F
+#define STATUS2_KEPT_BY_SUBSTITUTE (STATUS2_CONFUSION | STATUS2_FOCUS_ENERGY | STATUS2_SUBSTITUTE | STATUS2_ESCAPE_PREVENTION | STATUS2_CURSED)
 
 // this file's functions
 static bool8 HasSuperEffectiveMoveAgainstOpponents(bool8 noRng);
@@ -1171,6 +1172,7 @@ void PrepareNHKOTable(struct Pokemon *party, s32 firstId, s32 lastId, u8 filtere
         const u16 oppositeSideStatuses = gSideStatuses[GetBattlerSide(opposingBattler)];
         const u16 weather = gBattleWeather;
         const bool8 opponentHasYetToAttack = HasYetToAttack(opposingBattler);
+        const u32 newStatus2 = (gCurrentMove == MOVE_BATON_PASS ? (currentMon.status2 & STATUS2_KEPT_BY_SUBSTITUTE) : 0);
 
         IGNORE_REFLECT_AND_LIGHT_SCREEN_IF_ABOUT_TO_FINISH(GetBattlerSide(opposingBattler));
         if (!opponentHasYetToAttack)
@@ -1182,6 +1184,7 @@ void PrepareNHKOTable(struct Pokemon *party, s32 firstId, s32 lastId, u8 filtere
                 bool8 intimidateApplies;
 
                 PokemonToBattleMon(&party[i], &gBattleMons[gActiveBattler], gCurrentMove == MOVE_BATON_PASS);
+                gBattleMons[gActiveBattler].status2 = newStatus2;
                 gBattlerPartyIndexes[gActiveBattler] = i;
                 intimidateApplies = gBattleMons[gActiveBattler].ability == ABILITY_INTIMIDATE && VulnerableToIntimidate(opposingBattler);
                 if (intimidateApplies)
@@ -1237,7 +1240,6 @@ u8 FilterSwitchInsThatMightGetKOedBeforeEndOfTurn(struct Pokemon *party, s32 fir
     u16 move = gLastMoves[opposingBattler];
     u8 moveLimitations;
     s32 i;
-    const u16 weather = gBattleWeather;
 
     if (!HasYetToAttack(opposingBattler) || move == MOVE_NONE || gBattleMoves[move].power == 0 || gDisableStructs[gActiveBattler].isFirstTurn != 0)
         return filteredMons;
@@ -1254,6 +1256,8 @@ u8 FilterSwitchInsThatMightGetKOedBeforeEndOfTurn(struct Pokemon *party, s32 fir
         struct BattlePokemon currentMon = gBattleMons[gActiveBattler];
         struct DisableStruct disableStructCopy = gDisableStructs[gActiveBattler];
         u16 partyIndex = gBattlerPartyIndexes[gActiveBattler];
+    	const u16 weather = gBattleWeather;
+        const u32 newStatus2 = (gCurrentMove == MOVE_BATON_PASS ? (currentMon.status2 & STATUS2_KEPT_BY_SUBSTITUTE) : 0);
 
         for (i = firstId; i < lastId; i++)
             if (!(gBitTable[i] & filteredMons))
@@ -1261,6 +1265,7 @@ u8 FilterSwitchInsThatMightGetKOedBeforeEndOfTurn(struct Pokemon *party, s32 fir
                 bool8 intimidateApplies;
 
                 PokemonToBattleMon(&party[i], &gBattleMons[gActiveBattler], gCurrentMove == MOVE_BATON_PASS);
+                gBattleMons[gActiveBattler].status2 = newStatus2;
                 gBattlerPartyIndexes[gActiveBattler] = i;
                 intimidateApplies = gBattleMons[gActiveBattler].ability == ABILITY_INTIMIDATE && VulnerableToIntimidate(opposingBattler);
                 if (intimidateApplies)
@@ -1322,6 +1327,7 @@ u8 FilterFragileMonsAgainstPriority(struct Pokemon *party, s32 firstId, s32 last
         const u16 AISideStatuses = gSideStatuses[GetBattlerSide(gActiveBattler)];
         const u16 oppositeSideStatuses = gSideStatuses[GetBattlerSide(opposingBattler)];
         const u16 weather = gBattleWeather;
+        const u32 newStatus2 = (gCurrentMove == MOVE_BATON_PASS ? (currentMon.status2 & STATUS2_KEPT_BY_SUBSTITUTE) : 0);
 
         IGNORE_REFLECT_AND_LIGHT_SCREEN_IF_ABOUT_TO_FINISH(GetBattlerSide(opposingBattler));
         IGNORE_REFLECT_AND_LIGHT_SCREEN_IF_ABOUT_TO_FINISH(GetBattlerSide(gActiveBattler));
@@ -1332,6 +1338,7 @@ u8 FilterFragileMonsAgainstPriority(struct Pokemon *party, s32 firstId, s32 last
                 bool8 intimidateApplies;
 
                 PokemonToBattleMon(&party[i], &gBattleMons[gActiveBattler], gCurrentMove == MOVE_BATON_PASS);
+                gBattleMons[gActiveBattler].status2 = newStatus2;
                 gBattlerPartyIndexes[gActiveBattler] = i;
                 intimidateApplies = gBattleMons[gActiveBattler].ability == ABILITY_INTIMIDATE && VulnerableToIntimidate(opposingBattler);
                 if (intimidateApplies)
@@ -1438,10 +1445,12 @@ u8 FilterTruantIfUseless(struct Pokemon *party, s32 firstId, s32 lastId, u8 filt
             struct BattlePokemon currentMon = gBattleMons[gActiveBattler];
 			struct DisableStruct disableStructCopy = gDisableStructs[gActiveBattler];
             u16 partyIndex = gBattlerPartyIndexes[gActiveBattler];
+            const u32 newStatus2 = (gCurrentMove == MOVE_BATON_PASS ? (currentMon.status2 & STATUS2_KEPT_BY_SUBSTITUTE) : 0);
 			for (i = firstId; i < lastId; i++)
                 if ((gBitTable[i] & truantMons))
                 {
                     PokemonToBattleMon(&party[i], &gBattleMons[gActiveBattler], gCurrentMove == MOVE_BATON_PASS);
+                    gBattleMons[gActiveBattler].status2 = newStatus2;
                     gBattlerPartyIndexes[gActiveBattler] = i;
 					PrepareDisableStructForSwitchIn(gActiveBattler, &disableStructCopy);
 
@@ -1491,6 +1500,7 @@ u8 FilterShedinjaIfVulnerable(struct Pokemon *party, s32 firstId, s32 lastId, u8
 				u16 savedCurrentMove = gCurrentMove;
         const u16 oppositeSideStatuses = gSideStatuses[GetBattlerSide(opposingBattler)];
         const u16 weather = gBattleWeather;
+        const u32 newStatus2 = (gCurrentMove == MOVE_BATON_PASS ? (currentMon.status2 & STATUS2_KEPT_BY_SUBSTITUTE) : 0);
 
         IGNORE_REFLECT_AND_LIGHT_SCREEN_IF_ABOUT_TO_FINISH(GetBattlerSide(opposingBattler));
         IGNORE_WEATHER_IF_ABOUT_TO_FINISH();
@@ -1504,6 +1514,7 @@ u8 FilterShedinjaIfVulnerable(struct Pokemon *party, s32 firstId, s32 lastId, u8
                 s32 move_i;
                 u16 move;
                 PokemonToBattleMon(&party[i], &gBattleMons[gActiveBattler], gCurrentMove == MOVE_BATON_PASS);
+                gBattleMons[gActiveBattler].status2 = newStatus2;
                 gBattlerPartyIndexes[gActiveBattler] = i;
 				PrepareDisableStructForSwitchIn(gActiveBattler, &disableStructCopy);
 
@@ -1643,8 +1654,10 @@ u8 FilterOpponentCanBeTrappedAndDefeated(struct Pokemon *party, s32 firstId, s32
                         u16 partyIndex = gBattlerPartyIndexes[gActiveBattler];
                         const u16 oppositeSideStatuses = gSideStatuses[GetBattlerSide(opposingBattler)];
                         const u16 weather = gBattleWeather;
+                        const u32 newStatus2 = (gCurrentMove == MOVE_BATON_PASS ? (currentMon.status2 & STATUS2_KEPT_BY_SUBSTITUTE) : 0);
 
                         PokemonToBattleMon(&party[i], &gBattleMons[gActiveBattler], gCurrentMove == MOVE_BATON_PASS);
+                        gBattleMons[gActiveBattler].status2 = newStatus2;
                         gBattlerPartyIndexes[gActiveBattler] = i;
                         PrepareDisableStructForSwitchIn(gActiveBattler, &disableStructCopy);
 
