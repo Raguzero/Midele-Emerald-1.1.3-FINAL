@@ -601,14 +601,14 @@ void CalculategBattleMoveDamageFromgCurrentMove(u8 attackerId, u8 targetId, u8 s
 s32 CalculateDamageFromMove(u8 attackerId, u8 targetId, u16 move, u8 simulatedRng)
 {
     s32 savedgBattleMoveDamage = gBattleMoveDamage;
-    u16 savedgCurrentMove = gCurrentMove;
+    u16 savedCurrentMove = gCurrentMove;
     s32 damage;
 
     gCurrentMove = move;
     CalculategBattleMoveDamageFromgCurrentMove(attackerId, targetId, simulatedRng);
     damage = gBattleMoveDamage;
 
-    gCurrentMove = savedgCurrentMove;
+    gCurrentMove = savedCurrentMove;
     gBattleMoveDamage = savedgBattleMoveDamage;
 
     return damage;
@@ -653,22 +653,34 @@ s32 CalculatenHKOFromgCurrentMove(u8 attackerId, u8 targetId, u8 simulatedRng, s
 bool32 OurShedinjaIsVulnerable(u32 battlerAI, u32 opposingBattler, u16 consideredMove)
 {
     s32 i, j, known_moves = 0;
-    u8 moveLimitations = CheckMoveLimitations(opposingBattler, 0, MOVE_LIMITATION_CHOICE-1);
+    const u8 moveLimitations = CheckMoveLimitations(opposingBattler, 0, MOVE_LIMITATION_CHOICE-1);
+    const u16 savedCurrentMove = gCurrentMove;
+    s8 priorityNeededToAttackShedinja = -10; // Se ignoran movimientos con prioridad menor que esta porque Shedinja hará KO antes
 
-    // Si Shedinja elige protegerse, no hace falta huir
-    if (gBattleMoves[consideredMove].effect == EFFECT_PROTECT && PROTECT_WONT_FAIL_FOR(battlerAI))
-        return FALSE;
+    // Si Shedinja elige protegerse, no hace falta huir, excepto si el rival puede meter clima
+    bool8 shedinjaIsSafeUnlessWeather = gBattleMoves[consideredMove].effect == EFFECT_PROTECT && PROTECT_WONT_FAIL_FOR(battlerAI);
 
-    // Si Shedinja es más rápido y hace KO con el ataque elegido, no hace falta huir
-    if (GetWhoStrikesFirst(battlerAI, opposingBattler, TRUE) == 0)
+    // Si Shedinja hace KO con el ataque elegido antes de que ataque el rival, no hace falta huir
+    if (AI_CAN_ESTIMATE_DAMAGE(consideredMove))
     {
+        bool8 canKO;
+      
         gCurrentMove = consideredMove;
-        if (CalculatenHKOFromgCurrentMove(battlerAI, opposingBattler, 85, 5) == 1)
-            return FALSE;
+        canKO = CalculatenHKOFromgCurrentMove(battlerAI, opposingBattler, 85, 5) == 1;
+        gCurrentMove = savedCurrentMove;
+        if (canKO)
+            priorityNeededToAttackShedinja = gBattleMoves[consideredMove].priority + ((GetWhoStrikesFirst(battlerAI, opposingBattler, TRUE) == 0) ? 1 : 0);
     }
 
+    // Si Shedinja tiene un sustituto de alguna forma, no hace falta huir, excepto si el rival puede meter clima
+    if (!shedinjaIsSafeUnlessWeather && (gBattleMons[battlerAI].status2 & STATUS2_SUBSTITUTE) && gDisableStructs[gBattlerTarget].substituteHP)
+        shedinjaIsSafeUnlessWeather = TRUE;
+
+   if (priorityNeededToAttackShedinja > 0 && shedinjaIsSafeUnlessWeather)
+      return FALSE; // tiene sub y el rival no tendrá tiempo ni de poner clima
+
     // Si el oponente va a escoger Struggle, Shedinja tiene que huir, pues será dañado
-    if (moveLimitations == 0xF)
+    if (moveLimitations == 0xF && priorityNeededToAttackShedinja <= 0 && !shedinjaIsSafeUnlessWeather)
         return TRUE;
 
     for (i = 0; i < MAX_MON_MOVES; i++)
@@ -680,6 +692,9 @@ bool32 OurShedinjaIsVulnerable(u32 battlerAI, u32 opposingBattler, u16 considere
 
         known_moves += 1;
 
+        if (gBattleMoves[gCurrentMove].priority < priorityNeededToAttackShedinja)
+            continue; // Nos da igual el movimiento si Shedinja hace OHKO antes
+
         // Comprueba que puede usar el movimiento
         for (j = 0; j < MAX_MON_MOVES; j++)
             if (gCurrentMove == gBattleMons[opposingBattler].moves[j] && !(gBitTable[j] & moveLimitations))
@@ -687,32 +702,42 @@ bool32 OurShedinjaIsVulnerable(u32 battlerAI, u32 opposingBattler, u16 considere
         if (j == MAX_MON_MOVES)
             continue; // No puede usar el movimiento por el momento; se ignora
 
-		// Si le hace daño a Shedinja, hora de huir
-        if (AI_CAN_ESTIMATE_DAMAGE(gCurrentMove))
+        // Si le hace daño a Shedinja, hora de huir
+        if (AI_CAN_ESTIMATE_DAMAGE(gCurrentMove) && !shedinjaIsSafeUnlessWeather)
         {
             CalculategBattleMoveDamageFromgCurrentMove(opposingBattler, battlerAI, 0);
             if (gBattleMoveDamage > 0)
+            {
+                gCurrentMove = savedCurrentMove;
                 return TRUE;
+            }
         }
 			
-// Los siguientes movimientos también requieren huir
+        // Movimientos con los siguientes efectos también requieren huir
         switch (gBattleMoves[gCurrentMove].effect)
         {
             case EFFECT_TOXIC:
             case EFFECT_POISON:
-			case EFFECT_CONFUSE:
-			case EFFECT_TEETER_DANCE:
-			case EFFECT_SWAGGER:
-			case EFFECT_FLATTER:
-		    case EFFECT_LEECH_SEED:
             case EFFECT_WILL_O_WISP:
+                if ((gBattleMons[battlerAI].status1 & STATUS1_PARALYSIS) || ((gBattleMons[battlerAI].status1 & (STATUS1_SLEEP | STATUS1_FREEZE)) && (gBattleMoves[consideredMove].priority < 0 || (gBattleMoves[consideredMove].priority == 0 && GetWhoStrikesFirst(battlerAI, opposingBattler, TRUE) != 0))))
+                    break; // Le da igual recibir status si está paralizado o durmiendo (o congelado, por si lo está por alguna razón loca). En el caso de dormir, si Shedinja ataca antes y despierta no estará durmiendo
+            case EFFECT_CONFUSE:
+            case EFFECT_TEETER_DANCE:
+            case EFFECT_SWAGGER:
+            case EFFECT_FLATTER:
+            case EFFECT_LEECH_SEED:
+                if (shedinjaIsSafeUnlessWeather)
+                    break; // Shedinja se protege de los anteriores si tira Protect o tiene sub, pero no de lo siguiente:
             case EFFECT_SANDSTORM:
             case EFFECT_HAIL:
+                gCurrentMove = savedCurrentMove;
                 return TRUE;
         }
     }
 
-    if (known_moves < 4)
+    gCurrentMove = savedCurrentMove;
+
+    if (known_moves < 4 && priorityNeededToAttackShedinja <= 0 && !shedinjaIsSafeUnlessWeather)
     {
         u8 opponent_types[2] = {gBattleMons[opposingBattler].type1, gBattleMons[opposingBattler].type2};
         if (gBattleMons[battlerAI].ability != ABILITY_WONDER_GUARD)
