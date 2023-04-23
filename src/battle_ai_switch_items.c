@@ -1157,6 +1157,11 @@ bool8 KnowsSomeRecoveryMove(u32 opposingBattler)
   if (gWishFutureKnock.weatherDuration == 1 && !(gBattleWeather & (WEATHER_RAIN_PERMANENT | WEATHER_SANDSTORM_PERMANENT | WEATHER_SUN_PERMANENT | WEATHER_HAIL_PERMANENT))) gBattleWeather = 0; \
 }
 
+#define NHKO_FASTER(i)            (nhko[i][0])
+#define NHKO_GIVEN(i)             (nhko[i][1])
+#define NHKO_TAKEN(i)             (nhko[i][2])
+#define NHKO_OVERCOMES_RECOVER(i) (nhko[i][3])
+
 // Prepara una tabla con tres entradas para cada poke del equipo:
 // si es más rápido que el rival, qué nHKO le hace al rival, qué nHKO espera
 // recibir del rival y si le quita un 56.25% de los PS con algún ataque
@@ -1197,15 +1202,12 @@ void PrepareNHKOTable(struct Pokemon *party, s32 firstId, s32 lastId, u8 filtere
                 // Guarda en la segunda posición el nHKO que le hace al rival,
                 // y en la tercera el que espera recibir del rival
                 if (!opponentHasYetToAttack) IGNORE_WEATHER_IF_ABOUT_TO_FINISH();
-                nhko[i][2] = CalculateNHKO(opposingBattler, gActiveBattler, FALSE, MOVE_NONE, FALSE, TRUE);
+                NHKO_TAKEN(i) = CalculateNHKO(opposingBattler, gActiveBattler, FALSE, MOVE_NONE, FALSE, TRUE);
                 if (opponentHasYetToAttack) IGNORE_WEATHER_IF_ABOUT_TO_FINISH();
 
-                if (GetWhoStrikesFirst(gActiveBattler, opposingBattler, TRUE) == 0)
-                    nhko[i][0] = 1;
-                else
-                    nhko[i][0] = 0;
+                NHKO_FASTER(i) = ((GetWhoStrikesFirst(gActiveBattler, opposingBattler, TRUE) == 0) ? 1 : 0);
 
-                nhko[i][1] = CalculateNHKO(gActiveBattler, opposingBattler, TRUE, MOVE_NONE, FALSE, TRUE);
+                NHKO_GIVEN(i) = CalculateNHKO(gActiveBattler, opposingBattler, TRUE, MOVE_NONE, FALSE, TRUE);
 
                 {
                     // Guarda en la cuarta posición si le haría OHKO al rival con un 56,25% de los PS
@@ -1214,7 +1216,7 @@ void PrepareNHKOTable(struct Pokemon *party, s32 firstId, s32 lastId, u8 filtere
                     bool8 hasSub = (gBattleMons[opposingBattler].status2 & STATUS2_SUBSTITUTE) && gDisableStructs[opposingBattler].substituteHP > 0;
 
                     gBattleMons[opposingBattler].hp = (gBattleMons[opposingBattler].maxHP * 9) / 16 + 1;
-                    nhko[i][3] = (CalculateNHKO(gActiveBattler, opposingBattler, TRUE, MOVE_NONE, FALSE, TRUE) == (hasSub ? 2 : 1)) ? 1 : 0;
+                    NHKO_OVERCOMES_RECOVER(i) = (CalculateNHKO(gActiveBattler, opposingBattler, TRUE, MOVE_NONE, FALSE, TRUE) == (hasSub ? 2 : 1)) ? 1 : 0;
                     gBattleMons[opposingBattler].hp = current_opponent_hp;
                 }
 
@@ -1562,7 +1564,7 @@ u8 FilterChoiceMonsWayTooWeak(struct Pokemon *party, s32 firstId, s32 lastId, u8
                 }
 
                 // Excluye al candidato en caso de 5HKO o peor, o de 4HKO siendo más lento
-                if (!hasOHKOmove && nhko[i][1] >= 4 && (nhko[i][1] > 4 || !nhko[i][0]))
+                if (!hasOHKOmove && NHKO_GIVEN(i) >= 4 && (NHKO_GIVEN(i) > 4 || !NHKO_FASTER(i)))
                     filteredMons |= gBitTable[i];
             }
         }
@@ -1591,7 +1593,7 @@ u8 FilterChoiceMonsNotPowerfulEnough(struct Pokemon *party, s32 firstId, s32 las
                         hasOHKOmove = TRUE;
                 }
 
-                if (!hasOHKOmove && nhko[i][1] > 2)
+                if (!hasOHKOmove && NHKO_GIVEN(i) > 2)
                     filteredMons |= gBitTable[i];
             }
         }
@@ -1619,8 +1621,8 @@ u8 FilterOpponentCanBeTrappedAndDefeated(struct Pokemon *party, s32 firstId, s32
     for (i = firstId; i < lastId; i++)
         if (!(gBitTable[i] & filteredMons))
         {
-            u8 num_attacks_taken_until_KO = nhko[i][1] - nhko[i][0] + min_opponent_attacks;
-			u8 nhko_taken = nhko[i][2];
+            u8 num_attacks_taken_until_KO = NHKO_GIVEN(i) - NHKO_FASTER(i) + min_opponent_attacks;
+            u8 nhko_taken = NHKO_TAKEN(i);
 
             // Tiene que dar revenge kill, o hacer KO de sobra antes de recibirlo
             if (num_attacks_taken_until_KO > 0
@@ -1645,7 +1647,7 @@ u8 FilterOpponentCanBeTrappedAndDefeated(struct Pokemon *party, s32 firstId, s32
                     // También considera que el rival será atrapado si le da OHKO con Pursuit
                     bool8 canKOwithPursuit = FALSE;
 
-				if (nhko[i][1] == 1 && (GetMonData(&party[i], MON_DATA_MOVE1) == MOVE_PURSUIT || GetMonData(&party[i], MON_DATA_MOVE2) == MOVE_PURSUIT || GetMonData(&party[i], MON_DATA_MOVE3) == MOVE_PURSUIT || GetMonData(&party[i], MON_DATA_MOVE4) == MOVE_PURSUIT))
+                    if (NHKO_GIVEN(i) == 1 && (GetMonData(&party[i], MON_DATA_MOVE1) == MOVE_PURSUIT || GetMonData(&party[i], MON_DATA_MOVE2) == MOVE_PURSUIT || GetMonData(&party[i], MON_DATA_MOVE3) == MOVE_PURSUIT || GetMonData(&party[i], MON_DATA_MOVE4) == MOVE_PURSUIT))
                     {
                         u8 moveLimitations;
                         s32 move_i;
@@ -1694,8 +1696,8 @@ u8 FilterRevengeKill(struct Pokemon *party, s32 firstId, s32 lastId, u8 filtered
         for (i = firstId; i < lastId; i++)
             if (!(gBitTable[i] & filteredMons)
              && !(
-                   nhko[i][0]      // tiene que ser más rápido
-                && nhko[i][1] == 1 // y dar OHKO
+                   NHKO_FASTER(i)     // tiene que ser más rápido
+                && NHKO_GIVEN(i) == 1 // y dar OHKO
              ))
                 filteredMons |= gBitTable[i];
 
@@ -1713,11 +1715,11 @@ u8 FilterKOTaking1Hit(struct Pokemon *party, s32 firstId, s32 lastId, u8 filtere
             // El número de ataques que va a recibir antes de hacer KO al rival es
             // el nHKO que le hace al rival, menos 1 si es más rápido,
             // más 1 si el rival todavía tiene que atacar
-            u8 num_attacks_taken_until_KO = nhko[i][1] - nhko[i][0] + min_opponent_attacks;
+            u8 num_attacks_taken_until_KO = NHKO_GIVEN(i) - NHKO_FASTER(i) + min_opponent_attacks;
 		
-	u8 nhko_taken = nhko[i][2];
+            u8 nhko_taken = NHKO_TAKEN(i);
             
-            if (num_attacks_taken_until_KO > 0 && (num_attacks_taken_until_KO > 1 || nhko_taken < 3 || (!nhko[i][3] && KnowsSomeRecoveryMove(opposingBattler))))
+            if (num_attacks_taken_until_KO > 0 && (num_attacks_taken_until_KO > 1 || nhko_taken < 3 || (!NHKO_OVERCOMES_RECOVER(i) && KnowsSomeRecoveryMove(opposingBattler))))
                 filteredMons |= gBitTable[i];
         }
 
@@ -1735,10 +1737,10 @@ u8 FilterKOTaking2Hits(struct Pokemon *party, s32 firstId, s32 lastId, u8 filter
             // El número de ataques que va a recibir antes de hacer KO al rival es
             // el nHKO que le hace al rival, menos 1 si es más rápido,
             // más 1 si el rival todavía tiene que atacar
-            u8 num_attacks_taken_until_KO = nhko[i][1] - nhko[i][0] + min_opponent_attacks;
-            u8 nhko_taken = nhko[i][2];
+            u8 num_attacks_taken_until_KO = NHKO_GIVEN(i) - NHKO_FASTER(i) + min_opponent_attacks;
+            u8 nhko_taken = NHKO_TAKEN(i);
             
-            if (num_attacks_taken_until_KO > 0 && ((!(num_attacks_taken_until_KO <= 1 && nhko_taken >= 3) && (num_attacks_taken_until_KO > 2 || nhko_taken < 5)) || (!nhko[i][3] && KnowsSomeRecoveryMove(opposingBattler))))
+            if (num_attacks_taken_until_KO > 0 && ((!(num_attacks_taken_until_KO <= 1 && nhko_taken >= 3) && (num_attacks_taken_until_KO > 2 || nhko_taken < 5)) || (!NHKO_OVERCOMES_RECOVER(i) && KnowsSomeRecoveryMove(opposingBattler))))
                 filteredMons |= gBitTable[i];
         }
 
@@ -1763,12 +1765,7 @@ u8 FilterCanAttackWonderGuardOpponent(struct Pokemon *party, s32 firstId, s32 la
                 if (gBattleMons[opposingBattler].hp == 1)
                 {
                     u16 species = GetMonData(&party[i], MON_DATA_SPECIES);
-                    u8 monAbility;
-
-                    if (GetMonData(&party[i], MON_DATA_ABILITY_NUM) != 0)
-                        monAbility = gBaseStats[species].abilities[1];
-                    else
-                        monAbility = gBaseStats[species].abilities[0];
+                    u8 monAbility = gBaseStats[species].abilities[(GetMonData(&party[i], MON_DATA_ABILITY_NUM) != 0) ? 1 : 0];
 
                     if (monAbility == ABILITY_SAND_STREAM || monAbility == ABILITY_SNOW_WARNING)
                     {
@@ -1779,7 +1776,7 @@ u8 FilterCanAttackWonderGuardOpponent(struct Pokemon *party, s32 firstId, s32 la
                 }
 
                 // Mira si le hace algo mejor que 5HKO (y por tanto le hace algo)
-                if (nhko[i][1] < 5)
+                if (NHKO_GIVEN(i) < 5)
                     continue;
 
                 // Mira si puede dañar con algún movimiento que no sea de daño directo
@@ -1810,12 +1807,12 @@ u8 FilterTakesMostHits(struct Pokemon *party, s32 firstId, s32 lastId, u8 filter
 
     // Calcula el nHKO menos malo que algún poke de la IA recibe del rival
     for (i = firstId; i < lastId; i++)
-        if (!(gBitTable[i] & filteredMons) && nhko[i][2] > max_hits_taken)
-            max_hits_taken = nhko[i][2];
+        if (!(gBitTable[i] & filteredMons) && NHKO_TAKEN(i) > max_hits_taken)
+            max_hits_taken = NHKO_TAKEN(i);
 
     // Filtra los pokes que tienen un nHKO peor que el menos malo
     for (i = firstId; i < lastId; i++)
-        if (!(gBitTable[i] & filteredMons) && nhko[i][2] < max_hits_taken)
+        if (!(gBitTable[i] & filteredMons) && NHKO_TAKEN(i) < max_hits_taken)
             filteredMons |= gBitTable[i];
 
     return filteredMons;
@@ -1829,12 +1826,12 @@ u8 FilterKOsInLessHits(struct Pokemon *party, s32 firstId, s32 lastId, u8 filter
 	// Calcula el mejor nHKO que algún poke de la IA da al rival
     // Se resta 1 si el poke de la IA es más rápido (se evalúa igual dar 2HKO siendo más lento que 3HKO siendo más rápido)
     for (i = firstId; i < lastId; i++)
-        if (!(gBitTable[i] & filteredMons) && (nhko[i][1] - nhko[i][0]) < min_hits_given)
-            min_hits_given = nhko[i][1];
+        if (!(gBitTable[i] & filteredMons) && (NHKO_GIVEN(i) - NHKO_FASTER(i)) < min_hits_given)
+            min_hits_given = NHKO_GIVEN(i);
 
     // Filtra los pokes que tienen un nHKO peor
     for (i = firstId; i < lastId; i++)
-        if (!(gBitTable[i] & filteredMons) && (nhko[i][1] - nhko[i][0]) > min_hits_given)
+        if (!(gBitTable[i] & filteredMons) && (NHKO_GIVEN(i) - NHKO_FASTER(i)) > min_hits_given)
             filteredMons |= gBitTable[i];
 
     return filteredMons;
