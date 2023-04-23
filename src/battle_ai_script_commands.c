@@ -657,8 +657,13 @@ bool32 OurShedinjaIsVulnerable(u32 battlerAI, u32 opposingBattler, u16 considere
     const u16 savedCurrentMove = gCurrentMove;
     s8 priorityNeededToAttackShedinja = -10; // Se ignoran movimientos con prioridad menor que esta porque Shedinja hará KO antes
 
-    // Si Shedinja elige protegerse, no hace falta huir, excepto si el rival puede meter clima
+    // Si Shedinja elige protegerse, no hace falta huir,
+    // excepto si el rival puede meter clima o si está confuso (que se comprueba a continuación)
     bool8 shedinjaIsSafeUnlessWeather = gBattleMoves[consideredMove].effect == EFFECT_PROTECT && PROTECT_WONT_FAIL_FOR(battlerAI);
+
+    // Si Shedinja está confuso, claramente corre peligro: puede atacarse a sí mismo
+    if (gBattleMons[battlerAI].status2 & STATUS2_CONFUSION)
+        return TRUE;
 
     // Si Shedinja hace KO con el ataque elegido antes de que ataque el rival, no hace falta huir
     if (AI_CAN_ESTIMATE_DAMAGE(consideredMove))
@@ -721,10 +726,14 @@ bool32 OurShedinjaIsVulnerable(u32 battlerAI, u32 opposingBattler, u16 considere
             case EFFECT_WILL_O_WISP:
                 if ((gBattleMons[battlerAI].status1 & STATUS1_PARALYSIS) || ((gBattleMons[battlerAI].status1 & (STATUS1_SLEEP | STATUS1_FREEZE)) && (gBattleMoves[consideredMove].priority < 0 || (gBattleMoves[consideredMove].priority == 0 && GetWhoStrikesFirst(battlerAI, opposingBattler, TRUE) != 0))))
                     break; // Le da igual recibir status si está paralizado o durmiendo (o congelado, por si lo está por alguna razón loca). En el caso de dormir, si Shedinja ataca antes y despierta no estará durmiendo
+                goto _SKIP_CONFUSE_MOVES;
             case EFFECT_CONFUSE:
             case EFFECT_TEETER_DANCE:
             case EFFECT_SWAGGER:
             case EFFECT_FLATTER:
+                if (priorityNeededToAttackShedinja > 0)
+                    break; // si Shedinja es más rápido, le da igual que lo confundan, ya huirá en el siguiente turno si eso
+            _SKIP_CONFUSE_MOVES:
             case EFFECT_LEECH_SEED:
                 if (shedinjaIsSafeUnlessWeather)
                     break; // Shedinja se protege de los anteriores si tira Protect o tiene sub, pero no de lo siguiente:
