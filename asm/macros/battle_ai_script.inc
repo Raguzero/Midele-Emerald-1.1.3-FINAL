@@ -656,6 +656,11 @@
 	.4byte \ptr
 	.endm
 
+	.macro if_target_will_be_faster_after_this_effect ptr:req
+	.byte 0x75
+	.4byte \ptr
+	.endm
+
 @ useful script macros
 	.macro get_curr_move_type
 	get_type AI_TYPE_MOVE
@@ -764,7 +769,7 @@
     calculate_nhko AI_TARGET
     if_equal 1, \ptr
     if_more_than 2, .AI_attack_is_probably_not_the_last_\@
-    if_target_faster \ptr
+    if_target_will_be_faster_after_this_effect \ptr
 	.AI_attack_is_probably_not_the_last_\@:
     .endm
 	
@@ -787,7 +792,7 @@
     .endm
 
     .macro if_free_setup_turn ptr:req
-    if_target_faster .AI_no_free_setup_\@
+    if_target_will_be_faster_after_this_effect .AI_no_free_setup_\@
     if_free_setup_turn_assuming_target_will_be_slower \ptr
     .AI_no_free_setup_\@:
     .endm
