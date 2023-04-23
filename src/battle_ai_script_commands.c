@@ -194,6 +194,7 @@ static void Cmd_if_user_has_revealed_move(void);
 static void Cmd_if_has_non_ineffective_move_with_effect(void);
 static void Cmd_if_doesnt_have_non_ineffective_move_with_effect(void);
 static void Cmd_if_move_is_contactless(void);
+static void Cmd_if_target_will_be_faster_after_this_effect(void);
 
 // ewram
 EWRAM_DATA const u8 *gAIScriptPtr = NULL;
@@ -321,6 +322,7 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_if_has_non_ineffective_move_with_effect,            // 0x72
     Cmd_if_doesnt_have_non_ineffective_move_with_effect,    // 0x73
     Cmd_if_move_is_contactless,                             // 0x74
+    Cmd_if_target_will_be_faster_after_this_effect,         // 0x75
 };
 
 static const u16 sDiscouragedPowerfulMoveEffects[] =
@@ -3860,4 +3862,90 @@ static void Cmd_if_move_is_contactless(void)
         gAIScriptPtr += 5;
     else
         gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 1);
+}
+
+static void Cmd_if_target_will_be_faster_after_this_effect(void)
+{
+    bool8 target_will_be_faster;
+    const s8 aiSpeedStage = gBattleMons[sBattler_AI].statStages[STAT_SPEED], targetSpeedStage = gBattleMons[gBattlerTarget].statStages[STAT_SPEED];
+    const u16 weather = gBattleWeather;
+
+    // Simula el efecto de cambio de Velocidad por el ataque en cuestión.
+    // Asume que se ejecuta con éxito (no hay fallo ni inmunidad) y nada impide el efecto
+    // (sustituto, Neblina, Clear Body, White Smoke o Shield Dust) excepto estar a +6 o -6.
+    // Ignora movimientos que podrían bajar Velocidad pero de forma no garantizada
+    switch(gBattleMoves[AI_THINKING_STRUCT->moveConsidered].effect)
+    {
+        case EFFECT_CURSE:
+            if (!IS_BATTLER_OF_TYPE(sBattler_AI, TYPE_GHOST) && aiSpeedStage != 0)
+                gBattleMons[sBattler_AI].statStages[STAT_SPEED] -= 1;
+            break;
+        case EFFECT_SPEED_UP:
+        case EFFECT_DRAGON_DANCE:
+        case EFFECT_QUIVER_DANCE:
+        case EFFECT_RAPID_SPIN:
+        case EFFECT_MIDELE_POWER:
+            if (aiSpeedStage != 12)
+                gBattleMons[sBattler_AI].statStages[STAT_SPEED] += 1;
+            break;
+        case EFFECT_SPEED_UP_2:
+            if (aiSpeedStage <= 10)
+                gBattleMons[sBattler_AI].statStages[STAT_SPEED] += 2;
+            else
+                gBattleMons[sBattler_AI].statStages[STAT_SPEED] = 12;
+            break;
+        case EFFECT_SPEED_DOWN_HIT:
+            if (gBattleMoves[AI_THINKING_STRUCT->moveConsidered].secondaryEffectChance != 100)
+                break;
+            // continúa si tiene 100% de bajar Velocidad
+        case EFFECT_SPEED_DOWN:
+            if (aiSpeedStage != 0)
+                gBattleMons[gBattlerTarget].statStages[STAT_SPEED] -= 1;
+            break;
+        case EFFECT_SPEED_DOWN_2:
+            if (targetSpeedStage >= 2)
+                gBattleMons[gBattlerTarget].statStages[STAT_SPEED] -= 2;
+            else
+                gBattleMons[gBattlerTarget].statStages[STAT_SPEED] = 0;
+            break;
+        case EFFECT_RAIN_DANCE:
+            gBattleWeather = WEATHER_RAIN_ANY;
+            break;
+        case EFFECT_SUNNY_DAY:
+            gBattleWeather = WEATHER_SUN_ANY;
+            break;
+        case EFFECT_SANDSTORM:
+            gBattleWeather = WEATHER_SANDSTORM_ANY;
+            break;
+        case EFFECT_HAIL:
+            gBattleWeather = WEATHER_HAIL_ANY;
+            break;
+    }
+
+    // Tiene en cuenta habilidades también, como Speed Boost o Gooey.
+    // La adivina si es la única habilidad posible del rival, pero no por ejemplo en Yanmega
+    if (gBattleMons[sBattler_AI].ability == ABILITY_SPEED_BOOST && gBattleMons[sBattler_AI].statStages[STAT_SPEED] != 12)
+        gBattleMons[sBattler_AI].statStages[STAT_SPEED] += 1;
+
+    if ((FOES_OBSERVED_ABILITY(gBattlerTarget) == ABILITY_SPEED_BOOST || (FOES_OBSERVED_ABILITY(gBattlerTarget) == ABILITY_NONE && GetAbilityBySpecies(gBattleMons[gBattlerTarget].species, 0) == ABILITY_SPEED_BOOST && (GetAbilityBySpecies(gBattleMons[gBattlerTarget].species, 1) == ABILITY_SPEED_BOOST || GetAbilityBySpecies(gBattleMons[gBattlerTarget].species, 1) == ABILITY_NONE))) && gBattleMons[gBattlerTarget].statStages[STAT_SPEED] != 12)
+        gBattleMons[gBattlerTarget].statStages[STAT_SPEED] += 1;
+
+    if ((gBattleMoves[AI_THINKING_STRUCT->moveConsidered].flags & FLAG_MAKES_CONTACT) && (
+             FOES_OBSERVED_ABILITY(gBattlerTarget) == ABILITY_GOOEY
+         || (FOES_OBSERVED_ABILITY(gBattlerTarget) == ABILITY_NONE && GetAbilityBySpecies(gBattleMons[gBattlerTarget].species, 0) == ABILITY_GOOEY && (GetAbilityBySpecies(gBattleMons[gBattlerTarget].species, 1) == ABILITY_GOOEY || GetAbilityBySpecies(gBattleMons[gBattlerTarget].species, 1) == ABILITY_NONE))
+         || FOES_OBSERVED_ABILITY(gBattlerTarget) == ABILITY_TANGLING_HAIR
+         || (FOES_OBSERVED_ABILITY(gBattlerTarget) == ABILITY_NONE && GetAbilityBySpecies(gBattleMons[gBattlerTarget].species, 0) == ABILITY_TANGLING_HAIR && (GetAbilityBySpecies(gBattleMons[gBattlerTarget].species, 1) == ABILITY_TANGLING_HAIR || GetAbilityBySpecies(gBattleMons[gBattlerTarget].species, 1) == ABILITY_NONE))
+        ) && gBattleMons[sBattler_AI].statStages[STAT_SPEED] != 0)
+        gBattleMons[sBattler_AI].statStages[STAT_SPEED] -= 1;
+
+    target_will_be_faster = GetWhoStrikesFirst(sBattler_AI, gBattlerTarget, TRUE) != 0;
+
+    gBattleMons[sBattler_AI].statStages[STAT_SPEED] = aiSpeedStage;
+    gBattleMons[gBattlerTarget].statStages[STAT_SPEED] = targetSpeedStage;
+    gBattleWeather = weather;
+
+    if (target_will_be_faster)
+        gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 1);
+    else
+        gAIScriptPtr += 5;
 }
