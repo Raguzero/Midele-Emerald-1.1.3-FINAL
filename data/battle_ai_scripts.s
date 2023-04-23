@@ -970,13 +970,13 @@ AI_ChoiceDamage_CalculateNHKO:
 
 AI_ChoiceDamage_3HKO:
     if_has_a_50_percent_hp_recovery_move AI_TARGET, Score_Minus8
-    if_target_faster Score_Minus5
+    if_target_will_be_faster_after_this_effect Score_Minus5
     goto AI_ChoiceDamage_End
 
 AI_ChoiceDamage_4HKO:
     if_has_a_50_percent_hp_recovery_move AI_TARGET, Score_Minus8
     if_has_move_with_effect AI_TARGET, EFFECT_REST, Score_Minus8
-    if_target_faster Score_Minus8
+    if_target_will_be_faster_after_this_effect Score_Minus8
     goto Score_Minus5
 AI_ChoiceDamage_End:
 	end
@@ -1382,6 +1382,10 @@ AI_CV_RapidSpin:
 AI_CV_RapidSpin_SpikesAreIrrelevant:
     if_status3 AI_USER, STATUS3_LEECHSEED, Score_Plus1
     if_status2 AI_USER, STATUS2_WRAPPED, Score_Plus1
+    if_user_faster AI_CV_RapidSpin_End
+    if_target_will_be_faster_after_this_effect AI_CV_RapidSpin_End
+    score +1
+AI_CV_RapidSpin_End:
     end
 
 AI_CV_RapidSpin_SpikesCount:
@@ -1540,7 +1544,8 @@ AI_CV_SpeedUp_HasBatonPass:
 AI_CV_SpeedUp2WithPenalty:
     score -1 @ (sigue)
 AI_CV_SpeedUp2: @ 82DCC6A
-	if_free_setup_turn_assuming_target_will_be_slower Score_Plus5
+	if_free_setup_turn Score_Plus5
+	if_this_attack_might_be_the_last Score_Minus5
 	if_random_less_than 70, AI_CV_SpeedUp_End
 	score +3
 
@@ -1880,6 +1885,7 @@ AI_CV_SpeedDown: @ 82DCE81
 AI_CV_SpeedDown2: @ 82DCE8E
 	if_random_less_than 70, AI_CV_SpeedDown_End
 	score +2
+	if_target_will_be_faster_after_this_effect Score_Minus1
 
 AI_CV_SpeedDown_End: @ 82DCE96
 	end
@@ -2581,7 +2587,6 @@ AI_CV_Substitute_SpeedBoost:
 	if_user_faster Score_Plus5
 AI_CV_Substitute_Minus3:
 	score -3
-	goto AI_CV_Substitute_End
 AI_CV_Substitute_End:
 	end
 	
@@ -4201,6 +4206,7 @@ AI_CV_DragonDance:
 	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
     if_free_setup_turn Score_Plus5
 	if_user_can_probably_boost_safely Score_Plus5
+	if_this_attack_might_be_the_last Score_Minus5
 	if_target_faster AI_CV_DragonDance2
 	if_hp_more_than AI_USER, 50, AI_CV_DragonDance_End
 	if_random_less_than 70, AI_CV_DragonDance_End
@@ -4209,6 +4215,7 @@ AI_CV_DragonDance:
 
 AI_CV_DragonDance2:
 	if_random_less_than 128, AI_CV_DragonDance_End
+	if_target_will_be_faster_after_this_effect AI_CV_DragonDance_End
 	score +1
 
 AI_CV_DragonDance_End:
