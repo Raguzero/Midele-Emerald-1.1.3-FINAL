@@ -609,29 +609,27 @@ static bool8 ShouldSwitch(void)
 
     if (gBattleMons[*(activeBattlerPtr = &gActiveBattler)].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
 	{
-		if ((gBattleMons[gActiveBattler].type1 != TYPE_GHOST) && (gBattleMons[gActiveBattler].type2 != TYPE_GHOST))
+		if (!IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_GHOST))
 			return FALSE;
 	}
     if (gStatuses3[gActiveBattler] & STATUS3_ROOTED)
 	{
-		if ((gBattleMons[gActiveBattler].type1 != TYPE_GHOST) && (gBattleMons[gActiveBattler].type2 != TYPE_GHOST))
+		if (!IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_GHOST))
         return FALSE;
 	}
     if (ABILITY_ON_OPPOSING_FIELD(gActiveBattler, ABILITY_SHADOW_TAG))
     {
-        if ((gBattleMons[gActiveBattler].type1 != TYPE_GHOST) && (gBattleMons[gActiveBattler].type2 != TYPE_GHOST) && (gBattleMons[gActiveBattler].ability != ABILITY_SHADOW_TAG))
+        if (!IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_GHOST) && (gBattleMons[gActiveBattler].ability != ABILITY_SHADOW_TAG))
             return FALSE;
     }
     if (ABILITY_ON_OPPOSING_FIELD(gActiveBattler, ABILITY_ARENA_TRAP))
     {
-        if ((gBattleMons[gActiveBattler].type1 != TYPE_FLYING) && (gBattleMons[gActiveBattler].type2 != TYPE_FLYING) && (gBattleMons[gActiveBattler].type1 != TYPE_GHOST) && (gBattleMons[gActiveBattler].type2 != TYPE_GHOST) && (gBattleMons[gActiveBattler].ability != ABILITY_LEVITATE))
+        if (!IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_FLYING) && !IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_GHOST) && (gBattleMons[gActiveBattler].ability != ABILITY_LEVITATE))
 			return FALSE;
     }
     if (ABILITY_ON_FIELD2(ABILITY_MAGNET_PULL))
     {
-        if (gBattleMons[gActiveBattler].type1 == TYPE_STEEL)
-            return FALSE;
-        if (gBattleMons[gActiveBattler].type2 == TYPE_STEEL)
+        if (IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_STEEL))
             return FALSE;
     }
     if (gBattleTypeFlags & BATTLE_TYPE_ARENA)
