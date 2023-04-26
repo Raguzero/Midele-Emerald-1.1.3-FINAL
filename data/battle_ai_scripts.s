@@ -1857,7 +1857,9 @@ AI_CV_DefenseDown3:
 	if_hp_more_than AI_TARGET, 70, AI_CV_DefenseDown_End
 	if_has_move_with_effect AI_TARGET, EFFECT_REST, AI_CV_DefenseDown_End
 	if_has_a_50_percent_hp_recovery_move AI_TARGET, AI_CV_DefenseDown_End
-	score -2
+	score -1
+	if_effect EFFECT_DEFENSE_DOWN_2, AI_CV_DefenseDown_End
+	score -1
 
 AI_CV_DefenseDown_End:
 	end
@@ -1947,7 +1949,9 @@ AI_CV_SpDefDown3: @ 82DCF02
 	if_hp_more_than AI_TARGET, 70, AI_CV_SpDefDown_End
 	if_has_move_with_effect AI_TARGET, EFFECT_REST, AI_CV_SpDefDown_End
 	if_has_a_50_percent_hp_recovery_move AI_TARGET, AI_CV_SpDefDown_End
-	score -2
+	score -1
+	if_effect EFFECT_SPECIAL_DEFENSE_DOWN_2, AI_CV_SpDefDown_End
+	score -1
 
 AI_CV_SpDefDown_End: @ 82DCF0B
 	end
