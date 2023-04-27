@@ -4281,16 +4281,29 @@ AI_TryToFaint:
         get_curr_dmg_hp_percent
         if_more_than 40, AI_TryToFaint_BonusToMostPowerfulAttack
         score -1
+        if_target_taunted AI_TryToFaint_SkipPenaltyForLowDamageAgainstAHealingMon
+        if_status2 AI_TARGET, STATUS2_CURSED, AI_TryToFaint_SkipPenaltyForLowDamageAgainstAHealingMon
+        if_has_move_with_effect AI_TARGET, EFFECT_REST, AI_TryToFaint_ApplyPenaltyForLowDamageAgainstAHealingMon
+        if_status AI_TARGET, STATUS1_TOXIC_POISON, AI_TryToFaint_SkipPenaltyForLowDamageAgainstAHealingMon
+        if_has_a_50_percent_hp_recovery_move AI_TARGET, AI_TryToFaint_ApplyPenaltyForLowDamageAgainstAHealingMon
+        goto AI_TryToFaint_SkipPenaltyForLowDamageAgainstAHealingMon
+AI_TryToFaint_ApplyPenaltyForLowDamageAgainstAHealingMon:
+        score -1
+AI_TryToFaint_SkipPenaltyForLowDamageAgainstAHealingMon:
+        if_more_than 6, AI_TryToFaint_SkipPenaltyForReallyLowDamage
+        score -1
+AI_TryToFaint_SkipPenaltyForReallyLowDamage:
         if_more_than 20, AI_TryToFaint_BonusToMostPowerfulAttack
         if_effect EFFECT_MIDELE_POWER, AI_TryToFaint_CheckIfTargetOHKOsUser
         if_effect EFFECT_TRAP, AI_TryToFaint_CheckIfPartialTrappingMoveWillDealDamage
+        if_ability_might_be AI_TARGET, ABILITY_SHIELD_DUST, AI_TryToFaint_SkipCheckingMovesWithSecondaryEffect
+        if_ability_might_be AI_TARGET, ABILITY_CLEAR_BODY, AI_TryToFaint_SkipCheckingMovesWithSecondaryEffect
+        if_ability_might_be AI_TARGET, ABILITY_WHITE_SMOKE, AI_TryToFaint_SkipCheckingMovesWithSecondaryEffect
         if_move MOVE_APPLE_ACID, AI_TryToFaint_CheckIfTargetsAttackCouldFinishTheBattle
         if_move MOVE_GRAV_APPLE, AI_TryToFaint_CheckIfTargetsAttackCouldFinishTheBattle
 AI_TryToFaint_SkipCheckingMovesWithSecondaryEffect:
         score -1
 AI_TryToFaint_SkipOnePenaltyForWeakMovesDueToSecondaryEffects:
-        if_more_than 6, AI_TryToFaint_BonusToMostPowerfulAttack
-        score -1
 AI_TryToFaint_BonusToMostPowerfulAttack:
 	get_how_powerful_move_is
 	if_equal MOVE_NOT_MOST_POWERFUL, Score_Minus1
