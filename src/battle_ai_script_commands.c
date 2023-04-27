@@ -3524,10 +3524,14 @@ static void Cmd_if_next_turn_target_might_use_move_with_effect(void)
     u8 effect = *(gAIScriptPtr + 1);
     bool8 allMovesKnown = TRUE; // se cambiará a FALSE si no es cierto
 
-    if (effect == AI_LAST_EFFECT_BY_TARGET)
-        effect = gBattleMoves[gLastMoves[gBattlerTarget]].effect;
-
     gAIScriptPtr += 6; // será sobreescrito si el objetivo sí podrá usar un movimiento con el efecto
+
+    if (effect == AI_LAST_EFFECT_BY_TARGET)
+    {
+        if (gLastMoves[gBattlerTarget] == MOVE_NONE || gLastMoves[gBattlerTarget] == 0xFFFF)
+            return;
+        effect = gBattleMoves[gLastMoves[gBattlerTarget]].effect;
+    }
 
     if (gBattleMons[gBattlerTarget].status2 & STATUS2_RECHARGE)
         return; // estará descansando por Hiperrayo o similar

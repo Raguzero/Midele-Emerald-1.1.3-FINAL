@@ -1241,7 +1241,7 @@ u8 FilterSwitchInsThatMightGetKOedBeforeEndOfTurn(struct Pokemon *party, s32 fir
     u8 moveLimitations;
     s32 i;
 
-    if (!HasYetToAttack(opposingBattler) || move == MOVE_NONE || gBattleMoves[move].power == 0 || gDisableStructs[gActiveBattler].isFirstTurn != 0)
+    if (!HasYetToAttack(opposingBattler) || move == MOVE_NONE || move == 0xFFFF || gBattleMoves[move].power == 0 || gDisableStructs[gActiveBattler].isFirstTurn != 0)
         return filteredMons;
 
     // Comprueba que el rival seguir usando el movimiento
