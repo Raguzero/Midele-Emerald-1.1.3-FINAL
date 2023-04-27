@@ -3400,10 +3400,14 @@ s32 CalculateNHKO(u16 attackerId, u16 targetId, bool8 attackerIsCurrentAI, u16 c
     // Si el atacante es el oponente, no se conocen todos sus movs y no da OHKO,
     // la IA puede asumir que los STAB estándar (de precisión alta)
     // y ataques típicos de la especie pueden ser los movs que faltan
-	// siempre que la IA esté en condiciones de usar un ataque nuevo
-		if (!attackerIsCurrentAI && !check_only_considered_move && best_nhko > 1
+    // siempre que esté en condiciones de usar un ataque nuevo
+    if (!attackerIsCurrentAI && !check_only_considered_move && best_nhko > 1
         && gDisableStructs[attackerId].encoredMove == MOVE_NONE
-        && !(gBattleMons[attackerId].status2 & (STATUS2_RECHARGE | STATUS2_MULTIPLETURNS)))
+        && !(gBattleMons[attackerId].status2 & (STATUS2_RECHARGE | STATUS2_MULTIPLETURNS))
+        && gBattleMons[attackerId].species != SPECIES_DITTO
+        && gBattleMons[attackerId].species != SPECIES_WOBBUFFET
+        && gBattleMons[attackerId].species != SPECIES_WYNAUT
+        && !(gBattleMons[attackerId].species == SPECIES_UNOWN && movePointer[0] == MOVE_HIDDEN_POWER))
     {
         for (i = 0; i < MAX_MON_MOVES; i++)
             if (!movePointer[i]) // hay un ataque no conocido
