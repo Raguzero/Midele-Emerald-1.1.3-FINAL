@@ -803,21 +803,23 @@ bool8 gBattlerTargetKnowsMoveWithEffect(u8 effect)
 // Mejor que usar la función de arriba 6 veces
 bool8 gBattlerTargetKnows50HPRecoveryMove()
 {
-    s32 i;
+    s32 i, j;
     u8 moveLimitations = CheckMoveLimitations(gBattlerTarget, 0, MOVE_LIMITATION_PP);
     for (i = 0; i < MAX_MON_MOVES; i++)
-    {
-        if (FOES_MOVE_HISTORY(gBattlerTarget)[i] && (gBattleMoves[FOES_MOVE_HISTORY(gBattlerTarget)[i]].effect == EFFECT_RESTORE_HP || gBattleMoves[FOES_MOVE_HISTORY(gBattlerTarget)[i]].effect == EFFECT_SOFTBOILED || gBattleMoves[FOES_MOVE_HISTORY(gBattlerTarget)[i]].effect == EFFECT_MORNING_SUN || gBattleMoves[FOES_MOVE_HISTORY(gBattlerTarget)[i]].effect == EFFECT_MOONLIGHT || gBattleMoves[FOES_MOVE_HISTORY(gBattlerTarget)[i]].effect == EFFECT_SHORE_UP || gBattleMoves[FOES_MOVE_HISTORY(gBattlerTarget)[i]].effect == EFFECT_SYNTHESIS))
-        {
-            s32 j;
-            for (j = 0; j < MAX_MON_MOVES; j++)
-                if (FOES_MOVE_HISTORY(gBattlerTarget)[i] == gBattleMons[gBattlerTarget].moves[j] && !(gBitTable[j] & moveLimitations))
-                    break;
-            if (j != MAX_MON_MOVES)
-                break;
-        }
-    }
-    return i != MAX_MON_MOVES;
+        if (FOES_MOVE_HISTORY(gBattlerTarget)[i])
+            switch(gBattleMoves[FOES_MOVE_HISTORY(gBattlerTarget)[i]].effect)
+            {
+                case EFFECT_RESTORE_HP:
+                case EFFECT_SOFTBOILED:
+                case EFFECT_MORNING_SUN:
+                case EFFECT_MOONLIGHT:
+                case EFFECT_SHORE_UP:
+                case EFFECT_SYNTHESIS:
+                    for (j = 0; j < MAX_MON_MOVES; j++)
+                        if (FOES_MOVE_HISTORY(gBattlerTarget)[i] == gBattleMons[gBattlerTarget].moves[j] && !(gBitTable[j] & moveLimitations))
+                            return TRUE;
+            }
+    return FALSE;
 }
 
 #define STORED_AI_MEMORY (BATTLE_HISTORY->switchMemory[sBattler_AI & BIT_SIDE])
