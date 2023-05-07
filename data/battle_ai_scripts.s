@@ -680,15 +680,19 @@ AI_CBM_Attract: @ 82DC5F5
 
 AI_CBM_Attract_CheckIfTargetIsFemale: @ 82DC61A
 	get_gender AI_TARGET
-	if_equal 254, AI_CBM_Attract_End
+	if_equal 254, AI_CBM_Attract_OppositeGenders
 	goto Score_Minus10
 
 AI_CBM_Attract_CheckIfTargetIsMale: @ 82DC627
 	get_gender AI_TARGET
-	if_equal 0, AI_CBM_Attract_End
+	if_equal 0, AI_CBM_Attract_OppositeGenders
 	goto Score_Minus10
 
-AI_CBM_Attract_End: @ 82DC634
+AI_CBM_Attract_OppositeGenders:
+	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
+	if_status2 AI_USER, STATUS2_CURSED, Score_Minus5
+	if_status3 AI_USER, STATUS3_PERISH_SONG, Score_Minus5
+AI_CBM_Attract_End:
 	end
 
 AI_CBM_Safeguard: @ 82DC635
@@ -792,6 +796,9 @@ AI_CBM_Trick: @ 82DC6EB
 
 AI_CBM_Ingrain: @ 82DC6F4
 	if_status3 AI_USER, STATUS3_ROOTED, Score_Minus10
+	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
+	if_status2 AI_USER, STATUS2_CURSED, Score_Minus5
+	if_status3 AI_USER, STATUS3_PERISH_SONG, Score_Minus5
 	if_this_attack_might_be_the_last Score_Minus5
 	end
 
@@ -2385,10 +2392,16 @@ AI_CV_PartialTrap_TargetReallyAffected:
 	goto AI_CV_PartialTrap_ScorePlus1
 
 AI_CV_PartialTrap_TargetAffected:
+	if_user_is_intoxicated_and_does_not_have_baton_pass AI_CV_PartialTrap_End
+	if_status2 AI_USER, STATUS2_CURSED, AI_CV_PartialTrap_End
+	if_status3 AI_USER, STATUS3_PERISH_SONG, AI_CV_PartialTrap_End
 	calculate_nhko AI_TARGET | AI_NHKO_PESSIMISTIC
 	if_more_than 3, AI_CV_PartialTrap_ScorePlus1
 	if_less_than 3, AI_CV_PartialTrap_End
 AI_CV_PartialTrap_BalancedScenario:
+	if_user_is_intoxicated_and_does_not_have_baton_pass AI_CV_PartialTrap_End
+	if_status2 AI_USER, STATUS2_CURSED, AI_CV_PartialTrap_End
+	if_status3 AI_USER, STATUS3_PERISH_SONG, AI_CV_PartialTrap_End
 	if_has_move_with_effect AI_USER, EFFECT_PROTECT, AI_CV_PartialTrap_ScorePlus1maybe
 	if_has_a_50_percent_hp_recovery_move AI_USER, AI_CV_PartialTrap_ScorePlus1maybe
 	if_has_move_with_effect AI_USER, EFFECT_REST, AI_CV_PartialTrap_ScorePlus1maybe
@@ -2415,6 +2428,9 @@ AI_CV_Trap_UserCannotBePhazed:
 	if_status2 AI_TARGET, STATUS2_CURSED, AI_CV_Trap2
 	if_status3 AI_TARGET, STATUS3_PERISH_SONG, AI_CV_Trap2
 	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_Trap2
+	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
+	if_status2 AI_USER, STATUS2_CURSED, Score_Minus5
+	if_status3 AI_USER, STATUS3_PERISH_SONG, Score_Minus5
 	goto AI_CV_Trap_End
 
 AI_CV_Trap_DontTrapUnlessUserCannotBePhazed:
@@ -2527,6 +2543,9 @@ AI_CV_VitalThrow_End:
 
 AI_CV_Substitute:
 	if_hp_condition USER_CANNOT_USE_SUB, AI_CV_Substitute_End
+	if_status AI_USER, STATUS1_TOXIC_POISON, AI_CV_Substitute_Minus3
+	if_status2 AI_USER, STATUS2_CURSED, AI_CV_Substitute_Minus3
+	if_status3 AI_USER, STATUS3_PERISH_SONG, AI_CV_Substitute_Minus3
 	goto AI_IsHealingAbilityActive
 AI_CV_SubstituteStart:
 	if_target_wont_attack_due_to_truant AI_CV_SubstitutePlus3Continue
@@ -4097,6 +4116,9 @@ AI_CV_Eruption_End:
 	end
 
 AI_CV_Imprison:
+	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
+	if_status2 AI_USER, STATUS2_CURSED, Score_Minus5
+	if_status3 AI_USER, STATUS3_PERISH_SONG, Score_Minus5
 	is_first_turn_for AI_USER
 	if_more_than 0, AI_CV_Imprison_End
 	if_random_less_than 100, AI_CV_Imprison_End
