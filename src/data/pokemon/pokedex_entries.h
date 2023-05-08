@@ -6854,4 +6854,64 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 256,
         .trainerOffset = 0,
     },
+	
+    [NATIONAL_DEX_KINGAMBIT] =
+    {
+        .categoryName = _("BIG BLADE"),
+        .height = 20,
+        .weight = 1200,
+        .description = gKingambitPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+	
+    [NATIONAL_DEX_DUDUNSPARCE] =
+    {
+        .categoryName = _("LAND SNAKE"),
+        .height = 45,
+        .weight = 474,
+        .description = gDudunsparcePokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+	
+    [NATIONAL_DEX_CLODSIRE] =
+    {
+        .categoryName = _("SPINY FISH"),
+        .height = 18,
+        .weight = 2230,
+        .description = gClodsirePokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+	
+    [NATIONAL_DEX_ANNIHILAPE] =
+    {
+        .categoryName = _("RAGE MONKEY"),
+        .height = 12,
+        .weight = 560,
+        .description = gAnnihilapePokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+	
+    [NATIONAL_DEX_FARIGIRAF] =
+    {
+        .categoryName = _("LONG NECK"),
+        .height = 32,
+        .weight = 1600,
+        .description = gFarigirafPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
 };

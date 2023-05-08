@@ -681,6 +681,15 @@ const struct CompressedSpriteSheet gMonFrontPicTable[] =
     SPECIES_SPRITE(SLOWPOKE_GALARIAN, gMonFrontPic_SlowpokeGalarian),
     SPECIES_SPRITE(SLOWBRO_GALARIAN, gMonFrontPic_SlowbroGalarian),
     SPECIES_SPRITE(SLOWKING_GALARIAN, gMonFrontPic_SlowkingGalarian),
+    SPECIES_SPRITE(ANNIHILAPE, gMonFrontPic_Annihilape),
+    SPECIES_SPRITE(CLODSIRE, gMonFrontPic_Clodsire),
+    SPECIES_SPRITE(FARIGIRAF, gMonFrontPic_Farigiraf),
+    SPECIES_SPRITE(DUDUNSPARCE, gMonFrontPic_Dudunsparce),
+    SPECIES_SPRITE(KINGAMBIT, gMonFrontPic_Kingambit),
+    SPECIES_SPRITE(TAUROS_PALDEAN_FIGHT, gMonFrontPic_TaurosFight),
+    SPECIES_SPRITE(TAUROS_PALDEAN_BLAZE, gMonFrontPic_TaurosBlaze),
+    SPECIES_SPRITE(TAUROS_PALDEAN_AQUA, gMonFrontPic_TaurosAqua),
+    SPECIES_SPRITE(WOOPER_PALDEAN, gMonFrontPic_WooperPaldean),
 };
 
 

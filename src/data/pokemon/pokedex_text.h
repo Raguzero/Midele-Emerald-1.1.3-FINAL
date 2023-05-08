@@ -3442,3 +3442,32 @@ const u8 gOverqwilPokedexText[] = _(
     "Its lancelike spikes and savage\n"
 	"temperament have earned it the\n"
 	"nickname sea fiend.");
+	
+const u8 gKingambitPokedexText[] = _(
+    "Though it commands a massive army in\n"
+	"battle, it's not skilled at devising\n"
+	"complex strategies. It just uses brute\n" 
+	"strength to keep pushing.");
+	
+const u8 gDudunsparcePokedexText[] = _(
+    "A recent study uncovered that the\n"
+	"number of segments a DUDUNSPARCE's body\n"
+	"has is determined by the POKéMON's genes.");
+	
+const u8 gClodsirePokedexText[] = _(
+    "When attacked, this POKéMON will\n"
+	"retaliate by sticking thick spines out\n" 
+	"from its body. It's a risky move that\n"
+	"puts everything on the line.");
+	
+const u8 gAnnihilapePokedexText[] = _(
+    "When its anger rose beyond a critical\n"
+	"point, this POKéMON gained power that\n"
+	"is unfettered by the limits of its\n"
+	"physical body.");
+	
+const u8 gFarigirafPokedexText[] = _(
+    "Now that the brain waves from the head\n"
+	"and tail are synced up, the psychic power\n"
+	"of this POKéMON is 10 times stronger\n"
+	"than GIRAFARIG.");

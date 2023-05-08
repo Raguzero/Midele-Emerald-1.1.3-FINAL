@@ -681,6 +681,15 @@ const struct CompressedSpritePalette gMonPaletteTable[] =
     SPECIES_PAL(SLOWPOKE_GALARIAN, gMonPalette_SlowpokeGalarian),
     SPECIES_PAL(SLOWBRO_GALARIAN, gMonPalette_SlowbroGalarian),
     SPECIES_PAL(SLOWKING_GALARIAN, gMonPalette_SlowkingGalarian),
+    SPECIES_PAL(ANNIHILAPE, gMonPalette_Annihilape),
+    SPECIES_PAL(CLODSIRE, gMonPalette_Clodsire),
+    SPECIES_PAL(FARIGIRAF, gMonPalette_Farigiraf),
+    SPECIES_PAL(DUDUNSPARCE, gMonPalette_Dudunsparce),
+    SPECIES_PAL(KINGAMBIT, gMonPalette_Kingambit),
+    SPECIES_PAL(TAUROS_PALDEAN_FIGHT, gMonPalette_TaurosFight),
+    SPECIES_PAL(TAUROS_PALDEAN_BLAZE, gMonPalette_TaurosBlaze),
+    SPECIES_PAL(TAUROS_PALDEAN_AQUA, gMonPalette_TaurosAqua),
+    SPECIES_PAL(WOOPER_PALDEAN, gMonPalette_WooperPaldean),
 };
 
 const struct CompressedSpritePalette gMonPaletteTableFemale[] =

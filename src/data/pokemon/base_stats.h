@@ -18455,7 +18455,7 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
     },
-/*
+
 	[SPECIES_KINGAMBIT] =
 	{
 		.baseHP        = 100,
@@ -18735,7 +18735,6 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
     },
-*/
 
     [SPECIES_BOSS] =
     {

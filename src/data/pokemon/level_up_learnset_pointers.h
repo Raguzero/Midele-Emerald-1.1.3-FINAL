@@ -653,7 +653,7 @@ const u16 *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_SLOWPOKE_GALARIAN] = sSlowpokeGalarianLevelUpLearnset,
     [SPECIES_SLOWBRO_GALARIAN] = sSlowbroGalarianLevelUpLearnset,
     [SPECIES_SLOWKING_GALARIAN] = sSlowkingGalarianLevelUpLearnset,
-	/*[SPECIES_KINGAMBIT] = sKingambitLevelUpLearnset,
+	[SPECIES_KINGAMBIT] = sKingambitLevelUpLearnset,
 	[SPECIES_DUDUNSPARCE] sDudunsparceLevelUpLearnset,
 	[SPECIES_WOOPER_PALDEAN] = sWooperPaldeanLevelUpLearnset,
 	[SPECIES_CLODSIRE] =  sClodsireLevelUpLearnset,
@@ -661,6 +661,6 @@ const u16 *const gLevelUpLearnsets[NUM_SPECIES] =
 	[SPECIES_TAUROS_PALDEAN_AQUA] = sTaurosPaldeanAquaLevelUpLearnset,
 	[SPECIES_TAUROS_PALDEAN_BLAZE] = sTaurosPaldeanBlazeLevelUpLearnset,
 	[SPECIES_ANNIHILAPE]  = sAnnihilapeLevelUpLearnset,
-	[SPECIES_FARIGIRAG] = sFarigirafLevelUpLearnset,*/
+	[SPECIES_FARIGIRAF] = sFarigirafLevelUpLearnset,
     [SPECIES_BOSS] = sBulbasaurLevelUpLearnset,
 };

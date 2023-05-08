@@ -245,6 +245,7 @@ const u16 gEggMovesSpecies[] = {
   SPECIES_QWILFISH_HISUIAN,
   SPECIES_SNEASEL_HISUIAN,
   SPECIES_SLOWPOKE_GALARIAN,
+  SPECIES_WOOPER_PALDEAN,
 };
 
 const u16 gEggMoves[] = {
@@ -2585,7 +2586,19 @@ const u16 gEggMoves[] = {
               MOVE_BELLY_DRUM,
               MOVE_FUTURE_SIGHT,
               MOVE_STOMP,
-			MOVE_BLOCK),			  
+			MOVE_BLOCK),
+
+    egg_moves(WOOPER_PALDEAN,
+              MOVE_COUNTER,
+              MOVE_ANCIENT_POWER,
+              MOVE_CURSE,
+              MOVE_HAZE,
+              MOVE_STOCKPILE,
+              MOVE_SWALLOW,
+              MOVE_SPIT_UP,
+			MOVE_DOUBLE_KICK,
+			MOVE_MIST,
+			MOVE_RECOVER),			
 		
     EGG_MOVES_TERMINATOR
 };

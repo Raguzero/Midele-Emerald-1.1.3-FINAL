@@ -708,6 +708,15 @@ const u8 *const gMonIconTable[] =
     [SPECIES_SLOWPOKE_GALARIAN] = gMonIcon_SlowpokeGalarian,
     [SPECIES_SLOWBRO_GALARIAN] = gMonIcon_SlowbroGalarian,
     [SPECIES_SLOWKING_GALARIAN] = gMonIcon_SlowkingGalarian,
+    [SPECIES_KINGAMBIT] = gMonIcon_Kingambit,
+    [SPECIES_DUDUNSPARCE] = gMonIcon_Dudunsparce,
+    [SPECIES_WOOPER_PALDEAN] = gMonIcon_QuestionMark,
+    [SPECIES_CLODSIRE] = gMonIcon_Clodsire,
+    [SPECIES_ANNIHILAPE] = gMonIcon_Annihilape,
+    [SPECIES_FARIGIRAF] = gMonIcon_Farigiraf,
+    [SPECIES_TAUROS_PALDEAN_FIGHT] = gMonIcon_TaurosFight,
+    [SPECIES_TAUROS_PALDEAN_BLAZE] = gMonIcon_TaurosBlaze,
+    [SPECIES_TAUROS_PALDEAN_AQUA] = gMonIcon_TaurosAqua,
 };
 
 const u8 *const gMonIconTableFemale[] =
@@ -1397,6 +1406,8 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_SLOWPOKE_GALARIAN] = 1,
     [SPECIES_SLOWBRO_GALARIAN] = 0,
     [SPECIES_SLOWKING_GALARIAN] = 2,
+	[SPECIES_KINGAMBIT] = 1,
+	[SPECIES_CLODSIRE] = 2,
 };
 
 const u8 gMonIconPaletteIndicesFemale[] =

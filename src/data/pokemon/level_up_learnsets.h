@@ -13679,7 +13679,6 @@ static const u16 sSlowkingGalarianLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
-/*
 static const u16 sKingambitLevelUpLearnset[] = {
 	LEVEL_UP_MOVE( 1, MOVE_METAL_CLAW),
 	LEVEL_UP_MOVE( 1, MOVE_LEER),
@@ -13872,7 +13871,7 @@ static const u16 sFarigirafLevelUpLearnset[] = {
     LEVEL_UP_MOVE(66, MOVE_MEAN_LOOK),
     LEVEL_UP_END
 };
-*/
+
 
 
 
