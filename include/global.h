@@ -1031,7 +1031,8 @@ struct SaveBlock1
     /*0x3D88*/ u16 registeredItemL;
     // sizeof: 0x3D8C  ???
                u8 trainerFlags[NEW_TRAINER_FLAGS_COUNT];
-			   u8 dexNavSearchLevels[SPECIES_EGG]; // SEGUN EL SCRIPT ES u8 dexNavSearchLevels[NUM_SPECIES]; PERO DA ERROR, Y SPECIES_EGG es lo debe ir aqui
+               u8 dexNavSearchLevels[1 + POKEMON_SLOTS_NUMBER]; // el primer byte no se usa
+               u8 dexNavUnused; // originalmente el array de arriba tenía 634 entradas, que es 2 + POKEMON_SLOTS_NUMBER
 			   u8 dexNavChain;
 };
 
