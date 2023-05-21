@@ -1735,6 +1735,13 @@ AI_CV_EvasionUp_NoProblematicWeather:
 	if_next_turn_target_might_use_move_with_effect EFFECT_OHKO, AI_CV_EvasionUp_ScoreDown2
 AI_CV_EvasionUp_NotLockedOn:
 	if_user_can_probably_boost_safely Score_Plus5
+	if_stat_level_more_than AI_TARGET, STAT_ACC, 7, AI_CV_EvasionUp2Penalty
+	if_stat_level_more_than AI_USER, STAT_EVASION, 6, AI_CV_EvasionUp_ConsiderBonusWithFullHealth
+	if_status2 AI_USER, STATUS2_SUBSTITUTE, AI_CV_EvasionUp_ConsiderBonusWithFullHealth
+	if_user_faster AI_CV_EvasionUp_ConsiderBonusWithFullHealth
+	calculate_nhko AI_TARGET
+	if_less_than 3, AI_CV_EvasionUp2Penalty
+AI_CV_EvasionUp_ConsiderBonusWithFullHealth:
 	if_hp_less_than AI_USER, 90, AI_CV_EvasionUp2
 	if_random_less_than 100, AI_CV_EvasionUp2
 	score +3
@@ -1742,6 +1749,7 @@ AI_CV_EvasionUp_NotLockedOn:
 AI_CV_EvasionUp2:
 	if_stat_level_less_than AI_USER, STAT_EVASION, 9, AI_CV_EvasionUp3
 	if_random_less_than 128, AI_CV_EvasionUp3
+AI_CV_EvasionUp2Penalty:
 	score -1
 
 AI_CV_EvasionUp3:
