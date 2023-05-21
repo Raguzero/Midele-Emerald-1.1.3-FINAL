@@ -1605,7 +1605,7 @@ static void OpponentHandleChoosePokemon(void)
 
     if (*(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler) == PARTY_SIZE)
     {
-        chosenMonId = GetMostSuitableMonToSwitchInto_NotChangingIsImpossible();
+        chosenMonId = GetMostSuitableMonToSwitchInto(NOT_CHANGING_IS_IMPOSSIBLE);
 
         if (chosenMonId == PARTY_SIZE)
         {

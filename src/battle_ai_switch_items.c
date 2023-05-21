@@ -738,7 +738,7 @@ void AI_TrySwitchOrUseItem(void)
         {
             if (*(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler) == PARTY_SIZE)
             {
-                s32 monToSwitchId = GetMostSuitableMonToSwitchInto_NotChangingIsUnacceptable();
+                s32 monToSwitchId = GetMostSuitableMonToSwitchInto(NOT_CHANGING_IS_UNACCEPTABLE);
                 if (monToSwitchId == PARTY_SIZE)
                 {
                     if (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
@@ -1835,22 +1835,8 @@ u8 FilterKOsInLessHits(struct Pokemon *party, s32 firstId, s32 lastId, u8 filter
     return filteredMons;
 }
 
-u8 GetMostSuitableMonToSwitchInto_NotChangingIsImpossible(void)
-{
-    return GetMostSuitableMonToSwitchInto(FALSE, FALSE);
-}
 
-u8 GetMostSuitableMonToSwitchInto_NotChangingIsUnacceptable(void)
-{
-    return GetMostSuitableMonToSwitchInto(TRUE, FALSE);
-}
-
-u8 GetMostSuitableMonToSwitchInto_NotChangingIsAcceptable(void)
-{
-    return GetMostSuitableMonToSwitchInto(TRUE, TRUE);
-}
-	
-u8 GetMostSuitableMonToSwitchInto(bool8 notChangingIsPossible, bool8 notChangingIsAcceptable)
+u8 GetMostSuitableMonToSwitchInto(bool8 howTolerableIsNotChanging)
 {
     u8 opposingBattler;
 	s32 bestDmg;
@@ -1863,6 +1849,9 @@ u8 GetMostSuitableMonToSwitchInto(bool8 notChangingIsPossible, bool8 notChanging
     u8 invalidMons;
     u8 filteredMons, newFilteredMons;
     u16 move;
+
+    bool8 notChangingIsPossible = howTolerableIsNotChanging != NOT_CHANGING_IS_IMPOSSIBLE;
+    bool8 notChangingIsAcceptable = howTolerableIsNotChanging == NOT_CHANGING_IS_ACCEPTABLE;
 
     if (*(gBattleStruct->monToSwitchIntoId + gActiveBattler) != PARTY_SIZE)
         return *(gBattleStruct->monToSwitchIntoId + gActiveBattler);

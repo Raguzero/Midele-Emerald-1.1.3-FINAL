@@ -52,6 +52,13 @@
 #define NOT_EXPECTED_TO_SLEEP_DURING_NEXT_TURN(battlerId) (!(gBattleMons[battlerId].status1 & STATUS1_SLEEP) || (gBattleMons[battlerId].status1 & STATUS1_SLEEP) == 5)
 #define EXPECTED_TO_SLEEP_DURING_NEXT_TURN(battlerId) (!NOT_EXPECTED_TO_SLEEP_DURING_NEXT_TURN(battlerId))
 
+#define SWITCH_IF_THERE_IS_A_SUITABLE_MON(criterion) {           \
+    if (GetMostSuitableMonToSwitchInto(criterion) != PARTY_SIZE) \
+    {                                                            \
+        AI_THINKING_STRUCT->switchMon = TRUE;                    \
+        return AI_CHOICE_SWITCH;                                 \
+    }}
+
 // AI states
 enum
 {
@@ -884,7 +891,6 @@ static u8 ChooseMoveOrAction_Singles(void)
     {
         s32 cap = AI_THINKING_STRUCT->aiFlags & (AI_SCRIPT_CHECK_VIABILITY) ? 95 : 93;
         s32 i_2;
-        bool8 notChangingIsPossible = TRUE;
         bool8 notChangingIsAcceptable = TRUE;
 	if (gBattleMons[sBattler_AI].hp < gBattleMons[sBattler_AI].maxHP / 2 && (Random() & 1))
            cap -= 3;
@@ -901,11 +907,8 @@ static u8 ChooseMoveOrAction_Singles(void)
             notChangingIsAcceptable = FALSE;
 
         gActiveBattler = sBattler_AI;
-		if (i == MAX_MON_MOVES && GetMostSuitableMonToSwitchInto(notChangingIsPossible, notChangingIsAcceptable) != PARTY_SIZE)
-        {
-            AI_THINKING_STRUCT->switchMon = TRUE;
-            return AI_CHOICE_SWITCH;
-        }
+        if (i == MAX_MON_MOVES)
+            SWITCH_IF_THERE_IS_A_SUITABLE_MON(notChangingIsAcceptable ? NOT_CHANGING_IS_ACCEPTABLE : NOT_CHANGING_IS_UNACCEPTABLE);
     }
 	
 	   // Consider switching if your mon with truant is bodied by Protect spam.
@@ -916,11 +919,7 @@ static u8 ChooseMoveOrAction_Singles(void)
             || IsTruantMonVulnerable(sBattler_AI, gBattlerTarget))
             && gDisableStructs[sBattler_AI].truantCounter
 			&& AICanSwitchAssumingEnoughPokemon())
-            if (GetMostSuitableMonToSwitchInto_NotChangingIsUnacceptable() != PARTY_SIZE)
-            {
-                AI_THINKING_STRUCT->switchMon = TRUE;
-                return AI_CHOICE_SWITCH;
-            }
+            SWITCH_IF_THERE_IS_A_SUITABLE_MON(NOT_CHANGING_IS_UNACCEPTABLE);
 
     numOfBestMoves = 1;
     currentMoveArray[0] = AI_THINKING_STRUCT->score[0];
@@ -953,28 +952,19 @@ static u8 ChooseMoveOrAction_Singles(void)
         if (IsMoveSignificantlyAffectedByStatDrops(move)
 			&& currentMoveArray[0] <= 101 // no cambia si el movimiento alcanza los 102 puntos (probable KO)
 			&& AICanSwitchAssumingEnoughPokemon())
-            if (GetMostSuitableMonToSwitchInto_NotChangingIsUnacceptable() != PARTY_SIZE)
-            {
-                AI_THINKING_STRUCT->switchMon = TRUE;
-                return AI_CHOICE_SWITCH;
-            }
-		if (IsMoveSignificantlyAffectedByAccuracyDrops(move)
+            SWITCH_IF_THERE_IS_A_SUITABLE_MON(NOT_CHANGING_IS_UNACCEPTABLE);
+
+	if (IsMoveSignificantlyAffectedByAccuracyDrops(move)
             && currentMoveArray[0] <= 101 // no cambia si el movimiento alcanza los 102 puntos (probable KO con precisión suficiente)
             && AICanSwitchAssumingEnoughPokemon())
-            if (GetMostSuitableMonToSwitchInto_NotChangingIsUnacceptable() != PARTY_SIZE)
-            {
-                AI_THINKING_STRUCT->switchMon = TRUE;
-                return AI_CHOICE_SWITCH;
-            }
+            SWITCH_IF_THERE_IS_A_SUITABLE_MON(NOT_CHANGING_IS_UNACCEPTABLE);
+
 		// Si nuestro Shedinja es vulnerable, a salir por patas
         if (gBattleMons[sBattler_AI].species == SPECIES_SHEDINJA
             && OurShedinjaIsVulnerable(sBattler_AI, gBattlerTarget, move)
             && AICanSwitchAssumingEnoughPokemon())
-            if (GetMostSuitableMonToSwitchInto_NotChangingIsUnacceptable() != PARTY_SIZE)
-            {
-                AI_THINKING_STRUCT->switchMon = TRUE;
-                return AI_CHOICE_SWITCH;
-            }
+            SWITCH_IF_THERE_IS_A_SUITABLE_MON(NOT_CHANGING_IS_UNACCEPTABLE);
+
 		// Considera cambiar si corre peligro ante el rival y hay opciones mejores por ahí
         if (!(
               // no cambia si tiene Evasión alta y el rival está intoxicado o maldito
@@ -1017,7 +1007,7 @@ static u8 ChooseMoveOrAction_Singles(void)
             if (attacks_until_ko > 1 && (gStatuses3[sBattler_AI] & STATUS3_YAWN))
                 attacks_until_ko -= 1; // probablemente más
 
-            if ((
+            if (
                  (attacks_until_ko == 0 && move != MOVE_FAKE_OUT) // Si recibe OHKO y es más lento, considera cambiar
               || (attacks_until_ko <= 2
                   // También cambia si escoge un ataque que hace poco daño o que tiene
@@ -1049,11 +1039,8 @@ static u8 ChooseMoveOrAction_Singles(void)
                           FIRST_IS_LEECH_SEEDING_SECOND(sBattler_AI, gBattlerTarget)
                        && gBattleMons[sBattler_AI].item == ITEM_LEFTOVERS)
                       )
-                ) && GetMostSuitableMonToSwitchInto_NotChangingIsAcceptable() != PARTY_SIZE)
-            {
-                AI_THINKING_STRUCT->switchMon = TRUE;
-                return AI_CHOICE_SWITCH;
-            }
+               )
+                SWITCH_IF_THERE_IS_A_SUITABLE_MON(NOT_CHANGING_IS_ACCEPTABLE);
         }
         // El poke lleva muchos turnos intoxicado, mejor cambiar
         #define _AI_CURRENT_TOXIC_TURNS_ ((gBattleMons[sBattler_AI].status1 & 0xF00) >> 8)
@@ -1079,8 +1066,7 @@ static u8 ChooseMoveOrAction_Singles(void)
              || gBattleMoves[move].effect == EFFECT_SYNTHESIS
              || gBattleMoves[move].effect == EFFECT_SHORE_UP
                )
-			&& AICanSwitchAssumingEnoughPokemon())
-			if (GetMostSuitableMonToSwitchInto_NotChangingIsUnacceptable() != PARTY_SIZE)
+            && AICanSwitchAssumingEnoughPokemon())
             {
                 bool8 convenient_move = FALSE; // TRUE si en el mov hace que no sea relevante el estar intoxicado
                 switch (gBattleMoves[move].effect) {
@@ -1094,10 +1080,8 @@ static u8 ChooseMoveOrAction_Singles(void)
                     case EFFECT_BATON_PASS:
                         convenient_move = TRUE;
                 }
-             if (!convenient_move) {
-                AI_THINKING_STRUCT->switchMon = TRUE;
-                return AI_CHOICE_SWITCH;
-               }
+             if (!convenient_move)
+                SWITCH_IF_THERE_IS_A_SUITABLE_MON(NOT_CHANGING_IS_UNACCEPTABLE);
             }
 
         // La IA puede considerar repetir su último movimiento si observa que el rival está cambiando.
@@ -1345,11 +1329,7 @@ static u8 ChooseMoveOrAction_Doubles(void)
                   && (gBattleMons[gBattlerTarget ^ BIT_FLANK].hp == 0 || IsTruantMonVulnerable(sBattler_AI, gBattlerTarget ^ BIT_FLANK))))
         && gDisableStructs[sBattler_AI].truantCounter
         && AICanSwitchAssumingEnoughPokemon())
-        if (GetMostSuitableMonToSwitchInto_NotChangingIsUnacceptable() != PARTY_SIZE)
-        {
-            AI_THINKING_STRUCT->switchMon = TRUE;
-            return AI_CHOICE_SWITCH;
-        }
+        SWITCH_IF_THERE_IS_A_SUITABLE_MON(NOT_CHANGING_IS_UNACCEPTABLE);
     return actionOrMoveIndex[gBattlerTarget];
 }
 
