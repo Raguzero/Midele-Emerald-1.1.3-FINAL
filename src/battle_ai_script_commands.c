@@ -52,11 +52,12 @@
 #define NOT_EXPECTED_TO_SLEEP_DURING_NEXT_TURN(battlerId) (!(gBattleMons[battlerId].status1 & STATUS1_SLEEP) || (gBattleMons[battlerId].status1 & STATUS1_SLEEP) == 5)
 #define EXPECTED_TO_SLEEP_DURING_NEXT_TURN(battlerId) (!NOT_EXPECTED_TO_SLEEP_DURING_NEXT_TURN(battlerId))
 
-#define SWITCH_IF_THERE_IS_A_SUITABLE_MON(criterion) {           \
-    if (GetMostSuitableMonToSwitchInto(criterion) != PARTY_SIZE) \
-    {                                                            \
-        AI_THINKING_STRUCT->switchMon = TRUE;                    \
-        return AI_CHOICE_SWITCH;                                 \
+#define SWITCH_IF_THERE_IS_A_SUITABLE_MON(criterion) {                       \
+    u8 bestMonFound = GetMostSuitableMonToSwitchInto(criterion);             \
+    if (bestMonFound != PARTY_SIZE)                                          \
+    {                                                                        \
+        *(gBattleStruct->AI_monToSwitchIntoId + sBattler_AI) = bestMonFound; \
+        return AI_CHOICE_SWITCH;                                             \
     }}
 
 // AI states

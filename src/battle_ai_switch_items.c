@@ -22,19 +22,17 @@ static bool8 HasSuperEffectiveMoveAgainstOpponents(bool8 noRng);
 static bool8 FindMonWithFlagsAndSuperEffective(u8 flags, u8 moduloPercent);
 static bool8 ShouldUseItem(void);
 
-static bool8 ShouldSwitchIfAllBadMoves(void)
+// Determina si la IA decidió un cambio tras evaluar los movimientos disponibles
+// (criterios de cambio en battle_ai_script_commands.c)
+static bool8 ASwitchWasDecidedAfterConsideringAvailableMoves(void)
 {
-    if (gBattleResources->ai->switchMon)
+    if (*(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler) != PARTY_SIZE)
     {
-        gBattleResources->ai->switchMon = 0;
-        *(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler) = PARTY_SIZE;
         BtlController_EmitTwoReturnValues(1, B_ACTION_SWITCH, 0);
         return TRUE;
     }
     else
-    {
         return FALSE;
-    }
 }
 
 static bool8 ShouldSwitchIfForcedToUseStruggle(void)
@@ -692,15 +690,20 @@ static bool8 ShouldSwitch(void)
 
     if (availableToSwitch == 0)
         return FALSE;
-	 if (ShouldSwitchIfAllBadMoves())
+
+    // Si se decidió un cambio tras evaluar los movimientos, se marcará y se hará ahora
+    // (usando los criterios de battle_ai_script_commands.c)
+    if (ASwitchWasDecidedAfterConsideringAvailableMoves())
         return TRUE;
+
+    // Los siguientes criterios se evalúan antes que los movimientos disponibles
     if (ShouldSwitchIfPerishSong())
+        return TRUE;
+    if (ShouldSwitchIfForcedToUseStruggle())
         return TRUE;
 	if (HasMove(MOVE_BATON_PASS))
         return FALSE; // los supuestos de cambio a continuación aplican igual con Baton Pass, por lo que el cambio es mejor con Baton Pass
     if (ShouldSwitchIfWonderGuard())
-        return TRUE;
-    if (ShouldSwitchIfForcedToUseStruggle())
         return TRUE;
 /*    if (FindMonThatAbsorbsOpponentsMove())
         return TRUE; */
