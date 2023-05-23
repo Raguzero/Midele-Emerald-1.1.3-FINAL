@@ -1158,6 +1158,8 @@ bool8 KnowsSomeRecoveryMove(u32 opposingBattler)
   if (gWishFutureKnock.weatherDuration == 1 && !(gBattleWeather & (WEATHER_RAIN_PERMANENT | WEATHER_SANDSTORM_PERMANENT | WEATHER_SUN_PERMANENT | WEATHER_HAIL_PERMANENT))) gBattleWeather = 0; \
 }
 
+#define NHKO_SIZE                 4
+#define NHKO_DATA                 u8 nhko[][NHKO_SIZE]
 #define NHKO_FASTER(i)            (nhko[i][0])
 #define NHKO_GIVEN(i)             (nhko[i][1])
 #define NHKO_TAKEN(i)             (nhko[i][2])
@@ -1166,7 +1168,7 @@ bool8 KnowsSomeRecoveryMove(u32 opposingBattler)
 // Prepara una tabla con tres entradas para cada poke del equipo:
 // si es más rápido que el rival, qué nHKO le hace al rival, qué nHKO espera
 // recibir del rival y si le quita un 56.25% de los PS con algún ataque
-void PrepareNHKOTable(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][4])
+void PrepareNHKOTable(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, NHKO_DATA)
 {
     if (MonsLeft(filteredMons))
     {
@@ -1238,7 +1240,7 @@ void PrepareNHKOTable(struct Pokemon *party, s32 firstId, s32 lastId, u8 filtere
 // Evita meter un poke antes de que ataque el rival cuando puede recibir KO
 // en el cambio simplemente repitiendo el último ataque que lanzó al actual poke de la IA
 // (si es que este estaba presente cuando se eligió tal ataque)
-u8 FilterSwitchInsThatMightGetKOedBeforeEndOfTurn(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 a[][4])
+u8 FilterSwitchInsThatMightGetKOedBeforeEndOfTurn(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, NHKO_DATA)
 {
     u16 move = gLastMoves[opposingBattler];
     u8 moveLimitations;
@@ -1300,7 +1302,7 @@ u8 FilterSwitchInsThatMightGetKOedBeforeEndOfTurn(struct Pokemon *party, s32 fir
 
 // Evita meter un poke si recibe un OHKO de algún movimiento de prioridad del rival,
 // salvo si puede hacerle OHKO antes con otro movimiento de prioridad
-u8 FilterFragileMonsAgainstPriority(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 a[][4])
+u8 FilterFragileMonsAgainstPriority(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, NHKO_DATA)
 {
     u16 move;
     u16 opponent_priority_moves[4] = {0, 0, 0, 0};
@@ -1395,7 +1397,7 @@ u8 FilterFragileMonsAgainstPriority(struct Pokemon *party, s32 firstId, s32 last
 }
 
 // Excluye los pokes con Imposter si, en caso de entrar, no se van a transformar
-u8 FilterImposterIfUseless(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 a[][4])
+u8 FilterImposterIfUseless(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, NHKO_DATA)
 {
     s32 i;
     // Imposter falla si el objetivo está debilitado, transformado,
@@ -1422,7 +1424,7 @@ u8 FilterImposterIfUseless(struct Pokemon *party, s32 firstId, s32 lastId, u8 fi
 }
 
 // Excluye los pokes con Truant si no pueden tocar al rival
-u8 FilterTruantIfUseless(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 a[][4])
+u8 FilterTruantIfUseless(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, NHKO_DATA)
 {
     u8 truantMons = 0, vulnerableTruantMons = 0;
     u16 species;
@@ -1480,7 +1482,7 @@ u8 FilterTruantIfUseless(struct Pokemon *party, s32 firstId, s32 lastId, u8 filt
 }
 
 // Excluye los Shedinja que corran peligro
-u8 FilterShedinjaIfVulnerable(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 a[][4])
+u8 FilterShedinjaIfVulnerable(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, NHKO_DATA)
 {
     u8 sheds = 0, vulnerableSheds = 0;
     u16 species;
@@ -1543,7 +1545,7 @@ u8 FilterShedinjaIfVulnerable(struct Pokemon *party, s32 firstId, s32 lastId, u8
     return (filteredMons | vulnerableSheds);
 }
 
-u8 FilterChoiceMonsWayTooWeak(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][4])
+u8 FilterChoiceMonsWayTooWeak(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, NHKO_DATA)
 {
     s32 i, j;
     u16 item, move;
@@ -1573,7 +1575,7 @@ u8 FilterChoiceMonsWayTooWeak(struct Pokemon *party, s32 firstId, s32 lastId, u8
     return filteredMons;
 }
 
-u8 FilterChoiceMonsNotPowerfulEnough(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][4])
+u8 FilterChoiceMonsNotPowerfulEnough(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, NHKO_DATA)
 {
     s32 i, j;
     u16 item, move;
@@ -1602,7 +1604,7 @@ u8 FilterChoiceMonsNotPowerfulEnough(struct Pokemon *party, s32 firstId, s32 las
     return filteredMons;
 }
 
-u8 FilterOpponentCanBeTrappedAndDefeated(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][4])
+u8 FilterOpponentCanBeTrappedAndDefeated(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, NHKO_DATA)
 {
     s32 i;
     u8 min_opponent_attacks = HasYetToAttack(opposingBattler) ? 1 : 0;
@@ -1689,7 +1691,7 @@ u8 FilterOpponentCanBeTrappedAndDefeated(struct Pokemon *party, s32 firstId, s32
     return filteredMons;
 }
 
-u8 FilterRevengeKill(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][4])
+u8 FilterRevengeKill(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, NHKO_DATA)
 {
     s32 i;
 
@@ -1705,7 +1707,7 @@ u8 FilterRevengeKill(struct Pokemon *party, s32 firstId, s32 lastId, u8 filtered
     return filteredMons;
 }
 
-u8 FilterKOTaking1Hit(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][4])
+u8 FilterKOTaking1Hit(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, NHKO_DATA)
 {
     s32 i;
     u8 min_opponent_attacks = HasYetToAttack(opposingBattler) ? 1 : 0;
@@ -1727,7 +1729,7 @@ u8 FilterKOTaking1Hit(struct Pokemon *party, s32 firstId, s32 lastId, u8 filtere
     return filteredMons;
 }
 
-u8 FilterKOTaking2Hits(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][4])
+u8 FilterKOTaking2Hits(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, NHKO_DATA)
 {
     s32 i;
     u8 min_opponent_attacks = HasYetToAttack(opposingBattler) ? 1 : 0;
@@ -1748,7 +1750,7 @@ u8 FilterKOTaking2Hits(struct Pokemon *party, s32 firstId, s32 lastId, u8 filter
     return filteredMons;
 }
 
-u8 FilterCanAttackWonderGuardOpponent(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][4])
+u8 FilterCanAttackWonderGuardOpponent(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, NHKO_DATA)
 {
     s32 i;
     u8 monsWithoutDamagingWeather = 0;
@@ -1801,7 +1803,7 @@ u8 FilterCanAttackWonderGuardOpponent(struct Pokemon *party, s32 firstId, s32 la
     return filteredMons;
 }
 
-u8 FilterTakesMostHits(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][4])
+u8 FilterTakesMostHits(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, NHKO_DATA)
 {
     u8 max_hits_taken = 1;
     s32 i;
@@ -1819,7 +1821,7 @@ u8 FilterTakesMostHits(struct Pokemon *party, s32 firstId, s32 lastId, u8 filter
     return filteredMons;
 }
 
-u8 FilterKOsInLessHits(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, u8 nhko[][4])
+u8 FilterKOsInLessHits(struct Pokemon *party, s32 firstId, s32 lastId, u8 filteredMons, u32 opposingBattler, NHKO_DATA)
 {
     u8 min_hits_given = 5;
     s32 i;
@@ -1923,7 +1925,7 @@ u8 GetMostSuitableMonToSwitchInto(bool8 howTolerableIsNotChanging)
         gBattlerTarget = gbt;
     }
     {
-        u8 nhko[PARTY_SIZE][4];
+        u8 nhko[PARTY_SIZE][NHKO_SIZE];
 
         // Se aplican sucesivos filtros para excluir pokes que no conviene meter en este momento
         // Si un criterio elimina todos los pokes, entonces ese criterio se ignora (y por tanto deciden los criterios posteriores)
