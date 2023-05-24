@@ -1031,11 +1031,11 @@ bool8 HasYetToAttack(u32 battler)
     if (*(&gBattleStruct->field_91) & gBitTable[battler])
         return FALSE;
 
-    if (gBattleCommunication[gActiveBattler] == 3 || gBattleCommunication[gActiveBattler] == 2)
-        return TRUE; // La IA todavía está pendiente de escoger acción
-
-    if (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE) && gBattleMons[gActiveBattler].hp == 0)
+    if (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE) && (gBattleMons[gActiveBattler].hp == 0 || gBattleMons[battler].hp == 0))
         return FALSE; // En individual, el turno se acaba si hay un KO
+
+    if (gBattleCommunication[ACTIONS_CONFIRMED_COUNT] < gBattlersCount)
+        return TRUE; // El turno todavía no ha empezado, los jugadores están escogiendo acción
 
     for (i = gCurrentTurnActionNumber + 1; i < gBattlersCount; i++)
 		
