@@ -816,14 +816,16 @@
    @ Determina que el usuario puede boostearse tranquilamente:
     @ - Si el rival no puede debilitarlo en 3 golpes (ni con movs desconocidos probables), o si está durmiendo (y no tiene Sleep Talk) o congelado y no puede debilitarlo en 2 golpes
     @ - Escenario A: Si tiene movs de curación del 50% y el rival no puede debilitarlo en 2 golpes
-    @ - Escenario B: Si tiene movs de curación (incluido Rest), el mov boostea la defensa por la que
-    @    ataca el rival, el usuario tiene Restos (o con Rest, Chesto o Lum Berry) y el rival no hace OHKO
+    @ - Escenario B: Si tiene movs de curación (incluido Rest), el mov boostea la defensa
+    @    por la que ataca el rival, el usuario tiene Restos y no pierde PS por status o clima
+    @    (o, con Rest, tiene Chesto o Lum Berry), y el rival no hace OHKO
     @ (si el usuario es más lento, hace lo mismo pero exigiendo un golpe más)
 	@ No considera seguro boostearse si está intoxicado o si puede recibir Taunt
     @ o si puede recibir Haze o movs de phazeo
 	.macro if_user_can_probably_boost_safely ptr:req
 	if_user_is_intoxicated_and_does_not_have_baton_pass .AI_user_might_not_be_able_to_boost_safely_\@
     if_status3 AI_USER, STATUS3_PERISH_SONG, .AI_user_might_not_be_able_to_boost_safely_\@
+    if_status2 AI_USER, STATUS2_CURSED | STATUS2_INFATUATION, .AI_user_might_not_be_able_to_boost_safely_\@
     if_next_turn_target_might_use_move_with_effect EFFECT_HAZE, .AI_user_might_not_be_able_to_boost_safely_\@
     if_next_turn_target_might_use_move_with_effect EFFECT_ROAR, .AI_check_if_user_can_be_phazed_\@
     .AI_no_problem_with_phazing_\@:
@@ -863,27 +865,63 @@
     if_has_a_50_percent_hp_recovery_move AI_USER, \ptr
     .AI_check_scenario_B_\@:
     get_possible_categories_of_foes_attacks
-    if_effect EFFECT_BULK_UP, .AI_check_scenario_B_move_boosts_physical_defense\@
-    if_effect EFFECT_CURSE, .AI_check_scenario_B_move_boosts_physical_defense\@
-    if_effect EFFECT_COIL, .AI_check_scenario_B_move_boosts_physical_defense\@
-    if_effect EFFECT_CALM_MIND, .AI_check_scenario_B_move_boosts_special_defense\@
-    if_effect EFFECT_QUIVER_DANCE, .AI_check_scenario_B_move_boosts_special_defense\@
+    if_effect EFFECT_BULK_UP, .AI_check_scenario_B_move_boosts_physical_defense_\@
+    if_effect EFFECT_CURSE, .AI_check_scenario_B_move_boosts_physical_defense_\@
+    if_effect EFFECT_COIL, .AI_check_scenario_B_move_boosts_physical_defense_\@
+    if_effect EFFECT_CALM_MIND, .AI_check_scenario_B_move_boosts_special_defense_\@
+    if_effect EFFECT_QUIVER_DANCE, .AI_check_scenario_B_move_boosts_special_defense_\@
     goto .AI_user_might_not_be_able_to_boost_safely_\@
 
-    .AI_check_scenario_B_move_boosts_physical_defense\@:
-    if_equal AI_PHYSICAL_ONLY, .AI_check_scenario_B_move_boosts_proper_defense\@
-    if_equal AI_ONLY_PHYSICAL_KNOWN, .AI_check_scenario_B_move_boosts_proper_defense\@
-    if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_PHYSICAL, .AI_check_scenario_B_move_boosts_proper_defense\@
+    .AI_check_scenario_B_move_boosts_physical_defense_\@:
+    if_equal AI_PHYSICAL_ONLY, .AI_check_scenario_B_move_boosts_proper_defense_\@
+    if_equal AI_ONLY_PHYSICAL_KNOWN, .AI_check_scenario_B_move_boosts_proper_defense_\@
+    if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_PHYSICAL, .AI_check_scenario_B_move_boosts_proper_defense_\@
     goto .AI_user_might_not_be_able_to_boost_safely_\@
 
-    .AI_check_scenario_B_move_boosts_special_defense\@:
-    if_equal AI_SPECIAL_ONLY, .AI_check_scenario_B_move_boosts_proper_defense\@
-    if_equal AI_ONLY_SPECIAL_KNOWN, .AI_check_scenario_B_move_boosts_proper_defense\@
-    if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_SPECIAL, .AI_check_scenario_B_move_boosts_proper_defense\@
+    .AI_check_scenario_B_move_boosts_special_defense_\@:
+    if_equal AI_SPECIAL_ONLY, .AI_check_scenario_B_move_boosts_proper_defense_\@
+    if_equal AI_ONLY_SPECIAL_KNOWN, .AI_check_scenario_B_move_boosts_proper_defense_\@
+    if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_SPECIAL, .AI_check_scenario_B_move_boosts_proper_defense_\@
     goto .AI_user_might_not_be_able_to_boost_safely_\@
 
-    .AI_check_scenario_B_move_boosts_proper_defense\@:
+    .AI_check_scenario_B_move_boosts_proper_defense_\@:
+    if_status AI_USER, STATUS1_PSN_ANY | STATUS1_BURN, .AI_check_scenario_B_skip_leftovers_check_\@
+    if_status3 AI_USER, STATUS3_LEECHSEED, .AI_check_scenario_B_skip_leftovers_check_\@
+    get_weather
+    if_equal AI_WEATHER_HAIL, .AI_check_scenario_B_check_hail_\@
+    if_equal AI_WEATHER_SANDSTORM, .AI_check_scenario_B_check_sandstorm_\@
+    goto .AI_check_scenario_B_check_leftovers_\@
+
+    .AI_check_scenario_B_check_hail_\@:
+    get_ability AI_USER
+    if_equal ABILITY_OVERCOAT, .AI_check_scenario_B_check_leftovers_\@
+    if_equal ABILITY_SLUSH_RUSH, .AI_check_scenario_B_check_leftovers_\@
+    if_equal ABILITY_SNOW_CLOAK, .AI_check_scenario_B_check_leftovers_\@
+    if_equal ABILITY_ICE_BODY, .AI_check_scenario_B_check_leftovers_\@
+    get_user_type1
+    if_equal TYPE_ICE, .AI_check_scenario_B_check_leftovers_\@
+    get_user_type2
+    if_equal TYPE_ICE, .AI_check_scenario_B_check_leftovers_\@
+    goto .AI_check_scenario_B_skip_leftovers_check_\@
+
+    .AI_check_scenario_B_check_sandstorm_\@:
+    get_ability AI_USER
+    if_equal ABILITY_OVERCOAT, .AI_check_scenario_B_check_leftovers_\@
+    if_equal ABILITY_SAND_VEIL, .AI_check_scenario_B_check_leftovers_\@
+    if_equal ABILITY_SAND_RUSH, .AI_check_scenario_B_check_leftovers_\@
+    get_user_type1
+    if_equal TYPE_ROCK, .AI_check_scenario_B_check_leftovers_\@
+    if_equal TYPE_GROUND, .AI_check_scenario_B_check_leftovers_\@
+    if_equal TYPE_STEEL, .AI_check_scenario_B_check_leftovers_\@
+    get_user_type2
+    if_equal TYPE_ROCK, .AI_check_scenario_B_check_leftovers_\@
+    if_equal TYPE_GROUND, .AI_check_scenario_B_check_leftovers_\@
+    if_equal TYPE_STEEL, .AI_check_scenario_B_check_leftovers_\@
+    goto .AI_check_scenario_B_skip_leftovers_check_\@
+
+    .AI_check_scenario_B_check_leftovers_\@:
     if_holds_item AI_USER, ITEM_LEFTOVERS, .AI_check_recovery_move_\@
+    .AI_check_scenario_B_skip_leftovers_check_\@:
     if_holds_item AI_USER, ITEM_CHESTO_BERRY, .AI_check_Rest_\@
     if_holds_item AI_USER, ITEM_LUM_BERRY, .AI_check_Rest_\@
     goto .AI_user_might_not_be_able_to_boost_safely_\@
