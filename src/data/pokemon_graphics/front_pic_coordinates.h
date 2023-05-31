@@ -3331,62 +3331,62 @@ const struct MonCoords gMonFrontPicCoords[] =
     [SPECIES_OVERQWIL] =
     {
         .size = 0x88,
-        .y_offset = 0,
+        .y_offset = 0x05,
     },
     [SPECIES_GROWLITHE_HISUIAN] =
     {
         .size = 0x88,
-        .y_offset = 0,
+        .y_offset = 0x10,
     },
     [SPECIES_ARCANINE_HISUIAN] =
     {
         .size = 0x88,
-        .y_offset = 0,
+        .y_offset = 0x3,
     },
     [SPECIES_VOLTORB_HISUIAN] =
     {
         .size = 0x88,
-        .y_offset = 0,
+        .y_offset = 0x10,
     },
     [SPECIES_ELECTRODE_HISUIAN] =
     {
         .size = 0x88,
-        .y_offset = 0,
+        .y_offset = 0x6,
     },
     [SPECIES_TYPHLOSION_HISUIAN] =
     {
         .size = 0x88,
-        .y_offset = 0,
+        .y_offset = 0x2,
     },
     [SPECIES_QWILFISH_HISUIAN] =
     {
-        .size = 0x88,
-        .y_offset = 0,
+        .size = 0x56,
+        .y_offset = 0x0e,
     },
     [SPECIES_SNEASEL_HISUIAN] =
     {
-        .size = 0x88,
-        .y_offset = 0,
+        .size = 0x67,
+        .y_offset = 0x05,
     },
     [SPECIES_SLIGGOO_HISUIAN] =
     {
         .size = 0x88,
-        .y_offset = 0,
+        .y_offset = 0x6,
     },
     [SPECIES_GOODRA_HISUIAN] =
     {
         .size = 0x88,
-        .y_offset = 0,
+        .y_offset = 0x03,
     },
     [SPECIES_DECIDUEYE_HISUIAN] =
     {
         .size = 0x88,
-        .y_offset = 0,
+        .y_offset = 0x02,
     },
     [SPECIES_SLOWPOKE_GALARIAN] =
     {
         .size = 0x66,
-        .y_offset = 0x0b,
+        .y_offset = 0x0f,
     },
     [SPECIES_SLOWBRO_GALARIAN] =
     {
@@ -3397,5 +3397,50 @@ const struct MonCoords gMonFrontPicCoords[] =
     {
         .size = 0x58,
         .y_offset = 0x01,
+    },
+    [SPECIES_TAUROS_PALDEAN_FIGHT] =
+    {
+        .size = 0x78,
+        .y_offset = 0x00,
+    },
+    [SPECIES_TAUROS_PALDEAN_AQUA] =
+    {
+        .size = 0x78,
+        .y_offset = 0x00,
+    },
+    [SPECIES_TAUROS_PALDEAN_BLAZE] =
+    {
+        .size = 0x78,
+        .y_offset = 0x00,
+    },
+    [SPECIES_WOOPER_PALDEAN] =
+    {
+        .size = 0x54,
+        .y_offset = 0x10,
+    },
+    [SPECIES_CLODSIRE] =
+    {
+        .size = 0x77,
+        .y_offset = 0x07,
+    },
+    [SPECIES_ANNIHILAPE] =
+    {
+        .size = 0x77,
+        .y_offset = 0x07,
+    },
+    [SPECIES_KINGAMBIT] =
+    {
+        .size = 0x45,
+        .y_offset = 0x0,
+    },
+    [SPECIES_FARIGIRAF] =
+    {
+        .size = 0x88,
+        .y_offset = 0x03,
+    },
+    [SPECIES_DUDUNSPARCE] =
+    {
+        .size = 0x54,
+        .y_offset = 0x1,
     },
 };

@@ -6515,6 +6515,60 @@ static const union AnimCmd sAnim_SLOWKING_GALARIAN_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_TAUROS_PALDEAN_FIGHT_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_TAUROS_PALDEAN_AQUA_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_TAUROS_PALDEAN_BLAZE_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_WOOPER_PALDEAN_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_CLODSIRE_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_DUDUNSPARCE_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_KINGAMBIT_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_FARIGIRAF_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_ANNIHILAPE_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd *const sAnims_NONE[] ={
     sAnim_GeneralFrame0,
     sAnim_NONE_1,
@@ -9831,6 +9885,54 @@ static const union AnimCmd *const sAnims_SLOWKING_GALARIAN[] ={
     sAnim_SLOWKING_GALARIAN_1,
 };
 
+static const union AnimCmd *const sAnims_TAUROS_PALDEAN_FIGHT[] ={
+    sAnim_GeneralFrame0,
+    sAnim_TAUROS_PALDEAN_FIGHT_1,
+};
+
+static const union AnimCmd *const sAnims_TAUROS_PALDEAN_AQUA[] ={
+    sAnim_GeneralFrame0,
+    sAnim_TAUROS_PALDEAN_AQUA_1,
+};
+
+static const union AnimCmd *const sAnims_TAUROS_PALDEAN_BLAZE[] ={
+    sAnim_GeneralFrame0,
+    sAnim_TAUROS_PALDEAN_BLAZE_1,
+};
+
+static const union AnimCmd *const sAnims_WOOPER_PALDEAN[] ={
+    sAnim_GeneralFrame0,
+    sAnim_WOOPER_PALDEAN_1,
+};
+
+static const union AnimCmd *const sAnims_CLODSIRE[] ={
+    sAnim_GeneralFrame0,
+    sAnim_CLODSIRE_1,
+};
+
+static const union AnimCmd *const sAnims_DUDUNSPARCE[] ={
+    sAnim_GeneralFrame0,
+    sAnim_DUDUNSPARCE_1,
+};
+
+
+static const union AnimCmd *const sAnims_KINGAMBIT[] ={
+    sAnim_GeneralFrame0,
+    sAnim_KINGAMBIT_1,
+};
+
+static const union AnimCmd *const sAnims_FARIGIRAF[] ={
+    sAnim_GeneralFrame0,
+    sAnim_FARIGIRAF_1,
+};
+
+
+static const union AnimCmd *const sAnims_ANNIHILAPE[] ={
+    sAnim_GeneralFrame0,
+    sAnim_ANNIHILAPE_1,
+};
+
+
 #define ANIM_CMD(name)             [SPECIES_##name] = sAnims_##name
 #define ANIM_CMD_FULL(name, anims) [SPECIES_##name] = anims
 
@@ -10518,4 +10620,13 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(SLOWPOKE_GALARIAN),
     ANIM_CMD(SLOWBRO_GALARIAN),
     ANIM_CMD(SLOWKING_GALARIAN),
+    ANIM_CMD(TAUROS_PALDEAN_FIGHT),
+    ANIM_CMD(TAUROS_PALDEAN_AQUA),
+    ANIM_CMD(TAUROS_PALDEAN_BLAZE),
+    ANIM_CMD(DUDUNSPARCE),
+    ANIM_CMD(FARIGIRAF),
+    ANIM_CMD(ANNIHILAPE),
+    ANIM_CMD(KINGAMBIT),
+	ANIM_CMD(WOOPER_PALDEAN),
+    ANIM_CMD(CLODSIRE),
 };

@@ -3403,6 +3403,21 @@ const struct MonCoords gMonBackPicCoords[] =
         .size = 0x66,
         .y_offset = 0x08,
     },
+    [SPECIES_TAUROS_PALDEAN_FIGHT] =
+    {
+        .size = 0x85,
+        .y_offset = 0x0d,
+    },
+    [SPECIES_TAUROS_PALDEAN_AQUA] =
+    {
+        .size = 0x85,
+        .y_offset = 0x0d,
+    },
+    [SPECIES_TAUROS_PALDEAN_BLAZE] =
+    {
+        .size = 0x85,
+        .y_offset = 0x0d,
+    },
     [SPECIES_WOOPER_PALDEAN] =
     {
         .size = 0x85,
@@ -3411,7 +3426,7 @@ const struct MonCoords gMonBackPicCoords[] =
     [SPECIES_CLODSIRE] =
     {
         .size = 0x76,
-        .y_offset = 0x08,
+        .y_offset = 0x0f,
     },
     [SPECIES_KINGAMBIT] =
     {
@@ -3427,5 +3442,10 @@ const struct MonCoords gMonBackPicCoords[] =
     {
         .size = 0x85,
         .y_offset = 0x0f,
+    },
+    [SPECIES_ANNIHILAPE] =
+    {
+        .size = 0x77,
+        .y_offset = 0x07,
     },
 };
