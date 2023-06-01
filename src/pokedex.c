@@ -5132,7 +5132,7 @@ bool16 HasAllMons(void)
 {
     u16 i;
 
-    for (i = 0; i < NATIONAL_DEX_DARK_PIKACHU; i++)
+    for (i = 0; i < NATIONAL_DEX_FARIGIRAF; i++)
     {
         if (!GetSetPokedexFlag(i + 1, FLAG_GET_CAUGHT))
             return FALSE;
