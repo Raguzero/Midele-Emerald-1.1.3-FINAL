@@ -750,6 +750,16 @@ const u16 gSpeciesToHoennPokedexNum[] = // Assigns all species to the Hoenn Dex 
 	SPECIES_TO_HOENN(EXCADRILL),
 	SPECIES_TO_HOENN(DARK_PIKACHU),
 	SPECIES_TO_HOENN(HONEDGE_MONADO),
+	SPECIES_TO_HOENN(KLEAVOR),
+	SPECIES_TO_HOENN(WYRDEER),
+	SPECIES_TO_HOENN(URSALUNA),
+	SPECIES_TO_HOENN(SNEASLER),
+	SPECIES_TO_HOENN(OVERQWIL),
+    SPECIES_TO_HOENN(KINGAMBIT),
+    SPECIES_TO_HOENN(DUDUNSPARCE),
+    SPECIES_TO_HOENN(CLODSIRE),
+    SPECIES_TO_HOENN(ANNIHILAPE),
+    SPECIES_TO_HOENN(FARIGIRAF),
 };
 
 const u16 gSpeciesToNationalPokedexNum[NUM_SPECIES] = // Assigns all species to the National Dex Index (Summary No. for National Dex)
@@ -1988,6 +1998,16 @@ const u16 gHoennToNationalOrder[] = // Assigns Hoenn Dex Pokémon (Using Nationa
 	HOENN_TO_NATIONAL(EXCADRILL),
 	HOENN_TO_NATIONAL(DARK_PIKACHU),
 	HOENN_TO_NATIONAL(HONEDGE_MONADO),
+	HOENN_TO_NATIONAL(KLEAVOR),
+	HOENN_TO_NATIONAL(WYRDEER),
+	HOENN_TO_NATIONAL(URSALUNA),
+	HOENN_TO_NATIONAL(SNEASLER),
+	HOENN_TO_NATIONAL(OVERQWIL),
+    HOENN_TO_NATIONAL(KINGAMBIT),
+    HOENN_TO_NATIONAL(DUDUNSPARCE),
+    HOENN_TO_NATIONAL(CLODSIRE),
+    HOENN_TO_NATIONAL(ANNIHILAPE),
+    HOENN_TO_NATIONAL(FARIGIRAF),
     HOENN_TO_NATIONAL(OLD_UNOWN_B),
     HOENN_TO_NATIONAL(OLD_UNOWN_C),
     HOENN_TO_NATIONAL(OLD_UNOWN_D),
@@ -6767,6 +6787,18 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem)
                 break;
             case EVO_ITEM_MALE:
                 if (GetMonGender(mon) == MON_MALE && gEvolutionTable[species][i].param == evolutionItem)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+	        case EVO_ITEM_LEVEL_30:
+			    if (GetMonData(mon, MON_DATA_LEVEL, 0) >= 30 && gEvolutionTable[species][i].param == evolutionItem)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+	        case EVO_ITEM_LEVEL_40:
+			    if (GetMonData(mon, MON_DATA_LEVEL, 0) >= 40 && gEvolutionTable[species][i].param == evolutionItem)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+	        case EVO_ITEM_LEVEL_50:
+			    if (GetMonData(mon, MON_DATA_LEVEL, 0) >= 50 && gEvolutionTable[species][i].param == evolutionItem)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             }

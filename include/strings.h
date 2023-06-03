@@ -3188,6 +3188,9 @@ extern const u8 gText_EVO_LEVEL_FEMALE[];
 extern const u8 gText_EVO_ITEM_MALE[];
 extern const u8 gText_EVO_ITEM_FEMALE[];
 extern const u8 gText_EVO_NONE[];
+extern const u8 gText_EVO_ITEM_LEVEL_30[];
+extern const u8 gText_EVO_ITEM_LEVEL_40[];
+extern const u8 gText_EVO_ITEM_LEVEL_50[];
 
 // POKEMON CENTER GEN 8
 extern const u8 gText_RememberAMove[];

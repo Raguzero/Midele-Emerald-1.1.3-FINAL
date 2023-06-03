@@ -289,6 +289,9 @@
 #define EVO_LEVEL_FEMALE     0x0010 // Pokémon reaches the specified level, is female
 #define EVO_ITEM_MALE        0x0011 // specified item is used on a male Pokémon
 #define EVO_ITEM_FEMALE      0x0012 // specified item is used on a female Pokémon
+#define EVO_ITEM_LEVEL_30    0x0013 // specified item is used on Pokémon with level 30
+#define EVO_ITEM_LEVEL_40    0x0014 // specified item is used on Pokémon with level 40
+#define EVO_ITEM_LEVEL_50    0x0015 // specified item is used on Pokémon with level 50
 
 #define EVOS_PER_MON 8
 

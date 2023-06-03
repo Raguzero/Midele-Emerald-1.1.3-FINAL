@@ -2051,6 +2051,9 @@ const u8 gText_EVO_LEVEL_FEMALE[]                   = _("Lvl up to {STR_VAR_2}, 
 const u8 gText_EVO_ITEM_MALE[]                      = _("{STR_VAR_2} used on male");
 const u8 gText_EVO_ITEM_FEMALE[]                    = _("{STR_VAR_2} used on female");
 const u8 gText_EVO_NONE[]                           = _("There is no evolution for {STR_VAR_1}.");
+const u8 gText_EVO_ITEM_LEVEL_30[]                  = _(" {STR_VAR_2} is used with level 30");
+const u8 gText_EVO_ITEM_LEVEL_40[]                  = _(" {STR_VAR_2} is used with level 40");
+const u8 gText_EVO_ITEM_LEVEL_50[]                  = _(" {STR_VAR_2} is used with level 50");
 
 // Pokemon center move tutor/name rater menu
 const u8 gText_RememberAMove[] = _("REMEMBER A MOVE");
