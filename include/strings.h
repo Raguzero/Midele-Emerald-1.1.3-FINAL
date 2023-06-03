@@ -3298,17 +3298,6 @@ extern const u8 gText_ThunderWave48BP[];
 extern const u8 gText_DoubleEdge[];
 extern const u8 gText_SwordsDance48BP[];
 
-// Options used to select a set of tutor moves
-extern const u8 gText_TutorMoveSet1[];
-extern const u8 gText_TutorMoveSet2[];
-extern const u8 gText_TutorMoveSet3[];
-extern const u8 gText_TutorMoveSet4[];
-extern const u8 gText_TutorMoveSet5[];
-extern const u8 gText_TutorMoveSet6[];
-extern const u8 gText_TutorMoveSet7[];
-extern const u8 gText_TutorMoveSet8[];
-extern const u8 gText_TutorMoveSet9[];
-
 // Pokemon Center move tutor strings
 extern const u8 PokemonCenterMoveTutor_Text_FuryCutterDesc[];
 extern const u8 PokemonCenterMoveTutor_Text_RolloutDesc[];

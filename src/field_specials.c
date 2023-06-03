@@ -2421,8 +2421,8 @@ void ShowScrollableMultichoice(void)
             task->tTaskId = taskId;
             break;
         case SCROLL_MULTI_PC_TUTOR_SET_2:
-            task->tMaxItemsOnScreen = 5;
-            task->tNumItems = 5;
+            task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+            task->tNumItems = 10;
             task->tLeft = 17;
             task->tTop = 1;
             task->tWidth = 14;
@@ -2431,12 +2431,26 @@ void ShowScrollableMultichoice(void)
             task->tTaskId = taskId;
             break;
         case SCROLL_MULTI_PC_TUTOR_SET_3:
+            task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+            task->tNumItems = 13;
+            task->tLeft = 17;
+            task->tTop = 1;
+            task->tWidth = 14;
+            task->tHeight = 12;
+            task->tKeepOpenAfterSelect = FALSE;
+            task->tTaskId = taskId;
+            break;
         case SCROLL_MULTI_PC_TUTOR_SET_4:
+            task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+            task->tNumItems = 16;
+            task->tLeft = 17;
+            task->tTop = 1;
+            task->tWidth = 14;
+            task->tHeight = 12;
+            task->tKeepOpenAfterSelect = FALSE;
+            task->tTaskId = taskId;
+            break;
         case SCROLL_MULTI_PC_TUTOR_SET_5:
-        case SCROLL_MULTI_PC_TUTOR_SET_6:
-        case SCROLL_MULTI_PC_TUTOR_SET_7:
-        case SCROLL_MULTI_PC_TUTOR_SET_8:
-        case SCROLL_MULTI_PC_TUTOR_SET_9:
             task->tMaxItemsOnScreen = 4;
             task->tNumItems = 4;
             task->tLeft = 17;
@@ -2446,12 +2460,42 @@ void ShowScrollableMultichoice(void)
             task->tKeepOpenAfterSelect = FALSE;
             task->tTaskId = taskId;
             break;
-        case SCROLL_MULTI_PC_TUTOR_SET_SELECT:
+        case SCROLL_MULTI_PC_TUTOR_SET_6:
+            task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+            task->tNumItems = 7;
+            task->tLeft = 17;
+            task->tTop = 1;
+            task->tWidth = 14;
+            task->tHeight = 12;
+            task->tKeepOpenAfterSelect = FALSE;
+            task->tTaskId = taskId;
+            break;
+        case SCROLL_MULTI_PC_TUTOR_SET_7:
             task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
             task->tNumItems = 10;
-            task->tLeft = 19;
+            task->tLeft = 17;
             task->tTop = 1;
-            task->tWidth = 12;
+            task->tWidth = 14;
+            task->tHeight = 12;
+            task->tKeepOpenAfterSelect = FALSE;
+            task->tTaskId = taskId;
+            break;
+        case SCROLL_MULTI_PC_TUTOR_SET_8:
+            task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+            task->tNumItems = 13;
+            task->tLeft = 17;
+            task->tTop = 1;
+            task->tWidth = 14;
+            task->tHeight = 12;
+            task->tKeepOpenAfterSelect = FALSE;
+            task->tTaskId = taskId;
+            break;
+        case SCROLL_MULTI_PC_TUTOR_SET_9:
+            task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+            task->tNumItems = 16;
+            task->tLeft = 17;
+            task->tTop = 1;
+            task->tWidth = 14;
             task->tHeight = 12;
             task->tKeepOpenAfterSelect = FALSE;
             task->tTaskId = taskId;
@@ -2619,6 +2663,11 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_IcyWind24BP,
         gText_Swagger,
         gText_Swift24BP,
+        gText_DefenseCurl16BP,
+        gText_Metronome,
+        gText_Mimic,
+        gText_MudSlap24BP,
+        gText_PsychUp48BP,
         gText_Exit
     },
     [SCROLL_MULTI_PC_TUTOR_SET_3] = 
@@ -2626,6 +2675,15 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_FuryCutter,
         gText_Rollout,
 		gText_Snore24BP,
+        gText_Counter48BP,
+        gText_IcyWind24BP,
+        gText_Swagger,
+        gText_Swift24BP,
+        gText_DefenseCurl16BP,
+        gText_Metronome,
+        gText_Mimic,
+        gText_MudSlap24BP,
+        gText_PsychUp48BP,
         gText_Exit
     },
     [SCROLL_MULTI_PC_TUTOR_SET_4] = 
@@ -2633,6 +2691,18 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
 		gText_Endure48BP,
 		gText_MegaPunch24BP,
         gText_SeismicToss24BP,
+        gText_FuryCutter,
+        gText_Rollout,
+		gText_Snore24BP,
+        gText_Counter48BP,
+        gText_IcyWind24BP,
+        gText_Swagger,
+        gText_Swift24BP,
+        gText_DefenseCurl16BP,
+        gText_Metronome,
+        gText_Mimic,
+        gText_MudSlap24BP,
+        gText_PsychUp48BP,
         gText_Exit
     },
     [SCROLL_MULTI_PC_TUTOR_SET_5] = 
@@ -2647,6 +2717,9 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_FirePunch48BP,
         gText_IcePunch48BP,
         gText_ThunderPunch48BP,
+		gText_DreamEater24BP,
+        gText_BodySlam48BP,
+		gText_RockSlide48BP,
         gText_Exit
     },
     [SCROLL_MULTI_PC_TUTOR_SET_7] = 
@@ -2654,6 +2727,12 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
 		gText_MegaKick48BP,
 		gSleepTalkTutor,
 		gSubstituteTutor,
+        gText_FirePunch48BP,
+        gText_IcePunch48BP,
+        gText_ThunderPunch48BP,
+		gText_DreamEater24BP,
+        gText_BodySlam48BP,
+		gText_RockSlide48BP,
         gText_Exit
     },
     [SCROLL_MULTI_PC_TUTOR_SET_8] = 
@@ -2661,6 +2740,15 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_DynamicPunch,
         gText_DoubleEdge,
 		gText_ThunderWave48BP,
+		gText_MegaKick48BP,
+		gSleepTalkTutor,
+		gSubstituteTutor,
+        gText_FirePunch48BP,
+        gText_IcePunch48BP,
+        gText_ThunderPunch48BP,
+		gText_DreamEater24BP,
+        gText_BodySlam48BP,
+		gText_RockSlide48BP,
         gText_Exit
     },
     [SCROLL_MULTI_PC_TUTOR_SET_9] = 
@@ -2668,19 +2756,18 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
 		gExplosionTutor,
         gText_Softboiled16BP,
 		gText_SwordsDance48BP,
-        gText_Exit
-    },
-    [SCROLL_MULTI_PC_TUTOR_SET_SELECT] =
-    {
-        gText_TutorMoveSet1,
-        gText_TutorMoveSet2,
-        gText_TutorMoveSet3,
-        gText_TutorMoveSet4,
-        gText_TutorMoveSet5,
-        gText_TutorMoveSet6,
-        gText_TutorMoveSet7,
-        gText_TutorMoveSet8,
-        gText_TutorMoveSet9,
+        gText_DynamicPunch,
+        gText_DoubleEdge,
+		gText_ThunderWave48BP,
+		gText_MegaKick48BP,
+		gSleepTalkTutor,
+		gSubstituteTutor,
+        gText_FirePunch48BP,
+        gText_IcePunch48BP,
+        gText_ThunderPunch48BP,
+		gText_DreamEater24BP,
+        gText_BodySlam48BP,
+		gText_RockSlide48BP,
         gText_Exit
     },
     [SCROLL_MULTI_POKE_CENTER_TUTOR] = 
@@ -3253,7 +3340,7 @@ static const u16 sPokemonCenter_TutorMoves1[] =
 	MOVE_METRONOME,
 	MOVE_MIMIC,
 	MOVE_MUD_SLAP,
-	MOVE_PSYCH_UP
+	MOVE_PSYCH_UP,
 };
 
 static const u16 sPokemonCenter_TutorMoves2[] =
@@ -3261,14 +3348,28 @@ static const u16 sPokemonCenter_TutorMoves2[] =
 	MOVE_COUNTER,
 	MOVE_ICY_WIND,
 	MOVE_SWAGGER,
-	MOVE_SWIFT
+	MOVE_SWIFT,
+	MOVE_DEFENSE_CURL,
+	MOVE_METRONOME,
+	MOVE_MIMIC,
+	MOVE_MUD_SLAP,
+	MOVE_PSYCH_UP,
 };
 
 static const u16 sPokemonCenter_TutorMoves3[] =
 {
 	MOVE_FURY_CUTTER,
 	MOVE_ROLLOUT,
-	MOVE_SNORE
+	MOVE_SNORE,
+	MOVE_COUNTER,
+	MOVE_ICY_WIND,
+	MOVE_SWAGGER,
+	MOVE_SWIFT,
+	MOVE_DEFENSE_CURL,
+	MOVE_METRONOME,
+	MOVE_MIMIC,
+	MOVE_MUD_SLAP,
+	MOVE_PSYCH_UP,
 };
 
 static const u16 sPokemonCenter_TutorMoves4[] =
@@ -3276,41 +3377,83 @@ static const u16 sPokemonCenter_TutorMoves4[] =
 	MOVE_ENDURE,
 	MOVE_MEGA_PUNCH,
 	MOVE_SEISMIC_TOSS,
+	MOVE_FURY_CUTTER,
+	MOVE_ROLLOUT,
+	MOVE_SNORE,
+	MOVE_COUNTER,
+	MOVE_ICY_WIND,
+	MOVE_SWAGGER,
+	MOVE_SWIFT,
+	MOVE_DEFENSE_CURL,
+	MOVE_METRONOME,
+	MOVE_MIMIC,
+	MOVE_MUD_SLAP,
+	MOVE_PSYCH_UP,
 };
 
 static const u16 sPokemonCenter_TutorMoves5[] =
 {
     MOVE_DREAM_EATER,
 	MOVE_BODY_SLAM,
-	MOVE_ROCK_SLIDE
+	MOVE_ROCK_SLIDE,
 };
 
 static const u16 sPokemonCenter_TutorMoves6[] =
 {
 	MOVE_FIRE_PUNCH,
 	MOVE_ICE_PUNCH,
-	MOVE_THUNDER_PUNCH
+	MOVE_THUNDER_PUNCH,
+    MOVE_DREAM_EATER,
+	MOVE_BODY_SLAM,
+	MOVE_ROCK_SLIDE,
 };
 
 static const u16 sPokemonCenter_TutorMoves7[] =
 {
 	MOVE_MEGA_KICK,
 	MOVE_SLEEP_TALK,
-	MOVE_SUBSTITUTE
+	MOVE_SUBSTITUTE,
+	MOVE_FIRE_PUNCH,
+	MOVE_ICE_PUNCH,
+	MOVE_THUNDER_PUNCH,
+    MOVE_DREAM_EATER,
+	MOVE_BODY_SLAM,
+	MOVE_ROCK_SLIDE,
 };
 
 static const u16 sPokemonCenter_TutorMoves8[] =
 {
 	MOVE_DYNAMIC_PUNCH,
 	MOVE_DOUBLE_EDGE,
-	MOVE_THUNDER_WAVE
+	MOVE_THUNDER_WAVE,
+	MOVE_MEGA_KICK,
+	MOVE_SLEEP_TALK,
+	MOVE_SUBSTITUTE,
+	MOVE_FIRE_PUNCH,
+	MOVE_ICE_PUNCH,
+	MOVE_THUNDER_PUNCH,
+    MOVE_DREAM_EATER,
+	MOVE_BODY_SLAM,
+	MOVE_ROCK_SLIDE,
 };
 
 static const u16 sPokemonCenter_TutorMoves9[] =
 {
 	MOVE_EXPLOSION,
 	MOVE_SOFT_BOILED,
-	MOVE_SWORDS_DANCE
+	MOVE_SWORDS_DANCE,
+	MOVE_DYNAMIC_PUNCH,
+	MOVE_DOUBLE_EDGE,
+	MOVE_THUNDER_WAVE,
+	MOVE_MEGA_KICK,
+	MOVE_SLEEP_TALK,
+	MOVE_SUBSTITUTE,
+	MOVE_FIRE_PUNCH,
+	MOVE_ICE_PUNCH,
+	MOVE_THUNDER_PUNCH,
+    MOVE_DREAM_EATER,
+	MOVE_BODY_SLAM,
+	MOVE_ROCK_SLIDE,
 };
 
 void BufferBattleFrontierTutorMoveName(void)
@@ -3389,6 +3532,11 @@ static const u8 *const sPokemonCenter_TutorMoveDescriptions1[] =
         PokemonCenterMoveTutor_Text_IcyWindDesc,
         PokemonCenterMoveTutor_Text_SwaggerDesc,
         PokemonCenterMoveTutor_Text_SwiftDesc,
+        PokemonCenterMoveTutor_Text_DefenseCurlDesc,
+        PokemonCenterMoveTutor_Text_MetronomeDesc,
+        PokemonCenterMoveTutor_Text_MimicDesc,
+        PokemonCenterMoveTutor_Text_MudSlapDesc,
+        PokemonCenterMoveTutor_Text_PsychUpDesc,
         gText_Exit,
 	};
 
@@ -3397,6 +3545,15 @@ static const u8 *const sPokemonCenter_TutorMoveDescriptions1[] =
 		PokemonCenterMoveTutor_Text_FuryCutterDesc,
 		PokemonCenterMoveTutor_Text_RolloutDesc,
         BattleFrontier_Lounge7_Text_SnoreDesc,
+		PokemonCenterMoveTutor_Text_CounterDesc,
+        PokemonCenterMoveTutor_Text_IcyWindDesc,
+        PokemonCenterMoveTutor_Text_SwaggerDesc,
+        PokemonCenterMoveTutor_Text_SwiftDesc,
+        PokemonCenterMoveTutor_Text_DefenseCurlDesc,
+        PokemonCenterMoveTutor_Text_MetronomeDesc,
+        PokemonCenterMoveTutor_Text_MimicDesc,
+        PokemonCenterMoveTutor_Text_MudSlapDesc,
+        PokemonCenterMoveTutor_Text_PsychUpDesc,
         gText_Exit,
 	};
 
@@ -3405,6 +3562,18 @@ static const u8 *const sPokemonCenter_TutorMoveDescriptions1[] =
 		BattleFrontier_Lounge7_Text_EndureDesc,
         BattleFrontier_Lounge7_Text_MegaPunchDesc,
         PokemonCenterMoveTutor_Text_SeismicTossDesc,
+		PokemonCenterMoveTutor_Text_FuryCutterDesc,
+		PokemonCenterMoveTutor_Text_RolloutDesc,
+        BattleFrontier_Lounge7_Text_SnoreDesc,
+		PokemonCenterMoveTutor_Text_CounterDesc,
+        PokemonCenterMoveTutor_Text_IcyWindDesc,
+        PokemonCenterMoveTutor_Text_SwaggerDesc,
+        PokemonCenterMoveTutor_Text_SwiftDesc,
+        PokemonCenterMoveTutor_Text_DefenseCurlDesc,
+        PokemonCenterMoveTutor_Text_MetronomeDesc,
+        PokemonCenterMoveTutor_Text_MimicDesc,
+        PokemonCenterMoveTutor_Text_MudSlapDesc,
+        PokemonCenterMoveTutor_Text_PsychUpDesc,
         gText_Exit,
 	};
 
@@ -3421,6 +3590,9 @@ static const u8 *const sPokemonCenter_TutorMoveDescriptions1[] =
         PokemonCenterMoveTutor_Text_FirePunchDesc,
         PokemonCenterMoveTutor_Text_IcePunchDesc,
         PokemonCenterMoveTutor_Text_ThunderPunchDesc,
+        BattleFrontier_Lounge7_Text_DreamEaterDesc,        
+        PokemonCenterMoveTutor_Text_BodySlamDesc,
+        BattleFrontier_Lounge7_Text_RockSlideDesc,
         gText_Exit,
 	};
 
@@ -3429,6 +3601,12 @@ static const u8 *const sPokemonCenter_TutorMoveDescriptions1[] =
         BattleFrontier_Lounge7_Text_MegaKickDesc,
         PokemonCenterMoveTutor_Text_SleepTalkDesc,
         PokemonCenterMoveTutor_Text_SubstituteDesc,
+        PokemonCenterMoveTutor_Text_FirePunchDesc,
+        PokemonCenterMoveTutor_Text_IcePunchDesc,
+        PokemonCenterMoveTutor_Text_ThunderPunchDesc,
+        BattleFrontier_Lounge7_Text_DreamEaterDesc,        
+        PokemonCenterMoveTutor_Text_BodySlamDesc,
+        BattleFrontier_Lounge7_Text_RockSlideDesc,
         gText_Exit,
 	};
 	
@@ -3436,7 +3614,16 @@ static const u8 *const sPokemonCenter_TutorMoveDescriptions1[] =
     {        
         PokemonCenterMoveTutor_Text_DynamicPunchDesc,
         PokemonCenterMoveTutor_Text_DoubleEdgeDesc,
-        BattleFrontier_Lounge7_Text_ThunderWaveDesc,	
+        BattleFrontier_Lounge7_Text_ThunderWaveDesc,
+        BattleFrontier_Lounge7_Text_MegaKickDesc,
+        PokemonCenterMoveTutor_Text_SleepTalkDesc,
+        PokemonCenterMoveTutor_Text_SubstituteDesc,
+        PokemonCenterMoveTutor_Text_FirePunchDesc,
+        PokemonCenterMoveTutor_Text_IcePunchDesc,
+        PokemonCenterMoveTutor_Text_ThunderPunchDesc,
+        BattleFrontier_Lounge7_Text_DreamEaterDesc,        
+        PokemonCenterMoveTutor_Text_BodySlamDesc,
+        BattleFrontier_Lounge7_Text_RockSlideDesc,
         gText_Exit,
 	};
 	
@@ -3445,6 +3632,18 @@ static const u8 *const sPokemonCenter_TutorMoveDescriptions1[] =
         PokemonCenterMoveTutor_Text_ExplosionDesc,	
         PokemonCenterMoveTutor_Text_SoftBoiledDesc,
         BattleFrontier_Lounge7_Text_SwordsDanceDesc,
+        PokemonCenterMoveTutor_Text_DynamicPunchDesc,
+        PokemonCenterMoveTutor_Text_DoubleEdgeDesc,
+        BattleFrontier_Lounge7_Text_ThunderWaveDesc,
+        BattleFrontier_Lounge7_Text_MegaKickDesc,
+        PokemonCenterMoveTutor_Text_SleepTalkDesc,
+        PokemonCenterMoveTutor_Text_SubstituteDesc,
+        PokemonCenterMoveTutor_Text_FirePunchDesc,
+        PokemonCenterMoveTutor_Text_IcePunchDesc,
+        PokemonCenterMoveTutor_Text_ThunderPunchDesc,
+        BattleFrontier_Lounge7_Text_DreamEaterDesc,        
+        PokemonCenterMoveTutor_Text_BodySlamDesc,
+        BattleFrontier_Lounge7_Text_RockSlideDesc,
         gText_Exit,
 	};
 

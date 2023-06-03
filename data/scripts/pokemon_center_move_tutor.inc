@@ -70,25 +70,28 @@ PKMN_Center_Move_Tutor_MoveTutorIntro::
 	goto PKMN_Center_Move_Tutor_MoveTutorMenu
 
 PKMN_Center_Move_Tutor_MoveTutorMenu::
-	setvar VAR_0x8008, 0
-	msgbox PKMN_Center_Move_Tutor_Text_WhichSetofMoves, MSGBOX_DEFAULT
-	special ScriptMenu_CreatePKMNCenterMoveTutorMultichoice
-	waitstate
-	special GetPKMNCenterMoveListMultichoice
-	switch VAR_RESULT
-	case 0, PKMN_Center_Move_Tutor_MoveList1
-	case 1, PKMN_Center_Move_Tutor_MoveList2
-	case 2, PKMN_Center_Move_Tutor_MoveList3
-	case 3, PKMN_Center_Move_Tutor_MoveList4
-	case 4, PKMN_Center_Move_Tutor_MoveList5
-	case 5, PKMN_Center_Move_Tutor_MoveList6
-	case 6, PKMN_Center_Move_Tutor_MoveList7
-	case 7, PKMN_Center_Move_Tutor_MoveList8
-	case 8, PKMN_Center_Move_Tutor_MoveList9
-	case 9, PKMN_Center_Move_Tutor_ExitReturn
-	case MULTI_B_PRESSED, PKMN_Center_Move_Tutor_ExitReturn
-	releaseall
-	end
+    goto_if_unset FLAG_BADGE04_GET, PKMN_Center_Move_Tutor_FirstGroup
+    msgbox PKMN_Center_Move_Tutor_Text_WhichSetofMoves
+	multichoicegrid 0, 0, MULTI_LISTAS_CIBERCAFE, 2, 0
+    switch VAR_RESULT
+    case 0, PKMN_Center_Move_Tutor_MoveList4
+    case 1, PKMN_Center_Move_Tutor_SecondGroup
+    case MULTI_B_PRESSED, PKMN_Center_Move_Tutor_ExitReturn
+    releaseall
+    end
+
+PKMN_Center_Move_Tutor_FirstGroup:
+    goto_if_set FLAG_BADGE03_GET, PKMN_Center_Move_Tutor_MoveList4
+    goto_if_set FLAG_BADGE02_GET, PKMN_Center_Move_Tutor_MoveList3
+    goto_if_set FLAG_BADGE01_GET, PKMN_Center_Move_Tutor_MoveList2
+    goto PKMN_Center_Move_Tutor_MoveList1
+
+PKMN_Center_Move_Tutor_SecondGroup:
+    goto_if_set FLAG_BADGE08_GET, PKMN_Center_Move_Tutor_MoveList9
+    goto_if_set FLAG_BADGE07_GET, PKMN_Center_Move_Tutor_MoveList8
+    goto_if_set FLAG_BADGE06_GET, PKMN_Center_Move_Tutor_MoveList7
+    goto_if_set FLAG_BADGE05_GET, PKMN_Center_Move_Tutor_MoveList6
+    goto PKMN_Center_Move_Tutor_MoveList5
 	
 PKMN_Center_Move_Tutor_MoveList1::
 	setvar VAR_TEMP_C, SCROLL_MULTI_PC_TUTOR_SET_1
@@ -101,7 +104,7 @@ PKMN_Center_Move_Tutor_MoveList1::
 PKMN_Center_Move_Tutor_MoveList2::
 	setvar VAR_TEMP_C, SCROLL_MULTI_PC_TUTOR_SET_2
 	setvar VAR_TEMP_E, 1
-	setvar VAR_TEMP_F, 4
+	setvar VAR_TEMP_F, 9
 	setvar VAR_0x8004, SCROLL_MULTI_PC_TUTOR_SET_2
 	setvar VAR_0x8006, 0
 	goto PKMN_Center_Move_Tutor_ChooseMove
@@ -109,7 +112,7 @@ PKMN_Center_Move_Tutor_MoveList2::
 PKMN_Center_Move_Tutor_MoveList3::
 	setvar VAR_TEMP_C, SCROLL_MULTI_PC_TUTOR_SET_3
 	setvar VAR_TEMP_E, 2
-	setvar VAR_TEMP_F, 3
+	setvar VAR_TEMP_F, 12
 	setvar VAR_0x8004, SCROLL_MULTI_PC_TUTOR_SET_3
 	setvar VAR_0x8006, 0
 	goto PKMN_Center_Move_Tutor_ChooseMove
@@ -117,7 +120,7 @@ PKMN_Center_Move_Tutor_MoveList3::
 PKMN_Center_Move_Tutor_MoveList4::
 	setvar VAR_TEMP_C, SCROLL_MULTI_PC_TUTOR_SET_4
 	setvar VAR_TEMP_E, 3
-	setvar VAR_TEMP_F, 3
+	setvar VAR_TEMP_F, 15
 	setvar VAR_0x8004, SCROLL_MULTI_PC_TUTOR_SET_4
 	setvar VAR_0x8006, 0
 	goto PKMN_Center_Move_Tutor_ChooseMove
@@ -133,7 +136,7 @@ PKMN_Center_Move_Tutor_MoveList5::
 PKMN_Center_Move_Tutor_MoveList6::
 	setvar VAR_TEMP_C, SCROLL_MULTI_PC_TUTOR_SET_6
 	setvar VAR_TEMP_E, 5
-	setvar VAR_TEMP_F, 3
+	setvar VAR_TEMP_F, 6
 	setvar VAR_0x8004, SCROLL_MULTI_PC_TUTOR_SET_6
 	setvar VAR_0x8006, 0
 	goto PKMN_Center_Move_Tutor_ChooseMove
@@ -141,7 +144,7 @@ PKMN_Center_Move_Tutor_MoveList6::
 PKMN_Center_Move_Tutor_MoveList7::
 	setvar VAR_TEMP_C, SCROLL_MULTI_PC_TUTOR_SET_7
 	setvar VAR_TEMP_E, 6
-	setvar VAR_TEMP_F, 3
+	setvar VAR_TEMP_F, 9
 	setvar VAR_0x8004, SCROLL_MULTI_PC_TUTOR_SET_7
 	setvar VAR_0x8006, 0
 	goto PKMN_Center_Move_Tutor_ChooseMove
@@ -149,7 +152,7 @@ PKMN_Center_Move_Tutor_MoveList7::
 PKMN_Center_Move_Tutor_MoveList8::
 	setvar VAR_TEMP_C, SCROLL_MULTI_PC_TUTOR_SET_8
 	setvar VAR_TEMP_E, 7
-	setvar VAR_TEMP_F, 3
+	setvar VAR_TEMP_F, 12
 	setvar VAR_0x8004, SCROLL_MULTI_PC_TUTOR_SET_8
 	setvar VAR_0x8006, 0
 	goto PKMN_Center_Move_Tutor_ChooseMove
@@ -157,7 +160,7 @@ PKMN_Center_Move_Tutor_MoveList8::
 PKMN_Center_Move_Tutor_MoveList9::
 	setvar VAR_TEMP_C, SCROLL_MULTI_PC_TUTOR_SET_9
 	setvar VAR_TEMP_E, 8
-	setvar VAR_TEMP_F, 3
+	setvar VAR_TEMP_F, 15
 	setvar VAR_0x8004, SCROLL_MULTI_PC_TUTOR_SET_9
 	setvar VAR_0x8006, 0
 	goto PKMN_Center_Move_Tutor_ChooseMove
@@ -170,7 +173,7 @@ PKMN_Center_Move_Tutor_ChooseMove::
 	compare VAR_RESULT, VAR_TEMP_F // VAR_TEMP_F is set to the ID of the "Exit" option
 	goto_if_eq PKMN_Center_Move_Tutor_Exit
 	compare VAR_RESULT MULTI_B_PRESSED
-	goto_if_eq PKMN_Center_Move_Tutor_CloseDescriptionWindow
+	goto_if_eq PKMN_Center_Move_Tutor_CloseDescriptionWindowReturn 
 	goto PKMN_Center_Move_Tutor_ConfirmMoveSelection
 	end
 	
@@ -207,6 +210,7 @@ PKMN_Center_Move_Tutor_CloseDescriptionWindow::
 
 PKMN_Center_Move_Tutor_CloseDescriptionWindowReturn::
     special CloseBattleFrontierTutorWindow
+	goto_if_set FLAG_BADGE04_GET, PKMN_Center_Move_Tutor_MoveTutorMenu
     goto PKMN_Center_Move_Tutor
 
 PKMN_Center_Move_Tutor_ExitReturn::
@@ -326,14 +330,13 @@ PKMN_Center_Move_Tutor_Text_WhichSetofMoves:
 	.string "like to choose from?$"
 
 PKMN_Center_Move_Tutor_Text_WhichMove:
-	.string "Which move would should I\n"
-	.string "teach to your Pokemon?$"
+	.string "Which move should I teach your POKéMON?$"
 	
 PKMN_Center_Move_Tutor_Text_IsThisRightMove:
 	.string "The move {STR_VAR_1}, is it?$"
 
 PKMN_Center_Move_Tutor_Text_TeachMoveToWhichMon:
-	.string "Which Pokemon should learn\n"
+	.string "Which POKéMON should learn\n"
 	.string "{STR_VAR_1}?$"
 	
 PKMN_Center_Move_Tutor_Text_TeachAnotherMove:
@@ -344,18 +347,18 @@ PKMN_Center_Move_Tutor_Text_SeeYou:
 	.string "See you later, then!$"
 
 PKMN_Center_MoveReminder_Text_WantMeToTeachMove:
-	.string "Would you like a Pokemon to remember\n"
+	.string "Would you like a POKéMON to remember\n"
 	.string "a move it has forgotten?$"
 
 PKMN_Center_MoveReminder_Text_TutorWhichMon:
-	.string "Which Pokemon should remember a move?$"
+	.string "Which POKéMON should remember a move?$"
 
 PKMN_Center_MoveReminder_Text_TeachWhichMove:
 	.string "Which move would you like it to\n"
 	.string "remember?$"
 
 PKMN_Center_MoveReminder_Text_DontHaveMoveToTeachPokemon:
-	.string "I'm sorry, that Pokemon doesn't have\n"
+	.string "I'm sorry, that POKéMON doesn't have\n"
 	.string "any moves it can remember.$"
 
 PKMN_Center_MoveReminder_Text_CantTeachEgg:
@@ -363,15 +366,15 @@ PKMN_Center_MoveReminder_Text_CantTeachEgg:
 	.string "moves.$"
 
 PKMN_Center_MoveReminder_Text_RememberAnotherMove:
-	.string "Would you like a Pokemon to remember\n"
+	.string "Would you like a POKéMON to remember\n"
 	.string "another move?$"
 	
 PKMN_Center_MoveDeleter_Text_ICanMakeMonForgetMove:
-	.string "Would you like one of your Pokemon\n"
+	.string "Would you like one of your POKéMON\n"
 	.string "to forget a move?$"
 
 PKMN_Center_MoveDeleter_Text_WhichMonShouldForget:
-	.string "Which Pokemon should forget a move?$"
+	.string "Which POKéMON should forget a move?$"
 
 PKMN_Center_MoveDeleter_Text_WhichMoveShouldBeForgotten:
 	.string "Which move should be forgotten?$"
@@ -394,7 +397,7 @@ PKMN_Center_MoveDeleter_Text_EggCantForgetMoves:
 	.string "No Egg should know any moves.$"
 	
 PKMN_Center_NameRater_Text_CritiqueWhichMonNickname:
-	.string "Which Pokemon's nickname should\n"
+	.string "Which POKéMON's nickname should\n"
 	.string "be changed?$"
 
 PKMN_Center_NameRater_Text_WhatShallNewNameBe:
@@ -402,7 +405,7 @@ PKMN_Center_NameRater_Text_WhatShallNewNameBe:
 	.string "new nickname to be?$"
 
 PKMN_Center_NameRater_Text_MonShallBeKnownAsName:
-	.string "Done! From now on, this Pokemon\n"
+	.string "Done! From now on, this POKéMON\n"
 	.string "shall be known as {STR_VAR_1}!$"
 
 PKMN_Center_NameRater_Text_NameNoDifferentYetSuperior:

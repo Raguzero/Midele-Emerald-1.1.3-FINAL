@@ -2172,18 +2172,6 @@ const u8 gText_LevelCap[] = _("Tus POKéMON no pueden superar el nivel:\n{STR_VA
 
 // Move Tutors
 
-// Multichoice strings when selecting a set of tutor moves to choose from
-const u8 gText_TutorMoveSet1[] = _("TUTOR MOVES SET 1");
-const u8 gText_TutorMoveSet2[] = _("TUTOR MOVES SET 2");
-const u8 gText_TutorMoveSet3[] = _("TUTOR MOVES SET 3");
-const u8 gText_TutorMoveSet4[] = _("TUTOR MOVES SET 4");
-const u8 gText_TutorMoveSet5[] = _("TUTOR MOVES SET 5");
-const u8 gText_TutorMoveSet6[] = _("TUTOR MOVES SET 6");
-const u8 gText_TutorMoveSet7[] = _("TUTOR MOVES SET 7");
-const u8 gText_TutorMoveSet8[] = _("TUTOR MOVES SET 8");
-const u8 gText_TutorMoveSet9[] = _("TUTOR MOVES SET 9");
-
-
 const u8 gText_FuryCutter[] = _("FURY CUTTER");
 const u8 gText_Rollout[] = _("ROLLOUT");
 const u8 gText_SeismicToss[] = _("SEISMIC TOSS");
