@@ -14520,6 +14520,7 @@ const u32 gTMHMLearnsets[][2] =
                                         | TMHM(TM17_PROTECT)
                                         | TMHM(TM21_FRUSTRATION)
                                         | TMHM(TM27_RETURN)
+										| TMHM(TM26_EARTHQUAKE)
                                         | TMHM(TM32_DOUBLE_TEAM)
 										| TMHM(TM33_REFLECT)
                                         | TMHM(TM42_FACADE)
