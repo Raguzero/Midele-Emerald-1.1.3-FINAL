@@ -1031,12 +1031,12 @@
                             {
                                 "max_level": 43,
                                 "min_level": 40,
-                                "species": "SPECIES_EELEKTRIK"
+                                "species": "SPECIES_SLIGGOO_HISUIAN"
                             },
                             {
                                 "max_level": 44,
                                 "min_level": 41,
-                                "species": "SPECIES_PAWNIARD"
+                                "species": "SPECIES_DUDUNSPARCE"
                             },
                             {
                                 "max_level": 43,
@@ -1100,12 +1100,12 @@
                             {
                                 "max_level": 43,
                                 "min_level": 40,
-                                "species": "SPECIES_EELEKTRIK"
+                                "species": "SPECIES_SLIGGOO_HISUIAN"
                             },
                             {
                                 "max_level": 44,
                                 "min_level": 41,
-                                "species": "SPECIES_PAWNIARD"
+                                "species": "SPECIES_DUDUNSPARCE"
                             },
                             {
                                 "max_level": 42,
@@ -1457,7 +1457,7 @@
                             {
                                 "max_level": 85,
                                 "min_level": 80,
-                                "species": "SPECIES_CROBAT"
+                                "species": "SPECIES_OVERQWIL"
                             },
                             {
                                 "max_level": 85,
@@ -1584,7 +1584,7 @@
                             {
                                 "max_level": 23,
                                 "min_level": 20,
-                                "species": "SPECIES_SKORUPI"
+                                "species": "SPECIES_DUNSPARCE"
                             },
                             {
                                 "max_level": 23,
@@ -2030,7 +2030,7 @@
                             {
                                 "max_level": 65,
                                 "min_level": 60,
-                                "species": "SPECIES_GRIMMSNARL"
+                                "species": "SPECIES_FARIGIRAF"
                             },
                             {
                                 "max_level": 65,
@@ -7102,7 +7102,7 @@
                             {
                                 "max_level": 6,
                                 "min_level": 4,
-                                "species": "SPECIES_TAILLOW"
+                                "species": "SPECIES_SLOWPOKE_GALARIAN"
                             },
                             {
                                 "max_level": 4,
@@ -7167,7 +7167,7 @@
                             {
                                 "max_level": 6,
                                 "min_level": 4,
-                                "species": "SPECIES_POLIWAG"
+                                "species": "SPECIES_SLOWPOKE_GALARIAN"
                             },
                             {
                                 "max_level": 4,
@@ -7816,7 +7816,7 @@
                             {
                                 "max_level": 15,
                                 "min_level": 13,
-                                "species": "SPECIES_POOCHYENA"
+                                "species": "SPECIES_VOLTORB_HISUIAN"
                             },
                             {
                                 "max_level": 16,
@@ -8154,7 +8154,7 @@
                             {
                                 "max_level": 20,
                                 "min_level": 18,
-                                "species": "SPECIES_SPEAROW"
+                                "species": "SPECIES_GROWLITHE_HISUIAN"
                             },
                             {
                                 "max_level": 20,
@@ -9323,7 +9323,7 @@
                             {
                                 "max_level": 28,
                                 "min_level": 26,
-                                "species": "SPECIES_MANECTRIC"
+                                "species": "SPECIES_WOOPER_PALDEAN"
                             },
                             {
                                 "max_level": 28,
@@ -9388,7 +9388,7 @@
                             {
                                 "max_level": 28,
                                 "min_level": 26,
-                                "species": "SPECIES_MANECTRIC"
+                                "species": "SPECIES_WOOPER_PALDEAN"
                             },
                             {
                                 "max_level": 28,
@@ -9419,7 +9419,7 @@
                             {
                                 "max_level": 30,
                                 "min_level": 25,
-                                "species": "SPECIES_WINGULL"
+                                "species": "SPECIES_QWILFISH_HISUIAN"
                             },
                             {
                                 "max_level": 30,
@@ -9532,7 +9532,7 @@
                             {
                                 "max_level": 32,
                                 "min_level": 28,
-                                "species": "SPECIES_TROPIUS"
+                                "species": "SPECIES_SNEASEL_HISUIAN"
                             },
                             {
                                 "max_level": 33,
@@ -9597,7 +9597,7 @@
                             {
                                 "max_level": 32,
                                 "min_level": 28,
-                                "species": "SPECIES_TROPIUS"
+                                "species": "SPECIES_SNEASEL_HISUIAN"
                             },
                             {
                                 "max_level": 33,
@@ -9751,7 +9751,7 @@
                             {
                                 "max_level": 38,
                                 "min_level": 34,
-                                "species": "SPECIES_PANCHAM"
+                                "species": "SPECIES_SNEASEL_HISUIAN"
                             },
                             {
                                 "max_level": 37,
@@ -9816,7 +9816,7 @@
                             {
                                 "max_level": 38,
                                 "min_level": 34,
-                                "species": "SPECIES_PANCHAM"
+                                "species": "SPECIES_SNEASEL_HISUIAN"
                             },
                             {
                                 "max_level": 37,
@@ -10442,7 +10442,7 @@
                             {
                                 "max_level": 35,
                                 "min_level": 30,
-                                "species": "SPECIES_WAILMER"
+                                "species": "SPECIES_QWILFISH_HISUIAN"
                             },
                             {
                                 "max_level": 30,
@@ -10547,7 +10547,7 @@
                             {
                                 "max_level": 38,
                                 "min_level": 34,
-                                "species": "SPECIES_WOOPER"
+                                "species": "SPECIES_WOOPER_PALDEAN"
                             },
                             {
                                 "max_level": 38,
@@ -10661,7 +10661,7 @@
                             {
                                 "max_level": 35,
                                 "min_level": 30,
-                                "species": "SPECIES_WAILMER"
+                                "species": "SPECIES_QWILFISH_HISUIAN"
                             },
                             {
                                 "max_level": 30,
@@ -10750,7 +10750,7 @@
                             {
                                 "max_level": 35,
                                 "min_level": 30,
-                                "species": "SPECIES_WAILMER"
+                                "species": "SPECIES_QWILFISH_HISUIAN"
                             },
                             {
                                 "max_level": 30,
@@ -10800,7 +10800,7 @@
                             {
                                 "max_level": 40,
                                 "min_level": 37,
-                                "species": "SPECIES_WINGULL"
+                                "species": "SPECIES_SLOWPOKE_GALARIAN"
                             },
                             {
                                 "max_level": 40,
@@ -10865,7 +10865,7 @@
                             {
                                 "max_level": 40,
                                 "min_level": 37,
-                                "species": "SPECIES_WINGULL"
+                                "species": "SPECIES_SLOWPOKE_GALARIAN"
                             },
                             {
                                 "max_level": 40,
@@ -10969,7 +10969,7 @@
                             {
                                 "max_level": 35,
                                 "min_level": 30,
-                                "species": "SPECIES_WAILMER"
+                                "species": "SPECIES_QWILFISH_HISUIAN"
                             },
                             {
                                 "max_level": 30,
@@ -11014,7 +11014,7 @@
                             {
                                 "max_level": 40,
                                 "min_level": 36,
-                                "species": "SPECIES_SKIPLOOM"
+                                "species": "SPECIES_SLOWPOKE_GALARIAN"
                             },
                             {
                                 "max_level": 40,
@@ -11407,7 +11407,7 @@
                             {
                                 "max_level": 35,
                                 "min_level": 30,
-                                "species": "SPECIES_WAILMER"
+                                "species": "SPECIES_QWILFISH_HISUIAN"
                             },
                             {
                                 "max_level": 30,
@@ -11496,7 +11496,7 @@
                             {
                                 "max_level": 35,
                                 "min_level": 30,
-                                "species": "SPECIES_WAILMER"
+                                "species": "SPECIES_QWILFISH_HISUIAN"
                             },
                             {
                                 "max_level": 30,
@@ -11650,7 +11650,7 @@
                             {
                                 "max_level": 35,
                                 "min_level": 30,
-                                "species": "SPECIES_WAILMER"
+                                "species": "SPECIES_QWILFISH_HISUIAN"
                             },
                             {
                                 "max_level": 30,
@@ -12110,7 +12110,7 @@
                             {
                                 "max_level": 38,
                                 "min_level": 34,
-                                "species": "SPECIES_FARFETCHD"
+                                "species": "SPECIES_TAUROS_PALDEAN_BLAZE"
                             },
                             {
                                 "max_level": 38,
@@ -12442,7 +12442,7 @@
                             {
                                 "max_level": 38,
                                 "min_level": 34,
-                                "species": "SPECIES_GIRAFARIG"
+                                "species": "SPECIES_TAUROS_PALDEAN_FIGHT"
                             },
                             {
                                 "max_level": 38,
@@ -12720,7 +12720,7 @@
                             {
                                 "max_level": 38,
                                 "min_level": 34,
-                                "species": "SPECIES_GIRAFARIG"
+                                "species": "SPECIES_TAUROS_PALDEAN_AQUA"
                             },
                             {
                                 "max_level": 38,
@@ -15489,7 +15489,7 @@
                             {
                                 "max_level": 50,
                                 "min_level": 45,
-                                "species": "SPECIES_PAWNIARD"
+                                "species": "SPECIES_BISHARP"
                             },
                             {
                                 "max_level": 50,
