@@ -8430,8 +8430,6 @@ bool8 HasTwoFramesAnimation(u16 species)
 			&& species != SPECIES_TAUROS_PALDEAN_FIGHT
 			&& species != SPECIES_TAUROS_PALDEAN_AQUA
 			&& species != SPECIES_TAUROS_PALDEAN_BLAZE
-			&& species != SPECIES_ANNIHILAPE
-			&& species != SPECIES_FARIGIRAF
             && species != SPECIES_BOSS);
 }
 
