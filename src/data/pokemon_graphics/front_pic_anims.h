@@ -6113,20 +6113,21 @@ static const union AnimCmd sAnim_INFERNAPE_1[] =
 
 static const union AnimCmd sAnim_REGIELEKI_1[] =
 {
-    ANIMCMD_FRAME(0, 20),
-    ANIMCMD_FRAME(2, 20),
-    ANIMCMD_FRAME(0, 20),
-    ANIMCMD_FRAME(2, 20),
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 20),
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 20),
+    ANIMCMD_FRAME(0, 30),
     ANIMCMD_END,
 };
 
 static const union AnimCmd sAnim_REGIDRAGO_1[] =
 {
-    ANIMCMD_FRAME(0, 20),
-    ANIMCMD_FRAME(1, 15),
-    ANIMCMD_FRAME(0, 10),
-    ANIMCMD_FRAME(1, 18),
-    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 70),
+    ANIMCMD_FRAME(1, 70),
+    ANIMCMD_FRAME(1, 70),
+    ANIMCMD_FRAME(0, 30),
     ANIMCMD_END,
 };
 
