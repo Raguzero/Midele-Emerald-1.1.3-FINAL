@@ -71,6 +71,7 @@ static void BossBattleToMon(struct Pokemon *mon, u16 battleBossId);
 static void BossToMon(struct Pokemon *mon, u16 battleBossId);
 static void TotemToMon(struct Pokemon *mon, u16 battleBossId);
 static u16 DoGetBattleBGM(void);
+static u16 GetPreEvolution(u16 species);
 
 // EWRAM vars
 EWRAM_DATA static u8 sLearningMoveTableID = 0;
@@ -7359,12 +7360,27 @@ u32 CanSpeciesLearnTMHM(u16 species, u8 tm)
     }
 }
 
+static u16 GetPreEvolution(u16 species){
+    int i, j;
+
+    for (i = 1; i < NUM_SPECIES; i++)
+    {
+        for (j = 0; j < EVOS_PER_MON; j++)
+        {
+            if (gEvolutionTable[i][j].targetSpecies == species)
+                return i;
+        }
+    }
+    return SPECIES_NONE;
+}
+
 u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
 {
     u16 learnedMoves[MAX_MON_MOVES];
     u8 numMoves = 0;
     u16 species = GetMonData(mon, MON_DATA_SPECIES, 0);
     u8 level = GetMonData(mon, MON_DATA_LEVEL, 0);
+	u8 preEvLvl = (level > MAX_LEVEL_DIFF_PRE_EV) ? (level - MAX_LEVEL_DIFF_PRE_EV) : 1;
     int i, j, k;
 
     for (i = 0; i < MAX_MON_MOVES; i++)
@@ -7375,6 +7391,13 @@ u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
         u16 moveLevel;
 
         if (gLevelUpLearnsets[species][i] == LEVEL_UP_END)
+        {
+            i = 0;
+            level = preEvLvl;
+            species = GetPreEvolution(species);
+        }
+
+        if (species == SPECIES_NONE)
             break;
 
         moveLevel = gLevelUpLearnsets[species][i] & LEVEL_UP_MOVE_LV;
@@ -7416,6 +7439,7 @@ u8 GetNumberOfRelearnableMoves(struct Pokemon *mon)
     u8 numMoves = 0;
     u16 species = GetMonData(mon, MON_DATA_SPECIES2, 0);
     u8 level = GetMonData(mon, MON_DATA_LEVEL, 0);
+	u8 preEvLvl = (level > MAX_LEVEL_DIFF_PRE_EV) ? (level - MAX_LEVEL_DIFF_PRE_EV) : 1;
     int i, j, k;
 
     if (species == SPECIES_EGG)
@@ -7429,6 +7453,13 @@ u8 GetNumberOfRelearnableMoves(struct Pokemon *mon)
         u16 moveLevel;
 
         if (gLevelUpLearnsets[species][i] == LEVEL_UP_END)
+        {
+            i = 0;
+            level = preEvLvl;
+            species = GetPreEvolution(species);
+        }
+
+        if (species == SPECIES_NONE)
             break;
 
         moveLevel = gLevelUpLearnsets[species][i] & LEVEL_UP_MOVE_LV;
@@ -8241,7 +8272,6 @@ const u8 *GetTrainerNameFromId(u16 trainerId)
 bool8 HasTwoFramesAnimation(u16 species)
 {
     return (species != SPECIES_CASTFORM
-            && species != SPECIES_DEOXYS
             && species != SPECIES_SPINDA
             && species != SPECIES_UNOWN
             && species != SPECIES_GALAR_YAMASK
@@ -8277,8 +8307,6 @@ bool8 HasTwoFramesAnimation(u16 species)
 		    && species != SPECIES_SILICOBRA
 			&& species != SPECIES_SANDACONDA
 			&& species != SPECIES_MEGA_HOUNDOOM
-			&& species != SPECIES_REGIELEKI
-			&& species != SPECIES_REGIDRAGO
 			&& species != SPECIES_GALAR_STUNFISK 			
 			&& species != SPECIES_ARMOR_MEWTWO			
             && species != SPECIES_BOSS);
