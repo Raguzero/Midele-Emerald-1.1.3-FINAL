@@ -21,6 +21,7 @@ PetalburgCity_Mart_Pokemart_Basic: @ 8207D8C
 	.2byte ITEM_AWAKENING
 	.2byte ITEM_ESCAPE_ROPE
 	.2byte ITEM_REPEL
+	.2byte ITEM_REVIVE
 	.2byte ITEM_ORANGE_MAIL
 	.2byte ITEM_NONE
 	release

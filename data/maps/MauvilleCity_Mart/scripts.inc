@@ -19,6 +19,7 @@ MauvilleCity_Mart_Pokemart: @ 8211100
 	.2byte ITEM_ANTIDOTE
 	.2byte ITEM_PARALYZE_HEAL
 	.2byte ITEM_AWAKENING
+	.2byte ITEM_REVIVE
 	.2byte ITEM_NONE
 	release
 	end

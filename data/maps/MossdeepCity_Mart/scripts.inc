@@ -19,6 +19,7 @@ MossdeepCity_Mart_Pokemart: @ 82223E0
 	.2byte ITEM_HYPER_POTION
 	.2byte ITEM_FULL_HEAL
 	.2byte ITEM_REVIVE
+	.2byte ITEM_ETHER
 	.2byte ITEM_MAX_REPEL
 	.2byte ITEM_NONE
 	release

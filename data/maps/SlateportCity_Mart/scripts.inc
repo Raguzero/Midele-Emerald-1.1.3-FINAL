@@ -20,6 +20,7 @@ SlateportCity_Mart_Pokemart: @ 820DC60
 	.2byte ITEM_PARALYZE_HEAL
 	.2byte ITEM_ESCAPE_ROPE
 	.2byte ITEM_REPEL
+	.2byte ITEM_REVIVE
 	.2byte ITEM_HARBOR_MAIL
 	.2byte ITEM_NONE
 	release
