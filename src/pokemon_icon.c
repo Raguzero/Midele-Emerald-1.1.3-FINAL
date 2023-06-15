@@ -717,6 +717,13 @@ const u8 *const gMonIconTable[] =
     [SPECIES_TAUROS_PALDEAN_FIGHT] = gMonIcon_TaurosFight,
     [SPECIES_TAUROS_PALDEAN_BLAZE] = gMonIcon_TaurosBlaze,
     [SPECIES_TAUROS_PALDEAN_AQUA] = gMonIcon_TaurosAqua,
+    [SPECIES_POSORD] = gMonIcon_Posord,
+    [SPECIES_PRINPAWN] = gMonIcon_Prinpawn,
+    [SPECIES_COUREEN] = gMonIcon_Coureen,
+    [SPECIES_KINCURS] = gMonIcon_Kincurs,
+    [SPECIES_NUMEL_LUCKY] = gMonIcon_NumelLucky,
+    [SPECIES_CAMERUPT_LUCKY] = gMonIcon_CameruptLucky,
+    [SPECIES_MEGA_CAMERUPT_LUCKY] = gMonIcon_MegaCameruptLucky,
 };
 
 const u8 *const gMonIconTableFemale[] =
@@ -1408,6 +1415,13 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_SLOWKING_GALARIAN] = 2,
 	[SPECIES_KINGAMBIT] = 1,
 	[SPECIES_CLODSIRE] = 2,
+	[SPECIES_POSORD] = 2,
+    [SPECIES_PRINPAWN] = 1,
+    [SPECIES_COUREEN] = 1,
+    [SPECIES_KINCURS] = 1,
+    [SPECIES_NUMEL_LUCKY] = 1,
+    [SPECIES_CAMERUPT_LUCKY] = 1,
+    [SPECIES_MEGA_CAMERUPT_LUCKY] = 1,
 };
 
 const u8 gMonIconPaletteIndicesFemale[] =

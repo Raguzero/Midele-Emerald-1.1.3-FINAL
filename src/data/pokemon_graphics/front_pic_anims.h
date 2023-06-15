@@ -6581,6 +6581,49 @@ static const union AnimCmd sAnim_FARIGIRAF_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_PRINPAWN_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_COUREEN_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_KINCURS_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_POSORD_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_NUMEL_LUCKY_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_CAMERUPT_LUCKY_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_MEGA_CAMERUPT_LUCKY_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+
 static const union AnimCmd *const sAnims_NONE[] ={
     sAnim_GeneralFrame0,
     sAnim_NONE_1,
@@ -9944,6 +9987,43 @@ static const union AnimCmd *const sAnims_ANNIHILAPE[] ={
     sAnim_ANNIHILAPE_1,
 };
 
+static const union AnimCmd *const sAnims_PRINPAWN[] ={
+    sAnim_GeneralFrame0,
+    sAnim_PRINPAWN_1,
+};
+
+static const union AnimCmd *const sAnims_COUREEN[] ={
+    sAnim_GeneralFrame0,
+    sAnim_COUREEN_1,
+};
+
+static const union AnimCmd *const sAnims_KINCURS[] ={
+    sAnim_GeneralFrame0,
+    sAnim_KINCURS_1,
+};
+
+static const union AnimCmd *const sAnims_POSORD[] ={
+    sAnim_GeneralFrame0,
+    sAnim_POSORD_1,
+};
+
+static const union AnimCmd *const sAnims_NUMEL_LUCKY[] ={
+    sAnim_GeneralFrame0,
+    sAnim_NUMEL_LUCKY_1,
+};
+
+static const union AnimCmd *const sAnims_CAMERUPT_LUCKY[] ={
+    sAnim_GeneralFrame0,
+    sAnim_CAMERUPT_LUCKY_1,
+};
+
+static const union AnimCmd *const sAnims_MEGA_CAMERUPT_LUCKY[] ={
+    sAnim_GeneralFrame0,
+    sAnim_MEGA_CAMERUPT_LUCKY_1,
+};
+
+
+
 
 #define ANIM_CMD(name)             [SPECIES_##name] = sAnims_##name
 #define ANIM_CMD_FULL(name, anims) [SPECIES_##name] = anims
@@ -10641,4 +10721,11 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(KINGAMBIT),
 	ANIM_CMD(WOOPER_PALDEAN),
     ANIM_CMD(CLODSIRE),
+	ANIM_CMD(PRINPAWN),
+	ANIM_CMD(COUREEN),
+    ANIM_CMD(KINCURS),
+    ANIM_CMD(POSORD),
+    ANIM_CMD(NUMEL_LUCKY),
+    ANIM_CMD(CAMERUPT_LUCKY),
+    ANIM_CMD(MEGA_CAMERUPT_LUCKY),
 };

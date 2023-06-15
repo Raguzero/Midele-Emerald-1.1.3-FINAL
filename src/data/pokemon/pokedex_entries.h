@@ -6914,4 +6914,52 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 256,
         .trainerOffset = 0,
     },
+	
+    [NATIONAL_DEX_PRINPAWN] =
+    {
+        .categoryName = _("PAWN"),
+        .height = 8,
+        .weight = 940,
+        .description = gPrinpawnPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+	
+    [NATIONAL_DEX_COUREEN] =
+    {
+        .categoryName = _("QUEEN"),
+        .height = 18,
+        .weight = 1490,
+        .description = gCoureenPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+	
+    [NATIONAL_DEX_KINCURS] =
+    {
+        .categoryName = _("KING"),
+        .height = 18,
+        .weight = 2380,
+        .description = gKincursPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_POSORD] =
+    {
+        .categoryName = _("SCISSOR"),
+        .height = 11,
+        .weight = 2840,
+        .description = gPosordPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
 };

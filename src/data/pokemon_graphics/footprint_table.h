@@ -539,6 +539,13 @@ const u8 *const gMonFootprintTable[] =
     [SPECIES_G_KINGLER] = gMonFootprint_gKingler,
     [SPECIES_G_BUTTERFREE] = gMonFootprint_gButterfree,
 	[SPECIES_DARK_PIKACHU] = gMonFootprint_Dark_Pikachu,
+	[SPECIES_POSORD] = gMonFootprint_Posord,
+    [SPECIES_PRINPAWN] = gMonFootprint_Prinpawn,
+    [SPECIES_COUREEN] = gMonFootprint_Coureen,
+    [SPECIES_KINCURS] = gMonFootprint_Kincurs,
+    [SPECIES_NUMEL_LUCKY] = gMonFootprint_NumelLucky,
+    [SPECIES_CAMERUPT_LUCKY] = gMonFootprint_CameruptLucky,
+    [SPECIES_MEGA_CAMERUPT_LUCKY] = gMonFootprint_MegaCameruptLucky,
 // NUEVO PARA FORMAS ALOLA
     [SPECIES_EGG] = gMonFootprint_Bulbasaur,
     [SPECIES_BOSS] = gMonFootprint_Bulbasaur,

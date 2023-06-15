@@ -3471,3 +3471,26 @@ const u8 gFarigirafPokedexText[] = _(
 	"and tail are synced up, the psychic power\n"
 	"of this POKéMON is 10 times stronger\n"
 	"than GIRAFARIG.");
+	
+const u8 gPrinpawnPokedexText[] = _(
+    "Strange POKéMON that attacks diagonally.\n"
+	"It is said that it was created by some\n"
+	"scientific experts in POKéMON, in search\n"
+	"of change in the METAGAME.");
+	
+const u8 gCoureenPokedexText[] = _(
+    "Female evolution of PRINPAWN, also called\n"
+	"QUEEN. It is said that she is so powerful,\n"
+	"that she is capable of kissing death and\n"
+	"checkmate.");
+	
+const u8 gKincursPokedexText[] = _(
+    "Male evolution of PRINPAWN, also called\n"
+	"KING. His appearance makes him the target\n"
+	"of many attacks, so always stay in safe\n"
+	"places with protection of his minions.");
+	
+const u8 gPosordPokedexText[] = _(
+    "Garden shears possessed by a spirit. It is\n"
+	"said to have been created by a scientist\n"
+	"expert by the name of Gerph.");

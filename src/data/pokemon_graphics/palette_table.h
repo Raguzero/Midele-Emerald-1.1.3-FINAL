@@ -690,6 +690,13 @@ const struct CompressedSpritePalette gMonPaletteTable[] =
     SPECIES_PAL(TAUROS_PALDEAN_BLAZE, gMonPalette_TaurosBlaze),
     SPECIES_PAL(TAUROS_PALDEAN_AQUA, gMonPalette_TaurosAqua),
     SPECIES_PAL(WOOPER_PALDEAN, gMonPalette_WooperPaldean),
+	SPECIES_PAL(POSORD, gMonPalette_Posord),
+    SPECIES_PAL(PRINPAWN, gMonPalette_Prinpawn),
+    SPECIES_PAL(COUREEN, gMonPalette_Coureen),
+    SPECIES_PAL(KINCURS, gMonPalette_Kincurs),
+    SPECIES_PAL(NUMEL_LUCKY, gMonPalette_NumelLucky),
+    SPECIES_PAL(CAMERUPT_LUCKY, gMonPalette_CameruptLucky),
+    SPECIES_PAL(MEGA_CAMERUPT_LUCKY, gMonPalette_MegaCameruptLucky),
 };
 
 const struct CompressedSpritePalette gMonPaletteTableFemale[] =

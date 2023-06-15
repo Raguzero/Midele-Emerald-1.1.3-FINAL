@@ -662,5 +662,12 @@ const u16 *const gLevelUpLearnsets[NUM_SPECIES] =
 	[SPECIES_TAUROS_PALDEAN_BLAZE] = sTaurosPaldeanBlazeLevelUpLearnset,
 	[SPECIES_ANNIHILAPE]  = sAnnihilapeLevelUpLearnset,
 	[SPECIES_FARIGIRAF] = sFarigirafLevelUpLearnset,
+	[SPECIES_PRINPAWN] = sPrinpawnLevelUpLearnset,
+	[SPECIES_COUREEN] = sCoureenLevelUpLearnset,
+	[SPECIES_KINCURS] = sKincursLevelUpLearnset,
+	[SPECIES_POSORD] = sPosordLevelUpLearnset,
+    [SPECIES_NUMEL_LUCKY] = sNumelLuckyLevelUpLearnset,
+	[SPECIES_CAMERUPT_LUCKY] = sCameruptLuckyLevelUpLearnset,
+	[SPECIES_MEGA_CAMERUPT_LUCKY] = sMegaCameruptLuckyLevelUpLearnset,
     [SPECIES_BOSS] = sBulbasaurLevelUpLearnset,
 };

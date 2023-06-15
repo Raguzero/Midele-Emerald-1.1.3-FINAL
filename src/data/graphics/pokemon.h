@@ -4231,3 +4231,50 @@ const u32 gMonBackPic_WooperPaldean[] = INCBIN_U32("graphics/pokemon/wooper/pald
 const u32 gMonShinyPalette_WooperPaldean[] = INCBIN_U32("graphics/pokemon/wooper/paldea/shiny.gbapal.lz");
 // const u8 gMonIcon_WooperPaldean[] = INCBIN_U8("graphics/pokemon/wooper/paldea/icon.4bpp");
 // const u8 gMonFootprint_WooperPaldean[] = INCBIN_U8("graphics/pokemon/wooper/paldea/footprint.1bpp");
+
+const u32 gMonFrontPic_Posord[] = INCBIN_U32("graphics/pokemon/posord/front.4bpp.lz");
+const u32 gMonPalette_Posord[] = INCBIN_U32("graphics/pokemon/posord/normal.gbapal.lz");
+const u32 gMonBackPic_Posord[] = INCBIN_U32("graphics/pokemon/posord/back.4bpp.lz");
+const u32 gMonShinyPalette_Posord[] = INCBIN_U32("graphics/pokemon/posord/shiny.gbapal.lz");
+const u8 gMonIcon_Posord[] = INCBIN_U8("graphics/pokemon/posord/icon.4bpp");
+const u8 gMonFootprint_Posord[] = INCBIN_U8("graphics/pokemon/posord/footprint.1bpp");
+
+const u32 gMonFrontPic_Prinpawn[] = INCBIN_U32("graphics/pokemon/prinpawn/front.4bpp.lz");
+const u32 gMonPalette_Prinpawn[] = INCBIN_U32("graphics/pokemon/prinpawn/normal.gbapal.lz");
+const u32 gMonBackPic_Prinpawn[] = INCBIN_U32("graphics/pokemon/prinpawn/back.4bpp.lz");
+const u32 gMonShinyPalette_Prinpawn[] = INCBIN_U32("graphics/pokemon/prinpawn/shiny.gbapal.lz");
+const u8 gMonIcon_Prinpawn[] = INCBIN_U8("graphics/pokemon/prinpawn/icon.4bpp");
+const u8 gMonFootprint_Prinpawn[] = INCBIN_U8("graphics/pokemon/prinpawn/footprint.1bpp");
+
+const u32 gMonFrontPic_Coureen[] = INCBIN_U32("graphics/pokemon/coureen/front.4bpp.lz");
+const u32 gMonPalette_Coureen[] = INCBIN_U32("graphics/pokemon/coureen/normal.gbapal.lz");
+const u32 gMonBackPic_Coureen[] = INCBIN_U32("graphics/pokemon/coureen/back.4bpp.lz");
+const u32 gMonShinyPalette_Coureen[] = INCBIN_U32("graphics/pokemon/coureen/shiny.gbapal.lz");
+const u8 gMonIcon_Coureen[] = INCBIN_U8("graphics/pokemon/coureen/icon.4bpp");
+const u8 gMonFootprint_Coureen[] = INCBIN_U8("graphics/pokemon/coureen/footprint.1bpp");
+
+const u32 gMonFrontPic_Kincurs[] = INCBIN_U32("graphics/pokemon/kincurs/front.4bpp.lz");
+const u32 gMonPalette_Kincurs[] = INCBIN_U32("graphics/pokemon/kincurs/normal.gbapal.lz");
+const u32 gMonBackPic_Kincurs[] = INCBIN_U32("graphics/pokemon/kincurs/back.4bpp.lz");
+const u32 gMonShinyPalette_Kincurs[] = INCBIN_U32("graphics/pokemon/kincurs/shiny.gbapal.lz");
+const u8 gMonIcon_Kincurs[] = INCBIN_U8("graphics/pokemon/kincurs/icon.4bpp");
+const u8 gMonFootprint_Kincurs[] = INCBIN_U8("graphics/pokemon/kincurs/footprint.1bpp");
+
+const u32 gMonFrontPic_NumelLucky[] = INCBIN_U32("graphics/pokemon/numel/krow/front.4bpp.lz");
+const u32 gMonPalette_NumelLucky[] = INCBIN_U32("graphics/pokemon/numel/krow/normal.gbapal.lz");
+const u32 gMonBackPic_NumelLucky[] = INCBIN_U32("graphics/pokemon/numel/krow/back.4bpp.lz");
+const u32 gMonShinyPalette_NumelLucky[] = INCBIN_U32("graphics/pokemon/numel/krow/shiny.gbapal.lz");
+const u8 gMonIcon_NumelLucky[] = INCBIN_U8("graphics/pokemon/numel/krow/icon.4bpp");
+const u8 gMonFootprint_NumelLucky[] = INCBIN_U8("graphics/pokemon/numel/krow/footprint.1bpp");
+const u32 gMonFrontPic_CameruptLucky[] = INCBIN_U32("graphics/pokemon/camerupt/krow/front.4bpp.lz");
+const u32 gMonPalette_CameruptLucky[] = INCBIN_U32("graphics/pokemon/camerupt/krow/normal.gbapal.lz");
+const u32 gMonBackPic_CameruptLucky[] = INCBIN_U32("graphics/pokemon/camerupt/krow/back.4bpp.lz");
+const u32 gMonShinyPalette_CameruptLucky[] = INCBIN_U32("graphics/pokemon/camerupt/krow/shiny.gbapal.lz");
+const u8 gMonIcon_CameruptLucky[] = INCBIN_U8("graphics/pokemon/camerupt/krow/icon.4bpp");
+const u8 gMonFootprint_CameruptLucky[] = INCBIN_U8("graphics/pokemon/camerupt/krow/footprint.1bpp");
+const u8 gMonFootprint_MegaCameruptLucky[] = INCBIN_U8("graphics/pokemon/mega_camerupt/krow/footprint.1bpp");
+const u32 gMonFrontPic_MegaCameruptLucky[] = INCBIN_U32("graphics/pokemon/mega_camerupt/krow/front.4bpp.lz");
+const u32 gMonBackPic_MegaCameruptLucky[] = INCBIN_U32("graphics/pokemon/mega_camerupt/krow/back.4bpp.lz");
+const u32 gMonPalette_MegaCameruptLucky[] = INCBIN_U32("graphics/pokemon/mega_camerupt/krow/normal.gbapal.lz");
+const u32 gMonShinyPalette_MegaCameruptLucky[] = INCBIN_U32("graphics/pokemon/mega_camerupt/krow/shiny.gbapal.lz");
+const u8 gMonIcon_MegaCameruptLucky[] = INCBIN_U8("graphics/pokemon/mega_camerupt/krow/icon.4bpp");
