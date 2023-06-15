@@ -283,6 +283,7 @@ AI_CBM_Sleep_Overcoat:
 
 AI_CBM_Explosion: @ 82DC2F7
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
+	if_ability AI_USER, ABILITY_DAMP, Score_Minus10
     if_ability_might_be AI_TARGET, ABILITY_DAMP, Score_Minus10
 	count_usable_party_mons AI_USER
 	if_not_equal 0, AI_CBM_Explosion_NotOneVsMany
@@ -2320,6 +2321,8 @@ AI_CV_LightScreen_SpecialTypeList:
     .byte -1
 
 AI_CV_Rest:
+	if_ability AI_USER, ABILITY_INSOMNIA, Score_Minus10
+	if_ability AI_USER, ABILITY_VITAL_SPIRIT, Score_Minus10
 	if_target_faster AI_CV_Rest4
 	if_hp_not_equal AI_USER, 100, AI_CV_Rest2
 	score -8
@@ -4801,6 +4804,7 @@ AI_DoubleBattleAllHittingBoomburts:
 	
 AI_DoubleBattleAllHittingExplosion:
 	if_ability AI_USER_PARTNER, ABILITY_DAMP, Score_Minus10
+	if_ability AI_TARGET_PARTNER, ABILITY_DAMP, Score_Minus10
 	if_type AI_USER_PARTNER, TYPE_GHOST, Score_Plus2
 	if_type AI_USER_PARTNER, TYPE_ROCK, AI_DoubleBattleAllHittingExplosion_Rock_Type
 	goto Score_Minus3
