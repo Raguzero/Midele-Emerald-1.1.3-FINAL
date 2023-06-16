@@ -2805,6 +2805,49 @@ Cry_Honedge_Monado::
 
 	.align 2
 
+Cry_Wyrdeer::
+	.incbin "sound/direct_sound_samples/cry_wyrdeer.bin"
+	.align 2
+Cry_Kleavor::
+	.incbin "sound/direct_sound_samples/cry_kleavor.bin"
+	.align 2
+Cry_Ursaluna::
+	.incbin "sound/direct_sound_samples/cry_ursaluna.bin"
+	.align 2
+Cry_Sneasler::
+	.incbin "sound/direct_sound_samples/cry_sneasler.bin"
+	.align 2
+Cry_Overqwil::
+	.incbin "sound/direct_sound_samples/cry_overqwil.bin"
+	.align 2
+Cry_Kingambit::
+	.incbin "sound/direct_sound_samples/cry_kingambit.bin"
+	.align 2
+Cry_Dudunsparce::
+	.incbin "sound/direct_sound_samples/cry_dudunsparce.bin"
+	.align 2
+Cry_Clodsire::
+	.incbin "sound/direct_sound_samples/cry_clodsire.bin"
+	.align 2
+Cry_Annihilape::
+	.incbin "sound/direct_sound_samples/cry_annihilape.bin"
+	.align 2
+Cry_Farigiraf::
+	.incbin "sound/direct_sound_samples/cry_farigiraf.bin"
+	.align 2
+Cry_Prinpawn::
+	.incbin "sound/direct_sound_samples/cry_prinpawn.bin"
+	.align 2
+Cry_Coureen::
+	.incbin "sound/direct_sound_samples/cry_coureen.bin"
+	.align 2
+Cry_Kincurs::
+	.incbin "sound/direct_sound_samples/cry_kincurs.bin"
+	.align 2
+Cry_Posord::
+	.incbin "sound/direct_sound_samples/cry_posord.bin"
+	.align 2
+
 DirectSoundWaveData_register_noise::
 	.incbin "sound/direct_sound_samples/register_noise.bin"
 

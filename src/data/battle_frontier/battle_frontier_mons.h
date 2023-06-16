@@ -15109,7 +15109,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_SNEASLER_2] = {
         .species = SPECIES_SNEASLER,
-        .moves = {MOVE_SHADOW_BALL, MOVE_BRICK_BREAK, MOVE_GUNK_SHOT, MOVE_ROCK_SLIDE},
+        .moves = {MOVE_SHADOW_BALL, MOVE_BRICK_BREAK, MOVE_SLUDGE_BOMB, MOVE_ROCK_SLIDE},
         .itemTableId = BATTLE_FRONTIER_ITEM_CHOICE_BAND,
         .evSpread = F_EV_SPREAD_SPEED | F_EV_SPREAD_ATTACK,
         .nature = NATURE_JOLLY
@@ -15130,7 +15130,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_SNEASLER_5] = {
         .species = SPECIES_SNEASLER,
-        .moves = {MOVE_GUNK_SHOT, MOVE_BRICK_BREAK, MOVE_SUBSTITUTE, MOVE_SWORDS_DANCE},
+        .moves = {MOVE_SLUDGE_BOMB, MOVE_BRICK_BREAK, MOVE_SUBSTITUTE, MOVE_SWORDS_DANCE},
         .itemTableId = BATTLE_FRONTIER_ITEM_LEFTOVERS,
         .evSpread = F_EV_SPREAD_SPEED | F_EV_SPREAD_ATTACK,
         .nature = NATURE_JOLLY
@@ -15144,14 +15144,14 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_SNEASLER_7] = {
         .species = SPECIES_SNEASLER,
-        .moves = {MOVE_GUNK_SHOT, MOVE_BRICK_BREAK, MOVE_ROCK_SLIDE, MOVE_BULK_UP},
+        .moves = {MOVE_SLUDGE_BOMB, MOVE_BRICK_BREAK, MOVE_ROCK_SLIDE, MOVE_BULK_UP},
         .itemTableId = BATTLE_FRONTIER_ITEM_POISON_BARB,
         .evSpread = F_EV_SPREAD_SPEED | F_EV_SPREAD_ATTACK,
         .nature = NATURE_JOLLY
     },
     [FRONTIER_MON_SLOWPOKE_GALARIAN] = {
         .species = SPECIES_SLOWPOKE_GALARIAN,
-        .moves = {MOVE_PSYCHIC, MOVE_DISABLE, MOVE_WATER_PULSE, MOVE_YAWN},
+        .moves = {MOVE_PSYCHIC, MOVE_DISABLE, MOVE_FLAMETHROWER, MOVE_YAWN},
         .itemTableId = BATTLE_FRONTIER_ITEM_SITRUS_BERRY,
         .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_HP,
         .nature = NATURE_MODEST

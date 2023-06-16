@@ -14612,6 +14612,20 @@ gCryTable:: @ 869DCF4
 	cry Cry_Drilbur
 	cry Cry_Excadrill
 	cry Cry_Honedge_Monado
+	cry Cry_Wyrdeer
+	cry Cry_Kleavor
+	cry Cry_Ursaluna
+	cry Cry_Sneasler
+	cry Cry_Overqwil
+	cry Cry_Kingambit
+	cry Cry_Dudunsparce
+	cry Cry_Clodsire
+	cry Cry_Annihilape
+	cry Cry_Farigiraf
+	cry Cry_Prinpawn
+	cry Cry_Coureen
+	cry Cry_Kincurs
+	cry Cry_Posord
 
 	.align 2
 gCryTable2:: @ 869EF24
@@ -15188,6 +15202,21 @@ gCryTable2:: @ 869EF24
 	cry2 Cry_Drilbur
 	cry2 Cry_Excadrill
 	cry2 Cry_Honedge_Monado
+	cry2 Cry_Wyrdeer
+	cry2 Cry_Kleavor
+	cry2 Cry_Ursaluna
+	cry2 Cry_Sneasler
+	cry2 Cry_Overqwil
+	cry2 Cry_Kingambit
+	cry2 Cry_Dudunsparce
+	cry2 Cry_Clodsire
+	cry2 Cry_Annihilape
+	cry2 Cry_Farigiraf
+	cry2 Cry_Prinpawn
+	cry2 Cry_Coureen
+	cry2 Cry_Kincurs
+	cry2 Cry_Posord
+	
 
 	.align 2
 voicegroup129:: @ 86A0154
