@@ -1184,8 +1184,8 @@ AI_CheckViability_CheckEffects:
 	end
 
 AI_CV_Sleep: @ 82DCA92
-	if_target_faster AI_CV_SleepSkipBonusToSpore
-	if_move MOVE_SPORE, AI_CV_SleepPlus1or2
+	if_accuracy_less_than 97, AI_CV_SleepSkipBonusToSpore @ o Sleep Powder (75 acc) + Compoundeyes
+	if_user_faster AI_CV_SleepPlus1or2
 AI_CV_SleepSkipBonusToSpore:
 	if_has_move_with_effect AI_USER, EFFECT_DREAM_EATER, AI_CV_SleepEncourageSlpDamage
 	if_has_move_with_effect AI_USER, EFFECT_NIGHTMARE, AI_CV_SleepEncourageSlpDamage
