@@ -786,6 +786,8 @@
 	if_target_wont_attack_due_to_truant \ptr
     if_hp_less_than AI_USER, 100, .AI_no_free_setup_\@
     if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_QUICK_ATTACK, .AI_no_free_setup_\@
+    get_weather
+    if_user_receives_damage_from_stored_weather \ptr
     if_ability AI_USER, ABILITY_STURDY, \ptr
     if_holds_item AI_USER, ITEM_FOCUS_SASH, \ptr
     .AI_no_free_setup_\@:
@@ -888,38 +890,7 @@
     if_status AI_USER, STATUS1_PSN_ANY | STATUS1_BURN, .AI_check_scenario_B_skip_leftovers_check_\@
     if_status3 AI_USER, STATUS3_LEECHSEED, .AI_check_scenario_B_skip_leftovers_check_\@
     get_weather
-    if_equal AI_WEATHER_HAIL, .AI_check_scenario_B_check_hail_\@
-    if_equal AI_WEATHER_SANDSTORM, .AI_check_scenario_B_check_sandstorm_\@
-    goto .AI_check_scenario_B_check_leftovers_\@
-
-    .AI_check_scenario_B_check_hail_\@:
-    get_ability AI_USER
-    if_equal ABILITY_OVERCOAT, .AI_check_scenario_B_check_leftovers_\@
-    if_equal ABILITY_SLUSH_RUSH, .AI_check_scenario_B_check_leftovers_\@
-    if_equal ABILITY_SNOW_CLOAK, .AI_check_scenario_B_check_leftovers_\@
-    if_equal ABILITY_ICE_BODY, .AI_check_scenario_B_check_leftovers_\@
-    get_user_type1
-    if_equal TYPE_ICE, .AI_check_scenario_B_check_leftovers_\@
-    get_user_type2
-    if_equal TYPE_ICE, .AI_check_scenario_B_check_leftovers_\@
-    goto .AI_check_scenario_B_skip_leftovers_check_\@
-
-    .AI_check_scenario_B_check_sandstorm_\@:
-    get_ability AI_USER
-    if_equal ABILITY_OVERCOAT, .AI_check_scenario_B_check_leftovers_\@
-    if_equal ABILITY_SAND_VEIL, .AI_check_scenario_B_check_leftovers_\@
-    if_equal ABILITY_SAND_RUSH, .AI_check_scenario_B_check_leftovers_\@
-    get_user_type1
-    if_equal TYPE_ROCK, .AI_check_scenario_B_check_leftovers_\@
-    if_equal TYPE_GROUND, .AI_check_scenario_B_check_leftovers_\@
-    if_equal TYPE_STEEL, .AI_check_scenario_B_check_leftovers_\@
-    get_user_type2
-    if_equal TYPE_ROCK, .AI_check_scenario_B_check_leftovers_\@
-    if_equal TYPE_GROUND, .AI_check_scenario_B_check_leftovers_\@
-    if_equal TYPE_STEEL, .AI_check_scenario_B_check_leftovers_\@
-    goto .AI_check_scenario_B_skip_leftovers_check_\@
-
-    .AI_check_scenario_B_check_leftovers_\@:
+    if_user_receives_damage_from_stored_weather .AI_check_scenario_B_skip_leftovers_check_\@
     if_holds_item AI_USER, ITEM_LEFTOVERS, .AI_check_recovery_move_\@
     .AI_check_scenario_B_skip_leftovers_check_\@:
     if_holds_item AI_USER, ITEM_CHESTO_BERRY, .AI_check_Rest_\@
@@ -1020,4 +991,32 @@
     count_usable_party_mons \battler
     if_more_than 0, \ptr
     .AI_target_cannot_heal_with_natural_cure_\@:
+    .endm
+
+  @ Determina si el poke de la IA sufre daño a final de turno por el clima guardado por get_weather
+  @ Nota: ignora que el clima leído por get_weather pueda estar a punto de acabar
+	.macro if_user_receives_damage_from_stored_weather ptr:req
+    if_equal AI_WEATHER_HAIL, .AI_check_hail_\@
+    if_equal AI_WEATHER_SANDSTORM, .AI_check_sandstorm_\@
+    if_equal AI_WEATHER_SUN, .AI_check_sun_\@
+    goto .AI_no_damage_from_weather_\@
+
+    .AI_check_hail_\@:
+    if_type AI_USER, TYPE_ICE, .AI_no_damage_from_weather_\@
+    get_ability AI_USER
+    if_in_bytes AI_HailResistantAbilities, .AI_no_damage_from_weather_\@
+    goto \ptr
+
+    .AI_check_sandstorm_\@:
+    get_user_type1
+    if_in_bytes AI_CV_SandstormResistantTypes, .AI_no_damage_from_weather_\@
+    get_user_type2
+    if_in_bytes AI_CV_SandstormResistantTypes, .AI_no_damage_from_weather_\@
+    get_ability AI_USER
+    if_in_bytes AI_SandstormResistantAbilities, .AI_no_damage_from_weather_\@
+    goto \ptr
+
+    .AI_check_sun_\@:
+    if_ability AI_USER, ABILITY_DRY_SKIN, \ptr
+    .AI_no_damage_from_weather_\@:
     .endm
