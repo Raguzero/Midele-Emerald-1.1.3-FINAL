@@ -93,4 +93,5 @@ const u8 gEnemyMonElevation[NUM_SPECIES] =
     [SPECIES_REGIELEKI] = 10,
     [SPECIES_HONEDGE_MONADO] = 4,
     [SPECIES_G_BUTTERFREE] = 10,
+    [SPECIES_POSORD] = 4,
 };

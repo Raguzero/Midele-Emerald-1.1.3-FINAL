@@ -3445,23 +3445,23 @@ const struct MonCoords gMonFrontPicCoords[] =
     },
     [SPECIES_POSORD] =
     {
-        .size = 0x88,
+        .size = 0x54,
         .y_offset = 0x00,
     },
     [SPECIES_PRINPAWN] =
     {
-        .size = 0x56,
-        .y_offset = 0x0e,
+        .size = 0x45,
+        .y_offset = 0x03,
     },
     [SPECIES_COUREEN] =
     {
         .size = 0x55,
-        .y_offset = 0x0c,
+        .y_offset = 0x03,
     },
     [SPECIES_KINCURS] =
     {
         .size = 0x55,
-        .y_offset = 0x0c,
+        .y_offset = 0x00,
     },
     [SPECIES_NUMEL_LUCKY] =
     {
@@ -3476,6 +3476,6 @@ const struct MonCoords gMonFrontPicCoords[] =
     [SPECIES_MEGA_CAMERUPT_LUCKY] =
     {
         .size = 0x84,
-        .y_offset = 0x13,
+        .y_offset = 0x00,
     },
 };
