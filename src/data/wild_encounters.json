@@ -888,12 +888,12 @@
                             {
                                 "max_level": 63,
                                 "min_level": 58,
-                                "species": "SPECIES_SMEARGLE"
+                                "species": "SPECIES_KINCURS"
                             },
                             {
                                 "max_level": 64,
                                 "min_level": 58,
-                                "species": "SPECIES_DELIBIRD"
+                                "species": "SPECIES_COUREEN"
                             },
                             {
                                 "max_level": 60,
@@ -918,7 +918,7 @@
                             {
                                 "max_level": 65,
                                 "min_level": 61,
-                                "species": "SPECIES_RUNERIGUS"
+                                "species": "SPECIES_POSORD"
                             },
                             {
                                 "max_level": 65,
@@ -957,12 +957,12 @@
                             {
                                 "max_level": 63,
                                 "min_level": 58,
-                                "species": "SPECIES_SMEARGLE"
+                                "species": "SPECIES_KINCURS"
                             },
                             {
                                 "max_level": 64,
                                 "min_level": 58,
-                                "species": "SPECIES_DELIBIRD"
+                                "species": "SPECIES_COUREEN"
                             },
                             {
                                 "max_level": 60,
@@ -987,7 +987,7 @@
                             {
                                 "max_level": 65,
                                 "min_level": 61,
-                                "species": "SPECIES_RUNERIGUS"
+                                "species": "SPECIES_POSORD"
                             },
                             {
                                 "max_level": 65,
@@ -2109,7 +2109,7 @@
                             {
                                 "max_level": 10,
                                 "min_level": 8,
-                                "species": "SPECIES_ZUBAT"
+                                "species": "SPECIES_NUMEL_LUCKY"
                             },
                             {
                                 "max_level": 11,
@@ -2173,7 +2173,7 @@
                             {
                                 "max_level": 11,
                                 "min_level": 9,
-                                "species": "SPECIES_ARON"
+                                "species": "SPECIES_NUMEL_LUCKY"
                             },
                             {
                                 "max_level": 11,
@@ -2252,7 +2252,7 @@
                             {
                                 "max_level": 12,
                                 "min_level": 12,
-                                "species": "SPECIES_MAWILE"
+                                "species": "SPECIES_NUMEL_LUCKY"
                             },
                             {
                                 "max_level": 10,
@@ -2346,7 +2346,7 @@
                             {
                                 "max_level": 11,
                                 "min_level": 8,
-                                "species": "SPECIES_ZUBAT"
+                                "species": "SPECIES_NUMEL_LUCKY"
                             },
                             {
                                 "max_level": 11,
@@ -4052,7 +4052,7 @@
                             {
                                 "max_level": 24,
                                 "min_level": 20,
-                                "species": "SPECIES_ZUBAT"
+                                "species": "SPECIES_NUMEL_LUCKY"
                             },
                             {
                                 "max_level": 23,
@@ -4062,7 +4062,7 @@
                             {
                                 "max_level": 24,
                                 "min_level": 20,
-                                "species": "SPECIES_ZUBAT"
+                                "species": "SPECIES_NUMEL_LUCKY"
                             },
                             {
                                 "max_level": 23,
@@ -4211,12 +4211,12 @@
                             {
                                 "max_level": 50,
                                 "min_level": 45,
-                                "species": "SPECIES_GOLBAT"
+                                "species": "SPECIES_CAMERUPT_LUCKY"
                             },
                             {
                                 "max_level": 50,
                                 "min_level": 45,
-                                "species": "SPECIES_GOLBAT"
+                                "species": "SPECIES_CAMERUPT_LUCKY"
                             },
                             {
                                 "max_level": 50,
@@ -4360,7 +4360,7 @@
                             {
                                 "max_level": 50,
                                 "min_level": 45,
-                                "species": "SPECIES_GOLBAT"
+                                "species": "SPECIES_CAMERUPT_LUCKY"
                             },
                             {
                                 "max_level": 50,
@@ -4370,7 +4370,7 @@
                             {
                                 "max_level": 50,
                                 "min_level": 50,
-                                "species": "SPECIES_GOLBAT"
+                                "species": "SPECIES_CAMERUPT_LUCKY"
                             },
                             {
                                 "max_level": 50,
@@ -4514,7 +4514,7 @@
                             {
                                 "max_level": 50,
                                 "min_level": 45,
-                                "species": "SPECIES_GOLBAT"
+                                "species": "SPECIES_CAMERUPT_LUCKY"
                             },
                             {
                                 "max_level": 50,
@@ -4524,7 +4524,7 @@
                             {
                                 "max_level": 50,
                                 "min_level": 50,
-                                "species": "SPECIES_GOLBAT"
+                                "species": "SPECIES_CAMERUPT_LUCKY"
                             },
                             {
                                 "max_level": 50,
@@ -4618,7 +4618,7 @@
                             {
                                 "max_level": 62,
                                 "min_level": 58,
-                                "species": "SPECIES_CLEFABLE"
+                                "species": "SPECIES_MEGA_CAMERUPT_LUCKY"
                             },
                             {
                                 "max_level": 62,
@@ -4795,7 +4795,7 @@
                             {
                                 "max_level": 25,
                                 "min_level": 22,
-                                "species": "SPECIES_GALAR_YAMASK"
+                                "species": "SPECIES_PRINPAWN"
                             },
                             {
                                 "max_level": 28,
@@ -4864,7 +4864,7 @@
                             {
                                 "max_level": 25,
                                 "min_level": 22,
-                                "species": "SPECIES_GALAR_YAMASK"
+                                "species": "SPECIES_PRINPAWN"
                             },
                             {
                                 "max_level": 28,
@@ -4933,7 +4933,7 @@
                             {
                                 "max_level": 25,
                                 "min_level": 22,
-                                "species": "SPECIES_GALAR_YAMASK"
+                                "species": "SPECIES_PRINPAWN"
                             },
                             {
                                 "max_level": 28,
@@ -5002,7 +5002,7 @@
                             {
                                 "max_level": 25,
                                 "min_level": 22,
-                                "species": "SPECIES_GALAR_YAMASK"
+                                "species": "SPECIES_PRINPAWN"
                             },
                             {
                                 "max_level": 28,
@@ -5319,7 +5319,7 @@
                             {
                                 "max_level": 39,
                                 "min_level": 35,
-                                "species": "SPECIES_MISDREAVUS"
+                                "species": "SPECIES_POSORD"
                             },
                             {
                                 "max_level": 38,
@@ -5388,7 +5388,7 @@
                             {
                                 "max_level": 39,
                                 "min_level": 35,
-                                "species": "SPECIES_MISDREAVUS"
+                                "species": "SPECIES_POSORD"
                             },
                             {
                                 "max_level": 38,
@@ -5457,7 +5457,7 @@
                             {
                                 "max_level": 39,
                                 "min_level": 35,
-                                "species": "SPECIES_MISDREAVUS"
+                                "species": "SPECIES_POSORD"
                             },
                             {
                                 "max_level": 38,
@@ -5526,7 +5526,7 @@
                             {
                                 "max_level": 39,
                                 "min_level": 35,
-                                "species": "SPECIES_MISDREAVUS"
+                                "species": "SPECIES_POSORD"
                             },
                             {
                                 "max_level": 38,
@@ -5595,7 +5595,7 @@
                             {
                                 "max_level": 39,
                                 "min_level": 35,
-                                "species": "SPECIES_MISDREAVUS"
+                                "species": "SPECIES_POSORD"
                             },
                             {
                                 "max_level": 38,
@@ -5664,7 +5664,7 @@
                             {
                                 "max_level": 38,
                                 "min_level": 34,
-                                "species": "SPECIES_MISDREAVUS"
+                                "species": "SPECIES_POSORD"
                             },
                             {
                                 "max_level": 38,
@@ -5708,7 +5708,7 @@
                             {
                                 "max_level": 39,
                                 "min_level": 36,
-                                "species": "SPECIES_MURKROW"
+                                "species": "SPECIES_PRINPAWN"
                             },
                             {
                                 "max_level": 38,
@@ -5792,7 +5792,7 @@
                             {
                                 "max_level": 39,
                                 "min_level": 35,
-                                "species": "SPECIES_MURKROW"
+                                "species": "SPECIES_PRINPAWN"
                             },
                             {
                                 "max_level": 39,
@@ -13357,9 +13357,9 @@
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 45,
-                                "min_level": 43,
-                                "species": "SPECIES_TYNAMO"
+                                "max_level": 43,
+                                "min_level": 39,
+                                "species": "SPECIES_CAMERUPT_LUCKY"
                             },
                             {
                                 "max_level": 43,
@@ -13426,9 +13426,9 @@
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 45,
-                                "min_level": 43,
-                                "species": "SPECIES_TYNAMO"
+                                "max_level": 43,
+                                "min_level": 39,
+                                "species": "SPECIES_CAMERUPT_LUCKY"
                             },
                             {
                                 "max_level": 43,
@@ -13495,9 +13495,9 @@
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 45,
-                                "min_level": 43,
-                                "species": "SPECIES_TYNAMO"
+                                "max_level": 43,
+                                "min_level": 39,
+                                "species": "SPECIES_CAMERUPT_LUCKY"
                             },
                             {
                                 "max_level": 43,
@@ -13564,9 +13564,9 @@
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 45,
-                                "min_level": 43,
-                                "species": "SPECIES_TYNAMO"
+                                "max_level": 43,
+                                "min_level": 39,
+                                "species": "SPECIES_CAMERUPT_LUCKY"
                             },
                             {
                                 "max_level": 43,
@@ -13633,9 +13633,9 @@
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 45,
-                                "min_level": 43,
-                                "species": "SPECIES_TYNAMO"
+                                "max_level": 43,
+                                "min_level": 39,
+                                "species": "SPECIES_CAMERUPT_LUCKY"
                             },
                             {
                                 "max_level": 43,
@@ -13757,9 +13757,9 @@
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 45,
-                                "min_level": 43,
-                                "species": "SPECIES_TYNAMO"
+                                "max_level": 43,
+                                "min_level": 39,
+                                "species": "SPECIES_CAMERUPT_LUCKY"
                             },
                             {
                                 "max_level": 43,
@@ -13911,9 +13911,9 @@
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 45,
-                                "min_level": 43,
-                                "species": "SPECIES_TYNAMO"
+                                "max_level": 43,
+                                "min_level": 39,
+                                "species": "SPECIES_CAMERUPT_LUCKY"
                             },
                             {
                                 "max_level": 43,
@@ -14010,9 +14010,9 @@
                                 "species": "SPECIES_TYNAMO"
                             },
                             {
-                                "max_level": 45,
-                                "min_level": 43,
-                                "species": "SPECIES_TYNAMO"
+                                "max_level": 43,
+                                "min_level": 39,
+                                "species": "SPECIES_CAMERUPT_LUCKY"
                             },
                             {
                                 "max_level": 43,
