@@ -3037,13 +3037,41 @@ AI_CV_Flail_ScoreDown1:
 AI_CV_Flail_End:
 	end
 	
+@ Recuérdese que if_status_in_party excluye al poke actual	
 AI_CV_HealBell:
-    if_this_attack_might_be_the_last Score_Minus5
-    if_status AI_USER, STATUS1_TOXIC_POISON, Score_Plus1
-    if_status_in_party AI_USER, STATUS1_ANY, AI_CV_HealBell_End
-    if_not_status AI_USER, STATUS1_PSN_ANY | STATUS1_BURN | STATUS1_PARALYSIS, Score_Minus5
+    if_this_attack_might_be_the_last AI_CV_HealBell_ConsiderSacrificeIfNothingElseToDo
+    if_status_in_party AI_USER, STATUS1_TOXIC_POISON | STATUS1_FREEZE | STATUS1_SLEEP, Score_Plus1
+    if_status_in_party AI_USER, STATUS1_PARALYSIS | STATUS1_BURN, AI_CV_HealBell_End
+    if_not_status AI_USER, STATUS1_TOXIC_POISON, AI_CV_HealBell_NoToxic
+    if_status2 AI_USER, STATUS2_SUBSTITUTE, AI_CV_HealBell_End
+    @ Si nos pueden repetir Toxic y dejarnos sin PP, mejor no usar Heal Bell
+    if_doesnt_have_move_with_effect AI_TARGET, EFFECT_TOXIC, AI_CV_HealBell_End
+    if_status AI_USER, 0xC00, Score_Minus1 @ Toxic bastante avanzado: tratará de curarse si no encuentra cambio
+AI_CV_HealBell_NoToxic:
+    if_status_in_party AI_USER, STATUS1_ANY & ~(STATUS1_POISON | STATUS1_BURN), Score_Minus1
+    if_status_in_party AI_USER, STATUS1_ANY & ~(STATUS1_POISON), Score_Minus2
+    if_not_status AI_USER, STATUS1_PARALYSIS, AI_CV_HealBell_NoParalysis
+    if_target_will_be_faster_after_this_effect AI_CV_HealBell_NoParalysis
+    @ Si nos pueden causar otro status o repetir la parálisis, mejor no usar Heal Bell
+    @ (no tiene en cuenta posibles inmunidades)
+    if_has_move_with_effect AI_TARGET, EFFECT_TOXIC, AI_CV_HealBell_NoParalysis
+    if_has_move_with_effect AI_TARGET, EFFECT_SLEEP, AI_CV_HealBell_NoParalysis
+    if_doesnt_have_move_with_effect AI_TARGET, EFFECT_PARALYZE, Score_Minus2
+AI_CV_HealBell_NoParalysis:
+    if_status_in_party AI_USER, STATUS1_ANY, Score_Minus5
+    if_status AI_USER, STATUS1_ANY, Score_Minus8
+    goto Score_Minus10
+
 AI_CV_HealBell_End:
     end
+
+@ Si el poke de la IA ve que corre peligro y no encuentra un cambio aceptable
+@ (o si no puede cambiar), puede tratar de curar status importantes del equipo
+AI_CV_HealBell_ConsiderSacrificeIfNothingElseToDo:
+    if_status_in_party AI_USER, STATUS1_TOXIC_POISON | STATUS1_FREEZE | STATUS1_SLEEP | STATUS1_PARALYSIS, Score_Minus5
+    if_status_in_party AI_USER, STATUS1_ANY, Score_Minus8
+    goto Score_Minus10
+
 
 AI_CV_Thief:
     if_holds_item AI_USER, ITEM_NONE, AI_CV_Thief_UserHasNoItem
@@ -4096,7 +4124,11 @@ AI_CV_Imprison_End:
 AI_CV_Refresh:
     if_not_status AI_USER, STATUS1_PSN_ANY | STATUS1_PARALYSIS | STATUS1_BURN, Score_Minus8
     if_this_attack_might_be_the_last Score_Minus5
-    goto Score_Plus3
+    if_has_move_with_effect AI_TARGET, EFFECT_TOXIC, Score_Minus3
+    if_has_move_with_effect AI_TARGET, EFFECT_SLEEP, Score_Minus2
+    if_has_move_with_effect AI_TARGET, EFFECT_PARALYZE, Score_Minus2
+    if_not_status AI_USER, STATUS1_TOXIC_POISON, Score_Plus1
+    goto Score_Plus2
 
 AI_CV_Snatch:
 	if_target_wont_attack_due_to_truant Score_Minus10
