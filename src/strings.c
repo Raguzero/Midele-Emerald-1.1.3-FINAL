@@ -1876,8 +1876,16 @@ const u8 gText_Venonat[] = _("VENONAT{CLEAR_TO 0x48}500 COINS");
 const u8 gText_Happiny[] = _("HAPPINY{CLEAR_TO 0x48}2500 COINS");
 const u8 gText_Wooper[] = _("WOOPER{CLEAR_TO 0x48}800 COINS");
 const u8 gText_DarkPika[] = _("DARK PIKA{CLEAR_TO 0x48}9000 COINS");
-const u8 gText_Wintass[] = _("WINTASS{CLEAR_TO 0x48}9000 COINS");
+const u8 gText_Wintass[] = _("WINTASS{CLEAR_TO 0x48}5000 COINS");
 const u8 gText_Catermano[] = _("CATERMANO{CLEAR_TO 0x48}9000 COINS");
+const u8 gText_Unown[] = _("UNOWN{CLEAR_TO 0x48}1000 COINS");
+const u8 gText_Prinpawn[] = _("PRINPAWN{CLEAR_TO 0x48}3000 COINS");
+const u8 gText_Posord[] = _("POSORD{CLEAR_TO 0x48}4000 COINS");
+const u8 gText_NumelLucky[] = _("NUMEL LUCKY{CLEAR_TO 0x48}800 COINS");
+const u8 gText_Zubat[] = _("ZUBAT{CLEAR_TO 0x48}1500 COINS");
+const u8 gText_Probopass[] = _("PROBOPASS{CLEAR_TO 0x48}1500 COINS");
+const u8 gText_Kecleon[] = _("KECLEON{CLEAR_TO 0x48}1500 COINS");
+
 const u8 gText_Individual[] = _("INDIVIDUAL");
 const u8 gText_Dobles[] = _("DOBLES");
 const u8 gText_MetroIndividual[] = _("METRO INDIV");
