@@ -3858,8 +3858,11 @@ static void Cmd_if_move_is_contactless(void)
 static void Cmd_if_target_will_be_faster_after_this_effect(void)
 {
     bool8 target_will_be_faster;
-    const s8 aiSpeedStage = gBattleMons[sBattler_AI].statStages[STAT_SPEED], targetSpeedStage = gBattleMons[gBattlerTarget].statStages[STAT_SPEED];
+    const s8 aiSpeedStage     = gBattleMons[sBattler_AI].statStages[STAT_SPEED],
+             targetSpeedStage = gBattleMons[gBattlerTarget].statStages[STAT_SPEED];
     const u16 weather = gBattleWeather;
+    const u32 aiStatus1     = gBattleMons[sBattler_AI].status1,
+              targetStatus1 = gBattleMons[gBattlerTarget].status1;
 
     // Simula el efecto de cambio de Velocidad por el ataque en cuestión.
     // Asume que se ejecuta con éxito (no hay fallo ni inmunidad) y nada impide el efecto
@@ -3911,6 +3914,15 @@ static void Cmd_if_target_will_be_faster_after_this_effect(void)
         case EFFECT_HAIL:
             gBattleWeather = WEATHER_HAIL_ANY;
             break;
+        case EFFECT_REFRESH:
+        case EFFECT_HEAL_BELL:
+            if (aiStatus1 & STATUS1_PARALYSIS)
+                gBattleMons[sBattler_AI].status1 &= ~(STATUS1_PARALYSIS);
+            break;
+        case EFFECT_PARALYZE:
+            if (!targetStatus1)
+                gBattleMons[gBattlerTarget].status1 = STATUS1_PARALYSIS;
+            break;
     }
 
     // Tiene en cuenta habilidades también, como Speed Boost o Gooey.
@@ -3933,6 +3945,8 @@ static void Cmd_if_target_will_be_faster_after_this_effect(void)
 
     gBattleMons[sBattler_AI].statStages[STAT_SPEED] = aiSpeedStage;
     gBattleMons[gBattlerTarget].statStages[STAT_SPEED] = targetSpeedStage;
+    gBattleMons[sBattler_AI].status1 = aiStatus1;
+    gBattleMons[gBattlerTarget].status1 = targetStatus1;
     gBattleWeather = weather;
 
     if (target_will_be_faster)
