@@ -743,6 +743,9 @@
     .endm
 	
 	.macro if_this_attack_might_be_the_last ptr:req
+    if_perish_song_not_about_to_trigger AI_USER, .AI_check_locked_on_\@
+    goto \ptr
+    .AI_check_locked_on_\@:
     if_not_status3 AI_USER, STATUS3_ALWAYS_HITS, .AI_not_locked_on_\@
     if_ability AI_USER, ABILITY_STURDY, .AI_skip_evasion_check_\@
     if_ability AI_USER, ABILITY_WONDER_GUARD, .AI_skip_evasion_check_\@
