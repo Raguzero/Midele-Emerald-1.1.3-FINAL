@@ -790,7 +790,7 @@
     if_hp_less_than AI_USER, 100, .AI_no_free_setup_\@
     if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_QUICK_ATTACK, .AI_no_free_setup_\@
     get_weather
-    if_user_receives_damage_from_stored_weather \ptr
+    if_user_receives_damage_from_stored_weather .AI_no_free_setup_\@
     if_ability AI_USER, ABILITY_STURDY, \ptr
     if_holds_item AI_USER, ITEM_FOCUS_SASH, \ptr
     .AI_no_free_setup_\@:
