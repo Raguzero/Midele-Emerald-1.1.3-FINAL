@@ -3196,6 +3196,10 @@ AI_CV_Curse_FreeSetupNotWorth_Minus2:
 	score -2
 AI_CV_Curse_SkipFreeSetupCheck:
     if_user_faster AI_CV_Curse_CheckIfThisAttackMightBeTheLast
+    get_possible_categories_of_foes_attacks
+    if_equal AI_SPECIAL_ONLY, AI_CV_Curse_CheckIfThisAttackMightBeTheLast
+    if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_SPECIAL, AI_CV_Curse_CheckIfThisAttackMightBeTheLast
+    if_equal AI_ONLY_SPECIAL_KNOWN, AI_CV_Curse_CheckIfThisAttackMightBeTheLast
     if_stat_level_less_than AI_USER, STAT_DEF, 8, AI_CV_Curse_DoNotCheckIfThisAttackMightBeTheLast
 AI_CV_Curse_CheckIfThisAttackMightBeTheLast:
     if_this_attack_might_be_the_last Score_Minus5
@@ -3206,11 +3210,6 @@ AI_CV_Curse_DoNotCheckIfThisAttackMightBeTheLast:
 
 AI_CV_Curse2:
 	if_stat_level_more_than AI_USER, STAT_DEF, 7, AI_CV_Curse_End
-	if_random_less_than 128, AI_CV_Curse3
-	score +1
-
-AI_CV_Curse3:
-	if_stat_level_more_than AI_USER, STAT_DEF, 6, AI_CV_Curse_End
 	if_random_less_than 128, AI_CV_Curse_End
 	score +1
 	goto AI_CV_Curse_End
