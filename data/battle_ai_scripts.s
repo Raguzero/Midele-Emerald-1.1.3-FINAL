@@ -1421,8 +1421,25 @@ AI_CV_Rollout3:
 AI_CV_AttackUp_NotSwordsDance:
 	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
 AI_CV_SwordsDance: @ 82DCBBC
+	if_has_move_with_effect AI_USER, EFFECT_BATON_PASS, AI_CV_AttackUp_ConsiderSetupEagerly
+	calculate_nhko
+	if_less_than 3, AI_CV_AttackUp_ConsiderSetupEagerly
+	if_more_than 3, AI_CV_AttackUp_FreeSetupNotWorth
+	if_stat_level_more_than AI_USER, STAT_ATK, 8, AI_CV_AttackUp_FreeSetupNotWorth
+	if_stat_level_less_than AI_USER, STAT_ATK, 3, AI_CV_AttackUp_FreeSetupNotWorth
+	if_user_can_probably_boost_safely Score_Plus2
+	goto AI_CV_AttackUp_FreeSetupNotWorth_Minus2
+
+AI_CV_AttackUp_ConsiderSetupEagerly:
 	if_free_setup_turn Score_Plus5
 	if_user_can_probably_boost_safely Score_Plus5
+	goto AI_CV_AttackUp_SkipFreeSetupCheck
+
+AI_CV_AttackUp_FreeSetupNotWorth:
+	if_user_can_probably_boost_safely AI_CV_AttackUp_SkipFreeSetupCheck
+AI_CV_AttackUp_FreeSetupNotWorth_Minus2:
+	score -2
+AI_CV_AttackUp_SkipFreeSetupCheck:
 	if_this_attack_might_be_the_last Score_Minus5
 	if_stat_level_less_than AI_USER, STAT_ATK, 9, AI_CV_AttackUp2
 	if_random_less_than 100, AI_CV_AttackUp3
@@ -1563,9 +1580,26 @@ AI_CV_SpeedUp_End: @ 82DCC72
 AI_CV_SpAtkUp_NotNastyPlotOrTailGlow:
 	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
 AI_CV_SpAtkUpNPTG: @ 82DCC73
+	if_has_move_with_effect AI_USER, EFFECT_BATON_PASS, AI_CV_SpAtkUp_ConsiderSetupEagerly
+	calculate_nhko
+	if_less_than 3, AI_CV_SpAtkUp_ConsiderSetupEagerly
+	if_more_than 3, AI_CV_SpAtkUp_FreeSetupNotWorth
+	if_stat_level_more_than AI_USER, STAT_SPATK, 8, AI_CV_SpAtkUp_FreeSetupNotWorth
+	if_stat_level_less_than AI_USER, STAT_SPATK, 3, AI_CV_SpAtkUp_FreeSetupNotWorth
+	if_user_can_probably_boost_safely Score_Plus2
+	goto AI_CV_SpAtkUp_FreeSetupNotWorth_Minus2
+
+AI_CV_SpAtkUp_ConsiderSetupEagerly:
 	if_free_setup_turn Score_Plus5
 	if_user_can_probably_boost_safely Score_Plus5
-    if_this_attack_might_be_the_last Score_Minus5
+	goto AI_CV_SpAtkUp_SkipFreeSetupCheck
+
+AI_CV_SpAtkUp_FreeSetupNotWorth:
+	if_user_can_probably_boost_safely AI_CV_SpAtkUp_SkipFreeSetupCheck
+AI_CV_SpAtkUp_FreeSetupNotWorth_Minus2:
+	score -2
+AI_CV_SpAtkUp_SkipFreeSetupCheck:
+	if_this_attack_might_be_the_last Score_Minus5
 	if_stat_level_less_than AI_USER, STAT_SPATK, 9, AI_CV_SpAtkUp2
 	if_random_less_than 100, AI_CV_SpAtkUp3
 	score -1
@@ -1590,9 +1624,28 @@ AI_CV_SpAtkUp_End: @ 82DCCAD
 AI_CV_Growth:
 	if_stat_level_equal AI_USER, STAT_SPATK, 12, AI_CV_AttackUp_NotSwordsDance
 	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
+	if_has_move_with_effect AI_USER, EFFECT_BATON_PASS, AI_CV_Growth_ConsiderSetupEagerly
+	calculate_nhko
+	if_less_than 3, AI_CV_Growth_ConsiderSetupEagerly
+	if_more_than 3, AI_CV_Growth_FreeSetupNotWorth
+	if_stat_level_more_than AI_USER, STAT_ATK, 8, AI_CV_Growth_FreeSetupNotWorth
+	if_stat_level_less_than AI_USER, STAT_ATK, 3, AI_CV_Growth_FreeSetupNotWorth
+	if_stat_level_more_than AI_USER, STAT_SPATK, 8, AI_CV_Growth_FreeSetupNotWorth
+	if_stat_level_less_than AI_USER, STAT_SPATK, 3, AI_CV_Growth_FreeSetupNotWorth
+	if_user_can_probably_boost_safely Score_Plus2
+	goto AI_CV_Growth_FreeSetupNotWorth_Minus2
+
+AI_CV_Growth_ConsiderSetupEagerly:
 	if_free_setup_turn Score_Plus5
 	if_user_can_probably_boost_safely Score_Plus5
-    if_this_attack_might_be_the_last Score_Minus5
+	goto AI_CV_Growth_SkipFreeSetupCheck
+
+AI_CV_Growth_FreeSetupNotWorth:
+	if_user_can_probably_boost_safely AI_CV_Growth_SkipFreeSetupCheck
+AI_CV_Growth_FreeSetupNotWorth_Minus2:
+	score -2
+AI_CV_Growth_SkipFreeSetupCheck:
+	if_this_attack_might_be_the_last Score_Minus5
 	if_stat_level_less_than AI_USER, STAT_SPATK, 8, AI_CV_Growth2
 	if_stat_level_less_than AI_USER, STAT_ATK, 8, AI_CV_Growth2
 	if_random_less_than 100, AI_CV_Growth3
@@ -3123,8 +3176,25 @@ AI_CV_Thief_EncourageItemsToSteal:
 
 AI_CV_Curse:
 	if_type AI_USER, TYPE_GHOST, AI_CV_Curse_Ghost
-    if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
+	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
+	if_has_move_with_effect AI_USER, EFFECT_BATON_PASS, AI_CV_Curse_ConsiderSetupEagerly
+	calculate_nhko
+	if_less_than 3, AI_CV_Curse_ConsiderSetupEagerly
+	if_more_than 3, AI_CV_Curse_FreeSetupNotWorth
+	if_stat_level_more_than AI_USER, STAT_ATK, 8, AI_CV_Curse_FreeSetupNotWorth
+	if_stat_level_less_than AI_USER, STAT_ATK, 3, AI_CV_Curse_FreeSetupNotWorth
+	if_user_can_probably_boost_safely Score_Plus2
+	goto AI_CV_Curse_FreeSetupNotWorth_Minus2
+
+AI_CV_Curse_ConsiderSetupEagerly:
 	if_user_can_probably_boost_safely Score_Plus5
+	goto AI_CV_Curse_SkipFreeSetupCheck
+
+AI_CV_Curse_FreeSetupNotWorth:
+	if_user_can_probably_boost_safely AI_CV_Curse_SkipFreeSetupCheck
+AI_CV_Curse_FreeSetupNotWorth_Minus2:
+	score -2
+AI_CV_Curse_SkipFreeSetupCheck:
     if_user_faster AI_CV_Curse_CheckIfThisAttackMightBeTheLast
     if_stat_level_less_than AI_USER, STAT_DEF, 8, AI_CV_Curse_DoNotCheckIfThisAttackMightBeTheLast
 AI_CV_Curse_CheckIfThisAttackMightBeTheLast:
@@ -4228,8 +4298,25 @@ AI_CV_WaterSport_End:
 
 AI_CV_DragonDance:
 	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
-    if_free_setup_turn Score_Plus5
+	if_has_move_with_effect AI_USER, EFFECT_BATON_PASS, AI_CV_DragonDance_ConsiderSetupEagerly
+	calculate_nhko
+	if_less_than 3, AI_CV_DragonDance_ConsiderSetupEagerly
+	if_more_than 3, AI_CV_DragonDance_FreeSetupNotWorth
+	if_stat_level_more_than AI_USER, STAT_ATK, 8, AI_CV_DragonDance_FreeSetupNotWorth
+	if_stat_level_less_than AI_USER, STAT_ATK, 3, AI_CV_DragonDance_FreeSetupNotWorth
+	if_user_can_probably_boost_safely Score_Plus2
+	goto AI_CV_DragonDance_FreeSetupNotWorth_Minus2
+
+AI_CV_DragonDance_ConsiderSetupEagerly:
+	if_free_setup_turn Score_Plus5
 	if_user_can_probably_boost_safely Score_Plus5
+	goto AI_CV_DragonDance_SkipFreeSetupCheck
+
+AI_CV_DragonDance_FreeSetupNotWorth:
+	if_user_can_probably_boost_safely AI_CV_DragonDance_SkipFreeSetupCheck
+AI_CV_DragonDance_FreeSetupNotWorth_Minus2:
+	score -2
+AI_CV_DragonDance_SkipFreeSetupCheck:
 	if_this_attack_might_be_the_last Score_Minus5
 	if_target_faster AI_CV_DragonDance2
 	if_hp_more_than AI_USER, 50, AI_CV_DragonDance_End
