@@ -18000,11 +18000,11 @@ const struct BaseStats gBaseStats[] =
     [SPECIES_KLEAVOR] =
     {
         .baseHP        = 70,
-        .baseAttack    = 130,
+        .baseAttack    = 135,
         .baseDefense   = 95,
         .baseSpeed     = 85,
         .baseSpAttack  = 45,
-        .baseSpDefense = 75,
+        .baseSpDefense = 70,
         .type1 = TYPE_BUG,
         .type2 = TYPE_ROCK,
         .catchRate = 25,
