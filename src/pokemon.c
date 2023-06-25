@@ -4287,7 +4287,7 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
     if ((type == TYPE_STEEL || type == TYPE_ROCK || type == TYPE_GROUND) && attacker->ability == ABILITY_SAND_FORCE && WEATHER_HAS_EFFECT && gBattleWeather & WEATHER_SANDSTORM_ANY)
         gBattleMovePower = (130 * gBattleMovePower) / 100;
     if (type == TYPE_ELECTRIC && attacker->ability == ABILITY_TRANSISTOR)
-        gBattleMovePower = (150 * gBattleMovePower) / 100;
+        gBattleMovePower = (130 * gBattleMovePower) / 100;
     if (type == TYPE_DRAGON && attacker->ability == ABILITY_DRAGON_MAW)
         gBattleMovePower = (150 * gBattleMovePower) / 100;
     if (type == TYPE_GRASS && attacker->ability == ABILITY_OVERGROW && attacker->hp <= (attacker->maxHP / 3))
