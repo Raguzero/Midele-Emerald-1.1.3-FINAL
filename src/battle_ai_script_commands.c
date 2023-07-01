@@ -371,6 +371,7 @@ static const u16 sDamagingMovesMostlyUnaffectedByStatDrops[] =
 	MOVE_BIDE,
 	MOVE_PSYWAVE,
 	MOVE_SUPER_FANG,
+	MOVE_HOLA_REINA,
     0xFFFF
 };
 
