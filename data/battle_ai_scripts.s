@@ -2718,6 +2718,12 @@ AI_CV_Disable_TargetNotSleeping:
 	if_target_faster AI_CV_Disable_End
 AI_CV_Disable_OpponentIsNotExpectedToAttack:
 	get_last_used_bank_move AI_TARGET
+	get_move_effect_from_result
+	if_in_bytes AI_CV_Disable_DiscouragedMoveEffectsToDisable, Score_Minus5
+	if_not_in_bytes AI_CV_Disable_DiscouragedMoveEffectsToDisableWhenStatused, AI_CV_Disable_SkipEffectCheck
+	if_status AI_USER, STATUS1_PSN_ANY | STATUS1_BURN | STATUS1_PARALYSIS, Score_Minus5
+AI_CV_Disable_SkipEffectCheck:
+	get_last_used_bank_move AI_TARGET
 	get_move_power_from_result
 	if_equal 0, AI_CV_Disable2
 	score +1
@@ -2729,6 +2735,42 @@ AI_CV_Disable2:
 
 AI_CV_Disable_End:
 	end
+
+AI_CV_Disable_DiscouragedMoveEffectsToDisable:
+    .byte EFFECT_FAKE_OUT
+    .byte EFFECT_RAIN_DANCE
+    .byte EFFECT_SUNNY_DAY
+    .byte EFFECT_HAIL
+    .byte EFFECT_SANDSTORM
+    .byte EFFECT_SAFEGUARD
+    .byte EFFECT_REFLECT
+    .byte EFFECT_LIGHT_SCREEN
+    .byte EFFECT_WATER_SPORT
+    .byte EFFECT_MUD_SPORT
+    .byte EFFECT_MIST
+    .byte EFFECT_MEAN_LOOK
+    .byte EFFECT_PERISH_SONG
+    .byte EFFECT_BELLY_DRUM
+    .byte EFFECT_FUTURE_SIGHT
+    .byte EFFECT_INGRAIN
+    .byte EFFECT_IMPRISON
+    .byte EFFECT_SPLASH
+    .byte EFFECT_TELEPORT
+    .byte EFFECT_MEMENTO
+    .byte EFFECT_EXPLOSION
+    .byte EFFECT_FOCUS_ENERGY
+    .byte EFFECT_SKETCH
+    .byte EFFECT_CAMOUFLAGE
+    .byte -1
+
+AI_CV_Disable_DiscouragedMoveEffectsToDisableWhenStatused:
+    .byte EFFECT_POISON
+    .byte EFFECT_TOXIC
+    .byte EFFECT_WILL_O_WISP
+    .byte EFFECT_PARALYZE
+    .byte EFFECT_SLEEP
+    .byte EFFECT_YAWN
+    .byte -1
 
 
 @ Si el rival le usa movimientos con estos efectos a la IA y esta
@@ -2897,6 +2939,7 @@ AI_CV_Encore_EncouragedMovesToEncore:
     .byte EFFECT_PARALYZE
     .byte EFFECT_LEECH_SEED
     .byte EFFECT_SPLASH
+    .byte EFFECT_TELEPORT
     .byte EFFECT_ATTACK_UP_2
     .byte EFFECT_ENCORE
     .byte EFFECT_CONVERSION_2
@@ -2932,7 +2975,6 @@ AI_CV_Encore_EncouragedMovesToEncore:
     .byte EFFECT_INGRAIN
     .byte EFFECT_RECYCLE
     .byte EFFECT_KNOCK_OFF
-    .byte EFFECT_SKILL_SWAP
     .byte EFFECT_IMPRISON
     .byte EFFECT_REFRESH
     .byte EFFECT_GRUDGE
@@ -2946,6 +2988,9 @@ AI_CV_Encore_EncouragedMovesToEncore:
     .byte EFFECT_SPECIAL_ATTACK_UP_2
     .byte EFFECT_SPECIAL_ATTACK_UP_3
     .byte EFFECT_SPEED_UP_2
+    .byte EFFECT_MEMENTO
+    .byte EFFECT_EXPLOSION
+    .byte EFFECT_FOCUS_ENERGY
     .byte -1
 
 AI_CV_PainSplit:
