@@ -1418,9 +1418,11 @@ AI_CV_Rollout3:
 	if_status AI_TARGET, STATUS1_SLEEP | STATUS1_FREEZE, Score_Plus2
 	end
 
+AI_CV_SwordsDance:
+	if_stat_level_less_than AI_USER, STAT_ATK, 8, AI_CV_AttackUp_NotInATimer
 AI_CV_AttackUp_NotSwordsDance:
 	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
-AI_CV_SwordsDance: @ 82DCBBC
+AI_CV_AttackUp_NotInATimer:
 	if_has_move_with_effect AI_USER, EFFECT_BATON_PASS, AI_CV_AttackUp_ConsiderSetupEagerly
 	calculate_nhko
 	if_less_than 3, AI_CV_AttackUp_ConsiderSetupEagerly
@@ -1577,9 +1579,11 @@ AI_CV_SpeedUp2: @ 82DCC6A
 AI_CV_SpeedUp_End: @ 82DCC72
 	end
 
+AI_CV_SpAtkUpNPTG:
+	if_stat_level_less_than AI_USER, STAT_SPATK, 8, AI_CV_SpAtkUp_NotInATimer
 AI_CV_SpAtkUp_NotNastyPlotOrTailGlow:
 	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
-AI_CV_SpAtkUpNPTG: @ 82DCC73
+AI_CV_SpAtkUp_NotInATimer:
 	if_has_move_with_effect AI_USER, EFFECT_BATON_PASS, AI_CV_SpAtkUp_ConsiderSetupEagerly
 	calculate_nhko
 	if_less_than 3, AI_CV_SpAtkUp_ConsiderSetupEagerly
