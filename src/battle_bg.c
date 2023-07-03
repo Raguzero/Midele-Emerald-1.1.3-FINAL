@@ -377,6 +377,15 @@ static const struct WindowTemplate gStandardBattleWindowTemplates[] =
         .paletteNum = 0,
         .baseBlock = 0x00b0,
     },
+	{
+        .bg = 0,
+        .tilemapLeft = 1,
+        .tilemapTop = 47,
+        .width = 18,
+        .height = 6,
+        .paletteNum = 5,
+        .baseBlock = 0x0350,
+    },
     DUMMY_WIN_TEMPLATE
 };
 
@@ -588,6 +597,15 @@ static const struct WindowTemplate gBattleArenaWindowTemplates[] =
         .height = 4,
         .paletteNum = 7,
         .baseBlock = 0x0090,
+    },
+	{
+        .bg = 0,
+        .tilemapLeft = 1,
+        .tilemapTop = 47,
+        .width = 18,
+        .height = 6,
+        .paletteNum = 5,
+        .baseBlock = 0x0350,
     },
     DUMMY_WIN_TEMPLATE
 };

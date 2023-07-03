@@ -151,3 +151,4 @@
     .include "src/midele_misc_scripts.o"
 	.include "src/debug.o"
 	.include "src/music_player.o"
+	.include "src/battle_controller_player.o"
