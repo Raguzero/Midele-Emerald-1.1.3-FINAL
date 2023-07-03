@@ -5289,12 +5289,20 @@ static const union AnimCmd sAnim_GRUBBIN_1[] =
 
 static const union AnimCmd sAnim_CHARJABUG_1[] =
 {
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 15),
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
 
 static const union AnimCmd sAnim_VIKAVOLT_1[] =
 {
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 10),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 10),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 10),
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };

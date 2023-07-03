@@ -8276,8 +8276,6 @@ bool8 HasTwoFramesAnimation(u16 species)
             && species != SPECIES_UNOWN
             && species != SPECIES_GALAR_YAMASK
             && species != SPECIES_THWACKEY
-		    && species != SPECIES_CHARJABUG
-			&& species != SPECIES_VIKAVOLT
 		    && species != SPECIES_DARTRIX
 			&& species != SPECIES_DECIDUEYE
 		    && species != SPECIES_POPPLIO
