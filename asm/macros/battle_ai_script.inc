@@ -741,11 +741,15 @@
     if_has_move_with_effect \battler, EFFECT_SHORE_UP, \ptr
     if_has_move_with_effect \battler, EFFECT_SYNTHESIS, \ptr
     .endm
+
+  .macro if_perish_song_about_to_trigger battler:req, ptr:req
+    if_perish_song_not_about_to_trigger \battler, .AI_perish_song_not_about_to_trigger_\@
+    goto \ptr
+    .AI_perish_song_not_about_to_trigger_\@:
+    .endm
 	
 	.macro if_this_attack_might_be_the_last ptr:req
-    if_perish_song_not_about_to_trigger AI_USER, .AI_check_locked_on_\@
-    goto \ptr
-    .AI_check_locked_on_\@:
+    if_perish_song_about_to_trigger AI_USER, \ptr
     if_not_status3 AI_USER, STATUS3_ALWAYS_HITS, .AI_not_locked_on_\@
     if_ability AI_USER, ABILITY_STURDY, .AI_skip_evasion_check_\@
     if_ability AI_USER, ABILITY_WONDER_GUARD, .AI_skip_evasion_check_\@
