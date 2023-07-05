@@ -514,6 +514,7 @@ AI_CBM_Mist: @ 82DC507
 
 AI_CBM_FocusEnergy: @ 82DC512
 	if_status2 AI_USER, STATUS2_FOCUS_ENERGY, Score_Minus10
+	if_perish_song_about_to_trigger AI_USER, Score_Minus10
 	if_this_attack_might_be_the_last Score_Minus5
 	end
 
@@ -565,6 +566,7 @@ AI_CBM_Paralyze_Synchronize:
 AI_CBM_Substitute: @ 82DC568
     if_hp_condition USER_CANNOT_USE_SUB, Score_Minus10
     if_status2 AI_USER, STATUS2_SUBSTITUTE, Score_Minus8
+    if_perish_song_about_to_trigger AI_USER, Score_Minus8
     if_next_turn_target_might_use_move_with_effect EFFECT_ROAR, AI_CBM_Minus8IfAICanBePhazed
     end
 
@@ -797,9 +799,9 @@ AI_CBM_Trick: @ 82DC6EB
 
 AI_CBM_Ingrain: @ 82DC6F4
 	if_status3 AI_USER, STATUS3_ROOTED, Score_Minus10
-	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
-	if_status2 AI_USER, STATUS2_CURSED, Score_Minus5
-	if_status3 AI_USER, STATUS3_PERISH_SONG, Score_Minus5
+	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus8
+	if_status2 AI_USER, STATUS2_CURSED, Score_Minus8
+	if_status3 AI_USER, STATUS3_PERISH_SONG, Score_Minus8
 	if_this_attack_might_be_the_last Score_Minus5
 	end
 
@@ -1424,8 +1426,10 @@ AI_CV_Rollout3:
 AI_CV_SwordsDance:
 	if_stat_level_less_than AI_USER, STAT_ATK, 8, AI_CV_AttackUp_NotInATimer
 AI_CV_AttackUp_NotSwordsDance:
+	if_status3 AI_USER, STATUS3_PERISH_SONG, Score_Minus5
 	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
 AI_CV_AttackUp_NotInATimer:
+	if_perish_song_about_to_trigger AI_USER, Score_Minus5
 	if_has_move_with_effect AI_USER, EFFECT_BATON_PASS, AI_CV_AttackUp_ConsiderSetupEagerly
 	calculate_nhko
 	if_less_than 3, AI_CV_AttackUp_ConsiderSetupEagerly
@@ -1468,6 +1472,7 @@ AI_CV_AttackUp_End: @ 82DCBF6
 	end
 
 AI_CV_DefenseUp: @ 82DCBF7
+    if_status3 AI_USER, STATUS3_PERISH_SONG, Score_Minus5
     if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
     if_stat_level_less_than AI_USER, STAT_DEF, 8, AI_CV_DefenseUp_DoNotCheckIfThisAttackMightBeTheLast
     if_this_attack_might_be_the_last Score_Minus5
@@ -1523,6 +1528,7 @@ AI_CV_DefenseUp_PhysicalTypes: @ 82DCC53
     .byte -1
 
 AI_CV_SpeedUp: @ 82DCC5D
+	if_status3 AI_USER, STATUS3_PERISH_SONG, Score_Minus5
 	count_usable_party_mons AI_USER
 	if_equal 0, AI_CV_SpeedUp_NoBatonPass
 	if_has_move_with_effect AI_USER, EFFECT_BATON_PASS, AI_CV_SpeedUp_HasBatonPass
@@ -1585,8 +1591,10 @@ AI_CV_SpeedUp_End: @ 82DCC72
 AI_CV_SpAtkUpNPTG:
 	if_stat_level_less_than AI_USER, STAT_SPATK, 8, AI_CV_SpAtkUp_NotInATimer
 AI_CV_SpAtkUp_NotNastyPlotOrTailGlow:
+	if_status3 AI_USER, STATUS3_PERISH_SONG, Score_Minus5
 	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
 AI_CV_SpAtkUp_NotInATimer:
+	if_perish_song_about_to_trigger AI_USER, Score_Minus5
 	if_has_move_with_effect AI_USER, EFFECT_BATON_PASS, AI_CV_SpAtkUp_ConsiderSetupEagerly
 	calculate_nhko
 	if_less_than 3, AI_CV_SpAtkUp_ConsiderSetupEagerly
@@ -1630,6 +1638,7 @@ AI_CV_SpAtkUp_End: @ 82DCCAD
 
 AI_CV_Growth:
 	if_stat_level_equal AI_USER, STAT_SPATK, 12, AI_CV_AttackUp_NotSwordsDance
+	if_status3 AI_USER, STATUS3_PERISH_SONG, Score_Minus5
 	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
 	if_has_move_with_effect AI_USER, EFFECT_BATON_PASS, AI_CV_Growth_ConsiderSetupEagerly
 	calculate_nhko
@@ -1677,6 +1686,7 @@ AI_CV_Growth_End:
 	
 AI_CV_CosmicPower:
     if_stat_level_equal AI_USER, STAT_SPDEF, 12, AI_CV_DefenseUp
+    if_status3 AI_USER, STATUS3_PERISH_SONG, Score_Minus5
     if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
     if_stat_level_less_than AI_USER, STAT_SPDEF, 8, AI_CV_CosmicPower_DoNotCheckIfThisAttackMightBeTheLast
     if_stat_level_less_than AI_USER, STAT_DEF, 8, AI_CV_CosmicPower_DoNotCheckIfThisAttackMightBeTheLast
@@ -1709,6 +1719,7 @@ AI_CV_CosmicPower_End:
     end
 
 AI_CV_SpDefUp: @ 82DCCAE
+    if_status3 AI_USER, STATUS3_PERISH_SONG, Score_Minus5
     if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
     if_stat_level_less_than AI_USER, STAT_SPDEF, 8, AI_CV_SpDefUp_DoNotCheckIfThisAttackMightBeTheLast
     if_this_attack_might_be_the_last Score_Minus5
@@ -2269,6 +2280,7 @@ AI_CV_HealWeather_ScoreDown2:
 	score -2
 
 AI_CV_Heal:
+	if_perish_song_about_to_trigger AI_USER, Score_Minus8
 	if_hp_equal AI_USER, 100, AI_CV_Heal3_PlentyOfHP
 	if_target_faster AI_CV_Heal4
 	
@@ -2383,6 +2395,7 @@ AI_CV_LightScreen_SpecialTypeList:
 AI_CV_Rest:
 	if_ability AI_USER, ABILITY_INSOMNIA, Score_Minus10
 	if_ability AI_USER, ABILITY_VITAL_SPIRIT, Score_Minus10
+	if_perish_song_about_to_trigger AI_USER, Score_Minus8
 	if_target_faster AI_CV_Rest4
 	if_hp_not_equal AI_USER, 100, AI_CV_Rest2
 	score -8
@@ -2722,7 +2735,7 @@ AI_CV_Disable:
     if_target_not_expected_to_be_asleep_assuming_equal_priority AI_CV_Disable_TargetNotSleeping
     goto AI_CV_Disable_OpponentIsNotExpectedToAttack
 AI_CV_Disable_TargetNotSleeping:
-	if_target_faster AI_CV_Disable_End
+	if_target_faster AI_CV_Disable_TargetIsFaster
 AI_CV_Disable_OpponentIsNotExpectedToAttack:
 	get_last_used_bank_move AI_TARGET
 	if_equal MOVE_NONE, Score_Minus8
@@ -2743,6 +2756,10 @@ AI_CV_Disable2:
 
 AI_CV_Disable_End:
 	end
+
+AI_CV_Disable_TargetIsFaster:
+	if_perish_song_about_to_trigger AI_TARGET, Score_Minus8
+	goto AI_CV_Disable_End
 
 AI_CV_Disable_DiscouragedMoveEffectsToDisable:
     .byte EFFECT_FAKE_OUT
@@ -2806,6 +2823,7 @@ AI_CV_EvasionUpEffects:
 AI_CV_Counter:
     if_hp_condition USER_HAS_1_HP, Score_Minus10
     if_target_wont_attack_due_to_truant Score_Minus10
+    if_perish_song_about_to_trigger AI_TARGET, Score_Minus10
     get_possible_categories_of_foes_attacks
     if_equal AI_SPECIAL_ONLY, Score_Minus10
     if_equal AI_NO_DAMAGING_MOVES, Score_Minus10
@@ -2912,6 +2930,7 @@ AI_CV_Encore2:
     goto AI_CV_Encore_End
 
 AI_CV_Encore_TargetIsFaster:
+    if_perish_song_about_to_trigger AI_TARGET, Score_Minus5
     get_last_used_bank_move AI_TARGET
     if_not_equal MOVE_NONE, AI_CV_Encore_TargetIsFaster_TargetHasAttackedOrIsExpectedToAttack
     if_status AI_TARGET, STATUS1_FREEZE, Score_Minus5
@@ -3031,6 +3050,7 @@ AI_CV_LockOn:
 	if_target_expected_to_be_statused_assuming_equal_priority AI_CV_LockOn_SkipMinus1ForSpore
 	score -1
 AI_CV_LockOn_SkipMinus1ForSpore:
+	if_perish_song_about_to_trigger AI_USER, Score_Minus5
 	if_doesnt_have_non_ineffective_move_with_effect AI_USER, EFFECT_OHKO, AI_CV_LockOn_NoChanceToOHKOInFreeTurn
 	if_ability_might_be AI_TARGET, ABILITY_STURDY, AI_CV_LockOn_NoChanceToOHKOInFreeTurn
 	if_level_cond AI_LEVEL_IS_LESS_THAN_TARGETS, AI_CV_LockOn_NoChanceToOHKOInFreeTurn
@@ -3229,6 +3249,7 @@ AI_CV_Thief_EncourageItemsToSteal:
 
 AI_CV_Curse:
 	if_type AI_USER, TYPE_GHOST, AI_CV_Curse_Ghost
+	if_status3 AI_USER, STATUS3_PERISH_SONG, Score_Minus5
 	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
 	if_has_move_with_effect AI_USER, EFFECT_BATON_PASS, AI_CV_Curse_ConsiderSetupEagerly
 	calculate_nhko
@@ -3630,6 +3651,7 @@ AI_CV_SunnyDay_End:
 	end
 
 AI_CV_BellyDrum:
+	if_perish_song_about_to_trigger AI_USER, Score_Minus8
 	if_hp_condition USER_CANNOT_USE_BELLY_DRUM, AI_CV_BellyDrum_ScoreDown2
 	if_status2 AI_USER, STATUS2_SUBSTITUTE, Score_Plus1
 	if_hp_less_than AI_USER, 90, AI_CV_BellyDrum_ScoreDown2
@@ -4254,6 +4276,7 @@ AI_CV_Refresh:
 
 AI_CV_Snatch:
 	if_target_wont_attack_due_to_truant Score_Minus10
+	if_perish_song_about_to_trigger AI_TARGET, Score_Minus5
 	is_first_turn_for AI_USER
 	if_equal 1, AI_CV_Snatch3
 	if_random_less_than 30, AI_CV_Snatch_End
@@ -4349,6 +4372,7 @@ AI_CV_WaterSport_End:
 	end
 
 AI_CV_Spite:
+	if_perish_song_about_to_trigger AI_TARGET, AI_CV_Spite_Discourage
 	if_target_faster AI_CV_Spite_End
 	get_last_used_bank_move AI_TARGET
 	if_equal MOVE_NONE, AI_CV_Spite_Discourage
@@ -4361,6 +4385,7 @@ AI_CV_Spite_End:
 	end
 
 AI_CV_DragonDance:
+	if_status3 AI_USER, STATUS3_PERISH_SONG, Score_Minus5
 	if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
 	if_has_move_with_effect AI_USER, EFFECT_BATON_PASS, AI_CV_DragonDance_ConsiderSetupEagerly
 	calculate_nhko
