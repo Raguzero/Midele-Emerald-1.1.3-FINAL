@@ -1181,6 +1181,7 @@ AI_CheckViability_CheckEffects:
 	if_effect EFFECT_COIL, AI_CV_AttackUp_NotSwordsDance
 	if_effect EFFECT_QUIVER_DANCE, AI_CV_SpAtkUp_NotNastyPlotOrTailGlow
 	if_effect EFFECT_STOCKPILE, AI_CV_CosmicPower
+	if_effect EFFECT_SPITE, AI_CV_Spite
 	end
 
 AI_CV_Sleep: @ 82DCA92
@@ -1272,16 +1273,18 @@ AI_CV_DreamEater_End: @ 82DCB39
 	end
 
 AI_CV_MirrorMove: @ 82DCB3A
-	if_target_faster AI_CV_MirrorMove2
+	if_target_faster AI_CV_MirrorMove_TargetIsFaster
 	get_last_used_bank_move AI_TARGET
+	if_equal MOVE_NONE, Score_Minus8
 	if_not_in_hwords AI_CV_MirrorMove_EncouragedMovesToMirror, AI_CV_MirrorMove2
 	if_random_less_than 128, AI_CV_MirrorMove_End
 	score +2
 	goto AI_CV_MirrorMove_End
 
-AI_CV_MirrorMove2: @ 82DCB58
+AI_CV_MirrorMove_TargetIsFaster: @ 82DCB58
 	get_last_used_bank_move AI_TARGET
 	if_in_hwords AI_CV_MirrorMove_EncouragedMovesToMirror, AI_CV_MirrorMove_End
+AI_CV_MirrorMove2:
 	if_random_less_than 80, AI_CV_MirrorMove_End
 	score -1
 
@@ -2722,6 +2725,7 @@ AI_CV_Disable_TargetNotSleeping:
 	if_target_faster AI_CV_Disable_End
 AI_CV_Disable_OpponentIsNotExpectedToAttack:
 	get_last_used_bank_move AI_TARGET
+	if_equal MOVE_NONE, Score_Minus8
 	get_move_effect_from_result
 	if_in_bytes AI_CV_Disable_DiscouragedMoveEffectsToDisable, Score_Minus5
 	if_not_in_bytes AI_CV_Disable_DiscouragedMoveEffectsToDisableWhenStatused, AI_CV_Disable_SkipEffectCheck
@@ -4342,6 +4346,18 @@ AI_CV_WaterSport_ScoreDown1:
 	score -1
 
 AI_CV_WaterSport_End:
+	end
+
+AI_CV_Spite:
+	if_target_faster AI_CV_Spite_End
+	get_last_used_bank_move AI_TARGET
+	if_equal MOVE_NONE, AI_CV_Spite_Discourage
+	if_target_probably_cannot_repeat_last_effect Score_Minus2
+	goto AI_CV_Spite_End
+
+AI_CV_Spite_Discourage:
+	score -6
+AI_CV_Spite_End:
 	end
 
 AI_CV_DragonDance:
