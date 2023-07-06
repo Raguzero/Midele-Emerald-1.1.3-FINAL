@@ -30,10 +30,17 @@
 #define AI_WEATHER_HAIL 4
 
 // get_how_powerful_move_is
+#define MOVE_HAS_ZERO_OR_UNPREDICTABLE_POWER         0
 #define MOVE_POWER_DISCOURAGED_AND_NOT_MOST_POWERFUL 1
 #define MOVE_NOT_MOST_POWERFUL                       2
 #define MOVE_POWER_DISCOURAGED                       3
 #define MOVE_MOST_POWERFUL                           4
+
+// if_level_cond
+#define AI_LEVEL_IS_GREATER_THAN_TARGETS 0
+#define AI_LEVEL_IS_LESS_THAN_TARGETS    1
+#define AI_LEVEL_IS_EQUAL_TO_TARGETS     2
+#define AI_LEVEL_IS_AT_MOST_2            3
 
 // if_hp_condition
 #define TARGET_HAS_1_HP                0
@@ -45,6 +52,11 @@
 #define USER_CANNOT_USE_BELLY_DRUM     6
 
 #define AI_NHKO_PESSIMISTIC 4
+
+// if_can_faint_with_threshold
+#define AI_FAINT_THRESHOLD_PESSIMISTIC 0
+#define AI_FAINT_THRESHOLD_RANDOM      1
+#define AI_FAINT_THRESHOLD_OPTIMISTIC  2
 
 #define AI_LAST_EFFECT_BY_TARGET 0xFF
 

@@ -1674,15 +1674,41 @@ void PrepareDynamicMoveTypeAndDamageForAI_CalcDmg(u8 attacker, u8 defender)
 	else if (gCurrentMove == MOVE_LOW_KICK)
         gDynamicBasePower = CalculateWeightDamagePower(defender);
     else if (gCurrentMove == MOVE_RETURN)
+    {
         gDynamicBasePower = 10 * (gBattleMons[attacker].friendship) / 25;
+        if (gDynamicBasePower == 0)
+            gDynamicBasePower = 1;
+    }
     else if (gCurrentMove == MOVE_FRUSTRATION)
+    {
         gDynamicBasePower = 10 * (255 - gBattleMons[attacker].friendship) / 25;
+        if (gDynamicBasePower == 0)
+            gDynamicBasePower = 1;
+    }
     else if (gBattleMoves[gCurrentMove].effect == EFFECT_FLAIL)
         gDynamicBasePower = CalculateFlailPower(attacker);
     else if (gCurrentMove == MOVE_PRESENT)
         gDynamicBasePower = 60;   // potencia mediana, sin tener en cuenta que puede no hacer daño
     else if (gCurrentMove == MOVE_MAGNITUDE)
         gDynamicBasePower = 71;   // potencia promedio de Magnitud
+}
+
+// Aplica los modificadores de daño por tipos teniendo en cuenta que tendrá STAB si la habilidad es Protean
+u8 TypeCalc_HandleProtean(u16 move, u8 attacker, u8 defender)
+{
+    if (gBattleMons[attacker].ability == ABILITY_PROTEAN)
+    {
+        u8 flags;
+        u8 type1 = gBattleMons[attacker].type1, type2 = gBattleMons[attacker].type2;
+
+        gBattleMons[attacker].type1 = gBattleMons[attacker].type2 = gBattleMoves[move].type;
+        flags = TypeCalc(move, attacker, defender);
+
+        gBattleMons[attacker].type1 = type1;
+        gBattleMons[attacker].type2 = type2;
+        return flags;
+    }
+    return TypeCalc(move, attacker, defender);
 }
 
 void AI_CalcDmg(u8 attacker, u8 defender)
@@ -1693,11 +1719,14 @@ void AI_CalcDmg(u8 attacker, u8 defender)
 	if (gBattleMons[defender].ability == ABILITY_BATTLE_ARMOR || gBattleMons[defender].ability == ABILITY_SHELL_ARMOR || (gStatuses3[attacker] & STATUS3_CANT_SCORE_A_CRIT))
         gCritMultiplier = 1;
 
+    if (gBattleMoves[gCurrentMove].effect == EFFECT_BRICK_BREAK)
+        sideStatus &= ~(SIDE_STATUS_REFLECT | SIDE_STATUS_LIGHTSCREEN);
+
 	gBattleMoveDamage = CalculateBaseDamage(&gBattleMons[attacker], &gBattleMons[defender], gCurrentMove,
                                             sideStatus, gDynamicBasePower,
                                             gBattleStruct->dynamicMoveType, attacker, defender);
     gDynamicBasePower = 0;
-    flags = TypeCalc(gCurrentMove, attacker, defender);
+    flags = TypeCalc_HandleProtean(gCurrentMove, attacker, defender);
     if (flags & (MOVE_RESULT_MISSED | MOVE_RESULT_DOESNT_AFFECT_FOE)) {
         gBattleMoveDamage = 0;
         return;

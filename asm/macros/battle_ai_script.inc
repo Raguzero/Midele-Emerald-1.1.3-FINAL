@@ -357,9 +357,10 @@
 	.4byte \param3
 	.endm
 
-	.macro if_can_faint param0:req
+	.macro if_can_faint_with_threshold param0:req ptr:req
 	.byte 0x3d
-	.4byte \param0
+	.byte \param0
+	.4byte \ptr
 	.endm
 
 	.macro if_cant_faint param0:req
@@ -650,6 +651,16 @@
 	.4byte \param2
 	.endm
 
+	.macro if_move_is_contactless ptr:req
+	.byte 0x74
+	.4byte \ptr
+	.endm
+
+	.macro if_target_will_be_faster_after_this_effect ptr:req
+	.byte 0x75
+	.4byte \ptr
+	.endm
+
 @ useful script macros
 	.macro get_curr_move_type
 	get_type AI_TYPE_MOVE
@@ -730,27 +741,42 @@
     if_has_move_with_effect \battler, EFFECT_SHORE_UP, \ptr
     if_has_move_with_effect \battler, EFFECT_SYNTHESIS, \ptr
     .endm
+
+  .macro if_perish_song_about_to_trigger battler:req, ptr:req
+    if_perish_song_not_about_to_trigger \battler, .AI_perish_song_not_about_to_trigger_\@
+    goto \ptr
+    .AI_perish_song_not_about_to_trigger_\@:
+    .endm
 	
 	.macro if_this_attack_might_be_the_last ptr:req
+    if_perish_song_about_to_trigger AI_USER, \ptr
+    if_not_status3 AI_USER, STATUS3_ALWAYS_HITS, .AI_not_locked_on_\@
+    if_ability AI_USER, ABILITY_STURDY, .AI_skip_evasion_check_\@
+    if_ability AI_USER, ABILITY_WONDER_GUARD, .AI_skip_evasion_check_\@
+    if_level_cond AI_LEVEL_IS_GREATER_THAN_TARGETS, .AI_skip_evasion_check_\@
+    if_status2 AI_USER, STATUS2_SUBSTITUTE, .AI_skip_evasion_check_\@
+    if_next_turn_target_might_use_move_with_effect EFFECT_OHKO, \ptr
+    goto .AI_skip_evasion_check_\@
+    .AI_not_locked_on_\@:
     @ Si tiene la Evasión subida, tiene una pequeña probabilidad de jugársela
     @ (7/8 a +2 o +3, 49/64 a +4 o más)
     @ (la probabilidad de jugársela en alguno de los turnos en los que se está 
     @ subiendo la Evasión hasta +6 es de aproximadamente un 49%)
-    if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_ALWAYS_HIT, .AI_skip_evasion_check_\@
     if_stat_level_less_than AI_USER, STAT_EVASION, 8, .AI_skip_evasion_check_\@
+    if_status2 AI_USER, STATUS2_FORESIGHT, .AI_skip_evasion_check_\@
+    if_ability AI_USER, ABILITY_NO_GUARD, .AI_skip_evasion_check_\@
+    if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_ALWAYS_HIT, .AI_skip_evasion_check_\@
+    if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_VITAL_THROW, .AI_skip_evasion_check_\@
+    if_ability_might_be AI_TARGET, ABILITY_KEEN_EYE, .AI_skip_evasion_check_\@
+    if_ability_might_be AI_TARGET, ABILITY_NO_GUARD, .AI_skip_evasion_check_\@
     if_random_less_than 32, \ptr
     if_stat_level_less_than AI_USER, STAT_EVASION, 10, .AI_skip_evasion_check_\@
     if_random_less_than 32, \ptr
     .AI_skip_evasion_check_\@:
     calculate_nhko AI_TARGET
-	if_equal 1, .AI_attack_is_the_last_unless_faster_and_with_sub\@
+    if_equal 1, \ptr
     if_more_than 2, .AI_attack_is_probably_not_the_last_\@
-    if_status2 AI_USER, STATUS2_SUBSTITUTE, .AI_attack_is_probably_not_the_last_\@
-    if_target_faster \ptr
-    goto .AI_attack_is_probably_not_the_last_\@
-    .AI_attack_is_the_last_unless_faster_and_with_sub\@:
-    if_not_status2 AI_USER, STATUS2_SUBSTITUTE, \ptr
-    if_target_faster \ptr
+    if_target_will_be_faster_after_this_effect \ptr
 	.AI_attack_is_probably_not_the_last_\@:
     .endm
 	
@@ -767,13 +793,15 @@
 	if_target_wont_attack_due_to_truant \ptr
     if_hp_less_than AI_USER, 100, .AI_no_free_setup_\@
     if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_QUICK_ATTACK, .AI_no_free_setup_\@
+    get_weather
+    if_user_receives_damage_from_stored_weather .AI_no_free_setup_\@
     if_ability AI_USER, ABILITY_STURDY, \ptr
     if_holds_item AI_USER, ITEM_FOCUS_SASH, \ptr
     .AI_no_free_setup_\@:
     .endm
 
     .macro if_free_setup_turn ptr:req
-    if_target_faster .AI_no_free_setup_\@
+    if_target_will_be_faster_after_this_effect .AI_no_free_setup_\@
     if_free_setup_turn_assuming_target_will_be_slower \ptr
     .AI_no_free_setup_\@:
     .endm
@@ -797,23 +825,31 @@
    @ Determina que el usuario puede boostearse tranquilamente:
     @ - Si el rival no puede debilitarlo en 3 golpes (ni con movs desconocidos probables), o si está durmiendo (y no tiene Sleep Talk) o congelado y no puede debilitarlo en 2 golpes
     @ - Escenario A: Si tiene movs de curación del 50% y el rival no puede debilitarlo en 2 golpes
-    @ - Escenario B: Si tiene movs de curación (incluido Rest), el mov boostea la defensa por la que
-    @    ataca el rival, el usuario tiene Restos (o con Rest, Chesto o Lum Berry) y el rival no hace OHKO
+    @ - Escenario B: Si tiene movs de curación (incluido Rest), el mov boostea la defensa
+    @    por la que ataca el rival, el usuario tiene Restos y no pierde PS por status o clima
+    @    (o, con Rest, tiene Chesto o Lum Berry), y el rival no hace OHKO
     @ (si el usuario es más lento, hace lo mismo pero exigiendo un golpe más)
 	@ No considera seguro boostearse si está intoxicado o si puede recibir Taunt
     @ o si puede recibir Haze o movs de phazeo
 	.macro if_user_can_probably_boost_safely ptr:req
 	if_user_is_intoxicated_and_does_not_have_baton_pass .AI_user_might_not_be_able_to_boost_safely_\@
     if_status3 AI_USER, STATUS3_PERISH_SONG, .AI_user_might_not_be_able_to_boost_safely_\@
+    if_status2 AI_USER, STATUS2_CURSED | STATUS2_INFATUATION, .AI_user_might_not_be_able_to_boost_safely_\@
     if_next_turn_target_might_use_move_with_effect EFFECT_HAZE, .AI_user_might_not_be_able_to_boost_safely_\@
     if_next_turn_target_might_use_move_with_effect EFFECT_ROAR, .AI_check_if_user_can_be_phazed_\@
+    .AI_no_problem_with_phazing_\@:
+    if_not_status3 AI_USER, STATUS3_ALWAYS_HITS, .AI_everything_ok_calculate_nhko_\@
+    if_ability AI_USER, ABILITY_STURDY, .AI_everything_ok_calculate_nhko_\@
+    if_ability AI_USER, ABILITY_WONDER_GUARD, .AI_everything_ok_calculate_nhko_\@
+    if_level_cond AI_LEVEL_IS_GREATER_THAN_TARGETS, .AI_everything_ok_calculate_nhko_\@
+    if_next_turn_target_might_use_move_with_effect EFFECT_OHKO, .AI_user_might_not_be_able_to_boost_safely_\@
     goto .AI_everything_ok_calculate_nhko_\@
 
     .AI_check_if_user_can_be_phazed_\@:
     count_usable_party_mons AI_USER
-    if_equal 0, .AI_everything_ok_calculate_nhko_\@
-    if_ability AI_USER, ABILITY_SUCTION_CUPS, .AI_everything_ok_calculate_nhko_\@
-    if_status3 AI_USER, STATUS3_ROOTED, .AI_everything_ok_calculate_nhko_\@
+    if_equal 0, .AI_no_problem_with_phazing_\@
+    if_ability AI_USER, ABILITY_SUCTION_CUPS, .AI_no_problem_with_phazing_\@
+    if_status3 AI_USER, STATUS3_ROOTED, .AI_no_problem_with_phazing_\@
     goto .AI_user_might_not_be_able_to_boost_safely_\@
 
     .AI_everything_ok_calculate_nhko_\@:
@@ -838,27 +874,32 @@
     if_has_a_50_percent_hp_recovery_move AI_USER, \ptr
     .AI_check_scenario_B_\@:
     get_possible_categories_of_foes_attacks
-    if_effect EFFECT_BULK_UP, .AI_check_scenario_B_move_boosts_physical_defense\@
-    if_effect EFFECT_CURSE, .AI_check_scenario_B_move_boosts_physical_defense\@
-    if_effect EFFECT_COIL, .AI_check_scenario_B_move_boosts_physical_defense\@
-    if_effect EFFECT_CALM_MIND, .AI_check_scenario_B_move_boosts_special_defense\@
-    if_effect EFFECT_QUIVER_DANCE, .AI_check_scenario_B_move_boosts_special_defense\@
+    if_effect EFFECT_BULK_UP, .AI_check_scenario_B_move_boosts_physical_defense_\@
+    if_effect EFFECT_CURSE, .AI_check_scenario_B_move_boosts_physical_defense_\@
+    if_effect EFFECT_COIL, .AI_check_scenario_B_move_boosts_physical_defense_\@
+    if_effect EFFECT_CALM_MIND, .AI_check_scenario_B_move_boosts_special_defense_\@
+    if_effect EFFECT_QUIVER_DANCE, .AI_check_scenario_B_move_boosts_special_defense_\@
     goto .AI_user_might_not_be_able_to_boost_safely_\@
 
-    .AI_check_scenario_B_move_boosts_physical_defense\@:
-    if_equal AI_PHYSICAL_ONLY, .AI_check_scenario_B_move_boosts_proper_defense\@
-    if_equal AI_ONLY_PHYSICAL_KNOWN, .AI_check_scenario_B_move_boosts_proper_defense\@
-    if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_PHYSICAL, .AI_check_scenario_B_move_boosts_proper_defense\@
+    .AI_check_scenario_B_move_boosts_physical_defense_\@:
+    if_equal AI_PHYSICAL_ONLY, .AI_check_scenario_B_move_boosts_proper_defense_\@
+    if_equal AI_ONLY_PHYSICAL_KNOWN, .AI_check_scenario_B_move_boosts_proper_defense_\@
+    if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_PHYSICAL, .AI_check_scenario_B_move_boosts_proper_defense_\@
     goto .AI_user_might_not_be_able_to_boost_safely_\@
 
-    .AI_check_scenario_B_move_boosts_special_defense\@:
-    if_equal AI_SPECIAL_ONLY, .AI_check_scenario_B_move_boosts_proper_defense\@
-    if_equal AI_ONLY_SPECIAL_KNOWN, .AI_check_scenario_B_move_boosts_proper_defense\@
-    if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_SPECIAL, .AI_check_scenario_B_move_boosts_proper_defense\@
+    .AI_check_scenario_B_move_boosts_special_defense_\@:
+    if_equal AI_SPECIAL_ONLY, .AI_check_scenario_B_move_boosts_proper_defense_\@
+    if_equal AI_ONLY_SPECIAL_KNOWN, .AI_check_scenario_B_move_boosts_proper_defense_\@
+    if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_SPECIAL, .AI_check_scenario_B_move_boosts_proper_defense_\@
     goto .AI_user_might_not_be_able_to_boost_safely_\@
 
-    .AI_check_scenario_B_move_boosts_proper_defense\@:
+    .AI_check_scenario_B_move_boosts_proper_defense_\@:
+    if_status AI_USER, STATUS1_PSN_ANY | STATUS1_BURN, .AI_check_scenario_B_skip_leftovers_check_\@
+    if_status3 AI_USER, STATUS3_LEECHSEED, .AI_check_scenario_B_skip_leftovers_check_\@
+    get_weather
+    if_user_receives_damage_from_stored_weather .AI_check_scenario_B_skip_leftovers_check_\@
     if_holds_item AI_USER, ITEM_LEFTOVERS, .AI_check_recovery_move_\@
+    .AI_check_scenario_B_skip_leftovers_check_\@:
     if_holds_item AI_USER, ITEM_CHESTO_BERRY, .AI_check_Rest_\@
     if_holds_item AI_USER, ITEM_LUM_BERRY, .AI_check_Rest_\@
     goto .AI_user_might_not_be_able_to_boost_safely_\@
@@ -888,6 +929,7 @@
 	
 	.macro if_user_is_intoxicated_and_does_not_have_baton_pass ptr:req
     if_not_status AI_USER, STATUS1_TOXIC_POISON, .AI_no_problem_with_toxic_\@
+    if_ability AI_USER, ABILITY_SHED_SKIN, .AI_no_problem_with_toxic_\@
     if_has_move_with_effect AI_USER, EFFECT_BATON_PASS, .AI_no_problem_with_toxic_\@
     if_has_move_with_effect AI_USER, EFFECT_REST, .AI_no_problem_with_toxic_\@
     if_has_move_with_effect AI_USER, EFFECT_REFRESH, .AI_no_problem_with_toxic_\@
@@ -922,4 +964,66 @@
     if_holds_item \battler, \param1, .AI_item_is_actually_held_\@
     goto \param2
     .AI_item_is_actually_held_\@:
+    .endm
+
+	  .macro if_can_faint ptr:req
+    if_can_faint_with_threshold AI_FAINT_THRESHOLD_RANDOM, \ptr
+	  .endm
+
+	  .macro if_will_faint ptr:req
+    if_can_faint_with_threshold AI_FAINT_THRESHOLD_PESSIMISTIC, \ptr
+	  .endm
+
+	  .macro if_has_some_chance_to_faint ptr:req
+    if_can_faint_with_threshold AI_FAINT_THRESHOLD_OPTIMISTIC, \ptr
+	  .endm
+
+    .macro if_move_makes_contact ptr:req
+    if_move_is_contactless .AI_move_is_contactless_\@
+    goto \ptr
+    .AI_move_is_contactless_\@:
+    .endm
+
+  @ Permite que la IA tire status cuando es claro que el objetivo va a despertarse
+	.macro if_target_expected_to_be_statused_assuming_equal_priority ptr:req
+    if_status AI_TARGET, STATUS1_ANY & (~STATUS1_SLEEP), \ptr
+    if_target_not_expected_to_be_asleep_assuming_equal_priority .AI_target_not_statused_\@
+    goto \ptr
+    .AI_target_not_statused_\@:
+    .endm
+
+	.macro if_might_heal_with_natural_cure battler:req, ptr:req
+    if_no_ability \battler, ABILITY_NATURAL_CURE, .AI_target_cannot_heal_with_natural_cure_\@
+    if_status3 \battler, STATUS3_ROOTED, .AI_target_cannot_heal_with_natural_cure_\@
+    count_usable_party_mons \battler
+    if_more_than 0, \ptr
+    .AI_target_cannot_heal_with_natural_cure_\@:
+    .endm
+
+  @ Determina si el poke de la IA sufre daño a final de turno por el clima guardado por get_weather
+  @ Nota: ignora que el clima leído por get_weather pueda estar a punto de acabar
+	.macro if_user_receives_damage_from_stored_weather ptr:req
+    if_equal AI_WEATHER_HAIL, .AI_check_hail_\@
+    if_equal AI_WEATHER_SANDSTORM, .AI_check_sandstorm_\@
+    if_equal AI_WEATHER_SUN, .AI_check_sun_\@
+    goto .AI_no_damage_from_weather_\@
+
+    .AI_check_hail_\@:
+    if_type AI_USER, TYPE_ICE, .AI_no_damage_from_weather_\@
+    get_ability AI_USER
+    if_in_bytes AI_HailResistantAbilities, .AI_no_damage_from_weather_\@
+    goto \ptr
+
+    .AI_check_sandstorm_\@:
+    get_user_type1
+    if_in_bytes AI_CV_SandstormResistantTypes, .AI_no_damage_from_weather_\@
+    get_user_type2
+    if_in_bytes AI_CV_SandstormResistantTypes, .AI_no_damage_from_weather_\@
+    get_ability AI_USER
+    if_in_bytes AI_SandstormResistantAbilities, .AI_no_damage_from_weather_\@
+    goto \ptr
+
+    .AI_check_sun_\@:
+    if_ability AI_USER, ABILITY_DRY_SKIN, \ptr
+    .AI_no_damage_from_weather_\@:
     .endm
