@@ -3903,6 +3903,9 @@ static void Cmd_if_target_will_be_faster_after_this_effect(void)
             else
                 gBattleMons[gBattlerTarget].statStages[STAT_SPEED] = 0;
             break;
+        case EFFECT_HAZE:
+            gBattleMons[sBattler_AI].statStages[STAT_SPEED] = gBattleMons[gBattlerTarget].statStages[STAT_SPEED] = 6;
+            break;
         case EFFECT_RAIN_DANCE:
             gBattleWeather = WEATHER_RAIN_ANY;
             break;
