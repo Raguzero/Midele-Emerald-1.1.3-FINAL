@@ -6647,7 +6647,7 @@ static const struct TrainerMonCustomMidele sParty_Karen5[] = {
 	.nature = NATURE_JOLLY,
 	.ability = 1,
 	.evs = {6, 252, 0, 0, 0, 252},
-    .moves = {MOVE_STUN_SPORE, MOVE_MACH_PUNCH, MOVE_ROCK_TOMB, MOVE_SLUDGE_BOMB}
+    .moves = {MOVE_SPORE, MOVE_MACH_PUNCH, MOVE_ROCK_TOMB, MOVE_SLUDGE_BOMB}
     },
     {
     .iv = 31,
@@ -7119,7 +7119,7 @@ static const struct TrainerMonCustomMidele sParty_Lydia5[] = {
 	.heldItem = ITEM_LEFTOVERS,
 	.nature = NATURE_JOLLY,
 	.evs = {6, 252, 0, 0, 0, 252},
-    .moves = {MOVE_STUN_SPORE, MOVE_FOCUS_PUNCH, MOVE_SUBSTITUTE, MOVE_LEECH_SEED}
+    .moves = {MOVE_SPORE, MOVE_FOCUS_PUNCH, MOVE_SUBSTITUTE, MOVE_LEECH_SEED}
     },
     {
     .iv = 31,
@@ -23816,7 +23816,7 @@ static const struct TrainerMonCustomMidele sParty_Santygrass3[] = {
     .nature = NATURE_JOLLY, 
     .evs = {4, 252, 0, 0, 0, 252},
     .ability = 0, // EFFECT SPORE
-    .moves = {MOVE_LEECH_LIFE, MOVE_SLUDGE_BOMB, MOVE_SWORDS_DANCE, MOVE_SLEEP_POWDER}
+    .moves = {MOVE_LEECH_LIFE, MOVE_SLUDGE_BOMB, MOVE_SWORDS_DANCE, MOVE_SPORE}
     },
  {
     .iv = 31, 
