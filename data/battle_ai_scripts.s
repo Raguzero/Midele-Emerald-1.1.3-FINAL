@@ -2150,16 +2150,16 @@ AI_CV_EvasionDown_6:
 	goto AI_CV_EvasionDown_End
 
 AI_CV_Haze:
-	if_stat_level_more_than AI_USER, STAT_ATK, 8, AI_CV_Haze2
-	if_stat_level_more_than AI_USER, STAT_DEF, 8, AI_CV_Haze2
-	if_stat_level_more_than AI_USER, STAT_SPATK, 8, AI_CV_Haze2
-	if_stat_level_more_than AI_USER, STAT_SPDEF, 8, AI_CV_Haze2
-	if_stat_level_more_than AI_USER, STAT_EVASION, 8, AI_CV_Haze2
-	if_stat_level_less_than AI_TARGET, STAT_ATK, 4, AI_CV_Haze2
-	if_stat_level_less_than AI_TARGET, STAT_DEF, 4, AI_CV_Haze2
-	if_stat_level_less_than AI_TARGET, STAT_SPATK, 4, AI_CV_Haze2
-	if_stat_level_less_than AI_TARGET, STAT_SPDEF, 4, AI_CV_Haze2
-	if_stat_level_less_than AI_TARGET, STAT_ACC, 4, AI_CV_Haze2
+	if_stat_level_more_than AI_USER, STAT_ATK, 7, AI_CV_Haze2
+	if_stat_level_more_than AI_USER, STAT_DEF, 7, AI_CV_Haze2
+	if_stat_level_more_than AI_USER, STAT_SPATK, 7, AI_CV_Haze2
+	if_stat_level_more_than AI_USER, STAT_SPDEF, 7, AI_CV_Haze2
+	if_stat_level_more_than AI_USER, STAT_EVASION, 7, AI_CV_Haze2
+	if_stat_level_less_than AI_TARGET, STAT_ATK, 5, AI_CV_Haze2
+	if_stat_level_less_than AI_TARGET, STAT_DEF, 5, AI_CV_Haze2
+	if_stat_level_less_than AI_TARGET, STAT_SPATK, 5, AI_CV_Haze2
+	if_stat_level_less_than AI_TARGET, STAT_SPDEF, 5, AI_CV_Haze2
+	if_stat_level_less_than AI_TARGET, STAT_ACC, 5, AI_CV_Haze2
 	goto AI_CV_Haze3
 
 AI_CV_Haze2:
@@ -2167,22 +2167,34 @@ AI_CV_Haze2:
 	score -3
 
 AI_CV_Haze3:
-	if_stat_level_more_than AI_TARGET, STAT_ATK, 8, AI_CV_Haze4
-	if_stat_level_more_than AI_TARGET, STAT_DEF, 8, AI_CV_Haze4
-	if_stat_level_more_than AI_TARGET, STAT_SPATK, 8, AI_CV_Haze4
-	if_stat_level_more_than AI_TARGET, STAT_SPDEF, 8, AI_CV_Haze4
-	if_stat_level_more_than AI_TARGET, STAT_EVASION, 8, AI_CV_Haze4
-	if_stat_level_less_than AI_USER, STAT_ATK, 4, AI_CV_Haze4
-	if_stat_level_less_than AI_USER, STAT_DEF, 4, AI_CV_Haze4
-	if_stat_level_less_than AI_USER, STAT_SPATK, 4, AI_CV_Haze4
-	if_stat_level_less_than AI_USER, STAT_SPDEF, 4, AI_CV_Haze4
-	if_stat_level_less_than AI_USER, STAT_ACC, 4, AI_CV_Haze4
+	if_stat_level_more_than AI_TARGET, STAT_ATK, 7, AI_CV_Haze_Encourage
+	if_stat_level_more_than AI_TARGET, STAT_DEF, 8, AI_CV_Haze_Encourage
+	if_stat_level_more_than AI_TARGET, STAT_SPATK, 7, AI_CV_Haze_Encourage
+	if_stat_level_more_than AI_TARGET, STAT_SPDEF, 8, AI_CV_Haze_Encourage
+	if_stat_level_more_than AI_TARGET, STAT_EVASION, 8, AI_CV_Haze_Encourage
+	if_stat_level_less_than AI_USER, STAT_ATK, 4, AI_CV_Haze_Encourage
+	if_stat_level_less_than AI_USER, STAT_DEF, 4, AI_CV_Haze_Encourage
+	if_stat_level_less_than AI_USER, STAT_SPATK, 4, AI_CV_Haze_Encourage
+	if_stat_level_less_than AI_USER, STAT_SPDEF, 4, AI_CV_Haze_Encourage
+	if_stat_level_less_than AI_USER, STAT_ACC, 4, AI_CV_Haze_Encourage
+	if_stat_level_more_than AI_TARGET, STAT_ATK, 6, AI_CV_Haze_ConsiderEncouraging
+	if_stat_level_more_than AI_TARGET, STAT_DEF, 7, AI_CV_Haze_ConsiderEncouraging
+	if_stat_level_more_than AI_TARGET, STAT_SPATK, 6, AI_CV_Haze_ConsiderEncouraging
+	if_stat_level_more_than AI_TARGET, STAT_SPDEF, 7, AI_CV_Haze_ConsiderEncouraging
+	if_stat_level_more_than AI_TARGET, STAT_EVASION, 7, AI_CV_Haze_ConsiderEncouraging
 	if_random_less_than 50, AI_CV_Haze_End
 	score -1
 	goto AI_CV_Haze_End
+	
+AI_CV_Haze_ConsiderEncouraging_SkipSpeedCheck:
+	if_random_less_than 128, AI_CV_Haze_End
+	goto Score_Plus1
 
-AI_CV_Haze4:
-	if_random_less_than 50, AI_CV_Haze_End
+AI_CV_Haze_ConsiderEncouraging:
+	if_user_faster AI_CV_Haze_ConsiderEncouraging_SkipSpeedCheck
+	if_target_will_be_faster_after_this_effect AI_CV_Haze_ConsiderEncouraging_SkipSpeedCheck
+AI_CV_Haze_Encourage:
+	if_random_less_than 50, Score_Plus1
 	score +3
 
 AI_CV_Haze_End:
