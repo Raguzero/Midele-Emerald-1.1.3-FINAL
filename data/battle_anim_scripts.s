@@ -12303,6 +12303,8 @@ Special_LevelUp:
 	delay 0
 	createvisualtask sub_8170A0C, 5, 0, 0
 	waitforvisualfinish
+    createvisualtask unref_sub_8170478, 2
+    waitforvisualfinish
 	createvisualtask sub_81709EC, 2
 	end
 
