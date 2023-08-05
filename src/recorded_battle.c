@@ -205,6 +205,9 @@ void RecordedBattle_ClearBattlerAction(u8 battlerId, u8 bytesToClear)
 {
     s32 i;
 
+	 if (sUnknown_0203C7AC == 2)
+         return;
+
     for (i = 0; i < bytesToClear; i++)
     {
         sRecordedBytesNo[battlerId]--;
