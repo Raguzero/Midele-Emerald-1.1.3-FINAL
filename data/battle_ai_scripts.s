@@ -806,6 +806,9 @@ AI_CBM_Ingrain: @ 82DC6F4
 	end
 
 AI_CBM_Recycle: @ 82DC6FF
+	if_holds_item AI_USER, ITEM_NONE, AI_CBM_Recycle_HasNoItem
+	goto Score_Minus10
+AI_CBM_Recycle_HasNoItem:
 	get_used_held_item AI_USER
 	if_equal 0, Score_Minus10
 	end
