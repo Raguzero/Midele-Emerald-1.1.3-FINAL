@@ -873,6 +873,18 @@ static u8 ChooseMoveOrAction_Singles(void)
         }
     }
 #endif
+
+	   // Consider switching if your mon with truant is bodied by Protect spam.
+        // Or is using a double turn semi invulnerable move(such as Fly) and is faster.
+        // Or its ability is actually not Truant.
+		if (gBattleMons[sBattler_AI].ability == ABILITY_TRUANT
+            && (GetAbilityBySpecies(gBattleMons[sBattler_AI].species, gBattleMons[sBattler_AI].abilityNum) != ABILITY_TRUANT
+            || IsTruantMonVulnerable(sBattler_AI, gBattlerTarget))
+            && gDisableStructs[sBattler_AI].truantCounter
+			&& AICanSwitchAssumingEnoughPokemon())
+            SWITCH_IF_THERE_IS_A_SUITABLE_MON(NOT_CHANGING_IS_UNACCEPTABLE);
+
+
 // Consider switching if all moves are worthless to use.
     if (AI_THINKING_STRUCT->aiFlags & (AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_PREFER_BATON_PASS)
         && !(
@@ -911,16 +923,6 @@ static u8 ChooseMoveOrAction_Singles(void)
         if (i == MAX_MON_MOVES)
             SWITCH_IF_THERE_IS_A_SUITABLE_MON(notChangingIsAcceptable ? NOT_CHANGING_IS_ACCEPTABLE : NOT_CHANGING_IS_UNACCEPTABLE);
     }
-	
-	   // Consider switching if your mon with truant is bodied by Protect spam.
-        // Or is using a double turn semi invulnerable move(such as Fly) and is faster.
-        // Or its ability is actually not Truant.
-		if (gBattleMons[sBattler_AI].ability == ABILITY_TRUANT
-            && (GetAbilityBySpecies(gBattleMons[sBattler_AI].species, gBattleMons[sBattler_AI].abilityNum) != ABILITY_TRUANT
-            || IsTruantMonVulnerable(sBattler_AI, gBattlerTarget))
-            && gDisableStructs[sBattler_AI].truantCounter
-			&& AICanSwitchAssumingEnoughPokemon())
-            SWITCH_IF_THERE_IS_A_SUITABLE_MON(NOT_CHANGING_IS_UNACCEPTABLE);
 
     numOfBestMoves = 1;
     currentMoveArray[0] = AI_THINKING_STRUCT->score[0];
@@ -1084,6 +1086,15 @@ static u8 ChooseMoveOrAction_Singles(void)
              if (!convenient_move)
                 SWITCH_IF_THERE_IS_A_SUITABLE_MON(NOT_CHANGING_IS_UNACCEPTABLE);
             }
+
+        // Si toca esperar un turno por Truant y cuando pueda atacar no espera hacer OHKO,
+        // la IA mira si puede hacer un buen cambio en lugar de atacar
+        if (gBattleMons[sBattler_AI].ability == ABILITY_TRUANT
+            && gDisableStructs[sBattler_AI].truantCounter
+            && currentMoveArray[0] < 103 // el movimiento elegido no es muy bueno
+            && AICanSwitchAssumingEnoughPokemon()
+           )
+                SWITCH_IF_THERE_IS_A_SUITABLE_MON(NOT_CHANGING_IS_ACCEPTABLE);
 
         // La IA puede considerar repetir su último movimiento si observa que el rival está cambiando.
         // Para darse cuenta de ello, se mantiene cierta información en memoria
