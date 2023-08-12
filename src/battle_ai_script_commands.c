@@ -426,7 +426,8 @@ void BattleAI_SetupAIData(u8 defaultScoreMoves)
         defaultScoreMoves >>= 1;
     }
 
-    moveLimitations = CheckMoveLimitations(gActiveBattler, 0, 0xFF);
+    sBattler_AI = gActiveBattler;
+    moveLimitations = CheckMoveLimitations(sBattler_AI, 0, 0xFF);
 
     // Ignore moves that aren't possible to use.
     for (i = 0; i < MAX_MON_MOVES; i++)
@@ -438,12 +439,11 @@ void BattleAI_SetupAIData(u8 defaultScoreMoves)
     }
 
     gBattleResources->AI_ScriptsStack->size = 0;
-    sBattler_AI = gActiveBattler;
 
     // Decide a random target battlerId in doubles.
     if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
     {
-        gBattlerTarget = (Random() & BIT_FLANK) + (GetBattlerSide(gActiveBattler) ^ BIT_SIDE);
+        gBattlerTarget = (Random() & BIT_FLANK) + (GetBattlerSide(sBattler_AI) ^ BIT_SIDE);
         if (gAbsentBattlerFlags & gBitTable[gBattlerTarget])
             gBattlerTarget ^= BIT_FLANK;
     }
@@ -519,10 +519,10 @@ bool8 IsMoveSignificantlyAffectedByStatDrops(u16 move)
     if (move == MOVE_HIDDEN_POWER || move == MOVE_MONADO_POWER)
     {
         struct Pokemon *monAttacker;
-        if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
-            monAttacker = &gPlayerParty[gBattlerPartyIndexes[gActiveBattler]];
+        if (GetBattlerSide(sBattler_AI) == B_SIDE_PLAYER)
+            monAttacker = &gPlayerParty[gBattlerPartyIndexes[sBattler_AI]];
         else
-            monAttacker = &gEnemyParty[gBattlerPartyIndexes[gActiveBattler]];
+            monAttacker = &gEnemyParty[gBattlerPartyIndexes[sBattler_AI]];
 
         type = monAttacker->box.hpType;
     }
@@ -908,7 +908,6 @@ static u8 ChooseMoveOrAction_Singles(void)
         if (i_2 == MAX_MON_MOVES)
             notChangingIsAcceptable = FALSE;
 
-        gActiveBattler = sBattler_AI;
         if (i == MAX_MON_MOVES)
             SWITCH_IF_THERE_IS_A_SUITABLE_MON(notChangingIsAcceptable ? NOT_CHANGING_IS_ACCEPTABLE : NOT_CHANGING_IS_UNACCEPTABLE);
     }
@@ -2233,7 +2232,7 @@ static void Cmd_get_ability(void)
     else
         battlerId = gBattlerTarget;
 
-	if ((gActiveBattler | BIT_FLANK) != (battlerId | BIT_FLANK))
+	if ((sBattler_AI | BIT_FLANK) != (battlerId | BIT_FLANK))
     {
         if (FOES_OBSERVED_ABILITY(battlerId) != 0)
         {
@@ -2881,13 +2880,13 @@ static void Cmd_if_curr_move_disabled_or_encored(void)
     switch (gAIScriptPtr[1])
     {
     case 0:
-        if (gDisableStructs[gActiveBattler].disabledMove == AI_THINKING_STRUCT->moveConsidered)
+        if (gDisableStructs[sBattler_AI].disabledMove == AI_THINKING_STRUCT->moveConsidered)
             gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
         else
             gAIScriptPtr += 6;
         break;
     case 1:
-        if (gDisableStructs[gActiveBattler].encoredMove == AI_THINKING_STRUCT->moveConsidered)
+        if (gDisableStructs[sBattler_AI].encoredMove == AI_THINKING_STRUCT->moveConsidered)
             gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
         else
             gAIScriptPtr += 6;
