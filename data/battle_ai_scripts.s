@@ -4226,6 +4226,9 @@ AI_CV_KnockOff_End:
 
 AI_CV_Endeavor:
 	if_level_cond AI_LEVEL_IS_AT_MOST_2, AI_CV_Endeavor_assumeFEAR
+	if_target_faster AI_CV_Endeavor_SkipTargetHasTooFewHPCheck
+	if_hp_condition TARGET_WITH_LEFTIES_WONT_LOSE_HP_IF_WE_USE_ENDEAVOR, Score_Minus5
+AI_CV_Endeavor_SkipTargetHasTooFewHPCheck:
 	if_hp_less_than AI_TARGET, 70, AI_CV_Endeavor_ScoreDown1
 	if_target_faster AI_CV_Endeavor2
 	if_hp_more_than AI_USER, 40, AI_CV_Endeavor_ScoreDown1
