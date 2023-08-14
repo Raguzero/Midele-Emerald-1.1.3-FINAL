@@ -1365,6 +1365,11 @@ AI_CV_QuickAttack_NoFEAR:
     if_can_faint AI_CV_QuickAttack_End @ ya recibe suficiente bonus
     get_curr_dmg_hp_percent
     if_less_than 4, AI_CV_QuickAttack_End
+    if_status2 AI_USER, STATUS2_SUBSTITUTE, AI_CV_QuickAttack_End
+    if_hp_not_equal AI_USER, 100, AI_CV_QuickAttack_NoFEAR_SkipSashSturdyCheck
+    if_ability AI_USER, ABILITY_STURDY, AI_CV_QuickAttack_End
+    if_holds_item AI_USER, ITEM_FOCUS_SASH, AI_CV_QuickAttack_End
+AI_CV_QuickAttack_NoFEAR_SkipSashSturdyCheck:
     calculate_nhko AI_TARGET
     if_more_than 1, AI_CV_QuickAttack_End
     calculate_nhko AI_TARGET @ se hace dos veces para que solo lo haga si es claro que el rival hace KO
