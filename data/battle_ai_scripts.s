@@ -651,11 +651,23 @@ AI_CBM_PerishSong_IgnoreNumberOfMons:
 	if_stat_level_more_than AI_TARGET, STAT_SPDEF, 7, AI_CBM_PerishSong_ConsiderPhazing
 	if_stat_level_more_than AI_TARGET, STAT_EVASION, 7, AI_CBM_PerishSong_ConsiderPhazing
 AI_CBM_PerishSong_SkipPhazing:
-    if_type AI_TARGET, TYPE_GHOST, Score_Minus8
+    if_ability_might_be AI_TARGET, ABILITY_SHED_SKIN, AI_CBM_PerishSong_SkipPenaltyToStatusedMon
+    if_has_move_with_effect AI_TARGET, EFFECT_REST, AI_CBM_PerishSong_SkipPenaltyToStatusedMon
+    if_has_move_with_effect AI_TARGET, EFFECT_REFRESH, AI_CBM_PerishSong_SkipPenaltyToStatusedMon
+    if_has_move_with_effect AI_TARGET, EFFECT_BATON_PASS, AI_CBM_PerishSong_SkipPenaltyToStatusedMon
+    if_status AI_TARGET, STATUS1_TOXIC_POISON, Score_Minus3
+    if_status2 AI_TARGET, STATUS2_CURSED, Score_Minus3
+AI_CBM_PerishSong_SkipPenaltyToStatusedMon:
+    if_type AI_TARGET, TYPE_GHOST, AI_CBM_PerishSong_DefaultPenalty
     if_status3 AI_TARGET, STATUS3_ROOTED, Score_Plus2
     if_status2 AI_TARGET, STATUS2_ESCAPE_PREVENTION | 0x8000, Score_Plus2 @ con 0x8000 se determina si quedan al menos 4 turnos de Wrap y similares
-    if_has_move_with_effect AI_USER, EFFECT_MEAN_LOOK, Score_Minus5
-    if_has_move_with_effect AI_USER, EFFECT_TRAP, Score_Minus5
+    if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_CBM_PerishSong_DefaultPenalty
+    if_has_move_with_effect AI_USER, EFFECT_MEAN_LOOK, Score_Minus3
+    if_has_move_with_effect AI_USER, EFFECT_TRAP, Score_Minus3
+AI_CBM_PerishSong_DefaultPenalty:
+	score -1
+	if_random_less_than 55, AI_CBM_PerishSong_End
+	score -1
 AI_CBM_PerishSong_End:
 	end
 
@@ -3352,9 +3364,8 @@ AI_CV_Protect_OpponentIsNotInAMultiturnAttack:
 	if_status  AI_USER, STATUS1_PSN_ANY | STATUS1_BURN, AI_CV_ProtectUserStatused
 	if_status2 AI_USER, STATUS2_CURSED | STATUS2_INFATUATION, AI_CV_ProtectUserStatused
     if_status3 AI_USER, STATUS3_LEECHSEED | STATUS3_YAWN, AI_CV_ProtectUserStatused
-    if_status3 AI_TARGET, STATUS3_PERISH_SONG, AI_CV_Protect_SkipProtectUserStatusedDueToPerishSong
+    if_status3 AI_TARGET, STATUS3_PERISH_SONG, AI_CV_Protect_IgnoreTargetHealing
     if_status3 AI_USER, STATUS3_PERISH_SONG, AI_CV_ProtectUserStatused
-AI_CV_Protect_SkipProtectUserStatusedDueToPerishSong:
     if_next_turn_target_might_use_move_with_effect EFFECT_RESTORE_HP, AI_CV_Protect_TargetCanHeal
 	if_next_turn_target_might_use_move_with_effect EFFECT_SOFTBOILED, AI_CV_Protect_TargetCanHeal
 	if_next_turn_target_might_use_move_with_effect EFFECT_MORNING_SUN, AI_CV_Protect_TargetCanHeal
@@ -4500,6 +4511,8 @@ AI_TryToFaint:
         get_curr_dmg_hp_percent
         if_more_than 40, AI_TryToFaint_BonusToMostPowerfulAttack
         score -1
+        if_effect EFFECT_TRAP, AI_TryToFaint_ConsiderSkippingPenaltiesForPartialTrapping
+AI_TryToFaint_DoNotSkipFirstPenaltiesForPartialTrapping:
         if_target_taunted AI_TryToFaint_SkipPenaltyForLowDamageAgainstAHealingMon
         if_status2 AI_TARGET, STATUS2_CURSED, AI_TryToFaint_SkipPenaltyForLowDamageAgainstAHealingMon
         if_has_move_with_effect AI_TARGET, EFFECT_REST, AI_TryToFaint_ApplyPenaltyForLowDamageAgainstAHealingMon
@@ -4528,6 +4541,11 @@ AI_TryToFaint_BonusToMostPowerfulAttack:
 	if_equal MOVE_NOT_MOST_POWERFUL, Score_Minus1
 	if_equal MOVE_POWER_DISCOURAGED_AND_NOT_MOST_POWERFUL, Score_Minus2
 	end
+
+AI_TryToFaint_ConsiderSkippingPenaltiesForPartialTrapping:
+	if_status2 AI_TARGET, STATUS2_WRAPPED, AI_TryToFaint_DoNotSkipFirstPenaltiesForPartialTrapping
+	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_TryToFaint_SkipPenaltyForLowDamageAgainstAHealingMon
+	goto AI_TryToFaint_SkipPenaltyForReallyLowDamage
 
 AI_TryToFaint_CheckIfPartialTrappingMoveWillDealDamage:
 	if_status2 AI_TARGET, STATUS2_WRAPPED, AI_TryToFaint_SkipCheckingMovesWithSecondaryEffect
