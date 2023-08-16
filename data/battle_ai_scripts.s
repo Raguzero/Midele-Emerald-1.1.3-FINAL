@@ -2856,6 +2856,8 @@ AI_CV_Counter:
     if_hp_condition USER_HAS_1_HP, Score_Minus10
     if_target_wont_attack_due_to_truant Score_Minus10
     if_perish_song_about_to_trigger AI_TARGET, Score_Minus10
+    if_any_move_encored AI_TARGET, AI_CV_Counter_TargetEncored
+AI_CV_Counter_IgnoreEncore:
     get_possible_categories_of_foes_attacks
     if_equal AI_SPECIAL_ONLY, Score_Minus10
     if_equal AI_NO_DAMAGING_MOVES, Score_Minus10
@@ -2868,6 +2870,7 @@ AI_CV_Counter_TargetNotSleeping:
 	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_Counter_ScoreDown3
 	if_status2 AI_TARGET, STATUS2_CONFUSION, AI_CV_Counter_ScoreDown3
 	if_target_taunted AI_CV_Counter1
+	if_any_move_encored AI_TARGET, AI_CV_Counter1
 	if_user_has_revealed_move MOVE_COUNTER, AI_CV_Counter_MoveHasBeenRevealed
 	goto AI_CV_Counter1
 AI_CV_Counter_MoveHasBeenRevealed:
@@ -2907,11 +2910,13 @@ AI_CV_Counter2:
 	score -1
 
 AI_CV_Counter3:
+	if_any_move_encored AI_TARGET, AI_CV_Counter3PossiblePlus1Continue
     if_has_move AI_USER, MOVE_MIRROR_COAT, AI_CV_Counter6
 	get_last_used_bank_move AI_TARGET
 	get_move_power_from_result
 	if_equal 0, AI_CV_Counter5
 	if_target_not_taunted AI_CV_Counter4
+AI_CV_Counter3PossiblePlus1Continue:
 	if_random_less_than 100, AI_CV_Counter4
 	score +1
 
@@ -2924,12 +2929,23 @@ AI_CV_Counter4:
 	goto AI_CV_Counter_End
 
 AI_CV_Counter5:
+	if_any_move_encored AI_TARGET, AI_CV_Counter5PossiblePlus1Continue
 	if_target_not_taunted AI_CV_Counter6
+AI_CV_Counter5PossiblePlus1Continue:
 	if_random_less_than 100, AI_CV_Counter6
 	score +1
 
 AI_CV_Counter6:
 	end
+
+AI_CV_Counter_TargetEncored:
+	get_last_used_bank_move AI_TARGET
+	get_move_power_from_result
+	if_equal 0, Score_Minus10
+	get_last_used_bank_move AI_TARGET
+	get_move_type_from_result
+	if_not_in_bytes AI_CV_Counter_PhysicalTypeList, Score_Minus10
+	goto AI_CV_Counter_IgnoreEncore
 
 AI_CV_Counter_ScoreDown3:
 	score -3
@@ -3723,10 +3739,12 @@ AI_CV_PsychUp_ScoreDown2:
 
 AI_CV_PsychUp_End:
 	end
-
 AI_CV_MirrorCoat:
     if_hp_condition USER_HAS_1_HP, Score_Minus10
     if_target_wont_attack_due_to_truant Score_Minus10
+    if_perish_song_about_to_trigger AI_TARGET, Score_Minus10
+    if_any_move_encored AI_TARGET, AI_CV_MirrorCoat_TargetEncored
+AI_CV_MirrorCoat_IgnoreEncore:
     get_possible_categories_of_foes_attacks
     if_equal AI_PHYSICAL_ONLY, Score_Minus10
     if_equal AI_NO_DAMAGING_MOVES, Score_Minus10
@@ -3739,6 +3757,7 @@ AI_CV_MirrorCoat_TargetNotSleeping:
 	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_MirrorCoat_ScoreDown3
 	if_status2 AI_TARGET, STATUS2_CONFUSION, AI_CV_MirrorCoat_ScoreDown3
 	if_target_taunted AI_CV_MirrorCoat1
+	if_any_move_encored AI_TARGET, AI_CV_MirrorCoat1
 	if_user_has_revealed_move MOVE_MIRROR_COAT, AI_CV_MirrorCoat_MoveHasBeenRevealed
 	goto AI_CV_MirrorCoat1
 AI_CV_MirrorCoat_MoveHasBeenRevealed:
@@ -3778,11 +3797,13 @@ AI_CV_MirrorCoat2:
 	score -1
 
 AI_CV_MirrorCoat3:
+	if_any_move_encored AI_TARGET, AI_CV_MirrorCoat3PossiblePlus1Continue
     if_has_move AI_USER, MOVE_COUNTER, AI_CV_MirrorCoat6
 	get_last_used_bank_move AI_TARGET
 	get_move_power_from_result
 	if_equal 0, AI_CV_MirrorCoat5
 	if_target_not_taunted AI_CV_MirrorCoat4
+AI_CV_MirrorCoat3PossiblePlus1Continue:
 	if_random_less_than 100, AI_CV_MirrorCoat4
 	score +1
 
@@ -3795,19 +3816,30 @@ AI_CV_MirrorCoat4:
 	goto AI_CV_MirrorCoat_End
 
 AI_CV_MirrorCoat5:
+	if_any_move_encored AI_TARGET, AI_CV_MirrorCoat5PossiblePlus1Continue
 	if_target_not_taunted AI_CV_MirrorCoat6
+AI_CV_MirrorCoat5PossiblePlus1Continue:
 	if_random_less_than 100, AI_CV_MirrorCoat6
 	score +1
 
 AI_CV_MirrorCoat6:
 	end
 
+AI_CV_MirrorCoat_TargetEncored:
+	get_last_used_bank_move AI_TARGET
+	get_move_power_from_result
+	if_equal 0, Score_Minus10
+	get_last_used_bank_move AI_TARGET
+	get_move_type_from_result
+	if_not_in_bytes AI_CV_MirrorCoat_SpecialTypeList, Score_Minus10
+	goto AI_CV_MirrorCoat_IgnoreEncore
+
 AI_CV_MirrorCoat_ScoreDown3:
 	score -3
 
 AI_CV_MirrorCoat_End:
 	end
-
+ 
 AI_CV_MirrorCoat_SpecialTypeList:
     .byte TYPE_FIRE
     .byte TYPE_WATER
