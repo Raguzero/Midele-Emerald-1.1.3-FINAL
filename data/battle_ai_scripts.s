@@ -2856,6 +2856,8 @@ AI_CV_Counter:
     if_hp_condition USER_HAS_1_HP, Score_Minus10
     if_target_wont_attack_due_to_truant Score_Minus10
     if_perish_song_about_to_trigger AI_TARGET, Score_Minus10
+    if_status2 AI_TARGET, STATUS2_RECHARGE, Score_Minus10
+    if_status2 AI_TARGET, STATUS2_MULTIPLETURNS, AI_CV_Counter_TargetEncored
     if_any_move_encored AI_TARGET, AI_CV_Counter_TargetEncored
 AI_CV_Counter_IgnoreEncore:
     get_possible_categories_of_foes_attacks
@@ -2870,6 +2872,7 @@ AI_CV_Counter_TargetNotSleeping:
 	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_Counter_ScoreDown3
 	if_status2 AI_TARGET, STATUS2_CONFUSION, AI_CV_Counter_ScoreDown3
 	if_target_taunted AI_CV_Counter1
+	if_status2 AI_TARGET, STATUS2_MULTIPLETURNS, AI_CV_Counter1
 	if_any_move_encored AI_TARGET, AI_CV_Counter1
 	if_user_has_revealed_move MOVE_COUNTER, AI_CV_Counter_MoveHasBeenRevealed
 	goto AI_CV_Counter1
@@ -2910,6 +2913,7 @@ AI_CV_Counter2:
 	score -1
 
 AI_CV_Counter3:
+	if_status2 AI_TARGET, STATUS2_MULTIPLETURNS, AI_CV_Counter3Plus1Continue
 	if_any_move_encored AI_TARGET, AI_CV_Counter3PossiblePlus1Continue
     if_has_move AI_USER, MOVE_MIRROR_COAT, AI_CV_Counter6
 	get_last_used_bank_move AI_TARGET
@@ -2918,6 +2922,7 @@ AI_CV_Counter3:
 	if_target_not_taunted AI_CV_Counter4
 AI_CV_Counter3PossiblePlus1Continue:
 	if_random_less_than 100, AI_CV_Counter4
+ AI_CV_Counter3Plus1Continue:
 	score +1
 
 AI_CV_Counter4:
@@ -2929,6 +2934,7 @@ AI_CV_Counter4:
 	goto AI_CV_Counter_End
 
 AI_CV_Counter5:
+	if_status2 AI_TARGET, STATUS2_MULTIPLETURNS, AI_CV_Counter5PossiblePlus1Continue
 	if_any_move_encored AI_TARGET, AI_CV_Counter5PossiblePlus1Continue
 	if_target_not_taunted AI_CV_Counter6
 AI_CV_Counter5PossiblePlus1Continue:
@@ -3743,6 +3749,8 @@ AI_CV_MirrorCoat:
     if_hp_condition USER_HAS_1_HP, Score_Minus10
     if_target_wont_attack_due_to_truant Score_Minus10
     if_perish_song_about_to_trigger AI_TARGET, Score_Minus10
+    if_status2 AI_TARGET, STATUS2_RECHARGE, Score_Minus10
+    if_status2 AI_TARGET, STATUS2_MULTIPLETURNS, AI_CV_MirrorCoat_TargetEncored
     if_any_move_encored AI_TARGET, AI_CV_MirrorCoat_TargetEncored
 AI_CV_MirrorCoat_IgnoreEncore:
     get_possible_categories_of_foes_attacks
@@ -3757,6 +3765,7 @@ AI_CV_MirrorCoat_TargetNotSleeping:
 	if_status2 AI_TARGET, STATUS2_INFATUATION, AI_CV_MirrorCoat_ScoreDown3
 	if_status2 AI_TARGET, STATUS2_CONFUSION, AI_CV_MirrorCoat_ScoreDown3
 	if_target_taunted AI_CV_MirrorCoat1
+	if_status2 AI_TARGET, STATUS2_MULTIPLETURNS, AI_CV_MirrorCoat1
 	if_any_move_encored AI_TARGET, AI_CV_MirrorCoat1
 	if_user_has_revealed_move MOVE_MIRROR_COAT, AI_CV_MirrorCoat_MoveHasBeenRevealed
 	goto AI_CV_MirrorCoat1
@@ -3797,6 +3806,7 @@ AI_CV_MirrorCoat2:
 	score -1
 
 AI_CV_MirrorCoat3:
+	if_status2 AI_TARGET, STATUS2_MULTIPLETURNS, AI_CV_MirrorCoat3Plus1Continue
 	if_any_move_encored AI_TARGET, AI_CV_MirrorCoat3PossiblePlus1Continue
     if_has_move AI_USER, MOVE_COUNTER, AI_CV_MirrorCoat6
 	get_last_used_bank_move AI_TARGET
@@ -3805,6 +3815,7 @@ AI_CV_MirrorCoat3:
 	if_target_not_taunted AI_CV_MirrorCoat4
 AI_CV_MirrorCoat3PossiblePlus1Continue:
 	if_random_less_than 100, AI_CV_MirrorCoat4
+AI_CV_MirrorCoat3Plus1Continue:
 	score +1
 
 AI_CV_MirrorCoat4:
@@ -3816,6 +3827,7 @@ AI_CV_MirrorCoat4:
 	goto AI_CV_MirrorCoat_End
 
 AI_CV_MirrorCoat5:
+	if_status2 AI_TARGET, STATUS2_MULTIPLETURNS, AI_CV_MirrorCoat5PossiblePlus1Continue
 	if_any_move_encored AI_TARGET, AI_CV_MirrorCoat5PossiblePlus1Continue
 	if_target_not_taunted AI_CV_MirrorCoat6
 AI_CV_MirrorCoat5PossiblePlus1Continue:
