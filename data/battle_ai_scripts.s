@@ -1494,7 +1494,16 @@ AI_CV_AttackUp_End: @ 82DCBF6
 AI_CV_DefenseUp: @ 82DCBF7
     if_status3 AI_USER, STATUS3_PERISH_SONG, Score_Minus5
     if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
+    if_hp_condition USER_HAS_1_HP, Score_Minus5
+    get_possible_categories_of_foes_attacks
+    if_equal AI_SPECIAL_ONLY, AI_CV_DefenseUp_Minus3Or5
+    if_equal AI_ONLY_SPECIAL_KNOWN, AI_CV_DefenseUp_Minus2Or5
+    if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_SPECIAL, AI_CV_DefenseUp_Minus2Or5
+    if_equal AI_NO_DAMAGING_MOVES, AI_CV_DefenseUp_Minus2Or5
+    if_equal AI_UNKNOWN_CATEGORIES, AI_CV_DefenseUp_CheckIfThisAttackMightBeTheLast
+    if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_LEVEL_DAMAGE, AI_CV_DefenseUp_CheckIfThisAttackMightBeTheLast
     if_stat_level_less_than AI_USER, STAT_DEF, 8, AI_CV_DefenseUp_DoNotCheckIfThisAttackMightBeTheLast
+AI_CV_DefenseUp_CheckIfThisAttackMightBeTheLast:
     if_this_attack_might_be_the_last Score_Minus5
 AI_CV_DefenseUp_DoNotCheckIfThisAttackMightBeTheLast:
 	if_stat_level_less_than AI_USER, STAT_DEF, 9, AI_CV_DefenseUp2
@@ -1502,17 +1511,20 @@ AI_CV_DefenseUp_DoNotCheckIfThisAttackMightBeTheLast:
 	score -1
 	goto AI_CV_DefenseUp3
 
+AI_CV_DefenseUp_Minus3Or5:
+	if_this_attack_might_be_the_last Score_Minus5
+	goto Score_Minus3
+
+AI_CV_DefenseUp_Minus2Or5:
+	if_this_attack_might_be_the_last Score_Minus5
+	goto Score_Minus2
+
 AI_CV_DefenseUp2: @ 82DCC0C
 	if_hp_not_equal AI_USER, 100, AI_CV_DefenseUp3
 	if_random_less_than 128, AI_CV_DefenseUp3
 	score +2
 
 AI_CV_DefenseUp3: @ 82DCC1B
-    get_possible_categories_of_foes_attacks
-    if_equal AI_SPECIAL_ONLY, Score_Minus3
-    if_equal AI_ONLY_SPECIAL_KNOWN, Score_Minus2
-    if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_SPECIAL, Score_Minus2
-    if_equal AI_NO_DAMAGING_MOVES, Score_Minus2
 	if_hp_less_than AI_USER, 70, AI_CV_DefenseUp4
 	if_random_less_than 200, AI_CV_DefenseUp_End
 
@@ -1708,8 +1720,11 @@ AI_CV_CosmicPower:
     if_stat_level_equal AI_USER, STAT_SPDEF, 12, AI_CV_DefenseUp
     if_status3 AI_USER, STATUS3_PERISH_SONG, Score_Minus5
     if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
+    if_hp_condition USER_HAS_1_HP, Score_Minus5
+    if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_LEVEL_DAMAGE, AI_CV_CosmicPower_CheckIfThisAttackMightBeTheLast
     if_stat_level_less_than AI_USER, STAT_SPDEF, 8, AI_CV_CosmicPower_DoNotCheckIfThisAttackMightBeTheLast
     if_stat_level_less_than AI_USER, STAT_DEF, 8, AI_CV_CosmicPower_DoNotCheckIfThisAttackMightBeTheLast
+AI_CV_CosmicPower_CheckIfThisAttackMightBeTheLast:
     if_this_attack_might_be_the_last Score_Minus5
 AI_CV_CosmicPower_DoNotCheckIfThisAttackMightBeTheLast:
     if_stat_level_less_than AI_USER, STAT_SPDEF, 9, AI_CV_CosmicPowerUp2
@@ -1741,7 +1756,16 @@ AI_CV_CosmicPower_End:
 AI_CV_SpDefUp: @ 82DCCAE
     if_status3 AI_USER, STATUS3_PERISH_SONG, Score_Minus5
     if_user_is_intoxicated_and_does_not_have_baton_pass Score_Minus5
+    if_hp_condition USER_HAS_1_HP, Score_Minus5
+    get_possible_categories_of_foes_attacks
+    if_equal AI_PHYSICAL_ONLY, AI_CV_SpDefUp_Minus3Or5
+    if_equal AI_ONLY_PHYSICAL_KNOWN, AI_CV_SpDefUp_Minus2Or5
+    if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_PHYSICAL, AI_CV_SpDefUp_Minus2Or5
+    if_equal AI_NO_DAMAGING_MOVES, AI_CV_SpDefUp_Minus2Or5
+    if_equal AI_UNKNOWN_CATEGORIES, AI_CV_SpDefUp_CheckIfThisAttackMightBeTheLast
+    if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_LEVEL_DAMAGE, AI_CV_SpDefUp_CheckIfThisAttackMightBeTheLast
     if_stat_level_less_than AI_USER, STAT_SPDEF, 8, AI_CV_SpDefUp_DoNotCheckIfThisAttackMightBeTheLast
+AI_CV_SpDefUp_CheckIfThisAttackMightBeTheLast:
     if_this_attack_might_be_the_last Score_Minus5
 AI_CV_SpDefUp_DoNotCheckIfThisAttackMightBeTheLast:
 	if_stat_level_less_than AI_USER, STAT_SPDEF, 9, AI_CV_SpDefUp2
@@ -1749,17 +1773,21 @@ AI_CV_SpDefUp_DoNotCheckIfThisAttackMightBeTheLast:
 	score -1
 	goto AI_CV_SpDefUp3
 
+AI_CV_SpDefUp_Minus3Or5:
+	if_this_attack_might_be_the_last Score_Minus5
+	goto Score_Minus3
+
+AI_CV_SpDefUp_Minus2Or5:
+	if_this_attack_might_be_the_last Score_Minus5
+	goto Score_Minus2
+
+
 AI_CV_SpDefUp2: @ 82DCCC3
 	if_hp_not_equal AI_USER, 100, AI_CV_SpDefUp3
 	if_random_less_than 128, AI_CV_SpDefUp3
 	score +2
 
 AI_CV_SpDefUp3: @ 82DCCD2
-    get_possible_categories_of_foes_attacks
-    if_equal AI_PHYSICAL_ONLY, Score_Minus3
-    if_equal AI_ONLY_PHYSICAL_KNOWN, Score_Minus2
-    if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_PHYSICAL, Score_Minus2
-    if_equal AI_NO_DAMAGING_MOVES, Score_Minus2
 	if_hp_less_than AI_USER, 70, AI_CV_SpDefUp4
 	if_random_less_than 200, AI_CV_SpDefUp_End
 
