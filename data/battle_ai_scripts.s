@@ -766,6 +766,7 @@ AI_CBM_Hail: @ 82DC6A1
 
 AI_CBM_Torment: @ 82DC6A9
 	if_status2 AI_TARGET, STATUS2_TORMENT, Score_Minus10
+	if_ability AI_TARGET, ABILITY_TRUANT, Score_Minus8
 	end
 
 AI_CBM_WillOWisp: @ 82DC6B4
