@@ -1445,38 +1445,25 @@ u8 FilterTruantIfUseless(struct Pokemon *party, s32 firstId, s32 lastId, u8 filt
         }
     if (truantMons)
     {
-        if (!HasYetToAttack(opposingBattler))
-        {
-            struct BattlePokemon currentMon = gBattleMons[gActiveBattler];
-			struct DisableStruct disableStructCopy = gDisableStructs[gActiveBattler];
-            u16 partyIndex = gBattlerPartyIndexes[gActiveBattler];
-            const u32 newStatus2 = (gCurrentMove == MOVE_BATON_PASS ? (currentMon.status2 & STATUS2_KEPT_BY_SUBSTITUTE) : 0);
-			for (i = firstId; i < lastId; i++)
-                if ((gBitTable[i] & truantMons))
-                {
-                    PokemonToBattleMon(&party[i], &gBattleMons[gActiveBattler], gCurrentMove == MOVE_BATON_PASS);
-                    gBattleMons[gActiveBattler].status2 = newStatus2;
-                    gBattlerPartyIndexes[gActiveBattler] = i;
-					PrepareDisableStructForSwitchIn(gActiveBattler, &disableStructCopy);
+        struct BattlePokemon currentMon = gBattleMons[gActiveBattler];
+        struct DisableStruct disableStructCopy = gDisableStructs[gActiveBattler];
+        u16 partyIndex = gBattlerPartyIndexes[gActiveBattler];
+        const u32 newStatus2 = (gCurrentMove == MOVE_BATON_PASS ? (currentMon.status2 & STATUS2_KEPT_BY_SUBSTITUTE) : 0);
+        for (i = firstId; i < lastId; i++)
+            if ((gBitTable[i] & truantMons))
+            {
+                PokemonToBattleMon(&party[i], &gBattleMons[gActiveBattler], gCurrentMove == MOVE_BATON_PASS);
+                gBattleMons[gActiveBattler].status2 = newStatus2;
+                gBattlerPartyIndexes[gActiveBattler] = i;
+                PrepareDisableStructForSwitchIn(gActiveBattler, &disableStructCopy);
 
-                    if (IsTruantMonVulnerable(gActiveBattler, opposingBattler))
-                        vulnerableTruantMons |= gBitTable[i];
-                }
-            
-            gBattleMons[gActiveBattler] = currentMon;
-			gDisableStructs[gActiveBattler] = disableStructCopy;
-            gBattlerPartyIndexes[gActiveBattler] = partyIndex;
-        }
-        else // Si el rival no ha atacado, podría anticiparse aunque sea más lento
-        {
-            u16 currentSpeed = gBattleMons[gActiveBattler].speed;
-            gBattleMons[gActiveBattler].speed = 0;
-
-            if (IsTruantMonVulnerable(gActiveBattler, opposingBattler))
-                vulnerableTruantMons = truantMons;
-            
-            gBattleMons[gActiveBattler].speed = currentSpeed;
-        }
+                if (IsTruantMonVulnerable(gActiveBattler, opposingBattler, HasYetToAttack(opposingBattler)))
+                    vulnerableTruantMons |= gBitTable[i];
+            }
+        
+        gBattleMons[gActiveBattler] = currentMon;
+        gDisableStructs[gActiveBattler] = disableStructCopy;
+        gBattlerPartyIndexes[gActiveBattler] = partyIndex;
     }
     return (filteredMons | vulnerableTruantMons);
 }

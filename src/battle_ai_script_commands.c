@@ -491,20 +491,90 @@ u8 BattleAI_ChooseMoveOrAction(void)
     return ret;
 }
 
-bool32 IsTruantMonVulnerable(u32 battlerAI, u32 opposingBattler)
+bool32 IsTruantMonVulnerable(u32 battlerAI, u32 opposingBattler, bool8 opposingBattlerHasToAttackAfterSwitchin)
 {
     s32 i;
 
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
         u32 move = FOES_MOVE_HISTORY(opposingBattler)[i];
-        if (gBattleMoves[move].effect == EFFECT_PROTECT)
-            return TRUE;
-		if (gBattleMoves[move].effect == EFFECT_SUBSTITUTE
-			&& gBattleMons[opposingBattler].hp > gBattleMons[opposingBattler].maxHP / 4) // tiene PS para meter sub
-            return TRUE;
-		 if (gBattleMoves[move].effect == EFFECT_SEMI_INVULNERABLE && GetWhoStrikesFirst(battlerAI, opposingBattler, TRUE) == 1)
-            return TRUE;
+
+        if (
+            (
+             (gBattleMons[opposingBattler].status2 & (STATUS2_RECHARGE | STATUS2_MULTIPLETURNS) && !(gStatuses3[opposingBattler] & STATUS3_SEMI_INVULNERABLE && gBattleMoves[move].effect == EFFECT_SEMI_INVULNERABLE)
+             ) 
+             || 
+             (gDisableStructs[opposingBattler].encoreTimer && gDisableStructs[opposingBattler].encoredMove != move)
+            )
+            && !gDisableStructs[battlerAI].truantCounter
+            && !opposingBattlerHasToAttackAfterSwitchin
+           )
+            continue; // si el rival está ocupado con otro movimiento y no toca holgazanear, no nos preocupa de momento que el rival tenga este movimiento
+
+        switch(gBattleMoves[move].effect)
+        {
+            case EFFECT_SUBSTITUTE:
+                if (gBattleMons[opposingBattler].hp <= gBattleMons[opposingBattler].maxHP / 4)
+                    break; // si no tiene PS para meter sub, no nos preocupa
+
+                if (GetWhoStrikesFirst(battlerAI, opposingBattler, TRUE) == 0
+                    && !gDisableStructs[battlerAI].truantCounter
+                    && !opposingBattlerHasToAttackAfterSwitchin
+                   )
+                    break; // si nos da tiempo a atacar antes de que ponga sub, no nos preocupa por el momento
+
+                return TRUE;
+
+            case EFFECT_PROTECT:
+                if ((gLastResultingMoves[opposingBattler] == MOVE_PROTECT || gLastResultingMoves[opposingBattler] == MOVE_DETECT || gLastResultingMoves[opposingBattler] == MOVE_ENDURE)
+                    && gDisableStructs[opposingBattler].protectUses >= 2
+                    && !gDisableStructs[battlerAI].truantCounter
+                    && !opposingBattlerHasToAttackAfterSwitchin)
+                    break; // si el rival se protegió dos o más veces seguidas, se la juega a que la próxima probablemente falle
+
+                return TRUE;
+
+            case EFFECT_SEMI_INVULNERABLE:
+                /*
+                  Hay cuatro factores a tener en cuenta:
+                   - A: Si el poke de la IA es más lento.
+                   - B: Si el rival ya está en una etapa semiinvulnerable en este momento.
+                   - C: Si en el próximo ataque toca holgazanear.
+                   - D: Si el rival tendrá un turno más para atacar (por estar considerando un cambio).
+                  
+                  C y D no pueden darse a la vez.
+                  
+                  La lógica seguida es la siguiente:
+                   - B, C, D falsos. En este caso, el poke con Truant será frenado si es más lento, pero podrá atacar si no.
+                   - C, D falsos, B verdadero. Se le da la vuelta al anterior escenario si el rival está en una etapa semiinvulnerable: el poke con Truant podrá atacar (aguantando un golpe) si es más lento, pero será bloqueado si es más rápido.
+                   - D falso, C verdadero: si B es falso, el rival puede aprovechar la ventaja que tiene para ponerse en el escenario que le interese (usando el movimiento de semiinvulnerabilidad si el poke de la IA es más lento, no usándolo ahora sino en el siguiente turno si es más rápido), mientras que si es verdadero es como el caso con B, C, D falsos.
+                   - D verdadero (C falso), ...:
+                       + B verdadero. Entonces al siguiente turno será como el caso con B, C, D falso.
+                       + B falso. Si el rival no tira el mov de semiinvulnerabilidad en el cambio, entonces es como el escenario con B, C, D falso. Si lo hace, entonces es al revés. Haremos que la IA asuma que no lo hace: si sí lo hace y no conviene puede rectificar al siguiente turno (además la IA podrá escoger un poke que aguante bien el golpe si lo hay), pero si asume lo contrario y no lo hace puede ser menos cómodo rectificar.
+
+                   El siguiente código recorre estos escenarios en orden inverso.
+                */
+                #define TRUANT_MON_IS_SLOWER (GetWhoStrikesFirst(battlerAI, opposingBattler, TRUE) == 1)
+                if (opposingBattlerHasToAttackAfterSwitchin) // D
+                { // Si D, entonces el poke con Truant corre peligro cuando es más lento
+                    if (TRUANT_MON_IS_SLOWER)
+                        return TRUE;
+                }
+                else if (gDisableStructs[battlerAI].truantCounter) // C
+                { // Si C y no D, el poke con Truant corre peligro excepto si es más rápido y el rival está en una etapa semiinvulnerable
+                    if (!(gStatuses3[opposingBattler] & STATUS3_SEMI_INVULNERABLE) || TRUANT_MON_IS_SLOWER)
+                        return TRUE;
+                }
+                else if (gStatuses3[opposingBattler] & STATUS3_SEMI_INVULNERABLE) // B
+                { // Si B, no C y no D, corre peligro si es más rápido
+                    if (!TRUANT_MON_IS_SLOWER)
+                        return TRUE;
+                }
+                else if (TRUANT_MON_IS_SLOWER) // A
+                    return TRUE; // corre peligro si es más lento
+                #undef TRUANT_MON_IS_SLOWER
+                break;
+        }
     }
     return FALSE;
 }
@@ -874,15 +944,17 @@ static u8 ChooseMoveOrAction_Singles(void)
     }
 #endif
 
-	   // Consider switching if your mon with truant is bodied by Protect spam.
-        // Or is using a double turn semi invulnerable move(such as Fly) and is faster.
+        // Consider switching if your mon with truant is bodied by Protect spam.
+        // Or can be exploited by semi invulnerable moves (such as Fly).
         // Or its ability is actually not Truant.
 		if (gBattleMons[sBattler_AI].ability == ABILITY_TRUANT
-            && (GetAbilityBySpecies(gBattleMons[sBattler_AI].species, gBattleMons[sBattler_AI].abilityNum) != ABILITY_TRUANT
-            || IsTruantMonVulnerable(sBattler_AI, gBattlerTarget))
-            && gDisableStructs[sBattler_AI].truantCounter
+            && (IsTruantMonVulnerable(sBattler_AI, gBattlerTarget, FALSE)
+                || (GetAbilityBySpecies(gBattleMons[sBattler_AI].species, gBattleMons[sBattler_AI].abilityNum) != ABILITY_TRUANT
+                  && gDisableStructs[sBattler_AI].truantCounter
+                   )
+               )
 			&& AICanSwitchAssumingEnoughPokemon())
-            SWITCH_IF_THERE_IS_A_SUITABLE_MON(NOT_CHANGING_IS_UNACCEPTABLE);
+            SWITCH_IF_THERE_IS_A_SUITABLE_MON(gDisableStructs[sBattler_AI].truantCounter ? NOT_CHANGING_IS_UNACCEPTABLE : NOT_CHANGING_IS_ACCEPTABLE);
 
 
 // Consider switching if all moves are worthless to use.
@@ -1002,10 +1074,14 @@ static u8 ChooseMoveOrAction_Singles(void)
                   && !(nhko_taken == 1 && gBattleMoves[move].priority < 0)); // sí, Focus Punch tiene -3
             u8 attacks_until_ko = nhko_taken - (ai_is_faster ? 0 : 1);
 
+            if ((gStatuses3[sBattler_AI] & STATUS3_PERISH_SONG) && gDisableStructs[sBattler_AI].perishSongTimer + 1 < attacks_until_ko)
+                attacks_until_ko = 1 + gDisableStructs[sBattler_AI].perishSongTimer;
+
+            if (gBattleMons[sBattler_AI].ability == ABILITY_TRUANT)
+                attacks_until_ko = (attacks_until_ko + (gDisableStructs[sBattler_AI].truantCounter ? 0 : 1))/2;
+
             if (attacks_until_ko > 1 && gBattleMoves[move].effect == EFFECT_EXPLOSION)
                 attacks_until_ko = 1;
-            else if ((gStatuses3[sBattler_AI] & STATUS3_PERISH_SONG) && gDisableStructs[sBattler_AI].perishSongTimer + 1 < attacks_until_ko)
-                attacks_until_ko = 1 + gDisableStructs[sBattler_AI].perishSongTimer;
 
             if (attacks_until_ko > 1 && (gStatuses3[sBattler_AI] & STATUS3_YAWN))
                 attacks_until_ko -= 1; // probablemente más
@@ -1091,7 +1167,14 @@ static u8 ChooseMoveOrAction_Singles(void)
         // la IA mira si puede hacer un buen cambio en lugar de atacar
         if (gBattleMons[sBattler_AI].ability == ABILITY_TRUANT
             && gDisableStructs[sBattler_AI].truantCounter
-            && currentMoveArray[0] < 103 // el movimiento elegido no es muy bueno
+            && (currentMoveArray[0] < 103 || gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE) // el movimiento elegido no es muy bueno o el rival tiene un sustituto
+            && !( // no tiene Evasión subida vs un rival intoxicado o maldito
+                 gBattleMons[sBattler_AI].statStages[STAT_EVASION] >= 10 // +4 o más
+                 && ((gBattleMons[gBattlerTarget].status1 & STATUS1_TOXIC_POISON) || (gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED))
+                )
+            && !( // no pasa a la vez: tener sub, que el rival esté recargando (Hyper Beam...) y ser más rápido
+                 (gBattleMons[sBattler_AI].status2 & STATUS2_SUBSTITUTE) && (gBattleMons[gBattlerTarget].status2 & STATUS2_RECHARGE) && GetWhoStrikesFirst(sBattler_AI, gBattlerTarget, TRUE) == 0
+                )
             && AICanSwitchAssumingEnoughPokemon()
            )
                 SWITCH_IF_THERE_IS_A_SUITABLE_MON(NOT_CHANGING_IS_ACCEPTABLE);
@@ -1330,18 +1413,21 @@ static u8 ChooseMoveOrAction_Doubles(void)
     gBattlerTarget = mostViableTargetsArray[Random() % mostViableTargetsNo];
 
     // Consider switching if your mon with truant is bodied by Protect spam.
-    // Or is using a double turn semi invulnerable move(such as Fly) and is faster.
+    // Or can be exploited by semi invulnerable moves (such as Fly).
     // Or its ability is actually not Truant.
     if (gBattleMons[sBattler_AI].ability == ABILITY_TRUANT
         && GET_BATTLER_SIDE(sBattler_AI) != GET_BATTLER_SIDE(gBattlerTarget)
         && actionOrMoveIndex[gBattlerTarget] != AI_CHOICE_FLEE
         && actionOrMoveIndex[gBattlerTarget] != AI_CHOICE_WATCH
-        && (GetAbilityBySpecies(gBattleMons[sBattler_AI].species, gBattleMons[sBattler_AI].abilityNum) != ABILITY_TRUANT
-              || (IsTruantMonVulnerable(sBattler_AI, gBattlerTarget)
-                  && (gBattleMons[gBattlerTarget ^ BIT_FLANK].hp == 0 || IsTruantMonVulnerable(sBattler_AI, gBattlerTarget ^ BIT_FLANK))))
-        && gDisableStructs[sBattler_AI].truantCounter
+        && ((IsTruantMonVulnerable(sBattler_AI, gBattlerTarget, FALSE)
+            && (gBattleMons[gBattlerTarget ^ BIT_FLANK].hp == 0 || IsTruantMonVulnerable(sBattler_AI, gBattlerTarget ^ BIT_FLANK, FALSE)) // no puede atacar al otro porque no hay otro o por lo mismo
+            )
+            || (GetAbilityBySpecies(gBattleMons[sBattler_AI].species, gBattleMons[sBattler_AI].abilityNum) != ABILITY_TRUANT
+              && gDisableStructs[sBattler_AI].truantCounter
+               )
+           )
         && AICanSwitchAssumingEnoughPokemon())
-        SWITCH_IF_THERE_IS_A_SUITABLE_MON(NOT_CHANGING_IS_UNACCEPTABLE);
+        SWITCH_IF_THERE_IS_A_SUITABLE_MON(gDisableStructs[sBattler_AI].truantCounter ? NOT_CHANGING_IS_UNACCEPTABLE : NOT_CHANGING_IS_ACCEPTABLE);
     return actionOrMoveIndex[gBattlerTarget];
 }
 

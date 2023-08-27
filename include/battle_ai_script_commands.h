@@ -21,7 +21,7 @@ void ClearBattlerItemEffectHistory(u8 battlerId);
 void AI_MarkForcedChange(void);
 
 bool32 OurShedinjaIsVulnerable(u32 battlerAI, u32 opposingBattler, u16 consideredMove);
-bool32 IsTruantMonVulnerable(u32 battlerAI, u32 opposingBattler);
+bool32 IsTruantMonVulnerable(u32 battlerAI, u32 opposingBattler, bool8 opposingBattlerHasToAttackAfterSwitchin);
 s32 CalculateNHKO(u16 attackerId, u16 targetId, bool8 attackerIsCurrentAI, u16 consideredMove, bool8 assumeWorstCaseScenario, bool8 ignoreFocusPunch);
 
 #endif // GUARD_BATTLE_AI_SCRIPT_COMMANDS_H
