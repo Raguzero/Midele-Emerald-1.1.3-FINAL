@@ -6785,7 +6785,7 @@ static void PrintMoveNameAndInfo(u8 taskId, bool8 toggle)
         move = sStatsMovesEgg[sPokedexView->moveSelected];
         StringCopy(gStringVar3, gMoveNames[move]);
         StringCopy(gStringVar4, gMoveDescriptionPointers[(move - 1)]);
-        PrintInfoScreenTextSmall(gText_ThreeDashes, moves_x + 113, moves_y + 9);
+        PrintInfoScreenTextSmall(gText_EggNickname, moves_x + 113, moves_y + 9);
         item = ITEM_LUCKY_EGG;
     }
     else if (selected < (numEggMoves + numLevelUpMoves))
@@ -6800,8 +6800,19 @@ static void PrintMoveNameAndInfo(u8 taskId, bool8 toggle)
             if (gLevelUpLearnsets[species][(selected-numEggMoves)] == LEVEL_UP_END)
                 level = 0xFF;
         }
-        ConvertIntToDecimalStringN(gStringVar1, level, STR_CONV_MODE_LEFT_ALIGN, 3); //Move learn lvl
-        PrintInfoScreenTextSmall(gText_Stats_MoveLevel, moves_x + 113, moves_y + 3); //Level text
+        if (level == 0) // movimiento aprendido al evolucionar
+        {
+            u8 stringOnce[] = _("ONCE");
+            u8 stringEvol[] = _("EVOL");
+            StringCopy(gStringVar1, stringOnce);
+            PrintInfoScreenTextSmall(gStringVar1, moves_x + 113, moves_y + 3);
+            StringCopy(gStringVar1, stringEvol);
+        }
+        else
+        {
+            ConvertIntToDecimalStringN(gStringVar1, level, STR_CONV_MODE_LEFT_ALIGN, 3); //Move learn lvl
+            PrintInfoScreenTextSmall(gText_Stats_MoveLevel, moves_x + 113, moves_y + 3); //Level text
+        }
         PrintInfoScreenTextSmall(gStringVar1, moves_x + 113, moves_y + 14); //Print level
         item = ITEM_EXP_SHARE;
     }
@@ -6816,10 +6827,12 @@ static void PrintMoveNameAndInfo(u8 taskId, bool8 toggle)
     }
     else if (selected < (numEggMoves + numLevelUpMoves + numTMHMMoves + numTutorMoves))
     {
+        u8 stringTutor[] = _("TUTOR");
         move = sStatsMovesTutor[sPokedexView->moveSelected - numEggMoves - numLevelUpMoves - numTMHMMoves];
         StringCopy(gStringVar3, gMoveNames[move]);
         StringCopy(gStringVar4, gMoveDescriptionPointers[(move - 1)]);
-        PrintInfoScreenTextSmall(gText_ThreeDashes, moves_x + 113, moves_y + 9);
+        StringCopy(gStringVar1, stringTutor);
+        PrintInfoScreenTextSmall(gStringVar1, moves_x + 111, moves_y + 9);
         item = ITEM_TEACHY_TV;
     }
     else
