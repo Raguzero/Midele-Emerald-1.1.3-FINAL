@@ -1558,7 +1558,23 @@ static void MoveSelectionDisplayMoveDescription(void)
     u8 pri_start[] = _("{CLEAR_TO 0x6D}");
     sub_81973A4();
     DrawStdWindowFrame(24, FALSE);
-    if (pwr < 2)
+    if (move == MOVE_RETURN)
+    {
+        u8 returnCalc = (10 * gBattleMons[gActiveBattler].friendship / 25);
+        
+        if (returnCalc == 0)
+            returnCalc = 1;
+        ConvertIntToDecimalStringN(pwr_num, returnCalc, STR_CONV_MODE_LEFT_ALIGN, 3);
+    }
+    else if (move == MOVE_FRUSTRATION)
+    {
+        u8 frustrationCalc = (10 * (MAX_FRIENDSHIP - gBattleMons[gActiveBattler].friendship)/25);
+
+        if (frustrationCalc == 0)
+            frustrationCalc = 1;
+        ConvertIntToDecimalStringN(pwr_num, frustrationCalc, STR_CONV_MODE_LEFT_ALIGN, 3);
+    }
+    else if (pwr < 2)
         StringCopy(pwr_num, gText_BattleSwitchWhich5);
     else
         ConvertIntToDecimalStringN(pwr_num, pwr, STR_CONV_MODE_LEFT_ALIGN, 3);
