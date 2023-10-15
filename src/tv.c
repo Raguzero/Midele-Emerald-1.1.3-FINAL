@@ -1745,12 +1745,15 @@ static void sub_80ED718(void)
         {
             if (gSaveBlock1Ptr->tvShows[i].common.kind == TVSHOW_MASS_OUTBREAK)
             {
-                return;
+                if (gSaveBlock1Ptr->tvShows[i].common.active == TRUE)
+                    return;
+                else
+                    break;
             }
         }
         if (!rbernoulli(1, 200))
         {
-            sCurTVShowSlot = FindEmptyTVSlotWithinFirstFiveShowsOfArray(gSaveBlock1Ptr->tvShows);
+            sCurTVShowSlot = (i == 24 ? FindEmptyTVSlotWithinFirstFiveShowsOfArray(gSaveBlock1Ptr->tvShows) : i);
             if (sCurTVShowSlot != -1)
             {
                 outbreakIdx = Random() % ARRAY_COUNT(sPokeOutbreakSpeciesList);
