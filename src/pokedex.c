@@ -6684,7 +6684,7 @@ void DestroyWildHeldItemIcons(u8 taskid) {
     }
 }
 
-u16 GetPreSpecies(species) {
+u16 GetPreSpecies(u16 species) {
     u16 first_in_chain = GetEggSpecies(species);
     if (first_in_chain == species)
         return species;
