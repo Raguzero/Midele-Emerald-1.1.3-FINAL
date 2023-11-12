@@ -155,88 +155,10 @@ MicoloLeagueLobby_EventScript_ResetTrainerYESConfirmo::
 	end
 	
 MicoloLeagueLobby_EventScript_Tutor_Definitive_List::
-	lockall
+	lock
 	faceplayer
-	msgbox Tutor_Definite_List_Text, MSGBOX_DEFAULT	
-	multichoicegrid 0, 0, MULTI_MOVE_TUTOR_LIST, 2, 0
-	switch VAR_RESULT
-	case 0, EXPLOSION
-	case 1, DOUBLEEDGE
-	case 2, DYNAMICPUNCH
-	case 3, SUBSTITUTE
-	case 4, SLEEPTALK
-	case 5, METRONOME
-	case 6, MIMIC
-	case 7, FURRYCUTTER
-	case 8, ROLLOUT
-	case 9, SWAGGER
-	case 10, MORETUTOR1
-	case 11, MORETUTOR2
-	case MULTI_B_PRESSED, No_Tutor
-	end
-	
-EXPLOSION::	
-	call PacifidlogTown_PokemonCenter_1F_EventScript_ExplosionTutor
-	releaseall
-	end
-	
-DOUBLEEDGE::	
-	call SootopolisCity_PokemonCenter_1F_EventScript_DoubleEdgeTutor
-	releaseall
-	end
-
-DYNAMICPUNCH::	
-	call MossdeepCity_EventScript_DynamicPunchTutor
-	releaseall
-	end
-	
-SUBSTITUTE::	
-	call LilycoveCity_DepartmentStoreRooftop_EventScript_SubstituteTutor
-	releaseall
-	end
-	
-SLEEPTALK::	
-	call FortreeCity_House2_EventScript_SleepTalkTutor
-	releaseall
-	end
-	
-METRONOME::	
-	call FallarborTown_Mart_EventScript_MetronomeTutor
-	releaseall
-	end
-	
-MIMIC::	
-	call LavaridgeTown_House_EventScript_MimicTutor
-	releaseall
-	end
-	
-FURRYCUTTER::	
-	call VerdanturfTown_PokemonCenter_1F_EventScript_FuryCutterTutor
-	releaseall
-	end
-	
-ROLLOUT::	
-	call MauvilleCity_EventScript_RolloutTutor
-	releaseall
-	end
-	
-SWAGGER::	
-	call SlateportCity_PokemonFanClub_EventScript_SwaggerTutor
-	releaseall
-	end
-
-MORETUTOR1::	
-	call BattleFrontier_Lounge7_EventScript_ChooseRightTutorMove
-	releaseall
-	end
-	
-MORETUTOR2::	
-	call BattleFrontier_Lounge7_EventScript_ChooseLeftTutorMove
-	releaseall
-	end
-	
-No_Tutor::
-	releaseall
+	msgbox Tutor_Definite_List_Text_YaNO, MSGBOX_DEFAULT	
+	release
 	end
 	
 MicoloLeagueLobby_Mart_EventScript_Clerk::
@@ -463,16 +385,17 @@ MicoloLeagueLobby_Text_ResetTrainerFlagsComplete:
 	.string "Los entrenadores especiales MIDELE se\n"
 	.string "han reseteado de forma satisfactoria.$"
 	
-Tutor_Definite_List_Text:
-	.string "Entrenador, seguro que durante tu\n"
-	.string "aventura te has encontrado con gente\l"
-	.string "la cual quiso enseñarte movimientos de\l"
-	.string "lo más raros... ¿recuerdas a todos y\l"
-	.string "cada uno de ellos?\p"
-	.string "¿No? ¡Pues qué más da! Yo te ayudaré a\n"
-	.string "recordar...\p"
-	.string "¡la lista de movimientos de tutor\n"
-	.string "definitiva!$"
+Tutor_Definite_List_Text_YaNO:
+	.string "Entrenador, yo una vez fui el maestro\n"
+	.string "de movimientos de tutor definitivo,\l"
+	.string "pero el tipo del mostrador... ese\l"
+	.string "tremendo cabrón... ¡Me quitó mi trabajo!\p"
+	.string "No solo le convirtieron en el ponemotes\n"
+	.string "olvidamoves y recuerdamoves, sino que\l"
+	.string "también en el maestro de movimientos\l"
+	.string "de tutor definitivo.\p"
+	.string "¡Se va a enterar cuando lo pille!\n"
+	.string "¡Lo va a pagar bien caro!$"
 
 MicoloLeagueLobby_Text_5:
 	.string "“LAVENDER es un BBCITO.\n"
