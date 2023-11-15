@@ -795,7 +795,7 @@ void RejectEggFromDayCare(void)
     RemoveEggFromDayCare(&gSaveBlock1Ptr->daycare);
 }
 
-static void AlterEggSpeciesWithIncenseItem(u16 *species, struct DayCare *daycare)
+static void AlterEggSpeciesWithIncenseItem(u16 *species, struct DayCare *daycare, u8 *parentSlots)
 {
     u16 motherItem, fatherItem;
     if (*species == SPECIES_WYNAUT || *species == SPECIES_AZURILL || *species == SPECIES_MUNCHLAX || *species == SPECIES_BUDEW || *species == SPECIES_CHINGLING || *species == SPECIES_BONSLY || *species == SPECIES_MIMEJR || *species == SPECIES_HAPPINY || *species == SPECIES_MANTYKE)
@@ -819,7 +819,7 @@ static void AlterEggSpeciesWithIncenseItem(u16 *species, struct DayCare *daycare
 
         if (*species == SPECIES_BUDEW && motherItem != ITEM_MIRACLE_SEED && fatherItem != ITEM_MIRACLE_SEED)
         {
-            *species = SPECIES_ROSELIA, SPECIES_ROSERADE;
+            *species = SPECIES_ROSELIA;
         }
 
         if (*species == SPECIES_CHINGLING && motherItem != ITEM_CLEANSE_TAG && fatherItem != ITEM_CLEANSE_TAG)
@@ -834,12 +834,15 @@ static void AlterEggSpeciesWithIncenseItem(u16 *species, struct DayCare *daycare
 
         if (*species == SPECIES_MIMEJR && motherItem != ITEM_TWISTED_SPOON && fatherItem != ITEM_TWISTED_SPOON)
         {
-            *species = SPECIES_MR_MIME, SPECIES_GALAR_MRMIME, SPECIES_MRRIME;
+            if (GetBoxMonData(&daycare->mons[parentSlots[0]].mon, MON_DATA_SPECIES) == SPECIES_MR_MIME || (GetBoxMonData(&daycare->mons[parentSlots[0]].mon, MON_DATA_SPECIES) == SPECIES_DITTO && GetBoxMonData(&daycare->mons[parentSlots[1]].mon, MON_DATA_SPECIES) == SPECIES_MR_MIME))
+                *species = SPECIES_MR_MIME;
+            else
+                *species = SPECIES_GALAR_MRMIME;
         }
 
         if (*species == SPECIES_HAPPINY && motherItem != ITEM_LUCKY_PUNCH && fatherItem != ITEM_LUCKY_PUNCH)
         {
-            *species = SPECIES_CHANSEY, SPECIES_BLISSEY;
+            *species = SPECIES_CHANSEY;
         }
 
         if (*species == SPECIES_MANTYKE && motherItem != ITEM_SEA_INCENSE && fatherItem != ITEM_SEA_INCENSE)
@@ -925,7 +928,7 @@ static void _GiveEggFromDaycare(struct DayCare *daycare)
     bool8 isEgg;
 
     species = DetermineEggSpeciesAndParentSlots(daycare, parentSlots);
-    AlterEggSpeciesWithIncenseItem(&species, daycare);
+    AlterEggSpeciesWithIncenseItem(&species, daycare, parentSlots);
     SetInitialEggData(&egg, species, daycare);
     InheritIVs(&egg, daycare);
 	InheritAbility(&egg, daycare, parentSlots);
