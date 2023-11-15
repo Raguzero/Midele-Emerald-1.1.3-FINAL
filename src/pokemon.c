@@ -8276,8 +8276,6 @@ bool8 HasTwoFramesAnimation(u16 species)
             && species != SPECIES_UNOWN
             && species != SPECIES_GALAR_YAMASK
             && species != SPECIES_THWACKEY
-		    && species != SPECIES_DARTRIX
-			&& species != SPECIES_DECIDUEYE
 		    && species != SPECIES_POPPLIO
 		    && species != SPECIES_BRIONNE
 			&& species != SPECIES_PRIMARINA
@@ -8292,11 +8290,6 @@ bool8 HasTwoFramesAnimation(u16 species)
             && species != SPECIES_FROSMOTH
 			&& species != SPECIES_G_KINGLER
 			&& species != SPECIES_G_BUTTERFREE
-			&& species != SPECIES_ROCKRUFF
-			&& species != SPECIES_LYCANROC_DAY
-			&& species != SPECIES_LYCANROC_NIGHT
-			&& species != SPECIES_LYCANROC_DUSK
-			&& species != SPECIES_FLOETTE
             && species != SPECIES_ALCREMIE
             && species != SPECIES_TOXTRICITY_LK
 			&& species != SPECIES_DURALUDON
