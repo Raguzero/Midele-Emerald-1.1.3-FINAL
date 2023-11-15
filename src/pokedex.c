@@ -6696,11 +6696,14 @@ u16 GetPreSpecies(u16 species) {
             return SPECIES_ROSELIA;
         case SPECIES_HAPPINY:
             return SPECIES_CHANSEY;
+        case SPECIES_MIMEJR:
+            if (species != SPECIES_MR_MIME) // Galarian Mr. Mime / Mr. Rime
+                return SPECIES_GALAR_MRMIME;
+            return SPECIES_MR_MIME;
         case SPECIES_WYNAUT:
         case SPECIES_MUNCHLAX:
         case SPECIES_BONSLY:
         case SPECIES_CHINGLING:
-        case SPECIES_MIMEJR:
         case SPECIES_MANTYKE:
             return species;   // Wobbuffet, Snorlax, and so on
         default:
