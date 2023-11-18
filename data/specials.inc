@@ -576,3 +576,5 @@ gSpecials:: @ 81DBA64
 	def_special PlayerHasSpecialNickname
 	def_special PCBatallaRandomSetTrainer
 	def_special SetupCustomMultiBattle
+    def_special ChooseMonForEggMoveTutor
+    def_special TeachEggMove

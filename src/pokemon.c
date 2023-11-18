@@ -11,6 +11,7 @@
 #include "battle_tower.h"
 #include "boss_battles.h"
 #include "data.h"
+#include "daycare.h"
 #include "dexnav.h"
 #include "event_data.h"
 #include "evolution_scene.h"
@@ -43,6 +44,7 @@
 #include "constants/battle_frontier.h"
 #include "constants/battle_move_effects.h"
 #include "constants/boss_battles.h"
+#include "constants/daycare.h"
 #include "constants/hold_effects.h"
 #include "constants/item_effects.h"
 #include "constants/items.h"
@@ -7421,6 +7423,37 @@ u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
     return numMoves;
 }
 
+u8 GetEggMovesForTutor(struct Pokemon *mon, u16 *moves)
+{
+    u16 learnedMoves[MAX_MON_MOVES];
+    u16 eggMoves[EGG_MOVES_ARRAY_COUNT];
+    u8 numMoves = 0;
+    u16 species = GetMonData(mon, MON_DATA_SPECIES, 0);
+    u16 eggSpecies = GetPreSpecies(species);
+    u8 numEggMoves = GetEggMovesSpecies(eggSpecies, eggMoves);
+    int i, j, k;
+
+    for (i = 0; i < MAX_MON_MOVES; i++)
+        learnedMoves[i] = GetMonData(mon, MON_DATA_MOVE1 + i, 0);
+
+    for (i = 0; i < numEggMoves; i++)
+    {
+        for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != eggMoves[i]; j++)
+            ;
+
+        if (j == MAX_MON_MOVES)
+        {
+            for (k = 0; k < numMoves && moves[k] != eggMoves[i]; k++)
+                ;
+
+            if (k == numMoves)
+                moves[numMoves++] = eggMoves[i];
+        }
+    }
+
+    return numMoves;
+}
+
 u8 GetLevelUpMovesBySpecies(u16 species, u16 *moves)
 {
     u8 numMoves = 0;
@@ -7481,6 +7514,53 @@ u8 GetNumberOfRelearnableMoves(struct Pokemon *mon)
     }
 
     return numMoves;
+}
+
+u8 GetNumberOfLearnableEggMoves(struct Pokemon *mon)
+{
+    u16 learnedMoves[MAX_MON_MOVES];
+    u16 eggMoves[EGG_MOVES_ARRAY_COUNT];
+    u16 moves[EGG_MOVES_ARRAY_COUNT];
+    u8 numMoves = 0;
+    u16 species = GetMonData(mon, MON_DATA_SPECIES, 0);
+    u16 eggSpecies = GetPreSpecies(species);
+    u8 numEggMoves = GetEggMovesSpecies(eggSpecies, eggMoves);
+    int i, j, k;
+
+    if (species == SPECIES_EGG)
+        return 0;
+
+    for (i = 0; i < MAX_MON_MOVES; i++)
+        learnedMoves[i] = GetMonData(mon, MON_DATA_MOVE1 + i, 0);
+
+    for (i = 0; i < numEggMoves; i++)
+    {
+        for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != eggMoves[i]; j++)
+            ;
+
+        if (j == MAX_MON_MOVES)
+        {
+            for (k = 0; k < numMoves && moves[k] != eggMoves[i]; k++)
+                ;
+
+            if (k == numMoves)
+                moves[numMoves++] = eggMoves[i];
+        }
+    }
+
+    return numMoves;
+}
+
+u8 GetTotalNumberOfEggMoves(struct Pokemon *mon)
+{
+    u16 eggMoves[EGG_MOVES_ARRAY_COUNT];
+    u16 species = GetMonData(mon, MON_DATA_SPECIES, 0);
+    u16 eggSpecies = GetPreSpecies(species);
+
+    if (species == SPECIES_EGG)
+        return 0;
+
+    return GetEggMovesSpecies(species, eggMoves);
 }
 
 u16 SpeciesToPokedexNum(u16 species)

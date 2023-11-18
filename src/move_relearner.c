@@ -156,7 +156,8 @@ static EWRAM_DATA struct
     u8 state;
     u8 heartSpriteIds[16];              /*0x001*/
     u16 movesToLearn[MAX_RELEARNER_MOVES];    /*0x012*/
-    u8 partyMon;                        /*0x044*/
+	u8 partyMon:7;                      /*0x044*/
+	u8 eggMoveMode:1;                    /*0x044*/
     u8 moveSlot;                        /*0x045*/
     struct ListMenuItem menuItems[MAX_RELEARNER_MOVES];  /*0x048*/
     u8 fillerE8[0x110 - 0xE8];          /*0x0E8*/
@@ -371,6 +372,16 @@ void TeachMoveRelearnerMove(void)
     BeginNormalPaletteFade(0xFFFFFFFF, 0, 0, 0x10, RGB_BLACK);
 }
 
+#define RELEARNER_IN_EGG_MOVE_MODE 0x80
+void TeachEggMove(void)
+{
+    ScriptContext2_Enable();
+    gSpecialVar_0x8004 |= RELEARNER_IN_EGG_MOVE_MODE;
+    CreateTask(Task_WaitForFadeOut, 10);
+    // Fade to black
+    BeginNormalPaletteFade(0xFFFFFFFF, 0, 0, 0x10, RGB_BLACK);
+}
+
 static void Task_WaitForFadeOut(u8 taskId)
 {
     if (!gPaletteFade.active)
@@ -388,7 +399,8 @@ static void CB2_InitLearnMove(void)
     ResetTasks();
     clear_scheduled_bg_copies_to_vram();
     sMoveRelearnerStruct = AllocZeroed(sizeof(*sMoveRelearnerStruct));
-    sMoveRelearnerStruct->partyMon = gSpecialVar_0x8004;
+	sMoveRelearnerStruct->partyMon = gSpecialVar_0x8004 & (~RELEARNER_IN_EGG_MOVE_MODE);
+	sMoveRelearnerStruct->eggMoveMode = (gSpecialVar_0x8004 & RELEARNER_IN_EGG_MOVE_MODE) ? TRUE : FALSE;
     SetVBlankCallback(VBlankCB_MoveRelearner);
 
     InitMoveRelearnerBackgroundLayers();
@@ -417,7 +429,8 @@ static void CB2_InitLearnMoveReturnFromSelectMove(void)
     clear_scheduled_bg_copies_to_vram();
     sMoveRelearnerStruct = AllocZeroed(sizeof(*sMoveRelearnerStruct));
     sMoveRelearnerStruct->state = MENU_STATE_FADE_FROM_SUMMARY_SCREEN;
-    sMoveRelearnerStruct->partyMon = gSpecialVar_0x8004;
+	sMoveRelearnerStruct->partyMon = gSpecialVar_0x8004 & (~RELEARNER_IN_EGG_MOVE_MODE);
+	sMoveRelearnerStruct->eggMoveMode = (gSpecialVar_0x8004 & RELEARNER_IN_EGG_MOVE_MODE) ? TRUE : FALSE;
     sMoveRelearnerStruct->moveSlot = gSpecialVar_0x8005;
     SetVBlankCallback(VBlankCB_MoveRelearner);
 
@@ -903,7 +916,7 @@ static void CreateLearnableMovesList(void)
     s32 i;
     u8 nickname[POKEMON_NAME_LENGTH + 1];
 
-    sMoveRelearnerStruct->numMenuChoices = GetMoveRelearnerMoves(&gPlayerParty[sMoveRelearnerStruct->partyMon], sMoveRelearnerStruct->movesToLearn);
+	sMoveRelearnerStruct->numMenuChoices = (sMoveRelearnerStruct->eggMoveMode ? GetEggMovesForTutor : GetMoveRelearnerMoves)(&gPlayerParty[sMoveRelearnerStruct->partyMon], sMoveRelearnerStruct->movesToLearn);
 
     for (i = 0; i < sMoveRelearnerStruct->numMenuChoices; i++)
     {

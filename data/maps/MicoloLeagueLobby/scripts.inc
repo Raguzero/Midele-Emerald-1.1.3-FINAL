@@ -286,6 +286,106 @@ MicoloLeagueLobby_Movement_PlayerDown:
 	face_up
 	step_end
 
+Egg_MoveTutor_EventScript::
+	lock
+	faceplayer
+	msgbox Egg_MoveTutor_Text_WantMeToTeachMove, MSGBOX_YESNO
+	switch VAR_RESULT
+	case NO, Egg_MoveTutor_General_Exit
+	goto Egg_MoveTutor_EventScriptChooseMon
+	end
+
+Egg_MoveTutor_EventScriptChooseMon:: 
+	msgbox Egg_MoveTutor_Text_TutorWhichMon, MSGBOX_DEFAULT
+	special ChooseMonForEggMoveTutor
+	waitstate
+	compare VAR_0x8004, 255
+	goto_if_eq Egg_MoveTutor_General_Exit
+	special IsSelectedMonEgg
+	compare VAR_RESULT, TRUE
+	goto_if_eq Egg_MoveTutor_EventScriptCantTeachEgg
+	compare VAR_0x8005, 0
+	goto_if_eq Egg_MoveTutor_EventScriptNoMoveToTeachMon
+    compare VAR_0x8005, 0xFF
+    goto_if_eq Egg_MoveTutor_EventScriptThisMonHasAllIsEggMoves
+	goto Egg_MoveTutor_EventScriptChooseMove
+	end
+
+Egg_MoveTutor_EventScriptChooseMove:: 
+	msgbox Egg_MoveTutor_Text_TeachWhichMove, MSGBOX_DEFAULT
+	special TeachEggMove
+	waitstate
+	compare VAR_0x8004, 0
+	goto_if_eq Egg_MoveTutor_EventScriptChooseMon
+	goto Egg_MoveTutor_EventScriptRememberAnotherMove
+	end
+
+Egg_MoveTutor_EventScriptNoMoveToTeachMon:: 
+	msgbox Egg_MoveTutor_Text_DontHaveMoveToTeachPokemon, MSGBOX_DEFAULT
+	goto Egg_MoveTutor_EventScriptChooseMon
+	end
+	
+Egg_MoveTutor_EventScriptThisMonHasAllIsEggMoves:: 
+	msgbox Egg_MoveTutor_Text_NoMoreEggMoves, MSGBOX_DEFAULT
+	goto Egg_MoveTutor_EventScriptChooseMon
+	end
+
+Egg_MoveTutor_EventScriptCantTeachEgg:: 
+	msgbox Egg_MoveTutor_Text_CantTeachEgg, MSGBOX_DEFAULT
+	goto Egg_MoveTutor_EventScriptChooseMon
+	end
+	
+Egg_MoveTutor_EventScriptRememberAnotherMove::
+	msgbox Egg_MoveTutor_Text_RememberAnotherMove, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq Egg_MoveTutor_General_Exit
+	goto Egg_MoveTutor_EventScriptChooseMon
+	
+Egg_MoveTutor_General_Exit::
+    msgbox Egg_MoveTutor_Text_SeeYou, MSGBOX_DEFAULT
+	releaseall
+	end
+	
+Egg_MoveTutor_Text_WantMeToTeachMove:
+	.string "Hola, yo soy el MOVE TUTOR de los HUEVOS\n"
+	.string "y soy capaz de enseñarle a tus POKéMON\l"
+	.string "los movimientos que solo pueden\l"
+	.string "aprender por medio de la crianza.\p"
+	.string "¿Estás hasta los HUEVOS de tener\n"
+	.string "que usar la guardería para ello?\l"
+	.string "No te preocupes, ¡Yo soy tu hombre!\p"
+	.string "Y bien, ¿cuál POKéMON quieres que\n"
+	.string "aprenda un MOVIMIENTO HUEVO?$"
+
+Egg_MoveTutor_Text_TutorWhichMon:
+	.string "¿Cuál POKéMON quieres que aprenda\n"
+	.string "un MOVIMIENTO HUEVO?$"
+
+Egg_MoveTutor_Text_TeachWhichMove:
+	.string "¿Cuál MOVIMIENTO HUEVO quieres\n"
+	.string "que aprenda?$"
+
+Egg_MoveTutor_Text_DontHaveMoveToTeachPokemon:
+	.string "¡Manda HUEVOS! Ese POKéMON es de\n"
+	.string "una especie que no puede aprender\l"
+	.string "MOVIMIENTOS HUEVO. Muéstrame otro.$"
+	
+Egg_MoveTutor_Text_NoMoreEggMoves:
+	.string "Ese POKéMON ya conoce todos los\n"
+	.string "movimientos de los HUEVOS.$"
+
+Egg_MoveTutor_Text_CantTeachEgg:
+	.string "Pero si un HUEVO no puede aprender\n"
+	.string "movimientos, anda y no me toques los\l"
+	.string "HUEVOS.$"
+
+Egg_MoveTutor_Text_RememberAnotherMove:
+	.string "¿Te gustaría aprender otro MOVIMIENTO\n"
+	.string "HUEVO?$"
+	
+Egg_MoveTutor_Text_SeeYou:
+	.string "¡Pues adios, TOCAHUEVOS!$"
+
 MicoloLeagueLobby_EventScript_GuardCheck_Text_0:
     .string "Se acerca el final de tu viaje. Llegó la\n"
 	.string "hora de que demuestres que eres el\l"
