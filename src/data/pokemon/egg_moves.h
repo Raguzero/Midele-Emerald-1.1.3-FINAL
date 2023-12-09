@@ -2568,7 +2568,6 @@ const u16 gEggMoves[] = {
 
     egg_moves(GROWLITHE_HISUIAN,
             MOVE_THRASH,
-            MOVE_HEAD_SMASH,
 			MOVE_COVET,
 			MOVE_DOUBLE_EDGE,
 			MOVE_DOUBLE_KICK,

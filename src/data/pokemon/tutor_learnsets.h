@@ -8755,6 +8755,7 @@ static const u32 sTutorLearnsets[] =
                                 | TUTOR(MOVE_SNORE)
                                 | TUTOR(MOVE_ICY_WIND)
                                 | TUTOR(MOVE_ENDURE)
+                                | TUTOR(MOVE_METRONOME)
                                 | TUTOR(MOVE_ICE_PUNCH)
                                 | TUTOR(MOVE_SLEEP_TALK)
                                 | TUTOR(MOVE_SWIFT)),
@@ -8768,7 +8769,7 @@ static const u32 sTutorLearnsets[] =
                                 | TUTOR(MOVE_SNORE)
                                 | TUTOR(MOVE_ICY_WIND)
                                 | TUTOR(MOVE_ENDURE)
-                                | TUTOR(MOVE_ICE_PUNCH)
+                                | TUTOR(MOVE_METRONOME)
                                 | TUTOR(MOVE_SWAGGER)
                                 | TUTOR(MOVE_SLEEP_TALK)
                                 | TUTOR(MOVE_SWIFT)),
