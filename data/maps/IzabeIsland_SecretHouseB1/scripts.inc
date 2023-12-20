@@ -39,6 +39,64 @@ IzabeIsland_SecretHouseB1_EventScript_TitanDefeated::
 	removeobject 1
 	releaseall
 	end
+	
+IzabeIsland_SecretHouseB1_EventScript_GiftZarude::
+	lock
+    msgbox IzabeIsland_SecretHouseB1_Text_SecretBall, MSGBOX_SIGN
+	setvar VAR_TEMP_1, SPECIES_ZARUDE
+	givemon SPECIES_ZARUDE, 40, ITEM_LANSAT_BERRY
+	compare VAR_RESULT, 0
+	goto_if_eq IzabeIsland_SecretHouseB1_EventScript_ReceiveMonParty
+	compare VAR_RESULT, 1
+	goto_if_eq IzabeIsland_SecretHouseB1_EventScript_ReceiveMonPC
+	goto Common_EventScript_NoMoreRoomForPokemon 
+	release
+	end
+
+IzabeIsland_SecretHouseB1_EventScript_ReceiveMonParty::
+	call IzabeIsland_SecretHouseB1_EventScript_ReceiveMonFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq IzabeIsland_SecretHouseB1_EventScript_ReceiveMonEnd
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto IzabeIsland_SecretHouseB1_EventScript_ReceiveMonEnd
+	end
+
+IzabeIsland_SecretHouseB1_EventScript_ReceiveMonPC::
+	call IzabeIsland_SecretHouseB1_EventScript_ReceiveMonFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq IzabeIsland_SecretHouseB1_EventScript_SendMonPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto IzabeIsland_SecretHouseB1_EventScript_SendMonPC
+	end
+	
+IzabeIsland_SecretHouseB1_EventScript_SendMonPC::
+	call Common_EventScript_TransferredToPC
+	goto IzabeIsland_SecretHouseB1_EventScript_ReceiveMonEnd
+	end
+
+IzabeIsland_SecretHouseB1_EventScript_ReceiveMonFanfare::
+	playfanfare MUS_FANFA4
+	message IzabeIsland_SecretHouseB1_Text_ReceivedMon
+	waitmessage
+	waitfanfare
+	bufferspeciesname 0, SPECIES_ZARUDE
+	return
+
+IzabeIsland_SecretHouseB1_EventScript_ReceiveMonEnd:
+	setflag FLAG_RECEIVED_ZARUDE
+	removeobject 3
+	release
+	end
+	
+IzabeIsland_SecretHouseB1_Text_SecretBall:
+	.string "MONOCICLO, porque MONO es UNO\n"
+	.string "y la VIDA es un CICLO.$"
+
+IzabeIsland_SecretHouseB1_Text_ReceivedMon:
+	.string "{PLAYER} recibió a ZARUDE!$"
 
 IzabeIsland_SecretHouseB1_Text_PC::
 	.string "Hay un documento abierto en el PC.\n"
