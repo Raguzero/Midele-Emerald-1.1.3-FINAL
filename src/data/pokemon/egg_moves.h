@@ -446,6 +446,7 @@ const u16 gEggMoves[] = {
               MOVE_MEDITATE,
               MOVE_COUNTER,
               MOVE_REVERSAL,
+			  MOVE_CURSE,
               MOVE_BEAT_UP,
               MOVE_REVENGE,
               MOVE_SMELLING_SALT,
