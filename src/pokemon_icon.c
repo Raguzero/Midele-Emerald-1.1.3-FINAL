@@ -724,6 +724,18 @@ const u8 *const gMonIconTable[] =
     [SPECIES_NUMEL_LUCKY] = gMonIcon_NumelLucky,
     [SPECIES_CAMERUPT_LUCKY] = gMonIcon_CameruptLucky,
     [SPECIES_MEGA_CAMERUPT_LUCKY] = gMonIcon_MegaCameruptLucky,
+	[SPECIES_TRUBBISH] = gMonIcon_Trubbish,
+	[SPECIES_GARBODOR] = gMonIcon_Garbodor,
+	[SPECIES_GIGA_GARBODOR] = gMonIcon_GigaGarbodor,
+	[SPECIES_PANSAGE] = gMonIcon_Pansage,
+	[SPECIES_SIMISAGE] = gMonIcon_Simisage,
+	[SPECIES_ZARUDE] = gMonIcon_Zarude,
+	[SPECIES_WATTREL] = gMonIcon_Wattrel,
+	[SPECIES_KILOWATTREL] = gMonIcon_Kilowattrel,
+	[SPECIES_ARCHALUDON] = gMonIcon_Archaludon,
+	[SPECIES_MAGNESANDS] = gMonIcon_Magnesands,
+	[SPECIES_DIPPLIN] = gMonIcon_Dipplin,
+	[SPECIES_HYDRAPPLE] = gMonIcon_Hydrapple,
 };
 
 const u8 *const gMonIconTableFemale[] =
@@ -1423,6 +1435,18 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_NUMEL_LUCKY] = 1,
     [SPECIES_CAMERUPT_LUCKY] = 1,
     [SPECIES_MEGA_CAMERUPT_LUCKY] = 1,
+	[SPECIES_TRUBBISH] = 1,
+	[SPECIES_GARBODOR] = 1,
+	[SPECIES_GIGA_GARBODOR] = 0,
+	[SPECIES_PANSAGE] = 1,
+	[SPECIES_SIMISAGE] = 1,
+	[SPECIES_ZARUDE] = 1,
+	[SPECIES_WATTREL] = 1,
+	[SPECIES_KILOWATTREL] = 1,
+	[SPECIES_ARCHALUDON] = 0,
+	[SPECIES_MAGNESANDS] = 0,
+	[SPECIES_DIPPLIN] = 1,
+	[SPECIES_HYDRAPPLE] = 1,
 };
 
 const u8 gMonIconPaletteIndicesFemale[] =

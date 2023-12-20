@@ -6962,4 +6962,148 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 256,
         .trainerOffset = 0,
     },
+	
+    [NATIONAL_DEX_TRUBBISH] =
+    {
+        .categoryName = _("TRASH BAG"),
+        .height = 6,
+        .weight = 310,
+        .description = gTrubbishPokedexText,
+        .pokemonScale = 422,
+        .pokemonOffset = 14,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_GARBODOR] =
+    {
+        .categoryName = _("TRASH HEAP"),
+        .height = 19,
+        .weight = 1073,
+        .description = gGarbodorPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 1,
+        .trainerScale = 326,
+        .trainerOffset = 4,
+    },
+	
+    [NATIONAL_DEX_GIGA_GARBODOR] =
+    {
+        .categoryName = _("TRASH HEAP"),
+        .height = 19,
+        .weight = 1073,
+        .description = gGigaGarbodorPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 1,
+        .trainerScale = 326,
+        .trainerOffset = 4,
+    },
+	
+  [NATIONAL_DEX_PANSAGE] =
+    {
+        .categoryName = _("GRASSMONKEY"),
+        .height = 6,
+        .weight = 105,
+        .description = gPansagePokedexText,
+        .pokemonScale = 422,
+        .pokemonOffset = 12,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_SIMISAGE] =
+    {
+        .categoryName = _("THORNMONKEY"),
+        .height = 11,
+        .weight = 305,
+        .description = gSimisagePokedexText,
+        .pokemonScale = 320,
+        .pokemonOffset = 7,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_ZARUDE] =
+    {
+        .categoryName = _("ROGUEMONKEY"),
+        .height = 18,
+        .weight = 700,
+        .description = gZarudePokedexText,
+        .pokemonScale = 267,
+        .pokemonOffset = 2,
+        .trainerScale = 286,
+        .trainerOffset = 1,
+    },
+	
+	[NATIONAL_DEX_ARCHALUDON] =
+	{
+		.categoryName = _("ALLOY"),
+		.height = 20,
+		.weight = 600,
+		.description = gArchaludonPokedexText,
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	
+    [NATIONAL_DEX_WATTREL] =
+    {
+        .categoryName = _("STORMPETREL"),
+        .height = 4,
+        .weight = 36,
+        .description = gWattrelPokedexText,
+        .pokemonScale = 465,
+        .pokemonOffset = 21,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_KILOWATTREL] =
+    {
+        .categoryName = _("FRIGATEBIRD"),
+        .height = 14,
+        .weight = 386,
+        .description = gKilowattrelPokedexText,
+        .pokemonScale = 428,
+        .pokemonOffset = 15,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+	
+	[NATIONAL_DEX_MAGNESANDS] =
+	{
+		.categoryName = _("MAGNET ZERO"),
+		.height = 23,
+		.weight = 600,
+		.description = gMagnesandsPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	
+	[NATIONAL_DEX_DIPPLIN] =
+	{
+		.categoryName = _("CANDY APPLE"),
+		.height = 4,
+		.weight = 44,
+		.description = gDipplinPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+	
+	[NATIONAL_DEX_HYDRAPPLE] =
+	{
+		.categoryName = _("APPLE HYDRA"),
+		.height = 18,
+		.weight = 930,
+		.description = gHydrapplePokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
 };

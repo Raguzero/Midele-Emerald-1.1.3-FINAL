@@ -2847,6 +2847,42 @@ Cry_Kincurs::
 Cry_Posord::
 	.incbin "sound/direct_sound_samples/cry_posord.bin"
 	.align 2
+Cry_Trubbish::
+	.incbin "sound/direct_sound_samples/cry_trubbish.bin"
+	.align 2
+Cry_Garbodor::
+	.incbin "sound/direct_sound_samples/cry_garbodor.bin"
+	.align 2
+Cry_Gigarbodor::
+	.incbin "sound/direct_sound_samples/cry_gigagarbodor.bin"
+	.align 2
+Cry_Pansage::
+	.incbin "sound/direct_sound_samples/cry_pansage.bin"
+	.align 2
+Cry_Simisage::
+	.incbin "sound/direct_sound_samples/cry_simisage.bin"
+	.align 2
+Cry_Zarude::
+	.incbin "sound/direct_sound_samples/cry_zarude.bin"
+	.align 2
+Cry_Archaludon::
+	.incbin "sound/direct_sound_samples/cry_archaludon.bin"
+	.align 2
+Cry_Wattrel::
+	.incbin "sound/direct_sound_samples/cry_wattrel.bin"
+	.align 2
+Cry_Kilowattrel::
+	.incbin "sound/direct_sound_samples/cry_kilowattrel.bin"
+	.align 2
+Cry_Magnesands::
+	.incbin "sound/direct_sound_samples/cry_magnesands.bin"
+	.align 2
+Cry_Dipplin::
+	.incbin "sound/direct_sound_samples/cry_dipplin.bin"
+	.align 2
+Cry_Hydrapple::
+	.incbin "sound/direct_sound_samples/cry_hydrapple.bin"
+	.align 2
 
 DirectSoundWaveData_register_noise::
 	.incbin "sound/direct_sound_samples/register_noise.bin"

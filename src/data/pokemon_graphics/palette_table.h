@@ -697,6 +697,18 @@ const struct CompressedSpritePalette gMonPaletteTable[] =
     SPECIES_PAL(NUMEL_LUCKY, gMonPalette_NumelLucky),
     SPECIES_PAL(CAMERUPT_LUCKY, gMonPalette_CameruptLucky),
     SPECIES_PAL(MEGA_CAMERUPT_LUCKY, gMonPalette_MegaCameruptLucky),
+	SPECIES_PAL(TRUBBISH, gMonPalette_Trubbish),
+    SPECIES_PAL(GARBODOR, gMonPalette_Garbodor),
+    SPECIES_PAL(GIGA_GARBODOR, gMonPalette_GigaGarbodor),
+    SPECIES_PAL(PANSAGE, gMonPalette_Pansage),
+    SPECIES_PAL(SIMISAGE, gMonPalette_Simisage),
+    SPECIES_PAL(ZARUDE, gMonPalette_Zarude),
+    SPECIES_PAL(ARCHALUDON, gMonPalette_Archaludon),
+    SPECIES_PAL(WATTREL, gMonPalette_Wattrel),
+    SPECIES_PAL(KILOWATTREL, gMonPalette_Kilowattrel),
+    SPECIES_PAL(MAGNESANDS, gMonPalette_Magnesands),
+    SPECIES_PAL(DIPPLIN, gMonPalette_Dipplin),
+    SPECIES_PAL(HYDRAPPLE, gMonPalette_Hydrapple),
 };
 
 const struct CompressedSpritePalette gMonPaletteTableFemale[] =

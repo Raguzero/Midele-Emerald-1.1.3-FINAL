@@ -14626,6 +14626,19 @@ gCryTable:: @ 869DCF4
 	cry Cry_Coureen
 	cry Cry_Kincurs
 	cry Cry_Posord
+	cry Cry_Trubbish
+	cry Cry_Garbodor
+	cry Cry_Gigarbodor
+	cry Cry_Pansage
+	cry Cry_Simisage
+	cry Cry_Zarude
+	cry Cry_Archaludon
+	cry Cry_Wattrel
+	cry Cry_Kilowattrel
+	cry Cry_Magnesands
+	cry Cry_Dipplin
+	cry Cry_Hydrapple
+
 
 	.align 2
 gCryTable2:: @ 869EF24
@@ -15216,6 +15229,18 @@ gCryTable2:: @ 869EF24
 	cry2 Cry_Coureen
 	cry2 Cry_Kincurs
 	cry2 Cry_Posord
+	cry2 Cry_Trubbish
+	cry2 Cry_Garbodor
+	cry2 Cry_Gigarbodor
+	cry2 Cry_Pansage
+	cry2 Cry_Simisage
+	cry2 Cry_Zarude
+	cry2 Cry_Archaludon
+	cry2 Cry_Wattrel
+	cry2 Cry_Kilowattrel
+	cry2 Cry_Magnesands
+	cry2 Cry_Dipplin
+	cry2 Cry_Hydrapple
 	
 
 	.align 2

@@ -3483,4 +3483,64 @@ const struct MonCoords gMonBackPicCoords[] =
         .size = 0,
         .y_offset = 9,
     },
+    [SPECIES_TRUBBISH] =
+    {
+        .size = 0x66,
+        .y_offset = 13,
+    },
+    [SPECIES_GARBODOR] =
+    {
+        .size = 0x88,
+        .y_offset = 5,
+    },
+    [SPECIES_GIGA_GARBODOR] =
+    {
+        .size = 0x88,
+        .y_offset = 5,
+    },
+    [SPECIES_PANSAGE] =
+    {
+        .size = 0x66,
+        .y_offset = 9,
+    },
+    [SPECIES_SIMISAGE] =
+    {
+        .size = 0x78,
+        .y_offset = 6,
+    },
+    [SPECIES_ZARUDE] =
+    {
+        .size = 0x87,
+        .y_offset = 5,
+    },
+    [SPECIES_ARCHALUDON] =
+    {
+        .size = 0x88,
+        .y_offset = 0x00,
+    },
+    [SPECIES_MAGNESANDS] =
+    {
+        .size = 0x66,
+        .y_offset = 0x0a,
+    },
+    [SPECIES_WATTREL] =
+    {
+        .size = 0x64,
+        .y_offset = 0x11,
+    },
+    [SPECIES_KILOWATTREL] =
+    {
+        .size = 0x86,
+        .y_offset = 0x08,
+    },
+    [SPECIES_DIPPLIN] =
+    {
+        .size = 0x64,
+        .y_offset = 0x04,
+    },
+    [SPECIES_HYDRAPPLE] =
+    {
+        .size = 0x64,
+        .y_offset = 0x12,
+    },
 };

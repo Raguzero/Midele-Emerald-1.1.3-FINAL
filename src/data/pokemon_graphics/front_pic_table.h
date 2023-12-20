@@ -697,6 +697,18 @@ const struct CompressedSpriteSheet gMonFrontPicTable[] =
     SPECIES_SPRITE(NUMEL_LUCKY, gMonFrontPic_NumelLucky),
     SPECIES_SPRITE(CAMERUPT_LUCKY, gMonFrontPic_CameruptLucky),
     SPECIES_SPRITE(MEGA_CAMERUPT_LUCKY, gMonFrontPic_MegaCameruptLucky),
+	SPECIES_SPRITE(TRUBBISH, gMonFrontPic_Trubbish),
+    SPECIES_SPRITE(GARBODOR, gMonFrontPic_Garbodor),
+    SPECIES_SPRITE(GIGA_GARBODOR, gMonFrontPic_GigaGarbodor),
+    SPECIES_SPRITE(PANSAGE, gMonFrontPic_Pansage),
+    SPECIES_SPRITE(SIMISAGE, gMonFrontPic_Simisage),
+    SPECIES_SPRITE(ZARUDE, gMonFrontPic_Zarude),
+    SPECIES_SPRITE(ARCHALUDON, gMonFrontPic_Archaludon),
+    SPECIES_SPRITE(WATTREL, gMonFrontPic_Wattrel),
+    SPECIES_SPRITE(KILOWATTREL, gMonFrontPic_Kilowattrel),
+    SPECIES_SPRITE(MAGNESANDS, gMonFrontPic_Magnesands),
+    SPECIES_SPRITE(DIPPLIN, gMonFrontPic_Dipplin),
+    SPECIES_SPRITE(HYDRAPPLE, gMonFrontPic_Hydrapple),
 };
 
 

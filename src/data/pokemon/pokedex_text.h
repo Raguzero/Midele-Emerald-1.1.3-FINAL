@@ -3494,3 +3494,71 @@ const u8 gPosordPokedexText[] = _(
     "Garden shears possessed by a spirit. It is\n"
 	"said to have been created by a scientist\n"
 	"expert by the name of Gerph.");
+	
+const u8 gTrubbishPokedexText[] = _(
+    "It gorges on trash until its stomach\n"
+    "is full. Then it belches toxic gas.\n"
+    "An unlucky whiff of this gas will put\n"
+    "a person in the hospital.");
+
+const u8 gGarbodorPokedexText[] = _(
+    "Beware the poisonous liquid it shoots\n"
+    "from its right arm. If even a little of it\n"
+    "gets on you, you'll experience the full\n"
+    "effects of this unidentified toxin.");
+	
+const u8 gGigaGarbodorPokedexText[] = _(
+    "It sprays toxic gas from its mouth and\n"
+	"fingers. If the gas engulfs you, the toxins\n"
+	"will seep in all the way down to your bones.");
+	
+const u8 gPansagePokedexText[] = _(
+    "This POKéMON dwells deep in the forest.\n"
+    "It's good at finding berries and gathers\n"
+    "them from all over. It's kind enough to\n"
+    "share them with friends.");
+
+const u8 gSimisagePokedexText[] = _(
+    "Ill tempered, it attacks enemies by\n"
+    "swinging its barbed tail around wildly.\n"
+    "The leaf growing on its head is\n"
+    "very bitter.");
+	
+const u8 gZarudePokedexText[] = _(
+    "Within dense forests, this POKéMON lives\n"
+    "in a pack with others of its kind. It's\n"
+    "incredibly aggressive, and the other\n"
+    "POKéMON of the forest fear it.");
+	
+const u8 gArchaludonPokedexText[] = _(
+    "It gathers static electricity from its\n"
+	"surroundings. The beams it launches when\n"
+	"down on all fours are tremendously\n"
+	"powerful.");
+	
+const u8 gWattrelPokedexText[] = _(
+    "When its wings catch the wind, the bones\n"
+	"within produce electricity. This POKéMON\n"
+	"dives into the ocean, catching prey by\n"
+	"electrocuting them.");
+
+const u8 gKilowattrelPokedexText[] = _(
+    "KILOWATTREL inflates its throat sac\n"
+	"to amplify its electricity.\n"
+	"By riding the wind, this POKéMON can fly\n"
+	"over 430 miles in a day.");
+
+const u8 gMagnesandsPokedexText[] = _(
+    "It slightly resembles a MAGNETON that\n"
+	"lived for 10,000 years and was featured in\n"
+	"an article in a paranormal magazine.");
+
+const u8 gDipplinPokedexText[] = _(
+    "DIPPLIN is two creatures in one POKéMON.\n" 
+	"Its evolution was triggered by a special\n"
+	"apple grown only in one place.");
+
+const u8 gHydrapplePokedexText[] = _(
+    "Seven syrpents live inside an apple made\n"
+	"of syrup. The syrpent in the center is\n"
+	"the commander.");

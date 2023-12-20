@@ -6623,6 +6623,87 @@ static const union AnimCmd sAnim_MEGA_CAMERUPT_LUCKY_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_TRUBBISH_1[] =
+{
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_GARBODOR_1[] =
+{
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_FRAME(1, 35),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_GIGA_GARBODOR_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_PANSAGE_1[] =
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 8),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 13),
+    ANIMCMD_FRAME(0, 7),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_SIMISAGE_1[] =
+{
+    ANIMCMD_FRAME(0, 12),
+    ANIMCMD_FRAME(1, 45),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_ZARUDE_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_ARCHALUDON_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_MAGNESANDS_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_WATTREL_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_KILOWATTREL_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_DIPPLIN_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_HYDRAPPLE_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
 
 static const union AnimCmd *const sAnims_NONE[] ={
     sAnim_GeneralFrame0,
@@ -10022,8 +10103,65 @@ static const union AnimCmd *const sAnims_MEGA_CAMERUPT_LUCKY[] ={
     sAnim_MEGA_CAMERUPT_LUCKY_1,
 };
 
+static const union AnimCmd *const sAnims_TRUBBISH[] ={
+    sAnim_GeneralFrame0,
+    sAnim_TRUBBISH_1,
+};
 
+static const union AnimCmd *const sAnims_GARBODOR[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GARBODOR_1,
+};
 
+static const union AnimCmd *const sAnims_GIGA_GARBODOR[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GIGA_GARBODOR_1,
+};
+
+static const union AnimCmd *const sAnims_PANSAGE[] ={
+    sAnim_GeneralFrame0,
+    sAnim_PANSAGE_1,
+};
+
+static const union AnimCmd *const sAnims_SIMISAGE[] ={
+    sAnim_GeneralFrame0,
+    sAnim_SIMISAGE_1,
+};
+
+static const union AnimCmd *const sAnims_ZARUDE[] ={
+    sAnim_GeneralFrame0,
+    sAnim_ZARUDE_1,
+};
+
+static const union AnimCmd *const sAnims_ARCHALUDON[] ={
+    sAnim_GeneralFrame0,
+    sAnim_ARCHALUDON_1,
+};
+
+static const union AnimCmd *const sAnims_MAGNESANDS[] ={
+    sAnim_GeneralFrame0,
+    sAnim_MAGNESANDS_1,
+};
+
+static const union AnimCmd *const sAnims_WATTREL[] ={
+    sAnim_GeneralFrame0,
+    sAnim_WATTREL_1,
+};
+
+static const union AnimCmd *const sAnims_KILOWATTREL[] ={
+    sAnim_GeneralFrame0,
+    sAnim_KILOWATTREL_1,
+};
+
+static const union AnimCmd *const sAnims_DIPPLIN[] ={
+    sAnim_GeneralFrame0,
+    sAnim_DIPPLIN_1,
+};
+
+static const union AnimCmd *const sAnims_HYDRAPPLE[] ={
+    sAnim_GeneralFrame0,
+    sAnim_HYDRAPPLE_1,
+};
 
 #define ANIM_CMD(name)             [SPECIES_##name] = sAnims_##name
 #define ANIM_CMD_FULL(name, anims) [SPECIES_##name] = anims
@@ -10728,4 +10866,16 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(NUMEL_LUCKY),
     ANIM_CMD(CAMERUPT_LUCKY),
     ANIM_CMD(MEGA_CAMERUPT_LUCKY),
+    ANIM_CMD(TRUBBISH),
+    ANIM_CMD(GARBODOR),
+    ANIM_CMD(GIGA_GARBODOR),
+    ANIM_CMD(PANSAGE),
+    ANIM_CMD(SIMISAGE),
+    ANIM_CMD(ZARUDE),
+    ANIM_CMD(ARCHALUDON),
+    ANIM_CMD(MAGNESANDS),
+    ANIM_CMD(WATTREL),
+    ANIM_CMD(KILOWATTREL),
+    ANIM_CMD(DIPPLIN),
+    ANIM_CMD(HYDRAPPLE),
 };

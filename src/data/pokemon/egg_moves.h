@@ -249,6 +249,9 @@ const u16 gEggMovesSpecies[] = {
   SPECIES_PRINPAWN,
   SPECIES_POSORD,
   SPECIES_NUMEL_LUCKY,
+  SPECIES_TRUBBISH,
+  SPECIES_PANSAGE,
+  SPECIES_WATTREL,
 };
 
 const u16 gEggMoves[] = {
@@ -2629,7 +2632,36 @@ const u16 gEggMoves[] = {
 			  MOVE_IRON_HEAD,
 			  MOVE_CURSE,
 			  MOVE_REFRESH,
-			  MOVE_YAWN),	
+			  MOVE_YAWN),
+			  
+    egg_moves(PANSAGE,
+        MOVE_COVET,
+        MOVE_LOW_KICK,
+        MOVE_TICKLE,
+        MOVE_NASTY_PLOT,
+        MOVE_ROLE_PLAY,
+        MOVE_ASTONISH,
+        MOVE_GRASS_WHISTLE,
+        MOVE_MAGICAL_LEAF,
+        MOVE_BULLET_SEED,
+        MOVE_LEAF_STORM),
+		
+    egg_moves(TRUBBISH,
+        MOVE_ROLLOUT,
+        MOVE_HAZE,
+        MOVE_CURSE,
+        MOVE_ROCK_BLAST,
+        MOVE_SAND_ATTACK,
+        MOVE_MUD_SPORT,
+        MOVE_SELF_DESTRUCT),
+		
+    egg_moves(WATTREL,
+        MOVE_ENDEAVOR,
+        MOVE_FEATHER_DANCE,
+        MOVE_SPIT_UP,
+        MOVE_STOCKPILE,
+        MOVE_SWALLOW,
+        MOVE_WEATHER_BALL),
 		
     EGG_MOVES_TERMINATOR
 };
