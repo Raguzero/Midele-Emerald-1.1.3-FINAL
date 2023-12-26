@@ -879,6 +879,18 @@ static const struct MenuAction MultichoiceList_GameCornerPkmn3[] =
     {gText_DarkPika},
     {gText_Wintass},
     {gText_Catermano},
+	{gText_Unown},
+	{gText_Prinpawn},
+    {gText_Exit},
+};
+
+static const struct MenuAction MultichoiceList_GameCornerPkmn4[] =
+{
+	{gText_Posord},
+	{gText_NumelLucky},
+	{gText_Zubat},
+	{gText_Probopass},
+	{gText_Kecleon},
     {gText_Exit},
 };
 
@@ -1288,6 +1300,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_CIBERCAFE_BATALLA_2]     =MULTICHOICE(MultichoiceList_CiberCafe_Batalla_2),
     [MULTI_CIBERCAFE_BATALLA_MODOS_ESPECIALES]     =MULTICHOICE(MultichoiceList_CiberCafe_Batalla_Modos_Especiales),
     [MULTI_RANDOMBATTLECC]     =MULTICHOICE(MultichoiceList_RandomBattleCC),
+    [MULTI_GAME_CORNER_PKMN4]                = MULTICHOICE(MultichoiceList_GameCornerPkmn4),
 };
 
 const u8 *const gStdStrings[] =

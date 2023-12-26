@@ -82,7 +82,10 @@
 // Converts a Q24.8 fixed-point format number to a regular integer
 #define Q_24_8_TO_INT(n) ((int)((n) >> 8))
 
-#define POKEMON_SLOTS_NUMBER 632
+#define POKEMON_SLOTS_NUMBER 632 // basta que sea mayor o igual que NATIONAL_DEX_COUNT. Cambiar este valor estropea sav antiguos
+#if NATIONAL_DEX_COUNT > POKEMON_SLOTS_NUMBER
+  #error "No hay suficientes slots para la cantidad de entradas en la dex"
+#endif
 
 #define min(a, b) ((a) < (b) ? (a) : (b))
 #define max(a, b) ((a) >= (b) ? (a) : (b))
@@ -1028,7 +1031,8 @@ struct SaveBlock1
     /*0x3D88*/ u16 registeredItemL;
     // sizeof: 0x3D8C  ???
                u8 trainerFlags[NEW_TRAINER_FLAGS_COUNT];
-			   u8 dexNavSearchLevels[SPECIES_EGG]; // SEGUN EL SCRIPT ES u8 dexNavSearchLevels[NUM_SPECIES]; PERO DA ERROR, Y SPECIES_EGG es lo debe ir aqui
+               u8 dexNavSearchLevels[1 + POKEMON_SLOTS_NUMBER]; // el primer byte no se usa
+               u8 dexNavUnused; // originalmente el array de arriba tenía 634 entradas, que es 2 + POKEMON_SLOTS_NUMBER
 			   u8 dexNavChain;
 };
 

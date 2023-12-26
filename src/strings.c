@@ -1881,8 +1881,16 @@ const u8 gText_Venonat[] = _("VENONAT{CLEAR_TO 0x48}500 COINS");
 const u8 gText_Happiny[] = _("HAPPINY{CLEAR_TO 0x48}2500 COINS");
 const u8 gText_Wooper[] = _("WOOPER{CLEAR_TO 0x48}800 COINS");
 const u8 gText_DarkPika[] = _("DARK PIKA{CLEAR_TO 0x48}9000 COINS");
-const u8 gText_Wintass[] = _("WINTASS{CLEAR_TO 0x48}9000 COINS");
+const u8 gText_Wintass[] = _("WINTASS{CLEAR_TO 0x48}5000 COINS");
 const u8 gText_Catermano[] = _("CATERMANO{CLEAR_TO 0x48}9000 COINS");
+const u8 gText_Unown[] = _("UNOWN{CLEAR_TO 0x48}1000 COINS");
+const u8 gText_Prinpawn[] = _("PRINPAWN{CLEAR_TO 0x48}3000 COINS");
+const u8 gText_Posord[] = _("POSORD{CLEAR_TO 0x48}4000 COINS");
+const u8 gText_NumelLucky[] = _("NUMEL LUCKY{CLEAR_TO 0x48}800 COINS");
+const u8 gText_Zubat[] = _("ZUBAT{CLEAR_TO 0x48}1500 COINS");
+const u8 gText_Probopass[] = _("PROBOPASS{CLEAR_TO 0x48}1500 COINS");
+const u8 gText_Kecleon[] = _("KECLEON{CLEAR_TO 0x48}1500 COINS");
+
 const u8 gText_Individual[] = _("INDIVIDUAL");
 const u8 gText_Dobles[] = _("DOBLES");
 const u8 gText_MetroIndividual[] = _("METRO INDIV");
@@ -2056,6 +2064,9 @@ const u8 gText_EVO_LEVEL_FEMALE[]                   = _("Lvl up to {STR_VAR_2}, 
 const u8 gText_EVO_ITEM_MALE[]                      = _("{STR_VAR_2} used on male");
 const u8 gText_EVO_ITEM_FEMALE[]                    = _("{STR_VAR_2} used on female");
 const u8 gText_EVO_NONE[]                           = _("There is no evolution for {STR_VAR_1}.");
+const u8 gText_EVO_ITEM_LEVEL_30[]                  = _(" {STR_VAR_2} is used with level 30");
+const u8 gText_EVO_ITEM_LEVEL_40[]                  = _(" {STR_VAR_2} is used with level 40");
+const u8 gText_EVO_ITEM_LEVEL_50[]                  = _(" {STR_VAR_2} is used with level 50");
 
 // Pokemon center move tutor/name rater menu
 const u8 gText_RememberAMove[] = _("REMEMBER A MOVE");

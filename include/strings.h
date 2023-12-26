@@ -3008,6 +3008,13 @@ extern const u8 gText_Wooper[];
 extern const u8 gText_DarkPika[];
 extern const u8 gText_Wintass[];
 extern const u8 gText_Catermano[];
+extern const u8 gText_Unown[];
+extern const u8 gText_Prinpawn[];
+extern const u8 gText_Posord[];
+extern const u8 gText_NumelLucky[];
+extern const u8 gText_Zubat[];
+extern const u8 gText_Probopass[];
+extern const u8 gText_Kecleon[];
 
 extern const u8 gText_HardyNature[];
 extern const u8 gText_LonelyNature[];
@@ -3171,6 +3178,9 @@ extern const u8 gText_EVO_LEVEL_FEMALE[];
 extern const u8 gText_EVO_ITEM_MALE[];
 extern const u8 gText_EVO_ITEM_FEMALE[];
 extern const u8 gText_EVO_NONE[];
+extern const u8 gText_EVO_ITEM_LEVEL_30[];
+extern const u8 gText_EVO_ITEM_LEVEL_40[];
+extern const u8 gText_EVO_ITEM_LEVEL_50[];
 
 // POKEMON CENTER GEN 8
 extern const u8 gText_RememberAMove[];

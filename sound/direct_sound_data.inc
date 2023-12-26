@@ -2805,6 +2805,85 @@ Cry_Honedge_Monado::
 
 	.align 2
 
+Cry_Wyrdeer::
+	.incbin "sound/direct_sound_samples/cry_wyrdeer.bin"
+	.align 2
+Cry_Kleavor::
+	.incbin "sound/direct_sound_samples/cry_kleavor.bin"
+	.align 2
+Cry_Ursaluna::
+	.incbin "sound/direct_sound_samples/cry_ursaluna.bin"
+	.align 2
+Cry_Sneasler::
+	.incbin "sound/direct_sound_samples/cry_sneasler.bin"
+	.align 2
+Cry_Overqwil::
+	.incbin "sound/direct_sound_samples/cry_overqwil.bin"
+	.align 2
+Cry_Kingambit::
+	.incbin "sound/direct_sound_samples/cry_kingambit.bin"
+	.align 2
+Cry_Dudunsparce::
+	.incbin "sound/direct_sound_samples/cry_dudunsparce.bin"
+	.align 2
+Cry_Clodsire::
+	.incbin "sound/direct_sound_samples/cry_clodsire.bin"
+	.align 2
+Cry_Annihilape::
+	.incbin "sound/direct_sound_samples/cry_annihilape.bin"
+	.align 2
+Cry_Farigiraf::
+	.incbin "sound/direct_sound_samples/cry_farigiraf.bin"
+	.align 2
+Cry_Prinpawn::
+	.incbin "sound/direct_sound_samples/cry_prinpawn.bin"
+	.align 2
+Cry_Coureen::
+	.incbin "sound/direct_sound_samples/cry_coureen.bin"
+	.align 2
+Cry_Kincurs::
+	.incbin "sound/direct_sound_samples/cry_kincurs.bin"
+	.align 2
+Cry_Posord::
+	.incbin "sound/direct_sound_samples/cry_posord.bin"
+	.align 2
+Cry_Trubbish::
+	.incbin "sound/direct_sound_samples/cry_trubbish.bin"
+	.align 2
+Cry_Garbodor::
+	.incbin "sound/direct_sound_samples/cry_garbodor.bin"
+	.align 2
+Cry_Gigarbodor::
+	.incbin "sound/direct_sound_samples/cry_gigagarbodor.bin"
+	.align 2
+Cry_Pansage::
+	.incbin "sound/direct_sound_samples/cry_pansage.bin"
+	.align 2
+Cry_Simisage::
+	.incbin "sound/direct_sound_samples/cry_simisage.bin"
+	.align 2
+Cry_Zarude::
+	.incbin "sound/direct_sound_samples/cry_zarude.bin"
+	.align 2
+Cry_Archaludon::
+	.incbin "sound/direct_sound_samples/cry_archaludon.bin"
+	.align 2
+Cry_Wattrel::
+	.incbin "sound/direct_sound_samples/cry_wattrel.bin"
+	.align 2
+Cry_Kilowattrel::
+	.incbin "sound/direct_sound_samples/cry_kilowattrel.bin"
+	.align 2
+Cry_Magnesands::
+	.incbin "sound/direct_sound_samples/cry_magnesands.bin"
+	.align 2
+Cry_Dipplin::
+	.incbin "sound/direct_sound_samples/cry_dipplin.bin"
+	.align 2
+Cry_Hydrapple::
+	.incbin "sound/direct_sound_samples/cry_hydrapple.bin"
+	.align 2
+
 DirectSoundWaveData_register_noise::
 	.incbin "sound/direct_sound_samples/register_noise.bin"
 

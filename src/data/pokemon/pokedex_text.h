@@ -3417,3 +3417,148 @@ const u8 gHonedgeMonadoPokedexText[] = _(
 	"MICOLO's trusted scientist with high\n" 
 	"autism.\n"
 	"It does cut deep enough.");
+	
+const u8 gKleavorPokedexText[] = _(
+    "A violent creature that fells towering\n"
+	"trees with its crude axes and shields\n"
+	"itself with hard stone.");
+	
+const u8 gWyrdeerPokedexText[] = _(
+    "The fur shed from its beard retains heat\n"
+	"well and is a highly useful material for\n"
+	"winter clothing.");
+
+const u8 gUrsalunaPokedexText[] = _(
+    "Swampy terrain gave URSALUNA its burly\n"
+	"physique and newfound capacity to\n"
+	"manipulate peat at will.");
+	
+const u8 gSneaslerPokedexText[] = _(
+    "It has virulent poison and daunting\n"
+	"physical prowess. Preferring solitude,\n"
+	"this species does not form packs.");
+	
+const u8 gOverqwilPokedexText[] = _(
+    "Its lancelike spikes and savage\n"
+	"temperament have earned it the\n"
+	"nickname sea fiend.");
+	
+const u8 gKingambitPokedexText[] = _(
+    "Though it commands a massive army in\n"
+	"battle, it's not skilled at devising\n"
+	"complex strategies. It just uses brute\n" 
+	"strength to keep pushing.");
+	
+const u8 gDudunsparcePokedexText[] = _(
+    "A recent study uncovered that the\n"
+	"number of segments a DUDUNSPARCE's body\n"
+	"has is determined by the POKéMON's genes.");
+	
+const u8 gClodsirePokedexText[] = _(
+    "When attacked, this POKéMON will\n"
+	"retaliate by sticking thick spines out\n" 
+	"from its body. It's a risky move that\n"
+	"puts everything on the line.");
+	
+const u8 gAnnihilapePokedexText[] = _(
+    "When its anger rose beyond a critical\n"
+	"point, this POKéMON gained power that\n"
+	"is unfettered by the limits of its\n"
+	"physical body.");
+	
+const u8 gFarigirafPokedexText[] = _(
+    "Now that the brain waves from the head\n"
+	"and tail are synced up, the psychic power\n"
+	"of this POKéMON is 10 times stronger\n"
+	"than GIRAFARIG.");
+	
+const u8 gPrinpawnPokedexText[] = _(
+    "Strange POKéMON that attacks diagonally.\n"
+	"It is said that it was created by some\n"
+	"scientific experts in POKéMON, in search\n"
+	"of change in the METAGAME.");
+	
+const u8 gCoureenPokedexText[] = _(
+    "Female evolution of PRINPAWN, also called\n"
+	"QUEEN. It is said that she is so powerful,\n"
+	"that she is capable of kissing death and\n"
+	"checkmate.");
+	
+const u8 gKincursPokedexText[] = _(
+    "Male evolution of PRINPAWN, also called\n"
+	"KING. His appearance makes him the target\n"
+	"of many attacks, so always stay in safe\n"
+	"places with protection of his minions.");
+	
+const u8 gPosordPokedexText[] = _(
+    "Garden shears possessed by a spirit. It is\n"
+	"said to have been created by a scientist\n"
+	"expert by the name of Gerph.");
+	
+const u8 gTrubbishPokedexText[] = _(
+    "It gorges on trash until its stomach\n"
+    "is full. Then it belches toxic gas.\n"
+    "An unlucky whiff of this gas will put\n"
+    "a person in the hospital.");
+
+const u8 gGarbodorPokedexText[] = _(
+    "Beware the poisonous liquid it shoots\n"
+    "from its right arm. If even a little of it\n"
+    "gets on you, you'll experience the full\n"
+    "effects of this unidentified toxin.");
+	
+const u8 gGigaGarbodorPokedexText[] = _(
+    "It sprays toxic gas from its mouth and\n"
+	"fingers. If the gas engulfs you, the toxins\n"
+	"will seep in all the way down to your bones.");
+	
+const u8 gPansagePokedexText[] = _(
+    "This POKéMON dwells deep in the forest.\n"
+    "It's good at finding berries and gathers\n"
+    "them from all over. It's kind enough to\n"
+    "share them with friends.");
+
+const u8 gSimisagePokedexText[] = _(
+    "Ill tempered, it attacks enemies by\n"
+    "swinging its barbed tail around wildly.\n"
+    "The leaf growing on its head is\n"
+    "very bitter.");
+	
+const u8 gZarudePokedexText[] = _(
+    "Within dense forests, this POKéMON lives\n"
+    "in a pack with others of its kind. It's\n"
+    "incredibly aggressive, and the other\n"
+    "POKéMON of the forest fear it.");
+	
+const u8 gArchaludonPokedexText[] = _(
+    "It gathers static electricity from its\n"
+	"surroundings. The beams it launches when\n"
+	"down on all fours are tremendously\n"
+	"powerful.");
+	
+const u8 gWattrelPokedexText[] = _(
+    "When its wings catch the wind, the bones\n"
+	"within produce electricity. This POKéMON\n"
+	"dives into the ocean, catching prey by\n"
+	"electrocuting them.");
+
+const u8 gKilowattrelPokedexText[] = _(
+    "KILOWATTREL inflates its throat sac\n"
+	"to amplify its electricity.\n"
+	"By riding the wind, this POKéMON can fly\n"
+	"over 430 miles in a day.");
+
+const u8 gMagnesandsPokedexText[] = _(
+    "It slightly resembles a MAGNETON that\n"
+	"lived for 10,000 years and was featured in\n"
+	"an article in a paranormal magazine.");
+
+const u8 gDipplinPokedexText[] = _(
+    "DIPPLIN is two creatures in one POKéMON.\n" 
+	"Its evolution was triggered by a special\n"
+	"apple grown only in one place.");
+
+const u8 gHydrapplePokedexText[] = _(
+    "Seven syrpents live inside an apple made\n"
+	"of syrup. The syrpent in the center is\n"
+	"the commander.");
