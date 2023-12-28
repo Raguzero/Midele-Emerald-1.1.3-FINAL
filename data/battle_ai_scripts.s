@@ -3171,16 +3171,35 @@ AI_CV_SleepTalk:
 
 AI_CV_DestinyBond:
 	score -1
-	if_status2 AI_USER, STATUS2_SUBSTITUTE, Score_Minus2
+	if_status2 AI_USER, STATUS2_SUBSTITUTE, Score_Minus3
 	if_target_faster AI_CV_DestinyBond_End
-	if_status2 AI_TARGET, STATUS2_RECHARGE, Score_Minus2
+	if_status2 AI_TARGET, STATUS2_RECHARGE, Score_Minus3
 	if_hp_less_than AI_USER, 100, AI_CV_DestinyBond_SkipSturdyOrSashCheck
-	if_ability AI_USER, ABILITY_STURDY, Score_Minus2
-	if_holds_item AI_USER, ITEM_FOCUS_SASH, Score_Minus2
+	if_ability AI_USER, ABILITY_STURDY, Score_Minus3
+	if_holds_item AI_USER, ITEM_FOCUS_SASH, Score_Minus3
 AI_CV_DestinyBond_SkipSturdyOrSashCheck:
-	if_status2 AI_TARGET, STATUS2_MULTIPLETURNS, AI_CV_DestinyBond_1
+	if_status2 AI_TARGET, STATUS2_MULTIPLETURNS, AI_CV_DestinyBond_SlowerTargetIsInMultiturnAttack
 	if_user_has_revealed_move MOVE_DESTINY_BOND, AI_CV_DestinyBond_MoveHasBeenRevealed
 	goto AI_CV_DestinyBond_1
+
+AI_CV_DestinyBond_SlowerTargetIsInMultiturnAttack:
+	calculate_nhko AI_TARGET
+	if_more_than 2, Score_Minus3 @ ni con crítico es KO
+	if_equal 2, Score_Minus1
+	count_usable_party_mons AI_USER
+	if_equal 0, AI_CV_DestinyBond_SlowerTargetIsInMultiturnAttack_ThisIsOurLastMon
+	count_usable_party_mons AI_TARGET
+	if_equal 0, Score_Plus5
+	if_more_than 3, AI_CV_DestinyBond_End
+	if_more_than 1, Score_Plus1
+AI_CV_DestinyBond_SlowerTargetIsInMultiturnAttack_SacrificeWorth:
+	if_status AI_TARGET, STATUS3_SEMI_INVULNERABLE, Score_Plus3
+	goto Score_Plus1
+
+AI_CV_DestinyBond_SlowerTargetIsInMultiturnAttack_ThisIsOurLastMon:
+	count_usable_party_mons AI_TARGET
+	if_equal 0, AI_CV_DestinyBond_SlowerTargetIsInMultiturnAttack_SacrificeWorth
+	goto Score_Minus1
 
 @ El rival sabe que tenemos Destiny Bond: no hay sorpresa posible.
 @ Conviene reducir el uso de Destiny Bond para evitar fundir los PP
@@ -3197,25 +3216,21 @@ AI_CV_DestinyBond_MoveHasBeenRevealed:
 	get_last_used_bank_move AI_TARGET
 	get_move_power_from_result
 	if_equal 0, AI_CV_DestinyBond_MoveHasBeenRevealed_TargetDidNotAttack
-	if_random_less_than 50, Score_Minus2 @ ~20% de no tirar Destiny Bond
+	if_random_less_than 50, Score_Minus3 @ ~20% de no tirar Destiny Bond
 	goto AI_CV_DestinyBond_1
+
 AI_CV_DestinyBond_MoveHasBeenRevealed_TargetDidNotAttack:
-	if_random_less_than 180, Score_Minus2 @ ~70% de no tirar Destiny Bond
+	if_random_less_than 180, Score_Minus3 @ ~70% de no tirar Destiny Bond
 AI_CV_DestinyBond_1:
-	if_this_attack_might_be_the_last Score_Plus2
-	if_hp_more_than AI_USER, 70, AI_CV_DestinyBond_End
-	if_random_less_than 128, AI_CV_DestinyBond2
+	if_this_attack_might_be_the_last Score_Plus3
+	if_hp_more_than AI_USER, 50, AI_CV_DestinyBond_End
+	if_random_less_than 160, AI_CV_DestinyBond2
 	score +1
 
 AI_CV_DestinyBond2:
-	if_hp_more_than AI_USER, 50, AI_CV_DestinyBond_End
-	if_random_less_than 128, AI_CV_DestinyBond3
-	score +1
-
-AI_CV_DestinyBond3:
 	if_hp_more_than AI_USER, 30, AI_CV_DestinyBond_End
-	if_random_less_than 100, AI_CV_DestinyBond_End
-	score +2
+	if_random_less_than 128, AI_CV_DestinyBond_End
+	score +1
 
 AI_CV_DestinyBond_End:
 	end
