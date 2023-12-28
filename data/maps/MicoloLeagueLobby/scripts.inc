@@ -128,7 +128,7 @@ MicoloLeagueLobby_EventScript_ResetTrainerYESConfirmo::
 	cleartrainerflag TRAINER_MR_ZERO
 	cleartrainerflag TRAINER_ZZZ
 	cleartrainerflag TRAINER_FENAN
-	cleartrainerflag TRAINER_ADDRI_1
+	cleartrainerflag TRAINER_ADDRI
 	cleartrainerflag TRAINER_ESCROTO
 	cleartrainerflag TRAINER_POISONMASTAHHHH
 	cleartrainerflag TRAINER_BLUE_AND_YELLOW
