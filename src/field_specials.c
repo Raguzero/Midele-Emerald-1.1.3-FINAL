@@ -5278,7 +5278,7 @@ void PCBatallaRandomSetTrainer(void)
         TRAINER_MDRAGON,
         TRAINER_ALBERMAUS,
         TRAINER_HATHAR,
-        TRAINER_ADDRI_2,
+        TRAINER_ESCROTO,
         TRAINER_SAPPH,
         TRAINER_KRUB_2,
         TRAINER_IZABE_LAVENDER

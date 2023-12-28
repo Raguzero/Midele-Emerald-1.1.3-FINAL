@@ -13704,19 +13704,19 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_Addri),
         .party = {.ItemCustomMidele = sParty_Addri},
     },
-    [TRAINER_ADDRI_2] =
+    [TRAINER_ESCROTO] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
 		.battleMusic = MUS_RG_VS_TORE,
         .trainerPic = TRAINER_PIC_NINJA_BOY,
-        .trainerName = _("ADDRI"),
+        .trainerName = _("ESCROTO"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
-        .partySize = ARRAY_COUNT(sParty_Addri2),
-        .party = {.ItemCustomMidele = sParty_Addri2},
+        .partySize = ARRAY_COUNT(sParty_Escroto),
+        .party = {.ItemCustomMidele = sParty_Escroto},
     },
     [TRAINER_POISONMASTAHHHH] =
     {

@@ -21,9 +21,9 @@ MicoloHideout_MeetingRoom_EventScript_Hathar::
 	msgbox MicoloHideout_MeetingRoom_Text_HatharPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
-MicoloHideout_MeetingRoom_EventScript_Addri::
-	trainerbattle_single TRAINER_ADDRI_2, Addri2_AntesBatalla, Addri2_MensajeDerrota
-	msgbox Addri2_DespuesDeBatalla, MSGBOX_AUTOCLOSE
+MicoloHideout_MeetingRoom_EventScript_Escroto::
+	trainerbattle_single TRAINER_ESCROTO, Escroto_AntesBatalla, Escroto_MensajeDerrota
+	msgbox Escroto_DespuesDeBatalla, MSGBOX_AUTOCLOSE
 	end
 	
 MicoloHideout_MeetingRoom_EventScript_Alpha::
@@ -90,59 +90,23 @@ Merum_DespuesDeBatalla:
     .string "temas de conversación. Dicho eso,\l"
     .string "¿qué opinas de mi GRAN MOÁI?$"
 	
-Addri2_AntesBatalla: 
-	.string "Hola, ¿me recuerdas?, soy ADDRI.\n"
-	.string "Nos vimos hace mucho tiempo en\l" 
-	.string "GRANITE CAVE.\p"
+Escroto_AntesBatalla: 
+	.string "Soy ESCROTO, el GAMER\n"
+	.string "LEGENDARIO.\p"
 	
-	.string "¡Pero que sepas que ya no soy\n"
-	.string "el mismo quejica que conociste!\p"
-
-	.string "He crecido mucho como GAMER para\n"
-	.string "poder llegar hasta aquí.\p"
-
-    .string "Solo un poco más, y entonces...\n"
-	.string "¡Me convertiré en el GAMER\l"
-	.string "LEGENDARIO!$"
+	.string "No tienes ninguna oportunidad,\n"
+	.string "cabrón.$"
 	
-Addri2_MensajeDerrota: 
-	.string "...\p"
-
-	.string "¿QUE NO SOY UN GAMER?\p"
-
-    .string "Si te contesto a esto me gano warn,\n" 
-	.string "así que simplemente te dejo estar,\l" 
-	.string "si no te lo quieres creer vete con tus\l" 
-	.string "amigos a jugar a las Barbies y me\l" 
-	.string "cuentas de si he jugado al\l" 
-	.string "Majora mask.\p"
-
-	.string "Saludos.$"
+Escroto_MensajeDerrota: 
+	.string "¡PERO SI FUI VOTADO COMO GAMER\n"
+	.string" DEL AÑO!$"
 	
-Addri2_DespuesDeBatalla:
-	.string "...\p"
-
-	.string "Sí... claro...\n" 
-	.string "¿Que nos intentas decir, {PLAYER}?\p"
-
-	.string "¿Debemos de tenerte un respeto\n"
-	.string "porque si te cabreas puedes llegar a\l"
-	.string "ser mortal? ¿Quieres proclamar que\l"
-	.string "eres el mas fuerte del foro de la\l"
-	.string "MICOLIGA? ¿O a lo mejor es que\l"
-	.string "quieres que te tenga miedo...? Porque\l"
-	.string "de todas estas razones no consigues\l"
-	.string "ninguna de ellas.\p" 
-	
-	.string "Te pongo en mi lista de ignorados\n" 
-	.string "para que me dejes en paz.\p"
-
-	.string "Así, para ver tu comentario tendré que\n"
-	.string "pulsar cierto botón. Vuelve otro día, y\l"
-	.string "reflexiona sobre lo que te he dicho.\p"
-
-	.string "¿Lo entendiste? Porque si quieres te\n" 
-	.string "hago un croquis...$"
+Escroto_DespuesDeBatalla:
+    .string "Te recomiendo jugar el Xenoblade\n"
+	.string "Chronicles.\p"
+ 
+    .string "Se parece a POKéMON en el aspecto\n"
+    .string "de niveles y esas cosas.$"
 	
 MicoloHideout_MeetingRoom_Text_HatharIntro: 
     .string "Te voy a banear.$"

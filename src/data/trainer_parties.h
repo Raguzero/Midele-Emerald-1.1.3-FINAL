@@ -26241,7 +26241,7 @@ static const struct TrainerMonCustomMidele sParty_Addri[] = {
     .moves = {MOVE_PAY_DAY, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 };
-static const struct TrainerMonCustomMidele sParty_Addri2[] = {
+static const struct TrainerMonCustomMidele sParty_Escroto[] = {
     {
     .iv = 31,
     .lvl = 92, 
