@@ -1136,6 +1136,7 @@ AI_CheckViability_CheckEffects:
 	if_effect EFFECT_LOCK_ON, AI_CV_LockOn
 	if_effect EFFECT_SLEEP_TALK, AI_CV_SleepTalk
 	if_effect EFFECT_DESTINY_BOND, AI_CV_DestinyBond
+	if_effect EFFECT_GRUDGE, AI_CV_Grudge
 	if_effect EFFECT_FLAIL, AI_CV_Flail
 	if_effect EFFECT_HEAL_BELL, AI_CV_HealBell
 	if_effect EFFECT_THIEF, AI_CV_Thief
@@ -3169,10 +3170,24 @@ AI_CV_SleepTalk:
     score +10
     end
 
+AI_CV_Grudge:
+	score -2
+	if_status2 AI_USER, STATUS2_SUBSTITUTE, Score_Minus3
+	if_target_faster AI_CV_Grudge_CheckIfThisAttackMightBeTheLast
+	if_status2 AI_TARGET, STATUS2_RECHARGE, Score_Minus3
+	if_hp_less_than AI_USER, 100, AI_CV_Grudge_CheckIfThisAttackMightBeTheLast
+	if_ability AI_USER, ABILITY_STURDY, Score_Minus3
+	if_holds_item AI_USER, ITEM_FOCUS_SASH, Score_Minus3
+AI_CV_Grudge_CheckIfThisAttackMightBeTheLast:
+	if_this_attack_might_be_the_last AI_CV_Grudge_End
+	goto Score_Minus3
+AI_CV_Grudge_End:
+	end
+
 AI_CV_DestinyBond:
 	score -1
 	if_status2 AI_USER, STATUS2_SUBSTITUTE, Score_Minus3
-	if_target_faster AI_CV_DestinyBond_End
+	if_target_faster AI_CV_DestinyBond_TargetIsFaster
 	if_status2 AI_TARGET, STATUS2_RECHARGE, Score_Minus3
 	if_hp_less_than AI_USER, 100, AI_CV_DestinyBond_SkipSturdyOrSashCheck
 	if_ability AI_USER, ABILITY_STURDY, Score_Minus3
@@ -3189,12 +3204,11 @@ AI_CV_DestinyBond_SlowerTargetIsInMultiturnAttack:
 	count_usable_party_mons AI_USER
 	if_equal 0, AI_CV_DestinyBond_SlowerTargetIsInMultiturnAttack_ThisIsOurLastMon
 	count_usable_party_mons AI_TARGET
-	if_equal 0, Score_Plus5
-	if_more_than 3, AI_CV_DestinyBond_End
-	if_more_than 1, Score_Plus1
+	if_equal 0, Score_Plus4
+	if_more_than 2, Score_Plus2
 AI_CV_DestinyBond_SlowerTargetIsInMultiturnAttack_SacrificeWorth:
 	if_status AI_TARGET, STATUS3_SEMI_INVULNERABLE, Score_Plus3
-	goto Score_Plus1
+	goto Score_Plus2
 
 AI_CV_DestinyBond_SlowerTargetIsInMultiturnAttack_ThisIsOurLastMon:
 	count_usable_party_mons AI_TARGET
@@ -3218,6 +3232,10 @@ AI_CV_DestinyBond_MoveHasBeenRevealed:
 	if_equal 0, AI_CV_DestinyBond_MoveHasBeenRevealed_TargetDidNotAttack
 	if_random_less_than 50, Score_Minus3 @ ~20% de no tirar Destiny Bond
 	goto AI_CV_DestinyBond_1
+
+AI_CV_DestinyBond_TargetIsFaster:
+	if_this_attack_might_be_the_last AI_CV_DestinyBond_End
+	goto Score_Minus3
 
 AI_CV_DestinyBond_MoveHasBeenRevealed_TargetDidNotAttack:
 	if_random_less_than 180, Score_Minus3 @ ~70% de no tirar Destiny Bond
