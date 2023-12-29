@@ -1892,6 +1892,7 @@ u8 GetMostSuitableMonToSwitchInto(bool8 howTolerableIsNotChanging)
     for (i = firstId; i < lastId; i++)
     {
         if (GetMonData(&party[i], MON_DATA_SPECIES) == SPECIES_NONE
+             || GetMonData(&party[i], MON_DATA_SPECIES2) == SPECIES_EGG
              || GetMonData(&party[i], MON_DATA_HP) == 0
              || gBattlerPartyIndexes[battlerIn1] == i
              || gBattlerPartyIndexes[battlerIn2] == i
