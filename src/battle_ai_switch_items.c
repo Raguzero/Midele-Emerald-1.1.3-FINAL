@@ -1843,7 +1843,7 @@ u8 GetMostSuitableMonToSwitchInto(bool8 howTolerableIsNotChanging)
     u16 move;
 
     bool8 notChangingIsPossible = howTolerableIsNotChanging != NOT_CHANGING_IS_IMPOSSIBLE;
-    bool8 notChangingIsAcceptable = howTolerableIsNotChanging == NOT_CHANGING_IS_ACCEPTABLE;
+    bool8 notChangingIsAtLeastAcceptable = howTolerableIsNotChanging >= NOT_CHANGING_IS_ACCEPTABLE;
 
     if (*(gBattleStruct->monToSwitchIntoId + gActiveBattler) != PARTY_SIZE)
         return *(gBattleStruct->monToSwitchIntoId + gActiveBattler);
@@ -1936,14 +1936,14 @@ u8 GetMostSuitableMonToSwitchInto(bool8 howTolerableIsNotChanging)
         APPLY_FILTER(FilterShedinjaIfVulnerable, notChangingIsPossible);
         APPLY_FILTER(FilterTruantIfUseless, notChangingIsPossible);
 		APPLY_FILTER(FilterSwitchInsThatMightGetKOedBeforeEndOfTurn, notChangingIsPossible);
-        APPLY_FILTER(FilterFragileMonsAgainstPriority, notChangingIsAcceptable);
+        APPLY_FILTER(FilterFragileMonsAgainstPriority, notChangingIsAtLeastAcceptable);
 
         // Calcula el nHKO que cada poke disponible hace y recibe del oponente
         // También almacena si cada poke es más rápido que el oponente
         PrepareNHKOTable(party, firstId, lastId, filteredMons, opposingBattler, nhko);
 
         APPLY_FILTER(FilterChoiceMonsWayTooWeak, notChangingIsPossible);
-        APPLY_FILTER(FilterChoiceMonsNotPowerfulEnough, notChangingIsAcceptable);
+        APPLY_FILTER(FilterChoiceMonsNotPowerfulEnough, notChangingIsAtLeastAcceptable);
         // Si los filtros eliminaron todas las opciones posibles o no se podía cambiar, no se cambia
         if (!MonsLeft(filteredMons))
             return PARTY_SIZE;
@@ -1961,7 +1961,7 @@ u8 GetMostSuitableMonToSwitchInto(bool8 howTolerableIsNotChanging)
         APPLY_FILTER(FilterOpponentCanBeTrappedAndDefeated, FALSE);
 		APPLY_FILTER(FilterRevengeKill, FALSE);
         APPLY_FILTER(FilterKOTaking1Hit, FALSE);
-        APPLY_FILTER(FilterKOTaking2Hits, notChangingIsAcceptable);
+        APPLY_FILTER(FilterKOTaking2Hits, notChangingIsAtLeastAcceptable);
         APPLY_FILTER(FilterCanAttackWonderGuardOpponent, FALSE);
         APPLY_FILTER(FilterTakesMostHits, FALSE);
         APPLY_FILTER(FilterKOsInLessHits, FALSE);
