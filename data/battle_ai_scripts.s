@@ -96,6 +96,7 @@ CheckFlashFire:
 
 CheckIfWonderGuardCancelsMove:
     if_type_effectiveness AI_EFFECTIVENESS_x2, AI_CheckBadMove_CheckSoundproof
+    if_type_effectiveness AI_EFFECTIVENESS_x4, AI_CheckBadMove_CheckSoundproof
     goto Score_Minus10
 
 CheckLevitate:
@@ -502,6 +503,7 @@ AI_CBM_HighRiskForDamage: @ 82DC4ED
 	get_ability AI_TARGET
 	if_not_equal ABILITY_WONDER_GUARD, AI_CBM_HighRiskForDamage_End
 	if_type_effectiveness AI_EFFECTIVENESS_x2, AI_CBM_HighRiskForDamage_End
+	if_type_effectiveness AI_EFFECTIVENESS_x4, AI_CBM_HighRiskForDamage_End
 	goto Score_Minus10
 
 AI_CBM_HighRiskForDamage_End: @ 82DC506
