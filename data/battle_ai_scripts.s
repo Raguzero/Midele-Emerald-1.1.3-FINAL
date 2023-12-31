@@ -4108,7 +4108,9 @@ AI_CV_Hail_End:
 	end
 
 AI_CV_FocusPunch:
-    if_target_wont_attack_due_to_truant AI_CV_FocusPunch_End 
+    if_target_wont_attack_due_to_truant AI_CV_FocusPunch_End
+    get_possible_categories_of_foes_attacks
+    if_equal AI_NO_DAMAGING_MOVES, AI_CV_FocusPunch_End
     if_status2 AI_USER, STATUS2_SUBSTITUTE, AI_CV_FocusPunch_End @ esto ignora posibles movimientos multigolpeo que rompan el sustituto y continúen
     if_target_faster AI_CV_FocusPunch_PriorityPosesNoProblem
     calculate_nhko AI_TARGET
@@ -4743,6 +4745,8 @@ AI_TryToFaint_ExtraPointForBreakingSubAndKeepHitting:
 AI_TryToFaint_FocusPunch:
 	if_target_wont_attack_due_to_truant AI_TryToFaint_IncreaseScoreDependingOnAccuracy
     if_user_faster AI_TryToFaint_End
+    get_possible_categories_of_foes_attacks
+    if_equal AI_NO_DAMAGING_MOVES, AI_TryToFaint_IncreaseScoreDependingOnAccuracy
     if_status2 AI_USER, STATUS2_SUBSTITUTE, AI_TryToFaint_ScoreUp3
     if_stat_level_more_than AI_USER, STAT_EVASION, 10, AI_TryToFaint_ScoreUp2
     if_stat_level_less_than AI_TARGET, STAT_ACC, 2, AI_TryToFaint_ScoreUp2
