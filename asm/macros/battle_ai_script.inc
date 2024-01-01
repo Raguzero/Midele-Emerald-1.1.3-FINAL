@@ -763,9 +763,7 @@
     goto .AI_skip_evasion_check_\@
     .AI_not_locked_on_\@:
     @ Si tiene la Evasión subida, tiene una pequeña probabilidad de jugársela
-    @ (7/8 a +2 o +3, 49/64 a +4 o más)
-    @ (la probabilidad de jugársela en alguno de los turnos en los que se está 
-    @ subiendo la Evasión hasta +6 es de aproximadamente un 49%)
+    @ (25% a +2, ~34% a +3, ~38% a +4, ~42% a +5, ~46% a +6)
     if_stat_level_less_than AI_USER, STAT_EVASION, 8, .AI_skip_evasion_check_\@
     if_status2 AI_USER, STATUS2_FORESIGHT, .AI_skip_evasion_check_\@
     if_ability AI_USER, ABILITY_NO_GUARD, .AI_skip_evasion_check_\@
@@ -773,9 +771,19 @@
     if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_VITAL_THROW, .AI_skip_evasion_check_\@
     if_ability_might_be AI_TARGET, ABILITY_KEEN_EYE, .AI_skip_evasion_check_\@
     if_ability_might_be AI_TARGET, ABILITY_NO_GUARD, .AI_skip_evasion_check_\@
-    if_random_less_than 32, \ptr
-    if_stat_level_less_than AI_USER, STAT_EVASION, 10, .AI_skip_evasion_check_\@
-    if_random_less_than 32, \ptr
+    if_stat_level_less_than AI_USER, STAT_EVASION, 12, .AI_evasion_plus_5_\@
+    if_random_less_than 16, .AI_attack_is_probably_not_the_last_\@
+    .AI_evasion_plus_5_\@:
+    if_stat_level_less_than AI_USER, STAT_EVASION, 11, .AI_evasion_plus_4_\@
+    if_random_less_than 16, .AI_attack_is_probably_not_the_last_\@
+    .AI_evasion_plus_4_\@:
+    if_stat_level_less_than AI_USER, STAT_EVASION, 10, .AI_evasion_plus_3_\@
+    if_random_less_than 16, .AI_attack_is_probably_not_the_last_\@
+    .AI_evasion_plus_3_\@:
+    if_stat_level_less_than AI_USER, STAT_EVASION, 9, .AI_evasion_plus_2_\@
+    if_random_less_than 8, .AI_attack_is_probably_not_the_last_\@
+    .AI_evasion_plus_2_\@:
+    if_random_less_than 4, .AI_attack_is_probably_not_the_last_\@
     .AI_skip_evasion_check_\@:
     calculate_nhko AI_TARGET
     if_equal 1, \ptr
