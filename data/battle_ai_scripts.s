@@ -2694,62 +2694,64 @@ AI_CV_Substitute:
 	if_status AI_USER, STATUS1_TOXIC_POISON, AI_CV_Substitute_Minus3
 	if_status2 AI_USER, STATUS2_CURSED, AI_CV_Substitute_Minus3
 	if_status3 AI_USER, STATUS3_PERISH_SONG, AI_CV_Substitute_Minus3
-	goto AI_IsHealingAbilityActive
+	goto AI_CV_Substitute_IsHealingAbilityActive
 AI_CV_SubstituteStart:
 	if_target_wont_attack_due_to_truant AI_CV_SubstitutePlus3Continue
 	if_ability AI_USER, ABILITY_SPEED_BOOST, AI_CV_Substitute_SpeedBoost
 	if_status AI_USER, STATUS1_PSN_ANY | STATUS1_BURN, AI_CV_SubstituteMinus1Continue
   count_usable_party_mons AI_TARGET
   if_equal 0, AI_CV_Substitute_TargetCannotEscape
-  if_type AI_TARGET, TYPE_GHOST, AI_CV_Substitute1
+  if_type AI_TARGET, TYPE_GHOST, AI_CV_Substitute_ConsiderIfLosingHPIsWorth
   if_status3 AI_TARGET, STATUS3_ROOTED, AI_CV_Substitute_TargetCannotEscape
-	if_not_status2 AI_TARGET, STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION, AI_CV_Substitute1
+	if_not_status2 AI_TARGET, STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION, AI_CV_Substitute_ConsiderIfLosingHPIsWorth
 AI_CV_Substitute_TargetCannotEscape:
 	if_status3 AI_TARGET, STATUS3_PERISH_SONG, AI_CV_SubstitutePlus3Continue
 	if_status AI_TARGET, STATUS1_BURN | STATUS1_PSN_ANY, AI_CV_SubstitutePlus1Continue
-	goto AI_CV_Substitute1
+	goto AI_CV_Substitute_ConsiderIfLosingHPIsWorth
 AI_CV_SubstituteMinus1Continue:
     score -1
-    goto AI_CV_Substitute1
+    goto AI_CV_Substitute_ConsiderIfLosingHPIsWorth
 AI_CV_SubstitutePlus1Continue:
 	score +1
-	goto AI_CV_Substitute1
+	goto AI_CV_Substitute_ConsiderIfLosingHPIsWorth
 AI_CV_SubstitutePlus3Continue:
 	score +3
-AI_CV_Substitute1:
-	if_hp_more_than AI_USER, 90, AI_CV_Substitute4
-	if_hp_more_than AI_USER, 70, AI_CV_Substitute3
-	if_hp_more_than AI_USER, 50, AI_CV_Substitute2
-	if_random_less_than 100, AI_CV_Substitute2
+AI_CV_Substitute_ConsiderIfLosingHPIsWorth:
+	if_hp_more_than AI_USER, 90, AI_CV_Substitute_HPNotAConcern
+	if_hp_more_than AI_USER, 70, AI_CV_Substitute_HPAMinorConcern
+	if_hp_more_than AI_USER, 50, AI_CV_Substitute_HPAConcern
+	if_random_less_than 100, AI_CV_Substitute_HPAConcern
 	score -1
-AI_CV_Substitute2:
-	if_random_less_than 100, AI_CV_Substitute3
+AI_CV_Substitute_HPAConcern:
+	if_random_less_than 100, AI_CV_Substitute_HPAMinorConcern
 	score -1
-AI_CV_Substitute3:
-	if_random_less_than 100, AI_CV_Substitute4
+AI_CV_Substitute_HPAMinorConcern:
+	if_random_less_than 100, AI_CV_Substitute_HPNotAConcern
 	score -1
-AI_CV_Substitute4:
+AI_CV_Substitute_HPNotAConcern:
 	if_target_faster AI_CV_Substitute_End
 	if_target_probably_cannot_repeat_last_effect AI_CV_Substitute_End
 	get_last_used_bank_move AI_TARGET
 	get_move_effect_from_result
-	if_equal EFFECT_SLEEP, AI_CV_Substitute5
-	if_equal EFFECT_TOXIC, AI_CV_Substitute5
-	if_equal EFFECT_POISON, AI_CV_Substitute5
-	if_equal EFFECT_PARALYZE, AI_CV_Substitute5
-	if_equal EFFECT_WILL_O_WISP, AI_CV_Substitute5
-	if_equal EFFECT_CONFUSE, AI_CV_Substitute6
-	if_equal EFFECT_LEECH_SEED, AI_CV_Substitute7
+	if_equal EFFECT_SLEEP, AI_CV_Substitute_TargetAttemptedPermanentStatus
+	if_equal EFFECT_TOXIC, AI_CV_Substitute_TargetAttemptedPermanentStatus
+	if_equal EFFECT_POISON, AI_CV_Substitute_TargetAttemptedPermanentStatus
+	if_equal EFFECT_PARALYZE, AI_CV_Substitute_TargetAttemptedPermanentStatus
+	if_equal EFFECT_WILL_O_WISP, AI_CV_Substitute_TargetAttemptedPermanentStatus
+	if_equal EFFECT_CONFUSE, AI_CV_Substitute_TargetAttemptedConfusion
+	if_equal EFFECT_FLATTER, AI_CV_Substitute_TargetAttemptedConfusion
+	if_equal EFFECT_SWAGGER, AI_CV_Substitute_TargetAttemptedConfusion
+	if_equal EFFECT_LEECH_SEED, AI_CV_Substitute_TargetAttemptedLeechSeed
 	goto AI_CV_Substitute_End
-AI_CV_Substitute5:
-	if_not_status AI_USER, STATUS1_PSN_ANY | STATUS1_BURN | STATUS1_PARALYSIS, AI_CV_Substitute8
+AI_CV_Substitute_TargetAttemptedPermanentStatus:
+	if_not_status AI_USER, STATUS1_PSN_ANY | STATUS1_BURN | STATUS1_PARALYSIS, AI_CV_Substitute_ConsiderALastBonus
 	goto AI_CV_Substitute_End
-AI_CV_Substitute6:
-	if_not_status2 AI_USER, STATUS2_CONFUSION, AI_CV_Substitute8
+AI_CV_Substitute_TargetAttemptedConfusion:
+	if_not_status2 AI_USER, STATUS2_CONFUSION, AI_CV_Substitute_ConsiderALastBonus
 	goto AI_CV_Substitute_End
-AI_CV_Substitute7:
+AI_CV_Substitute_TargetAttemptedLeechSeed:
 	if_status3 AI_USER, STATUS3_LEECHSEED, AI_CV_Substitute_End
-AI_CV_Substitute8:
+AI_CV_Substitute_ConsiderALastBonus:
 	if_random_less_than 100, AI_CV_Substitute_End
 	score +1
 	goto AI_CV_Substitute_End
@@ -2762,18 +2764,18 @@ AI_CV_Substitute_End:
 	end
 	
 @ Check for abilities that let the user spam Substitute under certain conditions
-AI_IsHealingAbilityActive:
-	if_ability AI_USER, ABILITY_ICE_BODY, AI_HealHail
-	if_ability AI_USER, ABILITY_RAIN_DISH, AI_HealRain
-	if_ability AI_USER, ABILITY_DRY_SKIN, AI_HealRain
+AI_CV_Substitute_IsHealingAbilityActive:
+	if_ability AI_USER, ABILITY_ICE_BODY, AI_CV_Substitute_HealHail
+	if_ability AI_USER, ABILITY_RAIN_DISH, AI_CV_Substitute_HealRain
+	if_ability AI_USER, ABILITY_DRY_SKIN, AI_CV_Substitute_HealRain
 	goto AI_CV_SubstituteStart
 
-AI_HealHail:
+AI_CV_Substitute_HealHail:
 	get_weather
 	if_equal AI_WEATHER_HAIL, AI_CV_SubstitutePlus1Continue
 	end
 
-AI_HealRain:
+AI_CV_Substitute_HealRain:
 	get_weather
 	if_equal AI_WEATHER_RAIN, AI_CV_SubstitutePlus1Continue
 	end
@@ -3809,6 +3811,7 @@ AI_CV_PsychUp_ScoreDown2:
 
 AI_CV_PsychUp_End:
 	end
+
 AI_CV_MirrorCoat:
     if_hp_condition USER_HAS_1_HP, Score_Minus10
     if_target_wont_attack_due_to_truant Score_Minus10
@@ -3915,7 +3918,7 @@ AI_CV_MirrorCoat_ScoreDown3:
 
 AI_CV_MirrorCoat_End:
 	end
- 
+
 AI_CV_MirrorCoat_SpecialTypeList:
     .byte TYPE_FIRE
     .byte TYPE_WATER
