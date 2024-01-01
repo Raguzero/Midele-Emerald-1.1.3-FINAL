@@ -3605,6 +3605,12 @@ AI_CV_Foresight_End:
 
 AI_CV_Endure:
 	if_target_wont_attack_due_to_truant Score_Minus10
+	get_possible_categories_of_foes_attacks
+	if_equal AI_NO_DAMAGING_MOVES, Score_Minus10
+	if_hp_less_than AI_USER, 100, AI_CV_Endure_NotRedundantWithSashOrSturdy
+	if_ability AI_USER, ABILITY_STURDY, Score_Minus10
+	if_holds_item AI_USER, ITEM_FOCUS_SASH, Score_Minus10
+AI_CV_Endure_NotRedundantWithSashOrSturdy:
 	if_status  AI_USER, STATUS1_PSN_ANY | STATUS1_BURN, AI_CV_Endure_UserWillFaintAfterEnduring
 	if_status3 AI_USER, STATUS3_LEECHSEED, AI_CV_Endure_UserWillFaintAfterEnduring
 	if_status2 AI_USER, STATUS2_CURSED | STATUS2_INFATUATION, AI_CV_EndureUserStatused
@@ -3613,27 +3619,44 @@ AI_CV_Endure:
 	if_user_receives_damage_from_stored_weather AI_CV_Endure_UserWillFaintAfterEnduring
 AI_CV_Endure_NoWeatherDamageExpected:
 	get_protect_count AI_USER
-	if_more_than 1, AI_CV_Endure2
-	if_hp_less_than AI_USER, 8, AI_CV_Endure2
-	if_hp_less_than AI_USER, 14, AI_CV_Endure4
+	if_more_than 1, AI_CV_Endure_Discourage
+	calculate_nhko AI_TARGET | AI_NHKO_PESSIMISTIC
+	if_more_than 2, AI_CV_Endure_Discourage
+	if_hp_less_than AI_USER, 8, AI_CV_Endure_DiscourageUnlessTargetIsSuffering
+	if_hp_less_than AI_USER, 14, AI_CV_Endure_SlightlyDiscourageUnlessTargetIsSuffering
 	if_hp_less_than AI_USER, 35, AI_CV_Endure3
-	if_doesnt_have_non_ineffective_move_with_effect AI_USER, EFFECT_FLAIL, AI_CV_Endure2
+	if_doesnt_have_non_ineffective_move_with_effect AI_USER, EFFECT_FLAIL, AI_CV_Endure_Discourage
 	score +1
 	goto AI_CV_Endure_End
 
-AI_CV_EndureUserStatused:
-	score -2
-	goto AI_CV_Endure4
-
 AI_CV_Endure_UserWillFaintAfterEnduring:
-	score -7
-	goto AI_CV_Endure4
+	score -8
+	goto AI_CV_Endure_End
 
-AI_CV_Endure2:
+AI_CV_Endure_DiscourageUnlessTargetIsSuffering:
+	if_hp_more_than AI_TARGET, 24, AI_CV_Endure_Discourage
+	if_has_move_with_effect AI_TARGET, EFFECT_REST, AI_CV_Endure_Discourage
+	if_has_a_50_percent_hp_recovery_move AI_TARGET, AI_CV_Endure_Discourage
+	if_status AI_TARGET, STATUS1_TOXIC_POISON, AI_CV_Endure_End
+	if_status2 AI_TARGET, STATUS2_CURSED, AI_CV_Endure_End
+	if_hp_more_than AI_TARGET, 11, AI_CV_Endure_Discourage
+	if_status3 AI_TARGET, STATUS3_LEECHSEED, AI_CV_Endure_End
+	if_status AI_TARGET, STATUS1_POISON | STATUS1_BURN, AI_CV_Endure_End
+AI_CV_Endure_Discourage:
+AI_CV_EndureUserStatused:
 	score -3
 	goto AI_CV_Endure_End
 
-AI_CV_Endure4:
+AI_CV_Endure_SlightlyDiscourageUnlessTargetIsSuffering:
+	if_hp_more_than AI_TARGET, 24, AI_CV_Endure_SlightlyDiscourage
+	if_has_move_with_effect AI_TARGET, EFFECT_REST, AI_CV_Endure_SlightlyDiscourage
+	if_has_a_50_percent_hp_recovery_move AI_TARGET, AI_CV_Endure_SlightlyDiscourage
+	if_status AI_TARGET, STATUS1_TOXIC_POISON, AI_CV_Endure_End
+	if_status2 AI_TARGET, STATUS2_CURSED, AI_CV_Endure_End
+	if_hp_more_than AI_TARGET, 11, AI_CV_Endure_SlightlyDiscourage
+	if_status3 AI_TARGET, STATUS3_LEECHSEED, AI_CV_Endure_End
+	if_status AI_TARGET, STATUS1_POISON | STATUS1_BURN, AI_CV_Endure_End
+AI_CV_Endure_SlightlyDiscourage:
 	score -1
 	goto AI_CV_Endure_End
 
