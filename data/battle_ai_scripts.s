@@ -885,18 +885,19 @@ AI_CBM_HealBell2:
 	if_not_status AI_USER_PARTNER, STATUS1_ANY, AI_CBM_HealBellEnd
 	if_ability AI_USER_PARTNER, ABILITY_SOUNDPROOF, Score_Minus3
 	goto AI_CBM_HealBellEnd
-	
+
 AI_CBM_Taunt:
 	if_ability_might_be AI_TARGET, ABILITY_OBLIVIOUS, Score_Minus10
 	if_target_taunted Score_Minus10
-	calculate_nhko AI_TARGET
-	if_equal 1, Score_Minus2
 	get_possible_categories_of_foes_attacks
 	if_equal AI_NO_DAMAGING_MOVES, Score_Plus2
-    is_first_turn_for AI_USER
-    if_equal 1, AI_CBM_TauntFast
+	if_this_attack_might_be_the_last Score_Minus3
+	calculate_nhko AI_TARGET
+	if_less_than 3, Score_Minus1
+	is_first_turn_for AI_USER
+	if_equal 1, AI_CBM_TauntIfFaster
 	goto AI_CBM_Taunt_End
-AI_CBM_TauntFast:
+AI_CBM_TauntIfFaster:
 	if_user_faster Score_Plus1
 AI_CBM_Taunt_End:
 	end
