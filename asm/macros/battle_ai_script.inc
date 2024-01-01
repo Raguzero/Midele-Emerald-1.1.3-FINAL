@@ -661,6 +661,10 @@
 	.4byte \ptr
 	.endm
 
+	.macro get_weather_at_the_end_of_turn
+	.byte 0x76
+	.endm
+
 @ useful script macros
 	.macro get_curr_move_type
 	get_type AI_TYPE_MOVE
@@ -793,7 +797,7 @@
 	if_target_wont_attack_due_to_truant \ptr
     if_hp_less_than AI_USER, 100, .AI_no_free_setup_\@
     if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_QUICK_ATTACK, .AI_no_free_setup_\@
-    get_weather
+    get_weather_at_the_end_of_turn
     if_user_receives_damage_from_stored_weather .AI_no_free_setup_\@
     if_ability AI_USER, ABILITY_STURDY, \ptr
     if_holds_item AI_USER, ITEM_FOCUS_SASH, \ptr
@@ -896,7 +900,7 @@
     .AI_check_scenario_B_move_boosts_proper_defense_\@:
     if_status AI_USER, STATUS1_PSN_ANY | STATUS1_BURN, .AI_check_scenario_B_skip_leftovers_check_\@
     if_status3 AI_USER, STATUS3_LEECHSEED, .AI_check_scenario_B_skip_leftovers_check_\@
-    get_weather
+    get_weather_at_the_end_of_turn
     if_user_receives_damage_from_stored_weather .AI_check_scenario_B_skip_leftovers_check_\@
     if_holds_item AI_USER, ITEM_LEFTOVERS, .AI_check_recovery_move_\@
     .AI_check_scenario_B_skip_leftovers_check_\@:
@@ -1000,8 +1004,7 @@
     .AI_target_cannot_heal_with_natural_cure_\@:
     .endm
 
-  @ Determina si el poke de la IA sufre daño a final de turno por el clima guardado por get_weather
-  @ Nota: ignora que el clima leído por get_weather pueda estar a punto de acabar
+  @ Determina si el poke de la IA sufre daño a final de turno por el clima guardado por get_weather_at_the_end_of_turn
 	.macro if_user_receives_damage_from_stored_weather ptr:req
     if_equal AI_WEATHER_HAIL, .AI_check_hail_\@
     if_equal AI_WEATHER_SANDSTORM, .AI_check_sandstorm_\@

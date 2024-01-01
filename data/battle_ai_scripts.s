@@ -2771,12 +2771,12 @@ AI_CV_Substitute_IsHealingAbilityActive:
 	goto AI_CV_SubstituteStart
 
 AI_CV_Substitute_HealHail:
-	get_weather
+	get_weather_at_the_end_of_turn
 	if_equal AI_WEATHER_HAIL, AI_CV_SubstitutePlus1Continue
 	end
 
 AI_CV_Substitute_HealRain:
-	get_weather
+	get_weather_at_the_end_of_turn
 	if_equal AI_WEATHER_RAIN, AI_CV_SubstitutePlus1Continue
 	end
 
@@ -3609,7 +3609,7 @@ AI_CV_Endure:
 	if_status3 AI_USER, STATUS3_LEECHSEED, AI_CV_Endure_UserWillFaintAfterEnduring
 	if_status2 AI_USER, STATUS2_CURSED | STATUS2_INFATUATION, AI_CV_EndureUserStatused
 	if_status3 AI_USER, STATUS3_PERISH_SONG | STATUS3_YAWN, AI_CV_EndureUserStatused
-	get_weather
+	get_weather_at_the_end_of_turn
 	if_user_receives_damage_from_stored_weather AI_CV_Endure_UserWillFaintAfterEnduring
 AI_CV_Endure_NoWeatherDamageExpected:
 	get_protect_count AI_USER
@@ -3977,7 +3977,7 @@ AI_CV_SemiInvulnerable2_NoTruant:
 	if_status AI_TARGET, STATUS1_TOXIC_POISON, AI_CV_SemiInvulnerable_TryEncourage
 	if_status2 AI_TARGET, STATUS2_CURSED, AI_CV_SemiInvulnerable_TryEncourage
 	if_status3 AI_TARGET, STATUS3_LEECHSEED, AI_CV_SemiInvulnerable_TryEncourage
-	get_weather
+	get_weather_at_the_end_of_turn
 	if_equal AI_WEATHER_SANDSTORM, AI_CV_SemiInvulnerable_ConsiderEncouragingUnderWeather
 	if_equal AI_WEATHER_HAIL, AI_CV_SemiInvulnerable_ConsiderEncouragingUnderWeather
 AI_CV_SemiInvulnerable5:

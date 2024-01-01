@@ -203,6 +203,7 @@ static void Cmd_if_has_non_ineffective_move_with_effect(void);
 static void Cmd_if_doesnt_have_non_ineffective_move_with_effect(void);
 static void Cmd_if_move_is_contactless(void);
 static void Cmd_if_target_will_be_faster_after_this_effect(void);
+static void Cmd_get_weather_at_the_end_of_turn(void);
 
 // ewram
 EWRAM_DATA const u8 *gAIScriptPtr = NULL;
@@ -331,6 +332,7 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_if_doesnt_have_non_ineffective_move_with_effect,    // 0x73
     Cmd_if_move_is_contactless,                             // 0x74
     Cmd_if_target_will_be_faster_after_this_effect,         // 0x75
+    Cmd_get_weather_at_the_end_of_turn,                     // 0x76
 };
 
 static const u16 sDiscouragedPowerfulMoveEffects[] =
@@ -635,6 +637,7 @@ bool8 IsMoveSignificantlyAffectedByAccuracyDrops(u16 move)
 bool8 sBattler_AIisLosingHPDueToWeather(bool8 ignoreLeftoversAndIngrain)
 {
     return (WEATHER_HAS_EFFECT
+            && (gWishFutureKnock.weatherDuration != 1 || (gBattleWeather & (WEATHER_RAIN_PERMANENT | WEATHER_SANDSTORM_PERMANENT | WEATHER_SUN_PERMANENT | WEATHER_HAIL_PERMANENT)))
             && gBattleMons[sBattler_AI].ability != ABILITY_OVERCOAT
             && (ignoreLeftoversAndIngrain || (
                       gBattleMons[sBattler_AI].item != ITEM_LEFTOVERS // Restos compensa el clima
@@ -4053,4 +4056,23 @@ static void Cmd_if_target_will_be_faster_after_this_effect(void)
         gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 1);
     else
         gAIScriptPtr += 5;
+}
+
+static void Cmd_get_weather_at_the_end_of_turn(void)
+{
+	AI_THINKING_STRUCT->funcResult = AI_WEATHER_NONE;
+
+    if (gWishFutureKnock.weatherDuration != 1 || (gBattleWeather & (WEATHER_RAIN_PERMANENT | WEATHER_SANDSTORM_PERMANENT | WEATHER_SUN_PERMANENT | WEATHER_HAIL_PERMANENT)))
+    {
+        if (gBattleWeather & WEATHER_RAIN_ANY)
+            AI_THINKING_STRUCT->funcResult = AI_WEATHER_RAIN;
+        if (gBattleWeather & WEATHER_SANDSTORM_ANY)
+            AI_THINKING_STRUCT->funcResult = AI_WEATHER_SANDSTORM;
+        if (gBattleWeather & WEATHER_SUN_ANY)
+            AI_THINKING_STRUCT->funcResult = AI_WEATHER_SUN;
+        if (gBattleWeather & WEATHER_HAIL_ANY)
+            AI_THINKING_STRUCT->funcResult = AI_WEATHER_HAIL;
+    }
+
+    gAIScriptPtr += 1;
 }
