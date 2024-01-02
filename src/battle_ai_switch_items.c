@@ -625,7 +625,7 @@ static bool8 ShouldSwitch(void)
         if (!IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_FLYING) && !IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_GHOST) && (gBattleMons[gActiveBattler].ability != ABILITY_LEVITATE))
 			return FALSE;
     }
-    if (ABILITY_ON_FIELD2(ABILITY_MAGNET_PULL))
+    if (AbilityBattleEffects(ABILITYEFFECT_CHECK_FIELD_EXCEPT_BATTLER, gActiveBattler, ABILITY_MAGNET_PULL, 0, 0))
     {
         if (IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_STEEL))
             return FALSE;

@@ -856,7 +856,7 @@ bool8 AICanSwitchAssumingEnoughPokemon(void)
 {
     return !(ABILITY_ON_OPPOSING_FIELD(sBattler_AI, ABILITY_SHADOW_TAG) && (!IS_BATTLER_OF_TYPE(sBattler_AI, TYPE_GHOST) && gBattleMons[sBattler_AI].ability != ABILITY_SHADOW_TAG))
             && !(ABILITY_ON_OPPOSING_FIELD(sBattler_AI, ABILITY_ARENA_TRAP) && (!IS_BATTLER_OF_TYPE(sBattler_AI, TYPE_FLYING) && !IS_BATTLER_OF_TYPE(sBattler_AI, TYPE_GHOST) && gBattleMons[sBattler_AI].ability != ABILITY_LEVITATE))
-            && !(ABILITY_ON_FIELD2(ABILITY_MAGNET_PULL) && IS_BATTLER_OF_TYPE(sBattler_AI, TYPE_STEEL))
+            && !(AbilityBattleEffects(ABILITYEFFECT_CHECK_FIELD_EXCEPT_BATTLER, sBattler_AI, ABILITY_MAGNET_PULL, 0, 0) && IS_BATTLER_OF_TYPE(sBattler_AI, TYPE_STEEL))
             && !(gBattleMons[sBattler_AI].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION) && !IS_BATTLER_OF_TYPE(sBattler_AI, TYPE_GHOST))
             && !(gStatuses3[sBattler_AI] & STATUS3_ROOTED && !IS_BATTLER_OF_TYPE(sBattler_AI, TYPE_GHOST))
             && !(gBattleTypeFlags & (BATTLE_TYPE_ARENA | BATTLE_TYPE_PALACE))
