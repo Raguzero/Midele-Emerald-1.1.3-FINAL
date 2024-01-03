@@ -750,7 +750,7 @@ bool32 OurShedinjaIsVulnerable(u32 battlerAI, u32 opposingBattler, u16 considere
         return TRUE;
 
     // Si Shedinja hace KO con el ataque elegido antes de que ataque el rival, no hace falta huir
-    if (AI_CAN_ESTIMATE_DAMAGE(consideredMove))
+    if (AI_CAN_ESTIMATE_DAMAGE(consideredMove) && !(gStatuses3[opposingBattler] & STATUS3_SEMI_INVULNERABLE))
     {
         bool8 canKO;
       
@@ -790,6 +790,9 @@ bool32 OurShedinjaIsVulnerable(u32 battlerAI, u32 opposingBattler, u16 considere
                 break;
         if (j == MAX_MON_MOVES)
             continue; // No puede usar el movimiento por el momento; se ignora
+
+        if ((gBattleMons[opposingBattler].status2 & STATUS2_MULTIPLETURNS) && gCurrentMove != gLastMoves[opposingBattler])
+            continue; // Está en un ataque multiturno distinto de este; se ignora
 
         // Si le hace daño a Shedinja, hora de huir
         if (AI_CAN_ESTIMATE_DAMAGE(gCurrentMove) && !shedinjaIsSafeUnlessWeather)
