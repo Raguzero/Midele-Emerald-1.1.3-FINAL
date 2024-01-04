@@ -165,6 +165,17 @@ const struct SpriteTemplate gUnknown_08596F80 =
     .callback = sub_8113224,
 };
 
+const struct SpriteTemplate gDragonPulseSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DRAGON_PULSE,
+    .paletteTag = ANIM_TAG_DRAGON_PULSE,
+    .oam = &gOamData_AffineOff_ObjNormal_16x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = TranslateAnimSpriteToTargetMonLocation,
+};
+
 const struct SpriteTemplate gUnknown_08596F98 =
 {
     .tileTag = ANIM_TAG_HOLLOW_ORB,

@@ -8663,63 +8663,37 @@ Move_BULLET_SEED:
 	end
 
 Move_DRAGON_CLAW:
-	loadspritegfx ANIM_TAG_SMALL_EMBER
-	loadspritegfx ANIM_TAG_CLAW_SLASH
-	playsewithpan SE_W221B, SOUND_PAN_ATTACKER
-	createvisualtask sub_8116620, 10, 2, 4, 0, 8, RGB(31, 19, 0)
-	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 0, 2, 15, 1
-	call DragonClawEffect
-	call DragonClawEffect
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 6, 4
-	createsprite gUnknown_08596B88, ANIM_ATTACKER, 2, 0, 28, 528, 30, 13, 50, 0
-	delay 2
-	createvisualtask sub_8159210, 5, 136, SOUND_PAN_TARGET
-	createsprite gBattleAnimSpriteTemplate_8597138, ANIM_TARGET, 2, -10, -10, 0
-	createsprite gBattleAnimSpriteTemplate_8597138, ANIM_TARGET, 2, -10, 10, 0
-	createsprite gBattleAnimSpriteTemplate_85972D8, ANIM_ATTACKER, 2, -4, 1, 10, 3, 1
-	createsprite gUnknown_08596B88, ANIM_ATTACKER, 2, 0, 32, 480, 20, 16, -46, 0
-	delay 2
-	createsprite gUnknown_08596B88, ANIM_ATTACKER, 2, 0, 33, 576, 20, 8, 42, 0
-	delay 2
-	createsprite gUnknown_08596B88, ANIM_ATTACKER, 2, 0, 31, 400, 25, 11, -42, 0
-	delay 2
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 6, 4
-	createsprite gUnknown_08596B88, ANIM_ATTACKER, 2, 0, 28, 512, 25, 16, 46, 0
-	delay 2
-	createvisualtask sub_8159210, 5, 136, SOUND_PAN_TARGET
-	createsprite gBattleAnimSpriteTemplate_8597138, ANIM_TARGET, 2, 10, -10, 1
-	createsprite gBattleAnimSpriteTemplate_8597138, ANIM_TARGET, 2, 10, 10, 1
-	createsprite gBattleAnimSpriteTemplate_85972D8, ANIM_ATTACKER, 2, -4, 1, 10, 3, 1
-	createsprite gUnknown_08596B88, ANIM_ATTACKER, 2, 0, 33, 464, 30, 15, -50, 0
-	delay 2
-	createsprite gUnknown_08596B88, ANIM_ATTACKER, 2, 0, 28, 528, 30, 13, 50, 0
-	delay 2
-	createsprite gUnknown_08596B88, ANIM_ATTACKER, 2, 0, 32, 480, 20, 16, -46, 0
-	delay 2
-	createsprite gUnknown_08596B88, ANIM_ATTACKER, 2, 0, 33, 576, 20, 8, 42, 0
-	delay 2
-	createsprite gUnknown_08596B88, ANIM_ATTACKER, 2, 0, 31, 400, 25, 11, -42, 0
-	delay 2
-	createsprite gUnknown_08596B88, ANIM_ATTACKER, 2, 0, 28, 512, 25, 16, 46, 0
-	delay 2
-	createsprite gUnknown_08596B88, ANIM_ATTACKER, 2, 0, 33, 464, 30, 15, -50, 0
-	createvisualtask sub_8116620, 10, 2, 4, 8, 0, RGB(31, 19, 0)
-	waitforvisualfinish
-	end
-DragonClawEffect:
-	createsprite gUnknown_08596B88, ANIM_ATTACKER, 2, 0, 28, 528, 30, 13, 50, 0
-	delay 2
-	createsprite gUnknown_08596B88, ANIM_ATTACKER, 2, 0, 32, 480, 20, 16, -46, 0
-	delay 2
-	createsprite gUnknown_08596B88, ANIM_ATTACKER, 2, 0, 33, 576, 20, 8, 42, 0
-	delay 2
-	createsprite gUnknown_08596B88, ANIM_ATTACKER, 2, 0, 31, 400, 25, 11, -42, 0
-	delay 2
-	createsprite gUnknown_08596B88, ANIM_ATTACKER, 2, 0, 28, 512, 25, 16, 46, 0
-	delay 2
-	createsprite gUnknown_08596B88, ANIM_ATTACKER, 2, 0, 33, 464, 30, 15, -50, 0
-	delay 2
-	return
+	loadspritegfx ANIM_TAG_DRAGON_PULSE
+	monbg ANIM_TARGET
+	setalpha 12, 8
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 1, 0, 7, RGB_BLACK
+	waitforvisualfinish 
+	playsewithpan SE_W060, SOUND_PAN_ATTACKER 
+	createsoundtask sub_8158C58, SE_W060B, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 3, 4, 0, 15  
+	call DragonPulseParticle 
+	call DragonPulseParticle 
+	createvisualtask AnimTask_SwayMon, 5, 0, 6, 51200, 4, ANIM_TARGET  
+	createvisualtask sub_8115A04, 2, 4, 2, 2, 0, 12, RGB(30, 10, 13)  
+	call DragonPulseParticle 
+	call DragonPulseParticle 
+	call DragonPulseParticle 
+	call DragonPulseParticle 
+	call DragonPulseParticle 
+	call DragonPulseParticle 
+	call DragonPulseParticle 
+	call DragonPulseParticle 
+	call DragonPulseParticle 
+	waitforvisualfinish 
+	delay 1 
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 1, 7, 0, RGB_BLACK  
+	waitforvisualfinish 
+	blendoff
+	clearmonbg ANIM_TARGET  
+	end 
+DragonPulseParticle:
+	createsprite gDragonPulseSpriteTemplate, 130, 6, 16, 0, 0, 0, 13, 0  
+	delay 4 
+	return 
 
 End:
 	end

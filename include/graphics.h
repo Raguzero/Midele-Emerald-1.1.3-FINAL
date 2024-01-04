@@ -6370,6 +6370,8 @@ extern const u32 gBattleAnimBgImage_Ice[];
 extern const u32 gBattleAnimBgImage_Cosmic[];
 extern const u32 gBattleAnimBgImage_InAir[];
 extern const u32 gBattleAnimBgImage_Aurora[];
+extern const u32 gBattleAnimSpriteGfx_DragonPulse[];
+extern const u32 gBattleAnimSpritePal_DragonPulse[];
 extern const u32 gBattleAnimBgImage_Fissure[];
 extern const u32 gBattleAnimBgPalette_Dark[];
 extern const u32 gBattleAnimBgPalette_Ghost[];
