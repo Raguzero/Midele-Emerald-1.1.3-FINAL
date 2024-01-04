@@ -4637,7 +4637,8 @@ AI_TargetIsRemovedByWeather:
 AI_TryToFaint:
 	if_target_is_ally AI_Ret
 	if_can_faint AI_TryToFaint_ConsiderEncouragingKOingMove
-@ Quita puntos a ataques que hagan poco daño al rival (3 si 6% o menos, 2 si 20% o menos, 1 si 40% o menos)
+@ Quita puntos a ataques que hagan poco daño al rival (3 si 6% o menos, 2 si 20% o menos, 1 si 40% o menos).
+@ Si, además de no llegar al 40%, tiene menos de un 70% de acertar o el rival se puede curar, quita otro punto.
 @ Esto evita que la IA use ataques flojos y hace que en dobles ataque a los que más daño hace
         get_considered_move_power
         if_equal 0, AI_TryToFaint_BonusToMostPowerfulAttack
@@ -4648,15 +4649,16 @@ AI_TryToFaint:
         get_curr_dmg_hp_percent
         if_more_than 40, AI_TryToFaint_BonusToMostPowerfulAttack
         score -1
+        if_accuracy_less_than 70, AI_TryToFaint_IncreasePenaltyForHealingTargetOrLowAccuracy
         if_effect EFFECT_TRAP, AI_TryToFaint_ConsiderSkippingPenaltiesForPartialTrapping
 AI_TryToFaint_DoNotSkipFirstPenaltiesForPartialTrapping:
         if_target_taunted AI_TryToFaint_SkipPenaltyForLowDamageAgainstAHealingMon
         if_status2 AI_TARGET, STATUS2_CURSED, AI_TryToFaint_SkipPenaltyForLowDamageAgainstAHealingMon
-        if_has_move_with_effect AI_TARGET, EFFECT_REST, AI_TryToFaint_ApplyPenaltyForLowDamageAgainstAHealingMon
+        if_has_move_with_effect AI_TARGET, EFFECT_REST, AI_TryToFaint_IncreasePenaltyForHealingTargetOrLowAccuracy
         if_status AI_TARGET, STATUS1_TOXIC_POISON, AI_TryToFaint_SkipPenaltyForLowDamageAgainstAHealingMon
-        if_has_a_50_percent_hp_recovery_move AI_TARGET, AI_TryToFaint_ApplyPenaltyForLowDamageAgainstAHealingMon
+        if_has_a_50_percent_hp_recovery_move AI_TARGET, AI_TryToFaint_IncreasePenaltyForHealingTargetOrLowAccuracy
         goto AI_TryToFaint_SkipPenaltyForLowDamageAgainstAHealingMon
-AI_TryToFaint_ApplyPenaltyForLowDamageAgainstAHealingMon:
+AI_TryToFaint_IncreasePenaltyForHealingTargetOrLowAccuracy:
         score -1
 AI_TryToFaint_SkipPenaltyForLowDamageAgainstAHealingMon:
         if_more_than 6, AI_TryToFaint_SkipPenaltyForReallyLowDamage
