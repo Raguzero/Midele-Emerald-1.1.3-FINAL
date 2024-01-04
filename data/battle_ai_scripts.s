@@ -976,12 +976,13 @@ AI_UselessEffectsWhenChoiced:
     .byte EFFECT_QUIVER_DANCE
     .byte EFFECT_COIL
     .byte EFFECT_STOCKPILE
-	.byte EFFECT_DRAGON_DANCE
-	.byte EFFECT_ATTACK_SPATK_UP
-	.byte EFFECT_SPECIAL_ATTACK_UP_3
-	.byte EFFECT_CHARGE
-	.byte EFFECT_LOCK_ON
-	.byte EFFECT_BELLY_DRUM
+    .byte EFFECT_DRAGON_DANCE
+    .byte EFFECT_ATTACK_SPATK_UP
+    .byte EFFECT_SPECIAL_ATTACK_UP_3
+    .byte EFFECT_CHARGE
+    .byte EFFECT_LOCK_ON
+    .byte EFFECT_BELLY_DRUM
+    .byte EFFECT_ATTRACT
     .byte -1
 	
 @ If move doesn't do meaningful damage, switch out
