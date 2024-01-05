@@ -8136,18 +8136,19 @@ const struct Trainer gTrainers[] = {
         .party = {.ItemCustomMidele = sParty_Clarence},
     },
 
-    [TRAINER_TERRY] =
+    [TRAINER_MELKOR] =
     {
-        .partyFlags = 0,
-        .trainerClass = TRAINER_CLASS_PSYCHIC,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
-        .trainerPic = TRAINER_PIC_PSYCHIC_F,
-        .trainerName = _("TERRY"),
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
+        .battleMusic = JENOVA,
+        .trainerPic = TRAINER_PIC_COLLECTOR,
+        .trainerName = _("MELKOR"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
-        .partySize = ARRAY_COUNT(sParty_Terry),
-        .party = {.NoItemDefaultMoves = sParty_Terry},
+        .partySize = ARRAY_COUNT(sParty_Melkor),
+        .party = {.ItemCustomMidele = sParty_Melkor},
     },
 
     [TRAINER_NATE] =

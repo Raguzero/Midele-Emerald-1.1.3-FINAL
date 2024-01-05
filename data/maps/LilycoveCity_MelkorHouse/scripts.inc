@@ -22,11 +22,24 @@ LilycoveCity_MelkorHouse_EventScript_Melkor::
 	goto_if_eq LilycoveCity_MelkorHouse_EventScript_Melkor_2
 	compare VAR_MELKOR_STATE, 1
 	goto_if_eq LilycoveCity_MelkorHouse_EventScript_Melkor_3
-	faceplayer
-	msgbox LilycoveCity_MelkorHouse_EventScript_Melkor_Text_4
+	compare VAR_MELKOR_STATE, 2
+	goto_if_eq LilycoveCity_MelkorHouse_EventScript_Melkor_4
 LilycoveCity_MelkorHouse_EventScript_Melkor_1:
 	release
 	return
+	
+LilycoveCity_MelkorHouse_EventScript_Melkor_4:
+	goto_if_set FLAG_SYS_GAME_CLEAR, LilycoveCity_MelkorHouse_PostgameBattle
+	faceplayer
+	msgbox LilycoveCity_MelkorHouse_EventScript_Melkor_Text_4
+	release
+	end
+
+LilycoveCity_MelkorHouse_PostgameBattle:
+	faceplayer
+	trainerbattle_single TRAINER_MELKOR, LilycoveCity_MelkorHouse_PostgameBattle_Intro, LilycoveCity_MelkorHouse_PostgameBattle_Defeat
+	msgbox LilycoveCity_MelkorHouse_PostgameBattlePostBattle, MSGBOX_AUTOCLOSE
+	end
 
 LilycoveCity_MelkorHouse_EventScript_Melkor_2:
 	msgbox LilycoveCity_MelkorHouse_EventScript_Melkor_Text_0
@@ -193,3 +206,29 @@ LilycoveCity_MelkorHouse_EventScript_PCPokexperto_Text:
 	.string "...\p"
 	.string "... ERROR 500 INTERNAL SERVER ERROR.\p"
 	.string "No te has podido conectar a PxP :($"
+
+LilycoveCity_MelkorHouse_PostgameBattle_Intro: 
+	.string "Esto de TWITTR va de mal en peor\n"
+	.string "desde que lo compró el MELÓN.\p"
+	.string "Voy a tener que preparar un plan B\n"
+	.string "por si acaso para asegurar las\l"
+	.string "noticias de PxP.\p"
+	
+	.string "¡Espera un momento! ¿Has vencido a la\n"
+	.string "LIGA POKéMON de HOENN?\p"
+    .string "Entonces estoy seguro de que puedes\n"
+	.string "darme una buena batalla de pokexpertos.\p"
+
+    .string "Te demostraré mi poder con la estrategia\n"
+    .string "que he ideado después de tantos años\l"
+	.string "de investigación de todo el mundo\p"
+	.string "POKéMON que puedes encontrar en mi WEB.$"
+
+LilycoveCity_MelkorHouse_PostgameBattle_Defeat: 
+	.string "¿Como has roto la cadena?$"
+
+LilycoveCity_MelkorHouse_PostgameBattlePostBattle: 
+	.string "Baton Pass Team es una terrorífica\n"
+	.string "estrategia de combate que funciona\l"
+	.string "en cadena, si sale bien.$"
+

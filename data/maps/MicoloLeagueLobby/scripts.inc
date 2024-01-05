@@ -152,6 +152,7 @@ MicoloLeagueLobby_EventScript_ResetTrainerYESConfirmo::
 	clearflag FLAG_MIRORB_DEFEATED
 	cleartrainerflag TRAINER_MIRORB
 	cleartrainerflag TRAINER_KRUB_2
+	cleartrainerflag TRAINER_MELKOR
 	release
 	end
 	
