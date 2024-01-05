@@ -180,7 +180,7 @@ static void Cmd_if_level_cond(void);
 static void Cmd_if_target_taunted(void);
 static void Cmd_if_target_not_taunted(void);
 static void Cmd_check_ability(void);
-static void Cmd_is_of_type(void);
+static void Cmd_if_type(void);
 static void Cmd_if_target_is_ally(void);
 static void Cmd_if_flash_fired(void);
 static void Cmd_if_holds_item(void);
@@ -309,7 +309,7 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_if_target_taunted,                          // 0x5C
     Cmd_if_target_not_taunted,                      // 0x5D
     Cmd_if_target_is_ally,                          // 0x5E
-    Cmd_is_of_type,                                 // 0x5F
+    Cmd_if_type,                                    // 0x5F
     Cmd_check_ability,                              // 0x60
     Cmd_if_flash_fired,                             // 0x61
     Cmd_if_holds_item,                              // 0x62
@@ -2127,16 +2127,14 @@ static u8 BattleAI_GetWantedBattler(u8 wantedBattler)
     }
 }
 
-static void Cmd_is_of_type(void)
+static void Cmd_if_type(void)
 {
     u8 battlerId = BattleAI_GetWantedBattler(gAIScriptPtr[1]);
 
     if (IS_BATTLER_OF_TYPE(battlerId, gAIScriptPtr[2]))
-        AI_THINKING_STRUCT->funcResult = TRUE;
+        gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 3);
     else
-        AI_THINKING_STRUCT->funcResult = FALSE;
-
-    gAIScriptPtr += 3;
+        gAIScriptPtr += 7;
 }
 
 static void Cmd_get_considered_move_power(void)

@@ -5171,9 +5171,7 @@ AI_DoubleBattleSkillSwap:
 AI_DoubleBattleElectricMove:
 	if_no_ability AI_TARGET_PARTNER, ABILITY_LIGHTNING_ROD, AI_DoubleBattleElectricMoveEnd
 	score -2
-	if_no_type AI_TARGET_PARTNER, TYPE_GROUND, AI_DoubleBattleElectricMoveEnd
-	score -8
-
+	if_type AI_TARGET_PARTNER, TYPE_GROUND, Score_Minus8
 AI_DoubleBattleElectricMoveEnd:
 	end
 

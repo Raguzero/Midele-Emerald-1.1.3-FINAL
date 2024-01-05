@@ -527,10 +527,11 @@
 	.4byte \param0
 	.endm
 
-	.macro is_of_type battler:req, type:req
+	.macro if_type battler:req, type:req, ptr:req
 	.byte 0x5f
 	.byte \battler
 	.byte \type
+	.4byte \ptr
 	.endm
 
 	.macro check_ability battler:req, ability:req
@@ -701,14 +702,10 @@
 	if_not_equal 0, \ptr
 	.endm
 	
-	.macro if_type battler:req, type:req, ptr:req
-	is_of_type \battler, \type
-	if_equal 1, \ptr
-	.endm
-
 	.macro if_no_type battler:req, type:req, ptr:req
-	is_of_type \battler, \type
-	if_equal 0, \ptr
+	if_type \battler, \type, .AI_has_type_\@
+	goto \ptr
+	.AI_has_type_\@:
 	.endm
 	
 	.macro if_target_faster ptr:req
