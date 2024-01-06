@@ -5452,7 +5452,9 @@ static void HandleEndTurn_BattleWon(void)
         switch (gTrainers[gTrainerBattleOpponent_A].trainerClass)
         {
         case TRAINER_CLASS_ELITE_FOUR:
+		case TRAINER_CLASS_ELITE_FOUR_MIDELE:
         case TRAINER_CLASS_CHAMPION:
+		case TRAINER_CLASS_CHAMPION_MIDELE:
             PlayBGM(MUS_KACHI5);
             break;
         case TRAINER_CLASS_TEAM_AQUA:
