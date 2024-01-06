@@ -1048,10 +1048,13 @@ static u8 ChooseMoveOrAction_Singles(void)
 
 		// Considera cambiar si corre peligro ante el rival y hay opciones mejores por ahí
         if (!(
-              // no cambia si tiene Evasión alta y el rival está intoxicado o maldito
+              // no cambia si tiene Evasión alta y el rival está intoxicado o maldito,
               // o si tiene un sustituto o es FEAR,
-              // o va a protegerse o usar Endure (y no tiene status que quite PS)
-              gBattleMons[sBattler_AI].statStages[STAT_EVASION] >= 9 // +3 o más
+              // o va a protegerse o usar Endure (y no tiene status que quite PS o entorpezca actuar)
+              gBattleMons[sBattler_AI].statStages[STAT_EVASION]
+                       >= 9    // +3 o más, +2 si el rival está enamorado o confuso, +1 si ambas
+                       - (gBattleMons[gBattlerTarget].status2 & STATUS2_CONFUSION ? 1 : 0)
+                       - (gBattleMons[gBattlerTarget].status2 & STATUS2_INFATUATION ? 1 : 0)
            && ((gBattleMons[gBattlerTarget].status1 & STATUS1_TOXIC_POISON) || (gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED))
              )
             && !(gBattleMons[sBattler_AI].status2 & STATUS2_SUBSTITUTE)
@@ -1060,8 +1063,8 @@ static u8 ChooseMoveOrAction_Singles(void)
                   || (gBattleMoves[move].effect == EFFECT_ENDURE && !(gBattleMons[sBattler_AI].status1 & (STATUS1_PSN_ANY | STATUS1_BURN)))
                  )
                  && PROTECT_WONT_FAIL_FOR(sBattler_AI) // si ya lo usó el turno anterior, mejor pensar en cambiar
-                 && !(gBattleMons[sBattler_AI].status1 & STATUS1_TOXIC_POISON)
-                 && !(gBattleMons[sBattler_AI].status2 & STATUS2_CURSED)
+                 && !(gBattleMons[sBattler_AI].status1 & (STATUS1_TOXIC_POISON | STATUS1_PARALYSIS | STATUS1_FREEZE))
+                 && !(gBattleMons[sBattler_AI].status2 & (STATUS2_CURSED | STATUS2_INFATUATION | STATUS2_CONFUSION))
                  && !(gStatuses3[sBattler_AI] & STATUS3_LEECHSEED)
                 )
             && !(gBattleMons[sBattler_AI].level <= 2) // probable FEAR
