@@ -329,7 +329,7 @@ AI_CBM_DefenseUp: @ 82DC351
 AI_CBM_SpeedUp: @ 82DC35A
 	if_stat_level_equal AI_USER, STAT_SPEED, 12, Score_Minus10
 	end
-	
+
 AI_CBM_Growth:
 	if_stat_level_not_equal AI_USER, STAT_ATK, 12, AI_Ret
 AI_CBM_SpAtkUp: @ 82DC363
@@ -3284,7 +3284,7 @@ AI_CV_Flail_ScoreDown1:
 
 AI_CV_Flail_End:
 	end
-	
+
 @ Recuérdese que if_status_in_party excluye al poke actual	
 AI_CV_HealBell:
     if_this_attack_might_be_the_last AI_CV_HealBell_ConsiderSacrificeIfNothingElseToDo
@@ -3450,6 +3450,7 @@ AI_CV_Protect_FasterOpponentIsCharging:
     @ recibe 3HKO o menos daño: sigue por donde iba en la evaluación de Protect
 AI_CV_Protect_OpponentIsNotInAMultiturnAttack:
 	if_next_turn_target_might_use_move_with_effect EFFECT_MIDELE_POWER, AI_CV_Protect_ScoreDown5
+	if_status3 AI_USER, STATUS3_ALWAYS_HITS, Score_Plus2
 	if_ability AI_USER, ABILITY_SPEED_BOOST, AI_CV_Protect_Boost
 	if_status  AI_USER, STATUS1_PSN_ANY | STATUS1_BURN, AI_CV_ProtectUserStatused
 	if_status2 AI_USER, STATUS2_CURSED | STATUS2_INFATUATION, AI_CV_ProtectUserStatused
