@@ -3610,18 +3610,28 @@ AI_CV_Spikes_Plus1:
 	goto AI_CV_Spikes_End
 
 AI_CV_Foresight:
+	if_stat_level_more_than AI_TARGET, STAT_EVASION, 7, AI_CV_Foresight3
+	if_has_move_with_effect AI_TARGET, EFFECT_EVASION_UP, AI_CV_Foresight3
+	if_has_move_with_effect AI_TARGET, EFFECT_MINIMIZE, AI_CV_Foresight3
+	if_stat_level_equal AI_TARGET, STAT_EVASION, 7, AI_CV_Foresight2
 	get_target_type1
 	if_equal TYPE_GHOST, AI_CV_Foresight2
 	get_target_type2
 	if_equal TYPE_GHOST, AI_CV_Foresight2
-	if_stat_level_more_than AI_TARGET, STAT_EVASION, 8, AI_CV_Foresight3
-	score -2
+AI_CV_Foresight_Discourage:
+	score -4
+	goto AI_CV_Foresight_End
+
+AI_CV_Foresight_DiscourageIfLastMon:
+	count_usable_party_mons AI_USER
+	if_equal 0, AI_CV_Foresight_Discourage
 	goto AI_CV_Foresight_End
 
 AI_CV_Foresight2:
 	if_random_less_than 80, AI_CV_Foresight_End
 
 AI_CV_Foresight3:
+	if_this_attack_might_be_the_last AI_CV_Foresight_DiscourageIfLastMon
 	if_random_less_than 80, AI_CV_Foresight_End
 	score +2
 
