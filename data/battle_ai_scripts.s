@@ -2524,6 +2524,8 @@ AI_CV_PartialTrap_UserCannotBePhazed:
 
 AI_CV_PartialTrap_IgnoreTrapUnlessUserCannotBePhazed:
 	if_ability AI_USER, ABILITY_SUCTION_CUPS, AI_CV_PartialTrap_UserCannotBePhazed
+	count_usable_party_mons AI_USER
+	if_equal 0, AI_CV_PartialTrap_UserCannotBePhazed
 	if_ability AI_USER, ABILITY_SOUNDPROOF, AI_CV_PartialTrap_IgnoreTrapIfPhazingMoveIsWhirlwind
 	goto AI_CV_PartialTrap_End
 
@@ -2585,6 +2587,8 @@ AI_CV_Trap_UserCannotBePhazed:
 
 AI_CV_Trap_DontTrapUnlessUserCannotBePhazed:
     if_ability AI_USER, ABILITY_SUCTION_CUPS, AI_CV_Trap_UserCannotBePhazed
+    count_usable_party_mons AI_USER
+    if_equal 0, AI_CV_Trap_UserCannotBePhazed
     if_ability AI_USER, ABILITY_SOUNDPROOF, AI_CV_Trap_DontTrapIfPhazingMoveIsWhirlwind
     goto Score_Minus3
 
@@ -2822,9 +2826,8 @@ AI_CV_Recharge_End:
 	end
 
 AI_CV_Disable:
-    if_target_not_expected_to_be_asleep_assuming_equal_priority AI_CV_Disable_TargetNotSleeping
-    goto AI_CV_Disable_OpponentIsNotExpectedToAttack
-AI_CV_Disable_TargetNotSleeping:
+	if_target_expected_to_be_statused_assuming_equal_priority AI_CV_Disable_OpponentIsNotExpectedToAttack
+	if_status AI_TARGET, STATUS1_FREEZE, AI_CV_Disable_OpponentIsNotExpectedToAttack
 	if_target_faster AI_CV_Disable_TargetIsFaster
 AI_CV_Disable_OpponentIsNotExpectedToAttack:
 	get_last_used_bank_move AI_TARGET
