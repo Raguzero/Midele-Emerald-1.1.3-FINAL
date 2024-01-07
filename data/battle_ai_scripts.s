@@ -445,12 +445,8 @@ AI_CBM_Roar: @ 82DC47B
 
 AI_CBM_Toxic: @ 82DC48C
 	if_ability AI_USER, ABILITY_CORROSION, AI_CBM_Toxic_SkipTypeCheck
-	get_target_type1
-	if_equal TYPE_STEEL, Score_Minus10
-	if_equal TYPE_POISON, Score_Minus10
-	get_target_type2
-	if_equal TYPE_STEEL, Score_Minus10
-	if_equal TYPE_POISON, Score_Minus10
+	if_type AI_TARGET, TYPE_STEEL, Score_Minus10
+	if_type AI_TARGET, TYPE_POISON, Score_Minus10
 AI_CBM_Toxic_SkipTypeCheck:
     if_ability_might_be AI_TARGET, ABILITY_IMMUNITY, Score_Minus10
     if_target_might_have_a_sub_before_our_attack Score_Minus10
@@ -582,10 +578,7 @@ AI_CBM_Minus8IfAICanBePhazed:
 AI_CBM_LeechSeed: @ 82DC57A
     if_target_might_have_a_sub_before_our_attack Score_Minus10
 	if_status3 AI_TARGET, STATUS3_LEECHSEED, Score_Minus10
-	get_target_type1
-	if_equal TYPE_GRASS, Score_Minus10
-	get_target_type2
-	if_equal TYPE_GRASS, Score_Minus10
+	if_type AI_TARGET, TYPE_GRASS, Score_Minus10
 	if_ability_might_be AI_TARGET, ABILITY_LIQUID_OOZE, Score_Minus8
 	end
 
@@ -776,10 +769,7 @@ AI_CBM_WillOWisp: @ 82DC6B4
     if_ability_might_be AI_TARGET, ABILITY_WATER_VEIL, Score_Minus10
 	if_target_expected_to_be_statused_assuming_equal_priority Score_Minus10
     if_target_might_have_a_sub_before_our_attack Score_Minus10
-	get_target_type1
-    if_equal TYPE_FIRE, Score_Minus10
-    get_target_type2
-    if_equal TYPE_FIRE, Score_Minus10
+	if_type AI_TARGET, TYPE_FIRE, Score_Minus10
 	if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
     if_ability_might_be AI_TARGET, ABILITY_MARVEL_SCALE, Score_Minus8
     if_ability_might_be AI_TARGET, ABILITY_GUTS, Score_Minus8
@@ -3617,10 +3607,7 @@ AI_CV_Foresight:
 	if_has_move_with_effect AI_TARGET, EFFECT_EVASION_UP, AI_CV_Foresight3
 	if_has_move_with_effect AI_TARGET, EFFECT_MINIMIZE, AI_CV_Foresight3
 	if_stat_level_equal AI_TARGET, STAT_EVASION, 7, AI_CV_Foresight2
-	get_target_type1
-	if_equal TYPE_GHOST, AI_CV_Foresight2
-	get_target_type2
-	if_equal TYPE_GHOST, AI_CV_Foresight2
+	if_type AI_TARGET, TYPE_GHOST, AI_CV_Foresight2
 AI_CV_Foresight_Discourage:
 	score -4
 	goto AI_CV_Foresight_End
@@ -4549,13 +4536,7 @@ AI_CV_Snatch_End:
 
 AI_CV_MudSport:
 	if_hp_less_than AI_USER, 50, AI_CV_MudSport_ScoreDown1
-	get_target_type1
-	if_equal TYPE_ELECTRIC, AI_CV_MudSport2
-	get_target_type2
-	if_equal TYPE_ELECTRIC, AI_CV_MudSport2
-	goto AI_CV_MudSport_ScoreDown1
-
-AI_CV_MudSport2:
+	if_no_type AI_TARGET, TYPE_ELECTRIC, AI_CV_MudSport_ScoreDown1
 	score +1
 	goto AI_CV_MudSport_End
 
@@ -4587,13 +4568,7 @@ AI_CV_Overheat_End:
 
 AI_CV_WaterSport:
 	if_hp_less_than AI_USER, 50, AI_CV_WaterSport_ScoreDown1
-	get_target_type1
-	if_equal TYPE_FIRE, AI_CV_WaterSport2
-	get_target_type2
-	if_equal TYPE_FIRE, AI_CV_WaterSport2
-	goto AI_CV_WaterSport_ScoreDown1
-
-AI_CV_WaterSport2:
+	if_no_type AI_TARGET, TYPE_FIRE, AI_CV_WaterSport_ScoreDown1
 	score +1
 	goto AI_CV_WaterSport_End
 

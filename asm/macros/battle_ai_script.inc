@@ -950,10 +950,7 @@
     get_considered_move_effect
     if_in_bytes AI_UselessEffectsWhenChoiced, \ptr
     if_not_effect EFFECT_CURSE, .AI_not_useless_\@
-    get_user_type1
-    if_equal TYPE_GHOST, .AI_not_useless_\@
-    get_user_type2
-    if_not_equal TYPE_GHOST, \ptr
+    if_no_type AI_USER, TYPE_GHOST, \ptr
     .AI_not_useless_\@:
     .endm
 	
