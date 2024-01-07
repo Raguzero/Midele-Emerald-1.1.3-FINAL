@@ -3717,17 +3717,41 @@ AI_CV_BatonPass_End:
 	end
 
 AI_CV_Pursuit:
+	count_usable_party_mons AI_TARGET
+	if_equal 0, AI_CV_Pursuit_End
+	if_status3 AI_TARGET, STATUS3_ROOTED, AI_CV_Pursuit_End
 	is_first_turn_for AI_USER
 	if_not_equal 0, AI_CV_Pursuit_End
-	get_target_type1
-	if_equal TYPE_GHOST, AI_CV_Pursuit2
-	get_target_type1
-	if_equal TYPE_PSYCHIC, AI_CV_Pursuit2
-	get_target_type2
-	if_equal TYPE_GHOST, AI_CV_Pursuit2
-	get_target_type2
-	if_equal TYPE_PSYCHIC, AI_CV_Pursuit2
+	if_no_type AI_USER, TYPE_DARK, AI_CV_Pursuit_SkipPsychicImmunityCheck
+	get_last_used_bank_move AI_TARGET
+	get_move_type_from_result
+	if_equal TYPE_PSYCHIC, AI_CV_Pursuit_ConsiderSeriously
+AI_CV_Pursuit_SkipPsychicImmunityCheck:
+	if_type AI_USER, TYPE_FLYING, AI_CV_Pursuit_CheckGroundImmunity
+	if_no_ability AI_USER, ABILITY_LEVITATE, AI_CV_Pursuit_SkipGroundImmunityCheck
+AI_CV_Pursuit_CheckGroundImmunity:
+	get_last_used_bank_move AI_TARGET
+	get_move_type_from_result
+	if_equal TYPE_GROUND, AI_CV_Pursuit_ConsiderSeriously
+AI_CV_Pursuit_SkipGroundImmunityCheck:
+	if_no_ability AI_USER, ABILITY_FLASH_FIRE, AI_CV_Pursuit_SkipFireImmunityCheck
+	get_last_used_bank_move AI_TARGET
+	get_move_type_from_result
+	if_equal TYPE_FIRE, AI_CV_Pursuit_ConsiderSeriously
+AI_CV_Pursuit_SkipFireImmunityCheck:
+	if_no_type AI_USER, TYPE_FAIRY, AI_CV_Pursuit_SkipDragonImmunityCheck
+	get_last_used_bank_move AI_TARGET
+	get_move_type_from_result
+	if_equal TYPE_DRAGON, AI_CV_Pursuit_ConsiderSeriously
+AI_CV_Pursuit_SkipDragonImmunityCheck:
+AI_CV_Pursuit_CheckTargetsType:
+	if_type AI_TARGET, TYPE_GHOST, AI_CV_Pursuit2
+	if_type AI_TARGET, TYPE_PSYCHIC, AI_CV_Pursuit2
 	goto AI_CV_Pursuit_End
+
+AI_CV_Pursuit_ConsiderSeriously:
+	score +1
+	goto AI_CV_Pursuit_CheckTargetsType
 
 AI_CV_Pursuit2:
 	if_random_less_than 128, AI_CV_Pursuit_End
