@@ -2601,18 +2601,29 @@ AI_CV_Trap_End:
 
 AI_CV_Swagger:
 	if_has_move AI_USER, MOVE_PSYCH_UP, AI_CV_SwaggerHasPsychUp
+	goto AI_CV_Confuse
 
 AI_CV_Flatter:
-	if_random_less_than 128, AI_CV_Confuse
-	score +1
+	get_possible_categories_of_foes_attacks
+	if_equal AI_PHYSICAL_ONLY, AI_CV_Confuse
+	if_equal AI_ONLY_PHYSICAL_KNOWN, AI_CV_Confuse
+	if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_PHYSICAL, AI_CV_Confuse
+	if_equal AI_NO_DAMAGING_MOVES, AI_CV_Confuse
+	if_random_less_than 64, AI_CV_Confuse
+	score -1
 
 AI_CV_Confuse:
 	if_ability_might_be AI_TARGET, ABILITY_WONDER_GUARD, Score_Plus1
 	if_hp_more_than AI_TARGET, 70, AI_CV_Confuse_End
+	if_hp_less_than AI_TARGET, 8, AI_CV_Confuse_End
 	if_random_less_than 128, AI_CV_Confuse2
 	score -1
 
 AI_CV_Confuse2:
+	if_target_faster AI_CV_Confuse2b
+	calculate_nhko AI_TARGET
+	if_equal 1, AI_CV_Confuse_End
+AI_CV_Confuse2b:
 	if_hp_more_than AI_TARGET, 50, AI_CV_Confuse_End
 	score -1
 	if_hp_more_than AI_TARGET, 30, AI_CV_Confuse_End
@@ -2622,8 +2633,19 @@ AI_CV_Confuse_End:
 	end
 
 AI_CV_SwaggerHasPsychUp:
-	if_stat_level_more_than AI_TARGET, STAT_ATK, 3, AI_CV_SwaggerHasPsychUp_Minus5
-	score +3
+	if_stat_level_less_than AI_TARGET, STAT_ATK, 5, AI_CV_SwaggerHasPsychUp_Minus5 @ probablemente se le ha bajado por algo, mejor no subir
+	if_stat_level_more_than AI_TARGET, STAT_ATK, 10, AI_CV_Confuse @ no tiene mucho efecto seguir subiendo el Ataque
+	if_stat_level_more_than AI_USER, STAT_ATK, 10, AI_CV_Confuse @ no se puede aprovechar ninguna subida de Ataque al rival
+@ Si se llega aquí, el usuario está a entre -6 y +4 y el objetivo entre -1 y +4
+	if_stat_level_less_than AI_USER, STAT_ATK, 7, AI_CV_SwaggerHasPsychUp_Encourage
+@ Usuario: +1 ~ +4, objetivo: -1 ~ +4
+	if_stat_level_less_than AI_TARGET, STAT_ATK, 8, AI_CV_Confuse
+	if_stat_level_more_than AI_TARGET, STAT_ATK, 8, AI_CV_SwaggerHasPsychUp_Encourage
+@ Usuario: +1 ~ +4, objetivo: +2
+	if_stat_level_more_than AI_USER, STAT_ATK, 8, AI_CV_Confuse
+@ Usuario: +1 ~ +2, objetivo: +2
+AI_CV_SwaggerHasPsychUp_Encourage:
+	score +2
 	get_turn_count
 	if_not_equal 0, AI_CV_SwaggerHasPsychUp_End
 	score +2
