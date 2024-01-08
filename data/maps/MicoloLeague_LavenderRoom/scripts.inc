@@ -84,6 +84,7 @@ MicoloLeague_LavenderRoom_AudienceCheer::
 
 MicoloLeague_LavenderRoom_Recepcionist::
 	lock
+	faceplayer 
 	checktrainerflag TRAINER_LAVENDER_MICOLANDIA
 	goto_if 1, MicoloLeague_LavenderRoom_Recepcionist_2
 	msgbox MicoloLeague_LavenderRoom_Recepcionist_Text_1, MSGBOX_YESNO
