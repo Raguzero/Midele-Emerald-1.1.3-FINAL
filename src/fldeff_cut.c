@@ -20,6 +20,7 @@
 #include "constants/event_objects.h"
 #include "constants/field_effects.h"
 #include "constants/songs.h"
+#include "constants/maps.h"
 #include "constants/metatile_labels.h"
 
 extern struct MapPosition gPlayerFacingPosition;
@@ -49,6 +50,7 @@ struct HyperCutterUnk
 // this file's functions
 static void FieldCallback_CutTree(void);
 static void FieldCallback_CutGrass(void);
+static bool8 CanUseCutInMap(void);
 static void StartCutTreeFieldEffect(void);
 static void StartCutGrassFieldEffect(void);
 static void SetCutGrassMetatile(s16, s16);
@@ -145,7 +147,12 @@ bool8 SetUpFieldMove_Cut(void)
     bool8 cutTiles[CUT_NORMAL_AREA];
     bool8 ret;
 
-    if (CheckObjectGraphicsInFrontOfPlayer(EVENT_OBJ_GFX_CUTTABLE_TREE) == TRUE)
+    if(!CanUseCutInMap())
+    {
+        return FALSE;
+    }
+
+    else if (CheckObjectGraphicsInFrontOfPlayer(EVENT_OBJ_GFX_CUTTABLE_TREE) == TRUE)
     {
         // Standing in front of cuttable tree.
         gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
@@ -271,6 +278,10 @@ bool8 SetUpFieldMove_Cut(void)
 
         return ret;
     }
+}
+
+static bool8 CanUseCutInMap(void) {
+    return !(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(DARKIGYM) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(DARKIGYM));
 }
 
 static void FieldCallback_CutGrass(void)
