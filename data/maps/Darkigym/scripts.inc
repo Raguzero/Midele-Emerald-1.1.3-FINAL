@@ -235,6 +235,7 @@ Darkigym_EventScript_DarkiBuenroRematchDefeated::
 	end
 	
 Darkigym_EventScript_Teleport_Entrada::
+	goto_if_set FLAG_DEFEATED_DARKI_GYM, Darkigym_EventScript_Teleport_Si
 	msgbox Darkigym_Text_Teleport_Entrada, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq Darkigym_EventScript_Teleport_Si
