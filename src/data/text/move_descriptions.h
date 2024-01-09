@@ -1459,8 +1459,8 @@ static const u8 sNASTY_PLOTDescription[] = _(
 	"sharply boost SP. ATK.");
 
 static const u8 sQUIVER_DANCEDescription[] = _(
-	"Dances to raise Sp. Atk,\n"
-	"Sp. Def and Speed.");	
+	"Dances to raise SP. ATK,\n"
+	"SP. DEF and SPEED.");	
 	
 static const u8 sCOILDescription[] = _(
 	"Coils up to raise ATTACK\n"
