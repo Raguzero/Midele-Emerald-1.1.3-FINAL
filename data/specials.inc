@@ -578,3 +578,4 @@ gSpecials:: @ 81DBA64
 	def_special SetupCustomMultiBattle
     def_special ChooseMonForEggMoveTutor
     def_special TeachEggMove
+	def_special BufferUnitSystemText
