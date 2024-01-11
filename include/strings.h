@@ -3345,5 +3345,6 @@ extern const u8 gText_LargeDot[];
 extern const u8 gText_PageNav[];
 extern const u8 gText_UnitSystemMetric[];
 extern const u8 gText_UnitSystemImperial[];
+extern const u8 gText_Var1DotVar2_Metric[];
 
 #endif // GUARD_STRINGS_H

@@ -34,5 +34,7 @@ struct UnkStruct_0858AB24 {
 };
 
 extern const struct UnkStruct_0858AB24 gUnknown_0858AB24[];
+extern const u8 sBerryDescriptionPart1_WatmelMetric[];
+extern const u8 sBerryDescriptionPart2_WatmelMetric[];
 
 #endif // GUARD_BERRY_H
