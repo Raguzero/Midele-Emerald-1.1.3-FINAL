@@ -29,6 +29,7 @@ enum
     TD_FRAMETYPE,
     TD_AUTORUN,
     TD_MAIN_UNIT_SYSTEM,
+	TD_CUSTOM_MATCH_CALL,
 };
 
 // Menu items Pg1
@@ -48,6 +49,7 @@ enum
 enum
 {
     MENUITEM_MAIN_UNIT_SYSTEM,
+	MENUITEM_CUSTOM_MATCHCALL,
     MENUITEM_CANCEL_PG2,
     MENUITEM_COUNT_PG2,
 };
@@ -70,6 +72,7 @@ enum
 
 //Pg2
 #define YPOS_MAIN_UNIT_SYSTEM      (MENUITEM_MAIN_UNIT_SYSTEM * 16)
+#define YPOS_CUSTOM_MATCHCALL      (MENUITEM_CUSTOM_MATCHCALL * 16)
 #define PAGE_COUNT  2
 
 // this file's functions
@@ -96,6 +99,7 @@ static void DrawTextOption(void);
 static void DrawOptionMenuTexts(void);
 static void sub_80BB154(void);
 static void DrawChoices_UnitSystem(u8 selection);
+static void DrawChoices_MatchCall(u8 selection);
 
 // EWRAM vars
 EWRAM_DATA static bool8 sArrowPressed = FALSE;
@@ -106,6 +110,7 @@ static const u16 sUnknown_0855C604[] = INCBIN_U16("graphics/misc/option_menu_tex
 // note: this is only used in the Japanese release
 static const u8 sEqualSignGfx[] = INCBIN_U8("graphics/misc/option_menu_equals_sign.4bpp");
 static const u8 sText_UnitSystem[]  = _("UNIT SYSTEM");
+static const u8 sText_OptionMatchCalls[] = _("MATCH CALL");
 
 static const u8 *const sOptionMenuItemsNames[MENUITEM_COUNT] =
 {
@@ -121,6 +126,7 @@ static const u8 *const sOptionMenuItemsNames[MENUITEM_COUNT] =
 static const u8 *const sOptionMenuItemsNames_Pg2[MENUITEM_COUNT_PG2] =
 {
     [MENUITEM_MAIN_UNIT_SYSTEM] = sText_UnitSystem,
+    [MENUITEM_CUSTOM_MATCHCALL]   = sText_OptionMatchCalls,
     [MENUITEM_CANCEL_PG2]      = gText_OptionMenuCancel,
 };
 
@@ -197,6 +203,7 @@ static void ReadAllCurrentSettings(u8 taskId)
     gTasks[taskId].data[TD_FRAMETYPE] = gSaveBlock2Ptr->optionsWindowFrameType;
 	gTasks[taskId].data[TD_AUTORUN] = gSaveBlock2Ptr->autoRun;
     gTasks[taskId].data[TD_MAIN_UNIT_SYSTEM] = FlagGet(FLAG_UNIT_SYSTEM);
+    gTasks[taskId].data[TD_CUSTOM_MATCH_CALL] = FlagGet(FLAG_MATCH_CALL_OFF);
 }
 
 static void DrawOptionsPg1(u8 taskId)
@@ -216,6 +223,7 @@ static void DrawOptionsPg2(u8 taskId)
 {
     ReadAllCurrentSettings(taskId);
     DrawChoices_UnitSystem(gTasks[taskId].data[TD_MAIN_UNIT_SYSTEM]);
+    DrawChoices_MatchCall(gTasks[taskId].data[TD_CUSTOM_MATCH_CALL]);
     HighlightOptionMenuItem(gTasks[taskId].data[TD_MENUSELECTION]);
     CopyWindowToVram(WIN_OPTIONS, 3);
 }
@@ -509,6 +517,13 @@ static void Task_OptionMenuProcessInput_Pg2(u8 taskId)
             if (previousOption != gTasks[taskId].data[TD_MAIN_UNIT_SYSTEM])
                 DrawChoices_UnitSystem(gTasks[taskId].data[TD_MAIN_UNIT_SYSTEM]);
             break;
+        case MENUITEM_CUSTOM_MATCHCALL:
+            previousOption = gTasks[taskId].data[TD_CUSTOM_MATCH_CALL];
+            gTasks[taskId].data[TD_CUSTOM_MATCH_CALL] = BattleScene_ProcessInput(gTasks[taskId].data[TD_CUSTOM_MATCH_CALL]);
+
+            if (previousOption != gTasks[taskId].data[TD_CUSTOM_MATCH_CALL])
+                DrawChoices_MatchCall(gTasks[taskId].data[TD_CUSTOM_MATCH_CALL]);
+            break;
         default:
             return;
         }
@@ -530,6 +545,7 @@ static void Task_OptionMenuSave(u8 taskId)
     gSaveBlock2Ptr->optionsWindowFrameType = gTasks[taskId].data[TD_FRAMETYPE];
     gSaveBlock2Ptr->autoRun = gTasks[taskId].data[TD_AUTORUN];
 	gTasks[taskId].data[TD_MAIN_UNIT_SYSTEM] == 0 ? FlagClear(FLAG_UNIT_SYSTEM) : FlagSet(FLAG_UNIT_SYSTEM);
+	gTasks[taskId].data[TD_CUSTOM_MATCH_CALL] == 0 ? FlagClear(FLAG_MATCH_CALL_OFF) : FlagSet(FLAG_MATCH_CALL_OFF);
 
     BeginNormalPaletteFade(0xFFFFFFFF, 0, 0, 0x10, RGB_BLACK);
     gTasks[taskId].func = Task_OptionMenuFadeOut;
@@ -636,6 +652,18 @@ static void DrawChoices_UnitSystem(u8 selection)
 
     DrawOptionMenuChoice(gText_UnitSystemMetric, 104, YPOS_MAIN_UNIT_SYSTEM, styles[0]);
     DrawOptionMenuChoice(gText_UnitSystemImperial, GetStringRightAlignXOffset(1, gText_UnitSystemMetric, 198), YPOS_MAIN_UNIT_SYSTEM, styles[1]);
+}
+
+static void DrawChoices_MatchCall(u8 selection)
+{
+    u8 styles[2];
+
+    styles[0] = 0;
+    styles[1] = 0;
+    styles[selection] = 1;
+
+    DrawOptionMenuChoice(gText_BattleSceneOn, 104, YPOS_CUSTOM_MATCHCALL, styles[0]);
+    DrawOptionMenuChoice(gText_BattleSceneOff, GetStringRightAlignXOffset(1, gText_BattleSceneOff, 198), YPOS_CUSTOM_MATCHCALL, styles[1]);
 }
 
 static void BattleScene_DrawChoices(u8 selection)

@@ -1088,6 +1088,9 @@ static u32 GetActiveMatchCallTrainerId(u32 activeMatchCallId)
 
 bool32 TryStartMatchCall(void)
 {
+	if (FlagGet(FLAG_MATCH_CALL_OFF) == 1) // CUSTOM_MATCH_CALL option OFF
+        return FALSE;
+
     if (FlagGet(FLAG_HAS_MATCH_CALL) && UpdateMatchCallStepCounter() && UpdateMatchCallMinutesCounter()
      && CheckMatchCallChance() && MapAllowsMatchCall() && SelectMatchCallTrainer())
     {
