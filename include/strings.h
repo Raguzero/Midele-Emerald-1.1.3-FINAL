@@ -3340,4 +3340,7 @@ extern const u8 PokemonCenterMoveTutor_Text_SleepTalkDesc[];
 extern const u8 PokemonCenterMoveTutor_Text_SubstituteDesc[];
 extern const u8 PokemonCenterMoveTutor_Text_SwordsDanceDesc[];
 
+extern const u8 gText_SmallDot[];
+extern const u8 gText_LargeDot[];
+extern const u8 gText_PageNav[];
 #endif // GUARD_STRINGS_H
