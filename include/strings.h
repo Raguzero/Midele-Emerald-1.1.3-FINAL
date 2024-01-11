@@ -3343,4 +3343,7 @@ extern const u8 PokemonCenterMoveTutor_Text_SwordsDanceDesc[];
 extern const u8 gText_SmallDot[];
 extern const u8 gText_LargeDot[];
 extern const u8 gText_PageNav[];
+extern const u8 gText_UnitSystemMetric[];
+extern const u8 gText_UnitSystemImperial[];
+
 #endif // GUARD_STRINGS_H

@@ -4643,6 +4643,12 @@ static void PrintMonHeight(u16 height, u8 left, u8 top)
     u8 buffer[16];
     u32 inches, feet;
     u8 i = 0;
+    int offset;
+    u8 result;
+    offset = 0;
+	
+	if (FlagGet(FLAG_UNIT_SYSTEM) == 1) //Imperial
+	{
 
     inches = (height * 10000) / 254;
     if (inches % 10 >= 5)
@@ -4669,24 +4675,68 @@ static void PrintMonHeight(u16 height, u8 left, u8 top)
     buffer[i++] = CHAR_DBL_QUOT_RIGHT;
     buffer[i++] = EOS;
     PrintInfoPageText(buffer, left, top);
+    }
+    else //Metric
+    {
+        buffer[i++] = EXT_CTRL_CODE_BEGIN;
+        buffer[i++] = EXT_CTRL_CODE_CLEAR_TO;
+        i++;
+        buffer[i++] = CHAR_SPACE;
+        buffer[i++] = CHAR_SPACE;
+        buffer[i++] = CHAR_SPACE;
+        buffer[i++] = CHAR_SPACE;
+        buffer[i++] = CHAR_SPACE;
+
+        result = (height / 1000);
+        if (result == 0)
+        {
+            offset = 6;
+        }
+        else
+        {
+            buffer[i++] = result + CHAR_0;
+        }
+
+        result = (height % 1000) / 100;
+        if (result == 0 && offset != 0)
+        {
+            offset += 6;
+        }
+        else
+        {
+            buffer[i++] = result + CHAR_0;
+        }
+
+        buffer[i++] = (((height % 1000) % 100) / 10) + CHAR_0;
+        buffer[i++] = CHAR_COMMA;
+        buffer[i++] = (((height % 1000) % 100) % 10) + CHAR_0;
+        buffer[i++] = CHAR_SPACE;
+        buffer[i++] = CHAR_m;
+
+        buffer[i++] = EOS;
+        buffer[2] = offset;
+        PrintInfoPageText(buffer, left, top);   
+    }
 }
 
-#ifdef NONMATCHING
-// This doesn't match because gcc manages to avoid using the stack
-// to store local variables.
 static void PrintMonWeight(u16 weight, u8 left, u8 top)
 {
     u8 buffer[16];
+    u8 buffer_metric[18];
     bool8 output;
     u8 i = 0;
     u32 lbs = (weight * 100000) / 4536;
+    int offset = 0;
+    u8 result;
 
+	if (FlagGet(FLAG_UNIT_SYSTEM) == 1) //Imperial
+    {
     if (lbs % 10u >= 5)
         lbs += 10;
+    i = 0;
     output = FALSE;
 
-    buffer[i] = (lbs / 100000) + CHAR_0;
-    if (buffer[i] == CHAR_0)
+    if ((buffer[i] = (lbs / 100000) + CHAR_0) == CHAR_0 && !output)
     {
         buffer[i++] = 0x77;
     }
@@ -4697,8 +4747,7 @@ static void PrintMonWeight(u16 weight, u8 left, u8 top)
     }
 
     lbs %= 100000;
-    buffer[i] = (lbs / 10000) + CHAR_0;
-    if (buffer[i] == CHAR_0 && !output)
+    if ((buffer[i] = (lbs / 10000) + CHAR_0) == CHAR_0 && !output)
     {
         buffer[i++] = 0x77;
     }
@@ -4709,13 +4758,13 @@ static void PrintMonWeight(u16 weight, u8 left, u8 top)
     }
 
     lbs %= 10000;
-    buffer[i] = (lbs / 1000) + CHAR_0;
-    if (buffer[i] == CHAR_0 && !output)
+    if ((buffer[i] = (lbs / 1000) + CHAR_0) == CHAR_0 && !output)
     {
         buffer[i++] = 0x77;
     }
     else
     {
+        output = TRUE;
         i++;
     }
 
@@ -4731,226 +4780,42 @@ static void PrintMonWeight(u16 weight, u8 left, u8 top)
     buffer[i++] = CHAR_PERIOD;
     buffer[i++] = EOS;
     PrintInfoPageText(buffer, left, top);
+    }
+    else //Metric
+    {
+        buffer_metric[i++] = EXT_CTRL_CODE_BEGIN;
+        buffer_metric[i++] = EXT_CTRL_CODE_CLEAR_TO;
+        i++;
+        buffer_metric[i++] = CHAR_SPACE;
+        buffer_metric[i++] = CHAR_SPACE;
+        buffer_metric[i++] = CHAR_SPACE;
+        buffer_metric[i++] = CHAR_SPACE;
+        buffer_metric[i++] = CHAR_SPACE;
+
+        result = (weight / 1000);
+        if (result == 0)
+            offset = 6;
+        else
+            buffer_metric[i++] = result + CHAR_0;
+
+        result = (weight % 1000) / 100;
+        if (result == 0 && offset != 0)
+            offset += 6;
+        else
+            buffer_metric[i++] = result + CHAR_0;
+
+        buffer_metric[i++] = (((weight % 1000) % 100) / 10) + CHAR_0;
+        buffer_metric[i++] = CHAR_COMMA;
+        buffer_metric[i++] = (((weight % 1000) % 100) % 10) + CHAR_0;
+        buffer_metric[i++] = CHAR_SPACE;
+        buffer_metric[i++] = CHAR_k;
+        buffer_metric[i++] = CHAR_g;
+
+        buffer_metric[i++] = EOS;
+        buffer_metric[2] = offset;
+        PrintInfoPageText(buffer_metric, left, top);
+    }
 }
-#else
-__attribute__((naked))
-static void PrintMonWeight(u16 weight, u8 left, u8 top)
-{
-    asm(".syntax unified\n\
-    push {r4-r7,lr}\n\
-    mov r7, r10\n\
-    mov r6, r9\n\
-    mov r5, r8\n\
-    push {r5-r7}\n\
-    sub sp, 0x14\n\
-    lsls r0, 16\n\
-    lsrs r0, 16\n\
-    lsls r1, 24\n\
-    lsrs r1, 24\n\
-    mov r10, r1\n\
-    lsls r2, 24\n\
-    lsrs r2, 24\n\
-    str r2, [sp, 0x10]\n\
-    ldr r5, =0x000186a0\n\
-    muls r0, r5\n\
-    ldr r1, =0x000011b8\n\
-    bl __divsi3\n\
-    adds r7, r0, 0\n\
-    movs r1, 0xA\n\
-    bl __umodsi3\n\
-    cmp r0, 0x4\n\
-    bls _080C0494\n\
-    adds r7, 0xA\n\
-_080C0494:\n\
-    movs r0, 0\n\
-    mov r8, r0\n\
-    mov r4, sp\n\
-    adds r0, r7, 0\n\
-    adds r1, r5, 0\n\
-    bl __udivsi3\n\
-    adds r0, 0xA1\n\
-    strb r0, [r4]\n\
-    lsls r0, 24\n\
-    lsrs r0, 24\n\
-    cmp r0, 0xA1\n\
-    bne _080C04C0\n\
-    movs r6, 0x1\n\
-    mov r1, sp\n\
-    movs r0, 0x77\n\
-    strb r0, [r1]\n\
-    b _080C04C6\n\
-    .pool\n\
-_080C04C0:\n\
-    movs r1, 0x1\n\
-    mov r8, r1\n\
-    movs r6, 0x1\n\
-_080C04C6:\n\
-    ldr r1, =0x000186a0\n\
-    adds r0, r7, 0\n\
-    bl __umodsi3\n\
-    adds r7, r0, 0\n\
-    mov r4, sp\n\
-    adds r4, 0x1\n\
-    ldr r1, =0x00002710\n\
-    bl __udivsi3\n\
-    adds r0, 0xA1\n\
-    strb r0, [r4]\n\
-    lsls r0, 24\n\
-    lsrs r0, 24\n\
-    cmp r0, 0xA1\n\
-    bne _080C0504\n\
-    mov r2, r8\n\
-    cmp r2, 0\n\
-    bne _080C0504\n\
-    adds r1, r6, 0\n\
-    adds r0, r1, 0x1\n\
-    lsls r0, 24\n\
-    lsrs r6, r0, 24\n\
-    add r1, sp\n\
-    movs r0, 0x77\n\
-    strb r0, [r1]\n\
-    b _080C050E\n\
-    .pool\n\
-_080C0504:\n\
-    movs r3, 0x1\n\
-    mov r8, r3\n\
-    adds r0, r6, 0x1\n\
-    lsls r0, 24\n\
-    lsrs r6, r0, 24\n\
-_080C050E:\n\
-    ldr r1, =0x00002710\n\
-    adds r0, r7, 0\n\
-    bl __umodsi3\n\
-    adds r7, r0, 0\n\
-    mov r0, sp\n\
-    adds r4, r0, r6\n\
-    movs r1, 0xFA\n\
-    lsls r1, 2\n\
-    adds r0, r7, 0\n\
-    bl __udivsi3\n\
-    adds r0, 0xA1\n\
-    strb r0, [r4]\n\
-    lsls r0, 24\n\
-    lsrs r0, 24\n\
-    cmp r0, 0xA1\n\
-    bne _080C054C\n\
-    mov r1, r8\n\
-    cmp r1, 0\n\
-    bne _080C054C\n\
-    adds r1, r6, 0\n\
-    adds r0, r1, 0x1\n\
-    lsls r0, 24\n\
-    lsrs r6, r0, 24\n\
-    add r1, sp\n\
-    movs r0, 0x77\n\
-    strb r0, [r1]\n\
-    b _080C0552\n\
-    .pool\n\
-_080C054C:\n\
-    adds r0, r6, 0x1\n\
-    lsls r0, 24\n\
-    lsrs r6, r0, 24\n\
-_080C0552:\n\
-    movs r1, 0xFA\n\
-    lsls r1, 2\n\
-    adds r0, r7, 0\n\
-    bl __umodsi3\n\
-    adds r7, r0, 0\n\
-    adds r1, r6, 0\n\
-    adds r0, r1, 0x1\n\
-    lsls r0, 24\n\
-    lsrs r6, r0, 24\n\
-    adds r5, r6, 0\n\
-    mov r2, sp\n\
-    adds r4, r2, r1\n\
-    adds r0, r7, 0\n\
-    movs r1, 0x64\n\
-    bl __udivsi3\n\
-    adds r0, 0xA1\n\
-    movs r3, 0\n\
-    mov r9, r3\n\
-    strb r0, [r4]\n\
-    adds r0, r7, 0\n\
-    movs r1, 0x64\n\
-    bl __umodsi3\n\
-    adds r7, r0, 0\n\
-    adds r0, r5, 0x1\n\
-    lsls r0, 24\n\
-    lsrs r6, r0, 24\n\
-    adds r1, r6, 0\n\
-    mov r2, sp\n\
-    adds r0, r2, r5\n\
-    movs r3, 0xAD\n\
-    mov r8, r3\n\
-    mov r2, r8\n\
-    strb r2, [r0]\n\
-    adds r0, r1, 0x1\n\
-    lsls r0, 24\n\
-    lsrs r6, r0, 24\n\
-    adds r5, r6, 0\n\
-    mov r3, sp\n\
-    adds r4, r3, r1\n\
-    adds r0, r7, 0\n\
-    movs r1, 0xA\n\
-    bl __udivsi3\n\
-    adds r0, 0xA1\n\
-    strb r0, [r4]\n\
-    adds r0, r5, 0x1\n\
-    lsls r0, 24\n\
-    lsrs r6, r0, 24\n\
-    adds r1, r6, 0\n\
-    mov r2, sp\n\
-    adds r0, r2, r5\n\
-    mov r3, r9\n\
-    strb r3, [r0]\n\
-    adds r0, r1, 0x1\n\
-    lsls r0, 24\n\
-    lsrs r6, r0, 24\n\
-    adds r2, r6, 0\n\
-    add r1, sp\n\
-    movs r0, 0xE0\n\
-    strb r0, [r1]\n\
-    adds r0, r2, 0x1\n\
-    lsls r0, 24\n\
-    lsrs r6, r0, 24\n\
-    adds r3, r6, 0\n\
-    mov r0, sp\n\
-    adds r1, r0, r2\n\
-    movs r0, 0xD6\n\
-    strb r0, [r1]\n\
-    adds r0, r3, 0x1\n\
-    lsls r0, 24\n\
-    lsrs r6, r0, 24\n\
-    adds r2, r6, 0\n\
-    mov r0, sp\n\
-    adds r1, r0, r3\n\
-    movs r0, 0xE7\n\
-    strb r0, [r1]\n\
-    adds r0, r2, 0x1\n\
-    lsls r0, 24\n\
-    lsrs r0, 24\n\
-    mov r3, sp\n\
-    adds r1, r3, r2\n\
-    mov r2, r8\n\
-    strb r2, [r1]\n\
-    adds r1, r3, r0\n\
-    movs r0, 0xFF\n\
-    strb r0, [r1]\n\
-    mov r0, sp\n\
-    mov r1, r10\n\
-    ldr r2, [sp, 0x10]\n\
-    bl PrintInfoPageText\n\
-    add sp, 0x14\n\
-    pop {r3-r5}\n\
-    mov r8, r3\n\
-    mov r9, r4\n\
-    mov r10, r5\n\
-    pop {r4-r7}\n\
-    pop {r0}\n\
-    bx r0\n\
-    .syntax divided\n");
-}
-#endif
 
 const u8 *GetPokedexCategoryName(u16 dexNum) // unused
 {
