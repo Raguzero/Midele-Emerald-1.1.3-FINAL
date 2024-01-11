@@ -8865,18 +8865,18 @@ const struct Trainer gTrainers[] = {
         .party = {.ItemCustomMidele = sParty_Eric},
     },
 
-    [TRAINER_LUCAS_2] =
+    [TRAINER_LORD] =
     {
-        .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET,
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
         .trainerClass = TRAINER_CLASS_HIKER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
         .trainerPic = TRAINER_PIC_HIKER,
-        .trainerName = _("LUCAS"),
+        .trainerName = _("LORD"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
-        .partySize = ARRAY_COUNT(sParty_Lucas2),
-        .party = {.NoItemCustomMoves = sParty_Lucas2},
+        .partySize = ARRAY_COUNT(sParty_Lord),
+        .party = {.ItemCustomMidele = sParty_Lord},
     },
 
     [TRAINER_MIKE_1] =

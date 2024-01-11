@@ -327,7 +327,7 @@ Kefky_AntesBatalla:
 	.string "Yo solo uso un POKéMON si es mono.$"
 
 Kefky_MensajeDerrota: 
-	.string "¿A que eran monos?$"
+	.string "Me he dejado BUTTERFREE en casa.$"
  
 Kefky_DespuesDeBatalla:
 	.string "Me he vestido de mujer por perder\n"
