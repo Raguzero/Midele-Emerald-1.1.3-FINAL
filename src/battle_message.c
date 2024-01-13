@@ -547,7 +547,7 @@ static const u8 sText_Trainer2LoseText[];
 // Frases en mitad de combate
 static const u8 sText_RedHPOldaleVader[] = _("Your blade... it didn't cut deep enough.\p");
 static const u8 sText_RedHPJosito[] = _("¡Cuidado con la explosión!\p");
-static const u8 sText_KefkyPierdePrimerPoke[] = _("Tienes suerte de que me haya\n dejado a SIMISAGE en casa...\p");
+static const u8 sText_KefkyPierdePrimerPoke[] = _("Tienes suerte de que me haya\n dejado a GBUTERFRE en casa...\p");
 static const u8 sText_KefkyEnviaUltimoPoke[] = _("¿Te has preguntado de dónde\n viene mi aroma?\p");
 static const u8 sText_RedHPKefky[] = _("Si quieres, después de esto\n podemos ir a mi casa.\p");
 static const u8 sText_JZombiePierdePrimerPoke[] = _("Aaahhh... aaaahhh... uff...\p");
