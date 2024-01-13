@@ -311,6 +311,7 @@ static const u32 sTutorLearnsets[] =
                                 | TUTOR(MOVE_MUD_SLAP)
                                 | TUTOR(MOVE_SWAGGER)
                                 | TUTOR(MOVE_SLEEP_TALK)
+                                | TUTOR(MOVE_SWORDS_DANCE) // ---> Nuevo movimiento exclusivo de MIDELE
                                 | TUTOR(MOVE_SWIFT)),
 
     [SPECIES_EKANS]            = (TUTOR(MOVE_BODY_SLAM)
@@ -6227,7 +6228,7 @@ static const u32 sTutorLearnsets[] =
                                               | TUTOR(MOVE_BODY_SLAM)
                                               | TUTOR(MOVE_DOUBLE_EDGE)
                                               | TUTOR(MOVE_MIMIC)
-                                              | TUTOR(MOVE_SOFT_BOILED)
+                                              | TUTOR(MOVE_SOFT_BOILED) // Nuevo movimiento exclusivo de MIDELE (Por error, pero ahí se queda)
                                               | TUTOR(MOVE_DREAM_EATER)
                                               | TUTOR(MOVE_THUNDER_WAVE)
                                               | TUTOR(MOVE_ROCK_SLIDE)
@@ -6483,6 +6484,7 @@ static const u32 sTutorLearnsets[] =
                                 | TUTOR(MOVE_FURY_CUTTER)),
 
     [SPECIES_MEGA_PIDGEOT]          = (TUTOR(MOVE_DOUBLE_EDGE)
+								| TUTOR(MOVE_ICY_WIND) // Nuevo movimiento exclusivo de MIDELE
                                 | TUTOR(MOVE_MIMIC)
                                 | TUTOR(MOVE_SUBSTITUTE)
                                 | TUTOR(MOVE_SNORE)
@@ -8118,7 +8120,7 @@ static const u32 sTutorLearnsets[] =
 											| TUTOR(MOVE_SWAGGER)
 											| TUTOR(MOVE_FIRE_PUNCH)
 											| TUTOR(MOVE_THUNDER_PUNCH)
-											| TUTOR(MOVE_DYNAMIC_PUNCH) // --> Debe poder aprenderlo, pero nunca pudo
+											| TUTOR(MOVE_DYNAMIC_PUNCH) // ---> Nuevo movimiento exclusivo de MIDELE
 											| TUTOR(MOVE_MEGA_PUNCH)
 											| TUTOR(MOVE_MEGA_KICK)
 											| TUTOR(MOVE_COUNTER)
