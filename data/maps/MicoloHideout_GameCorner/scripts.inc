@@ -1224,9 +1224,9 @@ MicoloHideout_GameCorner_Text_SoYourChoiceIsUnown:
 	.string "¿Quieres este UNOWN especial?$"
 	
 MicoloHideout_GameCorner_Text_SoYourChoiceIsProbopass:	
-	.string "RECOVER y CALM MIND son sus ataques\n"
-	.string "exclusivos, que ningún otro PROBOPASS\l"
-	.string "puede aprender.\l"
+	.string "CALM MIND es su ataque exclusivo\n"
+	.string "que ningún otro PROBOPASS puede\l"
+	.string "aprender.\l"
 	.string "¿Quieres este PROBOPASS especial?$"
 	
 MicoloHideout_GameCorner_Text_SoYourChoiceIsZubat:	
@@ -1236,7 +1236,7 @@ MicoloHideout_GameCorner_Text_SoYourChoiceIsZubat:
 	.string "¿Quieres este ZUBAT especial?$"
 	
 MicoloHideout_GameCorner_Text_SoYourChoiceIsKecleon:	
-	.string "SKY UPPERCUT, DRAGON CLAW y X-SCISSOR\n"
+	.string "SKY UPPERCUT, DRAGON PULSE y X-SCISSOR\n"
 	.string "son sus ataques exclusivos, que ningún\l"
 	.string "otro KECLEON puede aprender.\l"
 	.string "Además es shiny.\l"
