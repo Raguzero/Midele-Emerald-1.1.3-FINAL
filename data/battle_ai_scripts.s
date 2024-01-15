@@ -319,6 +319,7 @@ AI_CBM_DreamEater: @ 82DC330
 AI_CBM_BellyDrum: @ 82DC341
 	if_hp_condition USER_CANNOT_USE_BELLY_DRUM, Score_Minus10
 AI_CBM_AttackUp: @ 82DC348
+	if_perish_song_about_to_trigger AI_USER, Score_Minus10
 	if_stat_level_equal AI_USER, STAT_ATK, 12, Score_Minus10
 	if_user_cannot_attack_and_no_pass_is_available Score_Minus10
 	end
@@ -328,12 +329,15 @@ AI_CBM_DefenseUp: @ 82DC351
 	goto AI_CBM_DefenseOrEvasion_CheckIfOpponentCanPhaze
 
 AI_CBM_SpeedUp: @ 82DC35A
+	if_perish_song_about_to_trigger AI_USER, Score_Minus10
 	if_stat_level_equal AI_USER, STAT_SPEED, 12, Score_Minus10
 	end
 
 AI_CBM_Growth:
+	if_perish_song_about_to_trigger AI_USER, Score_Minus10
 	if_stat_level_less_than AI_USER, STAT_ATK, 12, AI_CBM_GrowthOrSpAtkUp_CanRaiseSomeStat
 AI_CBM_SpAtkUp: @ 82DC363
+	if_perish_song_about_to_trigger AI_USER, Score_Minus10
 	if_stat_level_equal AI_USER, STAT_SPATK, 12, Score_Minus10
 AI_CBM_GrowthOrSpAtkUp_CanRaiseSomeStat:
 	if_user_cannot_attack_and_no_pass_is_available Score_Minus10
@@ -344,6 +348,7 @@ AI_CBM_SpDefUp: @ 82DC36C
 	goto AI_CBM_DefenseOrEvasion_CheckIfOpponentCanPhaze
 
 AI_CBM_AccUp: @ 82DC375
+	if_perish_song_about_to_trigger AI_USER, Score_Minus10
 	if_stat_level_equal AI_USER, STAT_ACC, 12, Score_Minus10
 	end
 
@@ -604,6 +609,7 @@ AI_CBM_CantEscape: @ 82DC5B0
 	if_status2 AI_TARGET, STATUS2_ESCAPE_PREVENTION, Score_Minus10
     count_usable_party_mons AI_TARGET
     if_equal 0, Score_Minus10
+	if_perish_song_about_to_trigger AI_USER, Score_Minus10
 	end
 
 AI_CBM_Curse: @ 82DC5BB
@@ -630,6 +636,7 @@ AI_CBM_Spikes: @ 82DC5CC
 
 AI_CBM_Foresight: @ 82DC5D7
 	if_status2 AI_TARGET, STATUS2_FORESIGHT, Score_Minus10
+	if_perish_song_about_to_trigger AI_USER, Score_Minus10
 	end
 
 AI_CBM_PerishSong: @ 82DC5E2
@@ -844,6 +851,7 @@ AI_CBM_CosmicPower: @ 82DC73A
 
 AI_CBM_BulkUp: @ 82DC74B
 	if_stat_level_equal AI_USER, STAT_ATK, 12, AI_CBM_DefenseUp
+	if_perish_song_about_to_trigger AI_USER, AI_CBM_DefenseUp
 	if_user_cannot_attack_and_no_pass_is_available AI_CBM_DefenseUp
 	end
 
@@ -853,6 +861,7 @@ AI_CBM_WaterSport: @ 82DC75C
 
 AI_CBM_CalmMind: @ 82DC767
 	if_stat_level_equal AI_USER, STAT_SPATK, 12, AI_CBM_SpDefUp
+	if_perish_song_about_to_trigger AI_USER, AI_CBM_SpDefUp
 	if_user_cannot_attack_and_no_pass_is_available AI_CBM_SpDefUp
 	end
 
@@ -869,6 +878,7 @@ AI_CBM_LockOn:
 	if_status3 AI_TARGET, STATUS3_ALWAYS_HITS, Score_Minus10
 	if_ability_might_be AI_TARGET, ABILITY_NO_GUARD, Score_Minus10
 	if_ability AI_USER, ABILITY_NO_GUARD, Score_Minus10
+	if_perish_song_about_to_trigger AI_USER, Score_Minus10
 	end
 
 AI_CBM_HealBell:
