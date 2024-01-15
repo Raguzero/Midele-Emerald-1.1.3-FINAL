@@ -320,6 +320,7 @@ AI_CBM_BellyDrum: @ 82DC341
 	if_hp_condition USER_CANNOT_USE_BELLY_DRUM, Score_Minus10
 AI_CBM_AttackUp: @ 82DC348
 	if_stat_level_equal AI_USER, STAT_ATK, 12, Score_Minus10
+	if_user_cannot_attack_and_no_pass_is_available Score_Minus10
 	end
 
 AI_CBM_DefenseUp: @ 82DC351
@@ -331,9 +332,11 @@ AI_CBM_SpeedUp: @ 82DC35A
 	end
 
 AI_CBM_Growth:
-	if_stat_level_not_equal AI_USER, STAT_ATK, 12, AI_Ret
+	if_stat_level_less_than AI_USER, STAT_ATK, 12, AI_CBM_GrowthOrSpAtkUp_CanRaiseSomeStat
 AI_CBM_SpAtkUp: @ 82DC363
 	if_stat_level_equal AI_USER, STAT_SPATK, 12, Score_Minus10
+AI_CBM_GrowthOrSpAtkUp_CanRaiseSomeStat:
+	if_user_cannot_attack_and_no_pass_is_available Score_Minus10
 	end
 
 AI_CBM_SpDefUp: @ 82DC36C
@@ -513,6 +516,7 @@ AI_CBM_Mist: @ 82DC507
 AI_CBM_FocusEnergy: @ 82DC512
 	if_status2 AI_USER, STATUS2_FOCUS_ENERGY, Score_Minus10
 	if_perish_song_about_to_trigger AI_USER, Score_Minus10
+	if_user_cannot_attack_and_no_pass_is_available Score_Minus10
 	if_this_attack_might_be_the_last Score_Minus5
 	end
 
@@ -840,6 +844,7 @@ AI_CBM_CosmicPower: @ 82DC73A
 
 AI_CBM_BulkUp: @ 82DC74B
 	if_stat_level_equal AI_USER, STAT_ATK, 12, AI_CBM_DefenseUp
+	if_user_cannot_attack_and_no_pass_is_available AI_CBM_DefenseUp
 	end
 
 AI_CBM_WaterSport: @ 82DC75C
@@ -848,6 +853,7 @@ AI_CBM_WaterSport: @ 82DC75C
 
 AI_CBM_CalmMind: @ 82DC767
 	if_stat_level_equal AI_USER, STAT_SPATK, 12, AI_CBM_SpDefUp
+	if_user_cannot_attack_and_no_pass_is_available AI_CBM_SpDefUp
 	end
 
 AI_CBM_DragonDance: @ 82DC778
@@ -2382,7 +2388,7 @@ AI_CV_Heal_End:
 AI_CV_Toxic: @ También lo usa Leech Seed
 	if_ability_might_be AI_TARGET, ABILITY_WONDER_GUARD, Score_Plus2
 	if_this_attack_might_be_the_last AI_CV_Toxic_FirstMinus1
-	if_user_has_no_attacking_moves AI_CV_Toxic3
+	if_user_has_no_attacking_non_ineffective_moves AI_CV_Toxic3
 	if_hp_more_than AI_USER, 50, AI_CV_Toxic2
 	if_has_move_with_effect AI_USER, EFFECT_PROTECT, AI_CV_Toxic2
 	if_random_less_than 50, AI_CV_Toxic2

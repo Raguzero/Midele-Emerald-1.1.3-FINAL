@@ -195,12 +195,12 @@
 	.4byte \param1
 	.endm
 
-	.macro if_user_has_attacking_move param0:req
+	.macro if_user_has_attacking_non_ineffective_move param0:req
 	.byte 0x1f
 	.4byte \param0
 	.endm
 
-	.macro if_user_has_no_attacking_moves param0:req
+	.macro if_user_has_no_attacking_non_ineffective_moves param0:req
 	.byte 0x20
 	.4byte \param0
 	.endm
@@ -1031,4 +1031,14 @@
     .AI_check_sun_\@:
     if_ability AI_USER, ABILITY_DRY_SKIN, \ptr
     .AI_no_damage_from_weather_\@:
+    .endm
+
+    .macro if_user_cannot_attack_and_no_pass_is_available ptr:req
+    if_doesnt_have_move_with_effect AI_USER, EFFECT_BATON_PASS, .AI_no_switchins_\@
+    if_status3 AI_USER, STATUS3_PERISH_SONG, .AI_no_switchins_\@
+    count_usable_party_mons AI_USER
+    if_more_than 0, .AI_some_switchin_or_move_\@
+    .AI_no_switchins_\@:
+    if_user_has_no_attacking_non_ineffective_moves \ptr
+    .AI_some_switchin_or_move_\@:
     .endm

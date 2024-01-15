@@ -116,8 +116,8 @@ static void Cmd_if_in_bytes(void);
 static void Cmd_if_not_in_bytes(void);
 static void Cmd_if_in_hwords(void);
 static void Cmd_if_not_in_hwords(void);
-static void Cmd_if_user_has_attacking_move(void);
-static void Cmd_if_user_has_no_attacking_moves(void);
+static void Cmd_if_user_has_attacking_non_ineffective_move(void);
+static void Cmd_if_user_has_no_attacking_non_ineffective_moves(void);
 static void Cmd_get_turn_count(void);
 static void Cmd_get_type(void);
 static void Cmd_get_considered_move_power(void);
@@ -245,8 +245,8 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_if_not_in_bytes,                            // 0x1C
     Cmd_if_in_hwords,                               // 0x1D
     Cmd_if_not_in_hwords,                           // 0x1E
-    Cmd_if_user_has_attacking_move,                 // 0x1F
-    Cmd_if_user_has_no_attacking_moves,             // 0x20
+    Cmd_if_user_has_attacking_non_ineffective_move, // 0x1F
+    Cmd_if_user_has_no_attacking_non_ineffective_moves, // 0x20
     Cmd_get_turn_count,                             // 0x21
     Cmd_get_type,                                   // 0x22
     Cmd_get_considered_move_power,                  // 0x23
@@ -2049,16 +2049,18 @@ static void Cmd_if_not_in_hwords(void)
     gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 5);
 }
 
-static void Cmd_if_user_has_attacking_move(void)
+static void Cmd_if_user_has_attacking_non_ineffective_move(void)
 {
     s32 i;
+    u8 moveLimitations = CheckMoveLimitations(sBattler_AI, 0, MOVE_LIMITATION_PP);
 
     for (i = 0; i < MAX_MON_MOVES; i++)
-    {
         if (gBattleMons[sBattler_AI].moves[i] != 0
-            && gBattleMoves[gBattleMons[sBattler_AI].moves[i]].power != 0)
+            && !(gBitTable[i] & moveLimitations)
+            && gBattleMoves[gBattleMons[sBattler_AI].moves[i]].power != 0
+            && CalculateDamageFromMove(sBattler_AI, gBattlerTarget, gBattleMons[sBattler_AI].moves[i], 0) > 0
+           )
             break;
-    }
 
     if (i == MAX_MON_MOVES)
         gAIScriptPtr += 5;
@@ -2066,16 +2068,18 @@ static void Cmd_if_user_has_attacking_move(void)
         gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 1);
 }
 
-static void Cmd_if_user_has_no_attacking_moves(void)
+static void Cmd_if_user_has_no_attacking_non_ineffective_moves(void)
 {
     s32 i;
+    u8 moveLimitations = CheckMoveLimitations(sBattler_AI, 0, MOVE_LIMITATION_PP);
 
     for (i = 0; i < MAX_MON_MOVES; i++)
-    {
         if (gBattleMons[sBattler_AI].moves[i] != 0
-         && gBattleMoves[gBattleMons[sBattler_AI].moves[i]].power != 0)
+            && !(gBitTable[i] & moveLimitations)
+            && gBattleMoves[gBattleMons[sBattler_AI].moves[i]].power != 0
+            && CalculateDamageFromMove(sBattler_AI, gBattlerTarget, gBattleMons[sBattler_AI].moves[i], 0) > 0
+           )
             break;
-    }
 
     if (i != MAX_MON_MOVES)
         gAIScriptPtr += 5;
