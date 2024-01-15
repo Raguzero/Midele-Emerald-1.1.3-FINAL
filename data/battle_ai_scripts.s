@@ -4036,22 +4036,18 @@ AI_CV_ChargeUpMove_ScoreUp2:
 	goto AI_CV_ChargeUpMove_End
 
 AI_CV_SemiInvulnerable:
-	if_doesnt_have_move_with_effect AI_TARGET, EFFECT_PROTECT, AI_CV_SemiInvulnerable2
-	score -5
-	goto AI_CV_SemiInvulnerable_End
-
-AI_CV_SemiInvulnerable2:
+	if_has_move_with_effect AI_TARGET, EFFECT_PROTECT, Score_Minus5
 	get_hold_effect AI_USER
     if_equal HOLD_EFFECT_POWER_HERB, AI_CV_SemiInvulnerable_End
-    if_no_ability AI_TARGET, ABILITY_TRUANT, AI_CV_SemiInvulnerable2_NoTruant
-    if_target_faster AI_CV_SemiInvulnerable2_TruantTargetFaster
+    if_no_ability AI_TARGET, ABILITY_TRUANT, AI_CV_SemiInvulnerable_NoTruant
+    if_target_faster AI_CV_SemiInvulnerable_TruantTargetFaster
     @ La IA ataca antes que el poke con Truant: conviene iniciar el ataque si ataca en este turno
     if_target_wont_attack_due_to_truant Score_Minus3
     goto Score_Plus3
-AI_CV_SemiInvulnerable2_TruantTargetFaster:  @ La IA ataca después del poke con Truant: conviene iniciar el ataque si no ataca en este turno
+AI_CV_SemiInvulnerable_TruantTargetFaster:  @ La IA ataca después del poke con Truant: conviene iniciar el ataque si no ataca en este turno
     if_target_wont_attack_due_to_truant Score_Plus3
     goto Score_Minus3
-AI_CV_SemiInvulnerable2_NoTruant:
+AI_CV_SemiInvulnerable_NoTruant:
 	if_status AI_TARGET, STATUS1_TOXIC_POISON, AI_CV_SemiInvulnerable_TryEncourage
 	if_status2 AI_TARGET, STATUS2_CURSED, AI_CV_SemiInvulnerable_TryEncourage
 	if_status3 AI_TARGET, STATUS3_LEECHSEED, AI_CV_SemiInvulnerable_TryEncourage
