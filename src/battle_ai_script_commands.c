@@ -1116,17 +1116,26 @@ static u8 ChooseMoveOrAction_Singles(void)
                      )
                  )
               || (nhko_taken == 1                                        // También cambia si recibe OHKO
-                  && move == MOVE_SUBSTITUTE                             // y va a tirar sub por segunda vez
-                  && gLastResultingMoves[sBattler_AI] == MOVE_SUBSTITUTE // (para evitar spamearlo)
-                  && gBattleMons[sBattler_AI].item != ITEM_LIECHI_BERRY  // y no tiene una pinch berry
-                  && gBattleMons[sBattler_AI].item != ITEM_PETAYA_BERRY
-                  && gBattleMons[sBattler_AI].item != ITEM_SALAC_BERRY
-                  && !(gBattleMons[gBattlerTarget].status1 & STATUS1_TOXIC_POISON) // y el rival no palma PS
-                  && !(gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED)
-                  && !(   // ni el poke de la IA se está recuperando con Leech Seed al rival junto con Restos
-                          FIRST_IS_LEECH_SEEDING_SECOND(sBattler_AI, gBattlerTarget)
-                       && gBattleMons[sBattler_AI].item == ITEM_LEFTOVERS)
-                      )
+                  && move == MOVE_SUBSTITUTE                              // y va a tirar sub por segunda vez
+                  && (gLastResultingMoves[sBattler_AI] == MOVE_SUBSTITUTE // (para evitar spamearlo)
+                      || (!PROTECT_WONT_FAIL_FOR(sBattler_AI) && gBattleMons[sBattler_AI].hp * 4 <= 3 * gBattleMons[sBattler_AI].maxHP)
+                     )                                                    // o parece estar con SubProtect
+                  && ( // y, o está perdiendo PS,
+                      (gBattleMons[sBattler_AI].status1 & STATUS1_TOXIC_POISON)
+                      || (gBattleMons[sBattler_AI].status2 & STATUS2_CURSED)
+                      || (gStatuses3[sBattler_AI] & STATUS3_PERISH_SONG)
+                      || ( // o no pasa nada de lo siguiente:
+                          gBattleMons[sBattler_AI].item != ITEM_LIECHI_BERRY  // tener una pinch berry,
+                          && gBattleMons[sBattler_AI].item != ITEM_PETAYA_BERRY
+                          && gBattleMons[sBattler_AI].item != ITEM_SALAC_BERRY
+                          && !(gBattleMons[gBattlerTarget].status1 & STATUS1_TOXIC_POISON) // que el rival palme PS
+                          && !(gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED)
+                          && !(   // o que poke de la IA se esté recuperando con Leech Seed al rival junto con Restos
+                                  FIRST_IS_LEECH_SEEDING_SECOND(sBattler_AI, gBattlerTarget)
+                               && gBattleMons[sBattler_AI].item == ITEM_LEFTOVERS)
+                         )
+                     )
+                 )
                )
                 SWITCH_IF_THERE_IS_A_SUITABLE_MON(NOT_CHANGING_IS_ACCEPTABLE);
         }
