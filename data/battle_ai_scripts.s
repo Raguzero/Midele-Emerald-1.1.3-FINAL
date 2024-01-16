@@ -2725,9 +2725,9 @@ AI_CV_VitalThrow_End:
 
 AI_CV_Substitute:
 	if_hp_condition USER_CANNOT_USE_SUB, AI_CV_Substitute_End
-	if_status AI_USER, STATUS1_TOXIC_POISON, AI_CV_Substitute_Minus3
-	if_status2 AI_USER, STATUS2_CURSED, AI_CV_Substitute_Minus3
-	if_status3 AI_USER, STATUS3_PERISH_SONG, AI_CV_Substitute_Minus3
+	if_status AI_USER, STATUS1_TOXIC_POISON, Score_Minus5
+	if_status2 AI_USER, STATUS2_CURSED, Score_Minus5
+	if_status3 AI_USER, STATUS3_PERISH_SONG, Score_Minus5
 	goto AI_CV_Substitute_IsHealingAbilityActive
 AI_CV_SubstituteStart:
 	if_target_wont_attack_due_to_truant AI_CV_SubstitutePlus3Continue
