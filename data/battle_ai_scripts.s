@@ -3040,15 +3040,31 @@ AI_CV_Counter_PhysicalTypeList:
 
 AI_CV_Encore:
     if_target_faster AI_CV_Encore_TargetIsFaster
-    if_any_move_disabled AI_TARGET, AI_CV_Encore2
     get_last_used_bank_move AI_TARGET
     if_equal MOVE_NONE, Score_Minus8
+    if_equal MOVE_ENCORE, Score_Minus8      @ resulta que falla
+    if_equal MOVE_STRUGGLE, Score_Minus8
+    if_equal MOVE_MIRROR_MOVE, Score_Minus8
+    if_equal MOVE_SKETCH, Score_Minus8
+    if_target_probably_cannot_repeat_last_effect AI_CV_Encore_EffectCannotBeRepeated
     get_move_effect_from_result
     if_not_in_bytes AI_CV_Encore_EncouragedMovesToEncore, AI_CV_Encore_ScoreDown2
-AI_CV_Encore2:
+AI_CV_Encore_Encourage:
     if_random_less_than 30, AI_CV_Encore_End
     score +3
     goto AI_CV_Encore_End
+
+@ Si no puede repetir el último movimiento y no es por PP, tirar Encore obligará al rival a usar Struggle.
+@ Aquí tratar de averiguar por qué falla, según eso se aprovecha o no.
+@ Se comprueba todo lo necesario excepto Imprison, pero parece improbable que sea Imprison
+AI_CV_Encore_EffectCannotBeRepeated:
+	if_status2 AI_TARGET, STATUS2_TORMENT, AI_CV_Encore_Encourage
+	if_target_not_taunted AI_CV_Encore_EffectCannotBeRepeated_NoTaunt
+	get_move_power_from_result
+	if_equal 0, AI_CV_Encore_Encourage @ es Taunt lo que impide usarlo
+AI_CV_Encore_EffectCannotBeRepeated_NoTaunt:
+	if_any_move_disabled AI_TARGET, AI_CV_Encore_Encourage @ puede ser Disable lo que le impide repetir ataque
+	goto Score_Minus8
 
 AI_CV_Encore_TargetIsFaster:
     if_perish_song_about_to_trigger AI_TARGET, Score_Minus5
@@ -3060,11 +3076,10 @@ AI_CV_Encore_TargetIsFaster:
 
 AI_CV_Encore_TargetIsFaster_TargetHasAttackedOrIsExpectedToAttack:
     if_this_attack_might_be_the_last Score_Minus5
-    if_ability AI_USER, ABILITY_SHADOW_TAG, AI_CV_Encore2
+    if_ability AI_USER, ABILITY_SHADOW_TAG, AI_CV_Encore_Encourage
 @ En general conviene poco usar Encore en pokes lentos
 AI_CV_Encore_ScoreDown2:
     score -2
-
 AI_CV_Encore_End:
     end
 
@@ -3089,7 +3104,6 @@ AI_CV_Encore_EncouragedMovesToEncore:
     .byte EFFECT_SPLASH
     .byte EFFECT_TELEPORT
     .byte EFFECT_ATTACK_UP_2
-    .byte EFFECT_ENCORE
     .byte EFFECT_CONVERSION_2
     .byte EFFECT_LOCK_ON
     .byte EFFECT_HEAL_BELL
