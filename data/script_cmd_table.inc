@@ -233,6 +233,7 @@ gScriptCmdTable:: @ 81DB67C
 	.4byte ScrCmd_setwildbattlecustom
 	.4byte ScrCmd_applyrangemovement
 	.4byte ScrCmd_settwovarswithword
+	.4byte ScrCmd_checkpcspace
 
 gScriptCmdTableEnd:: @ 81DBA08
 	.4byte ScrCmd_nop
