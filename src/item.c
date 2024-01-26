@@ -232,7 +232,7 @@ bool8 CheckBagHasSpace(u16 itemId, u16 count)
                 }
             }
             if (count > 0)
-                return FALSE; // No more item slots. The bag is full
+                return FALSE; // No more item slots. The PC is full
         }
 
         return TRUE;
@@ -658,12 +658,14 @@ bool8 CheckPCHasSpace(u16 itemId, u16 count)
     for (i = 0; i < PC_ITEMS_COUNT; i++)  // Get owned count
     {
         if (gSaveBlock1Ptr->pcItems[i].itemId == itemId)
+        {
             ownedCount = GetPCItemQuantity(&gSaveBlock1Ptr->pcItems[i].quantity);
-    }
-
-    if (ownedCount + count <= MAX_PC_ITEM_CAPACITY)  // If there's room in already existing slot
-    {
-        return TRUE;
+            if (ownedCount + count <= MAX_PC_ITEM_CAPACITY)  // If there's room in already existing slot
+                return TRUE;
+            count -= (MAX_PC_ITEM_CAPACITY- ownedCount);
+            if (count == 0)
+                break;
+        }
     }
 
     // Check space in empty item slots

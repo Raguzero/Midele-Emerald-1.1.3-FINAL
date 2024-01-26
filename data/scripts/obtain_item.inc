@@ -9,12 +9,14 @@ Std_ObtainItem:: @ 8271AD3
 	return
 	
 EventScript_TryAddItemToPCObtain::
-	checkitemtype VAR_0x8004 @ Don't add if it's a key item
+	checkitemtype VAR_0x8004 @ Don't add if it's a key item or tm/hm
 	compare VAR_RESULT, POCKET_KEY_ITEMS
 	goto_if_eq EventScript_TryAddItemToPCObtainContinue
+    compare VAR_RESULT, POCKET_TM_HM
+    goto_if_eq EventScript_TryAddItemToPCObtainContinue
 	addpcitem VAR_0x8004, VAR_0x8005
 	compare VAR_RESULT, 0
-	call_if_eq EventScript_TryAddItemToPCObtainContinue
+	goto_if_eq EventScript_TryAddItemToPCObtainContinue
 	setvar VAR_0x8007, 2  @ (0= full, 1= in pocket, 2=in PC) 
 EventScript_TryAddItemToPCObtainContinue::
 	return
@@ -141,8 +143,10 @@ Std_FindItem:: @ 8271BFD
 	return
 	
 EventScript_CheckPCSpace::
-	checkitemtype VAR_0x8004 @ Don't add if it's a key item
+	checkitemtype VAR_0x8004 @ Don't add if it's a key item or tm/hm
 	compare VAR_RESULT, POCKET_KEY_ITEMS
+	goto_if_eq EventScript_CheckPCSpaceContinue
+	compare VAR_RESULT, POCKET_TM_HM
 	goto_if_eq EventScript_CheckPCSpaceContinue
 	pyramid_inchallenge
 	copyvar VAR_0x8004, VAR_0x8000  @ pyramid_inchallenge modifies VAR_0x8004
@@ -150,7 +154,7 @@ EventScript_CheckPCSpace::
 	goto_if_eq EventScript_CheckPCSpaceContinue
 	checkpcspace VAR_0x8004, VAR_0x8005
 	compare VAR_RESULT, 0
-	call_if_eq EventScript_CheckPCSpaceContinue
+	goto_if_eq EventScript_CheckPCSpaceContinue
 	setvar VAR_0x8007, 2  @ (0= full, 1= in pocket, 2=in PC) 
 EventScript_CheckPCSpaceContinue::
 	return
@@ -215,12 +219,14 @@ EventScript_HiddenItemScript:: @ 8271CB7
 	end
 	
 EventScript_TryAddItemToPCHidden::
-	checkitemtype VAR_0x8005 @ Don't add if it's a key item
+	checkitemtype VAR_0x8005 @ Don't add if it's a key item or tm/hm
 	compare VAR_RESULT, POCKET_KEY_ITEMS
 	goto_if_eq EventScript_TryAddHiddenItemToPCContinue
-	addpcitem VAR_0x8004, VAR_0x8005  // ??  por que en la wiki es 	addpcitem VAR_0x8005  ???
+    compare VAR_RESULT, POCKET_TM_HM
+    goto_if_eq EventScript_TryAddHiddenItemToPCContinue
+	addpcitem VAR_0x8005, 1
 	compare VAR_RESULT, 0
-	call_if_eq EventScript_TryAddHiddenItemToPCContinue
+	goto_if_eq EventScript_TryAddHiddenItemToPCContinue
 	setvar VAR_0x8007, 2  @ (0= full, 1= in pocket, 2=in PC) 
 EventScript_TryAddHiddenItemToPCContinue::
 	return
