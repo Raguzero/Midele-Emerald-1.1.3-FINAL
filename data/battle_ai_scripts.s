@@ -299,6 +299,19 @@ AI_CBM_Explosion_TargetHasProtect:
     if_equal 0, Score_Minus8
     if_equal 1, Score_Minus2
 AI_CBM_Explosion_TargetNotExpectedToUseProtect:
+	if_next_turn_target_might_use_move_with_effect EFFECT_SEMI_INVULNERABLE, AI_CBM_Explosion_WatchOutForSemiInvulnerability
+	goto AI_CBM_Explosion_SkipSemiInvulnerabilityCheck
+AI_CBM_Explosion_WatchOutForSemiInvulnerability:
+	if_ability AI_USER, ABILITY_NO_GUARD, AI_CBM_Explosion_SkipSemiInvulnerabilityCheck
+	if_ability AI_TARGET, ABILITY_NO_GUARD, AI_CBM_Explosion_SkipSemiInvulnerabilityCheck
+	if_status3 AI_TARGET, STATUS3_ALWAYS_HITS, AI_CBM_Explosion_SkipSemiInvulnerabilityCheck
+	if_user_faster AI_CBM_Explosion_WatchOutForSemiInvulnerability_UserIsFaster
+	if_not_status3 AI_TARGET, STATUS3_SEMI_INVULNERABLE, Score_Minus8
+	goto AI_CBM_Explosion_SkipSemiInvulnerabilityCheck
+
+AI_CBM_Explosion_WatchOutForSemiInvulnerability_UserIsFaster:
+	if_status3 AI_TARGET, STATUS3_SEMI_INVULNERABLE, Score_Minus8
+AI_CBM_Explosion_SkipSemiInvulnerabilityCheck:
 	goto Score_Minus1
 
 AI_CBM_Explosion_End: @ 82DC31A
@@ -1249,7 +1262,7 @@ AI_CV_Explosion:
     if_perish_song_not_about_to_trigger AI_USER, AI_CV_SelfKO
     if_perish_song_not_about_to_trigger AI_TARGET, AI_CV_SelfKO
     count_usable_party_mons AI_TARGET
-    if_equal 0, Score_Minus5  @ el rival va a caer igualmente, no conviene explotar
+    if_equal 0, Score_Minus10  @ el rival va a caer igualmente, no conviene explotar
     score +6                  @ le explota a lo que sea que aparezca
     if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Plus10  @ neutraliza el -10 por ser Fantasma el rival, ya que va a cambiar
     end
@@ -3475,6 +3488,7 @@ AI_CV_Protect_NoChanceToMessWithTruant:
     if_not_status3 AI_TARGET, STATUS3_SEMI_INVULNERABLE, AI_CV_Protect_OpponentIsNotSemiInvulnerable
     if_user_faster Score_Plus5  @ Si la IA es más rápida, no tiene sentido que ataque, mejor protegerse
     calculate_nhko AI_TARGET    @ En caso contrario, conviene protegerse salvo si la IA recibe poco y puede hacer mucho
+    if_more_than 4, AI_CV_Protect_End @ Si recibe 5HKO o menos daño, a la IA le da un poco igual. Se protegerá si no tiene nada
     if_more_than 2, Score_Plus2 @ Si recibe 3HKO o menos daño, con este +2 preferirá ataques que hagan KO (por if_can_faint) antes que protegerse
     goto Score_Plus5
 
@@ -4059,7 +4073,13 @@ AI_CV_ChargeUpMove_ScoreUp2:
 	score +2
 	goto AI_CV_ChargeUpMove_End
 
+@ Si hay No Guard, o si nos están usando Lock-On o Mind Reader, Fly/Dig/Dive son como si fuesen simplemente de dos turnos
 AI_CV_SemiInvulnerable:
+	if_ability AI_USER, ABILITY_NO_GUARD, AI_CV_ChargeUpMove_NotSolarBeamOnSun
+	if_ability AI_TARGET, ABILITY_NO_GUARD, AI_CV_ChargeUpMove_NotSolarBeamOnSun
+	if_not_status3 AI_USER, STATUS3_ALWAYS_HITS, AI_CV_SemiInvulnerable_NoVulnerability
+	if_user_faster AI_CV_ChargeUpMove_NotSolarBeamOnSun
+AI_CV_SemiInvulnerable_NoVulnerability:
 	if_has_move_with_effect AI_TARGET, EFFECT_PROTECT, Score_Minus5
 	get_hold_effect AI_USER
     if_equal HOLD_EFFECT_POWER_HERB, AI_CV_SemiInvulnerable_End
@@ -4078,15 +4098,15 @@ AI_CV_SemiInvulnerable_NoTruant:
 	get_weather_at_the_end_of_turn
 	if_equal AI_WEATHER_SANDSTORM, AI_CV_SemiInvulnerable_ConsiderEncouragingUnderWeather
 	if_equal AI_WEATHER_HAIL, AI_CV_SemiInvulnerable_ConsiderEncouragingUnderWeather
-AI_CV_SemiInvulnerable5:
-	if_target_faster AI_CV_SemiInvulnerable_End
-	get_last_used_bank_move AI_TARGET
-	get_move_effect_from_result
-	if_equal EFFECT_LOCK_ON, Score_Minus1
-	goto AI_CV_SemiInvulnerable_End
+AI_CV_SemiInvulnerable_AgainstOtherSemiInvulnerableMoves:
+	if_not_status3 AI_TARGET, STATUS3_SEMI_INVULNERABLE, AI_CV_SemiInvulnerable_End
+	if_target_faster Score_Minus5
+	calculate_nhko AI_TARGET | AI_NHKO_PESSIMISTIC
+	if_more_than 2, AI_CV_SemiInvulnerable_End
+	goto Score_Plus2
 
 AI_CV_SemiInvulnerable_ConsiderEncouragingUnderWeather:
-	if_user_receives_damage_from_stored_weather AI_CV_SemiInvulnerable5
+	if_user_receives_damage_from_stored_weather AI_CV_SemiInvulnerable_AgainstOtherSemiInvulnerableMoves
 AI_CV_SemiInvulnerable_TryEncourage:
 	if_random_less_than 80, AI_CV_SemiInvulnerable_End
 	score +1
