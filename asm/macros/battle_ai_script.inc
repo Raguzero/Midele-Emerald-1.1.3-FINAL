@@ -847,7 +847,7 @@
     if_next_turn_target_might_use_move_with_effect EFFECT_HAZE, .AI_user_might_not_be_able_to_boost_safely_\@
     if_next_turn_target_might_use_move_with_effect EFFECT_ROAR, .AI_check_if_user_can_be_phazed_\@
     .AI_no_problem_with_phazing_\@:
-    if_not_status3 AI_USER, STATUS3_ALWAYS_HITS, .AI_everything_ok_calculate_nhko_\@
+    if_status2 AI_USER, STATUS2_SUBSTITUTE, .AI_everything_ok_calculate_nhko_\@
     if_ability AI_USER, ABILITY_STURDY, .AI_everything_ok_calculate_nhko_\@
     if_ability AI_USER, ABILITY_WONDER_GUARD, .AI_everything_ok_calculate_nhko_\@
     if_level_cond AI_LEVEL_IS_GREATER_THAN_TARGETS, .AI_everything_ok_calculate_nhko_\@
