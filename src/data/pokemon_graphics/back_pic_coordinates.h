@@ -3516,7 +3516,7 @@ const struct MonCoords gMonBackPicCoords[] =
     [SPECIES_ARCHALUDON] =
     {
         .size = 0x88,
-        .y_offset = 0x00,
+        .y_offset = 0x08,
     },
     [SPECIES_MAGNESANDS] =
     {
@@ -3541,6 +3541,6 @@ const struct MonCoords gMonBackPicCoords[] =
     [SPECIES_HYDRAPPLE] =
     {
         .size = 0x64,
-        .y_offset = 0x12,
+        .y_offset = 0x08,
     },
 };

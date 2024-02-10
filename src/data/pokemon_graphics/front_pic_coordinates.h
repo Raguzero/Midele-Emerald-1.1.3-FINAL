@@ -3536,6 +3536,6 @@ const struct MonCoords gMonFrontPicCoords[] =
     [SPECIES_HYDRAPPLE] =
     {
         .size = 0x64,
-        .y_offset = 0x9,
+        .y_offset = 0x04,
     },
 };
