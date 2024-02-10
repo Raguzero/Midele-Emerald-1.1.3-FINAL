@@ -1280,7 +1280,7 @@ const u16 gEggMoves[] = {
 
     egg_moves(DELIBIRD,
               MOVE_AURORA_BEAM,
-              MOVE_QUICK_ATTACK,
+              MOVE_AGILITY,
               MOVE_FUTURE_SIGHT,
               MOVE_SPLASH,
               MOVE_RAPID_SPIN,
@@ -1288,7 +1288,7 @@ const u16 gEggMoves[] = {
 			MOVE_COUNTER,
 			MOVE_DESTINY_BOND,
 			MOVE_FAKE_OUT,
-			MOVE_SPIKES),
+			MOVE_MEMENTO),
 
     egg_moves(MANTINE,
               MOVE_TWISTER,

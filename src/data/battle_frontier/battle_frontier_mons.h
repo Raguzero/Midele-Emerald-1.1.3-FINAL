@@ -15760,7 +15760,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
 	
     [FRONTIER_MON_COUREEN_1] = {
         .species = SPECIES_COUREEN,
-        .moves = {MOVE_LOVELY_KISS, MOVE_SHADOW_BALL, MOVE_BOOMBURST, MOVE_IRON_HEAD},
+        .moves = {MOVE_WILL_O_WISP, MOVE_SHADOW_BALL, MOVE_BOOMBURST, MOVE_IRON_HEAD},
         .itemTableId = BATTLE_FRONTIER_ITEM_FOCUS_SASH,
         .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_SPEED,
         .nature = NATURE_JOLLY
@@ -15768,7 +15768,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
 	
     [FRONTIER_MON_COUREEN_2] = {
         .species = SPECIES_COUREEN,
-        .moves = {MOVE_LOVELY_KISS, MOVE_FIRE_PUNCH, MOVE_BOOMBURST, MOVE_SHADOW_BALL},
+        .moves = {MOVE_ENERGY_BALL, MOVE_FIRE_PUNCH, MOVE_BOOMBURST, MOVE_SHADOW_BALL},
         .itemTableId = BATTLE_FRONTIER_ITEM_FOCUS_SASH,
         .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
         .nature = NATURE_NAIVE
@@ -15784,7 +15784,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
 	
     [FRONTIER_MON_COUREEN_4] = {
         .species = SPECIES_COUREEN,
-        .moves = {MOVE_MOONBLAST, MOVE_THUNDERBOLT, MOVE_FIRE_PUNCH, MOVE_KNOCK_OFF},
+        .moves = {MOVE_MOONBLAST, MOVE_THUNDERBOLT, MOVE_FIRE_PUNCH, MOVE_ENERGY_BALL},
         .itemTableId = BATTLE_FRONTIER_ITEM_CHOICE_SPECS,
         .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
         .nature = NATURE_TIMID
@@ -15792,7 +15792,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
 	
     [FRONTIER_MON_COUREEN_5] = {
         .species = SPECIES_COUREEN,
-        .moves = {MOVE_LOVELY_KISS, MOVE_CALM_MIND, MOVE_ICE_BEAM, MOVE_THUNDERBOLT},
+        .moves = {MOVE_FIRE_PUNCH, MOVE_CALM_MIND, MOVE_ICE_BEAM, MOVE_THUNDERBOLT},
         .itemTableId = BATTLE_FRONTIER_ITEM_FOCUS_SASH,
         .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
         .nature = NATURE_TIMID
@@ -15848,7 +15848,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
 	
     [FRONTIER_MON_KINCURS_6] = {
         .species = SPECIES_KINCURS,
-        .moves = {MOVE_REST, MOVE_SHADOW_BALL, MOVE_SLEEP_TALK, MOVE_TOXIC},
+        .moves = {MOVE_SUBSTITUTE, MOVE_SHADOW_BALL, MOVE_PROTECT, MOVE_TOXIC},
         .itemTableId = BATTLE_FRONTIER_ITEM_LEFTOVERS,
         .evSpread = F_EV_SPREAD_HP | F_EV_SPREAD_DEFENSE,
         .nature = NATURE_IMPISH
