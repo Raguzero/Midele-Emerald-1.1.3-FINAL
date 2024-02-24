@@ -1513,6 +1513,18 @@ void RecordLastUsedMoveByTarget(void)
             break;
         }
     }
+    // Si usó Sleep Talk, anota también el movimiento que salió
+    if (gLastMoves[gBattlerTarget] == MOVE_SLEEP_TALK && gLastResultingMoves[gBattlerTarget] != 0xFFFF && gLastResultingMoves[gBattlerTarget] != MOVE_NONE)
+        for (i = 0; i < MAX_MON_MOVES; i++)
+        {
+            if (FOES_MOVE_HISTORY(gBattlerTarget)[i] == gLastResultingMoves[gBattlerTarget])
+                break;
+            if (FOES_MOVE_HISTORY(gBattlerTarget)[i] == MOVE_NONE)
+            {
+                FOES_MOVE_HISTORY(gBattlerTarget)[i] = gLastResultingMoves[gBattlerTarget];
+                break;
+            }
+        }
 }
 
 void ClearBattlerMoveHistory(u8 battlerId)
