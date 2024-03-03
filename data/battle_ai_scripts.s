@@ -185,12 +185,10 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_RECHARGE, AI_CBM_HighRiskForDamage
 	if_effect EFFECT_LEECH_SEED, AI_CBM_LeechSeed
 	if_effect EFFECT_DISABLE, AI_CBM_Disable
-	if_effect EFFECT_LEVEL_DAMAGE, AI_CBM_HighRiskForDamage
 	if_effect EFFECT_PSYWAVE, AI_CBM_HighRiskForDamage
 	if_effect EFFECT_COUNTER, AI_CBM_HighRiskForDamage
 	if_effect EFFECT_ENCORE, AI_CBM_Encore
 	if_effect EFFECT_SNORE, AI_CBM_DamageDuringSleep
-	if_effect EFFECT_FLAIL, AI_CBM_HighRiskForDamage
 	if_effect EFFECT_MEAN_LOOK, AI_CBM_CantEscape
 	if_effect EFFECT_NIGHTMARE, AI_CBM_Nightmare
 	if_effect EFFECT_MINIMIZE, AI_CBM_EvasionUp
@@ -201,13 +199,10 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_SANDSTORM, AI_CBM_Sandstorm
 	if_effect EFFECT_SWAGGER, AI_CBM_Confuse
 	if_effect EFFECT_ATTRACT, AI_CBM_Attract
-	if_effect EFFECT_RETURN, AI_CBM_HighRiskForDamage
 	if_effect EFFECT_PRESENT, AI_CBM_HighRiskForDamage
-	if_effect EFFECT_FRUSTRATION, AI_CBM_HighRiskForDamage
 	if_effect EFFECT_SAFEGUARD, AI_CBM_Safeguard
 	if_effect EFFECT_MAGNITUDE, AI_CBM_Magnitude
 	if_effect EFFECT_BATON_PASS, AI_CBM_BatonPass
-	if_effect EFFECT_SONICBOOM, AI_CBM_HighRiskForDamage
 	if_effect EFFECT_RAIN_DANCE, AI_CBM_RainDance
 	if_effect EFFECT_SUNNY_DAY, AI_CBM_SunnyDay
 	if_effect EFFECT_BELLY_DRUM, AI_CBM_BellyDrum
@@ -226,16 +221,15 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_FLATTER, AI_CBM_Confuse
 	if_effect EFFECT_WILL_O_WISP, AI_CBM_WillOWisp
 	if_effect EFFECT_MEMENTO, AI_CBM_Memento
-	if_effect EFFECT_FOCUS_PUNCH, AI_CBM_HighRiskForDamage
 	if_effect EFFECT_HELPING_HAND, AI_CBM_HelpingHand
 	if_effect EFFECT_TRICK, AI_CBM_Trick
 	if_effect EFFECT_INGRAIN, AI_CBM_Ingrain
 	if_effect EFFECT_SUPERPOWER, AI_CBM_HighRiskForDamage
+	if_effect EFFECT_OVERHEAT, AI_CBM_HighRiskForDamage_DiscourageAgainstOpponentsWithSub
 	if_effect EFFECT_RECYCLE, AI_CBM_Recycle
 	if_effect EFFECT_ENDEAVOR, AI_CBM_HighRiskForDamage
 	if_effect EFFECT_IMPRISON, AI_CBM_Imprison
 	if_effect EFFECT_REFRESH, AI_CBM_Refresh
-	if_effect EFFECT_LOW_KICK, AI_CBM_HighRiskForDamage
 	if_effect EFFECT_MUD_SPORT, AI_CBM_MudSport
 	if_effect EFFECT_TICKLE, AI_CBM_Tickle
 	if_effect EFFECT_COSMIC_POWER, AI_CBM_CosmicPower
@@ -518,11 +512,34 @@ AI_CBM_Magnitude: @ 82DC4E5
 AI_CBM_HighRiskForDamage: @ 82DC4ED
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
 	get_ability AI_TARGET
-	if_not_equal ABILITY_WONDER_GUARD, AI_CBM_HighRiskForDamage_End
-	if_type_effectiveness AI_EFFECTIVENESS_x2, AI_CBM_HighRiskForDamage_End
-	if_type_effectiveness AI_EFFECTIVENESS_x4, AI_CBM_HighRiskForDamage_End
+	if_not_equal ABILITY_WONDER_GUARD, AI_CBM_HighRiskForDamage_DiscourageAgainstOpponentsWithSub
+	if_type_effectiveness AI_EFFECTIVENESS_x2, AI_CBM_HighRiskForDamage_DiscourageAgainstOpponentsWithSub
+	if_type_effectiveness AI_EFFECTIVENESS_x4, AI_CBM_HighRiskForDamage_DiscourageAgainstOpponentsWithSub
 	goto Score_Minus10
 
+AI_CBM_HighRiskForDamage: @ 82DC4ED
+	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
+	get_ability AI_TARGET
+	if_not_equal ABILITY_WONDER_GUARD, AI_CBM_HighRiskForDamage_DiscourageAgainstOpponentsWithSub
+	if_type_effectiveness AI_EFFECTIVENESS_x2, AI_CBM_HighRiskForDamage_DiscourageAgainstOpponentsWithSub
+	if_type_effectiveness AI_EFFECTIVENESS_x4, AI_CBM_HighRiskForDamage_DiscourageAgainstOpponentsWithSub
+	goto Score_Minus10
+
+AI_CBM_HighRiskForDamage_DiscourageAgainstOpponentsWithSub:
+	if_doesnt_have_move_with_effect AI_TARGET, EFFECT_SUBSTITUTE, AI_CBM_HighRiskForDamage_End
+	if_effect EFFECT_COUNTER, AI_CBM_HighRiskForDamage_CheckHP2
+	if_effect EFFECT_MIRROR_COAT, AI_CBM_HighRiskForDamage_CheckHP2
+	if_effect EFFECT_RAZOR_WIND, AI_CBM_HighRiskForDamage_CheckHP2
+	if_effect EFFECT_SKULL_BASH, AI_CBM_HighRiskForDamage_CheckHP2
+	if_effect EFFECT_BIDE, AI_CBM_HighRiskForDamage_CheckHP2
+	if_target_faster AI_CBM_HighRiskForDamage_CheckHP
+	if_not_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_CBM_HighRiskForDamage_End
+AI_CBM_HighRiskForDamage_CheckHP:
+	if_hp_more_than AI_TARGET, 45, Score_Minus2
+	if_user_faster AI_CBM_HighRiskForDamage_End
+	if_not_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_CBM_HighRiskForDamage_End
+AI_CBM_HighRiskForDamage_CheckHP2:
+	if_hp_more_than AI_TARGET, 24, Score_Minus2
 AI_CBM_HighRiskForDamage_End: @ 82DC506
 	end
 
@@ -4842,6 +4859,15 @@ AI_TryToFaint_SkipContactCheck:
 	goto AI_TryToFaint_IncreaseScoreDependingOnAccuracy
 
 AI_TryToFaint_NegativeEffectThatDoesNotMatterIfCanFinishBattle:
+	if_doesnt_have_move_with_effect AI_TARGET, EFFECT_SUBSTITUTE, AI_TryToFaint_NegativeEffectThatDoesNotMatterIfCanFinishBattle_NoOptionToSpamSub
+	if_target_faster AI_TryToFaint_NegativeEffectThatDoesNotMatterIfCanFinishBattle_CheckHP
+	if_not_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_TryToFaint_NegativeEffectThatDoesNotMatterIfCanFinishBattle_NoOptionToSpamSub
+AI_TryToFaint_NegativeEffectThatDoesNotMatterIfCanFinishBattle_CheckHP:
+	if_hp_more_than AI_TARGET, 45, AI_TryToFaint_End
+	if_user_faster AI_TryToFaint_NegativeEffectThatDoesNotMatterIfCanFinishBattle_NoOptionToSpamSub
+	if_not_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_TryToFaint_NegativeEffectThatDoesNotMatterIfCanFinishBattle_NoOptionToSpamSub
+	if_hp_more_than AI_TARGET, 24, AI_TryToFaint_End
+AI_TryToFaint_NegativeEffectThatDoesNotMatterIfCanFinishBattle_NoOptionToSpamSub:
 	count_usable_party_mons AI_TARGET
 	if_not_equal 0, AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy
 	if_target_faster AI_TryToFaint_Minus1AndIncreaseScoreDependingOnAccuracy
