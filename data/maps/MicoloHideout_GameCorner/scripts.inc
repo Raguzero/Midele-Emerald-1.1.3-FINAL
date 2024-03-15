@@ -686,7 +686,7 @@ MicoloHideout_GameCorner_EventScript_KECLEON:
 	message MicoloHideout_GameCorner_Text_GetMon
 	waitfanfare
 	waitmessage
-	givecustommon SPECIES_KECLEON, 90, ITEM_NONE, ITEM_LUXURY_BALL, NATURE_ADAMANT, 1, 0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, MOVE_SKY_UPPERCUT, MOVE_DRAGON_CLAW, MOVE_X_SCISSOR, MOVE_SLASH, TRUE
+	givecustommon SPECIES_KECLEON, 90, ITEM_NONE, ITEM_LUXURY_BALL, NATURE_ADAMANT, 1, 0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, MOVE_SKY_UPPERCUT, MOVE_DISABLE, MOVE_X_SCISSOR, MOVE_SLASH, TRUE
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	call_if_eq Common_EventScript_NameReceivedPartyMon
@@ -1236,8 +1236,8 @@ MicoloHideout_GameCorner_Text_SoYourChoiceIsZubat:
 	.string "¿Quieres este ZUBAT especial?$"
 	
 MicoloHideout_GameCorner_Text_SoYourChoiceIsKecleon:	
-	.string "SKY UPPERCUT, DRAGON PULSE y X-SCISSOR\n"
-	.string "son sus ataques exclusivos, que ningún\l"
+	.string "SKY UPPERCUT y X-SCISSOR son sus\n"
+	.string "ataques exclusivos, que ningún\l"
 	.string "otro KECLEON puede aprender.\l"
 	.string "Además es shiny.\l"
 	.string "¿Quieres este KECLEON especial?$"

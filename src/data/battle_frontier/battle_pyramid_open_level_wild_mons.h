@@ -248,7 +248,7 @@ static const struct PyramidWildMon sOpenLevelWildMons_Round5[] =
         .species = SPECIES_FLYGON,
         .lvl = 5,
         .abilityNum = ABILITY_RANDOM,
-        .moves = {MOVE_EARTHQUAKE, MOVE_CRUNCH, MOVE_DRAGON_CLAW, MOVE_DRAGON_BREATH}
+        .moves = {MOVE_EARTHQUAKE, MOVE_CRUNCH, MOVE_DRAGON_PULSE, MOVE_DRAGON_BREATH}
     },
     {
         .species = SPECIES_GENGAR,
@@ -900,19 +900,19 @@ static const struct PyramidWildMon sOpenLevelWildMons_Round18[] =
         .species = SPECIES_ALTARIA,
         .lvl = 8,
         .abilityNum = ABILITY_RANDOM,
-        .moves = {MOVE_EARTHQUAKE, MOVE_DRAGON_CLAW, MOVE_SING, MOVE_PROTECT}
+        .moves = {MOVE_EARTHQUAKE, MOVE_DRAGON_PULSE, MOVE_SING, MOVE_PROTECT}
     },
     {
         .species = SPECIES_FLYGON,
         .lvl = 8,
         .abilityNum = ABILITY_RANDOM,
-        .moves = {MOVE_EARTHQUAKE, MOVE_DRAGON_CLAW, MOVE_FIRE_BLAST, MOVE_NONE}
+        .moves = {MOVE_EARTHQUAKE, MOVE_DRAGON_PULSE, MOVE_FIRE_BLAST, MOVE_NONE}
     },
     {
         .species = SPECIES_AERODACTYL,
         .lvl = 6,
         .abilityNum = ABILITY_RANDOM,
-        .moves = {MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_DRAGON_CLAW, MOVE_NONE}
+        .moves = {MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_DRAGON_PULSE, MOVE_NONE}
     },
     {
         .species = SPECIES_GYARADOS,

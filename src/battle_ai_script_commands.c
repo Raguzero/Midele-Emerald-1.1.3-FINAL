@@ -3417,7 +3417,7 @@ s32 CalculateNHKO(u16 attackerId, u16 targetId, bool8 attackerIsCurrentAI, u16 c
                 [TYPE_ELECTRIC] = MOVE_THUNDERBOLT,
                 [TYPE_PSYCHIC] = MOVE_PSYCHIC,
                 [TYPE_ICE] = MOVE_ICE_BEAM,
-                [TYPE_DRAGON] = MOVE_DRAGON_CLAW,
+                [TYPE_DRAGON] = MOVE_DRAGON_PULSE,
                 [TYPE_DARK] = MOVE_CRUNCH,
                 [TYPE_FAIRY] = MOVE_MOONBLAST,
             };

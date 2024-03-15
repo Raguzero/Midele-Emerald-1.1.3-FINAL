@@ -1249,7 +1249,7 @@ static const u8 *const sUnused_StatStrings[] =
 static const u16 sTMHMMoves[] =
 {
     MOVE_FOCUS_PUNCH,
-    MOVE_DRAGON_CLAW,
+    MOVE_DRAGON_PULSE,
     MOVE_WATER_PULSE,
     MOVE_CALM_MIND,
     MOVE_ROAR,

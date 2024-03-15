@@ -4381,7 +4381,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_SNATCH_AFFECTED,
     },
 
-    [MOVE_DRAGON_CLAW] = // DRAGON PULSE
+    [MOVE_DRAGON_PULSE] =
     {
         .effect = EFFECT_HIT,
         .power = 85,

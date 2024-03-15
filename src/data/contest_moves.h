@@ -2689,7 +2689,7 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
         .comboMoves = {0},
     },
 
-    [MOVE_DRAGON_CLAW] =
+    [MOVE_DRAGON_PULSE] =
     {
         .effect = CONTEST_EFFECT_STARTLE_MONS_SAME_TYPE_APPEAL,
         .contestCategory = CONTEST_CATEGORY_COOL,

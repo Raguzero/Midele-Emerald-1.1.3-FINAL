@@ -3814,10 +3814,10 @@ const struct Item gItems[] =
         .secondaryId = 0,
     },
 
-    [ITEM_TM02_DRAGON_CLAW] =
+    [ITEM_TM02_DRAGON_PULSE] =
     {
         .name = _("TM02"),
-        .itemId = ITEM_TM02_DRAGON_CLAW,
+        .itemId = ITEM_TM02_DRAGON_PULSE,
         .price = 3000,
         .description = sTM02Desc,
 		.importance = 1,

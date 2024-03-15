@@ -524,7 +524,7 @@ static const struct TrHillFloor sDataTagNormal_Floors[] =
                     {
                         .species = SPECIES_FLYGON,
                         .heldItem = ITEM_CHOICE_BAND,
-                        .moves = {MOVE_EARTHQUAKE, MOVE_DRAGON_CLAW, MOVE_CRUNCH, MOVE_FLAMETHROWER},
+                        .moves = {MOVE_EARTHQUAKE, MOVE_DRAGON_PULSE, MOVE_CRUNCH, MOVE_FLAMETHROWER},
                         .level = 0,
                         .ppBonuses = 0,
                         .attackEV = 155,
@@ -4867,7 +4867,7 @@ static const struct TrHillFloor sDataTagExpert_Floors[] = {
                                         {
                                             .species = SPECIES_ALTARIA,
                                             .heldItem = ITEM_KINGS_ROCK,
-                                            .moves = {MOVE_PERISH_SONG, MOVE_PROTECT, MOVE_DRAGON_CLAW, MOVE_FIRE_BLAST},
+                                            .moves = {MOVE_PERISH_SONG, MOVE_PROTECT, MOVE_DRAGON_PULSE, MOVE_FIRE_BLAST},
                                             .level = 0,
                                             .ppBonuses = 0,
                                             .hpEV = 252,
@@ -5124,7 +5124,7 @@ static const struct TrHillFloor sDataTagExpert_Floors[] = {
                                         {
                                             .species = SPECIES_SALAMENCE,
                                             .heldItem = ITEM_SHELL_BELL,
-                                            .moves = {MOVE_ROCK_SLIDE, MOVE_FLAMETHROWER, MOVE_DRAGON_CLAW, MOVE_AERIAL_ACE},
+                                            .moves = {MOVE_ROCK_SLIDE, MOVE_FLAMETHROWER, MOVE_DRAGON_PULSE, MOVE_AERIAL_ACE},
                                             .level = 0,
                                             .ppBonuses = 0,
                                             .attackEV = 255,

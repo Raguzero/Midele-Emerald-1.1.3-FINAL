@@ -141,7 +141,7 @@ static const struct FrontierBrainMon sFrontierBrainsMons[][2][3] =
                 .fixedIV = 31,
                 .nature = NATURE_MODEST,
                 .evs = {252, 0, 252, 6, 0, 0},
-                .moves = {MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_RECOVER, MOVE_DRAGON_CLAW},
+                .moves = {MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_RECOVER, MOVE_DRAGON_PULSE},
             },
             {
                 .species = SPECIES_SNORLAX,
@@ -171,7 +171,7 @@ static const struct FrontierBrainMon sFrontierBrainsMons[][2][3] =
                 .fixedIV = 20,
                 .nature = NATURE_ADAMANT,
                 .evs = {152, 152, 106, 100, 0, 0},
-                .moves = {MOVE_EARTHQUAKE, MOVE_BRICK_BREAK, MOVE_DRAGON_CLAW, MOVE_AERIAL_ACE},
+                .moves = {MOVE_EARTHQUAKE, MOVE_BRICK_BREAK, MOVE_DRAGON_PULSE, MOVE_AERIAL_ACE},
             },
             {
                 .species = SPECIES_CHARIZARD,
@@ -351,7 +351,7 @@ static const struct FrontierBrainMon sFrontierBrainsMons[][2][3] =
                 .fixedIV = 31,
                 .nature = NATURE_ADAMANT,
                 .evs = {0, 252, 0, 0, 252, 6},
-                .moves = {MOVE_THUNDERBOLT, MOVE_PROTECT, MOVE_SOLAR_BEAM, MOVE_DRAGON_CLAW},
+                .moves = {MOVE_THUNDERBOLT, MOVE_PROTECT, MOVE_SOLAR_BEAM, MOVE_DRAGON_PULSE},
             },
         },
         {
@@ -377,7 +377,7 @@ static const struct FrontierBrainMon sFrontierBrainsMons[][2][3] =
                 .fixedIV = 31,
                 .nature = NATURE_ADAMANT,
                 .evs = {0, 252, 0, 0, 252, 6},
-                .moves = {MOVE_THUNDERBOLT, MOVE_PROTECT, MOVE_SOLAR_BEAM, MOVE_DRAGON_CLAW},
+                .moves = {MOVE_THUNDERBOLT, MOVE_PROTECT, MOVE_SOLAR_BEAM, MOVE_DRAGON_PULSE},
             },
         },
     },
