@@ -3550,6 +3550,9 @@ s32 CalculateNHKO(u16 attackerId, u16 targetId, bool8 attackerIsCurrentAI, u16 c
                 [TYPE_FAIRY] = MOVE_MOONBLAST,
             };
 
+            if (gBattleMons[attackerId].ability == ABILITY_SNOW_WARNING)
+                standard_moves[TYPE_ICE] = MOVE_BLIZZARD;
+
             if (opponent_types[1] == opponent_types[0])
                 opponent_types[1] = TYPE_NONE;
 
