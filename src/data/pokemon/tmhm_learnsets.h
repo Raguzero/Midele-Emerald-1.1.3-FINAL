@@ -11081,6 +11081,7 @@ const u32 gTMHMLearnsets[][2] =
 											| TMHM(TM33_REFLECT)
 											| TMHM(TM42_FACADE)
 											| TMHM(TM21_FRUSTRATION)
+											| TMHM(TM04_CALM_MIND)
 											| TMHM(TM07_HAIL)
 											| TMHM(TM10_HIDDEN_POWER)
 											| TMHM(TM15_HYPER_BEAM)
