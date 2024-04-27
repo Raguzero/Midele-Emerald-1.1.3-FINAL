@@ -69,7 +69,15 @@ IzabeIsland_MayorHouse_EventScript_Mayor_RememberPetition::
 	end
 
 IzabeIsland_MayorHouse_EventScript_Mayor_GiveItem::
+	goto_if_set FLAG_SYS_GAME_CLEAR, IzabeIsland_MayorHouse_EventScript_Garm_PostGameBattle
 	msgbox IzabeIsland_MayorHouse_Text_Mayor_TakeYourReward, MSGBOX_NPC
+	end
+	
+IzabeIsland_MayorHouse_EventScript_Garm_PostGameBattle::
+	faceplayer
+	trainerbattle_single TRAINER_IZABE_MAYOR_2, IzabeIsland_MayorHouse_Text_Garm_Fight, IzabeIsland_MayorHouse_Text_Mayor_BattleDefeated, Ditufrase
+Ditufrase::
+	msgbox IzabeIsland_MayorHouse_Text_Garm_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 IzabeIsland_MayorHouse_EventScript_Guard_AskForHelp::
@@ -181,3 +189,33 @@ IzabeIsland_MayorHouse_Text_FatMan2::
 IzabeIsland_MayorHouse_Text_FatMan3::
 	.string "Zzz...\p"
 	.string "Parece que se ha quedado dormido...$"
+
+IzabeIsland_MayorHouse_Text_Garm_Fight::
+  .string "Ah, {PLAYER}, que bueno que estés aquí,\n"
+  .string "estaba limándome mis garras, quiero\l"
+  .string "decir... mis uñas, jeje.\p"
+  .string "Veo que has progresado mucho desde la\n"
+  .string "última vez que luchamos, escuché\l"
+  .string "noticias sobre ti.\p"
+  .string "Ese, nuestro primer combate fue una\n"
+  .string "prueba para ver tu preparación ante\l"
+  .string "el peligro que acechaba en esa cueva\l"
+  .string "de las fueras de este pueblo.\p"
+  .string "Ya ha pasado mucho tiempo de aquello,\n"
+  .string "pero es como si hubiese sido ayer.\p"
+  .string "¿O fue ayer?\n"
+  .string "No lo sé, puede que si, si te has viciado\l"
+  .string "a lo loco.\p"
+  .string "Entonces, ya basta de contenerme, esta\n"
+  .string "vez usaré el mejor equipo que tengo.\l"
+  .string "Vas a entender por fin, porque me\l"
+  .string "llamaban Garm, el gato genio.$"
+  
+IzabeIsland_MayorHouse_Text_Garm_PostBattle::
+  .string "¡Impresionante, {PLAYER}!\p"
+  .string "Cuando quieras luchar de nuevo,\n"
+  .string "háblame y te soltaré toda la chapa\l"
+  .string "de nuevo, como si no acabásemos de\l"
+  .string "luchar ahora mismo, jeje.\p"
+  .string "A todo esto, me pregunto si a.vader\n"
+  .string "tuvo éxito en su plan maestro.$"

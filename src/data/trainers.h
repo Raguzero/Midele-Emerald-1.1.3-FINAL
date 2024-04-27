@@ -8871,7 +8871,7 @@ const struct Trainer gTrainers[] = {
         .trainerClass = TRAINER_CLASS_HIKER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
         .trainerPic = TRAINER_PIC_HIKER,
-        .trainerName = _("LORD"),
+        .trainerName = _("INFINIT"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
@@ -8879,18 +8879,19 @@ const struct Trainer gTrainers[] = {
         .party = {.ItemCustomMidele = sParty_Lord},
     },
 
-    [TRAINER_MIKE_1] =
+    [TRAINER_IZABE_MAYOR_2] =
     {
-        .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET,
-        .trainerClass = TRAINER_CLASS_HIKER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
-        .trainerPic = TRAINER_PIC_HIKER,
-        .trainerName = _("MIKE"),
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_MIDELE,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR,
+        .trainerPic = TRAINER_PIC_EXPERT_M,
+        .battleMusic = MUS_RG_VS_TORE,
+        .trainerName = _("GARM"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
-        .partySize = ARRAY_COUNT(sParty_Mike1),
-        .party = {.NoItemCustomMoves = sParty_Mike1},
+        .partySize = ARRAY_COUNT(sParty_IzabeIsland_Mayor_2),
+        .party = {.ItemCustomMidele = sParty_IzabeIsland_Mayor_2},
     },
 
     [TRAINER_MIKE_2] =

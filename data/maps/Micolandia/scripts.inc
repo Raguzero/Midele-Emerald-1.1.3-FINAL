@@ -205,6 +205,35 @@ Micolandia_Topo_Movement:
 	walk_in_place_fastest_down
 	step_end
 	
+Micolandia_EventScript_Lord::
+	lock
+	faceplayer
+	goto_if_set FLAG_DEFEATED_GOOSES_GYM, Micolandia_EventScript_Lord_Fight	
+	msgbox Lord_SinBatalla, MSGBOX_AUTOCLOSE
+	release
+	end
+Micolandia_EventScript_Lord_Fight::
+	trainerbattle_single TRAINER_LORD, Lord_AntesBatalla, Lord_MensajeDerrota
+	msgbox Lord_DespuesDeBatalla, MSGBOX_AUTOCLOSE
+	end
+	
+Lord_SinBatalla:
+	.string "Déjame, que estoy ocupado.$"
+	
+Lord_AntesBatalla: 
+	.string "Maldita sea, me han vuelto a\n"
+	.string "denegar el acceso a la micoliga.\p"
+	.string "Mejor me desquito contigo.$"
+
+Lord_MensajeDerrota: 
+	.string "Y encima me da una paliza alguien\n"
+	.string "como tu.$"
+ 
+Lord_DespuesDeBatalla:
+	.string "Bueno, no importa, cuando tenga\n"
+	.string "tiempo, derrotaré a los otros\l"
+	.string "micolíderes.$"
+	
 Micolandia_Text_TopoVigilante:
 	.string "Hola, soy TOPO, el vigilante\n"
 	.string "de seguridad.\p"

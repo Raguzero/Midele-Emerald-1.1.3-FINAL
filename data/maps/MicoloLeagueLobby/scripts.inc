@@ -153,6 +153,8 @@ MicoloLeagueLobby_EventScript_ResetTrainerYESConfirmo::
 	cleartrainerflag TRAINER_MIRORB
 	cleartrainerflag TRAINER_KRUB_2
 	cleartrainerflag TRAINER_MELKOR
+	cleartrainerflag TRAINER_LORD
+	cleartrainerflag TRAINER_IZABE_MAYOR_2
 	release
 	end
 	

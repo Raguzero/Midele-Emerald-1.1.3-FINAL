@@ -2637,22 +2637,7 @@ static const struct TrainerMonCustomMidele sParty_Juan1[] = {
 
 
 // RUSTURF TUNNEL
-  // ENTRENADOR BETA?? NO SE HA USADO??, ES RARO ESE PELLIPER NV10
-static const struct TrainerMonNoItemCustomMoves sParty_Mike1[] = {
-    {
-    .iv = 0,
-    .lvl = 10,
-    .species = SPECIES_PELIPPER,
-    .moves = {MOVE_GUST, MOVE_GROWL, MOVE_NONE, MOVE_NONE}
-    },
-    {
-    .iv = 0,
-    .lvl = 10,
-    .species = SPECIES_POOCHYENA,
-    .moves = {MOVE_BITE, MOVE_SCARY_FACE, MOVE_NONE, MOVE_NONE}
-    }
-};
-  // ENTRENADOR BETA?? ESTE ENTRENADOR NO SE HA USADO??, ES RARO ESE PELLIPER NV10
+
 static const struct TrainerMonCustomMidele sParty_Mike2[] = {
     {
     .iv = 31,
@@ -21533,6 +21518,70 @@ static const struct TrainerMonCustomMidele sParty_Lord[] = {
         },
 };
 
+static const struct TrainerMonCustomMidele sParty_IzabeIsland_Mayor_2[] = {
+       {
+        .lvl = 100,
+        .iv = 31,
+        .evs = {252, 4, 252, 0, 0, 0},
+        .species = SPECIES_FORRETRESS,
+        .moves = {MOVE_SPIKES, MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_THUNDER_WAVE},
+        .heldItem = ITEM_LEFTOVERS,
+        .ability = 0, // STURDY
+		.nature = NATURE_IMPISH,
+        },
+       {
+        .lvl = 100,
+        .iv = 31,
+        .evs = {4, 252, 0, 0, 0, 252},
+        .species = SPECIES_PERSIAN,
+        .moves = {MOVE_RETURN, MOVE_FAKE_OUT, MOVE_SHADOW_BALL, MOVE_HIDDEN_POWER},
+		.hpType = TYPE_FIGHTING,
+	    .ability = 1, // TECHNICIAN
+        .heldItem = ITEM_NUGGET,
+		.nature = NATURE_JOLLY,
+        },
+       {
+        .lvl = 100,
+        .iv = 31,
+        .evs = {4, 252, 0, 0, 0, 252},
+        .species = SPECIES_HERACROSS,
+        .moves = {MOVE_MEGAHORN, MOVE_SWORDS_DANCE, MOVE_REVERSAL, MOVE_ENDURE},
+        .heldItem = ITEM_SALAC_BERRY,
+        .ability = 0, // GUTS
+		.nature = NATURE_JOLLY,
+        },
+       {
+        .lvl = 100,
+        .iv = 31,
+        .evs = {128, 252, 0, 0, 128, 0},
+        .species = SPECIES_CLODSIRE,
+        .moves = {MOVE_CURSE, MOVE_RECOVER, MOVE_EARTHQUAKE, MOVE_SLUDGE_BOMB},
+        .heldItem = ITEM_LEFTOVERS,
+		.nature = NATURE_IMPISH,
+	    .ability = 1, // WATER ABSORB
+        },
+       {
+        .lvl = 100,
+        .iv = 31,
+        .evs = {4, 252, 0, 0, 0, 252},
+        .species = SPECIES_COUREEN,
+        .moves = {MOVE_SHADOW_BALL, MOVE_SHADOW_SNEAK, MOVE_BOOMBURST, MOVE_STONE_EDGE},
+        .heldItem = ITEM_CHOICE_BAND,
+        .ability = 0, // CURSED BODY
+		.nature = NATURE_JOLLY,
+        },
+       {
+        .lvl = 100,
+        .iv = 31,
+        .evs = {126, 0, 128, 0, 128, 128},
+        .species = SPECIES_MEW,
+        .moves = {MOVE_SOFT_BOILED, MOVE_SURF, MOVE_PSYCHIC, MOVE_NASTY_PLOT},
+        .heldItem = ITEM_LEFTOVERS,
+        .ability = 0, // SYNCHRONIZE
+		.nature = NATURE_TIMID,
+        },
+};
+
 static const struct TrainerMonCustomMidele sParty_Debug[] = {
        {
         .lvl = 100,
@@ -26662,6 +26711,7 @@ static const struct TrainerMonCustomMidele sParty_Zzz[] = {
     .heldItem = ITEM_NUGGET, 
     .nature = NATURE_JOLLY,
 	.hpType = TYPE_FIGHTING,
+	.ability = 1, 
 	.friendship = 255,
     .evs = {0, 252, 0, 0, 0, 252},
     .moves = {MOVE_RETURN, MOVE_SHADOW_BALL, MOVE_HIDDEN_POWER, MOVE_TAUNT}
