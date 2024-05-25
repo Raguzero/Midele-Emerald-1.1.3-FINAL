@@ -3305,7 +3305,7 @@ void SetMoveEffect(bool8 primary, u8 certain)
                 {
                     side = GetBattlerSide(gBattlerAttacker);
 					if ((GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT
-                         || (gBattleTypeFlags & BATTLE_TYPE_TRAINER))
+                         || (gBattleTypeFlags & BATTLE_TYPE_TRAINER) || (gBossBattleFlags != BATTLE_TYPE_NORMAL))
                        && FlagGet(FLAG_RYU_RANDOMBATTLECC) != 1
                         && !(gBattleTypeFlags &
                              (BATTLE_TYPE_EREADER_TRAINER
