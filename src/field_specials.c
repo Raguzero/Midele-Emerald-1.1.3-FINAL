@@ -1044,6 +1044,16 @@ void FieldShowRegionMap(void)
     SetMainCallback2(CB2_FieldShowRegionMap);
 }
 
+static void CB2_FieldLoadFlyMap(void)
+{
+    FieldInitRegionMap(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+}
+
+void FieldLoadFlyMap(void)
+{
+    SetMainCallback2(MCB2_FlyMap);
+}
+
 void DoPCTurnOnEffect(void)
 {
     if (FuncIsActiveTask(Task_PCTurnOnEffect) != TRUE)
@@ -2501,12 +2511,12 @@ void ShowScrollableMultichoice(void)
             task->tTaskId = taskId;
             break;
 		case SCROLL_MULTI_POKE_CENTER_TUTOR:
-            task->tMaxItemsOnScreen = 5;
-            task->tNumItems = 5;
+            task->tMaxItemsOnScreen = 6;
+            task->tNumItems = 6;
             task->tLeft = 20;
             task->tTop = 1;
             task->tWidth = 14;
-            task->tHeight = 10;
+            task->tHeight = 12;
             task->tKeepOpenAfterSelect = FALSE;
             task->tTaskId = taskId;
             break;
@@ -2776,6 +2786,7 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_LearnANewMove,
         gText_ForgetAMove,
         gText_RateANickname,
+        gText_FlyMenu,
         gText_Exit
 	}
 };

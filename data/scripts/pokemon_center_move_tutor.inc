@@ -10,7 +10,8 @@ PKMN_Center_Move_Tutor::
 	case 1, PKMN_Center_Move_Tutor_MoveTutorIntro
 	case 2, PKMN_Center_MoveDeleter_EventScript
 	case 3, PKMN_Center_NameRater_EventScript
-	case 4, PKMN_Center_Move_Tutor_General_Exit
+	case 4, PKMN_Center_Fly_EventScript
+	case 5, PKMN_Center_Move_Tutor_General_Exit
 	case MULTI_B_PRESSED, PKMN_Center_Move_Tutor_General_Exit
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Move Reminder @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -319,6 +320,18 @@ PKMN_Center_Move_Tutor_General_Exit::
     msgbox PKMN_Center_Move_Tutor_Text_SeeYou, MSGBOX_DEFAULT
 	releaseall
 	end
+	
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ FLY @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	
+PKMN_Center_Fly_EventScript::
+	goto_if_set FLAG_BADGE06_GET, PKMN_Center_Fly_Have_Badge06_EventScript
+	msgbox PKMN_Center_Fly_NO_BADGE06, MSGBOX_DEFAULT
+	releaseall
+	end
+PKMN_Center_Fly_Have_Badge06_EventScript::
+	call Common_EventScript_FlyingTaxi
+	releaseall
+	end
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Strings @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -415,4 +428,8 @@ PKMN_Center_NameRater_Text_NameNoDifferentYetSuperior:
 PKMN_Center_NameRater_Text_ThatIsMerelyAnEgg:
 	.string "Now, now.\n"
 	.string "That is merely an Egg!$"
+	
+PKMN_Center_Fly_NO_BADGE06:
+	.string "This option is not yet available.\n"
+	.string "Come back when you have six badges.$"
 

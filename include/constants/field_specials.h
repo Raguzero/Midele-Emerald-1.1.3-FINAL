@@ -85,4 +85,6 @@
 #define FANCLUB_MEMBER7        14
 #define FANCLUB_MEMBER8        15
 
+#define LAST_TALKED_TO_FLYING_TAXI 255 // used for determining if Fly or a flying taxi was used
+
 #endif // GUARD_CONSTANTS_FIELD_SPECIALS_H

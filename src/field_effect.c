@@ -1,6 +1,7 @@
 #include "global.h"
 #include "day_night.h"
 #include "decompress.h"
+#include "event_data.h"
 #include "event_object_movement.h"
 #include "field_camera.h"
 #include "field_control_avatar.h"
@@ -29,6 +30,7 @@
 #include "trig.h"
 #include "util.h"
 #include "constants/field_effects.h"
+#include "constants/field_specials.h"
 #include "constants/event_object_movement_constants.h"
 #include "constants/metatile_behaviors.h"
 #include "constants/rgb.h"
@@ -210,6 +212,8 @@ static void sub_80B9390(struct Task *);
 static void sub_80B9418(struct Task *);
 static void sub_80B9474(struct Task *);
 static void sub_80B9494(struct Task *);
+
+static void FlyingTaxiFieldEffect_FlyNoises(struct Task *);
 
 static u8 sub_80B94C4(void);
 static u8 sub_80B9508(u8);
@@ -3195,9 +3199,29 @@ void (*const gUnknown_0855C4F4[])(struct Task *) = {
     sub_80B9494,
 };
 
+void (*const sFlyingTaxiFieldEffectFuncs[])(struct Task *) = {
+    FlyingTaxiFieldEffect_FlyNoises,
+    sub_80B9494,
+};
+
+static void FlyingTaxiFieldEffect_FlyNoises(struct Task *task)
+{
+    struct EventObject *eventObject = &gEventObjects[gPlayerAvatar.eventObjectId];
+    if ((task->data[2] == 0 || (--task->data[2]) == 0) && EventObjectClearHeldMovementIfFinished(eventObject))
+    {
+        task->data[0]++;
+        task->data[2] = 2;
+        PlaySE(SE_W019);
+        sub_80B9524(task->data[1]);
+    }
+}
+
 static void sub_80B91D4(u8 taskId)
 {
-    gUnknown_0855C4F4[gTasks[taskId].data[0]](&gTasks[taskId]);
+	if (VarGet(VAR_0x800A) == LAST_TALKED_TO_FLYING_TAXI)
+		sFlyingTaxiFieldEffectFuncs[gTasks[taskId].data[0]](&gTasks[taskId]);
+	else
+		gUnknown_0855C4F4[gTasks[taskId].data[0]](&gTasks[taskId]);
 }
 
 static void sub_80B9204(struct Task *task)

@@ -3187,6 +3187,7 @@ extern const u8 gText_RememberAMove[];
 extern const u8 gText_LearnANewMove[];
 extern const u8 gText_ForgetAMove[];
 extern const u8 gText_RateANickname[];
+extern const u8 gText_FlyMenu[];
 
 // MOVE ITEM IN TEAM
 extern const u8 gMenuText_Move[];

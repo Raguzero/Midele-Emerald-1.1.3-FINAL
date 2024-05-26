@@ -994,7 +994,8 @@ static const struct MenuAction MultichoiceList_PKMNCentreMovetutor[] =
     {gText_LearnANewMove},
     {gText_ForgetAMove},
     {gText_RateANickname},
-    {gText_Exit},
+    {gText_FlyMenu},
+    {gText_Exit}
 };
 
 static const struct MenuAction MultichoiceList_Quiz1[] =

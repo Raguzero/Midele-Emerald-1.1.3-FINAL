@@ -69,5 +69,6 @@
 #define FLDEFF_65                        65
 #define FLDEFF_MOVE_DEOXYS_ROCK          66
 #define FLDEFF_CAVE_DUST                 67
+#define FLDEFF_RIDE_TAXI                 68
 
 #endif

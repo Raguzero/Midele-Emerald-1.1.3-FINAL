@@ -2073,6 +2073,7 @@ const u8 gText_RememberAMove[] = _("REMEMBER A MOVE");
 const u8 gText_LearnANewMove[] = _("LEARN A NEW MOVE");
 const u8 gText_ForgetAMove[] = _("FORGET A MOVE");
 const u8 gText_RateANickname[] = _("RATE A NICKNAME");
+const u8 gText_FlyMenu[] = _("USE A FLYING TAXI");
 
 const u8 gText_MenuDexNav[] = _("DEXNAV");
 
