@@ -2962,6 +2962,11 @@ AI_CV_Counter_IgnoreEncore:
     if_equal AI_NO_DAMAGING_MOVES, Score_Minus10
     if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_SPECIAL, Score_Minus5
     if_equal AI_ONLY_SPECIAL_KNOWN, Score_Minus5
+    if_not_equal AI_UNKNOWN_CATEGORIES, AI_CV_Counter_PossiblyPhysical
+    score -1
+    if_random_less_than 128, AI_CV_Counter_PossiblyPhysical
+    score -1
+AI_CV_Counter_PossiblyPhysical:
     if_target_not_expected_to_sleep_during_next_turn AI_CV_Counter_TargetNotSleeping
     goto AI_CV_Counter_ScoreDown3
 AI_CV_Counter_TargetNotSleeping:
@@ -3958,6 +3963,11 @@ AI_CV_MirrorCoat_IgnoreEncore:
     if_equal AI_NO_DAMAGING_MOVES, Score_Minus10
     if_equal AI_UNKNOWN_CATEGORIES_PROBABLY_PHYSICAL, Score_Minus5
     if_equal AI_ONLY_PHYSICAL_KNOWN, Score_Minus5
+    if_not_equal AI_UNKNOWN_CATEGORIES, AI_CV_MirrorCoat_PossiblySpecial
+    score -1
+    if_random_less_than 128, AI_CV_MirrorCoat_PossiblySpecial
+    score -1
+AI_CV_MirrorCoat_PossiblySpecial:
     if_target_not_expected_to_sleep_during_next_turn AI_CV_MirrorCoat_TargetNotSleeping
     goto AI_CV_MirrorCoat_ScoreDown3
 AI_CV_MirrorCoat_TargetNotSleeping:

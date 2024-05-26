@@ -3787,9 +3787,11 @@ static void Cmd_get_possible_categories_of_foes_attacks(void)
     {
         u16 base_attack = gBaseStats[gBattleMons[gBattlerTarget].species].baseAttack;
         u16 base_sp_attack = gBaseStats[gBattleMons[gBattlerTarget].species].baseSpAttack;
-        if (base_attack * 4 < base_sp_attack * 3 && base_attack < 100)
+        if (   (base_attack * 4 < base_sp_attack * 3 && base_attack < 100)
+            || (base_attack * 7 < base_sp_attack * 6 && base_attack < 120 && !IS_TYPE_PHYSICAL(gBaseStats[gBattleMons[gBattlerTarget].species].type1) && !IS_TYPE_PHYSICAL(gBaseStats[gBattleMons[gBattlerTarget].species].type2)))
             result = AI_UNKNOWN_CATEGORIES_PROBABLY_SPECIAL;
-        else if (base_sp_attack * 4 < base_attack * 3 && base_sp_attack < 100)
+        else if (   (base_sp_attack * 4 < base_attack * 3 && base_sp_attack < 100)
+                 || (base_sp_attack * 7 < base_attack * 6 && base_sp_attack < 120 && IS_TYPE_PHYSICAL(gBaseStats[gBattleMons[gBattlerTarget].species].type1) && IS_TYPE_PHYSICAL(gBaseStats[gBattleMons[gBattlerTarget].species].type2)))
             result = AI_UNKNOWN_CATEGORIES_PROBABLY_PHYSICAL;
         else
             result = AI_UNKNOWN_CATEGORIES;
