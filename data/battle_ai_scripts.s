@@ -2050,6 +2050,10 @@ AI_CV_SpeedDownFromChance: @ 82DCE6B
 	end
 
 AI_CV_SpeedDownAsAGuaranteedSecondaryEffect:
+	count_usable_party_mons AI_USER
+	if_more_than 0, AI_CV_SpeedDownAsAGuaranteedSecondaryEffect_NotLastMonOrSlower
+	if_user_faster AI_Ret
+AI_CV_SpeedDownAsAGuaranteedSecondaryEffect_NotLastMonOrSlower:
 	if_side_affecting AI_TARGET, SIDE_STATUS_MIST, AI_Ret
 	if_ability_might_be AI_TARGET, ABILITY_SHIELD_DUST, AI_Ret
 	if_stat_level_equal AI_TARGET, STAT_SPEED, 0, AI_Ret
@@ -2059,6 +2063,8 @@ AI_CV_SpeedDownAsAGuaranteedSecondaryEffect:
 	if_target_might_have_a_sub_before_our_attack AI_Ret
 AI_CV_SpeedDown: @ 82DCE81
 	if_target_faster AI_CV_SpeedDown2
+	count_usable_party_mons AI_USER
+	if_equal 0, Score_Minus8
 	goto AI_CV_SpeedDown_End
 
 AI_CV_SpeedDown2: @ 82DCE8E
