@@ -3039,6 +3039,7 @@ AI_CV_Counter6:
 
 AI_CV_Counter_TargetEncored:
 	get_last_used_bank_move AI_TARGET
+	if_equal MOVE_FAKE_OUT, Score_Minus10
 	get_move_power_from_result
 	if_equal 0, Score_Minus10
 	get_last_used_bank_move AI_TARGET
