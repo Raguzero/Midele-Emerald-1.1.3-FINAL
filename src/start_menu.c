@@ -198,7 +198,7 @@ static const struct WindowTemplate sUnknown_085105AC[] =
     DUMMY_WIN_TEMPLATE
 };
 
-static const struct WindowTemplate sSaveInfoWindowTemplate = {0, 1, 1, 0xE, 0xA, 0xF, 8};
+static const struct WindowTemplate sSaveInfoWindowTemplate = {0, 1, 1, 0xE, 0xC, 0xF, 8};
 
 // Local functions
 static void BuildStartMenuActions(void);
@@ -1368,6 +1368,13 @@ static void ShowSaveInfoWindow(void)
     sub_819A344(2, gStringVar4, color);
     xOffset = GetStringRightAlignXOffset(1, gStringVar4, 0x70);
     AddTextPrinterParameterized(sSaveInfoWindowId, 1, gStringVar4, xOffset, yOffset, 0xFF, NULL);
+	
+
+    // Print version number
+    yOffset += 0x10;
+    AddTextPrinterParameterized(sSaveInfoWindowId, 1, gText_SavingVersionNum, 0, yOffset, 0xFF, NULL);
+    xOffset = GetStringRightAlignXOffset(1, gText_SavingVersionNum2, 0x70);
+    AddTextPrinterParameterized(sSaveInfoWindowId, 1, gText_SavingVersionNum2, xOffset, yOffset, 0xFF, NULL);
 
     CopyWindowToVram(sSaveInfoWindowId, 2);
 }
