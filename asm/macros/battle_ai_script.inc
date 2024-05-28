@@ -124,6 +124,9 @@
 	.endm
 
 	.macro if_equal param0:req, param1:req
+  .if (\param0 >= 256)
+    .error "uso de \param0 (> 255) en if_equal"
+  .endif
 	.byte 0x13
 	.byte \param0
 	.4byte \param1
