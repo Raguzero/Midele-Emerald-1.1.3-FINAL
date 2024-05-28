@@ -2812,13 +2812,18 @@ AI_CV_Substitute_HPNotAConcern:
 	if_equal EFFECT_FLATTER, AI_CV_Substitute_TargetAttemptedConfusion
 	if_equal EFFECT_SWAGGER, AI_CV_Substitute_TargetAttemptedConfusion
 	if_equal EFFECT_LEECH_SEED, AI_CV_Substitute_TargetAttemptedLeechSeed
+	if_equal EFFECT_COUNTER, AI_CV_Substitute_ConsiderALastBonus
+	if_equal EFFECT_MIRROR_COAT, AI_CV_Substitute_ConsiderALastBonus
 	goto AI_CV_Substitute_End
+
 AI_CV_Substitute_TargetAttemptedPermanentStatus:
 	if_not_status AI_USER, STATUS1_PSN_ANY | STATUS1_BURN | STATUS1_PARALYSIS, AI_CV_Substitute_ConsiderALastBonus
 	goto AI_CV_Substitute_End
+
 AI_CV_Substitute_TargetAttemptedConfusion:
 	if_not_status2 AI_USER, STATUS2_CONFUSION, AI_CV_Substitute_ConsiderALastBonus
 	goto AI_CV_Substitute_End
+
 AI_CV_Substitute_TargetAttemptedLeechSeed:
 	if_status3 AI_USER, STATUS3_LEECHSEED, AI_CV_Substitute_End
 AI_CV_Substitute_ConsiderALastBonus:
