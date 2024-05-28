@@ -991,7 +991,6 @@ AI_UselessEffectsWhenChoiced:
     .byte EFFECT_ACCURACY_UP
     .byte EFFECT_EVASION_UP
     .byte EFFECT_CONVERSION
-    .byte EFFECT_SPECIAL_DEFENSE_UP_2
     .byte EFFECT_FOCUS_ENERGY
     .byte EFFECT_ATTACK_UP_2
     .byte EFFECT_DEFENSE_UP_2
@@ -2938,27 +2937,6 @@ AI_CV_Disable_DiscouragedMoveEffectsToDisableWhenStatused:
     .byte -1
 
 
-@ Si el rival le usa movimientos con estos efectos a la IA y esta
-@ tira Counter o Mirror Coat, conviene que la IA no lo
-@ siga usando, o el rival se puede poner a +6 y dar OHKO
-@ o puede volverse muy difícil acertar con estos movimientos
-AI_CV_ExcellentEffectsToUseAgainstCounterAndMirrorCoat:
-    .byte EFFECT_ATTACK_UP
-    .byte EFFECT_SPECIAL_ATTACK_UP
-    .byte EFFECT_ATTACK_UP_2
-    .byte EFFECT_SPECIAL_ATTACK_UP_2
-    .byte EFFECT_BULK_UP
-    .byte EFFECT_CALM_MIND
-    .byte EFFECT_QUIVER_DANCE
-    .byte EFFECT_COIL
-    .byte EFFECT_DRAGON_DANCE
-    .byte EFFECT_ATTACK_SPATK_UP
-    .byte EFFECT_SPECIAL_ATTACK_UP_3
-AI_CV_EvasionUpEffects:
-    .byte EFFECT_EVASION_UP
-    .byte EFFECT_EVASION_UP_2
-    .byte EFFECT_MINIMIZE
-    .byte -1
 
 AI_CV_Counter:
     if_hp_condition USER_HAS_1_HP, Score_Minus10
@@ -2992,6 +2970,8 @@ AI_CV_Counter_TargetNotSleeping:
 AI_CV_Counter_MoveHasBeenRevealed:
 	get_last_used_bank_move AI_TARGET
 	get_move_effect_from_result
+	if_not_in_bytes AI_HighlySpammableRepeatableSetupEffects, AI_CV_Counter1
+	score -1
 	if_not_in_bytes AI_CV_ExcellentEffectsToUseAgainstCounterAndMirrorCoat, AI_CV_Counter1
 	if_target_probably_cannot_repeat_last_effect AI_CV_Counter1
 @ El rival de la IA podría boostearse hasta dar OHKO o hacerse casi intocable:
@@ -3993,6 +3973,8 @@ AI_CV_MirrorCoat_TargetNotSleeping:
 AI_CV_MirrorCoat_MoveHasBeenRevealed:
 	get_last_used_bank_move AI_TARGET
 	get_move_effect_from_result
+	if_not_in_bytes AI_HighlySpammableRepeatableSetupEffects, AI_CV_MirrorCoat1
+	score -1
 	if_not_in_bytes AI_CV_ExcellentEffectsToUseAgainstCounterAndMirrorCoat, AI_CV_MirrorCoat1
 	if_target_probably_cannot_repeat_last_effect AI_CV_MirrorCoat1
 @ El rival de la IA podría boostearse hasta dar OHKO o hacerse casi intocable:
@@ -5063,68 +5045,73 @@ AI_SetupFirstTurn_End:
 	end
 
 AI_SetupFirstTurn_SetupEffectsToEncourage:
-    .byte EFFECT_ATTACK_UP
-    .byte EFFECT_DEFENSE_UP
     .byte EFFECT_SPEED_UP
-    .byte EFFECT_SPECIAL_ATTACK_UP
-    .byte EFFECT_SPECIAL_DEFENSE_UP
-    .byte EFFECT_ACCURACY_UP
-    .byte EFFECT_EVASION_UP
-    .byte EFFECT_ATTACK_DOWN
-    .byte EFFECT_DEFENSE_DOWN
     .byte EFFECT_SPEED_DOWN
-    .byte EFFECT_SPECIAL_ATTACK_DOWN
-    .byte EFFECT_SPECIAL_DEFENSE_DOWN
-    .byte EFFECT_ACCURACY_DOWN
     .byte EFFECT_EVASION_DOWN
     .byte EFFECT_CONVERSION
     .byte EFFECT_LIGHT_SCREEN
-    .byte EFFECT_SPECIAL_DEFENSE_UP_2
     .byte EFFECT_FOCUS_ENERGY
     .byte EFFECT_CONFUSE
-    .byte EFFECT_ATTACK_UP_2
-    .byte EFFECT_DEFENSE_UP_2
     .byte EFFECT_SPEED_UP_2
-    .byte EFFECT_SPECIAL_ATTACK_UP_2
-    .byte EFFECT_SPECIAL_DEFENSE_UP_2
-    .byte EFFECT_ACCURACY_UP_2
-    .byte EFFECT_EVASION_UP_2
-    .byte EFFECT_ATTACK_DOWN_2
-    .byte EFFECT_DEFENSE_DOWN_2
     .byte EFFECT_SPEED_DOWN_2
-    .byte EFFECT_SPECIAL_ATTACK_DOWN_2
-    .byte EFFECT_SPECIAL_DEFENSE_DOWN_2
-    .byte EFFECT_ACCURACY_DOWN_2
     .byte EFFECT_EVASION_DOWN_2
     .byte EFFECT_REFLECT
     .byte EFFECT_POISON
     .byte EFFECT_PARALYZE
     .byte EFFECT_SUBSTITUTE
     .byte EFFECT_LEECH_SEED
-    .byte EFFECT_MINIMIZE
-    .byte EFFECT_CURSE
     .byte EFFECT_SWAGGER
     .byte EFFECT_CAMOUFLAGE
     .byte EFFECT_YAWN
-    .byte EFFECT_DEFENSE_CURL
     .byte EFFECT_TORMENT
     .byte EFFECT_FLATTER
     .byte EFFECT_WILL_O_WISP
     .byte EFFECT_INGRAIN
     .byte EFFECT_IMPRISON
     .byte EFFECT_TEETER_DANCE
-    .byte EFFECT_TICKLE
-    .byte EFFECT_COSMIC_POWER
-    .byte EFFECT_BULK_UP
-    .byte EFFECT_CALM_MIND
     .byte EFFECT_CAMOUFLAGE
-    .byte EFFECT_QUIVER_DANCE
-    .byte EFFECT_COIL
     .byte EFFECT_RAIN_DANCE
     .byte EFFECT_SUNNY_DAY
     .byte EFFECT_SANDSTORM
     .byte EFFECT_HAIL
+AI_HighlySpammableRepeatableSetupEffects:
+    .byte EFFECT_DEFENSE_UP
+    .byte EFFECT_SPECIAL_DEFENSE_UP
+    .byte EFFECT_ACCURACY_UP
+    .byte EFFECT_ATTACK_DOWN
+    .byte EFFECT_DEFENSE_DOWN
+    .byte EFFECT_SPECIAL_ATTACK_DOWN
+    .byte EFFECT_SPECIAL_DEFENSE_DOWN
+    .byte EFFECT_ACCURACY_DOWN
+    .byte EFFECT_DEFENSE_UP_2
+    .byte EFFECT_SPECIAL_DEFENSE_UP_2
+    .byte EFFECT_ACCURACY_UP_2
+    .byte EFFECT_ATTACK_DOWN_2
+    .byte EFFECT_DEFENSE_DOWN_2
+    .byte EFFECT_SPECIAL_ATTACK_DOWN_2
+    .byte EFFECT_SPECIAL_DEFENSE_DOWN_2
+    .byte EFFECT_ACCURACY_DOWN_2
+    .byte EFFECT_CURSE
+    .byte EFFECT_DEFENSE_CURL
+    .byte EFFECT_TICKLE
+    .byte EFFECT_COSMIC_POWER
     .byte EFFECT_STOCKPILE
+AI_CV_ExcellentEffectsToUseAgainstCounterAndMirrorCoat:
+    .byte EFFECT_ATTACK_UP
+    .byte EFFECT_SPECIAL_ATTACK_UP
+    .byte EFFECT_ATTACK_UP_2
+    .byte EFFECT_SPECIAL_ATTACK_UP_2
+    .byte EFFECT_BULK_UP
+    .byte EFFECT_CALM_MIND
+    .byte EFFECT_QUIVER_DANCE
+    .byte EFFECT_COIL
+    .byte EFFECT_DRAGON_DANCE
+    .byte EFFECT_ATTACK_SPATK_UP
+    .byte EFFECT_SPECIAL_ATTACK_UP_3
+AI_CV_EvasionUpEffects:
+    .byte EFFECT_EVASION_UP
+    .byte EFFECT_EVASION_UP_2
+    .byte EFFECT_MINIMIZE
     .byte -1
 
 AI_PreferStrongestMove:
