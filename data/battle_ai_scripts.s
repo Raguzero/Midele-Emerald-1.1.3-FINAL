@@ -3484,10 +3484,10 @@ AI_CV_Curse2:
 	goto AI_CV_Curse_End
 
 AI_CV_Curse_Ghost:
-    if_target_might_have_a_sub_before_our_attack Score_Minus10
+  if_target_might_have_a_sub_before_our_attack Score_Minus10
+	if_status2 AI_TARGET, STATUS2_CURSED, Score_Minus5
 	if_hp_more_than AI_USER, 80, AI_CV_Curse_End
 	score -1
-
 AI_CV_Curse_End:
 	end
 
