@@ -4744,13 +4744,14 @@ AI_TryToFaint:
 @ Si, además de no llegar al 40%, tiene menos de un 70% de acertar o el rival se puede curar, quita otro punto.
 @ Esto evita que la IA use ataques flojos y hace que en dobles ataque a los que más daño hace
         get_considered_move_power
-        if_equal 0, AI_TryToFaint_BonusToMostPowerfulAttack
-        if_effect EFFECT_OHKO, AI_TryToFaint_BonusToMostPowerfulAttack
-        if_effect EFFECT_COUNTER, AI_TryToFaint_BonusToMostPowerfulAttack
-        if_effect EFFECT_MIRROR_COAT, AI_TryToFaint_BonusToMostPowerfulAttack
-        if_effect EFFECT_ENDEAVOR, AI_TryToFaint_BonusToMostPowerfulAttack
+        if_equal 0, AI_TryToFaint_End
+        if_effect EFFECT_OHKO, AI_TryToFaint_End
+        if_effect EFFECT_COUNTER, AI_TryToFaint_End
+        if_effect EFFECT_MIRROR_COAT, AI_TryToFaint_End
+        if_effect EFFECT_ENDEAVOR, AI_TryToFaint_End
+        if_effect EFFECT_FAKE_OUT, AI_TryToFaint_End
         get_curr_dmg_hp_percent
-        if_more_than 40, AI_TryToFaint_BonusToMostPowerfulAttack
+        if_more_than 40, AI_TryToFaint_PenaltyForTheLeastPowerfulAttacks
         score -1
         if_accuracy_less_than 70, AI_TryToFaint_IncreasePenaltyForHealingTargetOrLowAccuracy
         if_effect EFFECT_TRAP, AI_TryToFaint_ConsiderSkippingPenaltiesForPartialTrapping
@@ -4767,7 +4768,7 @@ AI_TryToFaint_SkipPenaltyForLowDamageAgainstAHealingMon:
         if_more_than 6, AI_TryToFaint_SkipPenaltyForReallyLowDamage
         score -1
 AI_TryToFaint_SkipPenaltyForReallyLowDamage:
-        if_more_than 20, AI_TryToFaint_BonusToMostPowerfulAttack
+        if_more_than 20, AI_TryToFaint_PenaltyForTheLeastPowerfulAttacks
         if_effect EFFECT_MIDELE_POWER, AI_TryToFaint_CheckIfTargetOHKOsUser
         if_effect EFFECT_TRAP, AI_TryToFaint_CheckIfPartialTrappingMoveWillDealDamage
         if_ability_might_be AI_TARGET, ABILITY_SHIELD_DUST, AI_TryToFaint_SkipCheckingMovesWithSecondaryEffect
@@ -4778,7 +4779,7 @@ AI_TryToFaint_SkipPenaltyForReallyLowDamage:
 AI_TryToFaint_SkipCheckingMovesWithSecondaryEffect:
         score -1
 AI_TryToFaint_SkipOnePenaltyForWeakMovesDueToSecondaryEffects:
-AI_TryToFaint_BonusToMostPowerfulAttack:
+AI_TryToFaint_PenaltyForTheLeastPowerfulAttacks:
 	get_how_powerful_move_is
 	if_equal MOVE_NOT_MOST_POWERFUL, Score_Minus1
 	if_equal MOVE_POWER_DISCOURAGED_AND_NOT_MOST_POWERFUL, Score_Minus2
