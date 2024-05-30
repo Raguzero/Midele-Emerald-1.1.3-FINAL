@@ -4162,6 +4162,7 @@ AI_CV_FakeOut:
 	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_CV_FakeOut_CheckIfSubIsBroken
 	if_ability_might_be AI_TARGET, ABILITY_INNER_FOCUS, AI_CV_FakeOut_UseIfInNeed
 	if_ability_might_be AI_TARGET, ABILITY_SHIELD_DUST, AI_CV_FakeOut_UseIfInNeed
+AI_CV_FakeOut_Encourage:
 	if_double_battle AI_CV_FakeOut_Double
     if_user_choiced AI_CV_FakeOut_Double
 	score +5
@@ -4173,14 +4174,13 @@ AI_CV_FakeOut_End:
 
 @ Tira Fake Out a pokes que podrían tener Inner Focus o Shield Dust si no va a tener tiempo de atacar primero
 AI_CV_FakeOut_UseIfInNeed:
-    if_user_faster AI_CV_FakeOut_End
     if_can_faint AI_CV_FakeOut_End @ ya recibe suficiente bonus
+    if_user_faster AI_TryToFaint_ApplyPenaltiesForLowDamage @ esto se salta al usar Fake Out (si el rival no tiene sustituto), pero en este caso no conviene
     calculate_nhko AI_TARGET
-    if_more_than 1, AI_CV_FakeOut_End
+    if_more_than 1, AI_TryToFaint_ApplyPenaltiesForLowDamage
     calculate_nhko AI_TARGET @ se hace dos veces para que solo lo haga si es claro que el rival hace KO
-    if_more_than 1, AI_CV_FakeOut_End
-    score +5
-    goto AI_CV_FakeOut_End
+    if_more_than 1, AI_TryToFaint_ApplyPenaltiesForLowDamage
+    goto AI_CV_FakeOut_Encourage
 
 AI_CV_FakeOut_CheckIfSubIsBroken:
     if_can_faint AI_CV_FakeOut_End
@@ -4197,16 +4197,16 @@ AI_CV_FakeOut_AvoidIfLastMon:
     count_usable_party_mons AI_TARGET
     if_more_than 0, AI_CV_FakeOut_Avoid
     if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_CV_FakeOut_Avoid
-    if_can_faint AI_CV_FakeOut_CheckProtectEndure
-    goto AI_CV_FakeOut_Avoid
-
-AI_CV_FakeOut_Avoid:
-    goto Score_Minus12
-
+    if_will_faint AI_CV_FakeOut_CheckProtectEndure
+		if_cant_faint AI_CV_FakeOut_Avoid
+    score -5
 AI_CV_FakeOut_CheckProtectEndure:
     if_has_move_with_effect AI_TARGET, EFFECT_PROTECT, AI_CV_FakeOut_Avoid
     if_has_move_with_effect AI_TARGET, EFFECT_ENDURE, AI_CV_FakeOut_Avoid
     goto AI_CV_FakeOut_End @ no tiene nada de eso: puede ser conveniente tirar Fake Out
+
+AI_CV_FakeOut_Avoid:
+    goto Score_Minus12
 
 AI_CV_SpitUp:
 	get_stockpile_count AI_USER
@@ -4749,7 +4749,12 @@ AI_TryToFaint:
         if_effect EFFECT_COUNTER, AI_TryToFaint_End
         if_effect EFFECT_MIRROR_COAT, AI_TryToFaint_End
         if_effect EFFECT_ENDEAVOR, AI_TryToFaint_End
-        if_effect EFFECT_FAKE_OUT, AI_TryToFaint_End
+        if_not_effect EFFECT_FAKE_OUT, AI_TryToFaint_SkipFakeOut
+        if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_TryToFaint_ApplyPenaltiesForLowDamage
+        goto AI_TryToFaint_End
+
+AI_TryToFaint_SkipFakeOut:
+AI_TryToFaint_ApplyPenaltiesForLowDamage:
         get_curr_dmg_hp_percent
         if_more_than 40, AI_TryToFaint_PenaltyForTheLeastPowerfulAttacks
         score -1
