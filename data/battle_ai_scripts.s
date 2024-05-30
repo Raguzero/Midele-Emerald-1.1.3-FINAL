@@ -5097,6 +5097,7 @@ AI_HighlySpammableRepeatableSetupEffects:
     .byte EFFECT_TICKLE
     .byte EFFECT_COSMIC_POWER
     .byte EFFECT_STOCKPILE
+    .byte EFFECT_SPIKES
 AI_CV_ExcellentEffectsToUseAgainstCounterAndMirrorCoat:
     .byte EFFECT_ATTACK_UP
     .byte EFFECT_SPECIAL_ATTACK_UP
