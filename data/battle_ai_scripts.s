@@ -3598,6 +3598,7 @@ AI_CV_Protect_MessWithTruant:
     score +4
     goto AI_CV_Protect_End
 
+AI_CV_Protect_OpponentIsSemiInvulnerable:
     if_user_faster Score_Plus5  @ Si la IA es más rápida, no tiene sentido que ataque, mejor protegerse
     calculate_nhko AI_TARGET    @ En caso contrario, conviene protegerse salvo si la IA recibe poco y puede hacer mucho
     if_more_than 4, AI_CV_Protect_End @ Si recibe 5HKO o menos daño, a la IA le da un poco igual. Se protegerá si no tiene nada
