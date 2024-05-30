@@ -3493,20 +3493,8 @@ AI_CV_Curse_End:
 AI_CV_Protect:
 	get_protect_count AI_USER
 	if_more_than 1, AI_CV_Protect_ScoreDown5
-    if_no_ability AI_TARGET, ABILITY_TRUANT, AI_CV_Protect_NoChanceToMessWithTruant
-    if_target_wont_attack_due_to_truant AI_CV_Protect_End @ conviene ahorrar Protect para el siguiente turno, y ya se penaliza Protect en AI_CBM_Protect
-    if_target_faster Score_Plus5
-    score +4
-    goto AI_CV_Protect_End
-AI_CV_Protect_NoChanceToMessWithTruant:
-    if_not_status3 AI_TARGET, STATUS3_SEMI_INVULNERABLE, AI_CV_Protect_OpponentIsNotSemiInvulnerable
-    if_user_faster Score_Plus5  @ Si la IA es más rápida, no tiene sentido que ataque, mejor protegerse
-    calculate_nhko AI_TARGET    @ En caso contrario, conviene protegerse salvo si la IA recibe poco y puede hacer mucho
-    if_more_than 4, AI_CV_Protect_End @ Si recibe 5HKO o menos daño, a la IA le da un poco igual. Se protegerá si no tiene nada
-    if_more_than 2, Score_Plus2 @ Si recibe 3HKO o menos daño, con este +2 preferirá ataques que hagan KO (por if_can_faint) antes que protegerse
-    goto Score_Plus5
-
-AI_CV_Protect_OpponentIsNotSemiInvulnerable:
+    if_ability AI_TARGET, ABILITY_TRUANT, AI_CV_Protect_MessWithTruant
+    if_status3 AI_TARGET, STATUS3_SEMI_INVULNERABLE, AI_CV_Protect_OpponentIsSemiInvulnerable
     if_not_status2 AI_TARGET, STATUS2_MULTIPLETURNS, AI_CV_Protect_OpponentIsNotInAMultiturnAttack
     if_target_faster AI_CV_Protect_FasterOpponentIsCharging
 
@@ -3603,6 +3591,18 @@ AI_CV_Protect_Wish:
 	if_hp_more_than AI_USER, 50, AI_CV_Protect_End
 	score +3
 	goto AI_CV_Protect_End
+
+AI_CV_Protect_MessWithTruant:
+    if_target_wont_attack_due_to_truant AI_CV_Protect_End @ conviene ahorrar Protect para el siguiente turno, y ya se penaliza Protect en AI_CBM_Protect
+    if_target_faster Score_Plus5
+    score +4
+    goto AI_CV_Protect_End
+
+    if_user_faster Score_Plus5  @ Si la IA es más rápida, no tiene sentido que ataque, mejor protegerse
+    calculate_nhko AI_TARGET    @ En caso contrario, conviene protegerse salvo si la IA recibe poco y puede hacer mucho
+    if_more_than 4, AI_CV_Protect_End @ Si recibe 5HKO o menos daño, a la IA le da un poco igual. Se protegerá si no tiene nada
+    if_more_than 2, Score_Plus2 @ Si recibe 3HKO o menos daño, con este +2 preferirá ataques que hagan KO (por if_can_faint) antes que protegerse
+    goto Score_Plus5
 	
 AI_CV_Protect_Boost:
 	is_first_turn_for AI_USER
@@ -3610,8 +3610,6 @@ AI_CV_Protect_Boost:
 	goto AI_CV_Protect_End	
 AI_CV_Protect_Boost2:
 	if_target_faster Score_Plus10
-	goto AI_CV_Protect_End
-
 AI_CV_Protect_End:
 	end
 
