@@ -2027,7 +2027,8 @@ AI_CV_DefenseDown_SkipFirstMinus1:
 AI_CV_DefenseDown2:
 	if_random_less_than 50, AI_CV_DefenseDown3
 	score -2
-
+	if_not_status2 AI_TARGET, STATUS2_CONFUSION, AI_CV_DefenseDown3
+	score +1
 AI_CV_DefenseDown3:
 	if_hp_condition TARGET_HAS_1_MAX_HP, Score_Minus3
 	if_hp_more_than AI_TARGET, 70, AI_CV_DefenseDown_End
@@ -5486,10 +5487,8 @@ AI_HPAware_DiscouragedEffectsWhenMediumHP: @ 82DE22D
     .byte EFFECT_ACCURACY_UP_2
     .byte EFFECT_EVASION_UP_2
     .byte EFFECT_ATTACK_DOWN_2
-    .byte EFFECT_DEFENSE_DOWN_2
     .byte EFFECT_SPEED_DOWN_2
     .byte EFFECT_SPECIAL_ATTACK_DOWN_2
-    .byte EFFECT_SPECIAL_DEFENSE_DOWN_2
     .byte EFFECT_ACCURACY_DOWN_2
     .byte EFFECT_EVASION_DOWN_2
     .byte EFFECT_CONVERSION_2
