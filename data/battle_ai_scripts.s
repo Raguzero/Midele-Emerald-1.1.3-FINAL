@@ -3709,8 +3709,12 @@ AI_CV_Endure_NoWeatherDamageExpected:
 	if_hp_less_than AI_USER, 14, AI_CV_Endure_SlightlyDiscourageUnlessTargetIsSuffering
 	if_hp_less_than AI_USER, 35, AI_CV_Endure3
 	if_doesnt_have_non_ineffective_move_with_effect AI_USER, EFFECT_FLAIL, AI_CV_Endure_Discourage
-	score +1
-	goto AI_CV_Endure_End
+	if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_QUICK_ATTACK, AI_CV_Endure_Discourage
+	if_user_faster Score_Plus1
+	if_stat_level_equal AI_USER, STAT_SPEED, 12, AI_CV_Endure_Discourage
+	if_ability AI_USER, ABILITY_SPEED_BOOST, Score_Plus1
+	if_holds_item AI_USER, ITEM_SALAC_BERRY, Score_Plus1
+	goto AI_CV_Endure_Discourage
 
 AI_CV_Endure_UserWillFaintAfterEnduring:
 	score -8
@@ -3744,7 +3748,15 @@ AI_CV_Endure_SlightlyDiscourage:
 	goto AI_CV_Endure_End
 
 AI_CV_Endure3:
-	if_has_non_ineffective_move_with_effect AI_USER, EFFECT_FLAIL, Score_Plus2
+	if_doesnt_have_non_ineffective_move_with_effect AI_USER, EFFECT_FLAIL, AI_CV_Endure3_NoFlail
+	if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_QUICK_ATTACK, AI_CV_Endure3_NoFlail
+	if_user_faster Score_Plus2
+	if_stat_level_equal AI_USER, STAT_SPEED, 12, AI_CV_Endure3_NoFlail
+	if_ability AI_USER, ABILITY_SPEED_BOOST, Score_Plus2
+	if_holds_item AI_USER, ITEM_SALAC_BERRY, Score_Plus2
+AI_CV_Endure3_NoFlail:
+	get_protect_count AI_USER
+	if_more_than 0, AI_CV_Endure_SlightlyDiscourage
 	if_random_less_than 70, AI_CV_Endure_End
 	score +1
 
