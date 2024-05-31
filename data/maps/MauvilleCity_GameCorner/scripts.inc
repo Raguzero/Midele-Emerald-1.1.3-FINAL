@@ -646,126 +646,59 @@ MauvilleCity_GameCorner_EventScript_MonConfirm:
 	case 4, MauvilleCity_GameCorner_EventScript_PINECO
 	case 5, MauvilleCity_GameCorner_EventScript_MEDITITE
 	end
+
+.macro GiveMonGameCorner species:req, level:req, coins:req, chooseAddress:req
+	checkcoins VAR_TEMP_2
+	compare VAR_TEMP_2, \coins
+	goto_if_ge .GiveMonGameCorner_Pay_\@
+	call MauvilleCity_GameCorner_EventScript_NoCoinsForMon
+	goto \chooseAddress
+.GiveMonGameCorner_Pay_\@:
+	givemon \species, \level, ITEM_NONE
+	compare VAR_RESULT, MON_CANT_GIVE
+	goto_if_eq MauvilleCity_GameCorner_EventScript_NoRoom
+	copyvar VAR_0x8004, VAR_RESULT
+	removecoins \coins
+	updatecoinsbox 0, 0
+	playse SE_REGI
+    waitse
+	playfanfare MUS_FANFA4
+	bufferspeciesname 0, \species
+	message MauvilleCity_GameCorner_Text_GetMon
+	waitfanfare
+	waitmessage
+	bufferspeciesname 1, \species
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_ne .GiveMonGameCorner_NicknameDone_\@
+	compare VAR_0x8004, MON_GIVEN_TO_PC
+	goto_if_eq .GiveMonGameCorner_NicknamePC_\@
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto .GiveMonGameCorner_NicknameDone_\@
+.GiveMonGameCorner_NicknamePC_\@:
+	call Common_EventScript_NameReceivedBoxMon
+.GiveMonGameCorner_NicknameDone_\@:
+	setvar VAR_TEMP_1, \species
+	compare VAR_0x8004, MON_GIVEN_TO_PC
+	call_if_eq Common_EventScript_TransferredToPC
+    goto \chooseAddress
+.endm
 	
 MauvilleCity_GameCorner_EventScript_FERROSEED:
-	checkcoins VAR_TEMP_2
-	compare VAR_TEMP_2, 1500
-	goto_if_lt MauvilleCity_GameCorner_EventScript_NoCoinsForMon
-	getpartysize
-	compare VAR_RESULT, 6
-    goto_if_eq MauvilleCity_GameCorner_EventScript_NoRoom
-	copyvar VAR_0x8004, VAR_RESULT
-	removecoins 1500
-	updatecoinsbox 0, 0
-	playse SE_REGI
-    waitse
-	playfanfare MUS_FANFA4
-	bufferspeciesname 0, SPECIES_FERROSEED
-	message MauvilleCity_GameCorner_Text_GetMon
-	waitfanfare
-	waitmessage
-	givemon SPECIES_FERROSEED, 20, ITEM_NONE
-	bufferspeciesname 1, SPECIES_FERROSEED
-	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq Common_EventScript_NameReceivedPartyMon
-    goto MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst
+	GiveMonGameCorner SPECIES_FERROSEED, 20, 1500, MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst
 
 MauvilleCity_GameCorner_EventScript_SANDYGAST:
-	checkcoins VAR_TEMP_2
-	compare VAR_TEMP_2, 1200
-	goto_if_lt MauvilleCity_GameCorner_EventScript_NoCoinsForMon
-	getpartysize
-	compare VAR_RESULT, 6
-    goto_if_eq MauvilleCity_GameCorner_EventScript_NoRoom
-	copyvar VAR_0x8004, VAR_RESULT
-	removecoins 1200
-	updatecoinsbox 0, 0
-	playse SE_REGI
-    waitse
-	playfanfare MUS_FANFA4
-	bufferspeciesname 0, SPECIES_SANDYGAST
-	message MauvilleCity_GameCorner_Text_GetMon
-	waitfanfare
-	waitmessage
-	givemon SPECIES_SANDYGAST, 20, ITEM_NONE
-	bufferspeciesname 1, SPECIES_SANDYGAST
-	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq Common_EventScript_NameReceivedPartyMon
-    goto MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst
+	GiveMonGameCorner SPECIES_SANDYGAST, 20, 1200, MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst
     
 MauvilleCity_GameCorner_EventScript_SNOM:
-	checkcoins VAR_TEMP_2
-	compare VAR_TEMP_2, 1000
-	goto_if_lt MauvilleCity_GameCorner_EventScript_NoCoinsForMon
-	getpartysize
-	compare VAR_RESULT, 6
-    goto_if_eq MauvilleCity_GameCorner_EventScript_NoRoom
-	copyvar VAR_0x8004, VAR_RESULT
-	removecoins 1000
-	updatecoinsbox 0, 0
-	playse SE_REGI
-    waitse
-	playfanfare MUS_FANFA4
-	bufferspeciesname 0, SPECIES_SNOM
-	message MauvilleCity_GameCorner_Text_GetMon
-	waitfanfare
-	waitmessage
-	givemon SPECIES_SNOM, 20, ITEM_NONE
-	bufferspeciesname 1, SPECIES_SNOM
-	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq Common_EventScript_NameReceivedPartyMon
-    goto MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst
+	GiveMonGameCorner SPECIES_SNOM, 20, 1000, MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst
     
 MauvilleCity_GameCorner_EventScript_PINECO:
-	checkcoins VAR_TEMP_2
-	compare VAR_TEMP_2, 500
-	goto_if_lt MauvilleCity_GameCorner_EventScript_NoCoinsForMon
-	getpartysize
-	compare VAR_RESULT, 6
-    goto_if_eq MauvilleCity_GameCorner_EventScript_NoRoom
-	copyvar VAR_0x8004, VAR_RESULT
-	removecoins 500
-	updatecoinsbox 0, 0
-	playse SE_REGI
-    waitse
-	playfanfare MUS_FANFA4
-	bufferspeciesname 0, SPECIES_PINECO
-	message MauvilleCity_GameCorner_Text_GetMon
-	waitfanfare
-	waitmessage
-	givemon SPECIES_PINECO, 20, ITEM_NONE
-	bufferspeciesname 1, SPECIES_PINECO
-	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq Common_EventScript_NameReceivedPartyMon
-    goto MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst
+	GiveMonGameCorner SPECIES_PINECO, 20, 500, MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst
     
 MauvilleCity_GameCorner_EventScript_MEDITITE:
-	checkcoins VAR_TEMP_2
-	compare VAR_TEMP_2, 1300
-	goto_if_lt MauvilleCity_GameCorner_EventScript_NoCoinsForMon
-	getpartysize
-	compare VAR_RESULT, 6
-    goto_if_eq MauvilleCity_GameCorner_EventScript_NoRoom
-	copyvar VAR_0x8004, VAR_RESULT
-	removecoins 1300
-	updatecoinsbox 0, 0
-	playse SE_REGI
-    waitse
-	playfanfare MUS_FANFA4
-	bufferspeciesname 0, SPECIES_MEDITITE
-	message MauvilleCity_GameCorner_Text_GetMon
-	waitfanfare
-	waitmessage
-	givemon SPECIES_MEDITITE, 20, ITEM_NONE
-	bufferspeciesname 1, SPECIES_MEDITITE
-	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq Common_EventScript_NameReceivedPartyMon
-    goto MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst
+	GiveMonGameCorner SPECIES_MEDITITE, 20, 1300, MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst
 
 MauvilleCity_GameCorner_EventScript_MonPrizesStart2::
 	lock
@@ -833,124 +766,19 @@ MauvilleCity_GameCorner_EventScript_MonConfirm2:
 	end
 	
 MauvilleCity_GameCorner_EventScript_SPHEAL:
-	checkcoins VAR_TEMP_2
-	compare VAR_TEMP_2, 800
-	goto_if_lt MauvilleCity_GameCorner_EventScript_NoCoinsForMon
-	getpartysize
-	compare VAR_RESULT, 6
-    goto_if_eq MauvilleCity_GameCorner_EventScript_NoRoom
-	copyvar VAR_0x8004, VAR_RESULT
-	removecoins 800
-	updatecoinsbox 0, 0
-	playse SE_REGI
-    waitse
-	playfanfare MUS_FANFA4
-	bufferspeciesname 0, SPECIES_SPHEAL
-	message MauvilleCity_GameCorner_Text_GetMon
-	waitfanfare
-	waitmessage
-	givemon SPECIES_SPHEAL, 20, ITEM_NONE
-	bufferspeciesname 1, SPECIES_SPHEAL
-	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq Common_EventScript_NameReceivedPartyMon
-    goto MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst2
+	GiveMonGameCorner SPECIES_SPHEAL, 20, 800, MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst2
 
 MauvilleCity_GameCorner_EventScript_CUBONE:
-	checkcoins VAR_TEMP_2
-	compare VAR_TEMP_2, 500
-	goto_if_lt MauvilleCity_GameCorner_EventScript_NoCoinsForMon
-	getpartysize
-	compare VAR_RESULT, 6
-    goto_if_eq MauvilleCity_GameCorner_EventScript_NoRoom
-	copyvar VAR_0x8004, VAR_RESULT
-	removecoins 500
-	updatecoinsbox 0, 0
-	playse SE_REGI
-    waitse
-	playfanfare MUS_FANFA4
-	bufferspeciesname 0, SPECIES_CUBONE
-	message MauvilleCity_GameCorner_Text_GetMon
-	waitfanfare
-	waitmessage
-	givemon SPECIES_CUBONE, 20, ITEM_NONE
-	bufferspeciesname 1, SPECIES_CUBONE
-	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq Common_EventScript_NameReceivedPartyMon
-    goto MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst2
+	GiveMonGameCorner SPECIES_CUBONE, 20, 500, MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst2
     
 MauvilleCity_GameCorner_EventScript_VENONAT:
-	checkcoins VAR_TEMP_2
-	compare VAR_TEMP_2, 500
-	goto_if_lt MauvilleCity_GameCorner_EventScript_NoCoinsForMon
-	getpartysize
-	compare VAR_RESULT, 6
-    goto_if_eq MauvilleCity_GameCorner_EventScript_NoRoom
-	copyvar VAR_0x8004, VAR_RESULT
-	removecoins 500
-	updatecoinsbox 0, 0
-	playse SE_REGI
-    waitse
-	playfanfare MUS_FANFA4
-	bufferspeciesname 0, SPECIES_VENONAT
-	message MauvilleCity_GameCorner_Text_GetMon
-	waitfanfare
-	waitmessage
-	givemon SPECIES_VENONAT, 20, ITEM_NONE
-	bufferspeciesname 1, SPECIES_VENONAT
-	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq Common_EventScript_NameReceivedPartyMon
-    goto MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst2
+	GiveMonGameCorner SPECIES_VENONAT, 20, 500, MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst2
     
 MauvilleCity_GameCorner_EventScript_HAPPINY:
-	checkcoins VAR_TEMP_2
-	compare VAR_TEMP_2, 2500
-	goto_if_lt MauvilleCity_GameCorner_EventScript_NoCoinsForMon
-	getpartysize
-	compare VAR_RESULT, 6
-    goto_if_eq MauvilleCity_GameCorner_EventScript_NoRoom
-	copyvar VAR_0x8004, VAR_RESULT
-	removecoins 2500
-	updatecoinsbox 0, 0
-	playse SE_REGI
-    waitse
-	playfanfare MUS_FANFA4
-	bufferspeciesname 0, SPECIES_HAPPINY
-	message MauvilleCity_GameCorner_Text_GetMon
-	waitfanfare
-	waitmessage
-	givemon SPECIES_HAPPINY, 20, ITEM_NONE
-	bufferspeciesname 1, SPECIES_HAPPINY
-	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq Common_EventScript_NameReceivedPartyMon
-    goto MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst2
+	GiveMonGameCorner SPECIES_HAPPINY, 20, 2500, MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst2
     
 MauvilleCity_GameCorner_EventScript_WOOPER:
-	checkcoins VAR_TEMP_2
-	compare VAR_TEMP_2, 800
-	goto_if_lt MauvilleCity_GameCorner_EventScript_NoCoinsForMon
-	getpartysize
-	compare VAR_RESULT, 6
-    goto_if_eq MauvilleCity_GameCorner_EventScript_NoRoom
-	copyvar VAR_0x8004, VAR_RESULT
-	removecoins 800
-	updatecoinsbox 0, 0
-	playse SE_REGI
-    waitse
-	playfanfare MUS_FANFA4
-	bufferspeciesname 0, SPECIES_WOOPER
-	message MauvilleCity_GameCorner_Text_GetMon
-	waitfanfare
-	waitmessage
-	givemon SPECIES_WOOPER, 20, ITEM_NONE
-	bufferspeciesname 1, SPECIES_WOOPER
-	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq Common_EventScript_NameReceivedPartyMon
-    goto MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst2
+	GiveMonGameCorner SPECIES_WOOPER, 20, 800, MauvilleCity_GameCorner_EventScript_MonPrizesStartFirst2
 
 MauvilleCity_GameCorner_EventScript_NoRoom:
 	msgbox MauvilleCity_GameCorner_Text_NoRoom, 4
@@ -960,8 +788,7 @@ MauvilleCity_GameCorner_EventScript_NoRoom:
 
 MauvilleCity_GameCorner_EventScript_NoCoinsForMon:
 	msgbox MauvilleCity_GameCorner_Text_NotEnoughCoins, 4
-	goto MauvilleCity_GameCorner_EventScript_MonPrizes
-	end	
+	return	
 
 MauvilleCity_GameCorner_EventScript_Ghaddar_Hablar::
 	lock
@@ -1243,4 +1070,4 @@ MauvilleCity_GameCorner_Text_GetMon::
 	.string "{PLAYER} received {STR_VAR_1}!$"
 
 MauvilleCity_GameCorner_Text_NoRoom::
-    .string "Your party is full.$"
+    .string "Your PC and party are full.$"
