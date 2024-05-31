@@ -1511,6 +1511,11 @@ AI_CV_AttackUp_FreeSetupNotWorth_Minus2:
 	score -2
 AI_CV_AttackUp_SkipFreeSetupCheck:
 	if_this_attack_might_be_the_last Score_Minus5
+	if_doesnt_have_move_with_effect AI_TARGET, EFFECT_SUBSTITUTE, AI_CV_AttackUp_SkipSubCheck
+	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_CV_AttackUp_SkipSubCheck
+	if_hp_condition TARGET_CANNOT_USE_SUB, AI_CV_AttackUp_SkipSubCheck
+	score -1
+AI_CV_AttackUp_SkipSubCheck:
 	if_stat_level_less_than AI_USER, STAT_ATK, 9, AI_CV_AttackUp2
 	if_random_less_than 100, AI_CV_AttackUp3
 	score -1
@@ -1688,6 +1693,11 @@ AI_CV_SpAtkUp_FreeSetupNotWorth_Minus2:
 	score -2
 AI_CV_SpAtkUp_SkipFreeSetupCheck:
 	if_this_attack_might_be_the_last Score_Minus5
+	if_doesnt_have_move_with_effect AI_TARGET, EFFECT_SUBSTITUTE, AI_CV_SpAtkUp_SkipSubCheck
+	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_CV_SpAtkUp_SkipSubCheck
+	if_hp_condition TARGET_CANNOT_USE_SUB, AI_CV_SpAtkUp_SkipSubCheck
+	score -1
+AI_CV_SpAtkUp_SkipSubCheck:
 	if_stat_level_less_than AI_USER, STAT_SPATK, 9, AI_CV_SpAtkUp2
 	if_random_less_than 100, AI_CV_SpAtkUp3
 	score -1
@@ -1735,6 +1745,11 @@ AI_CV_Growth_FreeSetupNotWorth_Minus2:
 	score -2
 AI_CV_Growth_SkipFreeSetupCheck:
 	if_this_attack_might_be_the_last Score_Minus5
+	if_doesnt_have_move_with_effect AI_TARGET, EFFECT_SUBSTITUTE, AI_CV_Growth_SkipSubCheck
+	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_CV_Growth_SkipSubCheck
+	if_hp_condition TARGET_CANNOT_USE_SUB, AI_CV_Growth_SkipSubCheck
+	score -1
+AI_CV_Growth_SkipSubCheck:
 	if_stat_level_less_than AI_USER, STAT_SPATK, 8, AI_CV_Growth2
 	if_stat_level_less_than AI_USER, STAT_ATK, 8, AI_CV_Growth2
 	if_random_less_than 100, AI_CV_Growth3
@@ -4693,6 +4708,16 @@ AI_CV_DragonDance_FreeSetupNotWorth_Minus2:
 	score -2
 AI_CV_DragonDance_SkipFreeSetupCheck:
 	if_this_attack_might_be_the_last Score_Minus5
+	if_doesnt_have_move_with_effect AI_TARGET, EFFECT_SUBSTITUTE, AI_CV_DragonDance_SkipSubCheck
+	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_CV_DragonDance_SkipSubCheck
+	if_hp_condition TARGET_CANNOT_USE_SUB, AI_CV_DragonDance_SkipSubCheck
+	if_user_faster AI_CV_DragonDance_ApplyMinus1AgainstPossibleIncomingSub
+	if_target_will_be_faster_after_this_effect AI_CV_DragonDance_ApplyMinus1AgainstPossibleIncomingSub
+	goto AI_CV_DragonDance_SkipSubCheck @ va a poder usar DD y atacar de forma seguida: no aplica la penalización por poder encontrarse un sub enfrente (si atacase directamente, también se podría encontrar un sub)
+
+AI_CV_DragonDance_ApplyMinus1AgainstPossibleIncomingSub:
+	score -1
+AI_CV_DragonDance_SkipSubCheck:
 	if_target_faster AI_CV_DragonDance2
 	if_hp_more_than AI_USER, 50, AI_CV_DragonDance_End
 	if_random_less_than 70, AI_CV_DragonDance_End
