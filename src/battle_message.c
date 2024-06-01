@@ -625,7 +625,9 @@ static const u8 sText_RedHPMicoloFinal[] = _("Ahora tocará usar nuestro\nespír
 static const u8 sText_Krub2PierdePrimerPoke[] = _("Me estaba dejando ganar.\p");
 static const u8 sText_Krub2EnviaUltimoPoke[] = _("Este mensaje aparece para marear.\p");
 static const u8 sText_RedHPKrub2[] = _("Este mensaje vuelve a aparecer\npara marear\p");
-
+static const u8 sText_Pichu7PierdePrimerPoke[] = _("GF debería nerfear los turnos de\ncongelación, de los ataques de dormir,\ldel porcentaje de quedarse paralizado,\lde...(media hora después)....\lEn conclusión, POKéMON no debe\lconsiderarse como algo serio por el alto\lnivel de hax existente.\p");
+static const u8 sText_Pichu7EnviaUltimoPoke[] = _("Exacto, llevo a PICHU y a RAICHU pero\nno a PIKACHU.\lResulta que a cierto individuo del\lhackrom le gusta aplastar\lPIKACHUs con sus hermosas manos\ly lo tuve que dejar en la guardería (?).\p");
+static const u8 sText_RedHPPichu7[] = _("No me dejaron meter ni a LATIOS\nni a LATIAS los creadores del hack,\lpor eso voy a perder (?).\p");
 
 static const u8 frase0[] = _("Entonces sustituí a Blissey por\nGarchomp; y como mi equipo sería un\lSandstorm team, cambié a Tangrowth por\lCradily).\p");
 static const u8 frase1[] = _("Te voy a contar la historia del\nPrimer Nacional Español\ltodas las veces que pueda.\p");
@@ -3204,6 +3206,7 @@ static const struct TrainerSlide sTrainerSlides[] =
     {TRAINER_LAVENDER_MICOLANDIA, sText_Lavender2EnviaUltimoPoke, sText_RedHPLavender2, sText_Lavender2PierdePrimerPoke},
     {TRAINER_MICOLO_MICOLANDIA, sText_MicoloFinalEnviaUltimoPoke, sText_RedHPMicoloFinal, sText_MicoloFinalPierdePrimerPoke},
     {TRAINER_KRUB_2, sText_Krub2EnviaUltimoPoke, sText_RedHPKrub2, sText_Krub2PierdePrimerPoke},
+    {TRAINER_PICHU7, sText_Pichu7EnviaUltimoPoke, sText_RedHPPichu7, sText_Pichu7PierdePrimerPoke},
 };
 
 static u32 GetEnemyMonCount(bool32 onlyAlive)

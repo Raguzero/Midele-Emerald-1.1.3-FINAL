@@ -183,7 +183,7 @@
         {
             "elevation": 0,
             "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-            "script": "MicoloHideout_MeetingRoom_PC2",
+            "script": "MicoloHideout_MeetingRoom_PC6",
             "type": "sign",
             "x": 13,
             "y": 14
@@ -191,7 +191,7 @@
         {
             "elevation": 0,
             "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-            "script": "MicoloHideout_MeetingRoom_PC2",
+            "script": "MicoloHideout_MeetingRoom_PC7",
             "type": "sign",
             "x": 17,
             "y": 14

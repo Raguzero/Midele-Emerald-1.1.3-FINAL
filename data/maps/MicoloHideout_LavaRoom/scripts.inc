@@ -116,6 +116,11 @@ MicoloHideout_LavaRoom_EventScript_Manec::
 	msgbox MicoloHideout_LavaRoom_Text_ManecPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
+MicoloHideout_LavaRoom_EventScript_Pichu7::
+	trainerbattle_single TRAINER_PICHU7, MicoloHideout_LavaRoom_Text_Pichu7Intro, MicoloHideout_LavaRoom_Text_Pichu7Defeat
+	msgbox MicoloHideout_LavaRoom_Text_Pichu7PostBattle, MSGBOX_AUTOCLOSE
+	end
+	
 MicoloHideout_LavaRoom_EventScript_EEVEETO::
 	trainerbattle_double TRAINER_EEVEETO, MicoloHideout_LavaRoom_Text_EEVEETOIntro, MicoloHideout_LavaRoom_Text_EEVEETODefeat, MicoloHideout_LavaRoom_EEVEETO_MasdeunPokemon
 	msgbox MicoloHideout_LavaRoom_Text_EEVEETOPostBattle, MSGBOX_AUTOCLOSE
@@ -186,6 +191,43 @@ MicoloHideout_LavaRoom_Text_PhentPostBattle:
 	.string "REGICE, REGIROCK y REGISTEEL...\p"
 	
 	.string "¿Por qué GF sacó los otros dos?$"
+	
+MicoloHideout_LavaRoom_Text_Pichu7Intro:
+	.string "Yo fui moderador de POKéXPERTO\n"
+	.string "durante un tiempo.\p"
+	
+	.string "Dediqué mi vida entera a instruir a la\n"
+	.string "gente de la región de Teselia para\l"
+	.string "evitar que usara Cinta Experto porque\l"
+	.string "tengo que decir que no tiene nada de\l"
+	.string "experto usar un objeto que potencia\l"
+	.string "ataques que ya son superefectivos.\p"
+	
+	.string "Por lo tanto ya harán el doble de daño\n"
+	.string "y no tiene sentido potenciar lo que ya\l"
+	.string "hace mucho daño, no entiendo como la\l"
+	.string "gente puede usar eso, vaya tontería ¿no?\p"
+
+	.string "Ni siquiera se molestaron los\n"
+	.string "creadores de este hack en meterlo...\l"
+	.string "sabia elección. Era más que obvio.$"
+
+MicoloHideout_LavaRoom_Text_Pichu7Defeat: 
+	.string "Ahora mismo borro el tema ese con una\n"
+	.string "mención positiva a Cinta Experto que ha\l"
+	.string "escrito ese user hace poco y...anda\p"
+	.string "que ahora no soy mod, que lo dejé\n"
+	.string "por asuntos...laborales (?).$"
+
+MicoloHideout_LavaRoom_Text_Pichu7PostBattle:
+	.string "Recuerda no usar Cinta Experto.\p"
+	.string "Antes de usar ese objeto considera usar\n"
+	.string "Vidasfera, Gafas Especiales, Cinta\l"
+	.string "Fuerte, Periscopio, tablas u objeto que\l"
+	.string "subían el 20% de poder a un ataque,\l"
+	.string "bla, bla, bla...incluso no llevar\l"
+	.string "objeto para al menos recibir menos\l"
+	.string "daño de KNOCK OFF.$"
 	
 MicoloHideout_LavaRoom_Text_MDragonIntro:
 	.string "Hola, soy M DRAGON, uno de los más\n" 

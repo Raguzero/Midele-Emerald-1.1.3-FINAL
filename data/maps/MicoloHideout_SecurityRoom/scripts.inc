@@ -43,6 +43,30 @@ MicoloHideout_SecurityRoom_SecurityMan::
 	releaseall
 	return
 
+MicoloHideout_SecurityRoom_Gerph::
+	trainerbattle_single TRAINER_GERPH, Gerph_AntesBatalla, Gerph_MensajeDerrota
+	msgbox Gerph_DespuesDeBatalla, MSGBOX_AUTOCLOSE
+	end
+	
+Gerph_AntesBatalla: 
+	.string "Vaya, vaya, se nos ha colado una\n"
+	.string "rata.\p"
+	.string "¿Quiéres ver nuestras maravillosas\n"
+	.string "instalaciones y salas de los\l"
+	.string "experimentos?\p"
+	
+	.string "¡Ven y contempla nuestras\n"
+	.string "creaciones!$"
+	
+Gerph_MensajeDerrota: 
+	.string "¡NO! ¿POSORD? ¿Por qué?$"
+	
+Gerph_DespuesDeBatalla:
+    .string "Hemos repartido nuestras creaciones\n"
+	.string "por varias zonas de la región.\p"
+ 
+    .string "También puedes encontrar algunas\n"
+    .string "a la venta en el MICOCASINO.$"
 
 MicoloHideout_SecurityRoom_SecurityMan_Text_0:
 	.string "Maldito PACOCHEF... ya ha dejado la\n"

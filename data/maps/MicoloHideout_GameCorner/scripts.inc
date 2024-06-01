@@ -1051,9 +1051,9 @@ MicoloHideout_EventScript_MagnoAquiles::
 	msgbox MicoloHideout_EventScript_MagnoAquiles_Text_3_Extra, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq MicoloHideout_EventScript_MagnoAquiles2
-	trainerbattle_multi TRAINER_AMY_AND_LIV_3, TRAINER_GRUNT_UNUSED, MicoloHideout_EventScript_MagnoAquiles_Text_Derrota_1, MicoloHideout_EventScript_MagnoAquiles_Text_Derrota_2 // MAXIE y ARCHIE EQUIPO MAGMA Y AQUA BATALLA FINAL
-	cleartrainerflag TRAINER_AMY_AND_LIV_3
-	cleartrainerflag TRAINER_GRUNT_UNUSED
+	trainerbattle_multi TRAINER_MAXIE_AND_ARCHIE, TRAINER_ARCHIE_AND_MAXIE, MicoloHideout_EventScript_MagnoAquiles_Text_Derrota_1, MicoloHideout_EventScript_MagnoAquiles_Text_Derrota_2 // MAXIE y ARCHIE EQUIPO MAGMA Y AQUA BATALLA FINAL
+	cleartrainerflag TRAINER_MAXIE_AND_ARCHIE
+	cleartrainerflag TRAINER_ARCHIE_AND_MAXIE
 	msgbox MicoloHideout_EventScript_MagnoAquiles_Text_4, MSGBOX_DEFAULT
 	msgbox MicoloHideout_EventScript_MagnoAquiles_Text_5, MSGBOX_DEFAULT
 	msgbox MicoloHideout_EventScript_MagnoAquiles_Text_6, MSGBOX_DEFAULT

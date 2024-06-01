@@ -260,6 +260,18 @@ MicoloHideout_MeetingRoom_PC5::
 	waitse
 	msgbox MicoloHideout_MeetingRoom_PC5_Text_0, MSGBOX_SIGN
 	return
+	
+MicoloHideout_MeetingRoom_PC6::
+	playse SE_PC_LOGIN
+	waitse
+	msgbox MicoloHideout_MeetingRoom_PC6_Text_0, MSGBOX_SIGN
+	return
+	
+MicoloHideout_MeetingRoom_PC7::
+	playse SE_PC_LOGIN
+	waitse
+	msgbox MicoloHideout_MeetingRoom_PC7_Text_0, MSGBOX_SIGN
+	return
 
 
 MicoloHideout_MeetingRoom_PCHeal::
@@ -354,7 +366,7 @@ MicoloHideout_MeetingRoom_PC4_Text_0:
 	.string "de HONEDGE.\p"
 	
 	.string "Estadísticas Base:\n"
-	.string "60 PS, 140 ATK, 50 DEF, 60 SATK,\l" 
+	.string "60 HP, 140 ATK, 50 DEF, 60 SATK,\l" 
 	.string "50 SDEF, 140 SPEED\p"
 	
 	.string "Habilidad: ADAPTABILITY\p"
@@ -395,6 +407,74 @@ MicoloHideout_MeetingRoom_PC5_Text_0:
 	.string "HOLA REINA: Tipo DARK, 100 Accuracy,\n"
 	.string "atraviesa PROTECT y ENDURE, efecto de\l"
 	.string "NIGHT SHADE.$"
+	
+MicoloHideout_MeetingRoom_PC6_Text_0:
+	.string "Parece un documento con información\n"
+	.string "confidencial que dice lo siguiente:\p"
+
+	.string "La POKéFABRICA ha sido creada de forma\n"
+	.string "exitosa como objetivo para la creación\l"
+	.string "de nuevas formas de vida Pokemoniles\l"
+	.string "capaces de cambiar el METAGAME.\p"
+	
+	.string "Se lo debemos todo a la ayuda inestimable\n"
+	.string "de RAGU, y de MERUM, los fundadores del\l"
+	.string "proyecto.\p"
+	
+	.string "Nuestra primera creación es un nuevo\n"
+	.string "POKéMON al que llamamos PRINPAWN,\l"
+	.string "el POKéMON peón.\p"
+	
+	.string "PRINPAWN puede parece débil a simple\n"
+	.string "vista, pero hemos descubierto su\l"
+	.string "capacidad de evolucionar a dos fuertes\l"
+	.string "nuevos POKéMON dependiendo del género.\p"
+	.string "Los llamamos por el nombre de COUREEN,\n"
+	.string "el POKéMON reina, y KINCURS, el POKéMON\l"
+	.string "rey.\p"
+	
+	.string "Hemos soltado muchos PRINPAWN por la\n"
+	.string "región de HOENN.\p"
+	.string "Estaremos pendiendes de ver como se\n"
+	.string "desenvuelven en este mundo cruel.\p"
+
+	.string "Firmado por el científico Gerph.$"
+	
+MicoloHideout_MeetingRoom_PC7_Text_0:
+	.string "Parece un documento con información\n"
+	.string "confidencial que dice lo siguiente:\p"
+
+	.string "Esto es maravilloso, la POKéFABRICA\n"
+	.string "sigue dando buenas alegrías.\p"
+	
+	.string "Después de varias creaciones exitosas:\n"
+	.string "WINTASS, PRINPAWN, NUMEL LUCKY,\l"
+	.string "WOOLOKA, y HONEDGE MONADO.\p"
+	
+	.string "¡Por fin he podido crear al POKéMON de\n"
+	.string "mis sueños!\p"
+	
+	.string "Me ha costado sudor y lagrimas convencer\n"
+	.string "a los fundadores del proyecto, pero ha\l"
+	.string "merecido la pena.\p"
+	
+	.string "Nuestra nueva creación es un nuevo\n"
+	.string "POKéMON al que hemos llamado POSORD.\p"
+	
+	.string "Tipos: GHOST / STEEL\p"
+	
+	.string "Estadísticas Base:\n"
+	.string "55 HP, 90 ATK, 120 DEF, 70 SATK,\l" 
+	.string "60 SDEF, 109 SPEED\p"
+	
+	.string "Habilidad: LEVITATE\p"
+	
+	.string "Hemos soltado muchos POSORD en lugares\n"
+	.string "estratégicos para que la gente pueda\l"
+	.string "admirar su grandeza.\p"
+	
+	.string "Firmado por el científico Gerph.$"
+
 
 MicoloHideout_MeetingRoom_PCHeal_Text_0:
 	.string "¿Quieres curar a tus POKéMON?$"

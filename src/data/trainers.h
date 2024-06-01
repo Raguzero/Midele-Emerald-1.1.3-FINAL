@@ -6469,18 +6469,18 @@ const struct Trainer gTrainers[] = {
         .party = {.ItemCustomMidele = sParty_Linda},
     },
 
-    [TRAINER_KAYLEE] =
+    [TRAINER_GERPH] =
     {
-        .partyFlags = 0,
-        .trainerClass = TRAINER_CLASS_SWIMMER_F,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_SWIMMER,
-        .trainerPic = TRAINER_PIC_SWIMMER_F,
-        .trainerName = _("KAYLEE"),
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
+        .trainerClass = TRAINER_CLASS_SCIENTISH,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_SCIENTISH_FRLG,
+        .trainerName = _("GERPH"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
-        .partySize = ARRAY_COUNT(sParty_Kaylee),
-        .party = {.NoItemDefaultMoves = sParty_Kaylee},
+        .partySize = ARRAY_COUNT(sParty_Gerph),
+        .party = {.ItemCustomMidele = sParty_Gerph},
     },
 
     [TRAINER_LAUREL] =
@@ -6791,7 +6791,7 @@ const struct Trainer gTrainers[] = {
         .party = {.ItemCustomMidele = sParty_MiuAndYuki},
     },
 
-    [TRAINER_AMY_AND_LIV_3] = // MAXIE EQUIPO MAGMA BATALLA FINAL
+    [TRAINER_MAXIE_AND_ARCHIE] = // MAXIE EQUIPO MAGMA BATALLA FINAL
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
         .trainerClass = TRAINER_CLASS_MAGMA_LEADER,
@@ -6801,22 +6801,23 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = TRUE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
-        .partySize = ARRAY_COUNT(sParty_AmyAndLiv3),
-        .party = {.ItemCustomMidele = sParty_AmyAndLiv3},
+        .partySize = ARRAY_COUNT(sParty_MaxieFinal),
+        .party = {.ItemCustomMidele = sParty_MaxieFinal},
     },
 
-    [TRAINER_GINA_AND_MIA_2] =
+    [TRAINER_PICHU7] =
     {
-        .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET,
-        .trainerClass = TRAINER_CLASS_TWINS,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_TWINS,
-        .trainerPic = TRAINER_PIC_TWINS,
-        .trainerName = _("GINA & MIA"),
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
+        .trainerClass = TRAINER_CLASS_SCIENTISH,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .battleMusic = MUS_RG_VS_GYM,
+        .trainerPic = TRAINER_PIC_SCIENTISH_FRLG,
+        .trainerName = _("PICHU7"),
         .items = {},
-        .doubleBattle = TRUE,
+        .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
-        .partySize = ARRAY_COUNT(sParty_GinaAndMia2),
-        .party = {.NoItemCustomMoves = sParty_GinaAndMia2},
+        .partySize = ARRAY_COUNT(sParty_Pichu7),
+        .party = {.ItemCustomMidele = sParty_Pichu7},
     },
 
     [TRAINER_AMY_AND_LIV_4] =
@@ -7954,7 +7955,7 @@ const struct Trainer gTrainers[] = {
         .party = {.ItemCustomMidele = sParty_GruntSeafloorCavern5},
     },
 
-    [TRAINER_GRUNT_UNUSED] = // ARCHIE EQUIPO AQUA BATALLA FINAL
+    [TRAINER_ARCHIE_AND_MAXIE] = // ARCHIE EQUIPO AQUA BATALLA FINAL
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
         .trainerClass = TRAINER_CLASS_AQUA_LEADER,
@@ -7964,8 +7965,8 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = TRUE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
-        .partySize = ARRAY_COUNT(sParty_GruntUnused),
-        .party = {.ItemCustomMidele = sParty_GruntUnused},
+        .partySize = ARRAY_COUNT(sParty_ArchieFinal),
+        .party = {.ItemCustomMidele = sParty_ArchieFinal},
     },
 
     [TRAINER_GRUNT_MT_PYRE_4] =
