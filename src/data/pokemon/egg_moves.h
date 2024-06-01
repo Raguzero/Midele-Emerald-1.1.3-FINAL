@@ -2398,7 +2398,6 @@ const u16 gEggMoves[] = {
 		MOVE_PAIN_SPLIT,
 		MOVE_MIST,
 		MOVE_BUBBLE_BEAM,
-		MOVE_RECOVER,
 		MOVE_CONSTRICT),
 
 	egg_moves(ROCKRUFF,

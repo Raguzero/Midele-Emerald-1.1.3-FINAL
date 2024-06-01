@@ -16143,7 +16143,7 @@ const struct BaseStats gBaseStats[] =
 		.growthRate = GROWTH_MEDIUM_FAST,
 		.eggGroup1 = EGG_GROUP_BUG,
 		.eggGroup2 = EGG_GROUP_BUG,
-        .abilities = {ABILITY_SWARM, ABILITY_HUSTLE}, // TRUANT O SWARM?
+        .abilities = {ABILITY_SWARM, ABILITY_HUSTLE},
 		.bodyColor = BODY_COLOR_GRAY,
 	},
     [SPECIES_SNOM] =
@@ -17479,7 +17479,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_HUMAN_LIKE,
-        .abilities = {ABILITY_BLAZE, ABILITY_IRON_FIST}, // EXCLUSIVO DE MIDELE
+        .abilities = {ABILITY_BLAZE, ABILITY_IRON_FIST},
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
     },
@@ -17504,7 +17504,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_HUMAN_LIKE,
-        .abilities = {ABILITY_BLAZE, ABILITY_IRON_FIST}, // EXCLUSIVO DE MIDELE
+        .abilities = {ABILITY_BLAZE, ABILITY_IRON_FIST},
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
     },
@@ -17530,7 +17530,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_HUMAN_LIKE,
-        .abilities = {ABILITY_BLAZE, ABILITY_IRON_FIST}, // EXCLUSIVO DE MIDELE
+        .abilities = {ABILITY_BLAZE, ABILITY_IRON_FIST},
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
     },
@@ -19008,7 +19008,7 @@ const struct BaseStats gBaseStats[] =
         .baseHP        = 80,
         .baseAttack    = 115,
         .baseDefense   = 113,
-        .baseSpeed     = 30,
+        .baseSpeed     = 29,
         .baseSpAttack  = 140,
         .baseSpDefense = 97,
         .type1 = TYPE_POISON,
