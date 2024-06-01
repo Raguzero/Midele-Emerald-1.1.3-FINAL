@@ -3288,8 +3288,16 @@ AI_CV_DestinyBond:
 	if_holds_item AI_USER, ITEM_FOCUS_SASH, Score_Minus3
 AI_CV_DestinyBond_SkipSturdyOrSashCheck:
 	if_status2 AI_TARGET, STATUS2_MULTIPLETURNS, AI_CV_DestinyBond_SlowerTargetIsInMultiturnAttack
+	if_any_move_encored AI_TARGET,AI_CV_DestinyBond_SlowerTargetIsEncored
+AI_CV_DestinyBond_SlowerTargetNotEncoredInADamagelessMove:
 	if_user_has_revealed_move MOVE_DESTINY_BOND, AI_CV_DestinyBond_MoveHasBeenRevealed
 	goto AI_CV_DestinyBond_1
+
+AI_CV_DestinyBond_SlowerTargetIsEncored:
+	get_last_used_bank_move AI_TARGET
+	get_move_power_from_result
+	if_equal 0, Score_Minus3
+	goto AI_CV_DestinyBond_SlowerTargetNotEncoredInADamagelessMove
 
 AI_CV_DestinyBond_SlowerTargetIsInMultiturnAttack:
 	calculate_nhko AI_TARGET
