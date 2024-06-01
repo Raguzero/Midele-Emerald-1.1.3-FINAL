@@ -12228,10 +12228,12 @@ const u32 gTMHMLearnsets[][2] =
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM21_FRUSTRATION)
                                         | TMHM(TM27_RETURN)
-                                        | TMHM(TM26_EARTHQUAKE) // Nuevo movimiento exclusivo de MIDELE
+                                        | TMHM(TM26_EARTHQUAKE)
                                         | TMHM(TM10_HIDDEN_POWER)
                                         | TMHM(TM06_TOXIC)
                                         | TMHM(TM43_SECRET_POWER)
+                                        | TMHM(HM04_STRENGTH)
+                                        | TMHM(HM06_ROCK_SMASH)
                                         | TMHM(TM32_DOUBLE_TEAM)),
 
     [SPECIES_RIOLU]       = TMHM_LEARNSET(TMHM(TM45_ATTRACT)

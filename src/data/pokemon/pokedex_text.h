@@ -2702,10 +2702,10 @@ const u8 gDrapionPokedexText[] = _(
     "out of a car.");
 
 const u8 gWoolooPokedexText[] = _(
-    "Its curly fleece is such an effective\n"
-    "cushion that this POKéMON could fall off\n"
-    "a cliff and stand right back up at the\n"
-    "bottom, unharmed.");
+    "Modified clone sheep, much more\n"
+    "powerful than the original WOOLOO.\n"
+    "It has lost its ability to evolve and it's\n"
+	"believed that it's life span is shorter.\n");
 	
 
 const u8 gRioluPokedexText[] = _(
@@ -3493,7 +3493,7 @@ const u8 gKincursPokedexText[] = _(
 const u8 gPosordPokedexText[] = _(
     "Garden shears possessed by a spirit. It is\n"
 	"said to have been created by a scientist\n"
-	"expert by the name of Gerph.");
+	"expert by the name of GERPH.");
 	
 const u8 gTrubbishPokedexText[] = _(
     "It gorges on trash until its stomach\n"

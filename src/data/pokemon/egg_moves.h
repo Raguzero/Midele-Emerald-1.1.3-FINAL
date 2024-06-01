@@ -2517,6 +2517,7 @@ const u16 gEggMoves[] = {
     egg_moves(WOOLOO,
               MOVE_STOMP,
               MOVE_SWAGGER,
+              MOVE_MILK_DRINK,
               MOVE_COUNTER),
 
 	egg_moves(GOOMY,
