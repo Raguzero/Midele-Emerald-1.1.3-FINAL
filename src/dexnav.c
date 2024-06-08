@@ -1223,7 +1223,7 @@ static void Task_DexNavSearch(u8 taskId)
         task->func = Task_RevealHiddenMon;
         return;
     }
-
+	/*
     //Caves and water the pokemon moves around
     if ((sDexNavSearchDataPtr->environment == ENCOUNTER_TYPE_WATER || GetCurrentMapType() == MAP_TYPE_UNDERGROUND)
         && sDexNavSearchDataPtr->proximity < GetMovementProximityBySearchLevel() && sDexNavSearchDataPtr->movementCount < 2
@@ -1239,7 +1239,7 @@ static void Task_DexNavSearch(u8 taskId)
             gFieldEffectArguments[2] = 0xFF; // subpriority
             gFieldEffectArguments[3] = 2;   //priority
             sDexNavSearchDataPtr->fldEffSpriteId = FieldEffectStart(sDexNavSearchDataPtr->fldEffId);
-
+			*/
             // Se podría hacer que, en lugar de quedarse en el sitio, huya, así:
             /* 
             EndDexNavSearchSetupScript(EventScript_PokemonGotAway, taskId);
@@ -1247,10 +1247,10 @@ static void Task_DexNavSearch(u8 taskId)
             */
             // Incluso se podría hacer que sucediede una cosa u otra según la Speed base o algo,
             // pero mejor no romper cadenas innecesariamente
-        }
+        /*}
         
         sDexNavSearchDataPtr->movementCount++;
-    }
+    }*/
 
     DexNavProximityUpdate();
     if (task->tProximity != sDexNavSearchDataPtr->proximity)
