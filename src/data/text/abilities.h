@@ -119,6 +119,7 @@ static const u8 sIronFistDescription[] = _("Boosts punching moves.");
 static const u8 sSniperDescription[] = _("Boosts x3 critical hits.");
 static const u8 sStrongJawDescription[] = _("Boosts biting moves.");
 static const u8 sToxicBoostDescription[] = _("Ups ATTACK if poisoned.");
+static const u8 sSharpnessDescription[] = _("Boosts slicing moves.");
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 {
@@ -245,6 +246,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 	[ABILITY_SNIPER] = _("SNIPER"),
     [ABILITY_STRONG_JAW] = _("STRONG JAW"),
     [ABILITY_TOXIC_BOOST] = _("TOXIC BOOST"),
+    [ABILITY_SHARPNESS] = _("SHARPNESS"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -372,4 +374,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_SNIPER] = sSniperDescription,
     [ABILITY_STRONG_JAW] = sStrongJawDescription,
     [ABILITY_TOXIC_BOOST] = sToxicBoostDescription,
+    [ABILITY_SHARPNESS] = sSharpnessDescription,
 };

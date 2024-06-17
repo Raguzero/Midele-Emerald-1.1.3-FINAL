@@ -4441,6 +4441,9 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 	gBattleMovePower = (130 * gBattleMovePower) / 100;
 	if ((move == MOVE_CRUNCH || move == MOVE_BITE || move == MOVE_POISON_FANG || move == MOVE_HYPER_FANG) && attacker->ability == ABILITY_STRONG_JAW)
 	gBattleMovePower = (150 * gBattleMovePower) / 100;
+	if ((move == MOVE_AERIAL_ACE || move == MOVE_AIR_CUTTER || move == MOVE_FURY_CUTTER || move == MOVE_LEAF_BLADE  || move == MOVE_SLASH || move == MOVE_X_SCISSOR
+	 || move == MOVE_CUT  || move == MOVE_RAZOR_LEAF ) && attacker->ability == ABILITY_SHARPNESS)
+	gBattleMovePower = (150 * gBattleMovePower) / 100;
 	if (type == TYPE_ELECTRIC && AbilityBattleEffects(ABILITYEFFECT_FIELD_SPORT, 0, 0, 0xFD, 0))
         gBattleMovePower /= 2;
     if (type == TYPE_FIRE && AbilityBattleEffects(ABILITYEFFECT_FIELD_SPORT, 0, 0, 0xFE, 0))
