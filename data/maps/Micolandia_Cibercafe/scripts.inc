@@ -153,31 +153,38 @@ PC_BatalllaLEAF::
   goto PC_BatallaLider
 	
 PC_BatalllaCHERYL::
-	msgbox PC_BatallaMODO_Text, MSGBOX_DEFAULT
-	closemessage
-PC_BatalllaCHERYL_CONTINUE::
-	msgbox PC_BatallaMODO_Text2, MSGBOX_DEFAULT
-	multichoicegrid 0, 0, MULTI_CIBERCAFE_BATALLA_MODOS_ESPECIALES, 3, 0
+	setvar VAR_TRAINER_BATTLE_OPPONENT_A, TRAINER_CHERYL
+  goto PC_BatallaLider
+ 
+Cibercafe_PCFarmeo::
+	msgbox PC_Batalla_Farmeo, MSGBOX_DEFAULT
+	goto Cibercafe_PCFarmeoCONTINUE
+	
+Cibercafe_PCFarmeoCONTINUE::
+	msgbox PC_Batalla_Farmeo2, MSGBOX_DEFAULT
+	multichoicegrid 0, 0, MULTI_RANDOMBATTLE, 3, 0
 	switch VAR_RESULT
-	case 0, PC_BatalllaModoNormal
-	case 1, PC_BatalllaModoFarmeo
+	case 0, PC_BatalllaModo1vs1
+	case 1, PC_BatalllaModo2vs2
 	case 2, PC_NoBatalla
 	case MULTI_B_PRESSED, PC_NoBatalla
 	end
-PC_BatalllaModoNormal::
-	msgbox PC_BatallaConfirmarModoNormal, MSGBOX_YESNO
-	compare VAR_RESULT, NO
-	goto_if_eq PC_BatalllaCHERYL_CONTINUE
-	setvar VAR_TRAINER_BATTLE_OPPONENT_A, TRAINER_CHERYL
-  goto PC_BatallaLider
-PC_BatalllaModoFarmeo::
-	msgbox PC_BatallaConfirmarModoFarmeo, MSGBOX_YESNO
-	compare VAR_RESULT, NO
-	goto_if_eq PC_BatalllaCHERYL_CONTINUE
+
+PC_BatalllaModo1vs1::
 	special HealPlayerParty
 	setvar VAR_0x8004, SPECIAL_CIBERCAFE
     setvar VAR_0x8005, 0
-	setvar VAR_TRAINER_BATTLE_OPPONENT_A, TRAINER_CHERYL_2
+	setvar VAR_TRAINER_BATTLE_OPPONENT_A, TRAINER_FARMEO
+	goto ComienzaFarmeo
+ 
+PC_BatalllaModo2vs2::
+	special HealPlayerParty
+	setvar VAR_0x8004, SPECIAL_CIBERCAFE
+    setvar VAR_0x8005, 0
+	setvar VAR_TRAINER_BATTLE_OPPONENT_A, TRAINER_FARMEO_DOBLES
+	goto ComienzaFarmeo
+	
+ComienzaFarmeo::
     special DoSpecialTrainerBattle
     waitstate
 	compare VAR_RESULT, B_OUTCOME_DREW
@@ -200,6 +207,10 @@ PC_Roto::
 	
 PC_BatallaFinFarmeo::
     special HealPlayerParty
+	msgbox PC_Batalla_Farmeo3, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq PC_NoBatalla
+	goto Cibercafe_PCFarmeoCONTINUE
     release
     end
 
@@ -313,14 +324,26 @@ PC_Perder:
 	.string "Vuelve cuando quieras.$"
 
 PC_Batalla:
-	.string "Bienvenido al servidor.\n"
+	.string "Te doy la bienvenida al servidor.\n"
 	.string "¿Quieres realizar una batalla?$"
 	
 PC_Batalla_Random:
-	.string "Bienvenido al servidor aleatorio.\n"
+	.string "Te doy la bienvenida al servidor\n"
+	.string "aleatorio.\l"
   .string "Aquí puedes combatir contra un\l"
   .string "entrenador al azar de MIDELE EMERALD.\l"
 	.string "¿Quieres realizar una batalla?$"
+	
+PC_Batalla_Farmeo:
+	.string "Te doy la bienvenida al servidor\n"
+	.string "farmeador, la mejor forma de entrenar\l"
+	.string "a POKéMON de bajo nivel.$"
+
+PC_Batalla_Farmeo2:
+	.string "¿Qué modo de batalla eliges?$"
+	
+PC_Batalla_Farmeo3:
+	.string "¿Quieres luchar de nuevo?$"
 	
 PC_NoBatalla_Text:
 	.string "Vuelve cuando quieras.$"
@@ -346,7 +369,7 @@ Micolandia_Cibercafe_NPC4_Text:
 	.string "¡Noooooo! ¡LANCE es demasiado fuerte!$"
 	
 Micolandia_Cibercafe_NPC5_Text:
-	.string "¡El Modo Farmeo de CHERYL es GENIAL!\n"
+	.string "¡El servidor farmeador es GENIAL!\n"
 	.string "¡Con solo equiparles a mis POKéMON Nv1\l"
 	.string "con un LUCKY EGG puedo hacer que suban\l"
 	.string "de nivel a una velocidad asombrosa!\p"
@@ -363,21 +386,3 @@ Micolandia_Cibercafe_NPC7_Text:
 Micolandia_Cibercafe_NPC6_Text:
 	.string "¡Qué vicio esto! ¡Estoy consiguiendo\n"
 	.string "muchos objetos útiles!$"
-	
-PC_BatallaMODO_Text:
-	.string "Esta entrenadora es especial. Puedes\n"
-	.string "elegir entre Modo Normal y Modo Farmeo.\p"
-	
-	.string "El Modo Normal no tiene ninguna\n"
-	.string "particularidad, mientras que el Modo\l"
-	.string "Farmeo es la mejor forma de entrenar\l"
-	.string "a POKéMON con niveles muy bajos.$"
-	
-PC_BatallaMODO_Text2:
-	.string "¿Cuál modo de batalla eliges?$"
-	
-PC_BatallaConfirmarModoNormal:
-	.string "¿Eliges el Modo Normal?$"
-
-PC_BatallaConfirmarModoFarmeo:
-	.string "¿Eliges el Modo Farmeo?$"

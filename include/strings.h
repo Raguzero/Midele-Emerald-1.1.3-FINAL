@@ -3060,8 +3060,8 @@ extern const u8 gText_Deoxys_Speed[];
 
 extern const u8 gText_Lista1[];
 extern const u8 gText_Lista2[];
-extern const u8 gText_ModoNormal[];
-extern const u8 gText_ModoFarmeo[];
+extern const u8 gText_ModoNormal[]; // SIN USO
+extern const u8 gText_ModoFarmeo[]; // SIN USO
 extern const u8 gText_Brock[];
 extern const u8 gText_Misty[];
 extern const u8 gText_LtSurge[];

@@ -965,7 +965,7 @@ static const struct MenuAction MultichoiceList_CiberCafe_Batalla_2[] =
     {gText_Exit}
 };
 
-static const struct MenuAction MultichoiceList_CiberCafe_Batalla_Modos_Especiales[] =
+static const struct MenuAction MultichoiceList_CiberCafe_Batalla_Modos_Especiales[] = // SIN USO
 {
     {gText_ModoNormal},
     {gText_ModoFarmeo},
@@ -1299,7 +1299,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
 	[MULTI_IZABE_HOUSE3_DOCUMENTS] =  MULTICHOICE(MultichoiceList_IzabeIsland_House3_Documents),
 	[MULTI_LISTAS_CIBERCAFE] =  MULTICHOICE(MultichoiceList_Listas_CiberCafe),
     [MULTI_CIBERCAFE_BATALLA_2]     =MULTICHOICE(MultichoiceList_CiberCafe_Batalla_2),
-    [MULTI_CIBERCAFE_BATALLA_MODOS_ESPECIALES]     =MULTICHOICE(MultichoiceList_CiberCafe_Batalla_Modos_Especiales),
+    [MULTI_CIBERCAFE_BATALLA_MODOS_ESPECIALES]     =MULTICHOICE(MultichoiceList_CiberCafe_Batalla_Modos_Especiales), // SIN USO
     [MULTI_RANDOMBATTLECC]     =MULTICHOICE(MultichoiceList_RandomBattleCC),
     [MULTI_GAME_CORNER_PKMN4]                = MULTICHOICE(MultichoiceList_GameCornerPkmn4),
 };

@@ -6597,7 +6597,8 @@ if (gBattleOutcome == B_OUTCOME_WON)
 			 gTrainerBattleOpponent_A == TRAINER_BLUE ||	
 			 gTrainerBattleOpponent_A == TRAINER_RED2 ||
 			 gTrainerBattleOpponent_A == TRAINER_CHERYL ||
-			 gTrainerBattleOpponent_A == TRAINER_CHERYL_2 ||			 
+			 gTrainerBattleOpponent_A == TRAINER_FARMEO ||
+			 gTrainerBattleOpponent_A == TRAINER_FARMEO_DOBLES ||				 
 			 gTrainerBattleOpponent_A == TRAINER_LEAF2)
     {
         money = 0;

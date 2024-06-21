@@ -801,8 +801,8 @@
 #define TRAINER_TATE_AND_LIZA_5             797
 #define TRAINER_JUAN_2                      798
 #define TRAINER_JUAN_3                      799
-#define TRAINER_JUAN_4                      800
 #define TRAINER_JUAN_5                      801
+#define TRAINER_FARMEO_DOBLES               800
 #define TRAINER_ANGELO                      802
 #define TRAINER_DARIUS                      803
 #define TRAINER_STEVEN                      804
@@ -992,7 +992,7 @@
 #define TRAINER_SAPPH_GYM_4 988
 #define TRAINER_KRUB_2 989
 #define TRAINER_CHERYL 990
-#define TRAINER_CHERYL_2 991
+#define TRAINER_FARMEO 991
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or [changing how trainer flags are handled] --> HECHO ESTO

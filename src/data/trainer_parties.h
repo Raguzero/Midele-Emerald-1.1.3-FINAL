@@ -21078,121 +21078,6 @@ static const struct TrainerMonCustomMidele sParty_Juan3[] = {
     }
 };
 
-static const struct TrainerMonCustomMidele sParty_Juan4[] = {
-    {
-    .iv = 31,
-    .lvl = 65,
-	.nature = NATURE_JOLLY,
-    .species = SPECIES_QWILFISH,
-    .heldItem = ITEM_FOCUS_SASH,
-	.evs = {252, 6, 0, 0, 0, 252},
-    .moves = {MOVE_THUNDER_WAVE, MOVE_SPIKES, MOVE_DESTINY_BOND, MOVE_SLUDGE_BOMB},
-    },
-    {
-    .iv = 31,
-    .lvl = 66,
-	.nature = NATURE_HASTY,
-    .species = SPECIES_CRAWDAUNT,
-    .heldItem = ITEM_WHITE_HERB,
-	.evs = {6, 128, 0, 128, 0, 252},
-	.ability = 1,
-    .moves = {MOVE_DRAGON_DANCE, MOVE_SUPERPOWER, MOVE_WATERFALL, MOVE_CRUNCH}
-    },
-    {
-    .iv = 31,
-    .lvl = 66,
-	.nature = NATURE_SASSY,
-    .species = SPECIES_WHISCASH,
-    .heldItem = ITEM_LEFTOVERS,
-	.evs = {252, 0, 0, 0, 252, 6},
-    .moves = {MOVE_SLEEP_TALK, MOVE_WATER_PULSE, MOVE_REST, MOVE_EARTHQUAKE}
-    },
-    {
-    .iv = 31,
-    .lvl = 65,
-	.nature = NATURE_CALM,
-    .species = SPECIES_POLITOED,
-    .heldItem = ITEM_LEFTOVERS,
-	.evs = {252, 0, 0, 0, 252, 6},
-    .moves = {MOVE_PSYCHIC, MOVE_TOXIC, MOVE_PROTECT, MOVE_WATER_PULSE},
-    .ability = 1},
-    {
-    .iv = 31,
-    .lvl = 65,
-	.nature = NATURE_MODEST,
-    .species = SPECIES_LANTURN,
-    .heldItem = ITEM_SITRUS_BERRY,
-	.evs = {252, 0, 0, 252, 0, 0},
-    .moves = {MOVE_ICE_BEAM, MOVE_WATERFALL, MOVE_THUNDER, MOVE_CONFUSE_RAY},
-    },
-    {
-    .iv = 31,
-    .lvl = 67,
-	.nature = NATURE_MODEST,
-    .species = SPECIES_KINGDRA,
-	.evs = {128, 0, 0, 252, 0, 128},
-    .heldItem = ITEM_CHESTO_BERRY,
-    .moves = {MOVE_WATER_PULSE, MOVE_DOUBLE_TEAM, MOVE_DRAGON_BREATH, MOVE_REST},
-    }
-};
-
-static const struct TrainerMonCustomMidele sParty_Juan5[] = {
-    {
-    .iv = 31,
-    .lvl = 65,
-	.nature = NATURE_JOLLY,
-    .species = SPECIES_QWILFISH,
-    .heldItem = ITEM_FOCUS_SASH,
-	.evs = {252, 6, 0, 0, 0, 252},
-    .moves = {MOVE_THUNDER_WAVE, MOVE_SPIKES, MOVE_DESTINY_BOND, MOVE_SLUDGE_BOMB},
-    },
-    {
-    .iv = 31,
-    .lvl = 66,
-	.nature = NATURE_HASTY,
-    .species = SPECIES_CRAWDAUNT,
-    .heldItem = ITEM_WHITE_HERB,
-	.evs = {6, 128, 0, 128, 0, 252},
-	.ability = 1,
-    .moves = {MOVE_DRAGON_DANCE, MOVE_SUPERPOWER, MOVE_WATERFALL, MOVE_CRUNCH}
-    },
-    {
-    .iv = 31,
-    .lvl = 66,
-	.nature = NATURE_SASSY,
-    .species = SPECIES_WHISCASH,
-    .heldItem = ITEM_LEFTOVERS,
-	.evs = {252, 0, 0, 0, 252, 6},
-    .moves = {MOVE_SLEEP_TALK, MOVE_WATER_PULSE, MOVE_REST, MOVE_EARTHQUAKE}
-    },
-    {
-    .iv = 31,
-    .lvl = 65,
-	.nature = NATURE_CALM,
-    .species = SPECIES_POLITOED,
-    .heldItem = ITEM_LEFTOVERS,
-	.evs = {252, 0, 0, 0, 252, 6},
-    .moves = {MOVE_PSYCHIC, MOVE_TOXIC, MOVE_PROTECT, MOVE_WATER_PULSE},
-    .ability = 1},
-    {
-    .iv = 31,
-    .lvl = 65,
-	.nature = NATURE_MODEST,
-    .species = SPECIES_LANTURN,
-    .heldItem = ITEM_SITRUS_BERRY,
-	.evs = {252, 0, 0, 252, 0, 0},
-    .moves = {MOVE_ICE_BEAM, MOVE_WATERFALL, MOVE_THUNDER, MOVE_CONFUSE_RAY},
-    },
-    {
-    .iv = 31,
-    .lvl = 67,
-	.nature = NATURE_MODEST,
-    .species = SPECIES_KINGDRA,
-	.evs = {128, 0, 0, 252, 0, 128},
-    .heldItem = ITEM_CHESTO_BERRY,
-    .moves = {MOVE_WATER_PULSE, MOVE_DOUBLE_TEAM, MOVE_DRAGON_BREATH, MOVE_REST},
-    }
-};
 // REVANCHA GYM LIDERES
 
 
@@ -23097,7 +22982,7 @@ static const struct TrainerMonCustomMidele sParty_Cheryl[] = {
     .moves = {MOVE_EARTHQUAKE, MOVE_WATER_SPOUT, MOVE_ICE_BEAM, MOVE_HYDRO_PUMP}
     }
 };
-static const struct TrainerMonCustomMidele sParty_Cheryl_2[] = {
+static const struct TrainerMonCustomMidele sParty_Farmeo[] = {
     {
     .iv = 0,
     .lvl = 60,

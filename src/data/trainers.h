@@ -11209,18 +11209,19 @@ const struct Trainer gTrainers[] = {
         .party = {.ItemCustomMidele = sParty_Juan3},
     },
 
-    [TRAINER_JUAN_4] =
+    [TRAINER_FARMEO_DOBLES] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_LEADER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_LEADER_JUAN,
-        .trainerName = _("JUAN"),
+        .trainerClass = TRAINER_CLASS_RANDOM,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .battleMusic = MUS_VS_FRONT,
+        .trainerPic = TRAINER_PIC_RANDOM,
+        .trainerName = _("FARMEO"),
         .items = {},
         .doubleBattle = TRUE,
-        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
-        .partySize = ARRAY_COUNT(sParty_Juan4),
-        .party = {.ItemCustomMidele = sParty_Juan4},
+        .aiFlags = 0,
+        .partySize = ARRAY_COUNT(sParty_Farmeo),
+        .party = {.ItemCustomMidele = sParty_Farmeo},
     },
 
     [TRAINER_JUAN_5] =
@@ -13879,18 +13880,18 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_Cheryl),
         .party = {.ItemCustomMidele = sParty_Cheryl},
     },
-    [TRAINER_CHERYL_2] =
+    [TRAINER_FARMEO] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+        .trainerClass = TRAINER_CLASS_RANDOM,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
-        .battleMusic = MUS_RG_VS_LAST,
-        .trainerPic = TRAINER_PIC_CHERYL,
-        .trainerName = _("CHERYL"),
+        .battleMusic = MUS_VS_FRONT,
+        .trainerPic = TRAINER_PIC_RANDOM,
+        .trainerName = _("FARMEO"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = 0,
-        .partySize = ARRAY_COUNT(sParty_Cheryl_2),
-        .party = {.ItemCustomMidele = sParty_Cheryl_2},
+        .partySize = ARRAY_COUNT(sParty_Farmeo),
+        .party = {.ItemCustomMidele = sParty_Farmeo},
     }
 };

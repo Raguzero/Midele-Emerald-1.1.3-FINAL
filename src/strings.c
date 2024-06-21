@@ -1940,8 +1940,8 @@ const u8 gText_Deoxys_Speed[] =  _("SPEED");
 // CIBERCAFE BATTLA
 const u8 gText_Lista1[] =  _("LISTA 1");
 const u8 gText_Lista2[] =  _("LISTA 2");
-const u8 gText_ModoNormal[] =  _("MODO NORMAL");
-const u8 gText_ModoFarmeo[] =  _("MODO FARMEO");
+const u8 gText_ModoNormal[] =  _("MODO NORMAL"); // SIN USO
+const u8 gText_ModoFarmeo[] =  _("MODO FARMEO"); // SIN USO
 const u8 gText_Brock[] =  _("BROCK");
 const u8 gText_Misty[] =  _("MISTY");
 const u8 gText_LtSurge[] =  _("LT.SURGE");
