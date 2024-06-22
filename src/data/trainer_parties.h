@@ -21194,6 +21194,27 @@ static const struct TrainerMonNoItemDefaultMoves sParty_MayLinkPlaceholder[] = {
 };
 
 ////// NUEVOS ENTRENADORES A PARTIR DE AQUI ///////
+
+static const struct TrainerMonCustomMidele sParty_Pokexavi[] = {
+    {
+    .iv = 31,
+    .lvl = 9,
+	.nature = NATURE_RASH,
+    .species = SPECIES_SENTRET,
+    .heldItem = ITEM_ORAN_BERRY,
+	.evs = {0, 0, 0, 0, 0, 0},
+    .moves = {MOVE_PURSUIT, MOVE_SCRATCH, MOVE_DEFENSE_CURL, MOVE_ASSIST},
+    },
+    {
+    .iv = 31,
+    .lvl = 7,
+	.nature = NATURE_NAUGHTY,
+    .species = SPECIES_PIKACHU,
+	.evs = {0, 0, 0, 0, 0, 0},
+    .moves = {MOVE_THUNDER_SHOCK, MOVE_PAY_DAY, MOVE_SWEET_KISS, MOVE_TICKLE},
+    }
+};
+
 static const struct TrainerMonCustomMidele sParty_MaxieFinal[] = { // ARCHIE Y MAXIE EQUIPO MAGMA Y AQUA BATALLA FINAL
 	{
 	.iv = 31,

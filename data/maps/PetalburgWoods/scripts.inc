@@ -323,6 +323,11 @@ PetalburgWoods_EventScript_Hypeantonio:: @ 822E26D
 	trainerbattle_single TRAINER_HYPEANTONIO, PetalburgWoods_Text_HypeantonioIntro, PetalburgWoods_Text_HypeantonioDefeat
 	msgbox PetalburgWoods_Text_HypeantonioAfterBattle, MSGBOX_AUTOCLOSE
 	end
+	
+PetalburgWoods_EventScript_Pokexavi:: @ 822E26D
+	trainerbattle_single TRAINER_POKEXAVI, PetalburgWoods_Text_PokexaviIntro, PetalburgWoods_Text_PokexaviDefeat
+	msgbox PetalburgWoods_Text_PokexaviAfterBattle, MSGBOX_AUTOCLOSE
+	end
 
 PetalburgWoods_Text_NotAOneToBeFound: @ 822E332
 	.string "Hmmm…\n"
@@ -517,3 +522,26 @@ PetalburgWoods_Text_HypeantonioAfterBattle:
   .string "están al 100% de su capacidad.\p"
   .string "Por cierto, dicen que MELKOR ha sido\n"
   .string "visto en HOENN...$"
+  
+PetalburgWoods_Text_PokexaviIntro:
+  .string "¿Conoces la historia del...\n"
+  .string "APLASTAPIKACHUS?\p"
+ 
+  .string "El APLASTAPIKACHUS es un monstruo\n"
+  .string "que se dedica a aplastar a esos\l"
+  .string "pobres PIKACHU con sus propias\l"
+  .string "manos. ¡Da miedo!\p"
+
+  .string "Por eso me he escondido en este bosque\n"
+  .string "para salvar a mi PIKACHU de ese feo\l"
+  .string "monstruo.$"
+
+PetalburgWoods_Text_PokexaviDefeat:
+  .string "¿Qué le hiciste a mi PIKACHU?\n"
+  .string "¿No serás el monstruo?$"
+
+PetalburgWoods_Text_PokexaviAfterBattle:
+  .string "¡Ay, que ganas tengo de comerme\n"
+  .string "una buena hamburguesa!\p"
+  .string "Recuerdo la última vez que me comí\n"
+  .string "una, estaba tan maravillosamente rica.$"

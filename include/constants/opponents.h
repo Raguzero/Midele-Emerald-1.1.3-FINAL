@@ -801,8 +801,8 @@
 #define TRAINER_TATE_AND_LIZA_5             797
 #define TRAINER_JUAN_2                      798
 #define TRAINER_JUAN_3                      799
-#define TRAINER_JUAN_5                      801
 #define TRAINER_FARMEO_DOBLES               800
+#define TRAINER_POKEXAVI                    801
 #define TRAINER_ANGELO                      802
 #define TRAINER_DARIUS                      803
 #define TRAINER_STEVEN                      804

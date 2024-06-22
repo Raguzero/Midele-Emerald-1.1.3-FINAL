@@ -11224,18 +11224,18 @@ const struct Trainer gTrainers[] = {
         .party = {.ItemCustomMidele = sParty_Farmeo},
     },
 
-    [TRAINER_JUAN_5] =
+    [TRAINER_POKEXAVI] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
-        .trainerClass = TRAINER_CLASS_LEADER,
+        .trainerClass = TRAINER_CLASS_SCHOOL_KID,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_LEADER_JUAN,
-        .trainerName = _("JUAN"),
+        .trainerPic = TRAINER_PIC_SCHOOL_KID_M,
+        .trainerName = _("POKEXAVI"),
         .items = {},
-        .doubleBattle = TRUE,
+        .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
-        .partySize = ARRAY_COUNT(sParty_Juan5),
-        .party = {.ItemCustomMidele = sParty_Juan5},
+        .partySize = ARRAY_COUNT(sParty_Pokexavi),
+        .party = {.ItemCustomMidele = sParty_Pokexavi},
     },
 
     [TRAINER_ANGELO] =
