@@ -2084,7 +2084,7 @@ static void DexNavLoadEncounterData(void)
     memset(sDexNavUiDataPtr->waterSpecies, 0, sizeof(sDexNavUiDataPtr->waterSpecies));
     memset(sDexNavUiDataPtr->hiddenSpecies, 0, sizeof(sDexNavUiDataPtr->hiddenSpecies));
     
-	if (headerId == 0xFFFF)
+	if (headerId == 0xFFFF || (gSaveBlock1Ptr->location.mapGroup == (MAP_MICOLO_HIDEOUT_EXPERIMENT_ROOM >> 8) && gSaveBlock1Ptr->location.mapNum == (MAP_MICOLO_HIDEOUT_EXPERIMENT_ROOM & 0xFF)))
     return;
 	
 	if (IsCurrentlyDay())
