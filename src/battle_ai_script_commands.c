@@ -967,8 +967,8 @@ static u8 ChooseMoveOrAction_Singles(void)
     if (AI_THINKING_STRUCT->aiFlags & (AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_PREFER_BATON_PASS)
         && !(
              // no cambia si tiene Evasión a +6 o el rival no puede hacerle nada
-             // y el rival está intoxicado o maldito
-             ((gBattleMons[gBattlerTarget].status1 & STATUS1_TOXIC_POISON) || (gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED))
+             // y el rival está intoxicado, maldito o con Leech Seed
+             ((gBattleMons[gBattlerTarget].status1 & STATUS1_TOXIC_POISON) || (gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED) || (gStatuses3[gBattlerTarget] & STATUS3_LEECHSEED))
           && (gBattleMons[sBattler_AI].statStages[STAT_EVASION] == 12 || CalculateNHKO(gBattlerTarget, sBattler_AI, FALSE, MOVE_NONE, TRUE, FALSE) >= 5)
             )
         && !(
@@ -982,7 +982,7 @@ static u8 ChooseMoveOrAction_Singles(void)
 		&& AICanSwitchAssumingEnoughPokemon())
     {
         s32 cap = AI_THINKING_STRUCT->aiFlags & (AI_SCRIPT_CHECK_VIABILITY) ? 95 : 93;
-        s32 i_2;
+
         bool8 notChangingIsAcceptable = TRUE;
 	if (gBattleMons[sBattler_AI].hp < gBattleMons[sBattler_AI].maxHP / 2 && (Random() & 1))
            cap -= 3;
@@ -991,12 +991,22 @@ static u8 ChooseMoveOrAction_Singles(void)
             if (AI_THINKING_STRUCT->score[i] > cap && gBattleMons[sBattler_AI].moves[i] != MOVE_SLEEP_TALK)
                 break;
         }
-        for (i_2 = 0; i_2 < MAX_MON_MOVES; i_2++)
-            if (AI_THINKING_STRUCT->score[i_2] > cap - 2 && gBattleMons[sBattler_AI].moves[i_2] != MOVE_SLEEP_TALK)
-                break;
 
-        if (i_2 == MAX_MON_MOVES)
-            notChangingIsAcceptable = FALSE;
+        // Considera cambios más desesperados si los puntos son incluso menores, siempre que no tenga subidas de defensas o Evasión
+        if (i == MAX_MON_MOVES
+            && gBattleMons[sBattler_AI].statStages[STAT_DEF] < 10
+            && gBattleMons[sBattler_AI].statStages[STAT_SPDEF] < 10
+            && gBattleMons[sBattler_AI].statStages[STAT_EVASION] < 10
+           )
+        {
+            s32 i_2;
+            for (i_2 = 0; i_2 < MAX_MON_MOVES; i_2++)
+                if (AI_THINKING_STRUCT->score[i_2] > cap - 2 && gBattleMons[sBattler_AI].moves[i_2] != MOVE_SLEEP_TALK)
+                    break;
+
+            if (i_2 == MAX_MON_MOVES)
+                notChangingIsAcceptable = FALSE;
+        }
 
         if (i == MAX_MON_MOVES)
             SWITCH_IF_THERE_IS_A_SUITABLE_MON(notChangingIsAcceptable ? NOT_CHANGING_IS_ACCEPTABLE : NOT_CHANGING_IS_UNACCEPTABLE);
