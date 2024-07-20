@@ -4850,6 +4850,7 @@ AI_TryToFaint_DoNotSkipFirstPenaltiesForPartialTrapping:
         if_has_move_with_effect AI_TARGET, EFFECT_REST, AI_TryToFaint_IncreasePenaltyForHealingTargetOrLowAccuracy
         if_status AI_TARGET, STATUS1_TOXIC_POISON, AI_TryToFaint_SkipPenaltyForLowDamageAgainstAHealingMon
         if_has_a_50_percent_hp_recovery_move AI_TARGET, AI_TryToFaint_IncreasePenaltyForHealingTargetOrLowAccuracy
+        if_receiving_wish AI_TARGET, AI_TryToFaint_IncreasePenaltyForHealingTargetOrLowAccuracy
         goto AI_TryToFaint_SkipPenaltyForLowDamageAgainstAHealingMon
 AI_TryToFaint_IncreasePenaltyForHealingTargetOrLowAccuracy:
         score -1
