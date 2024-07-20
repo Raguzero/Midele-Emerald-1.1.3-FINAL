@@ -1234,6 +1234,7 @@ AI_CheckViability_CheckEffects:
 	if_effect EFFECT_SANDSTORM, AI_CV_Sandstorm
 	if_effect EFFECT_QUICK_ATTACK, AI_CV_QuickAttack @ para FEAR, incluye ExtremeSpeed y Mach Punch
 	if_effect EFFECT_WILL_O_WISP, AI_CV_WillOWisp
+	if_effect EFFECT_WISH, AI_CV_Wish
 	if_effect EFFECT_RAPID_SPIN, AI_CV_RapidSpin
 	if_effect EFFECT_ROLLOUT, AI_CV_Rollout
 	if_effect EFFECT_COIL, AI_CV_AttackUp_NotSwordsDance
@@ -1449,6 +1450,40 @@ AI_CV_WillOWisp:
     if_less_than 3, Score_Minus2 @ si hace mucho daño mejor no perder el tiempo con WoW
 AI_CV_WillOWisp_DiscourageIfTargetHasRest:
     if_has_move_with_effect AI_TARGET, EFFECT_REST, Score_Minus2
+    end
+
+AI_CV_Wish:
+    count_usable_party_mons AI_USER
+    if_more_than 0, AI_CV_Wish_NotLastMon
+    if_perish_song_about_to_trigger AI_USER, Score_Minus5
+    goto AI_CV_Wish_CannotSwitchOut
+
+AI_CV_Wish_NotLastMon:
+    if_perish_song_about_to_trigger AI_USER, Score_Plus1
+    if_not_status2 AI_USER, STATUS2_ESCAPE_PREVENTION | STATUS2_WRAPPED, AI_CV_Wish2
+AI_CV_Wish_CannotSwitchOut:
+    calculate_nhko AI_TARGET
+    if_equal 1, Score_Minus3
+    if_more_than 2, AI_CV_Wish2
+    if_doesnt_have_move_with_effect AI_USER, EFFECT_PROTECT, Score_Minus3
+    if_hp_more_than AI_USER, 85, Score_Minus2
+AI_CV_Wish2:
+    if_user_has_revealed_move MOVE_WISH, AI_CV_Wish_MoveHasBeenRevealed
+    goto AI_CV_Wish_End
+
+@ No tiene prisa en usar Wish si no corre peligro ante el rival
+AI_CV_Wish_MoveHasBeenRevealed:
+    if_hp_less_than AI_USER, 87, AI_CV_Wish_End
+    is_first_turn_for AI_USER
+    if_equal 0, AI_CV_Wish_End
+    is_first_turn_for AI_TARGET
+    if_equal 0, AI_CV_Wish_End
+    if_random_less_than 64, AI_CV_Wish_End
+    calculate_nhko AI_TARGET
+    if_less_than 3, AI_CV_Wish_End
+    if_more_than 4, Score_Minus1
+    if_has_move_with_effect AI_USER, EFFECT_PROTECT, Score_Minus1
+AI_CV_Wish_End:
     end
 
 AI_CV_RapidSpin:
