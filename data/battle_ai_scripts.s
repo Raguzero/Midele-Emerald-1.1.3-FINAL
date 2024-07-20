@@ -1489,6 +1489,8 @@ AI_CV_Wish_End:
 AI_CV_RapidSpin:
     if_side_affecting AI_USER, SIDE_STATUS_SPIKES, AI_CV_RapidSpin_SpikesCount
 AI_CV_RapidSpin_SpikesAreIrrelevant:
+    calculate_nhko AI_TARGET
+    if_equal 1, AI_CV_RapidSpin_End
     if_status3 AI_USER, STATUS3_LEECHSEED, Score_Plus1
     if_status2 AI_USER, STATUS2_WRAPPED, Score_Plus1
     if_user_faster AI_CV_RapidSpin_End
@@ -4851,10 +4853,12 @@ AI_TryToFaint_IncreasePenaltyForHealingTargetOrLowAccuracy:
         score -1
 AI_TryToFaint_SkipPenaltyForLowDamageAgainstAHealingMon:
         if_more_than 6, AI_TryToFaint_SkipPenaltyForReallyLowDamage
+        if_effect EFFECT_RAPID_SPIN, AI_TryToFaint_SkipPenaltyForReallyLowDamage
         score -1
 AI_TryToFaint_SkipPenaltyForReallyLowDamage:
         if_more_than 20, AI_TryToFaint_PenaltyForTheLeastPowerfulAttacks
         if_effect EFFECT_MIDELE_POWER, AI_TryToFaint_CheckIfTargetOHKOsUser
+        if_effect EFFECT_RAPID_SPIN, AI_TryToFaint_CheckEffectsOfRapidSpin
         if_effect EFFECT_TRAP, AI_TryToFaint_CheckIfPartialTrappingMoveWillDealDamage
         if_ability_might_be AI_TARGET, ABILITY_SHIELD_DUST, AI_TryToFaint_SkipCheckingMovesWithSecondaryEffect
         if_ability_might_be AI_TARGET, ABILITY_CLEAR_BODY, AI_TryToFaint_SkipCheckingMovesWithSecondaryEffect
@@ -4869,6 +4873,14 @@ AI_TryToFaint_PenaltyForTheLeastPowerfulAttacks:
 	if_equal MOVE_NOT_MOST_POWERFUL, Score_Minus1
 	if_equal MOVE_POWER_DISCOURAGED_AND_NOT_MOST_POWERFUL, Score_Minus2
 	end
+
+@ Se salta la penalización por no llegar al 20% y a veces la penalización por no ser el movimiento de mayor daño (cuando va a AI_TryToFaint_End)
+AI_TryToFaint_CheckEffectsOfRapidSpin:
+	count_usable_party_mons AI_USER
+	if_equal 0, AI_TryToFaint_CheckEffectsOfRapidSpin_SpikesAreIrrelevant
+	if_side_affecting AI_USER, SIDE_STATUS_SPIKES, AI_TryToFaint_End
+AI_TryToFaint_CheckEffectsOfRapidSpin_SpikesAreIrrelevant:
+	goto AI_TryToFaint_CheckIfTargetOHKOsUser
 
 AI_TryToFaint_ConsiderSkippingPenaltiesForPartialTrapping:
 	if_status2 AI_TARGET, STATUS2_WRAPPED, AI_TryToFaint_DoNotSkipFirstPenaltiesForPartialTrapping
