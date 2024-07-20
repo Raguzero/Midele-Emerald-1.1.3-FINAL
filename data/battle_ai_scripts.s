@@ -3587,13 +3587,13 @@ AI_CV_Protect_OpponentIsNotInAMultiturnAttack:
 	if_next_turn_target_might_use_move_with_effect EFFECT_SYNTHESIS, AI_CV_Protect_TargetCanHeal
 	if_next_turn_target_might_use_move_with_effect EFFECT_REST, AI_CV_Protect_TargetCanHeal
 AI_CV_Protect_IgnoreTargetHealing:
-	if_status2 AI_TARGET, STATUS2_CURSED, AI_CV_Protect_ScoreUp2
-	if_status AI_TARGET, STATUS1_TOXIC_POISON, AI_CV_Protect_ScoreUp2
-	if_status3 AI_TARGET, STATUS3_LEECHSEED, AI_CV_Protect_ScoreUp2
+	if_status2 AI_TARGET, STATUS2_CURSED, AI_CV_Protect_EncourageAndContinue
+	if_status AI_TARGET, STATUS1_TOXIC_POISON, AI_CV_Protect_EncourageAndContinue
+	if_status3 AI_TARGET, STATUS3_LEECHSEED, AI_CV_Protect_EncourageAndContinue
 AI_CV_Protect_TargetCanRecoverFromItsCurrentStatus:
 	get_last_used_bank_move AI_TARGET
 	get_move_effect_from_result
-	if_equal EFFECT_LOCK_ON, AI_CV_Protect_ScoreUp2
+	if_equal EFFECT_LOCK_ON, AI_CV_Protect_EncourageAndContinue
 	if_status3 AI_TARGET, STATUS3_PERISH_SONG, AI_CV_Protect_TargetUnderPerishSong
 AI_CV_Protect_NoRelevantPerishSong:
 	if_receiving_wish AI_USER, AI_CV_Protect_Wish
@@ -3603,10 +3603,10 @@ AI_CV_Protect_NoRelevantPerishSong:
 
 AI_CV_Protect_TargetUnderPerishSong:
   count_usable_party_mons AI_TARGET
-  if_equal 0, AI_CV_Protect_ScoreUp2
+  if_equal 0, AI_CV_Protect_EncourageAndContinue
   if_type AI_TARGET, TYPE_GHOST, AI_CV_Protect_TargetUnderPerishSong_ButCanSwitchOut
-  if_status2 AI_TARGET, STATUS2_ESCAPE_PREVENTION | STATUS2_WRAPPED, AI_CV_Protect_ScoreUp2
-  if_status3 AI_TARGET, STATUS3_ROOTED, AI_CV_Protect_ScoreUp2
+  if_status2 AI_TARGET, STATUS2_ESCAPE_PREVENTION | STATUS2_WRAPPED, AI_CV_Protect_EncourageAndContinue
+  if_status3 AI_TARGET, STATUS3_ROOTED, AI_CV_Protect_EncourageAndContinue
 AI_CV_Protect_TargetUnderPerishSong_ButCanSwitchOut:
   if_not_status3 AI_USER, STATUS3_PERISH_SONG, AI_CV_Protect_NoRelevantPerishSong
   count_usable_party_mons AI_USER
@@ -3616,7 +3616,7 @@ AI_CV_Protect_TargetUnderPerishSong_ButCanSwitchOut:
   if_status3 AI_USER, STATUS3_ROOTED, AI_CV_ProtectUserStatused
   goto AI_CV_Protect_NoRelevantPerishSong
 
-AI_CV_Protect_ScoreUp2:
+AI_CV_Protect_EncourageAndContinue:
 	score +2
 
 AI_CV_Protect2:
@@ -3627,7 +3627,9 @@ AI_CV_Protect4:
 	get_protect_count AI_USER
 	if_equal 0, AI_CV_Protect_End
 	score -1
+	if_status2 AI_USER, STATUS2_SUBSTITUTE, AI_CV_Protect_Minus1
 	if_random_less_than 128, AI_CV_Protect_End
+AI_CV_Protect_Minus1:
 	score -1
 	goto AI_CV_Protect_End
 	
