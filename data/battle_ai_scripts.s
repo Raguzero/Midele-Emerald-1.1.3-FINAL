@@ -308,9 +308,6 @@ AI_CBM_Explosion_WatchOutForSemiInvulnerability_UserIsFaster:
 AI_CBM_Explosion_SkipSemiInvulnerabilityCheck:
 	goto Score_Minus1
 
-AI_CBM_Explosion_End: @ 82DC31A
-	end
-
 AI_CBM_Nightmare: @ 82DC31B
 	if_status2 AI_TARGET, STATUS2_NIGHTMARE, Score_Minus10
 	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus10
@@ -508,14 +505,6 @@ AI_CBM_OneHitKO: @ 82DC4D0
 
 AI_CBM_Magnitude: @ 82DC4E5
     if_ability_might_be AI_TARGET, ABILITY_LEVITATE, Score_Minus10
-
-AI_CBM_HighRiskForDamage: @ 82DC4ED
-	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
-	get_ability AI_TARGET
-	if_not_equal ABILITY_WONDER_GUARD, AI_CBM_HighRiskForDamage_DiscourageAgainstOpponentsWithSub
-	if_type_effectiveness AI_EFFECTIVENESS_x2, AI_CBM_HighRiskForDamage_DiscourageAgainstOpponentsWithSub
-	if_type_effectiveness AI_EFFECTIVENESS_x4, AI_CBM_HighRiskForDamage_DiscourageAgainstOpponentsWithSub
-	goto Score_Minus10
 
 AI_CBM_HighRiskForDamage: @ 82DC4ED
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
@@ -3544,7 +3533,7 @@ AI_CV_Curse2:
 	goto AI_CV_Curse_End
 
 AI_CV_Curse_Ghost:
-  if_target_might_have_a_sub_before_our_attack Score_Minus10
+	if_target_might_have_a_sub_before_our_attack Score_Minus10
 	if_status2 AI_TARGET, STATUS2_CURSED, Score_Minus5
 	if_hp_more_than AI_USER, 80, AI_CV_Curse_End
 	score -1
@@ -4568,17 +4557,15 @@ AI_CV_KnockOff_End:
 
 AI_CV_Endeavor:
 	if_level_cond AI_LEVEL_IS_AT_MOST_2, AI_CV_Endeavor_assumeFEAR
-	if_target_faster AI_CV_Endeavor_SkipTargetHasTooFewHPCheck
+	if_perish_song_about_to_trigger AI_TARGET, AI_CV_Endeavor_TargetUnderImminentPerishSong
+	if_status2 AI_USER, STATUS2_SUBSTITUTE, AI_CV_Endeavor_HPOfTargetWillBeKnown
+	if_target_faster AI_CV_Endeavor_TargetIsFaster
+AI_CV_Endeavor_HPOfTargetWillBeKnown:
 	if_hp_condition TARGET_WITH_LEFTIES_WONT_LOSE_HP_IF_WE_USE_ENDEAVOR, Score_Minus5
-AI_CV_Endeavor_SkipTargetHasTooFewHPCheck:
-	if_hp_less_than AI_TARGET, 70, AI_CV_Endeavor_ScoreDown1
-	if_target_faster AI_CV_Endeavor2
-	if_hp_more_than AI_USER, 40, AI_CV_Endeavor_ScoreDown1
-	score +1
-	goto AI_CV_Endeavor_End
-
-AI_CV_Endeavor2:
-	if_hp_more_than AI_USER, 50, AI_CV_Endeavor_ScoreDown1
+	if_hp_more_than AI_USER, 70, Score_Minus1
+	if_hp_more_than AI_USER, 20, AI_CV_Endeavor_End
+	if_hp_less_than AI_USER, 2, Score_Plus1
+	if_hp_less_than AI_TARGET, 25, AI_CV_Endeavor_End
 	score +1
 	goto AI_CV_Endeavor_End
 
@@ -4591,11 +4578,112 @@ AI_CV_Endeavor_assumeFEAR:
 	score +4
 	goto AI_CV_Endeavor_End
 
-AI_CV_Endeavor_ScoreDown1:
-	score -1
+@ Si el rival caerá por Perish Song, considera tirarle Endeavor a lo que entre.
+@ Lo más normal es que cambie la IA si puede, y que si no pueda sea porque el rival sí. En el raro caso de que el rival haya tirado Perish Song con su último poke, entonces no se usa Endeavor
+AI_CV_Endeavor_TargetUnderImminentPerishSong:
+	count_usable_party_mons AI_TARGET
+	if_equal 0, Score_Minus8
+	if_hp_more_than AI_USER, 70, Score_Minus5
+	if_hp_more_than AI_USER, 40, Score_Minus3
+	if_hp_more_than AI_USER, 25, Score_Minus2
+	if_hp_less_than AI_USER, 6, Score_Plus2
+	if_hp_less_than AI_USER, 14, Score_Plus1
+	goto AI_CV_Endeavor_End
+	
+AI_CV_Endeavor_TargetIsFaster:
+	if_hp_more_than AI_TARGET, 25, AI_CV_Endeavor_TargetIsFaster_SkipPenaltyForLowHP
+	if_hp_condition TARGET_HAS_1_HP, AI_CV_Endeavor_TargetIsFasterAndHas1HP
+	if_hp_condition TARGET_WITH_LEFTIES_WONT_LOSE_HP_IF_WE_USE_ENDEAVOR, AI_CV_Endeavor_TargetIsFaster_ApplyExtraPenaltyForLowHP
+	if_hp_condition USER_HAS_1_HP, AI_CV_Endeavor_TargetIsFaster_SkipPenaltyForLowHP
+	goto AI_CV_Endeavor_TargetIsFaster_ApplyPenaltyForLowHP
 
+AI_CV_Endeavor_TargetIsFasterAndHas1HP:
+	if_hp_more_than AI_USER, 40, Score_Minus8
+	score -2
+AI_CV_Endeavor_TargetIsFaster_ApplyExtraPenaltyForLowHP:
+	score -1
+AI_CV_Endeavor_TargetIsFaster_ApplyPenaltyForLowHP:
+	score -1
+AI_CV_Endeavor_TargetIsFaster_SkipPenaltyForLowHP:
+	calculate_nhko AI_TARGET
+	if_equal 1, AI_CV_Endeavor_TargetIsFasterAndMightOHKO
+	if_equal 2, AI_CV_Endeavor_TargetIsFasterAndInflictsSignificantDamage
+	if_equal 3, AI_CV_Endeavor_TargetIsFasterAndInflictsSomeDamage
+	score -1
+AI_CV_Endeavor_TargetIsFasterAndInflictsSomeDamage:
+	score -1
+	if_hp_condition TARGET_WITH_LEFTIES_WONT_LOSE_HP_IF_WE_USE_ENDEAVOR, AI_CV_Endeavor_Minus1AndCheckIfFasterTargetMightNotAttack
+	if_hp_more_than AI_USER, 70, AI_CV_Endeavor_Minus1AndCheckIfFasterTargetMightNotAttack
+	goto AI_CV_Endeavor_CheckIfFasterTargetMightNotAttack
+
+AI_CV_Endeavor_TargetIsFasterAndMightOHKO:
+	if_hp_not_equal AI_USER, 100, AI_CV_Endeavor_Minus1AndCheckIfFasterTargetMightNotAttack
+	if_ability AI_USER, ABILITY_STURDY, AI_CV_Endeavor_CheckIfFasterTargetMightNotAttack
+	if_holds_item AI_USER, ITEM_FOCUS_SASH, AI_CV_Endeavor_CheckIfFasterTargetMightNotAttack
+	goto AI_CV_Endeavor_Minus1AndCheckIfFasterTargetMightNotAttack
+
+AI_CV_Endeavor_TargetIsFasterAndInflictsSignificantDamage:
+	if_hp_more_than AI_TARGET, 50, AI_CV_Endeavor_CheckIfFasterTargetMightNotAttack
+AI_CV_Endeavor_Minus1AndCheckIfFasterTargetMightNotAttack:
+	score -1
+AI_CV_Endeavor_CheckIfFasterTargetMightNotAttack:
+	if_hp_less_than AI_USER, 10, AI_CV_Endeavor_CheckIfFasterTargetMightNotAttack_2
+	if_hp_less_than AI_TARGET, 65, AI_CV_Endeavor_CheckIfFasterTargetMightNotAttack_3
+	if_hp_more_than AI_USER, 30, AI_CV_Endeavor_CheckIfFasterTargetMightNotAttack_3
+AI_CV_Endeavor_CheckIfFasterTargetMightNotAttack_2:
+	if_hp_condition TARGET_WITH_LEFTIES_WONT_LOSE_HP_IF_WE_USE_ENDEAVOR, AI_CV_Endeavor_CheckIfFasterTargetMightNotAttack_3
+	goto AI_CV_Endeavor_End
+
+AI_CV_Endeavor_CheckIfFasterTargetMightNotAttack_3:
+	if_target_wont_attack_due_to_truant Score_Minus5
+	if_status AI_TARGET, STATUS1_FREEZE, Score_Minus5
+	if_status2 AI_TARGET, STATUS2_RECHARGE, Score_Minus5
+	if_target_not_expected_to_sleep_during_next_turn AI_CV_Endeavor_CheckIfFasterTargetMightNotAttack_4
+	score -2
+	goto AI_CV_Endeavor_CheckIfFasterTargetMightNotAttack_5
+
+AI_CV_Endeavor_CheckIfFasterTargetMightNotAttack_4:
+	if_status AI_TARGET, STATUS1_PARALYSIS, AI_CV_Endeavor_CheckIfFasterTargetMightNotAttack_Minus1and5
+	if_status2 AI_TARGET, STATUS2_CONFUSION | STATUS2_INFATUATION, AI_CV_Endeavor_CheckIfFasterTargetMightNotAttack_Minus1and5
+	if_status2 AI_TARGET, STATUS2_MULTIPLETURNS, AI_CV_Endeavor_CheckIfFasterTargetMightDoSeriousDamageByAttacking
+	if_any_move_encored AI_TARGET, AI_CV_Endeavor_CheckLastMoveOfFasterTarget
+	if_user_has_revealed_move MOVE_ENDEAVOR, AI_CV_Endeavor_CheckIfFasterTargetMightNotAttack_Minus1and5
+	if_not_status AI_TARGET, 0xC00, AI_CV_Endeavor_CheckIfFasterTargetMightNotAttack_5 @ en caso de Toxic bastante avanzado, se teme cambio
+	count_usable_party_mons AI_TARGET
+	if_more_than 0, AI_CV_Endeavor_CheckIfFasterTargetMightNotAttack_Minus1and5
+	goto AI_CV_Endeavor_CheckIfFasterTargetMightNotAttack_5
+
+AI_CV_Endeavor_CheckIfFasterTargetMightNotAttack_Minus1and5:
+	score -1
+	if_hp_less_than AI_USER, 60, AI_CV_Endeavor_CheckIfFasterTargetMightNotAttack_5
+	if_random_less_than 128, AI_CV_Endeavor_CheckIfFasterTargetMightNotAttack_5
+	score -1
+AI_CV_Endeavor_CheckIfFasterTargetMightNotAttack_5:
+	is_first_turn_for AI_TARGET
+	if_equal 1, AI_CV_Endeavor_CheckIfFasterTargetMightDoSeriousDamageByAttacking
+	if_status2 AI_TARGET, STATUS2_TORMENT, AI_CV_Endeavor_CheckIfFasterTargetMightDoSeriousDamageByAttacking
+AI_CV_Endeavor_CheckLastMoveOfFasterTarget:
+	if_target_taunted AI_CV_Endeavor_CheckIfFasterTargetMightDoSeriousDamageByAttacking
+	get_last_used_bank_move AI_TARGET
+	if_equal MOVE_NONE, AI_CV_Endeavor_CheckIfFasterTargetMightDoSeriousDamageByAttacking
+	get_move_power_from_result
+	if_equal 0, AI_CV_Endeavor_MinusUpTo3Randomly
+AI_CV_Endeavor_CheckIfFasterTargetMightDoSeriousDamageByAttacking:
+	calculate_nhko AI_TARGET | AI_NHKO_PESSIMISTIC
+	if_more_than 3, Score_Minus3
+	if_equal 3, Score_Minus2
+	if_equal 2, Score_Minus1
 AI_CV_Endeavor_End:
 	end
+
+@ Para tratar de evitar que el rival piense que no se le va a usar Endeavor, trata de seguir tirando Endeavor si no tiene otros movimientos buenos
+AI_CV_Endeavor_MinusUpTo3Randomly:
+	score -1
+	if_random_less_than 100, AI_CV_Endeavor_End
+	score -1
+	if_random_less_than 128, AI_CV_Endeavor_End
+	score -1
+	goto AI_CV_Endeavor_End
 
 AI_CV_Eruption:
 	if_type_effectiveness AI_EFFECTIVENESS_x0_25, AI_CV_Eruption_ScoreDown1
@@ -4832,7 +4920,12 @@ AI_TryToFaint:
         if_effect EFFECT_OHKO, AI_TryToFaint_End
         if_effect EFFECT_COUNTER, AI_TryToFaint_End
         if_effect EFFECT_MIRROR_COAT, AI_TryToFaint_End
-        if_effect EFFECT_ENDEAVOR, AI_TryToFaint_End
+        if_not_effect EFFECT_ENDEAVOR, AI_TryToFaint_SkipEndeavor
+        if_status2 AI_USER, STATUS2_SUBSTITUTE, AI_TryToFaint_ApplyPenaltiesForLowDamage
+        if_user_faster AI_TryToFaint_ApplyPenaltiesForLowDamage
+        goto AI_TryToFaint_End
+
+AI_TryToFaint_SkipEndeavor:
         if_not_effect EFFECT_FAKE_OUT, AI_TryToFaint_SkipFakeOut
         if_status2 AI_TARGET, STATUS2_SUBSTITUTE, AI_TryToFaint_ApplyPenaltiesForLowDamage
         goto AI_TryToFaint_End

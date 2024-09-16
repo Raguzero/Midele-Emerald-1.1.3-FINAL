@@ -1764,9 +1764,13 @@ void AI_CalcDmg(u8 attacker, u8 defender)
         break;
     case EFFECT_PSYWAVE:
         gBattleMoveDamage = gBattleMons[attacker].level * 80 / 100;
+        if (gBattleMoveDamage == 0)
+            gBattleMoveDamage = 1;
         break;
     case EFFECT_SUPER_FANG:
         gBattleMoveDamage = gBattleMons[defender].hp/2;
+        if (gBattleMoveDamage == 0)
+            gBattleMoveDamage = 1;
         break;
     case EFFECT_MULTI_HIT:
             gBattleMoveDamage *= 3; // Average number of hits is three
@@ -1778,11 +1782,15 @@ void AI_CalcDmg(u8 attacker, u8 defender)
     case EFFECT_TRIPLE_KICK:
             gBattleMoveDamage *= 6;
         break;
+    case EFFECT_ENDEAVOR:
+        if (gBattleMons[defender].hp <= gBattleMons[attacker].hp)
+            gBattleMoveDamage = 0;
+        else
+            gBattleMoveDamage = gBattleMons[defender].hp - gBattleMons[attacker].hp;
+        break;
     default:
         break;
     }
-    if (gBattleMoveDamage == 0)
-        gBattleMoveDamage = 1; // Salvo inmunidad, el daño siempre es al menos 1
     gBattleMoveDamage = gBattleMoveDamage * gCritMultiplier * gBattleScripting.dmgMultiplier;
     gBattleStruct->dynamicMoveType = 0;
 	gBattleScripting.dmgMultiplier = 1;
