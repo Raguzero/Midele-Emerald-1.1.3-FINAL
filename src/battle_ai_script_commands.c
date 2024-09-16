@@ -116,8 +116,8 @@ static void Cmd_if_in_bytes(void);
 static void Cmd_if_not_in_bytes(void);
 static void Cmd_if_in_hwords(void);
 static void Cmd_if_not_in_hwords(void);
-static void Cmd_if_user_has_attacking_move(void);
-static void Cmd_if_user_has_no_attacking_moves(void);
+static void Cmd_if_user_has_attacking_non_ineffective_move(void);
+static void Cmd_if_user_has_no_attacking_non_ineffective_moves(void);
 static void Cmd_get_turn_count(void);
 static void Cmd_get_type(void);
 static void Cmd_get_considered_move_power(void);
@@ -180,7 +180,7 @@ static void Cmd_if_level_cond(void);
 static void Cmd_if_target_taunted(void);
 static void Cmd_if_target_not_taunted(void);
 static void Cmd_check_ability(void);
-static void Cmd_is_of_type(void);
+static void Cmd_if_type(void);
 static void Cmd_if_target_is_ally(void);
 static void Cmd_if_flash_fired(void);
 static void Cmd_if_holds_item(void);
@@ -203,6 +203,7 @@ static void Cmd_if_has_non_ineffective_move_with_effect(void);
 static void Cmd_if_doesnt_have_non_ineffective_move_with_effect(void);
 static void Cmd_if_move_is_contactless(void);
 static void Cmd_if_target_will_be_faster_after_this_effect(void);
+static void Cmd_get_weather_at_the_end_of_turn(void);
 
 // ewram
 EWRAM_DATA const u8 *gAIScriptPtr = NULL;
@@ -244,8 +245,8 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_if_not_in_bytes,                            // 0x1C
     Cmd_if_in_hwords,                               // 0x1D
     Cmd_if_not_in_hwords,                           // 0x1E
-    Cmd_if_user_has_attacking_move,                 // 0x1F
-    Cmd_if_user_has_no_attacking_moves,             // 0x20
+    Cmd_if_user_has_attacking_non_ineffective_move, // 0x1F
+    Cmd_if_user_has_no_attacking_non_ineffective_moves, // 0x20
     Cmd_get_turn_count,                             // 0x21
     Cmd_get_type,                                   // 0x22
     Cmd_get_considered_move_power,                  // 0x23
@@ -308,7 +309,7 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_if_target_taunted,                          // 0x5C
     Cmd_if_target_not_taunted,                      // 0x5D
     Cmd_if_target_is_ally,                          // 0x5E
-    Cmd_is_of_type,                                 // 0x5F
+    Cmd_if_type,                                    // 0x5F
     Cmd_check_ability,                              // 0x60
     Cmd_if_flash_fired,                             // 0x61
     Cmd_if_holds_item,                              // 0x62
@@ -331,6 +332,7 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_if_doesnt_have_non_ineffective_move_with_effect,    // 0x73
     Cmd_if_move_is_contactless,                             // 0x74
     Cmd_if_target_will_be_faster_after_this_effect,         // 0x75
+    Cmd_get_weather_at_the_end_of_turn,                     // 0x76
 };
 
 static const u16 sDiscouragedPowerfulMoveEffects[] =
@@ -426,7 +428,8 @@ void BattleAI_SetupAIData(u8 defaultScoreMoves)
         defaultScoreMoves >>= 1;
     }
 
-    moveLimitations = CheckMoveLimitations(gActiveBattler, 0, 0xFF);
+    sBattler_AI = gActiveBattler;
+    moveLimitations = CheckMoveLimitations(sBattler_AI, 0, 0xFF);
 
     // Ignore moves that aren't possible to use.
     for (i = 0; i < MAX_MON_MOVES; i++)
@@ -438,12 +441,11 @@ void BattleAI_SetupAIData(u8 defaultScoreMoves)
     }
 
     gBattleResources->AI_ScriptsStack->size = 0;
-    sBattler_AI = gActiveBattler;
 
     // Decide a random target battlerId in doubles.
     if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
     {
-        gBattlerTarget = (Random() & BIT_FLANK) + (GetBattlerSide(gActiveBattler) ^ BIT_SIDE);
+        gBattlerTarget = (Random() & BIT_FLANK) + (GetBattlerSide(sBattler_AI) ^ BIT_SIDE);
         if (gAbsentBattlerFlags & gBitTable[gBattlerTarget])
             gBattlerTarget ^= BIT_FLANK;
     }
@@ -491,20 +493,90 @@ u8 BattleAI_ChooseMoveOrAction(void)
     return ret;
 }
 
-bool32 IsTruantMonVulnerable(u32 battlerAI, u32 opposingBattler)
+bool32 IsTruantMonVulnerable(u32 battlerAI, u32 opposingBattler, bool8 opposingBattlerHasToAttackAfterSwitchin)
 {
     s32 i;
 
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
         u32 move = FOES_MOVE_HISTORY(opposingBattler)[i];
-        if (gBattleMoves[move].effect == EFFECT_PROTECT)
-            return TRUE;
-		if (gBattleMoves[move].effect == EFFECT_SUBSTITUTE
-			&& gBattleMons[opposingBattler].hp > gBattleMons[opposingBattler].maxHP / 4) // tiene PS para meter sub
-            return TRUE;
-		 if (gBattleMoves[move].effect == EFFECT_SEMI_INVULNERABLE && GetWhoStrikesFirst(battlerAI, opposingBattler, TRUE) == 1)
-            return TRUE;
+
+        if (
+            (
+             (gBattleMons[opposingBattler].status2 & (STATUS2_RECHARGE | STATUS2_MULTIPLETURNS) && !(gStatuses3[opposingBattler] & STATUS3_SEMI_INVULNERABLE && gBattleMoves[move].effect == EFFECT_SEMI_INVULNERABLE)
+             ) 
+             || 
+             (gDisableStructs[opposingBattler].encoreTimer && gDisableStructs[opposingBattler].encoredMove != move)
+            )
+            && !gDisableStructs[battlerAI].truantCounter
+            && !opposingBattlerHasToAttackAfterSwitchin
+           )
+            continue; // si el rival está ocupado con otro movimiento y no toca holgazanear, no nos preocupa de momento que el rival tenga este movimiento
+
+        switch(gBattleMoves[move].effect)
+        {
+            case EFFECT_SUBSTITUTE:
+                if (gBattleMons[opposingBattler].hp <= gBattleMons[opposingBattler].maxHP / 4)
+                    break; // si no tiene PS para meter sub, no nos preocupa
+
+                if (GetWhoStrikesFirst(battlerAI, opposingBattler, TRUE) == 0
+                    && !gDisableStructs[battlerAI].truantCounter
+                    && !opposingBattlerHasToAttackAfterSwitchin
+                   )
+                    break; // si nos da tiempo a atacar antes de que ponga sub, no nos preocupa por el momento
+
+                return TRUE;
+
+            case EFFECT_PROTECT:
+                if ((gLastResultingMoves[opposingBattler] == MOVE_PROTECT || gLastResultingMoves[opposingBattler] == MOVE_DETECT || gLastResultingMoves[opposingBattler] == MOVE_ENDURE)
+                    && gDisableStructs[opposingBattler].protectUses >= 2
+                    && !gDisableStructs[battlerAI].truantCounter
+                    && !opposingBattlerHasToAttackAfterSwitchin)
+                    break; // si el rival se protegió dos o más veces seguidas, se la juega a que la próxima probablemente falle
+
+                return TRUE;
+
+            case EFFECT_SEMI_INVULNERABLE:
+                /*
+                  Hay cuatro factores a tener en cuenta:
+                   - A: Si el poke de la IA es más lento.
+                   - B: Si el rival ya está en una etapa semiinvulnerable en este momento.
+                   - C: Si en el próximo ataque toca holgazanear.
+                   - D: Si el rival tendrá un turno más para atacar (por estar considerando un cambio).
+                  
+                  C y D no pueden darse a la vez.
+                  
+                  La lógica seguida es la siguiente:
+                   - B, C, D falsos. En este caso, el poke con Truant será frenado si es más lento, pero podrá atacar si no.
+                   - C, D falsos, B verdadero. Se le da la vuelta al anterior escenario si el rival está en una etapa semiinvulnerable: el poke con Truant podrá atacar (aguantando un golpe) si es más lento, pero será bloqueado si es más rápido.
+                   - D falso, C verdadero: si B es falso, el rival puede aprovechar la ventaja que tiene para ponerse en el escenario que le interese (usando el movimiento de semiinvulnerabilidad si el poke de la IA es más lento, no usándolo ahora sino en el siguiente turno si es más rápido), mientras que si es verdadero es como el caso con B, C, D falsos.
+                   - D verdadero (C falso), ...:
+                       + B verdadero. Entonces al siguiente turno será como el caso con B, C, D falso.
+                       + B falso. Si el rival no tira el mov de semiinvulnerabilidad en el cambio, entonces es como el escenario con B, C, D falso. Si lo hace, entonces es al revés. Haremos que la IA asuma que no lo hace: si sí lo hace y no conviene puede rectificar al siguiente turno (además la IA podrá escoger un poke que aguante bien el golpe si lo hay), pero si asume lo contrario y no lo hace puede ser menos cómodo rectificar.
+
+                   El siguiente código recorre estos escenarios en orden inverso.
+                */
+                #define TRUANT_MON_IS_SLOWER (GetWhoStrikesFirst(battlerAI, opposingBattler, TRUE) == 1)
+                if (opposingBattlerHasToAttackAfterSwitchin) // D
+                { // Si D, entonces el poke con Truant corre peligro cuando es más lento
+                    if (TRUANT_MON_IS_SLOWER)
+                        return TRUE;
+                }
+                else if (gDisableStructs[battlerAI].truantCounter) // C
+                { // Si C y no D, el poke con Truant corre peligro excepto si es más rápido y el rival está en una etapa semiinvulnerable
+                    if (!(gStatuses3[opposingBattler] & STATUS3_SEMI_INVULNERABLE) || TRUANT_MON_IS_SLOWER)
+                        return TRUE;
+                }
+                else if (gStatuses3[opposingBattler] & STATUS3_SEMI_INVULNERABLE) // B
+                { // Si B, no C y no D, corre peligro si es más rápido
+                    if (!TRUANT_MON_IS_SLOWER)
+                        return TRUE;
+                }
+                else if (TRUANT_MON_IS_SLOWER) // A
+                    return TRUE; // corre peligro si es más lento
+                #undef TRUANT_MON_IS_SLOWER
+                break;
+        }
     }
     return FALSE;
 }
@@ -519,10 +591,10 @@ bool8 IsMoveSignificantlyAffectedByStatDrops(u16 move)
     if (move == MOVE_HIDDEN_POWER || move == MOVE_MONADO_POWER)
     {
         struct Pokemon *monAttacker;
-        if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
-            monAttacker = &gPlayerParty[gBattlerPartyIndexes[gActiveBattler]];
+        if (GetBattlerSide(sBattler_AI) == B_SIDE_PLAYER)
+            monAttacker = &gPlayerParty[gBattlerPartyIndexes[sBattler_AI]];
         else
-            monAttacker = &gEnemyParty[gBattlerPartyIndexes[gActiveBattler]];
+            monAttacker = &gEnemyParty[gBattlerPartyIndexes[sBattler_AI]];
 
         type = monAttacker->box.hpType;
     }
@@ -565,6 +637,7 @@ bool8 IsMoveSignificantlyAffectedByAccuracyDrops(u16 move)
 bool8 sBattler_AIisLosingHPDueToWeather(bool8 ignoreLeftoversAndIngrain)
 {
     return (WEATHER_HAS_EFFECT
+            && (gWishFutureKnock.weatherDuration != 1 || (gBattleWeather & (WEATHER_RAIN_PERMANENT | WEATHER_SANDSTORM_PERMANENT | WEATHER_SUN_PERMANENT | WEATHER_HAIL_PERMANENT)))
             && gBattleMons[sBattler_AI].ability != ABILITY_OVERCOAT
             && (ignoreLeftoversAndIngrain || (
                       gBattleMons[sBattler_AI].item != ITEM_LEFTOVERS // Restos compensa el clima
@@ -677,7 +750,7 @@ bool32 OurShedinjaIsVulnerable(u32 battlerAI, u32 opposingBattler, u16 considere
         return TRUE;
 
     // Si Shedinja hace KO con el ataque elegido antes de que ataque el rival, no hace falta huir
-    if (AI_CAN_ESTIMATE_DAMAGE(consideredMove))
+    if (AI_CAN_ESTIMATE_DAMAGE(consideredMove) && !(gStatuses3[opposingBattler] & STATUS3_SEMI_INVULNERABLE))
     {
         bool8 canKO;
       
@@ -717,6 +790,9 @@ bool32 OurShedinjaIsVulnerable(u32 battlerAI, u32 opposingBattler, u16 considere
                 break;
         if (j == MAX_MON_MOVES)
             continue; // No puede usar el movimiento por el momento; se ignora
+
+        if ((gBattleMons[opposingBattler].status2 & STATUS2_MULTIPLETURNS) && gCurrentMove != gLastMoves[opposingBattler])
+            continue; // Está en un ataque multiturno distinto de este; se ignora
 
         // Si le hace daño a Shedinja, hora de huir
         if (AI_CAN_ESTIMATE_DAMAGE(gCurrentMove) && !shedinjaIsSafeUnlessWeather)
@@ -783,7 +859,7 @@ bool8 AICanSwitchAssumingEnoughPokemon(void)
 {
     return !(ABILITY_ON_OPPOSING_FIELD(sBattler_AI, ABILITY_SHADOW_TAG) && (!IS_BATTLER_OF_TYPE(sBattler_AI, TYPE_GHOST) && gBattleMons[sBattler_AI].ability != ABILITY_SHADOW_TAG))
             && !(ABILITY_ON_OPPOSING_FIELD(sBattler_AI, ABILITY_ARENA_TRAP) && (!IS_BATTLER_OF_TYPE(sBattler_AI, TYPE_FLYING) && !IS_BATTLER_OF_TYPE(sBattler_AI, TYPE_GHOST) && gBattleMons[sBattler_AI].ability != ABILITY_LEVITATE))
-            && !(ABILITY_ON_FIELD2(ABILITY_MAGNET_PULL) && IS_BATTLER_OF_TYPE(sBattler_AI, TYPE_STEEL))
+            && !(AbilityBattleEffects(ABILITYEFFECT_CHECK_FIELD_EXCEPT_BATTLER, sBattler_AI, ABILITY_MAGNET_PULL, 0, 0) && IS_BATTLER_OF_TYPE(sBattler_AI, TYPE_STEEL))
             && !(gBattleMons[sBattler_AI].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION) && !IS_BATTLER_OF_TYPE(sBattler_AI, TYPE_GHOST))
             && !(gStatuses3[sBattler_AI] & STATUS3_ROOTED && !IS_BATTLER_OF_TYPE(sBattler_AI, TYPE_GHOST))
             && !(gBattleTypeFlags & (BATTLE_TYPE_ARENA | BATTLE_TYPE_PALACE))
@@ -873,12 +949,26 @@ static u8 ChooseMoveOrAction_Singles(void)
         }
     }
 #endif
+
+        // Consider switching if your mon with truant is bodied by Protect spam.
+        // Or can be exploited by semi invulnerable moves (such as Fly).
+        // Or its ability is actually not Truant.
+		if (gBattleMons[sBattler_AI].ability == ABILITY_TRUANT
+            && (IsTruantMonVulnerable(sBattler_AI, gBattlerTarget, FALSE)
+                || (GetAbilityBySpecies(gBattleMons[sBattler_AI].species, gBattleMons[sBattler_AI].abilityNum) != ABILITY_TRUANT
+                  && gDisableStructs[sBattler_AI].truantCounter
+                   )
+               )
+			&& AICanSwitchAssumingEnoughPokemon())
+            SWITCH_IF_THERE_IS_A_SUITABLE_MON(gDisableStructs[sBattler_AI].truantCounter ? NOT_CHANGING_IS_UNACCEPTABLE : NOT_CHANGING_IS_ACCEPTABLE);
+
+
 // Consider switching if all moves are worthless to use.
     if (AI_THINKING_STRUCT->aiFlags & (AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_PREFER_BATON_PASS)
         && !(
              // no cambia si tiene Evasión a +6 o el rival no puede hacerle nada
-             // y el rival está intoxicado o maldito
-             ((gBattleMons[gBattlerTarget].status1 & STATUS1_TOXIC_POISON) || (gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED))
+             // y el rival está intoxicado, maldito o con Leech Seed
+             ((gBattleMons[gBattlerTarget].status1 & STATUS1_TOXIC_POISON) || (gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED) || (gStatuses3[gBattlerTarget] & STATUS3_LEECHSEED))
           && (gBattleMons[sBattler_AI].statStages[STAT_EVASION] == 12 || CalculateNHKO(gBattlerTarget, sBattler_AI, FALSE, MOVE_NONE, TRUE, FALSE) >= 5)
             )
         && !(
@@ -892,7 +982,7 @@ static u8 ChooseMoveOrAction_Singles(void)
 		&& AICanSwitchAssumingEnoughPokemon())
     {
         s32 cap = AI_THINKING_STRUCT->aiFlags & (AI_SCRIPT_CHECK_VIABILITY) ? 95 : 93;
-        s32 i_2;
+
         bool8 notChangingIsAcceptable = TRUE;
 	if (gBattleMons[sBattler_AI].hp < gBattleMons[sBattler_AI].maxHP / 2 && (Random() & 1))
            cap -= 3;
@@ -901,27 +991,26 @@ static u8 ChooseMoveOrAction_Singles(void)
             if (AI_THINKING_STRUCT->score[i] > cap && gBattleMons[sBattler_AI].moves[i] != MOVE_SLEEP_TALK)
                 break;
         }
-        for (i_2 = 0; i_2 < MAX_MON_MOVES; i_2++)
-            if (AI_THINKING_STRUCT->score[i_2] > cap - 2 && gBattleMons[sBattler_AI].moves[i_2] != MOVE_SLEEP_TALK)
-                break;
 
-        if (i_2 == MAX_MON_MOVES)
-            notChangingIsAcceptable = FALSE;
+        // Considera cambios más desesperados si los puntos son incluso menores, siempre que no tenga subidas de defensas o Evasión
+        if (i == MAX_MON_MOVES
+            && gBattleMons[sBattler_AI].statStages[STAT_DEF] < 10
+            && gBattleMons[sBattler_AI].statStages[STAT_SPDEF] < 10
+            && gBattleMons[sBattler_AI].statStages[STAT_EVASION] < 10
+           )
+        {
+            s32 i_2;
+            for (i_2 = 0; i_2 < MAX_MON_MOVES; i_2++)
+                if (AI_THINKING_STRUCT->score[i_2] > cap - 2 && gBattleMons[sBattler_AI].moves[i_2] != MOVE_SLEEP_TALK)
+                    break;
 
-        gActiveBattler = sBattler_AI;
+            if (i_2 == MAX_MON_MOVES)
+                notChangingIsAcceptable = FALSE;
+        }
+
         if (i == MAX_MON_MOVES)
             SWITCH_IF_THERE_IS_A_SUITABLE_MON(notChangingIsAcceptable ? NOT_CHANGING_IS_ACCEPTABLE : NOT_CHANGING_IS_UNACCEPTABLE);
     }
-	
-	   // Consider switching if your mon with truant is bodied by Protect spam.
-        // Or is using a double turn semi invulnerable move(such as Fly) and is faster.
-        // Or its ability is actually not Truant.
-		if (gBattleMons[sBattler_AI].ability == ABILITY_TRUANT
-            && (GetAbilityBySpecies(gBattleMons[sBattler_AI].species, gBattleMons[sBattler_AI].abilityNum) != ABILITY_TRUANT
-            || IsTruantMonVulnerable(sBattler_AI, gBattlerTarget))
-            && gDisableStructs[sBattler_AI].truantCounter
-			&& AICanSwitchAssumingEnoughPokemon())
-            SWITCH_IF_THERE_IS_A_SUITABLE_MON(NOT_CHANGING_IS_UNACCEPTABLE);
 
     numOfBestMoves = 1;
     currentMoveArray[0] = AI_THINKING_STRUCT->score[0];
@@ -969,10 +1058,13 @@ static u8 ChooseMoveOrAction_Singles(void)
 
 		// Considera cambiar si corre peligro ante el rival y hay opciones mejores por ahí
         if (!(
-              // no cambia si tiene Evasión alta y el rival está intoxicado o maldito
+              // no cambia si tiene Evasión alta y el rival está intoxicado o maldito,
               // o si tiene un sustituto o es FEAR,
-              // o va a protegerse o usar Endure (y no tiene status que quite PS)
-              gBattleMons[sBattler_AI].statStages[STAT_EVASION] >= 9 // +3 o más
+              // o va a protegerse o usar Endure (y no tiene status que quite PS o entorpezca actuar)
+              gBattleMons[sBattler_AI].statStages[STAT_EVASION]
+                       >= 9    // +3 o más, +2 si el rival está enamorado o confuso, +1 si ambas
+                       - (gBattleMons[gBattlerTarget].status2 & STATUS2_CONFUSION ? 1 : 0)
+                       - (gBattleMons[gBattlerTarget].status2 & STATUS2_INFATUATION ? 1 : 0)
            && ((gBattleMons[gBattlerTarget].status1 & STATUS1_TOXIC_POISON) || (gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED))
              )
             && !(gBattleMons[sBattler_AI].status2 & STATUS2_SUBSTITUTE)
@@ -981,8 +1073,8 @@ static u8 ChooseMoveOrAction_Singles(void)
                   || (gBattleMoves[move].effect == EFFECT_ENDURE && !(gBattleMons[sBattler_AI].status1 & (STATUS1_PSN_ANY | STATUS1_BURN)))
                  )
                  && PROTECT_WONT_FAIL_FOR(sBattler_AI) // si ya lo usó el turno anterior, mejor pensar en cambiar
-                 && !(gBattleMons[sBattler_AI].status1 & STATUS1_TOXIC_POISON)
-                 && !(gBattleMons[sBattler_AI].status2 & STATUS2_CURSED)
+                 && !(gBattleMons[sBattler_AI].status1 & (STATUS1_TOXIC_POISON | STATUS1_PARALYSIS | STATUS1_FREEZE))
+                 && !(gBattleMons[sBattler_AI].status2 & (STATUS2_CURSED | STATUS2_INFATUATION | STATUS2_CONFUSION))
                  && !(gStatuses3[sBattler_AI] & STATUS3_LEECHSEED)
                 )
             && !(gBattleMons[sBattler_AI].level <= 2) // probable FEAR
@@ -1001,10 +1093,14 @@ static u8 ChooseMoveOrAction_Singles(void)
                   && !(nhko_taken == 1 && gBattleMoves[move].priority < 0)); // sí, Focus Punch tiene -3
             u8 attacks_until_ko = nhko_taken - (ai_is_faster ? 0 : 1);
 
+            if ((gStatuses3[sBattler_AI] & STATUS3_PERISH_SONG) && gDisableStructs[sBattler_AI].perishSongTimer + 1 < attacks_until_ko)
+                attacks_until_ko = 1 + gDisableStructs[sBattler_AI].perishSongTimer;
+
+            if (gBattleMons[sBattler_AI].ability == ABILITY_TRUANT)
+                attacks_until_ko = (attacks_until_ko + (gDisableStructs[sBattler_AI].truantCounter ? 0 : 1))/2;
+
             if (attacks_until_ko > 1 && gBattleMoves[move].effect == EFFECT_EXPLOSION)
                 attacks_until_ko = 1;
-            else if ((gStatuses3[sBattler_AI] & STATUS3_PERISH_SONG) && gDisableStructs[sBattler_AI].perishSongTimer + 1 < attacks_until_ko)
-                attacks_until_ko = 1 + gDisableStructs[sBattler_AI].perishSongTimer;
 
             if (attacks_until_ko > 1 && (gStatuses3[sBattler_AI] & STATUS3_YAWN))
                 attacks_until_ko -= 1; // probablemente más
@@ -1030,17 +1126,26 @@ static u8 ChooseMoveOrAction_Singles(void)
                      )
                  )
               || (nhko_taken == 1                                        // También cambia si recibe OHKO
-                  && move == MOVE_SUBSTITUTE                             // y va a tirar sub por segunda vez
-                  && gLastResultingMoves[sBattler_AI] == MOVE_SUBSTITUTE // (para evitar spamearlo)
-                  && gBattleMons[sBattler_AI].item != ITEM_LIECHI_BERRY  // y no tiene una pinch berry
-                  && gBattleMons[sBattler_AI].item != ITEM_PETAYA_BERRY
-                  && gBattleMons[sBattler_AI].item != ITEM_SALAC_BERRY
-                  && !(gBattleMons[gBattlerTarget].status1 & STATUS1_TOXIC_POISON) // y el rival no palma PS
-                  && !(gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED)
-                  && !(   // ni el poke de la IA se está recuperando con Leech Seed al rival junto con Restos
-                          FIRST_IS_LEECH_SEEDING_SECOND(sBattler_AI, gBattlerTarget)
-                       && gBattleMons[sBattler_AI].item == ITEM_LEFTOVERS)
-                      )
+                  && move == MOVE_SUBSTITUTE                              // y va a tirar sub por segunda vez
+                  && (gLastResultingMoves[sBattler_AI] == MOVE_SUBSTITUTE // (para evitar spamearlo)
+                      || (!PROTECT_WONT_FAIL_FOR(sBattler_AI) && gBattleMons[sBattler_AI].hp * 4 <= 3 * gBattleMons[sBattler_AI].maxHP)
+                     )                                                    // o parece estar con SubProtect
+                  && ( // y, o está perdiendo PS,
+                      (gBattleMons[sBattler_AI].status1 & STATUS1_TOXIC_POISON)
+                      || (gBattleMons[sBattler_AI].status2 & STATUS2_CURSED)
+                      || (gStatuses3[sBattler_AI] & STATUS3_PERISH_SONG)
+                      || ( // o no pasa nada de lo siguiente:
+                          gBattleMons[sBattler_AI].item != ITEM_LIECHI_BERRY  // tener una pinch berry,
+                          && gBattleMons[sBattler_AI].item != ITEM_PETAYA_BERRY
+                          && gBattleMons[sBattler_AI].item != ITEM_SALAC_BERRY
+                          && !(gBattleMons[gBattlerTarget].status1 & STATUS1_TOXIC_POISON) // que el rival palme PS
+                          && !(gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED)
+                          && !(   // o que poke de la IA se esté recuperando con Leech Seed al rival junto con Restos
+                                  FIRST_IS_LEECH_SEEDING_SECOND(sBattler_AI, gBattlerTarget)
+                               && gBattleMons[sBattler_AI].item == ITEM_LEFTOVERS)
+                         )
+                     )
+                 )
                )
                 SWITCH_IF_THERE_IS_A_SUITABLE_MON(NOT_CHANGING_IS_ACCEPTABLE);
         }
@@ -1085,6 +1190,22 @@ static u8 ChooseMoveOrAction_Singles(void)
              if (!convenient_move)
                 SWITCH_IF_THERE_IS_A_SUITABLE_MON(NOT_CHANGING_IS_UNACCEPTABLE);
             }
+
+        // Si toca esperar un turno por Truant y cuando pueda atacar no espera hacer OHKO,
+        // la IA mira si puede hacer un buen cambio en lugar de atacar
+        if (gBattleMons[sBattler_AI].ability == ABILITY_TRUANT
+            && gDisableStructs[sBattler_AI].truantCounter
+            && (currentMoveArray[0] < 103 || gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE) // el movimiento elegido no es muy bueno o el rival tiene un sustituto
+            && !( // no tiene Evasión subida vs un rival intoxicado o maldito
+                 gBattleMons[sBattler_AI].statStages[STAT_EVASION] >= 10 // +4 o más
+                 && ((gBattleMons[gBattlerTarget].status1 & STATUS1_TOXIC_POISON) || (gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED))
+                )
+            && !( // no pasa a la vez: tener sub, que el rival esté recargando (Hyper Beam...) y ser más rápido
+                 (gBattleMons[sBattler_AI].status2 & STATUS2_SUBSTITUTE) && (gBattleMons[gBattlerTarget].status2 & STATUS2_RECHARGE) && GetWhoStrikesFirst(sBattler_AI, gBattlerTarget, TRUE) == 0
+                )
+            && AICanSwitchAssumingEnoughPokemon()
+           )
+                SWITCH_IF_THERE_IS_A_SUITABLE_MON(NOT_CHANGING_IS_ACCEPTABLE);
 
         // La IA puede considerar repetir su último movimiento si observa que el rival está cambiando.
         // Para darse cuenta de ello, se mantiene cierta información en memoria
@@ -1320,18 +1441,21 @@ static u8 ChooseMoveOrAction_Doubles(void)
     gBattlerTarget = mostViableTargetsArray[Random() % mostViableTargetsNo];
 
     // Consider switching if your mon with truant is bodied by Protect spam.
-    // Or is using a double turn semi invulnerable move(such as Fly) and is faster.
+    // Or can be exploited by semi invulnerable moves (such as Fly).
     // Or its ability is actually not Truant.
     if (gBattleMons[sBattler_AI].ability == ABILITY_TRUANT
         && GET_BATTLER_SIDE(sBattler_AI) != GET_BATTLER_SIDE(gBattlerTarget)
         && actionOrMoveIndex[gBattlerTarget] != AI_CHOICE_FLEE
         && actionOrMoveIndex[gBattlerTarget] != AI_CHOICE_WATCH
-        && (GetAbilityBySpecies(gBattleMons[sBattler_AI].species, gBattleMons[sBattler_AI].abilityNum) != ABILITY_TRUANT
-              || (IsTruantMonVulnerable(sBattler_AI, gBattlerTarget)
-                  && (gBattleMons[gBattlerTarget ^ BIT_FLANK].hp == 0 || IsTruantMonVulnerable(sBattler_AI, gBattlerTarget ^ BIT_FLANK))))
-        && gDisableStructs[sBattler_AI].truantCounter
+        && ((IsTruantMonVulnerable(sBattler_AI, gBattlerTarget, FALSE)
+            && (gBattleMons[gBattlerTarget ^ BIT_FLANK].hp == 0 || IsTruantMonVulnerable(sBattler_AI, gBattlerTarget ^ BIT_FLANK, FALSE)) // no puede atacar al otro porque no hay otro o por lo mismo
+            )
+            || (GetAbilityBySpecies(gBattleMons[sBattler_AI].species, gBattleMons[sBattler_AI].abilityNum) != ABILITY_TRUANT
+              && gDisableStructs[sBattler_AI].truantCounter
+               )
+           )
         && AICanSwitchAssumingEnoughPokemon())
-        SWITCH_IF_THERE_IS_A_SUITABLE_MON(NOT_CHANGING_IS_UNACCEPTABLE);
+        SWITCH_IF_THERE_IS_A_SUITABLE_MON(gDisableStructs[sBattler_AI].truantCounter ? NOT_CHANGING_IS_UNACCEPTABLE : NOT_CHANGING_IS_ACCEPTABLE);
     return actionOrMoveIndex[gBattlerTarget];
 }
 
@@ -1399,6 +1523,18 @@ void RecordLastUsedMoveByTarget(void)
             break;
         }
     }
+    // Si usó Sleep Talk, anota también el movimiento que salió
+    if (gLastMoves[gBattlerTarget] == MOVE_SLEEP_TALK && gLastResultingMoves[gBattlerTarget] != 0xFFFF && gLastResultingMoves[gBattlerTarget] != MOVE_NONE)
+        for (i = 0; i < MAX_MON_MOVES; i++)
+        {
+            if (FOES_MOVE_HISTORY(gBattlerTarget)[i] == gLastResultingMoves[gBattlerTarget])
+                break;
+            if (FOES_MOVE_HISTORY(gBattlerTarget)[i] == MOVE_NONE)
+            {
+                FOES_MOVE_HISTORY(gBattlerTarget)[i] = gLastResultingMoves[gBattlerTarget];
+                break;
+            }
+        }
 }
 
 void ClearBattlerMoveHistory(u8 battlerId)
@@ -1944,16 +2080,18 @@ static void Cmd_if_not_in_hwords(void)
     gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 5);
 }
 
-static void Cmd_if_user_has_attacking_move(void)
+static void Cmd_if_user_has_attacking_non_ineffective_move(void)
 {
     s32 i;
+    u8 moveLimitations = CheckMoveLimitations(sBattler_AI, 0, MOVE_LIMITATION_PP);
 
     for (i = 0; i < MAX_MON_MOVES; i++)
-    {
         if (gBattleMons[sBattler_AI].moves[i] != 0
-            && gBattleMoves[gBattleMons[sBattler_AI].moves[i]].power != 0)
+            && !(gBitTable[i] & moveLimitations)
+            && gBattleMoves[gBattleMons[sBattler_AI].moves[i]].power != 0
+            && CalculateDamageFromMove(sBattler_AI, gBattlerTarget, gBattleMons[sBattler_AI].moves[i], 0) > 0
+           )
             break;
-    }
 
     if (i == MAX_MON_MOVES)
         gAIScriptPtr += 5;
@@ -1961,16 +2099,18 @@ static void Cmd_if_user_has_attacking_move(void)
         gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 1);
 }
 
-static void Cmd_if_user_has_no_attacking_moves(void)
+static void Cmd_if_user_has_no_attacking_non_ineffective_moves(void)
 {
     s32 i;
+    u8 moveLimitations = CheckMoveLimitations(sBattler_AI, 0, MOVE_LIMITATION_PP);
 
     for (i = 0; i < MAX_MON_MOVES; i++)
-    {
         if (gBattleMons[sBattler_AI].moves[i] != 0
-         && gBattleMoves[gBattleMons[sBattler_AI].moves[i]].power != 0)
+            && !(gBitTable[i] & moveLimitations)
+            && gBattleMoves[gBattleMons[sBattler_AI].moves[i]].power != 0
+            && CalculateDamageFromMove(sBattler_AI, gBattlerTarget, gBattleMons[sBattler_AI].moves[i], 0) > 0
+           )
             break;
-    }
 
     if (i != MAX_MON_MOVES)
         gAIScriptPtr += 5;
@@ -2025,16 +2165,14 @@ static u8 BattleAI_GetWantedBattler(u8 wantedBattler)
     }
 }
 
-static void Cmd_is_of_type(void)
+static void Cmd_if_type(void)
 {
     u8 battlerId = BattleAI_GetWantedBattler(gAIScriptPtr[1]);
 
     if (IS_BATTLER_OF_TYPE(battlerId, gAIScriptPtr[2]))
-        AI_THINKING_STRUCT->funcResult = TRUE;
+        gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 3);
     else
-        AI_THINKING_STRUCT->funcResult = FALSE;
-
-    gAIScriptPtr += 3;
+        gAIScriptPtr += 7;
 }
 
 static void Cmd_get_considered_move_power(void)
@@ -2233,7 +2371,7 @@ static void Cmd_get_ability(void)
     else
         battlerId = gBattlerTarget;
 
-	if ((gActiveBattler | BIT_FLANK) != (battlerId | BIT_FLANK))
+	if ((sBattler_AI | BIT_FLANK) != (battlerId | BIT_FLANK))
     {
         if (FOES_OBSERVED_ABILITY(battlerId) != 0)
         {
@@ -2881,13 +3019,13 @@ static void Cmd_if_curr_move_disabled_or_encored(void)
     switch (gAIScriptPtr[1])
     {
     case 0:
-        if (gDisableStructs[gActiveBattler].disabledMove == AI_THINKING_STRUCT->moveConsidered)
+        if (gDisableStructs[sBattler_AI].disabledMove == AI_THINKING_STRUCT->moveConsidered)
             gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
         else
             gAIScriptPtr += 6;
         break;
     case 1:
-        if (gDisableStructs[gActiveBattler].encoredMove == AI_THINKING_STRUCT->moveConsidered)
+        if (gDisableStructs[sBattler_AI].encoredMove == AI_THINKING_STRUCT->moveConsidered)
             gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
         else
             gAIScriptPtr += 6;
@@ -3422,6 +3560,9 @@ s32 CalculateNHKO(u16 attackerId, u16 targetId, bool8 attackerIsCurrentAI, u16 c
                 [TYPE_FAIRY] = MOVE_MOONBLAST,
             };
 
+            if (gBattleMons[attackerId].ability == ABILITY_SNOW_WARNING)
+                standard_moves[TYPE_ICE] = MOVE_BLIZZARD;
+
             if (opponent_types[1] == opponent_types[0])
                 opponent_types[1] = TYPE_NONE;
 
@@ -3656,9 +3797,11 @@ static void Cmd_get_possible_categories_of_foes_attacks(void)
     {
         u16 base_attack = gBaseStats[gBattleMons[gBattlerTarget].species].baseAttack;
         u16 base_sp_attack = gBaseStats[gBattleMons[gBattlerTarget].species].baseSpAttack;
-        if (base_attack * 4 < base_sp_attack * 3 && base_attack < 100)
+        if (   (base_attack * 4 < base_sp_attack * 3 && base_attack < 100)
+            || (base_attack * 7 < base_sp_attack * 6 && base_attack < 120 && !IS_TYPE_PHYSICAL(gBaseStats[gBattleMons[gBattlerTarget].species].type1) && !IS_TYPE_PHYSICAL(gBaseStats[gBattleMons[gBattlerTarget].species].type2)))
             result = AI_UNKNOWN_CATEGORIES_PROBABLY_SPECIAL;
-        else if (base_sp_attack * 4 < base_attack * 3 && base_sp_attack < 100)
+        else if (   (base_sp_attack * 4 < base_attack * 3 && base_sp_attack < 100)
+                 || (base_sp_attack * 7 < base_attack * 6 && base_sp_attack < 120 && IS_TYPE_PHYSICAL(gBaseStats[gBattleMons[gBattlerTarget].species].type1) && IS_TYPE_PHYSICAL(gBaseStats[gBattleMons[gBattlerTarget].species].type2)))
             result = AI_UNKNOWN_CATEGORIES_PROBABLY_PHYSICAL;
         else
             result = AI_UNKNOWN_CATEGORIES;
@@ -3903,6 +4046,9 @@ static void Cmd_if_target_will_be_faster_after_this_effect(void)
             else
                 gBattleMons[gBattlerTarget].statStages[STAT_SPEED] = 0;
             break;
+        case EFFECT_HAZE:
+            gBattleMons[sBattler_AI].statStages[STAT_SPEED] = gBattleMons[gBattlerTarget].statStages[STAT_SPEED] = 6;
+            break;
         case EFFECT_RAIN_DANCE:
             gBattleWeather = WEATHER_RAIN_ANY;
             break;
@@ -3954,4 +4100,23 @@ static void Cmd_if_target_will_be_faster_after_this_effect(void)
         gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 1);
     else
         gAIScriptPtr += 5;
+}
+
+static void Cmd_get_weather_at_the_end_of_turn(void)
+{
+	AI_THINKING_STRUCT->funcResult = AI_WEATHER_NONE;
+
+    if (gWishFutureKnock.weatherDuration != 1 || (gBattleWeather & (WEATHER_RAIN_PERMANENT | WEATHER_SANDSTORM_PERMANENT | WEATHER_SUN_PERMANENT | WEATHER_HAIL_PERMANENT)))
+    {
+        if (gBattleWeather & WEATHER_RAIN_ANY)
+            AI_THINKING_STRUCT->funcResult = AI_WEATHER_RAIN;
+        if (gBattleWeather & WEATHER_SANDSTORM_ANY)
+            AI_THINKING_STRUCT->funcResult = AI_WEATHER_SANDSTORM;
+        if (gBattleWeather & WEATHER_SUN_ANY)
+            AI_THINKING_STRUCT->funcResult = AI_WEATHER_SUN;
+        if (gBattleWeather & WEATHER_HAIL_ANY)
+            AI_THINKING_STRUCT->funcResult = AI_WEATHER_HAIL;
+    }
+
+    gAIScriptPtr += 1;
 }

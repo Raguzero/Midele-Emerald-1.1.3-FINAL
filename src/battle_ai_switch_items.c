@@ -625,7 +625,7 @@ static bool8 ShouldSwitch(void)
         if (!IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_FLYING) && !IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_GHOST) && (gBattleMons[gActiveBattler].ability != ABILITY_LEVITATE))
 			return FALSE;
     }
-    if (ABILITY_ON_FIELD2(ABILITY_MAGNET_PULL))
+    if (AbilityBattleEffects(ABILITYEFFECT_CHECK_FIELD_EXCEPT_BATTLER, gActiveBattler, ABILITY_MAGNET_PULL, 0, 0))
     {
         if (IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_STEEL))
             return FALSE;
@@ -1445,38 +1445,25 @@ u8 FilterTruantIfUseless(struct Pokemon *party, s32 firstId, s32 lastId, u8 filt
         }
     if (truantMons)
     {
-        if (!HasYetToAttack(opposingBattler))
-        {
-            struct BattlePokemon currentMon = gBattleMons[gActiveBattler];
-			struct DisableStruct disableStructCopy = gDisableStructs[gActiveBattler];
-            u16 partyIndex = gBattlerPartyIndexes[gActiveBattler];
-            const u32 newStatus2 = (gCurrentMove == MOVE_BATON_PASS ? (currentMon.status2 & STATUS2_KEPT_BY_SUBSTITUTE) : 0);
-			for (i = firstId; i < lastId; i++)
-                if ((gBitTable[i] & truantMons))
-                {
-                    PokemonToBattleMon(&party[i], &gBattleMons[gActiveBattler], gCurrentMove == MOVE_BATON_PASS);
-                    gBattleMons[gActiveBattler].status2 = newStatus2;
-                    gBattlerPartyIndexes[gActiveBattler] = i;
-					PrepareDisableStructForSwitchIn(gActiveBattler, &disableStructCopy);
+        struct BattlePokemon currentMon = gBattleMons[gActiveBattler];
+        struct DisableStruct disableStructCopy = gDisableStructs[gActiveBattler];
+        u16 partyIndex = gBattlerPartyIndexes[gActiveBattler];
+        const u32 newStatus2 = (gCurrentMove == MOVE_BATON_PASS ? (currentMon.status2 & STATUS2_KEPT_BY_SUBSTITUTE) : 0);
+        for (i = firstId; i < lastId; i++)
+            if ((gBitTable[i] & truantMons))
+            {
+                PokemonToBattleMon(&party[i], &gBattleMons[gActiveBattler], gCurrentMove == MOVE_BATON_PASS);
+                gBattleMons[gActiveBattler].status2 = newStatus2;
+                gBattlerPartyIndexes[gActiveBattler] = i;
+                PrepareDisableStructForSwitchIn(gActiveBattler, &disableStructCopy);
 
-                    if (IsTruantMonVulnerable(gActiveBattler, opposingBattler))
-                        vulnerableTruantMons |= gBitTable[i];
-                }
-            
-            gBattleMons[gActiveBattler] = currentMon;
-			gDisableStructs[gActiveBattler] = disableStructCopy;
-            gBattlerPartyIndexes[gActiveBattler] = partyIndex;
-        }
-        else // Si el rival no ha atacado, podría anticiparse aunque sea más lento
-        {
-            u16 currentSpeed = gBattleMons[gActiveBattler].speed;
-            gBattleMons[gActiveBattler].speed = 0;
-
-            if (IsTruantMonVulnerable(gActiveBattler, opposingBattler))
-                vulnerableTruantMons = truantMons;
-            
-            gBattleMons[gActiveBattler].speed = currentSpeed;
-        }
+                if (IsTruantMonVulnerable(gActiveBattler, opposingBattler, HasYetToAttack(opposingBattler)))
+                    vulnerableTruantMons |= gBitTable[i];
+            }
+        
+        gBattleMons[gActiveBattler] = currentMon;
+        gDisableStructs[gActiveBattler] = disableStructCopy;
+        gBattlerPartyIndexes[gActiveBattler] = partyIndex;
     }
     return (filteredMons | vulnerableTruantMons);
 }
@@ -1856,7 +1843,7 @@ u8 GetMostSuitableMonToSwitchInto(bool8 howTolerableIsNotChanging)
     u16 move;
 
     bool8 notChangingIsPossible = howTolerableIsNotChanging != NOT_CHANGING_IS_IMPOSSIBLE;
-    bool8 notChangingIsAcceptable = howTolerableIsNotChanging == NOT_CHANGING_IS_ACCEPTABLE;
+    bool8 notChangingIsAtLeastAcceptable = howTolerableIsNotChanging >= NOT_CHANGING_IS_ACCEPTABLE;
 
     if (*(gBattleStruct->monToSwitchIntoId + gActiveBattler) != PARTY_SIZE)
         return *(gBattleStruct->monToSwitchIntoId + gActiveBattler);
@@ -1905,6 +1892,7 @@ u8 GetMostSuitableMonToSwitchInto(bool8 howTolerableIsNotChanging)
     for (i = firstId; i < lastId; i++)
     {
         if (GetMonData(&party[i], MON_DATA_SPECIES) == SPECIES_NONE
+             || GetMonData(&party[i], MON_DATA_SPECIES2) == SPECIES_EGG
              || GetMonData(&party[i], MON_DATA_HP) == 0
              || gBattlerPartyIndexes[battlerIn1] == i
              || gBattlerPartyIndexes[battlerIn2] == i
@@ -1948,14 +1936,14 @@ u8 GetMostSuitableMonToSwitchInto(bool8 howTolerableIsNotChanging)
         APPLY_FILTER(FilterShedinjaIfVulnerable, notChangingIsPossible);
         APPLY_FILTER(FilterTruantIfUseless, notChangingIsPossible);
 		APPLY_FILTER(FilterSwitchInsThatMightGetKOedBeforeEndOfTurn, notChangingIsPossible);
-        APPLY_FILTER(FilterFragileMonsAgainstPriority, notChangingIsAcceptable);
+        APPLY_FILTER(FilterFragileMonsAgainstPriority, notChangingIsAtLeastAcceptable);
 
         // Calcula el nHKO que cada poke disponible hace y recibe del oponente
         // También almacena si cada poke es más rápido que el oponente
         PrepareNHKOTable(party, firstId, lastId, filteredMons, opposingBattler, nhko);
 
         APPLY_FILTER(FilterChoiceMonsWayTooWeak, notChangingIsPossible);
-        APPLY_FILTER(FilterChoiceMonsNotPowerfulEnough, notChangingIsAcceptable);
+        APPLY_FILTER(FilterChoiceMonsNotPowerfulEnough, notChangingIsAtLeastAcceptable);
         // Si los filtros eliminaron todas las opciones posibles o no se podía cambiar, no se cambia
         if (!MonsLeft(filteredMons))
             return PARTY_SIZE;
@@ -1973,7 +1961,7 @@ u8 GetMostSuitableMonToSwitchInto(bool8 howTolerableIsNotChanging)
         APPLY_FILTER(FilterOpponentCanBeTrappedAndDefeated, FALSE);
 		APPLY_FILTER(FilterRevengeKill, FALSE);
         APPLY_FILTER(FilterKOTaking1Hit, FALSE);
-        APPLY_FILTER(FilterKOTaking2Hits, notChangingIsAcceptable);
+        APPLY_FILTER(FilterKOTaking2Hits, notChangingIsAtLeastAcceptable);
         APPLY_FILTER(FilterCanAttackWonderGuardOpponent, FALSE);
         APPLY_FILTER(FilterTakesMostHits, FALSE);
         APPLY_FILTER(FilterKOsInLessHits, FALSE);

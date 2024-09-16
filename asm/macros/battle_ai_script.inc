@@ -124,6 +124,9 @@
 	.endm
 
 	.macro if_equal param0:req, param1:req
+  .if (\param0 >= 256)
+    .error "uso de \param0 (> 255) en if_equal"
+  .endif
 	.byte 0x13
 	.byte \param0
 	.4byte \param1
@@ -195,12 +198,12 @@
 	.4byte \param1
 	.endm
 
-	.macro if_user_has_attacking_move param0:req
+	.macro if_user_has_attacking_non_ineffective_move param0:req
 	.byte 0x1f
 	.4byte \param0
 	.endm
 
-	.macro if_user_has_no_attacking_moves param0:req
+	.macro if_user_has_no_attacking_non_ineffective_moves param0:req
 	.byte 0x20
 	.4byte \param0
 	.endm
@@ -527,10 +530,11 @@
 	.4byte \param0
 	.endm
 
-	.macro is_of_type battler:req, type:req
+	.macro if_type battler:req, type:req, ptr:req
 	.byte 0x5f
 	.byte \battler
 	.byte \type
+	.4byte \ptr
 	.endm
 
 	.macro check_ability battler:req, ability:req
@@ -661,6 +665,10 @@
 	.4byte \ptr
 	.endm
 
+	.macro get_weather_at_the_end_of_turn
+	.byte 0x76
+	.endm
+
 @ useful script macros
 	.macro get_curr_move_type
 	get_type AI_TYPE_MOVE
@@ -697,14 +705,10 @@
 	if_not_equal 0, \ptr
 	.endm
 	
-	.macro if_type battler:req, type:req, ptr:req
-	is_of_type \battler, \type
-	if_equal 1, \ptr
-	.endm
-
 	.macro if_no_type battler:req, type:req, ptr:req
-	is_of_type \battler, \type
-	if_equal 0, \ptr
+	if_type \battler, \type, .AI_has_type_\@
+	goto \ptr
+	.AI_has_type_\@:
 	.endm
 	
 	.macro if_target_faster ptr:req
@@ -759,9 +763,7 @@
     goto .AI_skip_evasion_check_\@
     .AI_not_locked_on_\@:
     @ Si tiene la Evasión subida, tiene una pequeña probabilidad de jugársela
-    @ (7/8 a +2 o +3, 49/64 a +4 o más)
-    @ (la probabilidad de jugársela en alguno de los turnos en los que se está 
-    @ subiendo la Evasión hasta +6 es de aproximadamente un 49%)
+    @ (25% a +2, ~34% a +3, ~38% a +4, ~42% a +5, ~46% a +6)
     if_stat_level_less_than AI_USER, STAT_EVASION, 8, .AI_skip_evasion_check_\@
     if_status2 AI_USER, STATUS2_FORESIGHT, .AI_skip_evasion_check_\@
     if_ability AI_USER, ABILITY_NO_GUARD, .AI_skip_evasion_check_\@
@@ -769,9 +771,19 @@
     if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_VITAL_THROW, .AI_skip_evasion_check_\@
     if_ability_might_be AI_TARGET, ABILITY_KEEN_EYE, .AI_skip_evasion_check_\@
     if_ability_might_be AI_TARGET, ABILITY_NO_GUARD, .AI_skip_evasion_check_\@
-    if_random_less_than 32, \ptr
-    if_stat_level_less_than AI_USER, STAT_EVASION, 10, .AI_skip_evasion_check_\@
-    if_random_less_than 32, \ptr
+    if_stat_level_less_than AI_USER, STAT_EVASION, 12, .AI_evasion_plus_5_\@
+    if_random_less_than 16, .AI_attack_is_probably_not_the_last_\@
+    .AI_evasion_plus_5_\@:
+    if_stat_level_less_than AI_USER, STAT_EVASION, 11, .AI_evasion_plus_4_\@
+    if_random_less_than 16, .AI_attack_is_probably_not_the_last_\@
+    .AI_evasion_plus_4_\@:
+    if_stat_level_less_than AI_USER, STAT_EVASION, 10, .AI_evasion_plus_3_\@
+    if_random_less_than 16, .AI_attack_is_probably_not_the_last_\@
+    .AI_evasion_plus_3_\@:
+    if_stat_level_less_than AI_USER, STAT_EVASION, 9, .AI_evasion_plus_2_\@
+    if_random_less_than 8, .AI_attack_is_probably_not_the_last_\@
+    .AI_evasion_plus_2_\@:
+    if_random_less_than 4, .AI_attack_is_probably_not_the_last_\@
     .AI_skip_evasion_check_\@:
     calculate_nhko AI_TARGET
     if_equal 1, \ptr
@@ -793,7 +805,7 @@
 	if_target_wont_attack_due_to_truant \ptr
     if_hp_less_than AI_USER, 100, .AI_no_free_setup_\@
     if_has_non_ineffective_move_with_effect AI_TARGET, EFFECT_QUICK_ATTACK, .AI_no_free_setup_\@
-    get_weather
+    get_weather_at_the_end_of_turn
     if_user_receives_damage_from_stored_weather .AI_no_free_setup_\@
     if_ability AI_USER, ABILITY_STURDY, \ptr
     if_holds_item AI_USER, ITEM_FOCUS_SASH, \ptr
@@ -838,7 +850,7 @@
     if_next_turn_target_might_use_move_with_effect EFFECT_HAZE, .AI_user_might_not_be_able_to_boost_safely_\@
     if_next_turn_target_might_use_move_with_effect EFFECT_ROAR, .AI_check_if_user_can_be_phazed_\@
     .AI_no_problem_with_phazing_\@:
-    if_not_status3 AI_USER, STATUS3_ALWAYS_HITS, .AI_everything_ok_calculate_nhko_\@
+    if_status2 AI_USER, STATUS2_SUBSTITUTE, .AI_everything_ok_calculate_nhko_\@
     if_ability AI_USER, ABILITY_STURDY, .AI_everything_ok_calculate_nhko_\@
     if_ability AI_USER, ABILITY_WONDER_GUARD, .AI_everything_ok_calculate_nhko_\@
     if_level_cond AI_LEVEL_IS_GREATER_THAN_TARGETS, .AI_everything_ok_calculate_nhko_\@
@@ -896,7 +908,7 @@
     .AI_check_scenario_B_move_boosts_proper_defense_\@:
     if_status AI_USER, STATUS1_PSN_ANY | STATUS1_BURN, .AI_check_scenario_B_skip_leftovers_check_\@
     if_status3 AI_USER, STATUS3_LEECHSEED, .AI_check_scenario_B_skip_leftovers_check_\@
-    get_weather
+    get_weather_at_the_end_of_turn
     if_user_receives_damage_from_stored_weather .AI_check_scenario_B_skip_leftovers_check_\@
     if_holds_item AI_USER, ITEM_LEFTOVERS, .AI_check_recovery_move_\@
     .AI_check_scenario_B_skip_leftovers_check_\@:
@@ -941,10 +953,7 @@
     get_considered_move_effect
     if_in_bytes AI_UselessEffectsWhenChoiced, \ptr
     if_not_effect EFFECT_CURSE, .AI_not_useless_\@
-    get_user_type1
-    if_equal TYPE_GHOST, .AI_not_useless_\@
-    get_user_type2
-    if_not_equal TYPE_GHOST, \ptr
+    if_no_type AI_USER, TYPE_GHOST, \ptr
     .AI_not_useless_\@:
     .endm
 	
@@ -1000,8 +1009,7 @@
     .AI_target_cannot_heal_with_natural_cure_\@:
     .endm
 
-  @ Determina si el poke de la IA sufre daño a final de turno por el clima guardado por get_weather
-  @ Nota: ignora que el clima leído por get_weather pueda estar a punto de acabar
+  @ Determina si el poke de la IA sufre daño a final de turno por el clima guardado por get_weather_at_the_end_of_turn
 	.macro if_user_receives_damage_from_stored_weather ptr:req
     if_equal AI_WEATHER_HAIL, .AI_check_hail_\@
     if_equal AI_WEATHER_SANDSTORM, .AI_check_sandstorm_\@
@@ -1026,4 +1034,14 @@
     .AI_check_sun_\@:
     if_ability AI_USER, ABILITY_DRY_SKIN, \ptr
     .AI_no_damage_from_weather_\@:
+    .endm
+
+    .macro if_user_cannot_attack_and_no_pass_is_available ptr:req
+    if_doesnt_have_move_with_effect AI_USER, EFFECT_BATON_PASS, .AI_no_switchins_\@
+    if_status3 AI_USER, STATUS3_PERISH_SONG, .AI_no_switchins_\@
+    count_usable_party_mons AI_USER
+    if_more_than 0, .AI_some_switchin_or_move_\@
+    .AI_no_switchins_\@:
+    if_user_has_no_attacking_non_ineffective_moves \ptr
+    .AI_some_switchin_or_move_\@:
     .endm
