@@ -29,4 +29,5 @@ static const u16 sLegendaryMons[] = {
   SPECIES_HONEDGE_MONADO,
   SPECIES_ARMOR_MEWTWO,
   SPECIES_FLOETTE,
+  SPECIES_ZARUDE,
 };
