@@ -3041,7 +3041,7 @@
                     },
                     "map": "MAP_IZABE_ISLAND_TOWN",
                     "water_mons": {
-                        "encounter_rate": 2,
+                        "encounter_rate": 12,
                         "mons": [
                             {
                                 "max_level": 30,
