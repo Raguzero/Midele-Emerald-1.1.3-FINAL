@@ -150,7 +150,7 @@ MicoloHideout_LavaRoom_Text_EEVEETODefeat:
 MicoloHideout_LavaRoom_Text_EEVEETOPostBattle:
 	.string "No importa, usaré esta derrota\n"
 	.string "como pretexto para que el cabrón\l"
-	.string "de Shiyo haga Midele Platinum.$"
+	.string "de Ragu haga Midele Platinum.$"
 	
 MicoloHideout_LavaRoom_Text_PhentIntro:
 	.string "Existe una teoría que relata que\n"

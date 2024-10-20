@@ -34,7 +34,7 @@ IzabeIsland_House2_Text_GiveItem::
 	.string "En ese caso, esto te interesará.$"
 
 IzabeIsland_House2_Text_AlreadyReceivedItem::
-	.string "El POKeMON que lleve equipado LUCKY EGG\n"
+	.string "El POKéMON que lleve equipado LUCKY EGG\n"
 	.string "ganará mucha más experiencia.$"
 
 IzabeIsland_House2_Text_NotStrong::

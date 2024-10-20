@@ -306,8 +306,9 @@ Micolandia_Text_BienvenidaSign:
 	.string "extraordinaria LIGA POKéMON MIDELAR!$"
 	
 Micolandia_Text_LigaSign:
-	.string "LIGA POKéMON MIDELAR: Donde solo\n"
-	.string "entra la crème de la créme.$"
+	.string "MICOCASINO: Donde solo entra la\n"
+	.string "crème de la créme.\p"
+	.string "Antesala de la LIGA POKéMON MIDELAR.$"
 	
 Micolandia_GymNoroesteSign:
 	.string "POKéMON GYM Nº1\n"
