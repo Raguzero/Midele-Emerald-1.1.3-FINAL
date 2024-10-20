@@ -662,7 +662,7 @@ MicoloHideout_GameCorner_EventScript_PROBOPASS:
 	waitfanfare
 	waitmessage
 	setflag FLAG_SHINY_CREATION
-	givecustommon SPECIES_PROBOPASS, 100, ITEM_NONE, ITEM_MASTER_BALL, 0, 0, 252, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, MOVE_RECOVER, MOVE_THUNDERBOLT, MOVE_CALM_MIND, MOVE_FIRE_PUNCH, 0, 0
+	givecustommon SPECIES_PROBOPASS, 100, ITEM_NONE, ITEM_MASTER_BALL, 0, 0, 252, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, MOVE_SHORE_UP, MOVE_THUNDERBOLT, MOVE_CALM_MIND, MOVE_FIRE_PUNCH, 0, 0
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	call_if_eq Common_EventScript_NameReceivedPartyMon

@@ -20,7 +20,7 @@ IzabeIsland_MicoloTruck_EventScript_ItemGCalcium::
 IzabeIsland_MicoloTruck_EventScript_GiftHonedge::
 	lock
 	setvar VAR_TEMP_1, SPECIES_HONEDGE_MONADO
-	givemon SPECIES_HONEDGE_MONADO, 40, ITEM_MASTER_BALL
+	givecustommon SPECIES_HONEDGE_MONADO, 40, ITEM_MASTER_BALL, ITEM_MASTER_BALL, NATURE_HARDY, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0
 	compare VAR_RESULT, 0
 	goto_if_eq IzabeIsland_MicoloTruck_EventScript_ReceiveMonParty
 	compare VAR_RESULT, 1
