@@ -156,6 +156,7 @@ MicoloLeagueLobby_EventScript_ResetTrainerYESConfirmo::
 	cleartrainerflag TRAINER_LORD
 	cleartrainerflag TRAINER_IZABE_MAYOR_2
 	cleartrainerflag TRAINER_PICHU7
+	cleartrainerflag TRAINER_LAEX
 	cleartrainerflag TRAINER_GERPH
 	cleartrainerflag TRAINER_POKEXAVI
 	release

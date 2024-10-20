@@ -27219,6 +27219,72 @@ static const struct TrainerMonCustomMidele sParty_Krub2[] = {
     }
 };
 
+static const struct TrainerMonCustomMidele sParty_Laex[] = {
+    {
+    .iv = 31,
+    .lvl = 95, 
+    .species = SPECIES_METAGROSS,
+	.heldItem = ITEM_SITRUS_BERRY, 
+	.nature = NATURE_ADAMANT,
+	.shiny = 1,
+	.evs = {6, 252, 0, 0, 0, 252},
+	.ability = 0, // CLEAR BODY
+    .moves = {MOVE_SLUDGE_BOMB, MOVE_METEOR_MASH, MOVE_EARTHQUAKE, MOVE_PROTECT}
+    },
+    {
+    .iv = 31,
+    .lvl = 95,
+    .species = SPECIES_MILOTIC,
+	.heldItem = ITEM_SITRUS_BERRY,
+	.nature = NATURE_CALM,
+	.initial_status1 = STATUS1_BURN,
+	.shiny = 1,
+	.evs = {252, 0, 126, 0, 130, 0},
+	.ability = 0, // MARVEL SCALE
+    .moves = {MOVE_ICY_WIND, MOVE_MUDDY_WATER, MOVE_RECOVER, MOVE_SUBSTITUTE}
+    },
+    {
+    .iv = 31, 
+    .lvl = 96, 
+    .species = SPECIES_TOGEKISS,
+	.heldItem = ITEM_LEFTOVERS, 
+	.nature = NATURE_TIMID, 
+	.evs = {6, 0, 0, 252, 0, 252},
+	.ability = 1, // SERENE GRACE
+    .moves = {MOVE_SOFT_BOILED, MOVE_DAZZLING_GLEAM, MOVE_FLAMETHROWER, MOVE_PSYCHIC}
+    },
+    {
+    .iv = 31,
+    .lvl = 94, 
+    .species = SPECIES_MEGA_MAWILE,
+	.heldItem = ITEM_SITRUS_BERRY,
+	.nature = NATURE_ADAMANT, 
+	.evs = {252, 252, 0, 0, 0, 6},  
+	.ability = 0, // HUGE POWER
+    .moves = {MOVE_BRICK_BREAK, MOVE_IRON_HEAD, MOVE_PROTECT, MOVE_STONE_EDGE}
+    },
+    {
+    .iv = 31,
+    .lvl = 95, 
+    .species = SPECIES_GARDEVOIR,
+	.heldItem = ITEM_SITRUS_BERRY, 
+	.nature = NATURE_MODEST,
+	.evs = {6, 0, 0, 252, 0, 252},
+	.ability = 0, // SYNCHRONIZE
+    .moves = {MOVE_DAZZLING_GLEAM, MOVE_HEAL_PULSE, MOVE_PSYCHIC, MOVE_ICY_WIND}
+    },
+    {
+    .iv = 31, 
+    .lvl = 96, 
+    .species = SPECIES_GOLURK,
+	.heldItem = ITEM_SITRUS_BERRY,
+	.nature = NATURE_ADAMANT, 
+	.evs = {172, 252, 0, 0, 0, 84}, 
+	.ability = 1, // NO GUARD
+    .moves = {MOVE_ROCK_SLIDE, MOVE_EARTHQUAKE, MOVE_SHADOW_BALL, MOVE_DYNAMIC_PUNCH}
+    }
+};
+
 static const struct TrainerMonCustomMidele sParty_Gerph[] = {
     {
     .iv = 31, 

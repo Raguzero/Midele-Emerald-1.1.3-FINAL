@@ -2423,18 +2423,18 @@ const struct Trainer gTrainers[] = {
         .party = {.ItemCustomMidele = sParty_Jack},
     },
 
-    [TRAINER_DUDLEY] =
+    [TRAINER_LAEX] =
     {
-        .partyFlags = 0,
-        .trainerClass = TRAINER_CLASS_SWIMMER_M,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SWIMMER,
-        .trainerPic = TRAINER_PIC_SWIMMER_M,
-        .trainerName = _("DUDLEY"),
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MIDELE,
+        .trainerClass = TRAINER_CLASS_POKEMANIAC,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_LAEX,
+        .trainerName = _("LAEX"),
         .items = {},
-        .doubleBattle = FALSE,
+        .doubleBattle = TRUE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
-        .partySize = ARRAY_COUNT(sParty_Dudley),
-        .party = {.NoItemDefaultMoves = sParty_Dudley},
+        .partySize = ARRAY_COUNT(sParty_Laex),
+        .party = {.ItemCustomMidele = sParty_Laex},
     },
 
     [TRAINER_CHAD] =

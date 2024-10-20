@@ -156,6 +156,31 @@ MicoloHideout_ExperimentRoom_EventScript_CursedSlowbro::
 	msgbox MicoloHideout_ExperimentRoom_Text_CursedSlowbroPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
+MicoloHideout_LavaRoom_EventScript_LAEX::
+	trainerbattle_double TRAINER_LAEX, MicoloHideout_ExperimentRoom_Text_LAEXIntro, MicoloHideout_ExperimentRoom_Text_LAEXDefeat, MicoloHideout_ExperimentRoom_Text_LAEX_MasdeunPokemon
+	msgbox MicoloHideout_ExperimentRoom_Text_LAEXPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+MicoloHideout_ExperimentRoom_Text_LAEXIntro: 
+	.string "¡¡¡Abriste el spoiler!!!\p" 
+	.string "Ahora tendrás pesadillas con Sulley\n"
+	.string "y la chochomburguesa.$"
+	
+MicoloHideout_ExperimentRoom_Text_LAEXDefeat: 
+	.string "Esto es peor que lo del HIPPOPOTAS...$"
+
+MicoloHideout_ExperimentRoom_Text_LAEXPostBattle: 
+	.string "Bueno, me tengo que ir a cuidar de\n"
+	.string "mi hermana, que es la sobrina de mi\l"
+	.string "hermano, el cuñado de mi padre...$"
+	
+MicoloHideout_ExperimentRoom_Text_LAEX_MasdeunPokemon: // BATALLA DOBLE
+	.string "Así que solo llevas un Pokémon?\n"
+	.string "No puedo luchar contigo, entonces.\p"
+
+	.string "Mi estrategia es solo para las\n"
+	.string "BATALLA DOBLE.$"
+
 MicoloHideout_ExperimentRoom_Text_CursedSlowbroIntro: 
 	.string "Ser... O no ser...\n"
 	.string "Esa es la cuestión.\p"

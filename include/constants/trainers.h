@@ -156,6 +156,7 @@
 #define TRAINER_PIC_BERNKASTEL      137
 #define TRAINER_PIC_EMIL            138
 #define TRAINER_PIC_RAGU            139
+#define TRAINER_PIC_LAEX            140
 
 #define TRAINER_BACK_PIC_BRENDAN                0
 #define TRAINER_BACK_PIC_MAY                    1

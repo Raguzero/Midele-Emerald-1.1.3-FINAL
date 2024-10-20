@@ -360,6 +360,19 @@
             "trainer_type": "0",
             "x": 19,
             "y": 29
+        },
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_MANIAC",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+            "script": "MicoloHideout_LavaRoom_EventScript_LAEX",
+            "trainer_sight_or_berry_tree_id": "1",
+            "trainer_type": "1",
+            "x": 10,
+            "y": 6
         }
     ],
     "region_map_section": "MAPSEC_MICOLO_HIDEOUT",
