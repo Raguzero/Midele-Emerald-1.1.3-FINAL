@@ -1196,6 +1196,7 @@ const u16 gEggMoves[] = {
 			MOVE_KNOCK_OFF,
 			MOVE_MUD_SLAP,
 			MOVE_ROCK_BLAST,
+			MOVE_COVET,
 			MOVE_SAND_TOMB),
 
     egg_moves(HERACROSS,
@@ -1318,7 +1319,6 @@ const u16 gEggMoves[] = {
               MOVE_SPITE,
               MOVE_REVERSAL,
               MOVE_BEAT_UP,
-              MOVE_NASTY_PLOT,
               MOVE_WILL_O_WISP,
 			MOVE_DESTINY_BOND),
 
@@ -1369,6 +1369,7 @@ const u16 gEggMoves[] = {
               MOVE_CROSS_CHOP,
               MOVE_FIRE_PUNCH,
               MOVE_ICE_PUNCH,
+              MOVE_FOLLOW_ME,
 			MOVE_DYNAMIC_PUNCH),
 
     egg_moves(MAGBY,
@@ -1379,6 +1380,7 @@ const u16 gEggMoves[] = {
               MOVE_CROSS_CHOP,
               MOVE_THUNDER_PUNCH,
 			MOVE_BELLY_DRUM,
+              MOVE_FOLLOW_ME,
 			MOVE_FOCUS_ENERGY,
 			MOVE_MACH_PUNCH),
 
@@ -2070,6 +2072,7 @@ const u16 gEggMoves[] = {
 		MOVE_CURSE,
 		MOVE_ENDURE,
 		MOVE_FLAIL,
+		MOVE_ZAP_CANNON,
 		MOVE_SCREECH),
 
 	egg_moves(ALOLAN_GRIMER,
@@ -2105,7 +2108,9 @@ const u16 gEggMoves[] = {
               MOVE_DESTINY_BOND,
               MOVE_HAZE,
               MOVE_CONFUSE_RAY,
-              MOVE_NATURE_POWER),
+              MOVE_NATURE_POWER,
+              MOVE_WATER_PULSE,
+			  MOVE_HEAD_SMASH),
 
 	egg_moves(GALAR_YAMASK,
 		MOVE_MEMENTO),

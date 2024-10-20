@@ -1528,7 +1528,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_PERSIAN_1] = {
         .species = SPECIES_PERSIAN,
-        .moves = {MOVE_NASTY_PLOT, MOVE_THUNDERBOLT, MOVE_WATER_PULSE, MOVE_KNOCK_OFF},
+        .moves = {MOVE_NASTY_PLOT, MOVE_THUNDERBOLT, MOVE_WATER_PULSE, MOVE_DARK_PULSE},
         .itemTableId = BATTLE_FRONTIER_ITEM_NUGGET,
         .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
         .nature = NATURE_TIMID
@@ -10059,7 +10059,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_PROBOPASS_2] = {
         .species = SPECIES_PROBOPASS,
-        .moves = {MOVE_RECOVER, MOVE_ICE_PUNCH, MOVE_THUNDER, MOVE_FIRE_PUNCH},
+        .moves = {MOVE_SHORE_UP, MOVE_ICE_PUNCH, MOVE_THUNDER, MOVE_FIRE_PUNCH},
         .itemTableId = BATTLE_FRONTIER_ITEM_LEFTOVERS,
         .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_HP,
         .nature = NATURE_MODEST
