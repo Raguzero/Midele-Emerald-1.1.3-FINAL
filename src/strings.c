@@ -2046,8 +2046,8 @@ const u8 gText_Dex_OWN[]    = _("OWN");
 
 const u8 gText_EVO_Name[]                           = _("{STR_VAR_3}:");
 const u8 gText_EVO_FRIENDSHIP[]                     = _("  Lvl up with friendship >= 220");
-const u8 gText_EVO_FRIENDSHIP_DAY[]                 = _(" Lvl up at day with friendship >= 220");
-const u8 gText_EVO_FRIENDSHIP_NIGHT[]               = _("Lvl up at night with friendship >= 220");
+const u8 gText_EVO_FRIENDSHIP_DAY[]                 = _(" Lvl at day with friendship >= 220");
+const u8 gText_EVO_FRIENDSHIP_NIGHT[]               = _("Lvl at night with friendship >= 220");
 const u8 gText_EVO_LEVEL[]                          = _("  Lvl up to {STR_VAR_2}");
 const u8 gText_EVO_TRADE[]                          = _("via trading");
 const u8 gText_EVO_TRADE_ITEM[]                     = _("via trading while holding {STR_VAR_2}");
@@ -2064,9 +2064,9 @@ const u8 gText_EVO_LEVEL_FEMALE[]                   = _("Lvl up to {STR_VAR_2}, 
 const u8 gText_EVO_ITEM_MALE[]                      = _("{STR_VAR_2} used on male");
 const u8 gText_EVO_ITEM_FEMALE[]                    = _("{STR_VAR_2} used on female");
 const u8 gText_EVO_NONE[]                           = _("There is no evolution for {STR_VAR_1}.");
-const u8 gText_EVO_ITEM_LEVEL_30[]                  = _(" {STR_VAR_2} is used with level 30");
-const u8 gText_EVO_ITEM_LEVEL_40[]                  = _(" {STR_VAR_2} is used with level 40");
-const u8 gText_EVO_ITEM_LEVEL_50[]                  = _(" {STR_VAR_2} is used with level 50");
+const u8 gText_EVO_ITEM_LEVEL_30[]                  = _(" {STR_VAR_2} is used with Lvl 30");
+const u8 gText_EVO_ITEM_LEVEL_40[]                  = _(" {STR_VAR_2} is used with Lvl 40");
+const u8 gText_EVO_ITEM_LEVEL_50[]                  = _(" {STR_VAR_2} is used with Lvl 50");
 
 // Pokemon center move tutor/name rater menu
 const u8 gText_RememberAMove[] = _("REMEMBER A MOVE");
